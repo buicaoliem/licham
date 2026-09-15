@@ -5,11 +5,15 @@ describe("giờ hoàng đạo", () => {
   /**
    * Hoàng đạo hours for day chi Tý…Tỵ (repeating for Ngọ…Hợi), one character per hour
    * from Tý to Hợi, as encoded in Hồ Ngọc Đức's public-domain amlich source.
+   *
+   * Bảng đối chiếu giờ hoàng đạo, Liêm xác nhận tháng 9/2026. 4/6 dòng đã kiểm bằng ngày
+   * thật từ nguồn lịch Việt: Tý/Ngọ (ngày Ngọ 31/08/1995), Sửu/Mùi (ngày Ất Mùi 01/09/1995),
+   * Thìn/Tuất (ngày Nhâm Thìn 15/09/2026), Tỵ/Hợi (ngày Đinh Hợi 24/08/1995 và ngày Quý Tỵ
+   * 16/09/2026). Hai dòng còn lại suy từ cùng một bảng quy tắc.
    */
-  const HND_GIO_HD = ["110100101100", "001101001011", "110011010010", "010010110011", "110100101100", "001101001011"];
+  const HND_GIO_HD = ["110100101100", "001101001011", "110011010010", "101100110100", "001011001101", "010010110011"];
 
-  // TODO: chờ đối chiếu. Code theo quy tắc "Mão Dậu gia Dần".
-  it.skip("matches the reference pattern for all 12 day chi", () => {
+  it("matches the reference pattern for all 12 day chi", () => {
     for (let chi = 0; chi < 12; chi++) {
       const pattern = getHourStars(chi)
         .map((h) => (h.isHoangDao ? "1" : "0"))

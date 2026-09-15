@@ -119,13 +119,25 @@ describe("solarToLunar / lunarToSolar against reference dates", () => {
   });
 });
 
-describe("tháng nhuận 1995 (chờ đối chiếu)", () => {
-  // TODO: chờ đối chiếu nguồn ngoài. Code cho 24/09/1995, đáp án cũ 25/09/1995.
-  // Nghi do trăng mới rơi sát nửa đêm, lệch giữa múi giờ VN (UTC+7) và TQ (UTC+8).
-  it.skip("1995-09-25 → 1/8/1995 leap=true", () => {
-    const lunar = solarToLunar(25, 9, 1995);
+describe("tháng nhuận 1995", () => {
+  // Đối chiếu 2 nguồn lịch Việt độc lập (tháng 9/2026): ngày 24/09/1995 là mùng 1
+  // tháng 8 nhuận, ngày Mậu Ngọ; và 01/10/1995 là mùng 8 tháng 8 nhuận.
+  // Code đúng, đáp án cũ 25/09 sai.
+  it("1995-09-24 → 1/8/1995 leap=true", () => {
+    const lunar = solarToLunar(24, 9, 1995);
     expect({ day: lunar.day, month: lunar.month, year: lunar.year, isLeapMonth: lunar.isLeapMonth }).toEqual({
       day: 1,
+      month: 8,
+      year: 1995,
+      isLeapMonth: true,
+    });
+    expect(lunarToSolar(1, 8, 1995, true)).toEqual({ day: 24, month: 9, year: 1995 });
+  });
+
+  it("1995-10-01 → 8/8/1995 leap=true", () => {
+    const lunar = solarToLunar(1, 10, 1995);
+    expect({ day: lunar.day, month: lunar.month, year: lunar.year, isLeapMonth: lunar.isLeapMonth }).toEqual({
+      day: 8,
       month: 8,
       year: 1995,
       isLeapMonth: true,
