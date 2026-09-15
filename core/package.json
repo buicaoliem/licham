@@ -11,7 +11,8 @@
   "scripts": {
     "test": "vitest run",
     "verify": "vitest run --reporter=verbose",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "check:compare": "node --experimental-strip-types --experimental-loader ./scripts/ts-extension-loader.mjs scripts/compare.ts"
   },
   "devDependencies": {
     "typescript": "^7.0.2",
