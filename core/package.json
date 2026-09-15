@@ -10,6 +10,7 @@
   },
   "scripts": {
     "test": "vitest run",
+    "verify": "vitest run --reporter=verbose",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
