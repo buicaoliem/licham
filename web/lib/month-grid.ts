@@ -2,12 +2,16 @@ import { type SolarDate, getDayInfo, jdFromDate, jdToDate } from "@licham/core";
 
 export interface MonthCell {
   solarDay: number;
+  solarMonth: number;
+  solarYear: number;
   lunarDay: number;
   lunarMonth: number;
   isCurrentMonth: boolean;
   isToday: boolean;
   isMungMotOrRam: boolean;
   isHoangDao: boolean;
+  saoTotNames: string[];
+  saoXauNames: string[];
 }
 
 /** Monday-first day-of-week index (0 = Thứ hai … 6 = Chủ nhật) for `dayOfWeek()` (0 = Sunday). */
@@ -33,12 +37,16 @@ export function getMonthCells(month: number, year: number, today: SolarDate): Mo
     const info = getDayInfo(solar);
     cells.push({
       solarDay: solar.day,
+      solarMonth: solar.month,
+      solarYear: solar.year,
       lunarDay: info.lunar.day,
       lunarMonth: info.lunar.month,
       isCurrentMonth: solar.month === month && solar.year === year,
       isToday: solar.day === today.day && solar.month === today.month && solar.year === today.year,
       isMungMotOrRam: info.lunar.day === 1 || info.lunar.day === 15,
       isHoangDao: info.thanSatNgay.isHoangDao,
+      saoTotNames: (info.saoTot ?? []).map((s) => s.name),
+      saoXauNames: (info.saoXau ?? []).map((s) => s.name),
     });
   }
   return cells;
