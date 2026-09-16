@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CHI, getDayInfo, jdFromDate, jdToDate, saoTotOfDay, saoXauOfDay } from "@licham/core";
+import { CHI, getDayInfo, jdFromDate, jdToDate } from "@licham/core";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { bestHours, joinVi, ltpPairs, weddingAnswer } from "@/lib/day-detail";
+import { bestHours, joinVi, ltpPairs } from "@/lib/day-detail";
 import { dateToSlug, slugToDate } from "@/lib/date-slug";
 import { MONTH_WORD, WEEKDAY_LONG, pad2 } from "@/lib/format";
 
@@ -44,8 +44,8 @@ export default async function DayPage({ params }: { params: Promise<{ slug: stri
   const hoangDaoHours = info.hours.filter((h) => h.isHoangDao);
   const hacDaoHours = info.hours.filter((h) => !h.isHoangDao);
 
-  const saoTot = saoTotOfDay(info.canChi.day.can, info.canChi.day.chi, info.lunar.day);
-  const saoXau = saoXauOfDay(info.canChi.day.can, info.canChi.day.chi, info.lunar.day);
+  const saoTot = info.saoTot ?? [];
+  const saoXau = info.saoXau ?? [];
 
   const ngayLabel = `${pad2(day)}/${pad2(month)}/${year}`;
   const isHoangDaoNgay = info.thanSatNgay.isHoangDao;
@@ -54,7 +54,6 @@ export default async function DayPage({ params }: { params: Promise<{ slug: stri
   const pairs = ltpPairs(info);
   const best = bestHours(info, CHI);
   const hasDirections = Boolean(info.hyThan || info.taiThan || info.khongMinh);
-  const weddingText = weddingAnswer(saoTot, saoXau);
 
   return (
     <div className="outer">
@@ -248,12 +247,6 @@ export default async function DayPage({ params }: { params: Promise<{ slug: stri
                 {isHoangDaoNgay ? "Hoàng đạo" : "Hắc đạo"}, gặp {info.thanSatNgay.star}. Trực ngày là {info.truc.name}.
               </p>
             </div>
-            {weddingText && (
-              <div className="faq">
-                <b>Ngày {ngayLabel} có tốt để cưới hỏi không?</b>
-                <p>{weddingText}</p>
-              </div>
-            )}
             {best.length > 0 && (
               <div className="faq">
                 <b>Giờ nào tốt nhất trong ngày?</b>

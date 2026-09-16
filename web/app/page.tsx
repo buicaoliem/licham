@@ -1,4 +1,4 @@
-import { CHI, getDayInfo, saoTotOfDay, saoXauOfDay } from "@licham/core";
+import { CHI, getDayInfo } from "@licham/core";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { HeroBand } from "@/components/HeroBand";
@@ -21,8 +21,8 @@ export default function HomePage() {
 
   const cells = getMonthCells(today.month, today.year, today);
 
-  const saoTotCount = saoTotOfDay(info.canChi.day.can, info.canChi.day.chi, info.lunar.day).length;
-  const saoXauCount = saoXauOfDay(info.canChi.day.can, info.canChi.day.chi, info.lunar.day).length;
+  const saoTotCount = info.saoTot?.length ?? 0;
+  const saoXauCount = info.saoXau?.length ?? 0;
 
   return (
     <div className="outer">

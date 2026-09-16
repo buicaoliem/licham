@@ -17,7 +17,6 @@
  * NGÀY THỰC HIỆN: 2026-09-16.
  *
  * Trường `description` để trống có chủ ý — Liêm tự viết.
- * Tệp này CHƯA được nối vào getDayInfo().
  */
 
 /** Dạng luật của một sao. Khóa và giá trị đều là chỉ số 0-based, trừ nơi ghi rõ. */

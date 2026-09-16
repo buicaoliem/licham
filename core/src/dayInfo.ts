@@ -26,6 +26,10 @@ export interface HourInfo extends CanChiHour {
 export interface NamedEntry {
   name: string;
 }
+export interface DescribedEntry {
+  name: string;
+  description: string;
+}
 export interface DirectionEntry {
   direction: string;
 }
@@ -58,10 +62,10 @@ export interface DayInfo {
   thanSatNgay: DayStar;
 
   nhiThapBatTu: RatedEntry | null;
-  /** Sao tốt theo bảng suy ngược (ngoc-hap-derived). Chưa có phần mô tả. */
-  saoTot: NamedEntry[] | null;
-  /** Sao xấu theo bảng suy ngược (ngoc-hap-derived). Chưa có phần mô tả. */
-  saoXau: NamedEntry[] | null;
+  /** Sao tốt theo bảng suy ngược (ngoc-hap-derived). */
+  saoTot: DescribedEntry[] | null;
+  /** Sao xấu theo bảng suy ngược (ngoc-hap-derived). */
+  saoXau: DescribedEntry[] | null;
   // TODO: nạp từ nguồn ngoài, xem GĐ1b
   hyThan: DirectionEntry | null;
   // TODO: nạp từ nguồn ngoài, xem GĐ1b
@@ -142,8 +146,8 @@ export function getDayInfo(date: Date | SolarDate): DayInfo {
     truc,
     thanSatNgay,
     nhiThapBatTu,
-    saoTot: sao.filter((s) => s.isGood).map((s) => ({ name: s.name })),
-    saoXau: sao.filter((s) => !s.isGood).map((s) => ({ name: s.name })),
+    saoTot: sao.filter((s) => s.isGood).map((s) => ({ name: s.name, description: s.description })),
+    saoXau: sao.filter((s) => !s.isGood).map((s) => ({ name: s.name, description: s.description })),
     hyThan,
     taiThan,
     khongMinh,

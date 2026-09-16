@@ -1,4 +1,4 @@
-import type { DayInfo, NgocHapSaoEntry } from "@licham/core";
+import type { DayInfo } from "@licham/core";
 
 /** "a, b và c" — Vietnamese-style list join with "và" before the last item. */
 export function joinVi(items: string[]): string {
@@ -34,24 +34,6 @@ export function ltpPairs(info: DayInfo): LtpPair[] {
     });
   }
   return pairs;
-}
-
-const WEDDING_KEYWORDS = ["cưới hỏi", "giá thú", "mọi việc", "mọi công việc"];
-
-function affectsWedding(entry: NgocHapSaoEntry): boolean {
-  return entry.affects.some((a) => WEDDING_KEYWORDS.some((k) => a.toLowerCase().includes(k)));
-}
-
-/** Honest answer for "is this day good for a wedding" from only the sao tốt/xấu actually triggered — no invented data. Returns null when nothing was recorded, so the caller can drop the FAQ entirely instead of showing a placeholder. */
-export function weddingAnswer(saoTot: NgocHapSaoEntry[], saoXau: NgocHapSaoEntry[]): string | null {
-  const good = saoTot.filter(affectsWedding);
-  const bad = saoXau.filter(affectsWedding);
-  if (good.length === 0 && bad.length === 0) return null;
-  const parts: string[] = [];
-  if (good.length > 0) parts.push(`sao ${good.map((s) => s.name).join(", ")} tốt cho việc này`);
-  if (bad.length > 0) parts.push(`sao ${bad.map((s) => s.name).join(", ")} xấu với việc này`);
-  const sentence = parts.join(", nhưng gặp ");
-  return `${sentence.charAt(0).toUpperCase()}${sentence.slice(1)}.`;
 }
 
 export interface BestHour {

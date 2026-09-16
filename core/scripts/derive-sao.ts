@@ -23,9 +23,8 @@ import {
   NHI_THAP_BAT_TU_STARS,
   type SolarDate,
   getDayInfo,
-  saoTotOfDay,
-  saoXauOfDay,
 } from "../src/index.ts";
+import { saoTotOfDay, saoXauOfDay } from "../src/tables/ngoc-hap.ts";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const RAW_FILE = resolvePath(HERE, "data/sao-raw.json");
