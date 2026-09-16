@@ -29,33 +29,38 @@ describe("round trip", () => {
 });
 
 describe("lunar month structure over the whole range", () => {
-  it("days advance by one, months are 29 or 30 days, and at most one leap month per lunar year", () => {
-    let prev = solarToLunar(1, 1, 1900);
-    const leapByYear = new Map<number, number>();
-    for (let jd = MIN_JD + 1; jd <= MAX_JD; jd++) {
-      const s = jdToDate(jd);
-      const cur = solarToLunar(s.day, s.month, s.year);
-      expect([29, 30]).toContain(cur.monthLength);
-      if (cur.day === 1) {
-        expect(prev.day, `${s.day}/${s.month}/${s.year}`).toBe(prev.monthLength);
-        if (cur.isLeapMonth) {
-          expect(cur.month).toBe(prev.month);
-          expect(leapByYear.has(cur.year)).toBe(false);
-          leapByYear.set(cur.year, cur.month);
+  it(
+    "days advance by one, months are 29 or 30 days, and at most one leap month per lunar year",
+    () => {
+      let prev = solarToLunar(1, 1, 1900);
+      const leapByYear = new Map<number, number>();
+      for (let jd = MIN_JD + 1; jd <= MAX_JD; jd++) {
+        const s = jdToDate(jd);
+        const cur = solarToLunar(s.day, s.month, s.year);
+        expect([29, 30]).toContain(cur.monthLength);
+        if (cur.day === 1) {
+          expect(prev.day, `${s.day}/${s.month}/${s.year}`).toBe(prev.monthLength);
+          if (cur.isLeapMonth) {
+            expect(cur.month).toBe(prev.month);
+            expect(leapByYear.has(cur.year)).toBe(false);
+            leapByYear.set(cur.year, cur.month);
+          } else {
+            expect(cur.month).toBe((prev.month % 12) + 1);
+            expect(cur.year).toBe(prev.month === 12 ? prev.year + 1 : prev.year);
+          }
         } else {
-          expect(cur.month).toBe((prev.month % 12) + 1);
-          expect(cur.year).toBe(prev.month === 12 ? prev.year + 1 : prev.year);
+          expect(cur.day).toBe(prev.day + 1);
+          expect(cur.monthLength).toBe(prev.monthLength);
         }
-      } else {
-        expect(cur.day).toBe(prev.day + 1);
-        expect(cur.monthLength).toBe(prev.monthLength);
+        prev = cur;
       }
-      prev = cur;
-    }
-    // 201 years hold roughly 74 leap months (7 per 19 years).
-    expect(leapByYear.size).toBeGreaterThan(70);
-    expect(leapByYear.size).toBeLessThan(78);
-  });
+      // 201 years hold roughly 74 leap months (7 per 19 years).
+      expect(leapByYear.size).toBeGreaterThan(70);
+      expect(leapByYear.size).toBeLessThan(78);
+    },
+    // Iterates every day in 1900–2100 to verify calendar structure; ~5.7s under load, so allow 3x headroom.
+    18000,
+  );
 });
 
 describe("boundaries", () => {
