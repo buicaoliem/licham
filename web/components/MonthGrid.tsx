@@ -1,12 +1,25 @@
+import Link from "next/link";
 import { WEEKDAY_FULL_MON_FIRST } from "@/lib/format";
 import type { MonthCell } from "@/lib/month-grid";
 
-export function MonthGrid({ month, year, cells }: { month: number; year: number; cells: MonthCell[] }) {
+interface MonthGridProps {
+  month: number;
+  year: number;
+  cells: MonthCell[];
+  /** When given, current-month cells link to their day page (used on /lich-thang-* pages). */
+  hrefForCell?: (cell: MonthCell) => string;
+  /** Set false when the page already has its own "Lịch tháng …" heading (e.g. the dedicated month page). */
+  showHeading?: boolean;
+}
+
+export function MonthGrid({ month, year, cells, hrefForCell, showHeading = true }: MonthGridProps) {
   return (
     <>
-      <h2 className="hh" style={{ marginTop: 30 }}>
-        Lịch tháng {month} năm {year}
-      </h2>
+      {showHeading && (
+        <h2 className="hh" style={{ marginTop: 30 }}>
+          Lịch tháng {month} năm {year}
+        </h2>
+      )}
       <div className="mgwrap">
         <div className="mg">
           {WEEKDAY_FULL_MON_FIRST.map((w) => (
@@ -14,25 +27,37 @@ export function MonthGrid({ month, year, cells }: { month: number; year: number;
               {w}
             </div>
           ))}
-          {cells.map((cell, i) => (
-            <div
-              key={i}
-              className={[
-                "cl",
-                !cell.isCurrentMonth ? "dim" : "",
-                cell.isToday ? "today" : "",
-                cell.isMungMotOrRam ? "mark" : "",
-                cell.isHoangDao ? "good" : "",
-              ]
-                .filter(Boolean)
-                .join(" ")}
-            >
-              <div className="d">{cell.solarDay}</div>
-              <div className="l">
-                {cell.lunarDay}/{cell.lunarMonth}
+          {cells.map((cell, i) => {
+            const className = [
+              "cl",
+              !cell.isCurrentMonth ? "dim" : "",
+              cell.isToday ? "today" : "",
+              cell.isMungMotOrRam ? "mark" : "",
+              cell.isHoangDao ? "good" : "",
+            ]
+              .filter(Boolean)
+              .join(" ");
+            const content = (
+              <>
+                <div className="d">{cell.solarDay}</div>
+                <div className="l">
+                  {cell.lunarDay}/{cell.lunarMonth}
+                </div>
+              </>
+            );
+            if (hrefForCell && cell.isCurrentMonth) {
+              return (
+                <Link key={i} href={hrefForCell(cell)} className={className}>
+                  {content}
+                </Link>
+              );
+            }
+            return (
+              <div key={i} className={className}>
+                {content}
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
         <div className="lg">
           <span>

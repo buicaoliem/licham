@@ -2,6 +2,8 @@ import { type SolarDate, getDayInfo, jdFromDate, jdToDate } from "@licham/core";
 
 export interface MonthCell {
   solarDay: number;
+  solarMonth: number;
+  solarYear: number;
   lunarDay: number;
   lunarMonth: number;
   isCurrentMonth: boolean;
@@ -33,6 +35,8 @@ export function getMonthCells(month: number, year: number, today: SolarDate): Mo
     const info = getDayInfo(solar);
     cells.push({
       solarDay: solar.day,
+      solarMonth: solar.month,
+      solarYear: solar.year,
       lunarDay: info.lunar.day,
       lunarMonth: info.lunar.month,
       isCurrentMonth: solar.month === month && solar.year === year,

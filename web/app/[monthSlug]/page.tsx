@@ -1,0 +1,72 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { getDayInfo } from "@licham/core";
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
+import { MonthGrid } from "@/components/MonthGrid";
+import { dateToSlug } from "@/lib/date-slug";
+import { getMonthCells } from "@/lib/month-grid";
+import { monthToSlug, slugToMonth } from "@/lib/month-slug";
+
+const YEAR = 2026;
+
+export function generateStaticParams() {
+  return Array.from({ length: 12 }, (_, i) => ({ monthSlug: monthToSlug(i + 1, YEAR) }));
+}
+
+export const dynamicParams = false;
+
+export default async function MonthPage({ params }: { params: Promise<{ monthSlug: string }> }) {
+  const { monthSlug } = await params;
+  const parsed = slugToMonth(monthSlug);
+  if (!parsed || parsed.year !== YEAR) notFound();
+  const { month, year } = parsed;
+
+  const now = new Date();
+  const today = { day: now.getDate(), month: now.getMonth() + 1, year: now.getFullYear() };
+  const info = getDayInfo(today);
+
+  const cells = getMonthCells(month, year, today);
+  const hasPrev = month > 1;
+  const hasNext = month < 12;
+
+  return (
+    <div className="outer">
+      <div className="site">
+        <Header lunarDay={info.lunar.day} activeMenu="Lịch tháng" />
+
+        <div className="dhead">
+          <div className="crumb">
+            Trang chủ › <b>Lịch tháng {month} năm {year}</b>
+          </div>
+          <h1 className="dh1">Lịch tháng {month} năm {year}</h1>
+        </div>
+
+        <div className="body">
+          <MonthGrid
+            month={month}
+            year={year}
+            cells={cells}
+            hrefForCell={(cell) => `/ngay/${dateToSlug({ day: cell.solarDay, month: cell.solarMonth, year: cell.solarYear })}`}
+            showHeading={false}
+          />
+
+          <div className="pn">
+            {hasPrev ? (
+              <Link href={`/${monthToSlug(month - 1, year)}`}>‹ Tháng {month - 1}/{year}</Link>
+            ) : (
+              <span />
+            )}
+            {hasNext ? (
+              <Link href={`/${monthToSlug(month + 1, year)}`}>Tháng {month + 1}/{year} ›</Link>
+            ) : (
+              <span />
+            )}
+          </div>
+        </div>
+
+        <Footer />
+      </div>
+    </div>
+  );
+}
