@@ -63,9 +63,27 @@ const VIEC_DEFS: readonly ViecDef[] = [
   { viec: "làm nhà, động thổ", keywords: ["làm nhà", "xây cất", "động thổ", "dựng cột", "cất nóc"] },
 ];
 
-function matchesViec(description: string, def: ViecDef): boolean {
-  const lower = description.toLowerCase();
-  return [...def.keywords, ...WILDCARD_KEYWORDS].some((k) => lower.includes(k));
+/** Từ đánh dấu câu kiêng kỵ — chỉ những câu có chữ này mới tính là "xấu" cho việc đó. */
+const KIENG_TRIGGERS = ["kiêng"];
+/** Từ đánh dấu câu thuận lợi — chỉ những câu có chữ này mới tính là "tốt" cho việc đó. */
+const HOP_TRIGGERS = ["hợp", "tốt", "thuận"];
+
+function splitSentences(description: string): string[] {
+  return description.split(/(?<=[.!?])\s+/).filter(Boolean);
+}
+
+/**
+ * Chỉ những câu thực sự nêu kiêng/hợp (chứa từ đánh dấu tương ứng) mới được tính khớp việc.
+ * Tránh trường hợp một câu khác trong cùng mô tả nhắc tên việc đó theo nghĩa ngược lại
+ * (ví dụ câu nói rõ "việc X thì vẫn làm được" nằm cạnh câu "Kiêng ...").
+ */
+function matchesViec(description: string, def: ViecDef, triggers: readonly string[]): boolean {
+  const keywords = [...def.keywords, ...WILDCARD_KEYWORDS];
+  return splitSentences(description).some((sentence) => {
+    const lower = sentence.toLowerCase();
+    if (!triggers.some((t) => lower.includes(t))) return false;
+    return keywords.some((k) => lower.includes(k));
+  });
 }
 
 /**
@@ -79,8 +97,8 @@ export function viecFaqs(info: DayInfo): ViecFaq[] {
   const saoXau = info.saoXau ?? [];
   const faqs: ViecFaq[] = [];
   for (const def of VIEC_DEFS) {
-    const good = saoTot.some((s) => matchesViec(s.description, def));
-    const bad = saoXau.some((s) => matchesViec(s.description, def));
+    const good = saoTot.some((s) => matchesViec(s.description, def, HOP_TRIGGERS));
+    const bad = saoXau.some((s) => matchesViec(s.description, def, KIENG_TRIGGERS));
     if (!good && !bad) continue;
     const verdict: ViecVerdict = good && bad ? "nua-thuan" : good ? "thuan" : "khong-thuan";
     const verdictLabel = verdict === "thuan" ? "Thuận" : verdict === "nua-thuan" ? "Nửa thuận" : "Không thuận";
