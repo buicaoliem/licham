@@ -6,7 +6,7 @@ import {
   canChiOfMonth,
   canChiOfYear,
 } from "./canChi";
-import { type HourStarName, getHourStars } from "./hoangDao";
+import { type DayStar, type HourStarName, getDayStar, getHourStars } from "./hoangDao";
 import { type SolarDate, dayOfWeek, isValidSolarDate, jdFromDate } from "./julian";
 import { type LunarDate, VN_TIME_ZONE, solarToLunar } from "./lunar";
 import { type SolarTermInfo, getSolarTerm, solarLongitudeAt } from "./solarTerms";
@@ -54,6 +54,8 @@ export interface DayInfo {
   /** Solar term in effect at the end of this day (a term starting during the day counts). */
   solarTerm: SolarTermInfo;
   truc: Truc;
+  /** Ngày hoàng đạo/hắc đạo — determined by the 12 thần sát, not by trực. */
+  thanSatNgay: DayStar;
 
   nhiThapBatTu: RatedEntry | null;
   // TODO: nạp từ nguồn ngoài, xem GĐ1b
@@ -98,7 +100,9 @@ export function getDayInfo(date: Date | SolarDate): DayInfo {
   // Last millisecond of the day, Vietnam time.
   const endOfDay = new Date(Date.UTC(year, month - 1, day + 1) - VN_OFFSET_MS - 1);
   const solarTerm = getSolarTerm(endOfDay);
-  const truc = getTruc(dayCanChi.chiIndex, solarMonthChiIndex(solarLongitudeAt(endOfDay)));
+  const solarMonthChi = solarMonthChiIndex(solarLongitudeAt(endOfDay));
+  const truc = getTruc(dayCanChi.chiIndex, solarMonthChi);
+  const thanSatNgay = getDayStar(dayCanChi.chiIndex, solarMonthChi);
 
   const nhiThapBatTu = nhiThapBatTuOfJd(jd);
   const saoTot = saoTotOfDay(dayCanChi.can, dayCanChi.chi, lunar.day);
@@ -125,6 +129,7 @@ export function getDayInfo(date: Date | SolarDate): DayInfo {
     hours,
     solarTerm,
     truc,
+    thanSatNgay,
     nhiThapBatTu,
     saoTot: saoTot.map((s) => ({ name: s.name })),
     saoXau: saoXau.map((s) => ({ name: s.name })),
