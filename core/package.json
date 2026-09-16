@@ -12,7 +12,8 @@
     "test": "vitest run",
     "verify": "vitest run --reporter=verbose",
     "typecheck": "tsc --noEmit",
-    "check:compare": "node --experimental-strip-types --experimental-loader ./scripts/ts-extension-loader.mjs scripts/compare.ts"
+    "check:compare": "node --experimental-strip-types --experimental-loader ./scripts/ts-extension-loader.mjs scripts/compare.ts",
+    "verify:ltp": "node --experimental-strip-types --experimental-loader ./scripts/ts-extension-loader.mjs scripts/verify-ltp.ts"
   },
   "devDependencies": {
     "typescript": "^7.0.2",

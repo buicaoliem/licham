@@ -10,7 +10,9 @@ import { type HourStarName, getHourStars } from "./hoangDao";
 import { type SolarDate, dayOfWeek, isValidSolarDate, jdFromDate } from "./julian";
 import { type LunarDate, VN_TIME_ZONE, solarToLunar } from "./lunar";
 import { type SolarTermInfo, getSolarTerm, solarLongitudeAt } from "./solarTerms";
+import { hyThanOfCan, taiThanOfCan } from "./tables/huong-xuat-hanh";
 import { khongMinhOfLunarDay } from "./tables/khong-minh";
+import { lyThuanPhongOfDay } from "./tables/ly-thuan-phong";
 import { saoTotOfDay, saoXauOfDay } from "./tables/ngoc-hap";
 import { type Truc, getTruc, solarMonthChiIndex } from "./truc";
 
@@ -101,6 +103,9 @@ export function getDayInfo(date: Date | SolarDate): DayInfo {
   const saoTot = saoTotOfDay(dayCanChi.can, dayCanChi.chi, lunar.day);
   const saoXau = saoXauOfDay(dayCanChi.can, dayCanChi.chi, lunar.day);
   const khongMinh = khongMinhOfLunarDay(lunar.day);
+  const hyThan = hyThanOfCan(dayCanChi.can);
+  const taiThan = taiThanOfCan(dayCanChi.can);
+  const lyThuanPhong = lyThuanPhongOfDay(lunar.day, lunar.month);
 
   const stars = getHourStars(dayCanChi.chiIndex);
   const hours = canChiOfHours(dayCanChi.canIndex).map((h, i) => {
@@ -122,10 +127,10 @@ export function getDayInfo(date: Date | SolarDate): DayInfo {
     nhiThapBatTu: null, // TODO: Liêm cấp bảng 28 sao
     saoTot: saoTot.map((s) => ({ name: s.name })),
     saoXau: saoXau.map((s) => ({ name: s.name })),
-    hyThan: null, // TODO: Liêm cấp bảng theo can ngày
-    taiThan: null, // TODO: Liêm cấp bảng theo can ngày
+    hyThan,
+    taiThan,
     khongMinh,
-    lyThuanPhong: null, // TODO: Liêm cấp bảng 6 trạng thái theo giờ
+    lyThuanPhong,
     tuoiXung: null, // TODO: Liêm cấp bảng
   };
 }
