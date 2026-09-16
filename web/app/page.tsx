@@ -6,7 +6,6 @@ import { LinkColumns } from "@/components/LinkColumns";
 import { MonthGrid } from "@/components/MonthGrid";
 import { OccasionChips } from "@/components/OccasionChips";
 import { TodayCards } from "@/components/TodayCards";
-import { isTrucHoangDao } from "@/lib/hoang-dao-ngay";
 import { getMonthCells } from "@/lib/month-grid";
 import { getUpcomingOccasions } from "@/lib/upcoming-occasions";
 
@@ -37,7 +36,7 @@ export default function HomePage() {
           lunarYear={info.lunar.year}
           lunarIsLeap={info.lunar.isLeapMonth}
           yearCanChi={info.canChi.year.name}
-          isHoangDao={isTrucHoangDao(info.truc.name)}
+          isHoangDao={info.thanSatNgay.isHoangDao}
           trucName={info.truc.name}
           solarTermName={info.solarTerm.name}
         />

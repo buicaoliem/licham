@@ -1,5 +1,4 @@
 import { type SolarDate, getDayInfo, jdFromDate, jdToDate } from "@licham/core";
-import { isTrucHoangDao } from "@/lib/hoang-dao-ngay";
 
 export interface MonthCell {
   solarDay: number;
@@ -39,7 +38,7 @@ export function getMonthCells(month: number, year: number, today: SolarDate): Mo
       isCurrentMonth: solar.month === month && solar.year === year,
       isToday: solar.day === today.day && solar.month === today.month && solar.year === today.year,
       isMungMotOrRam: info.lunar.day === 1 || info.lunar.day === 15,
-      isHoangDao: isTrucHoangDao(info.truc.name),
+      isHoangDao: info.thanSatNgay.isHoangDao,
     });
   }
   return cells;
