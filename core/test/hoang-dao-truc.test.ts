@@ -114,13 +114,12 @@ describe("getDayInfo", () => {
     expect(info.hours).toHaveLength(12);
     expect(info.hours.filter((h) => h.isHoangDao)).toHaveLength(6);
     expect(info.solar.dayOfWeek).toBe(2); // Tuesday
-    for (const key of ["nhiThapBatTu", "tuoiXung"] as const) {
-      expect(info[key]).toBeNull();
-    }
+    expect(info.tuoiXung).toBeNull();
     expect(info.khongMinh).not.toBeNull();
     expect(info.hyThan).not.toBeNull();
     expect(info.taiThan).not.toBeNull();
     expect(info.lyThuanPhong).not.toBeNull();
+    expect(info.nhiThapBatTu).not.toBeNull();
   });
 
   it("maps a Date instant to its Vietnam calendar day", () => {
