@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { CHI, getDayInfo, jdFromDate, jdToDate } from "@licham/core";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { bestHours, joinVi, ltpPairs } from "@/lib/day-detail";
+import { bestHours, joinVi, ltpPairs, viecFaqs } from "@/lib/day-detail";
 import { dateToSlug, slugToDate } from "@/lib/date-slug";
 import { MONTH_WORD, WEEKDAY_LONG, pad2 } from "@/lib/format";
 
@@ -53,6 +53,7 @@ export default async function DayPage({ params }: { params: Promise<{ slug: stri
 
   const pairs = ltpPairs(info);
   const best = bestHours(info, CHI);
+  const viec = viecFaqs(info);
   const hasDirections = Boolean(info.hyThan || info.taiThan || info.khongMinh);
 
   return (
@@ -261,6 +262,19 @@ export default async function DayPage({ params }: { params: Promise<{ slug: stri
                 </p>
               </div>
             )}
+            {viec.map((f) => (
+              <div className="faq" key={f.viec}>
+                <b>Ngày {ngayLabel} có hợp {f.viec} không?</b>
+                <p
+                  style={{
+                    color:
+                      f.verdict === "thuan" ? "var(--luc)" : f.verdict === "khong-thuan" ? "var(--son)" : "var(--ink-2)",
+                  }}
+                >
+                  {f.verdictLabel}
+                </p>
+              </div>
+            ))}
 
             <div className="pn">
               {hasPrev ? (

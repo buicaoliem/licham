@@ -36,6 +36,59 @@ export function ltpPairs(info: DayInfo): LtpPair[] {
   return pairs;
 }
 
+export type ViecVerdict = "thuan" | "nua-thuan" | "khong-thuan";
+
+export interface ViecFaq {
+  viec: string;
+  verdict: ViecVerdict;
+  verdictLabel: string;
+}
+
+interface ViecDef {
+  /** Tên việc, dùng trong câu hỏi. */
+  viec: string;
+  /** Các cụm từ tìm trong mô tả sao — lấy đúng chữ đã xuất hiện trong mô tả, không suy diễn thêm. */
+  keywords: string[];
+}
+
+/** "Tốt cho mọi việc" / "Kiêng mọi việc" trong mô tả sao thì tính cho mọi câu hỏi việc. */
+const WILDCARD_KEYWORDS = ["mọi việc", "mọi công việc"];
+
+const VIEC_DEFS: readonly ViecDef[] = [
+  { viec: "cưới hỏi", keywords: ["cưới hỏi", "giá thú", "ăn hỏi", "dạm ngõ"] },
+  { viec: "khai trương", keywords: ["khai trương"] },
+  { viec: "xuất hành", keywords: ["xuất hành"] },
+  { viec: "an táng", keywords: ["an táng", "cải táng", "mai táng"] },
+  { viec: "cầu tài", keywords: ["cầu tài", "cầu lộc"] },
+  { viec: "làm nhà, động thổ", keywords: ["làm nhà", "xây cất", "động thổ", "dựng cột", "cất nóc"] },
+];
+
+function matchesViec(description: string, def: ViecDef): boolean {
+  const lower = description.toLowerCase();
+  return [...def.keywords, ...WILDCARD_KEYWORDS].some((k) => lower.includes(k));
+}
+
+/**
+ * Câu trả lời "ngày này có hợp việc X không" — chỉ suy từ mô tả của các sao tốt/xấu
+ * thực sự có mặt trong ngày (không thêm phân loại tay, không sửa mô tả). Có sao tốt
+ * nhắc tới việc mà không có sao xấu nào nhắc tới thì THUẬN; có cả hai thì NỬA THUẬN;
+ * chỉ có sao xấu thì KHÔNG THUẬN. Việc nào không sao nào nhắc tới thì bỏ hẳn câu hỏi.
+ */
+export function viecFaqs(info: DayInfo): ViecFaq[] {
+  const saoTot = info.saoTot ?? [];
+  const saoXau = info.saoXau ?? [];
+  const faqs: ViecFaq[] = [];
+  for (const def of VIEC_DEFS) {
+    const good = saoTot.some((s) => matchesViec(s.description, def));
+    const bad = saoXau.some((s) => matchesViec(s.description, def));
+    if (!good && !bad) continue;
+    const verdict: ViecVerdict = good && bad ? "nua-thuan" : good ? "thuan" : "khong-thuan";
+    const verdictLabel = verdict === "thuan" ? "Thuận" : verdict === "nua-thuan" ? "Nửa thuận" : "Không thuận";
+    faqs.push({ viec: def.viec, verdict, verdictLabel });
+  }
+  return faqs;
+}
+
 export interface BestHour {
   chiName: string;
   start: string;
