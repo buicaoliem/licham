@@ -27,7 +27,7 @@ export default function HomePage() {
   return (
     <div className="outer">
       <div className="site">
-        <Header lunarDay={info.lunar.day} activeMenu="Hôm nay" />
+        <Header activeMenu="Hôm nay" />
 
         <HeroBand
           dayOfWeek={info.solar.dayOfWeek}

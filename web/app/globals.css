@@ -99,17 +99,16 @@ h3 {
   letter-spacing: -0.01em;
 }
 .logo .mk {
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   border-radius: 8px;
-  background: var(--son);
-  display: grid;
-  place-items: center;
-  color: #fff;
-  font-family: var(--font-playfair-display), serif;
-  font-weight: 800;
-  font-size: 15px;
-  line-height: 1;
+  flex-shrink: 0;
+}
+.logo-ink {
+  color: var(--ink);
+}
+.logo-son {
+  color: var(--son);
 }
 .nav ul {
   display: flex;

@@ -59,7 +59,7 @@ export default async function DayPage({ params }: { params: Promise<{ slug: stri
   return (
     <div className="outer">
       <div className="site">
-        <Header lunarDay={info.lunar.day} activeMenu="Lịch tháng" />
+        <Header activeMenu="Lịch tháng" />
 
         <div className="dhead">
           <div className="crumb">

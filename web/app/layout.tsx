@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Be_Vietnam_Pro, Lora, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
@@ -23,6 +23,19 @@ const lora = Lora({
 export const metadata: Metadata = {
   title: "licham.app — Lịch âm hôm nay, lịch vạn niên",
   description: "Lịch âm dương, giờ hoàng đạo, ngày tốt xấu — miễn phí, không quảng cáo.",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/site.webmanifest",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#c0272d",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
