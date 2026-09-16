@@ -3,10 +3,13 @@ import { notFound } from "next/navigation";
 import { getDayInfo } from "@licham/core";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { MonthFaq } from "@/components/MonthFaq";
 import { MonthGrid } from "@/components/MonthGrid";
+import { MonthSummaryCards } from "@/components/MonthSummaryCards";
 import { dateToSlug } from "@/lib/date-slug";
 import { getMonthCells } from "@/lib/month-grid";
 import { monthToSlug, slugToMonth } from "@/lib/month-slug";
+import { getMonthSummary } from "@/lib/month-summary";
 
 const YEAR = 2026;
 
@@ -27,6 +30,7 @@ export default async function MonthPage({ params }: { params: Promise<{ monthSlu
   const info = getDayInfo(today);
 
   const cells = getMonthCells(month, year, today);
+  const summary = getMonthSummary(cells);
   const hasPrev = month > 1;
   const hasNext = month < 12;
 
@@ -43,6 +47,10 @@ export default async function MonthPage({ params }: { params: Promise<{ monthSlu
         </div>
 
         <div className="body">
+          <MonthSummaryCards month={month} year={year} summary={summary} />
+
+          <div style={{ marginTop: 30 }} />
+
           <MonthGrid
             month={month}
             year={year}
@@ -63,6 +71,8 @@ export default async function MonthPage({ params }: { params: Promise<{ monthSlu
               <span />
             )}
           </div>
+
+          <MonthFaq month={month} year={year} summary={summary} />
         </div>
 
         <Footer />
