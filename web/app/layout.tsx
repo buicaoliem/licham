@@ -11,7 +11,7 @@ const beVietnamPro = Be_Vietnam_Pro({
 const playfairDisplay = Playfair_Display({
   variable: "--font-playfair-display",
   subsets: ["latin", "vietnamese"],
-  weight: ["500", "600", "700"],
+  weight: ["700", "800"],
 });
 
 const lora = Lora({
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="vi" className={`${beVietnamPro.variable} ${playfairDisplay.variable} ${lora.variable}`}>
-      <body className="font-sans antialiased">{children}</body>
+      <body>{children}</body>
     </html>
   );
 }

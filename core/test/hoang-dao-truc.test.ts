@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { getDayInfo, getHourStars, getSolarTermsOfYear, jdFromDate, jdToDate } from "../src";
+import { HOUR_STARS, getDayInfo, getHourStars, getSolarTermsOfYear, jdFromDate, jdToDate } from "../src";
 
 describe("giờ hoàng đạo", () => {
   /**
@@ -52,6 +52,71 @@ describe("giờ hoàng đạo", () => {
     for (let chi = 0; chi < 12; chi++) {
       expect(getHourStars(chi).filter((h) => h.isHoangDao)).toHaveLength(6);
     }
+  });
+});
+
+describe("ngày hoàng đạo / hắc đạo (thần sát ngày)", () => {
+  /**
+   * 16/09/2026 là ngày Quý Tỵ, tháng Đinh Dậu — Liêm đối chiếu 4 nguồn lịch Việt,
+   * cùng ghi Chu Tước Hắc Đạo. Trực (Thành) là hệ khác, không quyết định hoàng đạo/hắc đạo.
+   */
+  it("16/09/2026 is Chu Tước, hắc đạo", () => {
+    const info = getDayInfo({ day: 16, month: 9, year: 2026 });
+    expect(info.canChi.day.name).toBe("Quý Tỵ");
+    expect(info.canChi.month.name).toBe("Đinh Dậu");
+    expect(info.thanSatNgay.star).toBe("Chu Tước");
+    expect(info.thanSatNgay.isHoangDao).toBe(false);
+  });
+
+  it("advances one per day and only repeats/skips on the 12 tiết days of 2026", () => {
+    const VN = 7 * 3600_000;
+    const jieDays = new Set(
+      getSolarTermsOfYear(2026)
+        .filter((t) => (t.longitude - 315 + 360) % 30 === 0)
+        .map((t) => new Date(t.start.getTime() + VN).toISOString().slice(0, 10)),
+    );
+    expect(jieDays.size).toBe(12);
+
+    let prev = HOUR_STARS.indexOf(getDayInfo({ day: 31, month: 12, year: 2025 }).thanSatNgay.star);
+    let anomalies = 0;
+    for (let jd = jdFromDate(1, 1, 2026); jd <= jdFromDate(31, 12, 2026); jd++) {
+      const d = jdToDate(jd);
+      const key = `${d.year}-${String(d.month).padStart(2, "0")}-${String(d.day).padStart(2, "0")}`;
+      const cur = HOUR_STARS.indexOf(getDayInfo(d).thanSatNgay.star);
+      if (jieDays.has(key)) {
+        anomalies++;
+      } else {
+        expect(cur, key).toBe((prev + 1) % 12);
+      }
+      prev = cur;
+    }
+    expect(anomalies).toBe(12);
+  });
+
+  it("cycles through all 12 thần sát over 200 consecutive days, starting 01/01/2026", () => {
+    const seen = new Set<string>();
+    let prevStar: string | null = null;
+    let repeats = 0;
+    for (let jd = jdFromDate(1, 1, 2026); jd < jdFromDate(1, 1, 2026) + 200; jd++) {
+      const info = getDayInfo(jdToDate(jd));
+      seen.add(info.thanSatNgay.star);
+      if (info.thanSatNgay.star === prevStar) repeats++;
+      prevStar = info.thanSatNgay.star;
+    }
+    expect(seen.size).toBe(12);
+    // 200 days span ~6-7 tháng tiết boundaries; a same-star repeat can only happen there.
+    expect(repeats).toBeLessThanOrEqual(7);
+  });
+
+  it("hoàng đạo and hắc đạo days are roughly balanced over a full year", () => {
+    let hoangDao = 0;
+    let total = 0;
+    for (let jd = jdFromDate(1, 1, 2026); jd <= jdFromDate(31, 12, 2026); jd++) {
+      total++;
+      if (getDayInfo(jdToDate(jd)).thanSatNgay.isHoangDao) hoangDao++;
+    }
+    expect(total).toBe(365);
+    expect(Math.abs(hoangDao - (total - hoangDao))).toBeLessThanOrEqual(12);
   });
 });
 

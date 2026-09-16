@@ -1,24 +1,67 @@
-const COLUMNS = [
-  { title: "Ngày quan trọng sắp tới", items: ["Đang cập nhật"] },
-  { title: "Văn khấn hay tra", items: ["Đang cập nhật"] },
-  { title: "Tử vi", items: ["Đang cập nhật"] },
+import { formatSolarShort, type UpcomingOccasion } from "@/lib/upcoming-occasions";
+
+const VAN_KHAN = [
+  "Văn khấn mùng một và ngày rằm",
+  "Văn khấn gia tiên ngày giỗ",
+  "Văn khấn Thần Tài, Thổ Địa",
+  "Văn khấn rằm tháng Tám",
 ] as const;
 
-export function LinkColumns() {
+const TU_VI = [
+  "Tử vi hôm nay 12 con giáp",
+  "Lập lá số tử vi trọn đời",
+  "Xem tuổi xung khắc",
+  "Xem tuổi làm nhà năm 2027",
+] as const;
+
+export function LinkColumns({ upcomingOccasions }: { upcomingOccasions: UpcomingOccasion[] }) {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-8">
-      <div className="grid gap-8 sm:grid-cols-3">
-        {COLUMNS.map((col) => (
-          <div key={col.title}>
-            <h3 className="text-center text-base font-semibold text-ink">{col.title}</h3>
-            <ul className="mt-3 space-y-2 text-center text-sm text-ink-2">
-              {col.items.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
+    <div className="cols3" style={{ marginTop: 26 }}>
+      <div className="box">
+        <div className="box-h">
+          <span className="rule" />
+          <span className="t">Ngày quan trọng sắp tới</span>
+          <span className="rule" />
+        </div>
+        <ul className="lst">
+          {upcomingOccasions.map((occasion) => (
+            <li key={occasion.label}>
+              <span>{occasion.label}</span>
+              <span>{formatSolarShort(occasion.solarDate)}</span>
+            </li>
+          ))}
+        </ul>
       </div>
-    </section>
+
+      <div className="box">
+        <div className="box-h">
+          <span className="rule" />
+          <span className="t">Văn khấn hay tra</span>
+          <span className="rule" />
+        </div>
+        <ul className="lst">
+          {VAN_KHAN.map((item) => (
+            <li key={item}>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="box">
+        <div className="box-h">
+          <span className="rule" />
+          <span className="t">Tử vi</span>
+          <span className="rule" />
+        </div>
+        <ul className="lst">
+          {TU_VI.map((item) => (
+            <li key={item}>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 }

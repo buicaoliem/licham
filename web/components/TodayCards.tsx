@@ -6,50 +6,53 @@ interface HoangDaoHour {
   end: string;
 }
 
-export function TodayCards({
-  hoangDaoHours,
-  info,
-}: {
-  hoangDaoHours: HoangDaoHour[];
-  info: DayInfo;
-}) {
+export function TodayCards({ hoangDaoHours, info }: { hoangDaoHours: HoangDaoHour[]; info: DayInfo }) {
+  const nguHanh = info.canChi.day.napAm.name
+    .split(" ")
+    .map((word, i) => (i === 0 ? word : word.toLowerCase()))
+    .join(" ");
   const rows: { label: string; value: string }[] = [
     { label: "Can chi ngày", value: info.canChi.day.name },
-    { label: "Ngũ hành", value: `${info.canChi.day.napAm.name} (${info.canChi.day.napAm.element})` },
+    { label: "Ngũ hành", value: nguHanh },
   ];
-  if (info.nhiThapBatTu) rows.push({ label: "Nhị thập bát tú", value: info.nhiThapBatTu.name });
-  if (info.hyThan) rows.push({ label: "Hỷ thần", value: info.hyThan.direction });
-  if (info.taiThan) rows.push({ label: "Tài thần", value: info.taiThan.direction });
-  rows.push({ label: "Trực", value: info.truc.name });
-  rows.push({ label: "Tiết khí", value: info.solarTerm.name });
+  if (info.hyThan) rows.push({ label: "Hỷ thần", value: `Hướng ${info.hyThan.direction.toLowerCase()}` });
+  if (info.taiThan) rows.push({ label: "Tài thần", value: `Hướng ${info.taiThan.direction.toLowerCase()}` });
+  // Tuổi xung: bảng đối xung theo can chi ngày chưa có trong core (DayInfo.tuoiXung === null).
+  rows.push({ label: "Tuổi xung", value: info.tuoiXung ? info.tuoiXung.ngay.map((c) => c.name).join(" · ") : "—" });
 
   return (
-    <section className="mx-auto grid max-w-6xl gap-5 px-4 py-8 md:grid-cols-2">
-      <div className="rounded-2xl border border-line bg-sheet p-5">
-        <h3 className="text-center text-base font-semibold text-ink">Giờ hoàng đạo hôm nay</h3>
-        <div className="mt-4 grid grid-cols-3 gap-2.5">
+    <div className="cols2">
+      <div className="box">
+        <div className="box-h">
+          <span className="rule" />
+          <span className="t">Giờ hoàng đạo hôm nay</span>
+          <span className="rule" />
+        </div>
+        <div className="hours">
           {hoangDaoHours.map((h) => (
-            <div key={h.chiName} className="rounded-lg bg-luc-soft px-2 py-2.5 text-center">
-              <div className="font-semibold text-luc">Giờ {h.chiName}</div>
-              <div className="mt-0.5 text-xs text-ink-3">
-                {h.start}–{h.end}
-              </div>
+            <div key={h.chiName} className="hc">
+              <b>{h.chiName}</b>
+              <i>
+                {Number.parseInt(h.start, 10)}h – {Number.parseInt(h.end, 10)}h
+              </i>
             </div>
           ))}
         </div>
       </div>
 
-      <div className="rounded-2xl border border-line bg-sheet p-5">
-        <h3 className="text-center text-base font-semibold text-ink">Hôm nay</h3>
-        <dl className="mt-4 divide-y divide-line-2">
-          {rows.map((row) => (
-            <div key={row.label} className="flex items-center justify-between py-2 text-sm">
-              <dt className="text-ink-3">{row.label}</dt>
-              <dd className="font-semibold text-ink">{row.value}</dd>
-            </div>
-          ))}
-        </dl>
+      <div className="box">
+        <div className="box-h">
+          <span className="rule" />
+          <span className="t">Hôm nay</span>
+          <span className="rule" />
+        </div>
+        {rows.map((row) => (
+          <div key={row.label} className="row">
+            <span>{row.label}</span>
+            <span>{row.value}</span>
+          </div>
+        ))}
       </div>
-    </section>
+    </div>
   );
 }
