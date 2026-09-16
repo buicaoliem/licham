@@ -8,6 +8,7 @@ import { OccasionChips } from "@/components/OccasionChips";
 import { TodayCards } from "@/components/TodayCards";
 import { daysInMonth, leadingBlanks as countLeadingBlanks } from "@/lib/format";
 import { isTrucHoangDao } from "@/lib/hoang-dao-ngay";
+import { getUpcomingOccasions } from "@/lib/upcoming-occasions";
 
 // Trang tĩnh: "hôm nay" được tính tại thời điểm build.
 export default function HomePage() {
@@ -74,7 +75,7 @@ export default function HomePage() {
 
       <OccasionChips />
 
-      <LinkColumns />
+      <LinkColumns upcomingOccasions={getUpcomingOccasions(today)} />
 
       <Footer />
     </>
