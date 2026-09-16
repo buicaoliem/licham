@@ -233,8 +233,9 @@ export default async function DayPage({ params }: { params: Promise<{ slug: stri
             </div>
           )}
 
-          <div className="prose" style={{ marginTop: 32 }}>
+          <div style={{ marginTop: 32 }}>
             <h2 className="hh">Câu hỏi thường gặp</h2>
+            <div className="box faqs">
             <div className="faq">
               <b>Ngày {ngayLabel} là ngày bao nhiêu âm lịch?</b>
               <p>
@@ -275,6 +276,7 @@ export default async function DayPage({ params }: { params: Promise<{ slug: stri
                 </p>
               </div>
             ))}
+            </div>
 
             <div className="pn">
               {hasPrev ? (

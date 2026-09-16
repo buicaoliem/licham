@@ -634,6 +634,13 @@ h3 {
   background: var(--kim-soft);
   color: var(--kim);
 }
+.faqs .faq:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+.faqs .faq:last-child {
+  padding-bottom: 0;
+}
 .faq {
   border-top: 1px solid var(--line-2);
   padding: 13px 0;

@@ -86,6 +86,14 @@ function matchesViec(description: string, def: ViecDef, triggers: readonly strin
   });
 }
 
+function matchingStarNames(
+  stars: readonly { name: string; description: string }[],
+  def: ViecDef,
+  triggers: readonly string[],
+): string[] {
+  return stars.filter((s) => matchesViec(s.description, def, triggers)).map((s) => s.name);
+}
+
 /**
  * Câu trả lời "ngày này có hợp việc X không" — chỉ suy từ mô tả của các sao tốt/xấu
  * thực sự có mặt trong ngày (không thêm phân loại tay, không sửa mô tả). Có sao tốt
@@ -97,11 +105,18 @@ export function viecFaqs(info: DayInfo): ViecFaq[] {
   const saoXau = info.saoXau ?? [];
   const faqs: ViecFaq[] = [];
   for (const def of VIEC_DEFS) {
-    const good = saoTot.some((s) => matchesViec(s.description, def, HOP_TRIGGERS));
-    const bad = saoXau.some((s) => matchesViec(s.description, def, KIENG_TRIGGERS));
+    const goodStars = matchingStarNames(saoTot, def, HOP_TRIGGERS);
+    const badStars = matchingStarNames(saoXau, def, KIENG_TRIGGERS);
+    const good = goodStars.length > 0;
+    const bad = badStars.length > 0;
     if (!good && !bad) continue;
     const verdict: ViecVerdict = good && bad ? "nua-thuan" : good ? "thuan" : "khong-thuan";
-    const verdictLabel = verdict === "thuan" ? "Thuận" : verdict === "nua-thuan" ? "Nửa thuận" : "Không thuận";
+    const verdictLabel =
+      verdict === "thuan"
+        ? `Thuận — có sao ${joinVi(goodStars)} hợp việc này`
+        : verdict === "khong-thuan"
+          ? `Không thuận — có sao ${joinVi(badStars)} kiêng việc này`
+          : `Nửa thuận — sao ${joinVi(goodStars)} hợp nhưng sao ${joinVi(badStars)} kiêng`;
     faqs.push({ viec: def.viec, verdict, verdictLabel });
   }
   return faqs;
