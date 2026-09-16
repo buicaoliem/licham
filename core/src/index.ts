@@ -43,7 +43,19 @@ export { hyThanOfCan, taiThanOfCan } from "./tables/huong-xuat-hanh";
 export { type KhongMinhEntry, KHONG_MINH_STATES, khongMinhOfLunarDay } from "./tables/khong-minh";
 export { type LyThuanPhongEntry, lyThuanPhongOfDay, lyThuanPhongOfHour } from "./tables/ly-thuan-phong";
 export { type NgocHapSaoEntry, saoTotOfDay, saoXauOfDay } from "./tables/ngoc-hap";
-export { type NhiThapBatTuEntry, NHI_THAP_BAT_TU_STARS, nhiThapBatTuOfJd } from "./tables/nhi-thap-bat-tu";
+export {
+  type DerivedSao,
+  type DerivedSaoDay,
+  type SaoRuleKind,
+  DERIVED_SAO,
+  derivedSaoMatches,
+} from "./tables/ngoc-hap-derived";
+export {
+  type NhiThapBatTuEntry,
+  NHI_THAP_BAT_TU_STARS,
+  nhiThapBatTuIndexOfJd,
+  nhiThapBatTuOfJd,
+} from "./tables/nhi-thap-bat-tu";
 export { type TrucName, type Truc, TRUC, getTruc, solarMonthChiIndex } from "./truc";
 export {
   type DayInfo,

@@ -17,7 +17,15 @@
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve as resolvePath } from "node:path";
 import { fileURLToPath } from "node:url";
-import { CAN, CHI, type SolarDate, getDayInfo, saoTotOfDay, saoXauOfDay } from "../src/index.ts";
+import {
+  CAN,
+  CHI,
+  NHI_THAP_BAT_TU_STARS,
+  type SolarDate,
+  getDayInfo,
+  saoTotOfDay,
+  saoXauOfDay,
+} from "../src/index.ts";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const RAW_FILE = resolvePath(HERE, "data/sao-raw.json");
@@ -42,6 +50,8 @@ interface Day {
   dayChi: number;
   termMonthChi: number;
   yearCan: number;
+  /** Chỉ số sao nhị thập bát tú của ngày, 0 = Giác. */
+  tu: number;
   isTrain: boolean;
   tot: Set<string>;
   xau: Set<string>;
@@ -57,13 +67,33 @@ type Kind =
   | "year-can-day-can"
   | "year-can-day-chi"
   | "lunar-day"
-  | "day-cycle";
+  | "day-cycle"
+  | "term-month-can"
+  | "nhi-thap-bat-tu"
+  | "lunar-month-can-or-chi"
+  | "term-month-can-or-chi"
+  | "lunar-month-lunar-day"
+  | "lunar-month-day-60";
+
+/**
+ * Mã hoá giá trị của dạng "tháng âm → can hoặc chi ngày": 0–9 là can ngày,
+ * 10–21 là chi ngày cộng 10. Tháng không có giá trị nào tức là tháng đó ứng
+ * vào một hướng bát quái, và khi ấy không ngày nào trong tháng có sao.
+ */
+const CHI_OFFSET = 10;
 
 interface Form {
   kind: Kind;
   period?: number;
   key: (d: Day) => number;
-  value: (d: Day) => number;
+  /** Các giá trị mà ngày này có thể ứng vào; hầu hết các dạng chỉ có một. */
+  candidates: (d: Day) => number[];
+  /**
+   * true = mỗi khóa chỉ được chọn nhiều nhất MỘT giá trị (hoặc không giá trị nào).
+   * Dùng cho dạng "mỗi tháng âm ứng một can, một chi, hoặc một hướng" — tháng rơi
+   * vào hướng thì không ngày nào trong tháng có sao.
+   */
+  singleValue?: boolean;
 }
 
 interface Fit {
@@ -128,6 +158,7 @@ function toDays(rows: RawDay[]): Day[] {
       // Chi của tháng tiết khí: suy ngược từ trực (trực = chi ngày − chi tháng).
       termMonthChi: (((dayChi - info.truc.index) % 12) + 12) % 12,
       yearCan: info.canChi.year.canIndex,
+      tu: NHI_THAP_BAT_TU_STARS.findIndex((t) => t.name === info.nhiThapBatTu?.name),
       isTrain: info.solar.year === TRAIN_YEAR,
       tot: new Set(r.saoTot.map(nameKey)),
       xau: new Set(r.saoXau.map(nameKey)),
@@ -139,31 +170,49 @@ function toDays(rows: RawDay[]): Day[] {
 
 function forms(): Form[] {
   const list: Form[] = [
-    { kind: "lunar-month-chi", key: (d) => d.lunarMonth, value: (d) => d.dayChi },
-    { kind: "lunar-month-can", key: (d) => d.lunarMonth, value: (d) => d.dayCan },
-    { kind: "term-month-chi", key: (d) => d.termMonthChi, value: (d) => d.dayChi },
-    { kind: "year-can-day-can", key: (d) => d.yearCan, value: (d) => d.dayCan },
-    { kind: "year-can-day-chi", key: (d) => d.yearCan, value: (d) => d.dayChi },
-    { kind: "lunar-day", key: () => 0, value: (d) => d.lunarDay },
+    { kind: "lunar-month-chi", key: (d) => d.lunarMonth, candidates: (d) => [d.dayChi] },
+    { kind: "lunar-month-can", key: (d) => d.lunarMonth, candidates: (d) => [d.dayCan] },
+    { kind: "term-month-chi", key: (d) => d.termMonthChi, candidates: (d) => [d.dayChi] },
+    { kind: "year-can-day-can", key: (d) => d.yearCan, candidates: (d) => [d.dayCan] },
+    { kind: "year-can-day-chi", key: (d) => d.yearCan, candidates: (d) => [d.dayChi] },
+    { kind: "lunar-day", key: () => 0, candidates: (d) => [d.lunarDay] },
+    // Bổ sung vòng 2.
+    { kind: "term-month-can", key: (d) => d.termMonthChi, candidates: (d) => [d.dayCan] },
+    { kind: "nhi-thap-bat-tu", key: () => 0, candidates: (d) => [d.tu] },
+    {
+      kind: "lunar-month-can-or-chi",
+      key: (d) => d.lunarMonth,
+      candidates: (d) => [d.dayCan, d.dayChi + CHI_OFFSET],
+      singleValue: true,
+    },
+    {
+      kind: "term-month-can-or-chi",
+      key: (d) => d.termMonthChi,
+      candidates: (d) => [d.dayCan, d.dayChi + CHI_OFFSET],
+      singleValue: true,
+    },
+    { kind: "lunar-month-lunar-day", key: (d) => d.lunarMonth, candidates: (d) => [d.lunarDay] },
+    { kind: "lunar-month-day-60", key: (d) => d.lunarMonth, candidates: (d) => [d.jd % 60] },
   ];
   for (let p = 2; p <= 60; p++) {
-    list.push({ kind: "day-cycle", period: p, key: () => 0, value: (d) => d.jd % p });
+    list.push({ kind: "day-cycle", period: p, key: () => 0, candidates: (d) => [d.jd % p] });
   }
   return list;
 }
 
-function fitForm(days: Day[], has: (d: Day) => boolean, form: Form): Fit {
+/** Bảng theo lối "mỗi giá trị tự quyết": giá trị nào phần lớn là ngày có sao thì giữ. */
+function buildByMajority(train: Day[], has: (d: Day) => boolean, form: Form): Map<number, Set<number>> {
   const tally = new Map<string, { yes: number; no: number }>();
-  for (const d of days) {
-    if (!d.isTrain) continue;
-    const cell = `${form.key(d)}|${form.value(d)}`;
-    const t = tally.get(cell) ?? { yes: 0, no: 0 };
-    if (has(d)) t.yes++;
-    else t.no++;
-    tally.set(cell, t);
+  for (const d of train) {
+    for (const v of form.candidates(d)) {
+      const cell = `${form.key(d)}|${v}`;
+      const t = tally.get(cell) ?? { yes: 0, no: 0 };
+      if (has(d)) t.yes++;
+      else t.no++;
+      tally.set(cell, t);
+    }
   }
   const table = new Map<number, Set<number>>();
-  let cells = 0;
   for (const [cell, t] of tally) {
     if (t.yes <= t.no) continue;
     const [k, v] = cell.split("|").map(Number);
@@ -173,9 +222,56 @@ function fitForm(days: Day[], has: (d: Day) => boolean, form: Form): Fit {
       table.set(k as number, set);
     }
     set.add(v as number);
-    cells++;
   }
-  const predict = (d: Day) => table.get(form.key(d))?.has(form.value(d)) ?? false;
+  return table;
+}
+
+/**
+ * Bảng theo lối "mỗi khóa chọn nhiều nhất một giá trị": với từng khóa, thử mọi
+ * giá trị gặp được cùng với phương án "không giá trị nào", giữ phương án sai ít
+ * ngày nhất trong phạm vi khóa đó.
+ */
+function buildBestPerKey(train: Day[], has: (d: Day) => boolean, form: Form): Map<number, Set<number>> {
+  const byKey = new Map<number, Day[]>();
+  for (const d of train) {
+    const k = form.key(d);
+    const list = byKey.get(k) ?? [];
+    list.push(d);
+    byKey.set(k, list);
+  }
+  const table = new Map<number, Set<number>>();
+  for (const [k, list] of byKey) {
+    // Phương án "không giá trị nào": sai đúng bằng số ngày có sao trong khóa này.
+    let bestErrors = list.filter(has).length;
+    let bestValue: number | null = null;
+    const seen = new Set<number>();
+    for (const d of list) for (const v of form.candidates(d)) seen.add(v);
+    for (const v of seen) {
+      let errors = 0;
+      for (const d of list) {
+        if (form.candidates(d).includes(v) !== has(d)) errors++;
+      }
+      if (errors < bestErrors) {
+        bestErrors = errors;
+        bestValue = v;
+      }
+    }
+    if (bestValue !== null) table.set(k, new Set([bestValue]));
+  }
+  return table;
+}
+
+function fitForm(days: Day[], has: (d: Day) => boolean, form: Form): Fit {
+  const train = days.filter((d) => d.isTrain);
+  const table = form.singleValue
+    ? buildBestPerKey(train, has, form)
+    : buildByMajority(train, has, form);
+  let cells = 0;
+  for (const set of table.values()) cells += set.size;
+  const predict = (d: Day) => {
+    const set = table.get(form.key(d));
+    return set !== undefined && form.candidates(d).some((v) => set.has(v));
+  };
   let trainOk = 0;
   let trainN = 0;
   let testOk = 0;
@@ -211,35 +307,12 @@ function fitForm(days: Day[], has: (d: Day) => boolean, form: Form): Fit {
   };
 }
 
-function ruleKey(fit: Fit, d: Day): number {
-  switch (fit.kind) {
-    case "lunar-month-chi":
-    case "lunar-month-can":
-      return d.lunarMonth;
-    case "term-month-chi":
-      return d.termMonthChi;
-    case "year-can-day-can":
-    case "year-can-day-chi":
-      return d.yearCan;
-    default:
-      return 0;
-  }
-}
-
-function ruleValue(fit: Fit, d: Day): number {
-  switch (fit.kind) {
-    case "lunar-month-chi":
-    case "term-month-chi":
-    case "year-can-day-chi":
-      return d.dayChi;
-    case "lunar-month-can":
-    case "year-can-day-can":
-      return d.dayCan;
-    case "lunar-day":
-      return d.lunarDay;
-    case "day-cycle":
-      return d.jd % (fit.period ?? 1);
-  }
+/** Ngày `d` có ứng luật `fit` hay không — dùng lại đúng định nghĩa của dạng luật đó. */
+function fitMatches(fit: Fit, d: Day): boolean {
+  const form = forms().find((f) => f.kind === fit.kind && f.period === fit.period);
+  if (!form) throw new Error(`Không tìm thấy dạng luật ${fit.kind}`);
+  const set = fit.table.get(form.key(d));
+  return set !== undefined && form.candidates(d).some((v) => set.has(v));
 }
 
 interface Derived {
@@ -358,7 +431,23 @@ export type SaoRuleKind =
   /** khóa: luôn là 0 — giá trị: ngày âm 1–30 */
   | "lunar-day"
   /** khóa: luôn là 0 — giá trị: số dư của số ngày Julius chia cho \`period\` */
-  | "day-cycle";
+  | "day-cycle"
+  /** khóa: chi tháng tính theo tiết khí — giá trị: can ngày */
+  | "term-month-can"
+  /** khóa: luôn là 0 — giá trị: chỉ số sao nhị thập bát tú của ngày (Giác = 0) */
+  | "nhi-thap-bat-tu"
+  /**
+   * khóa: tháng âm 1–12 — giá trị: can ngày (0–9) hoặc chi ngày cộng 10 (10–21).
+   * Tháng vắng mặt trong bảng là tháng ứng vào một hướng bát quái; khi ấy không
+   * ngày nào trong tháng có sao.
+   */
+  | "lunar-month-can-or-chi"
+  /** như trên nhưng khóa là chi tháng tính theo tiết khí */
+  | "term-month-can-or-chi"
+  /** khóa: tháng âm 1–12 — giá trị: ngày âm 1–30 */
+  | "lunar-month-lunar-day"
+  /** khóa: tháng âm 1–12 — giá trị: số dư của số ngày Julius chia 60 (vòng can chi) */
+  | "lunar-month-day-60";
 
 /** Các trường của một ngày mà bảng luật cần đến. */
 export interface DerivedSaoDay {
@@ -368,8 +457,13 @@ export interface DerivedSaoDay {
   dayChi: number;
   termMonthChi: number;
   yearCan: number;
+  /** Chỉ số sao nhị thập bát tú của ngày, Giác = 0. */
+  nhiThapBatTuIndex: number;
   jd: number;
 }
+
+/** Bù chỉ số của chi ngày trong dạng luật "tháng âm → can hoặc chi ngày". */
+export const CAN_OR_CHI_OFFSET = 10;
 
 export interface DerivedSao {
   name: string;
@@ -407,41 +501,60 @@ export const DERIVED_SAO: readonly DerivedSao[] = [`;
 
   const tail = `];
 
-/** Ngày đã cho có ứng sao \`sao\` hay không. */
-export function derivedSaoMatches(sao: DerivedSao, day: DerivedSaoDay): boolean {
-  let key: number;
-  let value: number;
+/** Khóa tra bảng của một ngày theo dạng luật đã cho. */
+function ruleKey(sao: DerivedSao, day: DerivedSaoDay): number {
   switch (sao.kind) {
     case "lunar-month-chi":
-      key = day.lunarMonth;
-      value = day.dayChi;
-      break;
     case "lunar-month-can":
-      key = day.lunarMonth;
-      value = day.dayCan;
-      break;
+    case "lunar-month-can-or-chi":
+    case "lunar-month-lunar-day":
+    case "lunar-month-day-60":
+      return day.lunarMonth;
     case "term-month-chi":
-      key = day.termMonthChi;
-      value = day.dayChi;
-      break;
+    case "term-month-can":
+    case "term-month-can-or-chi":
+      return day.termMonthChi;
     case "year-can-day-can":
-      key = day.yearCan;
-      value = day.dayCan;
-      break;
     case "year-can-day-chi":
-      key = day.yearCan;
-      value = day.dayChi;
-      break;
+      return day.yearCan;
     case "lunar-day":
-      key = 0;
-      value = day.lunarDay;
-      break;
     case "day-cycle":
-      key = 0;
-      value = day.jd % (sao.period ?? 1);
-      break;
+    case "nhi-thap-bat-tu":
+      return 0;
   }
-  return sao.table[key]?.includes(value) ?? false;
+}
+
+/** Các giá trị mà một ngày có thể ứng vào theo dạng luật đã cho. */
+function ruleValues(sao: DerivedSao, day: DerivedSaoDay): number[] {
+  switch (sao.kind) {
+    case "lunar-month-chi":
+    case "term-month-chi":
+    case "year-can-day-chi":
+      return [day.dayChi];
+    case "lunar-month-can":
+    case "term-month-can":
+    case "year-can-day-can":
+      return [day.dayCan];
+    case "lunar-day":
+    case "lunar-month-lunar-day":
+      return [day.lunarDay];
+    case "day-cycle":
+      return [day.jd % (sao.period ?? 1)];
+    case "lunar-month-day-60":
+      return [day.jd % 60];
+    case "nhi-thap-bat-tu":
+      return [day.nhiThapBatTuIndex];
+    case "lunar-month-can-or-chi":
+    case "term-month-can-or-chi":
+      return [day.dayCan, day.dayChi + CAN_OR_CHI_OFFSET];
+  }
+}
+
+/** Ngày đã cho có ứng sao \`sao\` hay không. */
+export function derivedSaoMatches(sao: DerivedSao, day: DerivedSaoDay): boolean {
+  const values = sao.table[ruleKey(sao, day)];
+  if (values === undefined) return false;
+  return ruleValues(sao, day).some((v) => values.includes(v));
 }
 `;
 
@@ -456,6 +569,30 @@ const KIND_VI: Record<Kind, string> = {
   "year-can-day-chi": "theo can năm → chi ngày",
   "lunar-day": "theo ngày âm cố định trong tháng",
   "day-cycle": "theo chu kỳ đều số ngày",
+  "term-month-can": "theo chi tháng (tiết khí) → can ngày",
+  "nhi-thap-bat-tu": "theo nhị thập bát tú của ngày",
+  "lunar-month-can-or-chi": "theo tháng âm → can hoặc chi ngày (có tháng ứng hướng, không có sao)",
+  "term-month-can-or-chi":
+    "theo chi tháng (tiết khí) → can hoặc chi ngày (có tháng ứng hướng, không có sao)",
+  "lunar-month-lunar-day": "theo tháng âm → ngày âm",
+  "lunar-month-day-60": "theo tháng âm → can chi ngày (vòng 60)",
+};
+
+/** Vòng thử nào đã đưa dạng luật này vào. */
+const ROUND_OF: Record<Kind, 1 | 2> = {
+  "lunar-month-chi": 1,
+  "lunar-month-can": 1,
+  "term-month-chi": 1,
+  "year-can-day-can": 1,
+  "year-can-day-chi": 1,
+  "lunar-day": 1,
+  "day-cycle": 1,
+  "term-month-can": 2,
+  "nhi-thap-bat-tu": 2,
+  "lunar-month-can-or-chi": 2,
+  "term-month-can-or-chi": 2,
+  "lunar-month-lunar-day": 2,
+  "lunar-month-day-60": 2,
 };
 
 function kindLabel(fit: Fit): string {
@@ -481,6 +618,18 @@ function describeTable(fit: Fit): string {
         return `ngày âm ${v.join(", ")}`;
       case "day-cycle":
         return `${v.length} vị trí trong chu kỳ ${fit.period} ngày`;
+      case "term-month-can":
+        return `tháng ${CHI[k]}: ngày ${v.map((i) => CAN[i]).join(", ")}`;
+      case "nhi-thap-bat-tu":
+        return `sao ${v.map((i) => NHI_THAP_BAT_TU_STARS[i]?.name).join(", ")}`;
+      case "lunar-month-can-or-chi":
+        return `tháng ${k}: ngày ${v.map((i) => (i < CHI_OFFSET ? CAN[i] : CHI[i - CHI_OFFSET])).join(", ")}`;
+      case "term-month-can-or-chi":
+        return `tháng ${CHI[k]}: ngày ${v.map((i) => (i < CHI_OFFSET ? CAN[i] : CHI[i - CHI_OFFSET])).join(", ")}`;
+      case "lunar-month-lunar-day":
+        return `tháng ${k}: ngày âm ${v.join(", ")}`;
+      case "lunar-month-day-60":
+        return `tháng ${k}: ${v.length} ngày trong vòng 60`;
     }
   };
   return [...fit.table]
@@ -501,7 +650,7 @@ function writeReport(results: Derived[], days: Day[]): void {
   for (const d of days) {
     for (const r of ok) {
       const f = r.fit as Fit;
-      if (f.table.get(ruleKey(f, d))?.has(ruleValue(f, d))) {
+      if (fitMatches(f, d)) {
         if (r.isGood) newTot++;
         else newXau++;
       }
@@ -577,12 +726,46 @@ function writeReport(results: Derived[], days: Day[]): void {
     }
   }
   L.push("");
+  L.push("## Các dạng luật đã thử");
+  L.push("");
+  L.push("| Dạng luật | Thêm ở vòng | Số sao giải được bằng dạng này |");
+  L.push("| --- | --- | --- |");
+  const byKind = new Map<Kind, number>();
+  for (const r of ok) {
+    const k = (r.fit as Fit).kind;
+    byKind.set(k, (byKind.get(k) ?? 0) + 1);
+  }
+  for (const kind of Object.keys(KIND_VI) as Kind[]) {
+    L.push(`| ${KIND_VI[kind]} | ${ROUND_OF[kind]} | ${byKind.get(kind) ?? 0} |`);
+  }
+  L.push("");
+  L.push("## Kết quả vòng thử thứ hai");
+  L.push("");
+  const round2 = (Object.keys(KIND_VI) as Kind[]).filter((k) => ROUND_OF[k] === 2);
+  const round2Solved = round2.reduce((n, k) => n + (byKind.get(k) ?? 0), 0);
+  L.push(
+    `Vòng hai bổ sung ${round2.length} dạng luật mới: theo nhị thập bát tú của ngày; theo chi tháng tiết khí ghép với can ngày; theo tháng âm (và theo chi tháng tiết khí) ghép với can **hoặc** chi ngày, trong đó có tháng ứng vào hướng bát quái nên cả tháng không sao; theo tháng âm ghép với ngày âm; và theo tháng âm ghép với can chi ngày.`,
+  );
+  L.push("");
+  L.push(
+    `Kết quả: **${round2Solved} sao** được giải thêm nhờ các dạng mới. Tổng số sao xác định được vẫn là **${ok.length}**, và **${no.length}** sao vẫn chưa ra luật.`,
+  );
+  L.push("");
+  L.push(
+    "Điều đáng ghi nhận: **Thiên đức** và **Thiên đức hợp** nhảy từ mức bắt đúng 69% lên **94%** khi dùng dạng \"tháng âm → can hoặc chi ngày, có tháng ứng hướng\". Giả thuyết về cấu trúc là đúng hướng, nhưng vài tháng vẫn lệch nên chưa chạm ngưỡng 98%. Đã dừng ở đây thay vì chỉnh tay cho vừa số liệu.",
+  );
+  L.push("");
   L.push("## Ghi chú");
   L.push("");
   L.push(
-    "- Các sao chưa xác định được luật nhiều khả năng theo một dạng luật khác chưa thử tới (ví dụ kết hợp cả can lẫn chi ngày, hoặc có xét tháng nhuận). Đã bỏ chứ không đoán.",
+    `- ${ok.length} sao đã xác định được luật **đã nối vào phần tính ngày** của lõi; bảng 13 sao cũ không còn được dùng nhưng vẫn giữ nguyên trong mã.`,
   );
-  L.push("- Bảng mới **chưa** được nối vào phần tính ngày của ứng dụng; chờ Liêm duyệt báo cáo này.");
+  L.push(
+    "- Phần mô tả của mọi sao vẫn để trống — chỉ trả về tên sao và phân loại tốt hay xấu.",
+  );
+  L.push(
+    "- Các sao chưa xác định được luật nhiều khả năng theo một dạng luật khác nữa chưa thử tới. Đã bỏ chứ không đoán.",
+  );
   L.push("");
   writeFileSync(REPORT_FILE, L.join("\n"), "utf8");
 }

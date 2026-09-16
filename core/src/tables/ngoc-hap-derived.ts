@@ -35,7 +35,23 @@ export type SaoRuleKind =
   /** khóa: luôn là 0 — giá trị: ngày âm 1–30 */
   | "lunar-day"
   /** khóa: luôn là 0 — giá trị: số dư của số ngày Julius chia cho `period` */
-  | "day-cycle";
+  | "day-cycle"
+  /** khóa: chi tháng tính theo tiết khí — giá trị: can ngày */
+  | "term-month-can"
+  /** khóa: luôn là 0 — giá trị: chỉ số sao nhị thập bát tú của ngày (Giác = 0) */
+  | "nhi-thap-bat-tu"
+  /**
+   * khóa: tháng âm 1–12 — giá trị: can ngày (0–9) hoặc chi ngày cộng 10 (10–21).
+   * Tháng vắng mặt trong bảng là tháng ứng vào một hướng bát quái; khi ấy không
+   * ngày nào trong tháng có sao.
+   */
+  | "lunar-month-can-or-chi"
+  /** như trên nhưng khóa là chi tháng tính theo tiết khí */
+  | "term-month-can-or-chi"
+  /** khóa: tháng âm 1–12 — giá trị: ngày âm 1–30 */
+  | "lunar-month-lunar-day"
+  /** khóa: tháng âm 1–12 — giá trị: số dư của số ngày Julius chia 60 (vòng can chi) */
+  | "lunar-month-day-60";
 
 /** Các trường của một ngày mà bảng luật cần đến. */
 export interface DerivedSaoDay {
@@ -45,8 +61,13 @@ export interface DerivedSaoDay {
   dayChi: number;
   termMonthChi: number;
   yearCan: number;
+  /** Chỉ số sao nhị thập bát tú của ngày, Giác = 0. */
+  nhiThapBatTuIndex: number;
   jd: number;
 }
+
+/** Bù chỉ số của chi ngày trong dạng luật "tháng âm → can hoặc chi ngày". */
+export const CAN_OR_CHI_OFFSET = 10;
 
 export interface DerivedSao {
   name: string;
@@ -2197,39 +2218,58 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   },
 ];
 
-/** Ngày đã cho có ứng sao `sao` hay không. */
-export function derivedSaoMatches(sao: DerivedSao, day: DerivedSaoDay): boolean {
-  let key: number;
-  let value: number;
+/** Khóa tra bảng của một ngày theo dạng luật đã cho. */
+function ruleKey(sao: DerivedSao, day: DerivedSaoDay): number {
   switch (sao.kind) {
     case "lunar-month-chi":
-      key = day.lunarMonth;
-      value = day.dayChi;
-      break;
     case "lunar-month-can":
-      key = day.lunarMonth;
-      value = day.dayCan;
-      break;
+    case "lunar-month-can-or-chi":
+    case "lunar-month-lunar-day":
+    case "lunar-month-day-60":
+      return day.lunarMonth;
     case "term-month-chi":
-      key = day.termMonthChi;
-      value = day.dayChi;
-      break;
+    case "term-month-can":
+    case "term-month-can-or-chi":
+      return day.termMonthChi;
     case "year-can-day-can":
-      key = day.yearCan;
-      value = day.dayCan;
-      break;
     case "year-can-day-chi":
-      key = day.yearCan;
-      value = day.dayChi;
-      break;
+      return day.yearCan;
     case "lunar-day":
-      key = 0;
-      value = day.lunarDay;
-      break;
     case "day-cycle":
-      key = 0;
-      value = day.jd % (sao.period ?? 1);
-      break;
+    case "nhi-thap-bat-tu":
+      return 0;
   }
-  return sao.table[key]?.includes(value) ?? false;
+}
+
+/** Các giá trị mà một ngày có thể ứng vào theo dạng luật đã cho. */
+function ruleValues(sao: DerivedSao, day: DerivedSaoDay): number[] {
+  switch (sao.kind) {
+    case "lunar-month-chi":
+    case "term-month-chi":
+    case "year-can-day-chi":
+      return [day.dayChi];
+    case "lunar-month-can":
+    case "term-month-can":
+    case "year-can-day-can":
+      return [day.dayCan];
+    case "lunar-day":
+    case "lunar-month-lunar-day":
+      return [day.lunarDay];
+    case "day-cycle":
+      return [day.jd % (sao.period ?? 1)];
+    case "lunar-month-day-60":
+      return [day.jd % 60];
+    case "nhi-thap-bat-tu":
+      return [day.nhiThapBatTuIndex];
+    case "lunar-month-can-or-chi":
+    case "term-month-can-or-chi":
+      return [day.dayCan, day.dayChi + CAN_OR_CHI_OFFSET];
+  }
+}
+
+/** Ngày đã cho có ứng sao `sao` hay không. */
+export function derivedSaoMatches(sao: DerivedSao, day: DerivedSaoDay): boolean {
+  const values = sao.table[ruleKey(sao, day)];
+  if (values === undefined) return false;
+  return ruleValues(sao, day).some((v) => values.includes(v));
 }

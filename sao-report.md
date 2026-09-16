@@ -131,19 +131,46 @@ Ngày thực hiện: 2026-09-16
 
 | Sao | Tốt/Xấu | Số ngày xuất hiện | Dạng khớp tốt nhất | Bắt đúng ngày có sao | Báo đúng, không thừa | Lý do loại |
 | --- | --- | --- | --- | --- | --- | --- |
-| Âm thác | Xấu | 10 | — | 0,0% | 0,0% | không dạng luật nào bắt được ngày có sao |
-| Dương thác | Xấu | 10 | — | 0,0% | 0,0% | không dạng luật nào bắt được ngày có sao |
-| Nhân Chuyên | Tốt | 78 | theo tháng âm → chi ngày | 5,1% | 40,0% | vừa sót vừa báo thừa, dưới ngưỡng 98% |
-| Sát cống | Tốt | 85 | theo tháng âm → chi ngày | 7,1% | 30,0% | vừa sót vừa báo thừa, dưới ngưỡng 98% |
-| Thiên địa chính chuyển | Xấu | 12 | — | 0,0% | 0,0% | không dạng luật nào bắt được ngày có sao |
-| Thiên địa chuyển sát | Xấu | 13 | — | 0,0% | 0,0% | không dạng luật nào bắt được ngày có sao |
-| Thiên đức | Tốt | 71 | theo tháng âm → can ngày | 69,4% | 86,2% | vừa sót vừa báo thừa, dưới ngưỡng 98% |
-| Thiên đức hợp | Tốt | 67 | theo tháng âm → can ngày | 72,7% | 88,9% | vừa sót vừa báo thừa, dưới ngưỡng 98% |
-| Thiên Xá | Tốt | 9 | — | 0,0% | 0,0% | không dạng luật nào bắt được ngày có sao |
-| Trực Tinh | Tốt | 85 | theo tháng âm → chi ngày | 4,7% | 28,6% | vừa sót vừa báo thừa, dưới ngưỡng 98% |
-| Tứ thời đại mộ | Xấu | 10 | — | 0,0% | 0,0% | không dạng luật nào bắt được ngày có sao |
+| Âm thác | Xấu | 10 | theo tháng âm → can chi ngày (vòng 60) | 75,0% | 100,0% | sót quá nhiều ngày có sao, dưới ngưỡng 98% |
+| Dương thác | Xấu | 10 | theo tháng âm → can chi ngày (vòng 60) | 20,0% | 100,0% | sót quá nhiều ngày có sao, dưới ngưỡng 98% |
+| Nhân Chuyên | Tốt | 78 | theo tháng âm → can chi ngày (vòng 60) | 43,6% | 100,0% | sót quá nhiều ngày có sao, dưới ngưỡng 98% |
+| Sát cống | Tốt | 85 | theo tháng âm → can chi ngày (vòng 60) | 47,6% | 100,0% | sót quá nhiều ngày có sao, dưới ngưỡng 98% |
+| Thiên địa chính chuyển | Xấu | 12 | theo tháng âm → can chi ngày (vòng 60) | 50,0% | 100,0% | sót quá nhiều ngày có sao, dưới ngưỡng 98% |
+| Thiên địa chuyển sát | Xấu | 13 | theo tháng âm → can chi ngày (vòng 60) | 28,6% | 100,0% | sót quá nhiều ngày có sao, dưới ngưỡng 98% |
+| Thiên đức | Tốt | 71 | theo tháng âm → can hoặc chi ngày (có tháng ứng hướng, không có sao) | 94,4% | 89,5% | vừa sót vừa báo thừa, dưới ngưỡng 98% |
+| Thiên đức hợp | Tốt | 67 | theo tháng âm → can hoặc chi ngày (có tháng ứng hướng, không có sao) | 93,9% | 91,2% | vừa sót vừa báo thừa, dưới ngưỡng 98% |
+| Thiên Xá | Tốt | 9 | theo tháng âm → can chi ngày (vòng 60) | 60,0% | 100,0% | sót quá nhiều ngày có sao, dưới ngưỡng 98% |
+| Trực Tinh | Tốt | 85 | theo tháng âm → can chi ngày (vòng 60) | 51,2% | 100,0% | sót quá nhiều ngày có sao, dưới ngưỡng 98% |
+| Tứ thời đại mộ | Xấu | 10 | theo tháng âm → can chi ngày (vòng 60) | 40,0% | 100,0% | sót quá nhiều ngày có sao, dưới ngưỡng 98% |
+
+## Các dạng luật đã thử
+
+| Dạng luật | Thêm ở vòng | Số sao giải được bằng dạng này |
+| --- | --- | --- |
+| theo tháng âm → chi ngày | 1 | 92 |
+| theo tháng âm → can ngày | 1 | 8 |
+| theo chi tháng (tiết khí) → chi ngày | 1 | 0 |
+| theo can năm → can ngày | 1 | 0 |
+| theo can năm → chi ngày | 1 | 0 |
+| theo ngày âm cố định trong tháng | 1 | 0 |
+| theo chu kỳ đều số ngày | 1 | 4 |
+| theo chi tháng (tiết khí) → can ngày | 2 | 0 |
+| theo nhị thập bát tú của ngày | 2 | 0 |
+| theo tháng âm → can hoặc chi ngày (có tháng ứng hướng, không có sao) | 2 | 0 |
+| theo chi tháng (tiết khí) → can hoặc chi ngày (có tháng ứng hướng, không có sao) | 2 | 0 |
+| theo tháng âm → ngày âm | 2 | 0 |
+| theo tháng âm → can chi ngày (vòng 60) | 2 | 0 |
+
+## Kết quả vòng thử thứ hai
+
+Vòng hai bổ sung 6 dạng luật mới: theo nhị thập bát tú của ngày; theo chi tháng tiết khí ghép với can ngày; theo tháng âm (và theo chi tháng tiết khí) ghép với can **hoặc** chi ngày, trong đó có tháng ứng vào hướng bát quái nên cả tháng không sao; theo tháng âm ghép với ngày âm; và theo tháng âm ghép với can chi ngày.
+
+Kết quả: **0 sao** được giải thêm nhờ các dạng mới. Tổng số sao xác định được vẫn là **104**, và **11** sao vẫn chưa ra luật.
+
+Điều đáng ghi nhận: **Thiên đức** và **Thiên đức hợp** nhảy từ mức bắt đúng 69% lên **94%** khi dùng dạng "tháng âm → can hoặc chi ngày, có tháng ứng hướng". Giả thuyết về cấu trúc là đúng hướng, nhưng vài tháng vẫn lệch nên chưa chạm ngưỡng 98%. Đã dừng ở đây thay vì chỉnh tay cho vừa số liệu.
 
 ## Ghi chú
 
-- Các sao chưa xác định được luật nhiều khả năng theo một dạng luật khác chưa thử tới (ví dụ kết hợp cả can lẫn chi ngày, hoặc có xét tháng nhuận). Đã bỏ chứ không đoán.
-- Bảng mới **chưa** được nối vào phần tính ngày của ứng dụng; chờ Liêm duyệt báo cáo này.
+- 104 sao đã xác định được luật **đã nối vào phần tính ngày** của lõi; bảng 13 sao cũ không còn được dùng nhưng vẫn giữ nguyên trong mã.
+- Phần mô tả của mọi sao vẫn để trống — chỉ trả về tên sao và phân loại tốt hay xấu.
+- Các sao chưa xác định được luật nhiều khả năng theo một dạng luật khác nữa chưa thử tới. Đã bỏ chứ không đoán.

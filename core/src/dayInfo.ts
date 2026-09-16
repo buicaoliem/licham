@@ -13,8 +13,8 @@ import { type SolarTermInfo, getSolarTerm, solarLongitudeAt } from "./solarTerms
 import { hyThanOfCan, taiThanOfCan } from "./tables/huong-xuat-hanh";
 import { khongMinhOfLunarDay } from "./tables/khong-minh";
 import { lyThuanPhongOfDay } from "./tables/ly-thuan-phong";
-import { saoTotOfDay, saoXauOfDay } from "./tables/ngoc-hap";
-import { nhiThapBatTuOfJd } from "./tables/nhi-thap-bat-tu";
+import { DERIVED_SAO, derivedSaoMatches } from "./tables/ngoc-hap-derived";
+import { nhiThapBatTuIndexOfJd, nhiThapBatTuOfJd } from "./tables/nhi-thap-bat-tu";
 import { type Truc, getTruc, solarMonthChiIndex } from "./truc";
 
 export interface HourInfo extends CanChiHour {
@@ -58,9 +58,9 @@ export interface DayInfo {
   thanSatNgay: DayStar;
 
   nhiThapBatTu: RatedEntry | null;
-  // TODO: nạp từ nguồn ngoài, xem GĐ1b
+  /** Sao tốt theo bảng suy ngược (ngoc-hap-derived). Chưa có phần mô tả. */
   saoTot: NamedEntry[] | null;
-  // TODO: nạp từ nguồn ngoài, xem GĐ1b
+  /** Sao xấu theo bảng suy ngược (ngoc-hap-derived). Chưa có phần mô tả. */
   saoXau: NamedEntry[] | null;
   // TODO: nạp từ nguồn ngoài, xem GĐ1b
   hyThan: DirectionEntry | null;
@@ -105,8 +105,19 @@ export function getDayInfo(date: Date | SolarDate): DayInfo {
   const thanSatNgay = getDayStar(dayCanChi.chiIndex, solarMonthChi);
 
   const nhiThapBatTu = nhiThapBatTuOfJd(jd);
-  const saoTot = saoTotOfDay(dayCanChi.can, dayCanChi.chi, lunar.day);
-  const saoXau = saoXauOfDay(dayCanChi.can, dayCanChi.chi, lunar.day);
+  const yearCanChi = canChiOfYear(lunar.year);
+
+  const saoDay = {
+    lunarMonth: lunar.month,
+    lunarDay: lunar.day,
+    dayCan: dayCanChi.canIndex,
+    dayChi: dayCanChi.chiIndex,
+    termMonthChi: solarMonthChi,
+    yearCan: yearCanChi.canIndex,
+    nhiThapBatTuIndex: nhiThapBatTuIndexOfJd(jd),
+    jd,
+  };
+  const sao = DERIVED_SAO.filter((s) => derivedSaoMatches(s, saoDay));
   const khongMinh = khongMinhOfLunarDay(lunar.day);
   const hyThan = hyThanOfCan(dayCanChi.can);
   const taiThan = taiThanOfCan(dayCanChi.can);
@@ -124,15 +135,15 @@ export function getDayInfo(date: Date | SolarDate): DayInfo {
     canChi: {
       day: dayCanChi,
       month: canChiOfMonth(lunar.month, lunar.year),
-      year: canChiOfYear(lunar.year),
+      year: yearCanChi,
     },
     hours,
     solarTerm,
     truc,
     thanSatNgay,
     nhiThapBatTu,
-    saoTot: saoTot.map((s) => ({ name: s.name })),
-    saoXau: saoXau.map((s) => ({ name: s.name })),
+    saoTot: sao.filter((s) => s.isGood).map((s) => ({ name: s.name })),
+    saoXau: sao.filter((s) => !s.isGood).map((s) => ({ name: s.name })),
     hyThan,
     taiThan,
     khongMinh,
