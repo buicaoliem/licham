@@ -1,0 +1,23 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "licham-web",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["--filter", "@licham/web", "dev", "--port", "3100"],
+      "port": 3100
+    },
+    {
+      "name": "licham-web-static",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "web/out", "-l", "4173"],
+      "port": 4173
+    },
+    {
+      "name": "licham-mock",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "mock", "-l", "4175"],
+      "port": 4175
+    }
+  ]
+}

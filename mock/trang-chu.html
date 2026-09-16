@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>licham.app — bản web</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&family=Lora:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --page:#eae5db; --ink:#201b14; --ink-2:#5f5749; --ink-3:#958b7b;
+  --sheet:#fffdf8; --line:#e8e0d1; --line-2:#f2ece1;
+  --son:#c0272d; --son-dp:#8d1a1e; --son-soft:#fdf0ee;
+  --luc:#3c7a5d; --luc-soft:#eef6f1; --kim:#c2932f; --kim-soft:#fbf4e6;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --page:#100e0a; --ink:#f5f0e5; --ink-2:#b9b1a2; --ink-3:#8b8274;
+  --sheet:#1d1a14; --line:#332d23; --line-2:#26211a;
+  --son:#e0574f; --son-dp:#b03730; --son-soft:#2b1917;
+  --luc:#7cc6a0; --luc-soft:#17241d; --kim:#ddb85f; --kim-soft:#282016;
+}}
+:root[data-theme="dark"]{
+  --page:#100e0a; --ink:#f5f0e5; --ink-2:#b9b1a2; --ink-3:#8b8274;
+  --sheet:#1d1a14; --line:#332d23; --line-2:#26211a;
+  --son:#e0574f; --son-dp:#b03730; --son-soft:#2b1917;
+  --luc:#7cc6a0; --luc-soft:#17241d; --kim:#ddb85f; --kim-soft:#282016;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--page);color:var(--ink);
+  font-family:'Be Vietnam Pro',system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+h1,h2,h3{text-align:center;margin:0;}
+.outer{max-width:1180px;margin:0 auto;padding:30px 14px 80px;}
+.tag{text-align:center;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin:46px 0 10px;}
+.tag:first-child{margin-top:0;}
+.addr{max-width:520px;margin:0 auto 16px;padding:7px 16px;border:1px solid var(--line);border-radius:999px;
+  background:var(--sheet);font-size:12.5px;color:var(--ink-3);text-align:center;}
+.addr b{color:var(--ink-2);font-weight:600;}
+.site{border:1px solid var(--line);border-radius:20px;background:var(--sheet);overflow:hidden;
+  box-shadow:0 2px 4px rgba(33,28,21,.05),0 18px 44px rgba(33,28,21,.1);}
+
+/* ---------- đầu trang ---------- */
+.nav{display:flex;align-items:center;gap:20px;padding:15px 26px;border-bottom:1px solid var(--line-2);flex-wrap:wrap;}
+.logo{display:flex;align-items:center;gap:9px;font-weight:600;font-size:16px;letter-spacing:-.01em;}
+.logo .mk{width:30px;height:30px;border-radius:8px;background:var(--son);display:grid;place-items:center;
+  color:#fff;font-family:'Playfair Display',serif;font-weight:800;font-size:15px;line-height:1;}
+.nav ul{display:flex;gap:19px;list-style:none;margin:0;padding:0;font-size:13.5px;color:var(--ink-2);flex-wrap:wrap;}
+.nav ul li.on{color:var(--son);font-weight:600;}
+.nav .sp{flex:1;}
+.getapp{display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;padding:8px 14px;
+  border-radius:10px;border:1px solid var(--line);color:var(--ink-2);white-space:nowrap;}
+.getapp svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+
+/* ---------- dải hero ---------- */
+.hero{position:relative;overflow:hidden;}
+.hero .bg{position:absolute;inset:0;
+  background:linear-gradient(168deg,#1d5f63 0%,#3f8b84 42%,#7fb99f 74%,#c9dcaf 100%);}
+.hero .bg::after{content:"";position:absolute;inset:0;
+  background:radial-gradient(60% 70% at 80% 8%, rgba(255,246,210,.42), transparent 62%),
+             linear-gradient(180deg, rgba(10,44,40,.28), rgba(10,44,40,.02) 46%, rgba(10,44,40,.22));}
+.hero .land{position:absolute;left:0;right:0;bottom:0;height:46%;}
+.hero-in{position:relative;z-index:3;display:grid;grid-template-columns:1.1fr .9fr;gap:34px;
+  padding:34px 30px 32px;align-items:center;}
+.hero-l{color:#fff;text-align:center;}
+.hero-l .dow{font-size:12.5px;font-weight:600;letter-spacing:.3em;text-indent:.3em;text-transform:uppercase;
+  color:rgba(255,255,255,.9);text-shadow:0 2px 10px rgba(8,34,32,.4);}
+.hero-l .num{font-family:'Playfair Display',serif;font-weight:800;font-size:112px;line-height:.86;
+  letter-spacing:-.035em;margin:6px 0 0;text-shadow:0 4px 28px rgba(8,34,32,.45);}
+.hero-l .mon{font-family:'Lora',serif;font-size:15px;color:rgba(255,255,255,.92);margin-top:6px;}
+.hero-l .lun{display:inline-flex;align-items:center;gap:10px;margin-top:15px;font-size:13.5px;color:#fff;
+  background:rgba(255,255,255,.17);border:1px solid rgba(255,255,255,.32);
+  padding:6px 18px 6px 7px;border-radius:999px;line-height:1;}
+.hero-l .lun b{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.26);
+  display:inline-flex;align-items:center;justify-content:center;
+  font-family:'Be Vietnam Pro',sans-serif;font-size:16px;font-weight:700;line-height:1;flex:none;}
+.hero-l .lun span{display:inline-block;line-height:1.25;}
+.hero-l .lun em{font-style:normal;opacity:.55;margin:0 3px;}
+.hero-l .mk2{display:flex;justify-content:center;gap:7px;flex-wrap:wrap;margin-top:14px;}
+.hero-l .mk2 span{font-size:11.5px;font-weight:600;padding:5px 12px;border-radius:999px;
+  color:#fff;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.3);}
+.hero-r{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);border-radius:18px;
+  padding:19px 18px 20px;backdrop-filter:blur(10px);}
+.hero-r h2{font-size:13px;font-weight:600;color:#fff;margin-bottom:14px;}
+.conv{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:end;}
+.fld label{display:block;font-size:11px;color:rgba(255,255,255,.8);margin-bottom:5px;text-align:center;}
+.fld .inp{border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.14);border-radius:10px;
+  padding:10px 8px;font-size:14px;text-align:center;color:#fff;}
+.swp{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.2);
+  border:1px solid rgba(255,255,255,.3);display:grid;place-items:center;color:#fff;margin-bottom:3px;font-size:13px;}
+.right{display:flex;justify-content:flex-end;margin-top:14px;}
+.btn{font:inherit;font-size:13px;font-weight:600;padding:9px 17px;border-radius:10px;border:1px solid var(--line);
+  background:transparent;color:var(--ink-2);cursor:pointer;}
+.btn.pri{background:var(--son);border-color:var(--son);color:#fff;}
+.btn.onart{background:#fff;border-color:#fff;color:#1d5f63;}
+:root[data-theme="dark"] .btn.pri{color:#1a0f0e;}
+
+/* ---------- thân ---------- */
+.body{padding:26px 26px 30px;}
+.hh{font-size:15px;font-weight:600;margin-bottom:14px;}
+.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.box{border:1px solid var(--line);border-radius:14px;padding:17px 17px 19px;}
+.box-h{display:flex;align-items:center;justify-content:center;gap:9px;margin-bottom:14px;}
+.box-h .t{font-size:13px;font-weight:600;color:var(--ink-2);}
+.box-h .rule{flex:1;height:1px;background:var(--line-2);max-width:40px;}
+.hours{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;}
+.hc{border-radius:10px;padding:9px 3px;text-align:center;background:var(--luc-soft);
+  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--luc) 24%,transparent);}
+.hc.bad{background:var(--son-soft);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--son) 22%,transparent);}
+.hc b{display:block;font-size:13px;font-weight:600;color:var(--luc);}
+.hc.bad b{color:var(--son);}
+.hc i{font-style:normal;font-size:10px;color:var(--ink-3);}
+.row{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--line-2);font-size:13.5px;}
+.row:last-child{border-bottom:0;padding-bottom:0;}
+.row span:first-child{color:var(--ink-3);}
+.row span:last-child{font-weight:600;text-align:right;}
+.star{padding:8px 0;border-bottom:1px solid var(--line-2);}
+.star:last-child{border-bottom:0;padding-bottom:0;}
+.star b{font-size:13px;} .star.g b{color:var(--luc);} .star.x b{color:var(--son);}
+.star p{margin:1px 0 0;font-size:12.5px;color:var(--ink-3);}
+.verse{font-family:'Lora',serif;font-style:italic;font-size:13px;color:var(--ink-2);text-align:center;line-height:1.85;}
+
+/* lưới tháng */
+.mgwrap{border:1px solid var(--line);border-radius:14px;padding:4px 10px 12px;max-width:720px;margin:0 auto;}
+.mg{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;}
+.dw{text-align:center;font-size:11.5px;color:var(--ink-2);font-weight:600;padding:9px 0 7px;
+  border-bottom:1px solid var(--line-2);margin-bottom:3px;}
+.cl{min-height:50px;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;padding:5px 0;}
+.cl .d{font-size:15px;font-weight:500;line-height:1.15;}
+.cl .l{font-size:10.5px;color:var(--ink-2);opacity:.72;line-height:1.2;}
+.cl.dim{opacity:.34;}
+.cl.today{background:var(--son);} .cl.today .d{color:#fff;font-weight:700;} .cl.today .l{color:rgba(255,255,255,.82);}
+.cl.mark .l{color:var(--son);font-weight:600;}
+.cl.good{box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--luc) 30%,transparent);background:var(--luc-soft);}
+.lg{display:flex;gap:15px;justify-content:center;padding:12px 0 2px;font-size:11.5px;color:var(--ink-3);flex-wrap:wrap;}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:5px;vertical-align:middle;}
+
+/* chip liên kết */
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
+.chip{font-size:13px;padding:7px 14px;border-radius:999px;border:1px solid var(--line);color:var(--ink-2);}
+.chip.hot{border-color:color-mix(in srgb,var(--son) 28%,transparent);color:var(--son);background:var(--son-soft);}
+.lst{margin:0;padding:0;list-style:none;font-size:13.5px;color:var(--ink-2);}
+.lst li{padding:7px 0;border-bottom:1px solid var(--line-2);display:flex;justify-content:space-between;gap:10px;}
+.lst li:last-child{border-bottom:0;}
+.lst li span:last-child{color:var(--ink-3);font-size:12.5px;}
+
+/* trang chi tiết */
+.crumb{text-align:center;font-size:12.5px;color:var(--ink-3);}
+.crumb b{color:var(--ink-2);font-weight:500;}
+.dhead{padding:26px 26px 4px;}
+.dh1{font-family:'Lora',serif;font-size:27px;font-weight:600;line-height:1.3;margin-top:9px;}
+.dsub{text-align:center;font-size:14px;color:var(--ink-3);margin-top:8px;}
+.pills{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-top:15px;}
+.pill{font-size:12.5px;font-weight:600;padding:5px 12px;border-radius:999px;}
+.pill.r{background:var(--son-soft);color:var(--son);}
+.pill.k{background:var(--kim-soft);color:var(--kim);}
+.faq{border-top:1px solid var(--line-2);padding:13px 0;}
+.faq b{display:block;font-size:14px;margin-bottom:3px;}
+.faq p{margin:0;font-size:13.5px;color:var(--ink-2);}
+.pn{display:flex;justify-content:space-between;gap:12px;margin-top:22px;flex-wrap:wrap;}
+.pn a{border:1px solid var(--line);border-radius:11px;padding:10px 16px;font-size:13.5px;color:var(--ink-2);text-decoration:none;}
+.prose{max-width:680px;margin:0 auto;}
+.foot{border-top:1px solid var(--line-2);padding:18px 26px;text-align:center;font-size:12.5px;color:var(--ink-3);}
+
+.note{max-width:820px;margin:46px auto 0;padding:20px 22px;border:1px dashed var(--line);
+  border-radius:14px;background:var(--sheet);font-size:13.5px;color:var(--ink-2);}
+.note h3{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:12px;}
+.note p{margin:0 0 12px;} .note p:last-child{margin-bottom:0;}
+.note b{color:var(--ink);}
+
+@media (max-width:900px){
+  .hero-in{grid-template-columns:1fr;gap:22px;padding:26px 18px 26px;}
+  .cols3,.cols2{grid-template-columns:1fr;}
+  .body{padding:20px 16px 24px;}
+  .nav{padding:13px 16px;gap:12px;}
+  .nav ul{font-size:13px;gap:14px;order:3;width:100%;}
+  .nav .sp{display:none;}
+  .dhead{padding:20px 16px 4px;}
+  .dh1{font-size:21px;}
+  .hero-l .num{font-size:92px;}
+  .hours{grid-template-columns:repeat(2,1fr);}
+  .mgwrap{padding:2px 6px 10px;}
+  .cl{min-height:44px;} .cl .d{font-size:14px;} .cl .l{font-size:9.5px;}
+  .dw{font-size:10.5px;}
+}
+</style>
+</head>
+<body>
+<div class="outer">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="i-phone" viewBox="0 0 24 24">
+    <rect x="7" y="2.6" width="10" height="18.8" rx="2.2"/><path d="M10.8 5.4h2.4"/>
+  </symbol>
+  <symbol id="i-land" viewBox="0 0 348 160" preserveAspectRatio="none">
+    <path d="M0 62 q34 -36 70 -14 q28 17 52 -6 q30 -28 62 -6 q26 18 54 -6 q26 -22 56 4 L348 160 L0 160Z" fill="#256064" opacity=".55"/>
+    <path d="M0 88 q42 -28 86 -8 q34 16 62 -6 q36 -26 76 -2 q32 18 62 -4 L348 160 L0 160Z" fill="#17454b" opacity=".85"/>
+    <path d="M0 116 q86 -12 174 0 q88 12 174 0 L348 160 L0 160Z" fill="#7fb99f" opacity=".5"/>
+  </symbol>
+</defs></svg>
+
+<div class="tag">Trang chủ</div>
+<div class="addr">licham.app<b>/</b></div>
+
+<div class="site">
+  <div class="nav">
+    <div class="logo"><span class="mk">6</span> licham.app</div>
+    <ul>
+      <li class="on">Hôm nay</li><li>Lịch tháng</li><li>Xem ngày tốt</li>
+      <li>Văn khấn</li><li>Tử vi</li><li>Đổi ngày</li>
+    </ul>
+    <div class="sp"></div>
+    <div class="getapp"><svg><use href="#i-phone"/></svg> Tải ứng dụng</div>
+  </div>
+
+  <div class="hero">
+    <div class="bg"></div>
+    <svg class="land" viewBox="0 0 348 160" preserveAspectRatio="none"><use href="#i-land"/></svg>
+    <div class="hero-in">
+      <div class="hero-l">
+        <div class="dow">Thứ tư</div>
+        <div class="num">16</div>
+        <div class="mon">Tháng Chín năm 2026</div>
+        <div><span class="lun"><b>6</b><span>tháng Tám <em>·</em> năm Bính Ngọ</span></span></div>
+        <div class="mk2"><span>Hắc đạo</span><span>Trực thành</span><span>Tiết bạch lộ</span></div>
+      </div>
+      <div class="hero-r">
+        <h2>Đổi ngày âm dương</h2>
+        <div class="conv">
+          <div class="fld"><label>Dương lịch</label><div class="inp">16 / 09 / 2026</div></div>
+          <div class="swp">⇄</div>
+          <div class="fld"><label>Âm lịch</label><div class="inp">06 / 08 / 2026</div></div>
+        </div>
+        <div class="right"><button class="btn onart">Đổi ngày</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+    <h1 style="font-family:'Lora',serif;font-size:24px;font-weight:600;">Lịch âm hôm nay — Lịch vạn niên 2026</h1>
+    <p style="text-align:center;color:var(--ink-3);font-size:13.5px;margin:9px auto 24px;max-width:600px;">
+      Xem lịch âm dương, giờ hoàng đạo, ngày tốt xấu. Không quảng cáo, không theo dõi, mở là thấy ngay.</p>
+
+    <div class="cols2">
+      <div class="box">
+        <div class="box-h"><span class="rule"></span><span class="t">Giờ hoàng đạo hôm nay</span><span class="rule"></span></div>
+        <div class="hours">
+          <div class="hc"><b>Sửu</b><i>1h – 3h</i></div>
+          <div class="hc"><b>Thìn</b><i>7h – 9h</i></div>
+          <div class="hc"><b>Ngọ</b><i>11h – 13h</i></div>
+          <div class="hc"><b>Mùi</b><i>13h – 15h</i></div>
+          <div class="hc"><b>Tuất</b><i>19h – 21h</i></div>
+          <div class="hc"><b>Hợi</b><i>21h – 23h</i></div>
+        </div>
+      </div>
+      <div class="box">
+        <div class="box-h"><span class="rule"></span><span class="t">Hôm nay</span><span class="rule"></span></div>
+        <div class="row"><span>Can chi ngày</span><span>Quý Tị</span></div>
+        <div class="row"><span>Ngũ hành</span><span>Trường lưu thủy</span></div>
+        <div class="row"><span>Hỷ thần</span><span>Hướng đông nam</span></div>
+        <div class="row"><span>Tài thần</span><span>Hướng tây bắc</span></div>
+        <div class="row"><span>Tuổi xung</span><span>Đinh Hợi · Ất Hợi</span></div>
+      </div>
+    </div>
+
+    <h2 class="hh" style="margin-top:30px;">Lịch tháng 9 năm 2026</h2>
+    <div class="mgwrap">
+      <div class="mg">
+        <div class="dw">Thứ hai</div><div class="dw">Thứ ba</div><div class="dw">Thứ tư</div><div class="dw">Thứ năm</div>
+        <div class="dw">Thứ sáu</div><div class="dw">Thứ bảy</div><div class="dw">Chủ nhật</div>
+        <div class="cl dim"><div class="d">31</div><div class="l">19/7</div></div>
+        <div class="cl"><div class="d">1</div><div class="l">20/7</div></div>
+        <div class="cl"><div class="d">2</div><div class="l">21/7</div></div>
+        <div class="cl"><div class="d">3</div><div class="l">22/7</div></div>
+        <div class="cl good"><div class="d">4</div><div class="l">23/7</div></div>
+        <div class="cl"><div class="d">5</div><div class="l">24/7</div></div>
+        <div class="cl"><div class="d">6</div><div class="l">25/7</div></div>
+        <div class="cl"><div class="d">7</div><div class="l">26/7</div></div>
+        <div class="cl good"><div class="d">8</div><div class="l">27/7</div></div>
+        <div class="cl"><div class="d">9</div><div class="l">28/7</div></div>
+        <div class="cl"><div class="d">10</div><div class="l">29/7</div></div>
+        <div class="cl mark"><div class="d">11</div><div class="l">1/8</div></div>
+        <div class="cl"><div class="d">12</div><div class="l">2/8</div></div>
+        <div class="cl"><div class="d">13</div><div class="l">3/8</div></div>
+        <div class="cl"><div class="d">14</div><div class="l">4/8</div></div>
+        <div class="cl"><div class="d">15</div><div class="l">5/8</div></div>
+        <div class="cl today"><div class="d">16</div><div class="l">6/8</div></div>
+        <div class="cl good"><div class="d">17</div><div class="l">7/8</div></div>
+        <div class="cl"><div class="d">18</div><div class="l">8/8</div></div>
+        <div class="cl"><div class="d">19</div><div class="l">9/8</div></div>
+        <div class="cl"><div class="d">20</div><div class="l">10/8</div></div>
+        <div class="cl"><div class="d">21</div><div class="l">11/8</div></div>
+        <div class="cl"><div class="d">22</div><div class="l">12/8</div></div>
+        <div class="cl"><div class="d">23</div><div class="l">13/8</div></div>
+        <div class="cl"><div class="d">24</div><div class="l">14/8</div></div>
+        <div class="cl mark"><div class="d">25</div><div class="l">15/8</div></div>
+        <div class="cl good"><div class="d">26</div><div class="l">16/8</div></div>
+        <div class="cl"><div class="d">27</div><div class="l">17/8</div></div>
+        <div class="cl"><div class="d">28</div><div class="l">18/8</div></div>
+        <div class="cl"><div class="d">29</div><div class="l">19/8</div></div>
+        <div class="cl"><div class="d">30</div><div class="l">20/8</div></div>
+        <div class="cl dim"><div class="d">1</div><div class="l">21/8</div></div>
+        <div class="cl dim"><div class="d">2</div><div class="l">22/8</div></div>
+        <div class="cl dim"><div class="d">3</div><div class="l">23/8</div></div>
+        <div class="cl dim"><div class="d">4</div><div class="l">24/8</div></div>
+      </div>
+      <div class="lg">
+        <span><span class="dot" style="background:var(--son)"></span>Hôm nay</span>
+        <span><span class="dot" style="background:var(--luc)"></span>Ngày hoàng đạo</span>
+        <span><span class="dot" style="background:var(--kim)"></span>Mùng một · rằm</span>
+      </div>
+    </div>
+
+    <h2 class="hh" style="margin-top:30px;">Chọn ngày cho việc lớn</h2>
+    <div class="chips">
+      <span class="chip hot">Xem ngày cưới hỏi</span>
+      <span class="chip hot">Xem ngày khai trương</span>
+      <span class="chip">Xem ngày động thổ</span>
+      <span class="chip">Xem ngày nhập trạch</span>
+      <span class="chip">Xem ngày mua xe</span>
+      <span class="chip">Xem ngày ký hợp đồng</span>
+      <span class="chip">Xem ngày xuất hành</span>
+      <span class="chip">Xem ngày cất nóc</span>
+    </div>
+
+    <div class="cols3" style="margin-top:26px;">
+      <div class="box">
+        <div class="box-h"><span class="rule"></span><span class="t">Ngày quan trọng sắp tới</span><span class="rule"></span></div>
+        <ul class="lst">
+          <li><span>Rằm tháng Tám — Trung thu</span><span>25/09</span></li>
+          <li><span>Thu phân</span><span>23/09</span></li>
+          <li><span>Mùng một tháng Chín</span><span>10/10</span></li>
+          <li><span>Tết Trùng cửu</span><span>18/10</span></li>
+        </ul>
+      </div>
+      <div class="box">
+        <div class="box-h"><span class="rule"></span><span class="t">Văn khấn hay tra</span><span class="rule"></span></div>
+        <ul class="lst">
+          <li><span>Văn khấn mùng một và ngày rằm</span></li>
+          <li><span>Văn khấn gia tiên ngày giỗ</span></li>
+          <li><span>Văn khấn Thần Tài, Thổ Địa</span></li>
+          <li><span>Văn khấn rằm tháng Tám</span></li>
+        </ul>
+      </div>
+      <div class="box">
+        <div class="box-h"><span class="rule"></span><span class="t">Tử vi</span><span class="rule"></span></div>
+        <ul class="lst">
+          <li><span>Tử vi hôm nay 12 con giáp</span></li>
+          <li><span>Lập lá số tử vi trọn đời</span></li>
+          <li><span>Xem tuổi xung khắc</span></li>
+          <li><span>Xem tuổi làm nhà năm 2027</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">licham.app — miễn phí, không quảng cáo · Thông tin phong thủy mang tính tham khảo</div>
+</div>
+
+
+<div class="tag">Trang chi tiết một ngày — đây là trang ăn Google</div>
+<div class="addr">licham.app<b>/ngay/16-09-2026</b></div>
+
+<div class="site">
+  <div class="nav">
+    <div class="logo"><span class="mk">6</span> licham.app</div>
+    <ul><li>Hôm nay</li><li class="on">Lịch tháng</li><li>Xem ngày tốt</li><li>Văn khấn</li><li>Tử vi</li><li>Đổi ngày</li></ul>
+    <div class="sp"></div>
+    <div class="getapp"><svg><use href="#i-phone"/></svg> Tải ứng dụng</div>
+  </div>
+
+  <div class="dhead">
+    <div class="crumb">Trang chủ › <b>Lịch tháng 9 năm 2026</b> › Ngày 16/09/2026</div>
+    <h1 class="dh1">Ngày 16/09/2026 là ngày gì? Tốt hay xấu?</h1>
+    <p class="dsub">Thứ Tư, ngày 16 tháng 9 năm 2026 dương lịch, nhằm ngày 6 tháng Tám năm Bính Ngọ âm lịch</p>
+    <div class="pills"><span class="pill r">Ngày hắc đạo</span><span class="pill k">Trực thành</span><span class="pill k">Tiết bạch lộ</span></div>
+  </div>
+
+  <div class="body">
+    <div class="cols2">
+      <div class="box">
+        <div class="box-h"><span class="rule"></span><span class="t">Thông tin ngày</span><span class="rule"></span></div>
+        <div class="row"><span>Can chi ngày</span><span>Quý Tị</span></div>
+        <div class="row"><span>Can chi tháng</span><span>Đinh Dậu</span></div>
+        <div class="row"><span>Can chi năm</span><span>Bính Ngọ</span></div>
+        <div class="row"><span>Ngũ hành</span><span>Trường lưu thủy</span></div>
+        <div class="row"><span>Nhị thập bát tú</span><span>Sao Cang — xấu</span></div>
+        <div class="row"><span>Xung ngày</span><span>Đinh Hợi · Ất Hợi · Đinh Mão</span></div>
+        <div class="row"><span>Xung tháng</span><span>Ất Mão · Quý Mão · Quý Hợi</span></div>
+      </div>
+      <div class="box">
+        <div class="box-h"><span class="rule"></span><span class="t">Giờ hoàng đạo</span><span class="rule"></span></div>
+        <div class="hours">
+          <div class="hc"><b>Sửu</b><i>1h – 3h</i></div>
+          <div class="hc"><b>Thìn</b><i>7h – 9h</i></div>
+          <div class="hc"><b>Ngọ</b><i>11h – 13h</i></div>
+          <div class="hc"><b>Mùi</b><i>13h – 15h</i></div>
+          <div class="hc"><b>Tuất</b><i>19h – 21h</i></div>
+          <div class="hc"><b>Hợi</b><i>21h – 23h</i></div>
+        </div>
+        <div class="box-h" style="margin:16px 0 13px;"><span class="rule"></span><span class="t">Giờ hắc đạo</span><span class="rule"></span></div>
+        <div class="hours">
+          <div class="hc bad"><b>Tý</b><i>23h – 1h</i></div>
+          <div class="hc bad"><b>Dần</b><i>3h – 5h</i></div>
+          <div class="hc bad"><b>Mão</b><i>5h – 7h</i></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cols2" style="margin-top:16px;">
+      <div class="box">
+        <div class="box-h"><span class="rule"></span><span class="t">Sao tốt · việc nên làm</span><span class="rule"></span></div>
+        <div class="star g"><b>Thiên hỷ</b><p>Tốt mọi việc, nhất là cưới hỏi</p></div>
+        <div class="star g"><b>Nguyệt tài</b><p>Tốt cầu tài lộc, khai trương, mở kho, ký kết</p></div>
+        <div class="star g"><b>Nguyệt ân</b><p>Tốt mọi việc</p></div>
+        <div class="star g"><b>Tam hợp</b><p>Tốt mọi việc</p></div>
+        <div class="star g"><b>Sát cống</b><p>Đại cát, giải được nhiều sao xấu</p></div>
+      </div>
+      <div class="box">
+        <div class="box-h"><span class="rule"></span><span class="t">Sao xấu · việc nên kiêng</span><span class="rule"></span></div>
+        <div class="star x"><b>Ngũ quỹ</b><p>Kiêng xuất hành</p></div>
+        <div class="star x"><b>Chu tước hắc đạo</b><p>Kiêng về nhà mới, khai trương</p></div>
+        <div class="star x"><b>Cô thần</b><p>Xấu với cưới hỏi</p></div>
+        <div class="star x"><b>Thổ cẩm</b><p>Kiêng xây dựng nhà cửa, an táng</p></div>
+      </div>
+    </div>
+
+    <div class="cols2" style="margin-top:16px;">
+      <div class="box">
+        <div class="box-h"><span class="rule"></span><span class="t">Hướng và ngày xuất hành</span><span class="rule"></span></div>
+        <div class="row"><span>Hỷ thần</span><span>Hướng đông nam</span></div>
+        <div class="row"><span>Tài thần</span><span>Hướng tây bắc</span></div>
+        <div class="row"><span>Hạc thần</span><span>Hướng đông bắc</span></div>
+        <div class="row"><span>Theo Khổng Minh</span><span>Thiên dương — tốt</span></div>
+        <div class="row"><span>Ngũ hành trạch nhật</span><span>Ngày cát trung bình</span></div>
+      </div>
+      <div class="box">
+        <div class="box-h"><span class="rule"></span><span class="t">Giờ xuất hành theo Lý Thuần Phong</span><span class="rule"></span></div>
+        <div class="row"><span>11h–13h · 23h–1h</span><span style="color:var(--luc)">Đại an — tốt</span></div>
+        <div class="verse" style="margin:11px 0 14px;">Đại an mọi việc tốt thay<br>Cầu tài ở nẻo phương Tây có tài</div>
+        <div class="row" style="border-top:1px solid var(--line-2);padding-top:11px;"><span>7h–9h · 19h–21h</span><span style="color:var(--luc)">Tiểu cát — tốt</span></div>
+        <div class="row"><span>3h–5h · 15h–17h</span><span style="color:var(--son)">Lưu niên — xấu</span></div>
+        <div class="row"><span>9h–11h · 21h–23h</span><span style="color:var(--son)">Không vong — rất xấu</span></div>
+      </div>
+    </div>
+
+    <div class="prose" style="margin-top:32px;">
+      <h2 class="hh">Câu hỏi thường gặp</h2>
+      <div class="faq"><b>Ngày 16/09/2026 là ngày bao nhiêu âm lịch?</b>
+        <p>Là ngày 6 tháng Tám năm Bính Ngọ, tức ngày Quý Tị tháng Đinh Dậu.</p></div>
+      <div class="faq"><b>Ngày này là hoàng đạo hay hắc đạo?</b>
+        <p>Hắc đạo, gặp Chu tước. Tuy vậy trực Thành lại thuận cho xuất hành, khai trương và giá thú.</p></div>
+      <div class="faq"><b>Ngày 16/09/2026 có tốt để cưới hỏi không?</b>
+        <p>Nửa thuận nửa không. Sao Thiên hỷ rất tốt cho cưới hỏi nhưng gặp Cô thần xấu với việc này. Xem danh sách ngày tốt cưới hỏi tháng 9 năm 2026 để chọn ngày sạch hơn.</p></div>
+      <div class="faq"><b>Tuổi nào xung với ngày này?</b>
+        <p>Xung ngày: Đinh Hợi, Ất Hợi, Đinh Mão. Xung tháng: Ất Mão, Quý Mão, Quý Hợi.</p></div>
+      <div class="faq"><b>Giờ nào tốt nhất trong ngày?</b>
+        <p>Giờ Thìn từ 7h đến 9h và giờ Ngọ từ 11h đến 13h, vừa là giờ hoàng đạo vừa trùng khung Đại an và Tiểu cát.</p></div>
+
+      <div class="pn">
+        <a href="#">‹ Ngày 15/09/2026</a>
+        <a href="#">Ngày 17/09/2026 ›</a>
+      </div>
+    </div>
+
+    <h2 class="hh" style="margin-top:32px;">Có thể anh cần</h2>
+    <div class="chips">
+      <span class="chip">Lịch tháng 9 năm 2026</span>
+      <span class="chip">Ngày tốt cưới hỏi tháng 9/2026</span>
+      <span class="chip">Ngày tốt khai trương tháng 9/2026</span>
+      <span class="chip">Rằm tháng Tám năm 2026</span>
+      <span class="chip">Tiết Bạch lộ là gì</span>
+      <span class="chip">Tuổi Quý Tị</span>
+    </div>
+  </div>
+
+  <div class="foot">licham.app — miễn phí, không quảng cáo · Thông tin phong thủy mang tính tham khảo</div>
+</div>
+
+<div class="note">
+  <h3>Web khác app ở đâu</h3>
+  <p><b>Dải nền chỉ cao bằng một phần tư trang, không phải cả màn hình.</b> Trên máy tính, ảnh cao quá thì người đọc phải cuộn mới thấy nội dung — Google tính đó là điểm trừ. Ô đổi ngày đặt ngay bên phải trong dải nền, tận dụng chỗ trống.</p>
+  <p><b>Tiêu đề trang chi tiết viết đúng câu người ta gõ</b> — "Ngày 16/09/2026 là ngày gì? Tốt hay xấu?" — chứ không phải "Chi tiết ngày". Mỗi ngày một trang, nhân 10 năm là khoảng 3.600 trang.</p>
+  <p><b>Khối hỏi đáp</b> để ăn ô trả lời nhanh trên Google. Năm câu, mỗi câu trả lời gọn trong hai dòng. App không cần thứ này.</p>
+  <p><b>Nút ngày trước và ngày sau</b> ở cuối trang là cách Google bò hết 3.600 trang mà không cần sơ đồ trang khổng lồ.</p>
+  <p><b>Bố cục hai cột trên máy tính, một cột trên điện thoại.</b> Thu nhỏ cửa sổ để xem — không có cột nào bị cắt, tất cả xếp dọc lại.</p>
+  <p>Dải nền hiện là màu tạm. Chỗ đó sau sẽ là ảnh, và ảnh sẽ chừa phần trên cho chữ số như anh đã chỉ ra.</p>
+  <p><b>Vừa sửa hai lỗi anh bắt được.</b> Lưới tháng trước đây ô vuông kéo theo chiều ngang nên trên máy tính phình ra rất to và rỗng — giờ đặt chiều cao cố định và khoá bề ngang lại, ngày âm đậm hơn nên ô nào cũng đọc được chứ không chỉ mùng một với rằm. Viên âm lịch trên dải nền thì chữ số bị lệch vì trộn hai cỡ chữ trên cùng một dòng — giờ đặt số vào một vòng tròn riêng, không còn dựa vào việc căn chữ nữa. Bản app sửa y như vậy.</p>
+</div>
+
+</div>
+</body>
+</html>
