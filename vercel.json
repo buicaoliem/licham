@@ -1,0 +1,5 @@
+{
+  "installCommand": "pnpm install",
+  "buildCommand": "cd web && TZ=Asia/Ho_Chi_Minh pnpm build",
+  "outputDirectory": "web/out"
+}
