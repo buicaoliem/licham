@@ -4,6 +4,7 @@ import { DoiNgayConverter } from "@/components/DoiNgayConverter";
 import { DoiNgayTools } from "@/components/DoiNgayTools";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { getVietnamToday } from "@/lib/today";
 
 export const metadata: Metadata = {
   title: "Đổi ngày âm dương — Tra cứu lịch âm chính xác | LịchÂm",
@@ -11,8 +12,7 @@ export const metadata: Metadata = {
 };
 
 export default function DoiNgayPage() {
-  const now = new Date();
-  const today = { day: now.getDate(), month: now.getMonth() + 1, year: now.getFullYear() };
+  const today = getVietnamToday();
   const info = getDayInfo(today);
 
   return (

@@ -10,6 +10,7 @@ import { dateToSlug } from "@/lib/date-slug";
 import { getMonthCells } from "@/lib/month-grid";
 import { monthToSlug, slugToMonth } from "@/lib/month-slug";
 import { getMonthSummary } from "@/lib/month-summary";
+import { getVietnamToday } from "@/lib/today";
 
 const YEAR = 2026;
 
@@ -25,8 +26,7 @@ export default async function MonthPage({ params }: { params: Promise<{ monthSlu
   if (!parsed || parsed.year !== YEAR) notFound();
   const { month, year } = parsed;
 
-  const now = new Date();
-  const today = { day: now.getDate(), month: now.getMonth() + 1, year: now.getFullYear() };
+  const today = getVietnamToday();
   const info = getDayInfo(today);
 
   const cells = getMonthCells(month, year, today);
