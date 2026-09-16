@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Be_Vietnam_Pro, Lora, Playfair_Display } from "next/font/google";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const beVietnamPro = Be_Vietnam_Pro({
@@ -21,6 +22,7 @@ const lora = Lora({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "licham.app — Lịch âm hôm nay, lịch vạn niên",
   description: "Lịch âm dương, giờ hoàng đạo, ngày tốt xấu — miễn phí, không quảng cáo.",
   icons: {

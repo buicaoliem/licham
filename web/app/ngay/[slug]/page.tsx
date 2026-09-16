@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CHI, getDayInfo, jdFromDate, jdToDate } from "@licham/core";
@@ -20,6 +21,11 @@ export function generateStaticParams() {
 }
 
 export const dynamicParams = false;
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  return { alternates: { canonical: `/ngay/${slug}/` } };
+}
 
 function capitalizeEachWord(s: string): string {
   return s

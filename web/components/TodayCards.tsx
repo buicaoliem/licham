@@ -8,11 +8,13 @@ interface HoangDaoHour {
 
 export function TodayCards({
   hoangDaoHours,
+  worstHour,
   info,
   saoTotCount,
   saoXauCount,
 }: {
   hoangDaoHours: HoangDaoHour[];
+  worstHour: HoangDaoHour | null;
   info: DayInfo;
   saoTotCount: number;
   saoXauCount: number;
@@ -29,8 +31,13 @@ export function TodayCards({
   ];
   if (info.hyThan) rows.push({ label: "Hỷ thần", value: `Hướng ${info.hyThan.direction.toLowerCase()}` });
   if (info.taiThan) rows.push({ label: "Tài thần", value: `Hướng ${info.taiThan.direction.toLowerCase()}` });
-  // Tuổi xung: bảng đối xung theo can chi ngày chưa có trong core (DayInfo.tuoiXung === null).
-  rows.push({ label: "Tuổi xung", value: info.tuoiXung ? info.tuoiXung.ngay.map((c) => c.name).join(" · ") : "—" });
+
+  const bestHour = hoangDaoHours[0] ?? null;
+  const hourLabel = (h: HoangDaoHour) => `${h.chiName} (${Number.parseInt(h.start, 10)}h – ${Number.parseInt(h.end, 10)}h)`;
+  const hourRows: { label: string; value: string }[] = [];
+  if (bestHour) hourRows.push({ label: "Giờ tốt nhất", value: hourLabel(bestHour) });
+  if (worstHour) hourRows.push({ label: "Giờ xấu nhất", value: hourLabel(worstHour) });
+  if (info.khongMinh) hourRows.push({ label: "Khổng Minh lục diệu", value: info.khongMinh.name });
 
   return (
     <div className="cols2">
@@ -50,6 +57,16 @@ export function TodayCards({
             </div>
           ))}
         </div>
+        {hourRows.length > 0 && (
+          <div className="hours-extra">
+            {hourRows.map((row) => (
+              <div key={row.label} className="row">
+                <span>{row.label}</span>
+                <span>{row.value}</span>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
       <div className="box">
@@ -58,7 +75,7 @@ export function TodayCards({
           <span className="t">Hôm nay</span>
           <span className="rule" />
         </div>
-        {rows.map((row) => (
+        {rows.filter((row) => row.value).map((row) => (
           <div key={row.label} className="row">
             <span>{row.label}</span>
             <span>{row.value}</span>

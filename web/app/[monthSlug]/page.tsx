@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getDayInfo } from "@licham/core";
@@ -19,6 +20,11 @@ export function generateStaticParams() {
 }
 
 export const dynamicParams = false;
+
+export async function generateMetadata({ params }: { params: Promise<{ monthSlug: string }> }): Promise<Metadata> {
+  const { monthSlug } = await params;
+  return { alternates: { canonical: `/${monthSlug}/` } };
+}
 
 export default async function MonthPage({ params }: { params: Promise<{ monthSlug: string }> }) {
   const { monthSlug } = await params;
