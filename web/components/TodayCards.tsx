@@ -6,7 +6,17 @@ interface HoangDaoHour {
   end: string;
 }
 
-export function TodayCards({ hoangDaoHours, info }: { hoangDaoHours: HoangDaoHour[]; info: DayInfo }) {
+export function TodayCards({
+  hoangDaoHours,
+  info,
+  saoTotCount,
+  saoXauCount,
+}: {
+  hoangDaoHours: HoangDaoHour[];
+  info: DayInfo;
+  saoTotCount: number;
+  saoXauCount: number;
+}) {
   const nguHanh = info.canChi.day.napAm.name
     .split(" ")
     .map((word, i) => (i === 0 ? word : word.toLowerCase()))
@@ -14,6 +24,8 @@ export function TodayCards({ hoangDaoHours, info }: { hoangDaoHours: HoangDaoHou
   const rows: { label: string; value: string }[] = [
     { label: "Can chi ngày", value: info.canChi.day.name },
     { label: "Ngũ hành", value: nguHanh },
+    { label: "Sao tốt", value: `${saoTotCount} sao` },
+    { label: "Sao xấu", value: `${saoXauCount} sao` },
   ];
   if (info.hyThan) rows.push({ label: "Hỷ thần", value: `Hướng ${info.hyThan.direction.toLowerCase()}` });
   if (info.taiThan) rows.push({ label: "Tài thần", value: `Hướng ${info.taiThan.direction.toLowerCase()}` });

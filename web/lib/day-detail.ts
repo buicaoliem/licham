@@ -1,4 +1,4 @@
-import type { DayInfo, NgocHapSaoEntry } from "@licham/core";
+import type { DayInfo } from "@licham/core";
 
 /** "a, b và c" — Vietnamese-style list join with "và" before the last item. */
 export function joinVi(items: string[]): string {
@@ -36,22 +36,75 @@ export function ltpPairs(info: DayInfo): LtpPair[] {
   return pairs;
 }
 
-const WEDDING_KEYWORDS = ["cưới hỏi", "giá thú", "mọi việc", "mọi công việc"];
+export type ViecVerdict = "thuan" | "nua-thuan" | "khong-thuan";
 
-function affectsWedding(entry: NgocHapSaoEntry): boolean {
-  return entry.affects.some((a) => WEDDING_KEYWORDS.some((k) => a.toLowerCase().includes(k)));
+export interface ViecFaq {
+  viec: string;
+  verdict: ViecVerdict;
+  verdictLabel: string;
 }
 
-/** Honest answer for "is this day good for a wedding" from only the sao tốt/xấu actually triggered — no invented data. Returns null when nothing was recorded, so the caller can drop the FAQ entirely instead of showing a placeholder. */
-export function weddingAnswer(saoTot: NgocHapSaoEntry[], saoXau: NgocHapSaoEntry[]): string | null {
-  const good = saoTot.filter(affectsWedding);
-  const bad = saoXau.filter(affectsWedding);
-  if (good.length === 0 && bad.length === 0) return null;
-  const parts: string[] = [];
-  if (good.length > 0) parts.push(`sao ${good.map((s) => s.name).join(", ")} tốt cho việc này`);
-  if (bad.length > 0) parts.push(`sao ${bad.map((s) => s.name).join(", ")} xấu với việc này`);
-  const sentence = parts.join(", nhưng gặp ");
-  return `${sentence.charAt(0).toUpperCase()}${sentence.slice(1)}.`;
+interface ViecDef {
+  /** Tên việc, dùng trong câu hỏi. */
+  viec: string;
+  /** Các cụm từ tìm trong mô tả sao — lấy đúng chữ đã xuất hiện trong mô tả, không suy diễn thêm. */
+  keywords: string[];
+}
+
+/** "Tốt cho mọi việc" / "Kiêng mọi việc" trong mô tả sao thì tính cho mọi câu hỏi việc. */
+const WILDCARD_KEYWORDS = ["mọi việc", "mọi công việc"];
+
+const VIEC_DEFS: readonly ViecDef[] = [
+  { viec: "cưới hỏi", keywords: ["cưới hỏi", "giá thú", "ăn hỏi", "dạm ngõ"] },
+  { viec: "khai trương", keywords: ["khai trương"] },
+  { viec: "xuất hành", keywords: ["xuất hành"] },
+  { viec: "an táng", keywords: ["an táng", "cải táng", "mai táng"] },
+  { viec: "cầu tài", keywords: ["cầu tài", "cầu lộc"] },
+  { viec: "làm nhà, động thổ", keywords: ["làm nhà", "xây cất", "động thổ", "dựng cột", "cất nóc"] },
+];
+
+/** Từ đánh dấu câu kiêng kỵ — chỉ những câu có chữ này mới tính là "xấu" cho việc đó. */
+const KIENG_TRIGGERS = ["kiêng"];
+/** Từ đánh dấu câu thuận lợi — chỉ những câu có chữ này mới tính là "tốt" cho việc đó. */
+const HOP_TRIGGERS = ["hợp", "tốt", "thuận"];
+
+function splitSentences(description: string): string[] {
+  return description.split(/(?<=[.!?])\s+/).filter(Boolean);
+}
+
+/**
+ * Chỉ những câu thực sự nêu kiêng/hợp (chứa từ đánh dấu tương ứng) mới được tính khớp việc.
+ * Tránh trường hợp một câu khác trong cùng mô tả nhắc tên việc đó theo nghĩa ngược lại
+ * (ví dụ câu nói rõ "việc X thì vẫn làm được" nằm cạnh câu "Kiêng ...").
+ */
+function matchesViec(description: string, def: ViecDef, triggers: readonly string[]): boolean {
+  const keywords = [...def.keywords, ...WILDCARD_KEYWORDS];
+  return splitSentences(description).some((sentence) => {
+    const lower = sentence.toLowerCase();
+    if (!triggers.some((t) => lower.includes(t))) return false;
+    return keywords.some((k) => lower.includes(k));
+  });
+}
+
+/**
+ * Câu trả lời "ngày này có hợp việc X không" — chỉ suy từ mô tả của các sao tốt/xấu
+ * thực sự có mặt trong ngày (không thêm phân loại tay, không sửa mô tả). Có sao tốt
+ * nhắc tới việc mà không có sao xấu nào nhắc tới thì THUẬN; có cả hai thì NỬA THUẬN;
+ * chỉ có sao xấu thì KHÔNG THUẬN. Việc nào không sao nào nhắc tới thì bỏ hẳn câu hỏi.
+ */
+export function viecFaqs(info: DayInfo): ViecFaq[] {
+  const saoTot = info.saoTot ?? [];
+  const saoXau = info.saoXau ?? [];
+  const faqs: ViecFaq[] = [];
+  for (const def of VIEC_DEFS) {
+    const good = saoTot.some((s) => matchesViec(s.description, def, HOP_TRIGGERS));
+    const bad = saoXau.some((s) => matchesViec(s.description, def, KIENG_TRIGGERS));
+    if (!good && !bad) continue;
+    const verdict: ViecVerdict = good && bad ? "nua-thuan" : good ? "thuan" : "khong-thuan";
+    const verdictLabel = verdict === "thuan" ? "Thuận" : verdict === "nua-thuan" ? "Nửa thuận" : "Không thuận";
+    faqs.push({ viec: def.viec, verdict, verdictLabel });
+  }
+  return faqs;
 }
 
 export interface BestHour {

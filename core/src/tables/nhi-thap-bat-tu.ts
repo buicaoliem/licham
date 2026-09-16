@@ -53,8 +53,12 @@ const ANCHOR_INDEX = 27;
 
 const mod = (n: number, m: number): number => ((n % m) + m) % m;
 
+/** Vị trí trong chu kỳ 28 sao của ngày có Julian Day Number đã cho, Giác = 0. */
+export function nhiThapBatTuIndexOfJd(jd: number): number {
+  return mod(jd - ANCHOR_JD + ANCHOR_INDEX, 28);
+}
+
 /** Sao Nhị thập bát tú của ngày có Julian Day Number đã cho. */
 export function nhiThapBatTuOfJd(jd: number): NhiThapBatTuEntry {
-  const index = mod(jd - ANCHOR_JD + ANCHOR_INDEX, 28);
-  return NHI_THAP_BAT_TU_STARS[index]!;
+  return NHI_THAP_BAT_TU_STARS[nhiThapBatTuIndexOfJd(jd)]!;
 }
