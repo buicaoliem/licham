@@ -6,6 +6,7 @@
     "test": "pnpm -r test",
     "typecheck": "pnpm -r typecheck",
     "check:compare": "pnpm --filter @licham/core run check:compare",
-    "verify:ltp": "pnpm --filter @licham/core run verify:ltp"
+    "verify:ltp": "pnpm --filter @licham/core run verify:ltp",
+    "check:routes": "pnpm --filter @licham/web run check:routes"
   }
 }
