@@ -6,6 +6,7 @@ import { LinkColumns } from "@/components/LinkColumns";
 import { type MonthDayCell, MonthGrid } from "@/components/MonthGrid";
 import { OccasionChips } from "@/components/OccasionChips";
 import { TodayCards } from "@/components/TodayCards";
+import { UpcomingCard } from "@/components/UpcomingCard";
 import { daysInMonth, leadingBlanks as countLeadingBlanks } from "@/lib/format";
 import { isTrucHoangDao } from "@/lib/hoang-dao-ngay";
 import { getUpcomingOccasions } from "@/lib/upcoming-occasions";
@@ -19,6 +20,16 @@ export default function HomePage() {
   const hoangDaoHours = info.hours
     .filter((h) => h.isHoangDao)
     .map((h) => ({ chiName: CHI[h.chiIndex]!, start: h.start, end: h.end }));
+  const bestHour = hoangDaoHours[0] ?? null;
+
+  const currentChiIndex = Math.floor(((now.getHours() + 1) % 24) / 2);
+  const currentHourInfo = info.hours[currentChiIndex]!;
+  const currentHour = {
+    chiName: CHI[currentHourInfo.chiIndex]!,
+    start: currentHourInfo.start,
+    end: currentHourInfo.end,
+    isHoangDao: currentHourInfo.isHoangDao,
+  };
 
   const total = daysInMonth(today.month, today.year);
   const firstOfMonthInfo = getDayInfo({ day: 1, month: today.month, year: today.year });
@@ -60,7 +71,7 @@ export default function HomePage() {
         lunarIsLeap={info.lunar.isLeapMonth}
       />
 
-      <div className="mx-auto max-w-6xl px-4 pt-10">
+      <div className="mx-auto max-w-6xl px-4 mt-5 sm:mt-7">
         <h1 className="text-center text-2xl font-semibold text-ink sm:text-3xl">
           Lịch âm hôm nay — Lịch vạn niên {info.solar.year}
         </h1>
@@ -69,13 +80,25 @@ export default function HomePage() {
         </p>
       </div>
 
-      <TodayCards hoangDaoHours={hoangDaoHours} info={info} />
+      <div className="mt-5 sm:mt-7">
+        <TodayCards hoangDaoHours={hoangDaoHours} bestHour={bestHour} currentHour={currentHour} info={info} />
+      </div>
 
-      <MonthGrid month={today.month} year={today.year} cells={cells} />
+      <div className="mt-5 sm:mt-7">
+        <UpcomingCard occasions={getUpcomingOccasions(today)} />
+      </div>
 
-      <OccasionChips />
+      <div className="mt-5 sm:mt-7">
+        <MonthGrid month={today.month} year={today.year} cells={cells} />
+      </div>
 
-      <LinkColumns upcomingOccasions={getUpcomingOccasions(today)} />
+      <div className="mt-5 sm:mt-7">
+        <OccasionChips />
+      </div>
+
+      <div className="mt-5 sm:mt-7">
+        <LinkColumns />
+      </div>
 
       <Footer />
     </>

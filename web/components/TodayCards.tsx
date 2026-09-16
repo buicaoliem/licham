@@ -6,11 +6,19 @@ interface HoangDaoHour {
   end: string;
 }
 
+interface CurrentHour extends HoangDaoHour {
+  isHoangDao: boolean;
+}
+
 export function TodayCards({
   hoangDaoHours,
+  bestHour,
+  currentHour,
   info,
 }: {
   hoangDaoHours: HoangDaoHour[];
+  bestHour: HoangDaoHour | null;
+  currentHour: CurrentHour;
   info: DayInfo;
 }) {
   const rows: { label: string; value: string }[] = [
@@ -24,7 +32,7 @@ export function TodayCards({
   rows.push({ label: "Tiết khí", value: info.solarTerm.name });
 
   return (
-    <section className="mx-auto grid max-w-6xl gap-5 px-4 py-8 md:grid-cols-2">
+    <section className="mx-auto grid max-w-6xl gap-5 px-4 md:grid-cols-2">
       <div className="rounded-2xl border border-line bg-sheet p-5">
         <h3 className="text-center text-base font-semibold text-ink">Giờ hoàng đạo hôm nay</h3>
         <div className="mt-4 grid grid-cols-3 gap-2.5">
@@ -36,6 +44,24 @@ export function TodayCards({
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-4 border-t border-line-2 pt-3">
+          {bestHour && (
+            <div className="flex items-center justify-between py-1 text-sm">
+              <span className="text-ink-3">Giờ tốt nhất</span>
+              <span className="font-semibold text-ink">
+                Giờ {bestHour.chiName} ({bestHour.start}–{bestHour.end})
+              </span>
+            </div>
+          )}
+          <div className="flex items-center justify-between py-1 text-sm">
+            <span className="text-ink-3">Giờ hiện tại</span>
+            <span className="font-semibold text-ink">
+              Giờ {currentHour.chiName} ({currentHour.start}–{currentHour.end})
+              {currentHour.isHoangDao ? " · hoàng đạo" : ""}
+            </span>
+          </div>
         </div>
       </div>
 

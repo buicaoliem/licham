@@ -10,12 +10,12 @@ export interface MonthDayCell {
 
 export function MonthGrid({ month, year, cells }: { month: number; year: number; cells: MonthDayCell[] }) {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-8">
+    <section className="mx-auto max-w-6xl px-4">
       <h3 className="text-center text-base font-semibold text-ink">
         Tháng {month} năm {year}
       </h3>
 
-      <div className="mx-auto mt-5 max-w-[720px]">
+      <div className="mx-auto mt-4 max-w-[720px] rounded-[14px] border border-line p-4 sm:p-5">
         <div className="grid grid-cols-7 border-b border-line pb-2 text-center text-xs font-semibold text-ink-3">
           {WEEKDAY_SHORT_MON_FIRST.map((w) => (
             <div key={w}>{w}</div>
@@ -30,12 +30,8 @@ export function MonthGrid({ month, year, cells }: { month: number; year: number;
               <div
                 key={i}
                 className={[
-                  "flex min-h-[50px] flex-col items-center justify-center rounded-md border",
-                  cell.isToday
-                    ? "border-son bg-son text-white"
-                    : cell.isHoangDao
-                      ? "border-luc-soft bg-luc-soft text-ink"
-                      : "border-transparent text-ink",
+                  "flex min-h-[50px] flex-col items-center justify-center rounded-lg",
+                  cell.isToday ? "bg-son text-white" : cell.isHoangDao ? "bg-luc-soft text-ink" : "text-ink",
                 ].join(" ")}
               >
                 <span className="text-[15px] leading-tight font-medium">{cell.solarDay}</span>
@@ -53,19 +49,19 @@ export function MonthGrid({ month, year, cells }: { month: number; year: number;
             ),
           )}
         </div>
-      </div>
 
-      <div className="mx-auto mt-4 flex max-w-[720px] flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-ink-3">
-        <span className="flex items-center gap-1.5">
-          <span className="inline-block h-2.5 w-2.5 rounded-full bg-son" /> Hôm nay
-        </span>
-        <span className="flex items-center gap-1.5">
-          <span className="inline-block h-2.5 w-2.5 rounded-full" style={{ background: "var(--son)" }} /> Mùng một /
-          Rằm (số ngày âm)
-        </span>
-        <span className="flex items-center gap-1.5">
-          <span className="inline-block h-2.5 w-2.5 rounded-full bg-luc-soft ring-1 ring-luc" /> Ngày hoàng đạo
-        </span>
+        <div className="mt-4 flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-ink-3">
+          <span className="flex items-center gap-1.5">
+            <span className="inline-block h-2.5 w-2.5 rounded-full bg-son" /> Hôm nay
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span className="inline-block h-2.5 w-2.5 rounded-full" style={{ background: "var(--son)" }} /> Mùng
+            một / Rằm (số ngày âm)
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span className="inline-block h-2.5 w-2.5 rounded-full bg-luc-soft ring-1 ring-luc" /> Ngày hoàng đạo
+          </span>
+        </div>
       </div>
     </section>
   );
