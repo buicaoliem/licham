@@ -31,7 +31,14 @@ export {
   getSolarTermsOfYear,
   solarLongitudeAt,
 } from "./solarTerms";
-export { type HourStarName, type HourStar, HOUR_STARS, getHourStars } from "./hoangDao";
+export {
+  type HourStarName,
+  type HourStar,
+  type DayStar,
+  HOUR_STARS,
+  getHourStars,
+  getDayStar,
+} from "./hoangDao";
 export { hyThanOfCan, taiThanOfCan } from "./tables/huong-xuat-hanh";
 export { type KhongMinhEntry, KHONG_MINH_STATES, khongMinhOfLunarDay } from "./tables/khong-minh";
 export { type LyThuanPhongEntry, lyThuanPhongOfDay, lyThuanPhongOfHour } from "./tables/ly-thuan-phong";
