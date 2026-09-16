@@ -18,7 +18,7 @@ export default function DoiNgayPage() {
   return (
     <div className="outer">
       <div className="site">
-        <Header lunarDay={info.lunar.day} activeMenu="Đổi ngày" />
+        <Header activeMenu="Đổi ngày" />
 
         <div className="band">
           <div className="bg bg-lam" />

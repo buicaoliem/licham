@@ -1,10 +1,14 @@
 const MENU = ["Hôm nay", "Lịch tháng", "Xem ngày tốt", "Văn khấn", "Tử vi", "Đổi ngày"] as const;
 
-export function Header({ lunarDay, activeMenu = "Hôm nay" }: { lunarDay: number; activeMenu?: (typeof MENU)[number] }) {
+export function Header({ activeMenu = "Hôm nay" }: { activeMenu?: (typeof MENU)[number] }) {
   return (
     <div className="nav">
       <div className="logo">
-        <span className="mk">{lunarDay}</span> licham.app
+        <img src="/logo.svg" alt="LịchÂm" width={32} height={32} className="mk" />
+        <span>
+          <span className="logo-ink">Lịch</span>
+          <span className="logo-son">Âm</span>
+        </span>
       </div>
       <ul>
         {MENU.map((item) => (

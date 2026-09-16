@@ -37,7 +37,7 @@ export default async function MonthPage({ params }: { params: Promise<{ monthSlu
   return (
     <div className="outer">
       <div className="site">
-        <Header lunarDay={info.lunar.day} activeMenu="Lịch tháng" />
+        <Header activeMenu="Lịch tháng" />
 
         <div className="dhead">
           <div className="crumb">
