@@ -1,4 +1,4 @@
-import { WEEKDAY_LONG } from "@/lib/format";
+import { MONTH_WORD, WEEKDAY_LONG, pad2 } from "@/lib/format";
 
 export function HeroBand({
   dayOfWeek,
@@ -9,6 +9,10 @@ export function HeroBand({
   lunarMonth,
   lunarYear,
   lunarIsLeap,
+  yearCanChi,
+  isHoangDao,
+  trucName,
+  solarTermName,
 }: {
   dayOfWeek: number;
   solarDay: number;
@@ -18,72 +22,73 @@ export function HeroBand({
   lunarMonth: number;
   lunarYear: number;
   lunarIsLeap: boolean;
+  yearCanChi: string;
+  isHoangDao: boolean;
+  trucName: string;
+  solarTermName: string;
 }) {
   return (
-    <section
-      className="relative isolate overflow-hidden text-white"
-      style={{ background: "linear-gradient(168deg,#1d5f63 0%,#3f8b84 42%,#7fb99f 74%,#c9dcaf 100%)" }}
-    >
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{ background: "linear-gradient(180deg,rgba(0,0,0,0.28) 0%,rgba(0,0,0,0) 22%,rgba(0,0,0,0) 78%,rgba(0,0,0,0.32) 100%)" }}
-      />
-      <div className="relative mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:py-12 md:grid-cols-2 md:items-center md:py-16">
-        <div className="flex flex-col items-center text-center">
-          <span className="text-xs font-semibold tracking-[0.2em] text-white/80 uppercase">
-            {WEEKDAY_LONG[dayOfWeek]}
-          </span>
-          <span className="mt-2 font-display text-7xl font-semibold sm:text-8xl">{solarDay}</span>
-          <span className="mt-2 text-sm text-white/85">
-            Tháng {solarMonth} năm {solarYear}
-          </span>
-          <div className="mt-5 flex items-center gap-3 rounded-full bg-white/15 py-1.5 pr-5 pl-1.5 backdrop-blur-sm">
-            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/95 font-display text-lg font-semibold text-[#1d5f63]">
-              {lunarDay}
+    <div className="hero">
+      <div className="bg" />
+      <svg className="land" viewBox="0 0 348 160" preserveAspectRatio="none">
+        <path
+          d="M0 62 q34 -36 70 -14 q28 17 52 -6 q30 -28 62 -6 q26 18 54 -6 q26 -22 56 4 L348 160 L0 160Z"
+          fill="#256064"
+          opacity=".55"
+        />
+        <path
+          d="M0 88 q42 -28 86 -8 q34 16 62 -6 q36 -26 76 -2 q32 18 62 -4 L348 160 L0 160Z"
+          fill="#17454b"
+          opacity=".85"
+        />
+        <path d="M0 116 q86 -12 174 0 q88 12 174 0 L348 160 L0 160Z" fill="#7fb99f" opacity=".5" />
+      </svg>
+      <div className="hero-in">
+        <div className="hero-l">
+          <div className="dow">{WEEKDAY_LONG[dayOfWeek]}</div>
+          <div className="num">{solarDay}</div>
+          <div className="mon">
+            Tháng {MONTH_WORD[solarMonth - 1]} năm {solarYear}
+          </div>
+          <div>
+            <span className="lun">
+              <b>{lunarDay}</b>
+              <span>
+                tháng {MONTH_WORD[lunarMonth - 1]}
+                {lunarIsLeap ? " nhuận" : ""} <em>·</em> năm {yearCanChi}
+              </span>
             </span>
-            <span className="text-sm text-white/90">
-              {lunarIsLeap ? "tháng nhuận " : "tháng "}
-              {lunarMonth} · năm {lunarYear}
-            </span>
+          </div>
+          <div className="mk2">
+            <span>{isHoangDao ? "Hoàng đạo" : "Hắc đạo"}</span>
+            <span>Trực {trucName}</span>
+            <span>Tiết {solarTermName}</span>
           </div>
         </div>
-
-        <div className="rounded-2xl border border-white/25 bg-white/10 p-5 backdrop-blur-md sm:p-6">
-          <h2 className="text-center text-base font-semibold">Đổi ngày âm dương</h2>
-          <div className="mt-4 flex items-center gap-3">
-            <label className="flex-1 text-sm">
-              <span className="mb-1 block text-white/75">Ngày dương</span>
-              <input
-                type="text"
-                readOnly
-                defaultValue={`${solarDay}/${solarMonth}/${solarYear}`}
-                className="w-full rounded-lg border border-white/30 bg-white/10 px-3 py-2 text-white outline-none placeholder:text-white/50"
-              />
-            </label>
-            <button
-              type="button"
-              aria-label="Đổi chiều"
-              className="mt-5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/35 bg-white/15 text-lg"
-            >
-              ⇄
-            </button>
-            <label className="flex-1 text-sm">
-              <span className="mb-1 block text-white/75">Ngày âm</span>
-              <input
-                type="text"
-                readOnly
-                defaultValue={`${lunarDay}/${lunarMonth}/${lunarYear}`}
-                className="w-full rounded-lg border border-white/30 bg-white/10 px-3 py-2 text-white outline-none placeholder:text-white/50"
-              />
-            </label>
+        <div className="hero-r">
+          <h2>Đổi ngày âm dương</h2>
+          <div className="conv">
+            <div className="fld">
+              <label>Dương lịch</label>
+              <div className="inp">
+                {pad2(solarDay)} / {pad2(solarMonth)} / {solarYear}
+              </div>
+            </div>
+            <div className="swp">⇄</div>
+            <div className="fld">
+              <label>Âm lịch</label>
+              <div className="inp">
+                {pad2(lunarDay)} / {pad2(lunarMonth)} / {lunarYear}
+              </div>
+            </div>
           </div>
-          <div className="mt-4 flex justify-end">
-            <button type="button" className="rounded-full bg-white px-5 py-2 text-sm font-semibold text-[#1d5f63]">
+          <div className="right">
+            <button type="button" className="btn onart">
               Đổi ngày
             </button>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

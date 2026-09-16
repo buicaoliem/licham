@@ -1,31 +1,27 @@
 const OCCASIONS = [
-  "Cưới hỏi",
-  "Khai trương",
-  "Động thổ",
-  "Nhập trạch",
-  "Mua xe",
-  "Ký hợp đồng",
-  "Xuất hành",
-  "Cất nóc",
+  { label: "Xem ngày cưới hỏi", hot: true },
+  { label: "Xem ngày khai trương", hot: true },
+  { label: "Xem ngày động thổ", hot: false },
+  { label: "Xem ngày nhập trạch", hot: false },
+  { label: "Xem ngày mua xe", hot: false },
+  { label: "Xem ngày ký hợp đồng", hot: false },
+  { label: "Xem ngày xuất hành", hot: false },
+  { label: "Xem ngày cất nóc", hot: false },
 ] as const;
 
 export function OccasionChips() {
   return (
-    <section className="mx-auto max-w-6xl px-4">
-      <h3 className="text-center text-base font-semibold text-ink">Chọn ngày cho việc lớn</h3>
-      <div className="mt-4 flex flex-wrap justify-center gap-2.5">
-        {OCCASIONS.map((label, i) => (
-          <span
-            key={label}
-            className={[
-              "rounded-full border px-4 py-2 text-sm font-medium",
-              i < 2 ? "border-son-soft bg-son-soft text-son" : "border-line text-ink-2",
-            ].join(" ")}
-          >
-            {label}
+    <>
+      <h2 className="hh" style={{ marginTop: 30 }}>
+        Chọn ngày cho việc lớn
+      </h2>
+      <div className="chips">
+        {OCCASIONS.map((o) => (
+          <span key={o.label} className={o.hot ? "chip hot" : "chip"}>
+            {o.label}
           </span>
         ))}
       </div>
-    </section>
+    </>
   );
 }

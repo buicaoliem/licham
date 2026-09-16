@@ -27,6 +27,12 @@ function formatSolar({ day, month, year }: SolarDate): string {
   return `${day}/${month}/${year}`;
 }
 
+/** "dd/mm", no year — the date format used in the "Ngày quan trọng sắp tới" list. */
+export function formatSolarShort(solarDate: string): string {
+  const [day, month] = solarDate.split("/");
+  return `${day!.padStart(2, "0")}/${month!.padStart(2, "0")}`;
+}
+
 /** The next four calendar milestones after `today`, computed directly from the lunar/solar-term engine. */
 export function getUpcomingOccasions(today: SolarDate): UpcomingOccasion[] {
   const todayJd = jdFromDate(today.day, today.month, today.year);
