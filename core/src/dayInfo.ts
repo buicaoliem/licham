@@ -14,6 +14,7 @@ import { hyThanOfCan, taiThanOfCan } from "./tables/huong-xuat-hanh";
 import { khongMinhOfLunarDay } from "./tables/khong-minh";
 import { lyThuanPhongOfDay } from "./tables/ly-thuan-phong";
 import { saoTotOfDay, saoXauOfDay } from "./tables/ngoc-hap";
+import { nhiThapBatTuOfJd } from "./tables/nhi-thap-bat-tu";
 import { type Truc, getTruc, solarMonthChiIndex } from "./truc";
 
 export interface HourInfo extends CanChiHour {
@@ -54,8 +55,7 @@ export interface DayInfo {
   solarTerm: SolarTermInfo;
   truc: Truc;
 
-  // TODO: nạp từ nguồn ngoài, xem GĐ1b
-  nhiThapBatTu: NamedEntry | null;
+  nhiThapBatTu: RatedEntry | null;
   // TODO: nạp từ nguồn ngoài, xem GĐ1b
   saoTot: NamedEntry[] | null;
   // TODO: nạp từ nguồn ngoài, xem GĐ1b
@@ -100,6 +100,7 @@ export function getDayInfo(date: Date | SolarDate): DayInfo {
   const solarTerm = getSolarTerm(endOfDay);
   const truc = getTruc(dayCanChi.chiIndex, solarMonthChiIndex(solarLongitudeAt(endOfDay)));
 
+  const nhiThapBatTu = nhiThapBatTuOfJd(jd);
   const saoTot = saoTotOfDay(dayCanChi.can, dayCanChi.chi, lunar.day);
   const saoXau = saoXauOfDay(dayCanChi.can, dayCanChi.chi, lunar.day);
   const khongMinh = khongMinhOfLunarDay(lunar.day);
@@ -124,7 +125,7 @@ export function getDayInfo(date: Date | SolarDate): DayInfo {
     hours,
     solarTerm,
     truc,
-    nhiThapBatTu: null, // TODO: Liêm cấp bảng 28 sao
+    nhiThapBatTu,
     saoTot: saoTot.map((s) => ({ name: s.name })),
     saoXau: saoXau.map((s) => ({ name: s.name })),
     hyThan,
