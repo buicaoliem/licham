@@ -46,8 +46,18 @@ describe("bảng sao suy ngược", () => {
     expect(new Set(names).size).toBe(names.length);
   });
 
-  it("mọi sao đều để trống phần mô tả", () => {
-    expect(DERIVED_SAO.every((s) => s.description === "")).toBe(true);
+  it("mỗi sao có mô tả thì mô tả phải khác rỗng", () => {
+    for (const s of DERIVED_SAO) {
+      if (s.description !== "") {
+        expect(s.description.trim()).not.toBe("");
+      }
+    }
+  });
+
+  it("không sao nào có mô tả trùng tên sao", () => {
+    for (const s of DERIVED_SAO) {
+      expect(s.description).not.toBe(s.name);
+    }
   });
 
   it("một sao chỉ xuất hiện ở đúng một bên, tốt hoặc xấu", () => {

@@ -87,7 +87,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Âm Đức",
     isGood: true,
-    description: "",
+    description: "Sao phúc ngầm, chủ về việc làm lành không phô trương. Tốt cho mọi việc.",
     kind: "lunar-month-chi",
     table: {
       1: [9],
@@ -108,7 +108,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Bạch hổ",
     isGood: false,
-    description: "",
+    description: "Sao hắc đạo, chủ về hung hiểm. Kiêng việc trọng đại, riêng an táng thì không kỵ.",
     kind: "lunar-month-chi",
     table: {
       1: [6],
@@ -129,7 +129,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Băng tiêu ngoạ hãm",
     isGood: false,
-    description: "",
+    description: "Sao băng tan ngói vỡ, chủ về đổ vỡ. Kiêng mọi việc.",
     kind: "lunar-month-chi",
     table: {
       1: [5],
@@ -150,7 +150,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Cát Khánh",
     isGood: true,
-    description: "",
+    description: "Sao tốt lành và mừng vui. Thuận cho mọi việc, nhất là việc hội họp, mừng thọ, khánh thành.",
     kind: "lunar-month-chi",
     table: {
       1: [9],
@@ -171,7 +171,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Cẩu Giảo",
     isGood: false,
-    description: "",
+    description: "Sao chó cắn. Kiêng xuất hành, đi xa.",
     kind: "lunar-month-chi",
     table: {
       1: [11],
@@ -192,7 +192,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Câu Trận",
     isGood: false,
-    description: "",
+    description: "Sao hắc đạo, chủ về vướng mắc. Kiêng an táng, việc cần dứt điểm.",
     kind: "lunar-month-chi",
     table: {
       1: [11],
@@ -234,7 +234,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Cô thần",
     isGood: false,
-    description: "",
+    description: "Sao cô độc. Kiêng cưới hỏi, việc cần đông người.",
     kind: "lunar-month-chi",
     table: {
       1: [10],
@@ -255,7 +255,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Cửu không",
     isGood: false,
-    description: "",
+    description: "Sao chín chỗ trống. Kiêng cầu tài, xuất hành, nhập kho.",
     kind: "lunar-month-chi",
     table: {
       1: [4],
@@ -297,7 +297,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Dịch Mã",
     isGood: true,
-    description: "",
+    description: "Sao chủ về di chuyển, đổi dời. Hợp xuất hành, chuyển nhà, đổi việc.",
     kind: "lunar-month-chi",
     table: {
       1: [8],
@@ -318,7 +318,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Đại Hao (Tử Khí, Quan Phú)",
     isGood: false,
-    description: "",
+    description: "Sao hao tổn lớn, còn gọi Tử khí. Kiêng khai trương, nhập kho, việc tiêu tiền lớn.",
     kind: "lunar-month-chi",
     table: {
       1: [6],
@@ -339,7 +339,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Đại Hồng Sa",
     isGood: true,
-    description: "",
+    description: "Sao đại cát, chủ về vận may lớn. Tốt cho mọi việc.",
     kind: "lunar-month-chi",
     table: {
       1: [0, 1],
@@ -360,7 +360,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Địa phá",
     isGood: false,
-    description: "",
+    description: "Sao phá của đất. Kiêng động thổ, xây móng.",
     kind: "lunar-month-chi",
     table: {
       1: [11],
@@ -381,7 +381,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Địa tài",
     isGood: true,
-    description: "",
+    description: "Sao tài lộc của đất. Hợp khai trương, buôn bán, ký kết làm ăn.",
     kind: "lunar-month-chi",
     table: {
       1: [5],
@@ -402,7 +402,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Địa Tặc",
     isGood: false,
-    description: "",
+    description: "Sao trộm cướp của đất. Kiêng động thổ, chôn cất, mở kho.",
     kind: "lunar-month-chi",
     table: {
       1: [1],
@@ -423,7 +423,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Độc Hỏa",
     isGood: false,
-    description: "",
+    description: "Sao lửa độc. Kiêng việc liên quan lửa.",
     kind: "lunar-month-chi",
     table: {
       1: [5],
@@ -444,7 +444,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Giải thần",
     isGood: true,
-    description: "",
+    description: "Sao hóa giải, có thể trừ bớt tác động của các sao xấu trong ngày. Hợp cúng tế, giải oan, việc kiện tụng.",
     kind: "lunar-month-chi",
     table: {
       1: [8],
@@ -465,7 +465,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Hà khôi(Cẩu Giảo)",
     isGood: false,
-    description: "",
+    description: "Sao xấu, chủ về trở ngại. Kiêng khởi sự, xuất hành.",
     kind: "lunar-month-chi",
     table: {
       1: [11],
@@ -486,7 +486,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Hỏa tai",
     isGood: false,
-    description: "",
+    description: "Sao chủ về hỏa hoạn. Kiêng việc liên quan lửa, bếp núc, lợp mái.",
     kind: "lunar-month-chi",
     table: {
       1: [1],
@@ -528,7 +528,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Hoàng Sa",
     isGood: false,
-    description: "",
+    description: "Sao cát vàng, chủ về che mờ. Kiêng xuất hành, việc cần sáng suốt.",
     kind: "lunar-month-chi",
     table: {
       1: [6],
@@ -549,7 +549,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Hoang vu",
     isGood: false,
-    description: "",
+    description: "Sao hoang vắng. Kiêng mọi việc.",
     kind: "lunar-month-chi",
     table: {
       1: [1, 5, 9],
@@ -570,7 +570,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Hoạt điệu",
     isGood: true,
-    description: "",
+    description: "Sao chủ về sự linh hoạt, thăng tiến. Hợp việc lớn như thăng chức, nhận thưởng, ra mắt.",
     kind: "lunar-month-chi",
     table: {
       1: [5],
@@ -612,7 +612,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Ích Hậu",
     isGood: true,
-    description: "",
+    description: "Sao thêm phúc về sau. Hợp cưới hỏi, cầu tự, việc tính đường dài.",
     kind: "lunar-month-chi",
     table: {
       1: [0],
@@ -633,7 +633,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Không phòng",
     isGood: false,
-    description: "",
+    description: "Sao phòng trống. Kiêng cưới hỏi, động phòng.",
     kind: "lunar-month-chi",
     table: {
       1: [4],
@@ -654,7 +654,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Kiếp sát",
     isGood: false,
-    description: "",
+    description: "Sao cướp đoạt, chủ về mất mát. Kiêng cầu tài, xuất hành, việc liên quan tiền bạc lớn.",
     kind: "lunar-month-chi",
     table: {
       1: [11],
@@ -675,7 +675,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Kim đường",
     isGood: true,
-    description: "",
+    description: "Sao nhà vàng, chủ về phú quý. Hợp làm nhà, khai trương, việc cầu tài.",
     kind: "lunar-month-chi",
     table: {
       1: [5],
@@ -696,7 +696,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Kính Tâm",
     isGood: true,
-    description: "",
+    description: "Sao chủ về lòng kính cẩn. Hợp việc tang lễ, cải táng, cúng giỗ.",
     kind: "lunar-month-chi",
     table: {
       1: [7],
@@ -738,7 +738,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Lộc khố",
     isGood: true,
-    description: "",
+    description: "Sao kho lộc, chủ về tích trữ của cải. Hợp khai trương, nhập kho, thu tiền, giao dịch.",
     kind: "lunar-month-chi",
     table: {
       1: [4],
@@ -759,7 +759,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Lôi công",
     isGood: false,
-    description: "",
+    description: "Sao sấm sét. Kiêng làm nhà, dựng cột, lợp mái.",
     kind: "lunar-month-chi",
     table: {
       1: [2],
@@ -801,7 +801,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Lục Hợp",
     isGood: true,
-    description: "",
+    description: "Ngày hợp đôi theo chi, chủ về sự gắn kết. Hợp cưới hỏi, ký kết, giao ước.",
     kind: "lunar-month-chi",
     table: {
       1: [11],
@@ -822,7 +822,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Ly sàng",
     isGood: false,
-    description: "",
+    description: "Sao lìa giường. Kiêng cưới hỏi, kê giường, việc vợ chồng.",
     kind: "lunar-month-chi",
     table: {
       1: [9],
@@ -843,7 +843,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Mãn đức tinh",
     isGood: true,
-    description: "",
+    description: "Sao đức đầy, chủ về sự viên mãn. Tốt cho mọi việc.",
     kind: "lunar-month-chi",
     table: {
       1: [2],
@@ -864,7 +864,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Mẫu Thương",
     isGood: true,
-    description: "",
+    description: "Sao kho lẫm, chủ về lương thực của cải. Hợp nhập kho, tích trữ, mua vào.",
     kind: "lunar-month-chi",
     table: {
       1: [0, 11],
@@ -885,7 +885,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Minh đường",
     isGood: true,
-    description: "",
+    description: "Sao hoàng đạo, chủ về chính đại quang minh. Tốt cho mọi việc.",
     kind: "lunar-month-chi",
     table: {
       1: [1],
@@ -906,7 +906,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Minh tinh",
     isGood: true,
-    description: "",
+    description: "Sao sáng, chủ về sự rõ ràng minh bạch. Tốt cho mọi việc, nhất là việc cần phân xử rành mạch.",
     kind: "lunar-month-chi",
     table: {
       1: [8],
@@ -927,7 +927,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Ngọc đường",
     isGood: true,
-    description: "",
+    description: "Sao hoàng đạo, chủ về quý hiển. Tốt cho mọi việc.",
     kind: "lunar-month-chi",
     table: {
       1: [7],
@@ -959,7 +959,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Ngũ hư",
     isGood: false,
-    description: "",
+    description: "Sao năm điều trống. Kiêng cầu tài, nhập kho, khởi sự.",
     kind: "lunar-month-chi",
     table: {
       1: [5],
@@ -980,7 +980,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Ngũ phú",
     isGood: true,
-    description: "",
+    description: "Sao năm điều phúc, chủ về khởi đầu thịnh vượng. Hợp bắt đầu việc mới, động thổ, mở mang làm ăn.",
     kind: "lunar-month-chi",
     table: {
       1: [11],
@@ -1001,7 +1001,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Ngũ Quỹ",
     isGood: false,
-    description: "",
+    description: "Sao năm quỷ, chủ về thị phi rắc rối. Kiêng xuất hành, việc cần yên ổn.",
     kind: "lunar-month-chi",
     table: {
       1: [6],
@@ -1022,7 +1022,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Nguyệt Ân",
     isGood: true,
-    description: "",
+    description: "Sao ân huệ của tháng, chủ về được che chở. Tốt cho mọi việc.",
     kind: "lunar-month-can",
     table: {
       1: [2],
@@ -1043,7 +1043,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Nguyệt Đức",
     isGood: true,
-    description: "",
+    description: "Sao đức của tháng, chủ về sự hanh thông. Ngày có sao này làm việc gì cũng thuận, ít gặp trắc trở.",
     kind: "lunar-month-can",
     table: {
       1: [2],
@@ -1064,7 +1064,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Nguyệt đức hợp",
     isGood: true,
-    description: "",
+    description: "Sao phối với Nguyệt đức, cùng mang khí lành. Tốt cho mọi việc, riêng chuyện kiện tụng thì nên tránh.",
     kind: "lunar-month-can",
     table: {
       1: [7],
@@ -1085,7 +1085,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Nguyệt giải",
     isGood: true,
-    description: "",
+    description: "Sao hóa giải của tháng, làm nhẹ điều xấu. Tốt cho mọi việc.",
     kind: "lunar-month-chi",
     table: {
       1: [8],
@@ -1106,7 +1106,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Nguyệt Hình",
     isGood: false,
-    description: "",
+    description: "Sao hình phạt của tháng. Kiêng kiện tụng, tranh chấp.",
     kind: "lunar-month-chi",
     table: {
       1: [5],
@@ -1127,7 +1127,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Nguyệt Hỏa",
     isGood: false,
-    description: "",
+    description: "Sao lửa của tháng. Kiêng lợp mái, xây bếp, sửa nhà.",
     kind: "lunar-month-chi",
     table: {
       1: [5],
@@ -1148,7 +1148,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Nguyệt Hư (Nguyệt Sát)",
     isGood: false,
-    description: "",
+    description: "Sao trống rỗng của tháng. Kiêng cầu tài, nhập kho.",
     kind: "lunar-month-chi",
     table: {
       1: [1],
@@ -1169,7 +1169,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Nguyệt Không",
     isGood: true,
-    description: "",
+    description: "Sao chủ về sự trống trải theo nghĩa lành, dọn chỗ cho cái mới. Hợp làm nhà, kê giường, sửa sang chỗ ở.",
     kind: "lunar-month-can",
     table: {
       1: [8],
@@ -1211,7 +1211,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Nguyệt phá",
     isGood: false,
-    description: "",
+    description: "Sao phá của tháng. Kiêng làm nhà, khởi công, việc cần bền vững.",
     kind: "lunar-month-chi",
     table: {
       1: [8],
@@ -1232,7 +1232,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Nguyệt Tài",
     isGood: true,
-    description: "",
+    description: "Sao tài lộc của tháng. Thuận cho khai trương, cầu tài, xuất hành và giao dịch buôn bán.",
     kind: "lunar-month-chi",
     table: {
       1: [6],
@@ -1295,7 +1295,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Phi Ma sát (Tai sát)",
     isGood: false,
-    description: "",
+    description: "Sao xấu, chủ về tan tác. Kiêng cưới hỏi, hợp tác.",
     kind: "lunar-month-chi",
     table: {
       1: [0],
@@ -1316,7 +1316,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Phổ hộ (Hội hộ)",
     isGood: true,
-    description: "",
+    description: "Sao che chở rộng khắp. Hợp cưới hỏi và xuất hành.",
     kind: "lunar-month-chi",
     table: {
       1: [8],
@@ -1358,7 +1358,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Phúc hậu",
     isGood: true,
-    description: "",
+    description: "Sao phúc dày. Hợp cầu tài, cầu lộc, việc lâu dài.",
     kind: "lunar-month-chi",
     table: {
       1: [2],
@@ -1379,7 +1379,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Phúc Sinh",
     isGood: true,
-    description: "",
+    description: "Sao sinh phúc, chủ về điều lành nảy nở. Tốt cho mọi việc.",
     kind: "lunar-month-chi",
     table: {
       1: [9],
@@ -1400,7 +1400,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Quả tú",
     isGood: false,
-    description: "",
+    description: "Sao lẻ loi. Kiêng cưới hỏi, việc đôi lứa.",
     kind: "lunar-month-chi",
     table: {
       1: [4],
@@ -1421,7 +1421,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Quan nhật",
     isGood: true,
-    description: "",
+    description: "Ngày của quan, chủ về công việc chính sự. Hợp trình báo, làm giấy tờ.",
     kind: "lunar-month-chi",
     table: {
       2: [3],
@@ -1445,7 +1445,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Sát chủ",
     isGood: false,
-    description: "",
+    description: "Sao rất xấu, kiêng mọi việc trọng đại. Đặc biệt kiêng làm nhà, cưới hỏi, an táng.",
     kind: "lunar-month-chi",
     table: {
       1: [5],
@@ -1466,7 +1466,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Sinh khí",
     isGood: true,
-    description: "",
+    description: "Sao khí sinh sôi. Hợp trồng cấy, làm nhà, khởi công, sinh con.",
     kind: "lunar-month-chi",
     table: {
       1: [0],
@@ -1487,7 +1487,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Tam Hợp",
     isGood: true,
-    description: "",
+    description: "Ngày hợp với ba chi cùng nhóm, chủ về sự hòa thuận. Tốt cho mọi việc, nhất là việc chung với nhiều người.",
     kind: "lunar-month-chi",
     table: {
       1: [6, 10],
@@ -1529,7 +1529,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Thanh Long",
     isGood: true,
-    description: "",
+    description: "Sao hoàng đạo đứng đầu, chủ về cát khí. Tốt cho mọi việc.",
     kind: "lunar-month-chi",
     table: {
       1: [0],
@@ -1550,7 +1550,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Thánh tâm",
     isGood: true,
-    description: "",
+    description: "Sao chủ về lòng thành. Hợp cúng tế, cầu phúc, lễ bái, việc hiếu nghĩa.",
     kind: "lunar-month-chi",
     table: {
       1: [11],
@@ -1571,7 +1571,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Thần cách",
     isGood: false,
-    description: "",
+    description: "Sao cách trở thần linh. Kiêng cúng tế, lễ bái.",
     kind: "lunar-month-chi",
     table: {
       1: [5],
@@ -1592,7 +1592,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Thiên Ân",
     isGood: true,
-    description: "",
+    description: "Sao ơn trời. Tốt cho mọi việc.",
     kind: "day-cycle",
     period: 60,
     table: {
@@ -1603,7 +1603,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Thiên Cương (hay Diệt Môn)",
     isGood: false,
-    description: "",
+    description: "Sao xấu lớn, còn gọi Diệt môn. Kiêng mọi việc.",
     kind: "lunar-month-chi",
     table: {
       1: [5],
@@ -1624,7 +1624,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Thiên Hỏa",
     isGood: false,
-    description: "",
+    description: "Sao lửa trời. Kiêng lợp mái, xây bếp, đốt lửa.",
     kind: "lunar-month-chi",
     table: {
       1: [0],
@@ -1645,7 +1645,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Thiên hỷ",
     isGood: true,
-    description: "",
+    description: "Sao mừng vui, chủ về hỷ sự. Rất hợp cưới hỏi, ăn hỏi, dạm ngõ và các việc vui trong nhà.",
     kind: "lunar-month-chi",
     table: {
       1: [10],
@@ -1666,7 +1666,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Thiên Lại",
     isGood: false,
-    description: "",
+    description: "Sao ngục lại. Kiêng kiện tụng, việc dính dáng pháp luật.",
     kind: "lunar-month-chi",
     table: {
       1: [9],
@@ -1687,7 +1687,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Thiên Mã (Lộc mã)",
     isGood: true,
-    description: "",
+    description: "Sao ngựa trời, chủ về đi lại. Hợp xuất hành, chuyển nhà, đi xa, mở đường làm ăn.",
     kind: "lunar-month-chi",
     table: {
       1: [6],
@@ -1729,7 +1729,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Thiên ôn",
     isGood: false,
-    description: "",
+    description: "Sao ôn dịch của trời. Kiêng làm nhà, dựng cột.",
     kind: "lunar-month-chi",
     table: {
       1: [7],
@@ -1750,7 +1750,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Thiên phú",
     isGood: true,
-    description: "",
+    description: "Sao chủ về sự sung túc, đầy đặn. Hợp xây cất, mở cửa hàng, và việc tang lễ.",
     kind: "lunar-month-chi",
     table: {
       1: [4],
@@ -1771,7 +1771,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Thiên Phúc",
     isGood: true,
-    description: "",
+    description: "Sao phúc của trời. Tốt cho mọi việc, nhất là cầu an, lễ bái.",
     kind: "lunar-month-can",
     table: {
       1: [5],
@@ -1788,7 +1788,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Thiên Quan",
     isGood: true,
-    description: "",
+    description: "Sao chủ về chức vị, công danh. Hợp việc nhậm chức, trình đơn từ, giao thiệp với cơ quan.",
     kind: "lunar-month-chi",
     table: {
       1: [10],
@@ -1809,7 +1809,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Thiên Quý",
     isGood: true,
-    description: "",
+    description: "Sao quý nhân, chủ về gặp người giúp đỡ. Thuận cho mọi việc, nhất là việc cần nhờ cậy người khác.",
     kind: "lunar-month-can",
     table: {
       1: [0, 1],
@@ -1830,7 +1830,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Thiên tài",
     isGood: true,
-    description: "",
+    description: "Sao tài lộc của trời. Hợp khai trương, cầu tài, mở hàng đầu năm.",
     kind: "lunar-month-chi",
     table: {
       1: [4],
@@ -1851,7 +1851,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Thiên tặc",
     isGood: false,
-    description: "",
+    description: "Sao trộm cướp của trời. Kiêng cầu tài, mở kho, khai trương.",
     kind: "lunar-month-chi",
     table: {
       1: [4],
@@ -1872,7 +1872,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Thiên thành",
     isGood: true,
-    description: "",
+    description: "Sao chủ về sự thành tựu. Tốt cho việc hoàn tất, nghiệm thu, bàn giao.",
     kind: "lunar-month-chi",
     table: {
       1: [7],
@@ -1904,7 +1904,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Thổ cẩm",
     isGood: false,
-    description: "",
+    description: "Sao cấm đất. Kiêng xây cất, an táng.",
     kind: "lunar-month-chi",
     table: {
       1: [11],
@@ -1925,7 +1925,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Thổ ôn (Thiên cẩu)",
     isGood: false,
-    description: "",
+    description: "Sao ôn dịch của đất. Kiêng động thổ, làm chuồng trại.",
     kind: "lunar-month-chi",
     table: {
       1: [4],
@@ -1946,7 +1946,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Thổ phủ",
     isGood: false,
-    description: "",
+    description: "Sao phủ đất. Kiêng động thổ, xây cất.",
     kind: "lunar-month-chi",
     table: {
       1: [2],
@@ -1967,7 +1967,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Thụ tử",
     isGood: false,
-    description: "",
+    description: "Sao chủ về chết. Kiêng mọi việc, trừ săn bắt.",
     kind: "lunar-month-chi",
     table: {
       1: [10],
@@ -1988,7 +1988,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Tiểu Hao",
     isGood: false,
-    description: "",
+    description: "Sao hao mòn. Kiêng cầu tài, nhập kho.",
     kind: "lunar-month-chi",
     table: {
       1: [5],
@@ -2030,7 +2030,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Tội chỉ",
     isGood: false,
-    description: "",
+    description: "Sao tội lỗi tìm đến. Kiêng kiện tụng, việc khuất tất.",
     kind: "lunar-month-chi",
     table: {
       1: [6],
@@ -2051,7 +2051,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Trùng phục",
     isGood: false,
-    description: "",
+    description: "Sao chủ về điều xấu lặp lại. Kiêng an táng, việc hiếu.",
     kind: "lunar-month-can",
     table: {
       1: [6],
@@ -2072,7 +2072,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Trùng Tang",
     isGood: false,
-    description: "",
+    description: "Sao chủ về tang nối tang. Kiêng an táng, cải táng, việc hiếu.",
     kind: "lunar-month-can",
     table: {
       1: [0],
@@ -2093,7 +2093,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Tục Thế",
     isGood: true,
-    description: "",
+    description: "Sao nối tiếp, chủ về sự kế thừa. Hợp cưới hỏi, cầu tự, việc gia đình.",
     kind: "lunar-month-chi",
     table: {
       1: [1],
@@ -2156,7 +2156,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "U Vi tinh",
     isGood: true,
-    description: "",
+    description: "Sao lành kín đáo, chủ về sự thuận lợi âm thầm. Tốt cho mọi việc.",
     kind: "lunar-month-chi",
     table: {
       1: [11],
@@ -2177,7 +2177,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
   {
     name: "Vãng vong (Thổ kỵ)",
     isGood: false,
-    description: "",
+    description: "Sao chủ về đi mà không về. Kiêng xuất hành, cưới hỏi, cầu tài.",
     kind: "lunar-month-chi",
     table: {
       1: [2],
