@@ -5,6 +5,7 @@
   "scripts": {
     "test": "pnpm -r test",
     "typecheck": "pnpm -r typecheck",
-    "check:compare": "pnpm --filter @licham/core run check:compare"
+    "check:compare": "pnpm --filter @licham/core run check:compare",
+    "verify:ltp": "pnpm --filter @licham/core run verify:ltp"
   }
 }
