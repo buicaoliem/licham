@@ -12,9 +12,9 @@ function DayLink({ d }: { d: MonthDayRef }) {
 }
 
 export function MonthFaq({ month, year, summary }: { month: number; year: number; summary: MonthSummary }) {
-  const { totalDays, goodDaysCount, avoidDaysCount, mungMotOrRamDays, firstGoodDay, firstAvoidDay } = summary;
-  const firstGood = firstGoodDay;
-  const firstAvoid = firstAvoidDay;
+  const { totalDays, goodDaysCount, avoidDaysCount, mungMotOrRamDays, goodDays, avoidDays } = summary;
+  const firstGood = goodDays[0];
+  const firstAvoid = avoidDays[0];
 
   return (
     <div style={{ marginTop: 16 }}>
@@ -28,11 +28,11 @@ export function MonthFaq({ month, year, summary }: { month: number; year: number
           </p>
         </div>
         <div className="faq">
-          <b>Ngày tốt đầu tiên trong tháng {month} là ngày nào?</b>
+          <b>Ngày tốt nổi bật đầu tiên trong tháng {month} là ngày nào?</b>
           <p>
             {firstGood ? (
               <>
-                Ngày <DayLink d={firstGood} /> là ngày hoàng đạo đầu tiên trong tháng.
+                Ngày <DayLink d={firstGood} /> là ngày tốt nổi bật đầu tiên trong danh sách ngày tốt của tháng.
               </>
             ) : (
               "Tháng này không có ngày hoàng đạo."
@@ -40,11 +40,12 @@ export function MonthFaq({ month, year, summary }: { month: number; year: number
           </p>
         </div>
         <div className="faq">
-          <b>Ngày cần tránh đầu tiên trong tháng {month} là ngày nào?</b>
+          <b>Ngày cần tránh nổi bật đầu tiên trong tháng {month} là ngày nào?</b>
           <p>
             {firstAvoid ? (
               <>
-                Ngày <DayLink d={firstAvoid} /> là ngày hắc đạo đầu tiên trong tháng, nên tránh khởi sự việc lớn.
+                Ngày <DayLink d={firstAvoid} /> là ngày cần tránh nổi bật đầu tiên trong danh sách của tháng, nên tránh
+                khởi sự việc lớn.
               </>
             ) : (
               "Tháng này không có ngày hắc đạo."

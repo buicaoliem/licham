@@ -17,9 +17,6 @@ export interface MonthSummary {
   goodDays: MonthDayRef[];
   avoidDays: MonthDayRef[];
   mungMotOrRamDays: MonthDayRef[];
-  /** Ngày hoàng đạo/hắc đạo đầu tiên trong tháng theo thứ tự ngày, không phụ thuộc việc chọn lọc 6 ngày nổi bật. */
-  firstGoodDay: MonthDayRef | null;
-  firstAvoidDay: MonthDayRef | null;
 }
 
 const MAX_PICKS = 6;
@@ -72,18 +69,12 @@ function pickAvoidDays(cells: MonthCell[]): MonthDayRef[] {
 /** Tổng hợp ngày hoàng đạo / hắc đạo / mùng một · rằm trong tháng, chỉ tính các ô thuộc đúng tháng đang xem. */
 export function getMonthSummary(cells: MonthCell[]): MonthSummary {
   const currentMonthCells = cells.filter((c) => c.isCurrentMonth);
-  const goodCandidates = currentMonthCells.filter((c) => c.isHoangDao).sort(byDayAsc);
-  const avoidCandidates = currentMonthCells.filter((c) => !c.isHoangDao).sort(byDayAsc);
-  const firstGood = goodCandidates[0];
-  const firstAvoid = avoidCandidates[0];
   return {
     totalDays: currentMonthCells.length,
-    goodDaysCount: goodCandidates.length,
-    avoidDaysCount: avoidCandidates.length,
+    goodDaysCount: currentMonthCells.filter((c) => c.isHoangDao).length,
+    avoidDaysCount: currentMonthCells.filter((c) => !c.isHoangDao).length,
     goodDays: pickGoodDays(currentMonthCells),
     avoidDays: pickAvoidDays(currentMonthCells),
     mungMotOrRamDays: currentMonthCells.filter((c) => c.isMungMotOrRam).map((c) => toRef(c, [])),
-    firstGoodDay: firstGood ? toRef(firstGood, firstGood.saoTotNames.slice(0, 2)) : null,
-    firstAvoidDay: firstAvoid ? toRef(firstAvoid, firstAvoid.saoXauNames.slice(0, 2)) : null,
   };
 }
