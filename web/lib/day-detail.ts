@@ -17,20 +17,23 @@ function hourLabel(start: string, end: string): string {
   return `${Number.parseInt(start, 10)}h–${Number.parseInt(end, 10)}h`;
 }
 
-/** The 12 two-hour Lý Thuần Phong slots grouped into their 6 repeating pairs (chi and chi+6 always share a state). */
+/** The 12 two-hour Lý Thuần Phong slots grouped into their 6 repeating pairs (chi and chi+6 always share a state). Pairs with no known state are dropped rather than shown as a placeholder. */
 export function ltpPairs(info: DayInfo): LtpPair[] {
   const ltp = info.lyThuanPhong ?? [];
-  return Array.from({ length: 6 }, (_, i) => {
+  const pairs: LtpPair[] = [];
+  for (let i = 0; i < 6; i++) {
+    const state = ltp.find((l) => l.chiIndex === i);
+    if (!state) continue;
     const a = info.hours[i]!;
     const b = info.hours[i + 6]!;
-    const state = ltp.find((l) => l.chiIndex === i);
-    return {
+    pairs.push({
       aLabel: hourLabel(a.start, a.end),
       bLabel: hourLabel(b.start, b.end),
-      name: state?.name ?? "—",
-      isGood: state?.isGood ?? false,
-    };
-  });
+      name: state.name,
+      isGood: state.isGood,
+    });
+  }
+  return pairs;
 }
 
 const WEDDING_KEYWORDS = ["cưới hỏi", "giá thú", "mọi việc", "mọi công việc"];
@@ -39,13 +42,11 @@ function affectsWedding(entry: NgocHapSaoEntry): boolean {
   return entry.affects.some((a) => WEDDING_KEYWORDS.some((k) => a.toLowerCase().includes(k)));
 }
 
-/** Honest answer for "is this day good for a wedding" from only the sao tốt/xấu actually triggered — no invented data. */
-export function weddingAnswer(saoTot: NgocHapSaoEntry[], saoXau: NgocHapSaoEntry[]): string {
+/** Honest answer for "is this day good for a wedding" from only the sao tốt/xấu actually triggered — no invented data. Returns null when nothing was recorded, so the caller can drop the FAQ entirely instead of showing a placeholder. */
+export function weddingAnswer(saoTot: NgocHapSaoEntry[], saoXau: NgocHapSaoEntry[]): string | null {
   const good = saoTot.filter(affectsWedding);
   const bad = saoXau.filter(affectsWedding);
-  if (good.length === 0 && bad.length === 0) {
-    return "Không có sao đặc biệt tốt hay xấu cho việc cưới hỏi được ghi nhận trong ngày này theo Ngọc Hạp Thông Thư.";
-  }
+  if (good.length === 0 && bad.length === 0) return null;
   const parts: string[] = [];
   if (good.length > 0) parts.push(`sao ${good.map((s) => s.name).join(", ")} tốt cho việc này`);
   if (bad.length > 0) parts.push(`sao ${bad.map((s) => s.name).join(", ")} xấu với việc này`);

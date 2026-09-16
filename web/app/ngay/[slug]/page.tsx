@@ -53,6 +53,8 @@ export default async function DayPage({ params }: { params: Promise<{ slug: stri
 
   const pairs = ltpPairs(info);
   const best = bestHours(info, CHI);
+  const hasDirections = Boolean(info.hyThan || info.taiThan || info.khongMinh);
+  const weddingText = weddingAnswer(saoTot, saoXau);
 
   return (
     <div className="outer">
@@ -99,10 +101,14 @@ export default async function DayPage({ params }: { params: Promise<{ slug: stri
                 <span>Ngũ hành</span>
                 <span>{info.canChi.day.napAm.name}</span>
               </div>
-              <div className="row">
-                <span>Nhị thập bát tú</span>
-                <span>{info.nhiThapBatTu ? `Sao ${info.nhiThapBatTu.name} — ${info.nhiThapBatTu.isGood ? "tốt" : "xấu"}` : "—"}</span>
-              </div>
+              {info.nhiThapBatTu && (
+                <div className="row">
+                  <span>Nhị thập bát tú</span>
+                  <span>
+                    Sao {info.nhiThapBatTu.name} — {info.nhiThapBatTu.isGood ? "tốt" : "xấu"}
+                  </span>
+                </div>
+              )}
             </div>
 
             <div className="box">
@@ -139,81 +145,93 @@ export default async function DayPage({ params }: { params: Promise<{ slug: stri
             </div>
           </div>
 
-          <div className="cols2" style={{ marginTop: 16 }}>
-            <div className="box">
-              <div className="box-h">
-                <span className="rule" />
-                <span className="t">Sao tốt · việc nên làm</span>
-                <span className="rule" />
-              </div>
-              {saoTot.length === 0 && <p style={{ margin: 0, fontSize: 13.5, color: "var(--ink-3)" }}>Không có sao tốt được ghi nhận trong ngày này.</p>}
-              {saoTot.map((s) => (
-                <div key={s.name} className="star g">
-                  <b>{s.name}</b>
-                  <p>{s.description}</p>
+          {(saoTot.length > 0 || saoXau.length > 0) && (
+            <div className="cols2" style={{ marginTop: 16 }}>
+              {saoTot.length > 0 && (
+                <div className="box" style={saoXau.length === 0 ? { gridColumn: "1 / -1" } : undefined}>
+                  <div className="box-h">
+                    <span className="rule" />
+                    <span className="t">Sao tốt · việc nên làm</span>
+                    <span className="rule" />
+                  </div>
+                  {saoTot.map((s) => (
+                    <div key={s.name} className="star g">
+                      <b>{s.name}</b>
+                      <p>{s.description}</p>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-            <div className="box">
-              <div className="box-h">
-                <span className="rule" />
-                <span className="t">Sao xấu · việc nên kiêng</span>
-                <span className="rule" />
-              </div>
-              {saoXau.length === 0 && <p style={{ margin: 0, fontSize: 13.5, color: "var(--ink-3)" }}>Không có sao xấu được ghi nhận trong ngày này.</p>}
-              {saoXau.map((s) => (
-                <div key={s.name} className="star x">
-                  <b>{s.name}</b>
-                  <p>{s.description}</p>
+              )}
+              {saoXau.length > 0 && (
+                <div className="box" style={saoTot.length === 0 ? { gridColumn: "1 / -1" } : undefined}>
+                  <div className="box-h">
+                    <span className="rule" />
+                    <span className="t">Sao xấu · việc nên kiêng</span>
+                    <span className="rule" />
+                  </div>
+                  {saoXau.map((s) => (
+                    <div key={s.name} className="star x">
+                      <b>{s.name}</b>
+                      <p>{s.description}</p>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              )}
             </div>
-          </div>
+          )}
 
-          <div className="cols2" style={{ marginTop: 16 }}>
-            <div className="box">
-              <div className="box-h">
-                <span className="rule" />
-                <span className="t">Hướng và ngày xuất hành</span>
-                <span className="rule" />
-              </div>
-              {info.hyThan && (
-                <div className="row">
-                  <span>Hỷ thần</span>
-                  <span>Hướng {info.hyThan.direction.toLowerCase()}</span>
+          {(hasDirections || pairs.length > 0) && (
+            <div className="cols2" style={{ marginTop: 16 }}>
+              {hasDirections && (
+                <div className="box" style={pairs.length === 0 ? { gridColumn: "1 / -1" } : undefined}>
+                  <div className="box-h">
+                    <span className="rule" />
+                    <span className="t">Hướng và ngày xuất hành</span>
+                    <span className="rule" />
+                  </div>
+                  {info.hyThan && (
+                    <div className="row">
+                      <span>Hỷ thần</span>
+                      <span>Hướng {info.hyThan.direction.toLowerCase()}</span>
+                    </div>
+                  )}
+                  {info.taiThan && (
+                    <div className="row">
+                      <span>Tài thần</span>
+                      <span>Hướng {info.taiThan.direction.toLowerCase()}</span>
+                    </div>
+                  )}
+                  {info.khongMinh && (
+                    <div className="row">
+                      <span>Khổng Minh lục diệu</span>
+                      <span>
+                        {info.khongMinh.name} — {info.khongMinh.isGood ? "tốt" : "xấu"}
+                      </span>
+                    </div>
+                  )}
                 </div>
               )}
-              {info.taiThan && (
-                <div className="row">
-                  <span>Tài thần</span>
-                  <span>Hướng {info.taiThan.direction.toLowerCase()}</span>
-                </div>
-              )}
-              {info.khongMinh && (
-                <div className="row">
-                  <span>Khổng Minh lục diệu</span>
-                  <span>{info.khongMinh.name} — {info.khongMinh.isGood ? "tốt" : "xấu"}</span>
+              {pairs.length > 0 && (
+                <div className="box" style={!hasDirections ? { gridColumn: "1 / -1" } : undefined}>
+                  <div className="box-h">
+                    <span className="rule" />
+                    <span className="t">Giờ xuất hành theo Lý Thuần Phong</span>
+                    <span className="rule" />
+                  </div>
+                  {pairs.map((p, i) => (
+                    <div key={p.name + i} className="row" style={i > 0 ? { borderTop: "1px solid var(--line-2)", paddingTop: 11 } : undefined}>
+                      <span>
+                        {p.aLabel} · {p.bLabel}
+                      </span>
+                      <span style={{ color: p.isGood ? "var(--luc)" : "var(--son)" }}>
+                        {p.name} — {p.isGood ? "tốt" : "xấu"}
+                      </span>
+                    </div>
+                  ))}
                 </div>
               )}
             </div>
-            <div className="box">
-              <div className="box-h">
-                <span className="rule" />
-                <span className="t">Giờ xuất hành theo Lý Thuần Phong</span>
-                <span className="rule" />
-              </div>
-              {pairs.map((p, i) => (
-                <div key={p.name + i} className="row" style={i > 0 ? { borderTop: "1px solid var(--line-2)", paddingTop: 11 } : undefined}>
-                  <span>
-                    {p.aLabel} · {p.bLabel}
-                  </span>
-                  <span style={{ color: p.isGood ? "var(--luc)" : "var(--son)" }}>
-                    {p.name} — {p.isGood ? "tốt" : "xấu"}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
+          )}
 
           <div className="prose" style={{ marginTop: 32 }}>
             <h2 className="hh">Câu hỏi thường gặp</h2>
@@ -230,28 +248,26 @@ export default async function DayPage({ params }: { params: Promise<{ slug: stri
                 {isHoangDaoNgay ? "Hoàng đạo" : "Hắc đạo"}, gặp {info.thanSatNgay.star}. Trực ngày là {info.truc.name}.
               </p>
             </div>
-            <div className="faq">
-              <b>Ngày {ngayLabel} có tốt để cưới hỏi không?</b>
-              <p>{weddingAnswer(saoTot, saoXau)}</p>
-            </div>
-            <div className="faq">
-              <b>Tuổi nào xung với ngày này?</b>
-              <p>Dữ liệu tuổi xung cho ngày này đang được bổ sung.</p>
-            </div>
-            <div className="faq">
-              <b>Giờ nào tốt nhất trong ngày?</b>
-              <p>
-                {best.length === 0
-                  ? "Không có khung giờ nào vừa là giờ hoàng đạo vừa vào khung tốt theo Lý Thuần Phong trong ngày này."
-                  : (() => {
-                      const list = joinVi(
-                        best.map((b) => `giờ ${b.chiName} từ ${Number.parseInt(b.start, 10)}h đến ${Number.parseInt(b.end, 10)}h`),
-                      );
-                      const sentence = `${list}, vừa là giờ hoàng đạo vừa trùng khung ${joinVi(Array.from(new Set(best.map((b) => b.ltpName))))}.`;
-                      return sentence.charAt(0).toUpperCase() + sentence.slice(1);
-                    })()}
-              </p>
-            </div>
+            {weddingText && (
+              <div className="faq">
+                <b>Ngày {ngayLabel} có tốt để cưới hỏi không?</b>
+                <p>{weddingText}</p>
+              </div>
+            )}
+            {best.length > 0 && (
+              <div className="faq">
+                <b>Giờ nào tốt nhất trong ngày?</b>
+                <p>
+                  {(() => {
+                    const list = joinVi(
+                      best.map((b) => `giờ ${b.chiName} từ ${Number.parseInt(b.start, 10)}h đến ${Number.parseInt(b.end, 10)}h`),
+                    );
+                    const sentence = `${list}, vừa là giờ hoàng đạo vừa trùng khung ${joinVi(Array.from(new Set(best.map((b) => b.ltpName))))}.`;
+                    return sentence.charAt(0).toUpperCase() + sentence.slice(1);
+                  })()}
+                </p>
+              </div>
+            )}
 
             <div className="pn">
               {hasPrev ? (
