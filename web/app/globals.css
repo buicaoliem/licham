@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+:root {
+  --page: #eae5db;
+  --ink: #201b14;
+  --ink-2: #5f5749;
+  --ink-3: #958b7b;
+  --sheet: #fffdf8;
+  --line: #e8e0d1;
+  --line-2: #f2ece1;
+  --son: #c0272d;
+  --son-soft: #fdf0ee;
+  --luc: #3c7a5d;
+  --luc-soft: #eef6f1;
+  --kim: #c2932f;
+  --kim-soft: #fbf4e6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --page: #100e0a;
+    --ink: #f5f0e5;
+    --ink-2: #b9b1a2;
+    --ink-3: #8b8274;
+    --sheet: #1d1a14;
+    --line: #332d23;
+    --line-2: #26211a;
+    --son: #e0574f;
+    --son-soft: #2b1917;
+    --luc: #7cc6a0;
+    --luc-soft: #17241d;
+    --kim: #ddb85f;
+    --kim-soft: #282016;
+  }
+}
+
+:root[data-theme="dark"] {
+  --page: #100e0a;
+  --ink: #f5f0e5;
+  --ink-2: #b9b1a2;
+  --ink-3: #8b8274;
+  --sheet: #1d1a14;
+  --line: #332d23;
+  --line-2: #26211a;
+  --son: #e0574f;
+  --son-soft: #2b1917;
+  --luc: #7cc6a0;
+  --luc-soft: #17241d;
+  --kim: #ddb85f;
+  --kim-soft: #282016;
+}
+
+@theme {
+  --color-page: var(--page);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-sheet: var(--sheet);
+  --color-line: var(--line);
+  --color-line-2: var(--line-2);
+  --color-son: var(--son);
+  --color-son-soft: var(--son-soft);
+  --color-luc: var(--luc);
+  --color-luc-soft: var(--luc-soft);
+  --color-kim: var(--kim);
+  --color-kim-soft: var(--kim-soft);
+
+  --font-sans: var(--font-be-vietnam-pro);
+  --font-display: var(--font-playfair-display);
+  --font-serif: var(--font-lora);
+}
+
+body {
+  background: var(--page);
+  color: var(--ink);
+}
