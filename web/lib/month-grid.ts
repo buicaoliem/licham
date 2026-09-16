@@ -10,6 +10,8 @@ export interface MonthCell {
   isToday: boolean;
   isMungMotOrRam: boolean;
   isHoangDao: boolean;
+  saoTotNames: string[];
+  saoXauNames: string[];
 }
 
 /** Monday-first day-of-week index (0 = Thứ hai … 6 = Chủ nhật) for `dayOfWeek()` (0 = Sunday). */
@@ -43,6 +45,8 @@ export function getMonthCells(month: number, year: number, today: SolarDate): Mo
       isToday: solar.day === today.day && solar.month === today.month && solar.year === today.year,
       isMungMotOrRam: info.lunar.day === 1 || info.lunar.day === 15,
       isHoangDao: info.thanSatNgay.isHoangDao,
+      saoTotNames: (info.saoTot ?? []).map((s) => s.name),
+      saoXauNames: (info.saoXau ?? []).map((s) => s.name),
     });
   }
   return cells;

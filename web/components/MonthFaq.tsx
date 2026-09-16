@@ -12,9 +12,9 @@ function DayLink({ d }: { d: MonthDayRef }) {
 }
 
 export function MonthFaq({ month, year, summary }: { month: number; year: number; summary: MonthSummary }) {
-  const { totalDays, goodDays, avoidDays, mungMotOrRamDays } = summary;
-  const firstGood = goodDays[0];
-  const firstAvoid = avoidDays[0];
+  const { totalDays, goodDaysCount, avoidDaysCount, mungMotOrRamDays, firstGoodDay, firstAvoidDay } = summary;
+  const firstGood = firstGoodDay;
+  const firstAvoid = firstAvoidDay;
 
   return (
     <div style={{ marginTop: 16 }}>
@@ -23,7 +23,7 @@ export function MonthFaq({ month, year, summary }: { month: number; year: number
         <div className="faq">
           <b>Tháng {month} năm {year} có bao nhiêu ngày hoàng đạo?</b>
           <p>
-            Tháng {month} có {totalDays} ngày, trong đó {goodDays.length} ngày là hoàng đạo và {avoidDays.length} ngày là
+            Tháng {month} có {totalDays} ngày, trong đó {goodDaysCount} ngày là hoàng đạo và {avoidDaysCount} ngày là
             hắc đạo.
           </p>
         </div>

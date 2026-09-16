@@ -7,17 +7,15 @@ function DayRow({ d }: { d: MonthDayRef }) {
   return (
     <Link href={`/ngay/${dateToSlug(d)}`} className="row">
       <span>
-        {pad2(d.day)}/{pad2(d.month)}
+        {pad2(d.day)}/{pad2(d.month)} · Âm {d.lunarDay}/{d.lunarMonth}
       </span>
-      <span>
-        Âm {d.lunarDay}/{d.lunarMonth}
-      </span>
+      {d.topStars.length > 0 && <span>{d.topStars.join(", ")}</span>}
     </Link>
   );
 }
 
 export function MonthSummaryCards({ month, year, summary }: { month: number; year: number; summary: MonthSummary }) {
-  const { totalDays, goodDays, avoidDays, mungMotOrRamDays } = summary;
+  const { totalDays, goodDaysCount, avoidDaysCount, goodDays, avoidDays, mungMotOrRamDays } = summary;
 
   return (
     <div className="cols3">
@@ -33,11 +31,11 @@ export function MonthSummaryCards({ month, year, summary }: { month: number; yea
         </div>
         <div className="row">
           <span>Ngày hoàng đạo</span>
-          <span>{goodDays.length} ngày</span>
+          <span>{goodDaysCount} ngày</span>
         </div>
         <div className="row">
           <span>Ngày hắc đạo</span>
-          <span>{avoidDays.length} ngày</span>
+          <span>{avoidDaysCount} ngày</span>
         </div>
         <div className="row">
           <span>Mùng một · rằm</span>
@@ -48,27 +46,23 @@ export function MonthSummaryCards({ month, year, summary }: { month: number; yea
       <div className="box">
         <div className="box-h">
           <span className="rule" />
-          <span className="t">Ngày tốt</span>
+          <span className="t">Ngày tốt trong tháng</span>
           <span className="rule" />
         </div>
-        <div style={{ maxHeight: 220, overflowY: "auto" }}>
-          {goodDays.map((d) => (
-            <DayRow key={`${d.day}-${d.month}`} d={d} />
-          ))}
-        </div>
+        {goodDays.map((d) => (
+          <DayRow key={`${d.day}-${d.month}`} d={d} />
+        ))}
       </div>
 
       <div className="box">
         <div className="box-h">
           <span className="rule" />
-          <span className="t">Ngày cần tránh</span>
+          <span className="t">Ngày cần tránh trong tháng</span>
           <span className="rule" />
         </div>
-        <div style={{ maxHeight: 220, overflowY: "auto" }}>
-          {avoidDays.map((d) => (
-            <DayRow key={`${d.day}-${d.month}`} d={d} />
-          ))}
-        </div>
+        {avoidDays.map((d) => (
+          <DayRow key={`${d.day}-${d.month}`} d={d} />
+        ))}
       </div>
     </div>
   );
