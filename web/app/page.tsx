@@ -1,4 +1,4 @@
-import { CHI, getDayInfo } from "@licham/core";
+import { CHI, getDayInfo, saoTotOfDay, saoXauOfDay } from "@licham/core";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { HeroBand } from "@/components/HeroBand";
@@ -20,6 +20,9 @@ export default function HomePage() {
     .map((h) => ({ chiName: CHI[h.chiIndex]!, start: h.start, end: h.end }));
 
   const cells = getMonthCells(today.month, today.year, today);
+
+  const saoTotCount = saoTotOfDay(info.canChi.day.can, info.canChi.day.chi, info.lunar.day).length;
+  const saoXauCount = saoXauOfDay(info.canChi.day.can, info.canChi.day.chi, info.lunar.day).length;
 
   return (
     <div className="outer">
@@ -49,7 +52,7 @@ export default function HomePage() {
             Xem lịch âm dương, giờ hoàng đạo, ngày tốt xấu. Không quảng cáo, không theo dõi, mở là thấy ngay.
           </p>
 
-          <TodayCards hoangDaoHours={hoangDaoHours} info={info} />
+          <TodayCards hoangDaoHours={hoangDaoHours} info={info} saoTotCount={saoTotCount} saoXauCount={saoXauCount} />
 
           <MonthGrid month={today.month} year={today.year} cells={cells} />
 
