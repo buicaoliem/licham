@@ -10,6 +10,8 @@ import { type HourStarName, getHourStars } from "./hoangDao";
 import { type SolarDate, dayOfWeek, isValidSolarDate, jdFromDate } from "./julian";
 import { type LunarDate, VN_TIME_ZONE, solarToLunar } from "./lunar";
 import { type SolarTermInfo, getSolarTerm, solarLongitudeAt } from "./solarTerms";
+import { khongMinhOfLunarDay } from "./tables/khong-minh";
+import { saoTotOfDay, saoXauOfDay } from "./tables/ngoc-hap";
 import { type Truc, getTruc, solarMonthChiIndex } from "./truc";
 
 export interface HourInfo extends CanChiHour {
@@ -96,6 +98,10 @@ export function getDayInfo(date: Date | SolarDate): DayInfo {
   const solarTerm = getSolarTerm(endOfDay);
   const truc = getTruc(dayCanChi.chiIndex, solarMonthChiIndex(solarLongitudeAt(endOfDay)));
 
+  const saoTot = saoTotOfDay(dayCanChi.can, dayCanChi.chi, lunar.day);
+  const saoXau = saoXauOfDay(dayCanChi.can, dayCanChi.chi, lunar.day);
+  const khongMinh = khongMinhOfLunarDay(lunar.day);
+
   const stars = getHourStars(dayCanChi.chiIndex);
   const hours = canChiOfHours(dayCanChi.canIndex).map((h, i) => {
     const s = stars[i]!;
@@ -113,13 +119,13 @@ export function getDayInfo(date: Date | SolarDate): DayInfo {
     hours,
     solarTerm,
     truc,
-    nhiThapBatTu: null, // TODO: nạp từ nguồn ngoài, xem GĐ1b
-    saoTot: null, // TODO: nạp từ nguồn ngoài, xem GĐ1b
-    saoXau: null, // TODO: nạp từ nguồn ngoài, xem GĐ1b
-    hyThan: null, // TODO: nạp từ nguồn ngoài, xem GĐ1b
-    taiThan: null, // TODO: nạp từ nguồn ngoài, xem GĐ1b
-    khongMinh: null, // TODO: nạp từ nguồn ngoài, xem GĐ1b
-    lyThuanPhong: null, // TODO: nạp từ nguồn ngoài, xem GĐ1b
-    tuoiXung: null, // TODO: nạp từ nguồn ngoài, xem GĐ1b
+    nhiThapBatTu: null, // TODO: Liêm cấp bảng 28 sao
+    saoTot: saoTot.map((s) => ({ name: s.name })),
+    saoXau: saoXau.map((s) => ({ name: s.name })),
+    hyThan: null, // TODO: Liêm cấp bảng theo can ngày
+    taiThan: null, // TODO: Liêm cấp bảng theo can ngày
+    khongMinh,
+    lyThuanPhong: null, // TODO: Liêm cấp bảng 6 trạng thái theo giờ
+    tuoiXung: null, // TODO: Liêm cấp bảng
   };
 }

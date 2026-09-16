@@ -32,6 +32,8 @@ export {
   solarLongitudeAt,
 } from "./solarTerms";
 export { type HourStarName, type HourStar, HOUR_STARS, getHourStars } from "./hoangDao";
+export { type KhongMinhEntry, KHONG_MINH_STATES, khongMinhOfLunarDay } from "./tables/khong-minh";
+export { type NgocHapSaoEntry, saoTotOfDay, saoXauOfDay } from "./tables/ngoc-hap";
 export { type TrucName, type Truc, TRUC, getTruc, solarMonthChiIndex } from "./truc";
 export {
   type DayInfo,

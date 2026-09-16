@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "test": "pnpm -r test",
-    "typecheck": "pnpm -r typecheck"
+    "typecheck": "pnpm -r typecheck",
+    "check:compare": "pnpm --filter @licham/core run check:compare"
   }
 }
