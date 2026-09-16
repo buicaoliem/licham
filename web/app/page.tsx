@@ -7,12 +7,12 @@ import { MonthGrid } from "@/components/MonthGrid";
 import { OccasionChips } from "@/components/OccasionChips";
 import { TodayCards } from "@/components/TodayCards";
 import { getMonthCells } from "@/lib/month-grid";
+import { getVietnamToday } from "@/lib/today";
 import { getUpcomingOccasions } from "@/lib/upcoming-occasions";
 
-// Trang tĩnh: "hôm nay" được tính tại thời điểm build.
+// Trang tĩnh: "hôm nay" được tính tại thời điểm build, theo giờ Việt Nam.
 export default function HomePage() {
-  const now = new Date();
-  const today = { day: now.getDate(), month: now.getMonth() + 1, year: now.getFullYear() };
+  const today = getVietnamToday();
   const info = getDayInfo(today);
 
   const hoangDaoHours = info.hours
