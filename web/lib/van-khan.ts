@@ -372,6 +372,7 @@ export const VAN_KHAN_LIST: readonly VanKhanBai[] = [
       "Người trong nhà theo sau, mỗi người cầm một món đồ, không ai đi tay không",
       "Khấn thần linh trước, gia tiên sau",
       "Đêm đầu tiên nên ngủ lại nhà mới",
+      "Khấn thần linh trước, sau đó mới khấn gia tiên.",
     ],
     baiKhan: [
       {
@@ -384,6 +385,20 @@ export const VAN_KHAN_LIST: readonly VanKhanBai[] = [
           "Gia đình chúng con vừa xây cất xong ngôi nhà tại {địa chỉ nhà mới}. Nay chọn được ngày lành tháng tốt, kính cẩn làm lễ nhập trạch, dọn về ở.",
           "Chúng con kính mời chư vị Tôn thần giáng lâm trước án, chứng giám lòng thành, thụ hưởng lễ vật, cho phép chúng con được rước vong linh gia tiên về nơi ở mới để thờ phụng.",
           "Cúi xin chư vị phù hộ độ trì cho gia đình chúng con an cư lạc nghiệp, người người mạnh khỏe, làm ăn thuận lợi, gia đạo hưng long.",
+          "Chúng con lễ bạc tâm thành, cúi xin được phù hộ độ trì.",
+          "Nam mô A Di Đà Phật (ba lần)",
+        ],
+      },
+      {
+        tieuDe: "Bài khấn gia tiên",
+        doanVan: [
+          "Nam mô A Di Đà Phật (ba lần)",
+          "Con lạy chín phương Trời, mười phương Chư Phật, Chư Phật mười phương.\nCon kính lạy tổ tiên nội ngoại họ {họ} cùng chư vị hương linh.",
+          "Tín chủ con là {họ tên}, ngụ tại {địa chỉ}.",
+          "Hôm nay là ngày {ngày} tháng {tháng} năm {năm}, gia đình chúng con dọn về ngôi nhà mới tại {địa chỉ nhà mới}.",
+          "Chúng con đã kính cáo chư vị Tôn thần, nay thành tâm sắm sửa hương hoa lễ vật, cơm canh trà quả, kính dâng lên trước án, cúi xin được rước chư vị hương linh tổ tiên về nơi ở mới để con cháu sớm hôm thờ phụng.",
+          "Chúng con kính mời các cụ Cao Tằng Tổ Khảo, Cao Tằng Tổ Tỷ, bá thúc huynh đệ, cô di tỷ muội cùng toàn thể hương linh nội ngoại họ {họ}, cúi xin thương xót con cháu, linh thiêng giáng về, an ngự nơi bàn thờ mới, chứng giám lòng thành, thụ hưởng lễ vật.",
+          "Cúi xin tổ tiên phù hộ độ trì cho gia đình chúng con tại nơi ở mới được an cư lạc nghiệp, người người mạnh khỏe, trên thuận dưới hòa, làm ăn thuận lợi, gia đạo hưng long.",
           "Chúng con lễ bạc tâm thành, cúi xin được phù hộ độ trì.",
           "Nam mô A Di Đà Phật (ba lần)",
         ],
