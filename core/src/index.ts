@@ -22,6 +22,8 @@ export {
   canChiOfMonth,
   canChiOfYear,
   canChiOfHours,
+  canChiNamDuong,
+  canChiNamSinh,
 } from "./canChi";
 export {
   type SolarTermName,
@@ -42,7 +44,14 @@ export {
 export { hyThanOfCan, taiThanOfCan } from "./tables/huong-xuat-hanh";
 export { type KhongMinhEntry, KHONG_MINH_STATES, khongMinhOfLunarDay } from "./tables/khong-minh";
 export { type LyThuanPhongEntry, lyThuanPhongOfDay, lyThuanPhongOfHour } from "./tables/ly-thuan-phong";
-export { type XungEntry, type TuoiXungLevel, xungNgay, xungThang, namSinhCoXung } from "./tables/tuoi-xung";
+export {
+  type XungEntry,
+  type TuoiXungLevel,
+  xungNgay,
+  xungThang,
+  namSinhCoXung,
+  canChiCoXung,
+} from "./tables/tuoi-xung";
 export {
   type DerivedSao,
   type DerivedSaoDay,

@@ -38,18 +38,24 @@ describe("tuổi xung", () => {
     }
   });
 
-  it("năm sinh 1995 (Ất Hợi) xung chi với ngày Quý Tỵ, nhưng không thiên khắc địa xung", () => {
+  it("sinh 15/06/1995 (Ất Hợi) xung chi với ngày Quý Tỵ, nhưng không thiên khắc địa xung", () => {
     const ngay = canChiFromIndex(29); // Quý Tỵ
-    expect(namSinhCoXung(1995, ngay)).toBe("xung-chi");
+    expect(namSinhCoXung({ day: 15, month: 6, year: 1995 }, ngay)).toBe("xung-chi");
   });
 
-  it("năm sinh 1990 (Canh Ngọ) thiên khắc địa xung với ngày Giáp Tý", () => {
+  it("sinh 15/06/1990 (Canh Ngọ) thiên khắc địa xung với ngày Giáp Tý", () => {
     const ngay = canChiFromIndex(0); // Giáp Tý
-    expect(namSinhCoXung(1990, ngay)).toBe("thien-khac-dia-xung");
+    expect(namSinhCoXung({ day: 15, month: 6, year: 1990 }, ngay)).toBe("thien-khac-dia-xung");
   });
 
-  it("năm sinh không cùng chi xung thì không xung", () => {
+  it("sinh không cùng chi xung thì không xung", () => {
     const ngay = canChiFromIndex(0); // Giáp Tý, xung chi là Ngọ
-    expect(namSinhCoXung(1985, ngay)).toBe("khong-xung"); // 1985 = Ất Sửu
+    expect(namSinhCoXung({ day: 15, month: 6, year: 1985 }, ngay)).toBe("khong-xung"); // 1985 = Ất Sửu
+  });
+
+  it("sinh trước Tết tính đúng theo can chi năm âm, không lấy thẳng năm dương", () => {
+    // 15/01/1995 thực ra là năm Giáp Tuất — xung chi với ngày Mậu Thìn (chi Thìn xung Tuất).
+    const ngayMauThin = canChiFromIndex(4); // Mậu Thìn
+    expect(namSinhCoXung({ day: 15, month: 1, year: 1995 }, ngayMauThin)).not.toBe("khong-xung");
   });
 });

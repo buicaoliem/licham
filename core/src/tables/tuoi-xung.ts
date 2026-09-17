@@ -11,7 +11,8 @@
  * Xung cả can lẫn chi cùng lúc gọi là "thiên khắc địa xung" — mức nặng nhất.
  */
 
-import { type CanChi, canChiFromIndex, canChiOfYear } from "../canChi";
+import { type CanChi, canChiFromIndex, canChiNamSinh } from "../canChi";
+import type { SolarDate } from "../julian";
 
 const CHI_XUNG_OFFSET = 6;
 
@@ -57,11 +58,15 @@ export function xungThang(thangCanChi: CanChi): XungEntry[] {
 
 export type TuoiXungLevel = "khong-xung" | "xung-chi" | "thien-khac-dia-xung";
 
-/** Năm sinh (dương lịch, theo cách tính can chi năm hiện dùng trên trang) có xung với can chi ngày đã cho không. */
-export function namSinhCoXung(namSinh: number, ngayCanChi: CanChi): TuoiXungLevel {
-  const namCanChi = canChiOfYear(namSinh);
-  const xungChiIndex = (ngayCanChi.chiIndex + CHI_XUNG_OFFSET) % 12;
-  if (namCanChi.chiIndex !== xungChiIndex) return "khong-xung";
-  const xungCanIndex = CAN_XUNG.get(ngayCanChi.canIndex);
-  return xungCanIndex !== undefined && namCanChi.canIndex === xungCanIndex ? "thien-khac-dia-xung" : "xung-chi";
+/** Can chi A có xung với can chi B không (A là "tuổi", B là ngày/tháng đang xét). */
+export function canChiCoXung(a: CanChi, b: CanChi): TuoiXungLevel {
+  const xungChiIndex = (b.chiIndex + CHI_XUNG_OFFSET) % 12;
+  if (a.chiIndex !== xungChiIndex) return "khong-xung";
+  const xungCanIndex = CAN_XUNG.get(b.canIndex);
+  return xungCanIndex !== undefined && a.canIndex === xungCanIndex ? "thien-khac-dia-xung" : "xung-chi";
+}
+
+/** Ngày sinh dương lịch đầy đủ (qua `canChiNamSinh`, chính xác kể cả sinh trước Tết) có xung với can chi ngày đã cho không. */
+export function namSinhCoXung(ngaySinh: SolarDate, ngayCanChi: CanChi): TuoiXungLevel {
+  return canChiCoXung(canChiNamSinh(ngaySinh.day, ngaySinh.month, ngaySinh.year), ngayCanChi);
 }

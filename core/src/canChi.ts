@@ -1,5 +1,7 @@
 /** Thiên can, địa chi, 60 hoa giáp and nạp âm ngũ hành. */
 
+import { solarToLunar } from "./lunar";
+
 export const CAN = ["Giáp", "Ất", "Bính", "Đinh", "Mậu", "Kỷ", "Canh", "Tân", "Nhâm", "Quý"] as const;
 export const CHI = [
   "Tý",
@@ -109,6 +111,22 @@ export function canChiOfDay(jd: number): CanChi {
 /** Can chi of a lunar year. */
 export function canChiOfYear(lunarYear: number): CanChi {
   return canChiFromParts(lunarYear + 6, lunarYear + 8);
+}
+
+/**
+ * Can chi năm sinh, coi năm dương lịch là năm âm lịch — CHỈ LÀ ƯỚC LƯỢNG, sai với người
+ * sinh trong khoảng từ đầu năm dương tới trước Tết Nguyên đán (ví dụ 15/01/1995 ra Ất Hợi
+ * thay vì Giáp Tuất thật). Chỉ dùng khi không biết ngày/tháng sinh đầy đủ; có ngày sinh thì
+ * dùng `canChiNamSinh()`.
+ */
+export function canChiNamDuong(solarYear: number): CanChi {
+  return canChiOfYear(solarYear);
+}
+
+/** Can chi năm sinh chính xác, tính từ ngày sinh dương lịch đầy đủ qua `solarToLunar()`. */
+export function canChiNamSinh(day: number, month: number, year: number): CanChi {
+  const lunar = solarToLunar(day, month, year);
+  return canChiOfYear(lunar.year);
 }
 
 /**

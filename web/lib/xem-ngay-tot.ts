@@ -1,4 +1,4 @@
-import { type DayInfo, type SolarDate, canChiOfYear, getDayInfo, jdFromDate, jdToDate, namSinhCoXung } from "@licham/core";
+import { type DayInfo, type SolarDate, canChiNamSinh, getDayInfo, jdFromDate, jdToDate, namSinhCoXung } from "@licham/core";
 import { HOP_TRIGGERS, KIENG_TRIGGERS, type ViecDef, matchingStarNames } from "@/lib/day-detail";
 import { MONTH_WORD, WEEKDAY_LONG, pad2 } from "@/lib/format";
 
@@ -96,10 +96,7 @@ export function viecBySlug(slug: string): ViecMeta | undefined {
 const TAM_NUONG_DAYS = [3, 7, 13, 18, 22, 27];
 const NGUYET_KY_DAYS = [5, 14, 23];
 
-/**
- * Dương công kỵ nhật chưa có bảng ngày cụ thể trong lõi và đề bài không nêu rõ —
- * không bịa dữ liệu, chỉ tính Tam nương và Nguyệt kỵ vào ngày đại kỵ. TODO: bổ sung khi có bảng.
- */
+/** Ngày đại kỵ: Tam nương và Nguyệt kỵ. */
 function daiKyReasons(lunarDay: number): string[] {
   const reasons: string[] = [];
   if (TAM_NUONG_DAYS.includes(lunarDay)) reasons.push("Tam nương");
@@ -136,14 +133,16 @@ function tuoiXungLabel(level: ReturnType<typeof namSinhCoXung>, personLabel: str
 
 /**
  * Chấm điểm một ngày cho một việc, thang 100 — xem "Cách chấm điểm" trên trang.
- * `birthYears` là năm sinh của từng người xem (theo `viec.personLabels`); nếu nhiều người,
- * điểm "không xung tuổi" lấy theo mức xung nặng nhất trong số họ. Bỏ trống khi chỉ cần điểm
- * không phụ thuộc người xem (ví dụ thống kê tháng tốt nhất trong năm) — khi đó coi như không xung.
+ * `birthDates` là ngày sinh dương lịch đầy đủ của từng người xem (theo `viec.personLabels`) —
+ * cần đủ ngày/tháng/năm để tính đúng can chi năm sinh cho người sinh trước Tết Nguyên đán.
+ * Nếu nhiều người, điểm "không xung tuổi" lấy theo mức xung nặng nhất trong số họ. Bỏ trống
+ * khi chỉ cần điểm không phụ thuộc người xem (ví dụ thống kê tháng tốt nhất trong năm) — khi
+ * đó coi như không xung.
  */
 export function scoreDay(
   info: DayInfo,
   viec: ViecDef,
-  birthYears: readonly number[] = [],
+  birthDates: readonly SolarDate[] = [],
   personLabels: readonly string[] = [],
 ): DayScore {
   const isHoangDao = info.thanSatNgay.isHoangDao;
@@ -153,7 +152,7 @@ export function scoreDay(
   const badStars = matchingStarNames(info.saoXau ?? [], viec, KIENG_TRIGGERS);
   const saoPoints = Math.min(goodStars.length * 8, 25) - Math.min(badStars.length * 8, 25);
 
-  const levels = birthYears.map((year) => namSinhCoXung(year, info.canChi.day));
+  const levels = birthDates.map((d) => namSinhCoXung(d, info.canChi.day));
   const tuoiXungPoints = levels.length > 0 ? Math.min(...levels.map((l) => TUOI_XUNG_POINTS[l])) : 25;
   const tuoiXungReasons = levels
     .map((level, i) => tuoiXungLabel(level, personLabels[i] ?? "người xem"))
@@ -202,7 +201,7 @@ export function bestDaysInRange(
   viec: ViecMeta,
   from: SolarDate,
   to: SolarDate,
-  birthYears: readonly number[] = [],
+  birthDates: readonly SolarDate[] = [],
   limit = 7,
 ): DayResult[] {
   const startJd = jdFromDate(from.day, from.month, from.year);
@@ -217,7 +216,7 @@ export function bestDaysInRange(
       monthWord: `Tháng ${solar.month}`,
       lunarLabel: lunarLabel(info),
       canChiName: info.canChi.day.name,
-      score: scoreDay(info, viec, birthYears, viec.personLabels),
+      score: scoreDay(info, viec, birthDates, viec.personLabels),
     });
   }
   results.sort((a, b) => b.score.score - a.score.score);
@@ -251,9 +250,9 @@ export function bestMonthOfYear(viec: ViecDef, year: number): YearMonthScore {
   return scores.reduce((best, cur) => (cur.avgScore > best.avgScore ? cur : best));
 }
 
-/** "1995 · Ất Hợi · mệnh Sơn Đầu Hỏa" — nhãn hiển thị cạnh ô nhập năm sinh. */
-export function birthYearLabel(year: number): string {
-  const cc = canChiOfYear(year);
+/** "Ất Hợi · mệnh Sơn Đầu Hỏa" — nhãn can chi năm sinh hiển thị cạnh ô nhập ngày sinh, để người dùng tự kiểm. */
+export function birthDateLabel(d: SolarDate): string {
+  const cc = canChiNamSinh(d.day, d.month, d.year);
   return `${cc.name} · mệnh ${cc.napAm.name}`;
 }
 
