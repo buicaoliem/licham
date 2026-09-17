@@ -58,7 +58,13 @@ export function XemNgayTotFinder({ viec }: { viec: ViecMeta }) {
   const { from, to } = rangeFor(applied.range, today);
   const rangeLabel = `${RANGE_LABELS[applied.range]} (${formatSolarDate(from)} – ${formatSolarDate(to)})`;
 
-  const results = useMemo<DayResult[]>(() => bestDaysInRange(viec, from, to, 7), [viec, from.day, from.month, from.year, to.day, to.month, to.year]);
+  const twoPersons = viec.personLabels.length > 1;
+  const birthYears = twoPersons ? [applied.yearA, applied.yearB] : [applied.yearA];
+
+  const results = useMemo<DayResult[]>(
+    () => bestDaysInRange(viec, from, to, birthYears, 7),
+    [viec, from.day, from.month, from.year, to.day, to.month, to.year, applied.yearA, applied.yearB, twoPersons],
+  );
 
   function handleReset() {
     const d = defaultParams();
@@ -78,7 +84,7 @@ export function XemNgayTotFinder({ viec }: { viec: ViecMeta }) {
           <span className="t">Thông tin người xem</span>
           <span className="rule" />
         </div>
-        {viec.twoPersons ? (
+        {twoPersons ? (
           <>
             <div className="difld">
               <label htmlFor="year-a">Năm sinh chú rể</label>

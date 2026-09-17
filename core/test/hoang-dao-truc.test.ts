@@ -179,7 +179,8 @@ describe("getDayInfo", () => {
     expect(info.hours).toHaveLength(12);
     expect(info.hours.filter((h) => h.isHoangDao)).toHaveLength(6);
     expect(info.solar.dayOfWeek).toBe(2); // Tuesday
-    expect(info.tuoiXung).toBeNull();
+    expect(info.tuoiXung.ngay).toHaveLength(5);
+    expect(info.tuoiXung.thang).toHaveLength(5);
     expect(info.khongMinh).not.toBeNull();
     expect(info.hyThan).not.toBeNull();
     expect(info.taiThan).not.toBeNull();

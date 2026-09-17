@@ -31,6 +31,7 @@ export function TodayCards({
   ];
   if (info.hyThan) rows.push({ label: "Hỷ thần", value: `Hướng ${info.hyThan.direction.toLowerCase()}` });
   if (info.taiThan) rows.push({ label: "Tài thần", value: `Hướng ${info.taiThan.direction.toLowerCase()}` });
+  const tuoiXungNgay = info.tuoiXung.ngay;
 
   const bestHour = hoangDaoHours[0] ?? null;
   const hourLabel = (h: HoangDaoHour) => `${h.chiName} (${Number.parseInt(h.start, 10)}h – ${Number.parseInt(h.end, 10)}h)`;
@@ -81,6 +82,17 @@ export function TodayCards({
             <span>{row.value}</span>
           </div>
         ))}
+        <div className="row">
+          <span>Tuổi xung</span>
+          <span>
+            {tuoiXungNgay.map((x, i) => (
+              <span key={x.canChi.name} style={x.isThienKhacDiaXung ? { color: "var(--son)" } : undefined}>
+                {x.canChi.name}
+                {i < tuoiXungNgay.length - 1 ? " · " : ""}
+              </span>
+            ))}
+          </span>
+        </div>
       </div>
     </div>
   );
