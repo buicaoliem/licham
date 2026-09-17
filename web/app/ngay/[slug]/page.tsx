@@ -60,7 +60,6 @@ export default async function DayPage({ params }: { params: Promise<{ slug: stri
   const pairs = ltpPairs(info);
   const best = bestHours(info, CHI);
   const viec = viecFaqs(info);
-  const hasDirections = Boolean(info.hyThan || info.taiThan || info.khongMinh);
 
   return (
     <div className="outer">
@@ -103,18 +102,6 @@ export default async function DayPage({ params }: { params: Promise<{ slug: stri
                 <span>Can chi năm</span>
                 <span>{info.canChi.year.name}</span>
               </div>
-              <div className="row">
-                <span>Ngũ hành</span>
-                <span>{info.canChi.day.napAm.name}</span>
-              </div>
-              {info.nhiThapBatTu && (
-                <div className="row">
-                  <span>Nhị thập bát tú</span>
-                  <span>
-                    Sao {info.nhiThapBatTu.name} — {info.nhiThapBatTu.isGood ? "tốt" : "xấu"}
-                  </span>
-                </div>
-              )}
             </div>
 
             <div className="box">
@@ -186,58 +173,74 @@ export default async function DayPage({ params }: { params: Promise<{ slug: stri
             </div>
           )}
 
-          {(hasDirections || pairs.length > 0) && (
-            <div className="cols2" style={{ marginTop: 16 }}>
-              {hasDirections && (
-                <div className="box" style={pairs.length === 0 ? { gridColumn: "1 / -1" } : undefined}>
-                  <div className="box-h">
-                    <span className="rule" />
-                    <span className="t">Hướng và ngày xuất hành</span>
-                    <span className="rule" />
-                  </div>
-                  {info.hyThan && (
-                    <div className="row">
-                      <span>Hỷ thần</span>
-                      <span>Hướng {info.hyThan.direction.toLowerCase()}</span>
-                    </div>
-                  )}
-                  {info.taiThan && (
-                    <div className="row">
-                      <span>Tài thần</span>
-                      <span>Hướng {info.taiThan.direction.toLowerCase()}</span>
-                    </div>
-                  )}
-                  {info.khongMinh && (
-                    <div className="row">
-                      <span>Khổng Minh lục diệu</span>
-                      <span>
-                        {info.khongMinh.name} — {info.khongMinh.isGood ? "tốt" : "xấu"}
-                      </span>
-                    </div>
-                  )}
+          <div className="cols2" style={{ marginTop: 16 }}>
+            <div className="box" style={pairs.length === 0 ? { gridColumn: "1 / -1" } : undefined}>
+              <div className="box-h">
+                <span className="rule" />
+                <span className="t">Hướng xuất hành và thông tin ngày</span>
+                <span className="rule" />
+              </div>
+              {info.hyThan && (
+                <div className="row">
+                  <span>Hỷ thần</span>
+                  <span>Hướng {info.hyThan.direction.toLowerCase()}</span>
                 </div>
               )}
-              {pairs.length > 0 && (
-                <div className="box" style={!hasDirections ? { gridColumn: "1 / -1" } : undefined}>
-                  <div className="box-h">
-                    <span className="rule" />
-                    <span className="t">Giờ xuất hành theo Lý Thuần Phong</span>
-                    <span className="rule" />
-                  </div>
-                  {pairs.map((p, i) => (
-                    <div key={p.name + i} className="row" style={i > 0 ? { borderTop: "1px solid var(--line-2)", paddingTop: 11 } : undefined}>
-                      <span>
-                        {p.aLabel} · {p.bLabel}
-                      </span>
-                      <span style={{ color: p.isGood ? "var(--luc)" : "var(--son)" }}>
-                        {p.name} — {p.isGood ? "tốt" : "xấu"}
-                      </span>
-                    </div>
-                  ))}
+              {info.taiThan && (
+                <div className="row">
+                  <span>Tài thần</span>
+                  <span>Hướng {info.taiThan.direction.toLowerCase()}</span>
                 </div>
               )}
+              {info.khongMinh && (
+                <div className="row">
+                  <span>Khổng Minh lục diệu</span>
+                  <span>
+                    {info.khongMinh.name} — {info.khongMinh.isGood ? "tốt" : "xấu"}
+                  </span>
+                </div>
+              )}
+              {info.nhiThapBatTu && (
+                <div className="row">
+                  <span>Nhị thập bát tú</span>
+                  <span>
+                    Sao {info.nhiThapBatTu.name} — {info.nhiThapBatTu.isGood ? "tốt" : "xấu"}
+                  </span>
+                </div>
+              )}
+              <div className="row">
+                <span>Ngũ hành ngày</span>
+                <span>{info.canChi.day.napAm.name}</span>
+              </div>
+              <div className="row">
+                <span>Tiết khí</span>
+                <span>{info.solarTerm.name}</span>
+              </div>
+              <div className="row">
+                <span>Trực</span>
+                <span>{info.truc.name}</span>
+              </div>
             </div>
-          )}
+            {pairs.length > 0 && (
+              <div className="box">
+                <div className="box-h">
+                  <span className="rule" />
+                  <span className="t">Giờ xuất hành theo Lý Thuần Phong</span>
+                  <span className="rule" />
+                </div>
+                {pairs.map((p, i) => (
+                  <div key={p.name + i} className="row" style={i > 0 ? { borderTop: "1px solid var(--line-2)", paddingTop: 11 } : undefined}>
+                    <span>
+                      {p.aLabel} · {p.bLabel}
+                    </span>
+                    <span style={{ color: p.isGood ? "var(--luc)" : "var(--son)" }}>
+                      {p.name} — {p.isGood ? "tốt" : "xấu"}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
 
           <div style={{ marginTop: 32 }}>
             <h2 className="hh">Câu hỏi thường gặp</h2>
