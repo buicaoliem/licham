@@ -10,7 +10,11 @@ export type ViecSlug =
   | "ky-ket"
   | "mua-xe"
   | "xuat-hanh"
-  | "cat-noc";
+  | "cat-noc"
+  | "an-tang"
+  | "sua-nha"
+  | "cau-tai"
+  | "cung-te";
 
 export interface ViecMeta extends ViecDef {
   slug: ViecSlug;
@@ -85,6 +89,38 @@ export const VIEC_LIST: readonly ViecMeta[] = [
     label: "cất nóc",
     tagline: "Chọn ngày cất nóc, đổ mái hợp tuổi gia chủ, tránh ngày đại kỵ",
     keywords: ["cất nóc", "dựng cột"],
+    personLabels: ["người xem"],
+  },
+  {
+    slug: "an-tang",
+    viec: "an táng",
+    label: "an táng, cải táng",
+    tagline: "Chọn ngày an táng, cải táng hợp tuổi người đứng lễ, tránh ngày đại kỵ",
+    keywords: ["an táng", "cải táng", "chôn cất", "việc hiếu", "tang lễ"],
+    personLabels: ["người đứng lễ"],
+  },
+  {
+    slug: "sua-nha",
+    viec: "sửa nhà",
+    label: "sửa nhà",
+    tagline: "Chọn ngày sửa nhà, lợp mái, làm lại bếp hợp tuổi gia chủ, tránh ngày đại kỵ",
+    keywords: ["sửa nhà", "lợp mái", "xây bếp", "làm nhà"],
+    personLabels: ["người xem"],
+  },
+  {
+    slug: "cau-tai",
+    viec: "cầu tài",
+    label: "cầu tài",
+    tagline: "Chọn ngày cầu tài, mở kho, bắt đầu việc tiền bạc hợp tuổi, tránh ngày đại kỵ",
+    keywords: ["cầu tài", "cầu lộc"],
+    personLabels: ["người xem"],
+  },
+  {
+    slug: "cung-te",
+    viec: "cúng tế",
+    label: "cúng tế, an vị bàn thờ",
+    tagline: "Chọn ngày cúng lễ, an vị hoặc dời bàn thờ hợp tuổi gia chủ, tránh ngày đại kỵ",
+    keywords: ["cúng tế", "lễ bái", "cầu phúc", "bàn thờ"],
     personLabels: ["người xem"],
   },
 ] as const;

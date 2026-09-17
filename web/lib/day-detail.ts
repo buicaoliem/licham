@@ -61,6 +61,8 @@ const VIEC_DEFS: readonly ViecDef[] = [
   { viec: "an táng", keywords: ["an táng", "cải táng", "mai táng"] },
   { viec: "cầu tài", keywords: ["cầu tài", "cầu lộc"] },
   { viec: "làm nhà, động thổ", keywords: ["làm nhà", "xây cất", "động thổ", "dựng cột", "cất nóc"] },
+  { viec: "sửa nhà", keywords: ["sửa nhà", "lợp mái", "xây bếp", "làm nhà"] },
+  { viec: "cúng tế", keywords: ["cúng tế", "lễ bái", "cầu phúc", "bàn thờ"] },
 ];
 
 /** Từ đánh dấu câu kiêng kỵ — chỉ những câu có chữ này mới tính là "xấu" cho việc đó. */
