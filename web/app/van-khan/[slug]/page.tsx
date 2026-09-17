@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { VanKhanActions } from "@/components/VanKhanActions";
-import { VAN_KHAN_LIST, splitFillIns, vanKhanByNhom, vanKhanBySlug } from "@/lib/van-khan";
+import { VAN_KHAN_LIST, splitFillIns, vanKhanBySlug, vanKhanLienQuan } from "@/lib/van-khan";
 
 export function generateStaticParams() {
   return VAN_KHAN_LIST.map((v) => ({ slug: v.slug }));
@@ -50,7 +50,7 @@ export default async function VanKhanPage({ params }: { params: Promise<{ slug: 
   const bai = vanKhanBySlug(slug);
   if (!bai) notFound();
 
-  const cungNhom = vanKhanByNhom(bai.nhom);
+  const cungNhom = vanKhanLienQuan(bai);
 
   return (
     <div className="outer">
