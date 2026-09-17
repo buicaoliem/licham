@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { VanKhanActions } from "@/components/VanKhanActions";
+import { LE_LIST } from "@/lib/le";
 import { VAN_KHAN_LIST, splitFillIns, vanKhanBySlug, vanKhanLienQuan } from "@/lib/van-khan";
 
 export function generateStaticParams() {
@@ -51,6 +52,7 @@ export default async function VanKhanPage({ params }: { params: Promise<{ slug: 
   if (!bai) notFound();
 
   const cungNhom = vanKhanLienQuan(bai);
+  const leLienQuan = LE_LIST.filter((l) => l.vanKhan.includes(bai.slug));
 
   return (
     <div className="outer">
@@ -106,6 +108,18 @@ export default async function VanKhanPage({ params }: { params: Promise<{ slug: 
           ))}
 
           <VanKhanActions bai={bai} />
+
+          {leLienQuan.length > 0 && (
+            <p style={{ textAlign: "center", fontSize: 13.5, marginTop: 16 }} className="khan-noprint">
+              Ngày lễ liên quan:{" "}
+              {leLienQuan.map((l, i) => (
+                <span key={l.slug}>
+                  {i > 0 && ", "}
+                  <Link href={`/le/${l.slug}`}>{l.ten}</Link>
+                </span>
+              ))}
+            </p>
+          )}
 
           <div style={{ marginTop: 32 }} className="khan-noprint">
             <h2 className="hh">Câu hỏi thường gặp</h2>

@@ -1233,6 +1233,334 @@ h3 {
   }
 }
 
+/* ---------- ngày lễ (/le) ---------- */
+.leband {
+  background: linear-gradient(135deg, #1f5c57, #3f7d6e);
+  color: #fff;
+  padding: 30px 22px;
+  text-align: center;
+}
+.leband.son {
+  background: linear-gradient(135deg, #6e1a1d, #a8342f);
+}
+.leband .crumb {
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 8px;
+}
+.leband .crumb a {
+  color: #fff;
+}
+.lebadge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  margin-bottom: 8px;
+}
+.leband h1 {
+  font-family: var(--font-lora), serif;
+  font-size: 27px;
+  line-height: 1.3;
+  color: #fff;
+}
+.leband .sub {
+  text-align: center;
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 8px auto 0;
+  max-width: 620px;
+}
+.leband-grid {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 24px;
+  align-items: center;
+  text-align: left;
+}
+.leband-grid .leband-txt {
+  text-align: center;
+}
+.leportrait {
+  background: var(--sheet);
+  border-radius: 16px;
+  padding: 10px;
+  text-align: center;
+}
+.leportrait .ill {
+  aspect-ratio: 3/4;
+  border-radius: 10px;
+  background: var(--kim-soft);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.leportrait .ill img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.leportrait small {
+  display: block;
+  color: var(--ink-3);
+  font-size: 10.5px;
+  margin-top: 6px;
+  line-height: 1.4;
+}
+.lehero {
+  margin: 18px auto 0;
+  max-width: 620px;
+  background: var(--sheet);
+  color: var(--ink);
+  border-radius: 16px;
+  padding: 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  text-align: center;
+}
+.leband-grid .lehero {
+  margin-top: 16px;
+  max-width: none;
+}
+.lehero .k {
+  font-size: 11.5px;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.lehero .v {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.lehero .s {
+  font-size: 12.5px;
+  color: var(--ink-2);
+}
+.lehero .dem {
+  grid-column: 1/-1;
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+  font-size: 14px;
+}
+.lehero .dem b {
+  color: var(--son);
+  font-size: 20px;
+}
+table.letable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+table.letable th {
+  font-size: 11.5px;
+  color: var(--ink-3);
+  font-weight: 500;
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--line);
+}
+table.letable td {
+  padding: 10px;
+  border-bottom: 1px solid var(--line-2);
+}
+table.letable td a {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+}
+table.letable tr.qua td {
+  color: var(--ink-3);
+}
+table.letable tr.qua td a {
+  color: var(--ink-3);
+  font-weight: 500;
+}
+table.letable tr.toi td {
+  background: var(--son-soft);
+}
+.letag {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+.letag.son {
+  background: var(--son);
+  color: #fff;
+}
+.letag.xam {
+  background: var(--line-2);
+  color: var(--ink-3);
+}
+.lefacts {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 7px 14px;
+  font-size: 13.5px;
+}
+.lefacts dt {
+  color: var(--ink-3);
+}
+.lefacts dd {
+  margin: 0;
+  font-weight: 600;
+  text-align: right;
+}
+.leheroes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.lehc {
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background: var(--sheet);
+}
+.lehc .pic {
+  aspect-ratio: 1/1;
+  background: var(--kim-soft);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.lehc .pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+.lehc .cap {
+  padding: 8px 10px;
+  text-align: center;
+}
+.lehc .cap b {
+  display: block;
+  font-size: 13px;
+  line-height: 1.3;
+}
+.lehc .cap span {
+  font-size: 11.5px;
+  color: var(--ink-3);
+}
+.levariant {
+  border: 2px dashed var(--kim);
+  border-radius: 16px;
+  padding: 16px;
+  margin: 20px 0 0;
+  background: var(--kim-soft);
+}
+.lenghi {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.lenghi div {
+  background: var(--sheet);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+}
+.lenghi b {
+  display: block;
+  font-size: 17px;
+}
+.lenghi .s {
+  font-size: 12.5px;
+  color: var(--ink-3);
+}
+.lk {
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px;
+  text-decoration: none;
+  color: var(--ink);
+  background: var(--kim-soft);
+}
+.lk b {
+  display: block;
+  margin-bottom: 4px;
+}
+.lk span {
+  font-size: 13px;
+  color: var(--ink-2);
+}
+.lehub-nhom {
+  margin-bottom: 30px;
+}
+.lehub-nhom h2 {
+  font-size: 17px;
+  margin-bottom: 14px;
+}
+.lehub-chip small {
+  color: var(--ink-3);
+  margin-left: 5px;
+}
+@media (max-width: 760px) {
+  .leband-grid {
+    grid-template-columns: 1fr;
+  }
+  .leportrait {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+  .leband h1 {
+    font-size: 22px;
+  }
+  .lehero,
+  .leheroes {
+    grid-template-columns: 1fr 1fr;
+  }
+  .leheroes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .lenghi {
+    grid-template-columns: 1fr;
+  }
+  table.letable thead {
+    display: none;
+  }
+  table.letable,
+  table.letable tbody,
+  table.letable tr,
+  table.letable td {
+    display: block;
+    width: 100%;
+  }
+  table.letable tr {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    margin-bottom: 8px;
+    padding: 8px 12px;
+  }
+  table.letable td {
+    border: 0;
+    padding: 3px 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  table.letable td::before {
+    content: attr(data-k);
+    color: var(--ink-3);
+    font-size: 11.5px;
+  }
+}
+
 @media print {
   body {
     background: #fff;

@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { bestHours, joinVi, ltpPairs, viecFaqs } from "@/lib/day-detail";
 import { dateToSlug, slugToDate } from "@/lib/date-slug";
+import { holidaysOnDate } from "@/lib/le-date-engine";
 import { monthToSlug } from "@/lib/month-slug";
 import { MONTH_WORD, WEEKDAY_LONG, pad2 } from "@/lib/format";
 import { YEAR_END, YEAR_START } from "@/lib/site-years";
@@ -60,6 +61,7 @@ export default async function DayPage({ params }: { params: Promise<{ slug: stri
   const pairs = ltpPairs(info);
   const best = bestHours(info, CHI);
   const viec = viecFaqs(info);
+  const holidaysToday = holidaysOnDate(date);
 
   return (
     <div className="outer">
@@ -80,6 +82,17 @@ export default async function DayPage({ params }: { params: Promise<{ slug: stri
             <span className="pill k">Trực {info.truc.name}</span>
             <span className="pill k">Tiết {info.solarTerm.name}</span>
           </div>
+          {holidaysToday.length > 0 && (
+            <p className="dsub" style={{ marginTop: 10 }}>
+              Hôm nay là:{" "}
+              {holidaysToday.map((h, i) => (
+                <span key={h.slug}>
+                  {i > 0 && ", "}
+                  <Link href={`/le/${h.slug}`}>{h.ten}</Link>
+                </span>
+              ))}
+            </p>
+          )}
         </div>
 
         <div className="body">
