@@ -1,11 +1,8 @@
+import Link from "next/link";
 import { formatSolarShort, type UpcomingOccasion } from "@/lib/upcoming-occasions";
+import { vanKhanBySlug } from "@/lib/van-khan";
 
-const VAN_KHAN = [
-  "Văn khấn mùng một và ngày rằm",
-  "Văn khấn gia tiên ngày giỗ",
-  "Văn khấn Thần Tài, Thổ Địa",
-  "Văn khấn rằm tháng Tám",
-] as const;
+const VAN_KHAN_SLUGS = ["mung-mot-ngay-ram", "gia-tien-ngay-gio", "than-tai-tho-dia", "ram-thang-tam"] as const;
 
 const TU_VI = [
   "Tử vi hôm nay 12 con giáp",
@@ -40,11 +37,15 @@ export function LinkColumns({ upcomingOccasions }: { upcomingOccasions: Upcoming
           <span className="rule" />
         </div>
         <ul className="lst">
-          {VAN_KHAN.map((item) => (
-            <li key={item}>
-              <span>{item}</span>
-            </li>
-          ))}
+          {VAN_KHAN_SLUGS.map((slug) => {
+            const bai = vanKhanBySlug(slug);
+            if (!bai) return null;
+            return (
+              <li key={slug}>
+                <Link href={`/van-khan/${slug}`}>{bai.ten}</Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
 

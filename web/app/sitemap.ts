@@ -3,6 +3,7 @@ import { jdFromDate, jdToDate } from "@licham/core";
 import { dateToSlug } from "@/lib/date-slug";
 import { monthToSlug } from "@/lib/month-slug";
 import { SITE_URL } from "@/lib/site";
+import { VAN_KHAN_LIST } from "@/lib/van-khan";
 import { VIEC_LIST } from "@/lib/xem-ngay-tot";
 
 const YEAR = 2026;
@@ -22,6 +23,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       priority: 0.7,
       changeFrequency: "monthly",
+    });
+  }
+
+  entries.push({ url: `${SITE_URL}/van-khan/`, lastModified, priority: 0.7, changeFrequency: "monthly" });
+  for (const v of VAN_KHAN_LIST) {
+    entries.push({
+      url: `${SITE_URL}/van-khan/${v.slug}/`,
+      lastModified,
+      priority: 0.7,
+      changeFrequency: "yearly",
     });
   }
 

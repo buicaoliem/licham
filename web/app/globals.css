@@ -572,6 +572,10 @@ h3 {
 .lst li:last-child {
   border-bottom: 0;
 }
+.lst li a {
+  color: inherit;
+  text-decoration: none;
+}
 .lst li span:last-child {
   color: var(--ink-3);
   font-size: 12.5px;
@@ -712,6 +716,12 @@ h3 {
 }
 .bg-luc {
   background: linear-gradient(168deg, #1d5f63, #3f8b84 46%, #8fbf9c);
+}
+.bg-son {
+  background: linear-gradient(168deg, #8d1a1e, #c0272d 46%, #e08a52);
+}
+.bg-kim {
+  background: linear-gradient(168deg, #6b4f14, #a8812c 46%, #ddb85f);
 }
 .dconv {
   display: grid;
@@ -1016,5 +1026,138 @@ h3 {
   .score .bar {
     flex: 1;
     margin-top: 0;
+  }
+}
+
+/* ---------- văn khấn ---------- */
+.khanul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 13.5px;
+  color: var(--ink-2);
+}
+.khanul li {
+  padding: 4px 0;
+}
+.scripture {
+  border: 1px solid var(--kim);
+  background: var(--kim-soft);
+  border-radius: 14px;
+  padding: 26px 26px 28px;
+}
+.scripture + .scripture {
+  margin-top: 20px;
+}
+.scripture h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+.scripture p {
+  font-family: var(--font-lora), serif;
+  font-size: 17px;
+  line-height: 2.1;
+  margin: 0 0 18px;
+  text-align: center;
+  color: var(--ink);
+}
+.scripture p:last-child {
+  margin-bottom: 0;
+}
+.fillin {
+  color: var(--son-dp);
+  font-weight: 600;
+}
+.khangroup {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px 18px 20px;
+}
+.khangroup h2 {
+  font-size: 14.5px;
+  font-weight: 600;
+  text-align: left;
+  margin-bottom: 12px;
+}
+.khanlist {
+  display: grid;
+  gap: 4px;
+}
+.khanitem {
+  display: block;
+  padding: 9px 0;
+  border-top: 1px solid var(--line-2);
+  text-decoration: none;
+  color: inherit;
+}
+.khangroup .khanlist .khanitem:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+.khanitem .n {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.khanitem .s {
+  font-size: 12.5px;
+  color: var(--ink-3);
+  margin-top: 2px;
+}
+.khangrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+@media (max-width: 900px) {
+  .khangrid {
+    grid-template-columns: 1fr;
+  }
+  .scripture {
+    padding: 20px 18px 22px;
+  }
+  .scripture p {
+    font-size: 16px;
+    line-height: 1.95;
+  }
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+  .outer {
+    max-width: none;
+    padding: 0;
+  }
+  .site {
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .nav,
+  .band,
+  .foot,
+  .chips,
+  .right,
+  .khan-noprint {
+    display: none !important;
+  }
+  .body {
+    padding: 0;
+  }
+  .scripture {
+    border: 0;
+    background: #fff;
+    padding: 0;
+    page-break-inside: avoid;
+  }
+  .scripture p {
+    color: #000;
+  }
+  .fillin {
+    color: #000;
+    text-decoration: underline;
   }
 }
