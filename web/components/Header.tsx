@@ -1,7 +1,31 @@
+import Link from "next/link";
+import { VIEC_LIST } from "@/lib/xem-ngay-tot";
+import { monthToSlug } from "@/lib/month-slug";
+import { getVietnamToday } from "@/lib/today";
+
 const MENU = ["Hôm nay", "Lịch tháng", "Xem ngày tốt", "Văn khấn", "Tử vi", "Đổi ngày"] as const;
 
 // Chưa có trang đích — làm mờ, không cho bấm, tới khi trang được dựng.
 const DISABLED_MENU = new Set<(typeof MENU)[number]>(["Tử vi"]);
+
+function menuHref(item: (typeof MENU)[number]): string {
+  switch (item) {
+    case "Hôm nay":
+      return "/";
+    case "Lịch tháng": {
+      const today = getVietnamToday();
+      return `/${monthToSlug(today.month, today.year)}`;
+    }
+    case "Xem ngày tốt":
+      return `/xem-ngay-tot/${VIEC_LIST[0]!.slug}`;
+    case "Văn khấn":
+      return "/van-khan";
+    case "Đổi ngày":
+      return "/doi-ngay-am-duong";
+    default:
+      return "/";
+  }
+}
 
 export function Header({ activeMenu = "Hôm nay" }: { activeMenu?: (typeof MENU)[number] }) {
   return (
@@ -14,14 +38,14 @@ export function Header({ activeMenu = "Hôm nay" }: { activeMenu?: (typeof MENU)
         </span>
       </div>
       <ul>
-        {MENU.map((item) => (
-          <li
-            key={item}
-            className={item === activeMenu ? "on" : DISABLED_MENU.has(item) ? "disabled" : undefined}
-          >
-            {item}
-          </li>
-        ))}
+        {MENU.map((item) => {
+          const disabled = DISABLED_MENU.has(item);
+          return (
+            <li key={item} className={item === activeMenu ? "on" : disabled ? "disabled" : undefined}>
+              {disabled ? item : <Link href={menuHref(item)}>{item}</Link>}
+            </li>
+          );
+        })}
       </ul>
       <div className="sp" />
     </div>

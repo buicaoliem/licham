@@ -10,14 +10,10 @@ export function TodayCards({
   hoangDaoHours,
   worstHour,
   info,
-  saoTotCount,
-  saoXauCount,
 }: {
   hoangDaoHours: HoangDaoHour[];
   worstHour: HoangDaoHour | null;
   info: DayInfo;
-  saoTotCount: number;
-  saoXauCount: number;
 }) {
   const nguHanh = info.canChi.day.napAm.name
     .split(" ")
@@ -26,8 +22,6 @@ export function TodayCards({
   const rows: { label: string; value: string }[] = [
     { label: "Can chi ngày", value: info.canChi.day.name },
     { label: "Ngũ hành", value: nguHanh },
-    { label: "Sao tốt", value: `${saoTotCount} sao` },
-    { label: "Sao xấu", value: `${saoXauCount} sao` },
   ];
   if (info.hyThan) rows.push({ label: "Hỷ thần", value: `Hướng ${info.hyThan.direction.toLowerCase()}` });
   if (info.taiThan) rows.push({ label: "Tài thần", value: `Hướng ${info.taiThan.direction.toLowerCase()}` });
