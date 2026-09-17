@@ -10,6 +10,7 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { type SolarDate, jdFromDate, jdToDate } from "@licham/core";
+import { LE_LIST } from "../lib/le";
 import { SITE_URL } from "../lib/site";
 import { YEAR_END, YEAR_START } from "../lib/site-years";
 import { CON_GIAP_LIST } from "../lib/tu-vi";
@@ -80,6 +81,11 @@ function buildStaticEntries(): SitemapEntry[] {
   entries.push({ url: `${SITE_URL}/tu-vi/`, changefreq: "daily", priority: 0.7 });
   for (const cg of CON_GIAP_LIST) {
     entries.push({ url: `${SITE_URL}/tu-vi/${cg.slug}/`, changefreq: "daily", priority: 0.6 });
+  }
+
+  entries.push({ url: `${SITE_URL}/le/`, changefreq: "weekly", priority: 0.8 });
+  for (const le of LE_LIST) {
+    entries.push({ url: `${SITE_URL}/le/${le.slug}/`, changefreq: "weekly", priority: 0.7 });
   }
 
   return entries;
