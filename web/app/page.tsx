@@ -30,9 +30,6 @@ export default function HomePage() {
 
   const cells = getMonthCells(today.month, today.year, today);
 
-  const saoTotCount = info.saoTot?.length ?? 0;
-  const saoXauCount = info.saoXau?.length ?? 0;
-
   return (
     <div className="outer">
       <div className="site">
@@ -61,13 +58,7 @@ export default function HomePage() {
             Xem lịch âm dương, giờ hoàng đạo, ngày tốt xấu. Không quảng cáo, không theo dõi, mở là thấy ngay.
           </p>
 
-          <TodayCards
-            hoangDaoHours={hoangDaoHours}
-            worstHour={worstHour}
-            info={info}
-            saoTotCount={saoTotCount}
-            saoXauCount={saoXauCount}
-          />
+          <TodayCards hoangDaoHours={hoangDaoHours} worstHour={worstHour} info={info} />
 
           <MonthGrid month={today.month} year={today.year} cells={cells} />
 
