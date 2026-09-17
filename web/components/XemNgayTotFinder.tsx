@@ -4,8 +4,9 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import type { SolarDate } from "@licham/core";
 import { dateToSlug } from "@/lib/date-slug";
+import { pad2 } from "@/lib/format";
 import { getVietnamToday } from "@/lib/today";
-import { type DayResult, type ViecMeta, bestDaysInRange, birthYearLabel, formatSolarDate } from "@/lib/xem-ngay-tot";
+import { type DayResult, type ViecMeta, bestDaysInRange, birthDateLabel, formatSolarDate } from "@/lib/xem-ngay-tot";
 
 const DETAIL_PAGE_YEAR = 2026;
 
@@ -39,15 +40,29 @@ function rangeFor(option: RangeOption, today: SolarDate): { from: SolarDate; to:
   }
 }
 
+function toISO(d: SolarDate): string {
+  return `${d.year}-${pad2(d.month)}-${pad2(d.day)}`;
+}
+
+/** Ngày sinh dùng mùng 15 tháng 6 làm mặc định — an toàn, không rơi vào khoảng quanh Tết. */
+function defaultBirthDate(yearsAgo: number): SolarDate {
+  return { day: 15, month: 6, year: getVietnamToday().year - yearsAgo };
+}
+
+function parseISODate(s: string): SolarDate | null {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s);
+  if (!m) return null;
+  return { year: Number(m[1]), month: Number(m[2]), day: Number(m[3]) };
+}
+
 interface Params {
-  yearA: number;
-  yearB: number;
+  dateA: string;
+  dateB: string;
   range: RangeOption;
 }
 
 function defaultParams(): Params {
-  const y = getVietnamToday().year - 28;
-  return { yearA: y, yearB: y - 2, range: "3-thang" };
+  return { dateA: toISO(defaultBirthDate(28)), dateB: toISO(defaultBirthDate(26)), range: "3-thang" };
 }
 
 export function XemNgayTotFinder({ viec }: { viec: ViecMeta }) {
@@ -59,11 +74,13 @@ export function XemNgayTotFinder({ viec }: { viec: ViecMeta }) {
   const rangeLabel = `${RANGE_LABELS[applied.range]} (${formatSolarDate(from)} – ${formatSolarDate(to)})`;
 
   const twoPersons = viec.personLabels.length > 1;
-  const birthYears = twoPersons ? [applied.yearA, applied.yearB] : [applied.yearA];
+  const dateA = parseISODate(applied.dateA) ?? defaultBirthDate(28);
+  const dateB = parseISODate(applied.dateB) ?? defaultBirthDate(26);
+  const birthDates = twoPersons ? [dateA, dateB] : [dateA];
 
   const results = useMemo<DayResult[]>(
-    () => bestDaysInRange(viec, from, to, birthYears, 7),
-    [viec, from.day, from.month, from.year, to.day, to.month, to.year, applied.yearA, applied.yearB, twoPersons],
+    () => bestDaysInRange(viec, from, to, birthDates, 7),
+    [viec, from.day, from.month, from.year, to.day, to.month, to.year, dateA.day, dateA.month, dateA.year, dateB.day, dateB.month, dateB.year, twoPersons],
   );
 
   function handleReset() {
@@ -76,6 +93,9 @@ export function XemNgayTotFinder({ viec }: { viec: ViecMeta }) {
     setApplied(draft);
   }
 
+  const draftDateA = parseISODate(draft.dateA);
+  const draftDateB = parseISODate(draft.dateB);
+
   return (
     <>
       <div className="box">
@@ -87,42 +107,42 @@ export function XemNgayTotFinder({ viec }: { viec: ViecMeta }) {
         {twoPersons ? (
           <>
             <div className="difld">
-              <label htmlFor="year-a">Năm sinh chú rể</label>
+              <label htmlFor="date-a">Ngày sinh chú rể</label>
               <input
-                id="year-a"
-                type="number"
-                min={1900}
-                max={2026}
-                value={draft.yearA}
-                onChange={(e) => setDraft((p) => ({ ...p, yearA: Number(e.target.value) }))}
+                id="date-a"
+                type="date"
+                min="1900-01-01"
+                max="2026-12-31"
+                value={draft.dateA}
+                onChange={(e) => setDraft((p) => ({ ...p, dateA: e.target.value }))}
               />
-              <div className="fldhint">{birthYearLabel(draft.yearA)}</div>
+              {draftDateA && <div className="fldhint">{birthDateLabel(draftDateA)}</div>}
             </div>
             <div className="difld">
-              <label htmlFor="year-b">Năm sinh cô dâu</label>
+              <label htmlFor="date-b">Ngày sinh cô dâu</label>
               <input
-                id="year-b"
-                type="number"
-                min={1900}
-                max={2026}
-                value={draft.yearB}
-                onChange={(e) => setDraft((p) => ({ ...p, yearB: Number(e.target.value) }))}
+                id="date-b"
+                type="date"
+                min="1900-01-01"
+                max="2026-12-31"
+                value={draft.dateB}
+                onChange={(e) => setDraft((p) => ({ ...p, dateB: e.target.value }))}
               />
-              <div className="fldhint">{birthYearLabel(draft.yearB)}</div>
+              {draftDateB && <div className="fldhint">{birthDateLabel(draftDateB)}</div>}
             </div>
           </>
         ) : (
           <div className="difld">
-            <label htmlFor="year-a">Năm sinh</label>
+            <label htmlFor="date-a">Ngày sinh</label>
             <input
-              id="year-a"
-              type="number"
-              min={1900}
-              max={2026}
-              value={draft.yearA}
-              onChange={(e) => setDraft((p) => ({ ...p, yearA: Number(e.target.value) }))}
+              id="date-a"
+              type="date"
+              min="1900-01-01"
+              max="2026-12-31"
+              value={draft.dateA}
+              onChange={(e) => setDraft((p) => ({ ...p, dateA: e.target.value }))}
             />
-            <div className="fldhint">{birthYearLabel(draft.yearA)}</div>
+            {draftDateA && <div className="fldhint">{birthDateLabel(draftDateA)}</div>}
           </div>
         )}
         <div className="difld" style={{ marginBottom: 0 }}>
