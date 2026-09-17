@@ -1128,6 +1128,28 @@ h3 {
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
 }
+.khansearch {
+  margin-bottom: 20px;
+}
+.khansearch-inp {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: var(--sheet);
+  color: var(--ink);
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 14px;
+}
+.khansearch-inp:focus {
+  outline: 2px solid var(--son);
+  outline-offset: -1px;
+}
+.khansearch-empty {
+  color: var(--ink-3);
+  font-size: 13.5px;
+  text-align: center;
+  padding: 24px 0;
+}
 @media (max-width: 900px) {
   .khangrid {
     grid-template-columns: 1fr;
