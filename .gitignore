@@ -8,3 +8,5 @@ web/out/
 web/next-env.d.ts
 web/*.tsbuildinfo
 core/scripts/data/
+web/public/sitemap.xml
+web/public/sitemaps/

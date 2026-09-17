@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getDayInfo } from "@licham/core";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { MonthFaq } from "@/components/MonthFaq";
@@ -12,33 +11,48 @@ import { getMonthCells } from "@/lib/month-grid";
 import { monthToSlug, slugToMonth } from "@/lib/month-slug";
 import { getMonthSummary } from "@/lib/month-summary";
 import { getVietnamToday } from "@/lib/today";
-
-const YEAR = 2026;
+import { YEAR_END, YEAR_START } from "@/lib/site-years";
 
 export function generateStaticParams() {
-  return Array.from({ length: 12 }, (_, i) => ({ monthSlug: monthToSlug(i + 1, YEAR) }));
+  const params: { monthSlug: string }[] = [];
+  for (let year = YEAR_START; year <= YEAR_END; year++) {
+    for (let month = 1; month <= 12; month++) {
+      params.push({ monthSlug: monthToSlug(month, year) });
+    }
+  }
+  return params;
 }
 
 export const dynamicParams = false;
 
 export async function generateMetadata({ params }: { params: Promise<{ monthSlug: string }> }): Promise<Metadata> {
   const { monthSlug } = await params;
-  return { alternates: { canonical: `/${monthSlug}/` } };
+  const parsed = slugToMonth(monthSlug);
+  if (!parsed) return { alternates: { canonical: `/${monthSlug}/` } };
+  const { month, year } = parsed;
+  return {
+    title: `Lịch tháng ${month} năm ${year} — Âm lịch, ngày tốt xấu | LịchÂm`,
+    description: `Lịch tháng ${month} năm ${year} đầy đủ dương lịch và âm lịch, ngày hoàng đạo hắc đạo, ngày mùng một rằm.`,
+    alternates: { canonical: `/${monthSlug}/` },
+  };
 }
 
 export default async function MonthPage({ params }: { params: Promise<{ monthSlug: string }> }) {
   const { monthSlug } = await params;
   const parsed = slugToMonth(monthSlug);
-  if (!parsed || parsed.year !== YEAR) notFound();
+  if (!parsed || parsed.year < YEAR_START || parsed.year > YEAR_END) notFound();
   const { month, year } = parsed;
 
   const today = getVietnamToday();
-  const info = getDayInfo(today);
 
   const cells = getMonthCells(month, year, today);
   const summary = getMonthSummary(cells);
-  const hasPrev = month > 1;
-  const hasNext = month < 12;
+  const hasPrev = !(month === 1 && year === YEAR_START);
+  const hasNext = !(month === 12 && year === YEAR_END);
+  const prevMonth = month === 1 ? 12 : month - 1;
+  const prevYear = month === 1 ? year - 1 : year;
+  const nextMonth = month === 12 ? 1 : month + 1;
+  const nextYear = month === 12 ? year + 1 : year;
 
   return (
     <div className="outer">
@@ -67,12 +81,12 @@ export default async function MonthPage({ params }: { params: Promise<{ monthSlu
 
           <div className="pn">
             {hasPrev ? (
-              <Link href={`/${monthToSlug(month - 1, year)}`}>‹ Tháng {month - 1}/{year}</Link>
+              <Link href={`/${monthToSlug(prevMonth, prevYear)}`}>‹ Tháng {prevMonth}/{prevYear}</Link>
             ) : (
               <span />
             )}
             {hasNext ? (
-              <Link href={`/${monthToSlug(month + 1, year)}`}>Tháng {month + 1}/{year} ›</Link>
+              <Link href={`/${monthToSlug(nextMonth, nextYear)}`}>Tháng {nextMonth}/{nextYear} ›</Link>
             ) : (
               <span />
             )}

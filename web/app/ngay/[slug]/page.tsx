@@ -8,12 +8,11 @@ import { bestHours, joinVi, ltpPairs, viecFaqs } from "@/lib/day-detail";
 import { dateToSlug, slugToDate } from "@/lib/date-slug";
 import { monthToSlug } from "@/lib/month-slug";
 import { MONTH_WORD, WEEKDAY_LONG, pad2 } from "@/lib/format";
-
-const YEAR = 2026;
+import { YEAR_END, YEAR_START } from "@/lib/site-years";
 
 export function generateStaticParams() {
-  const start = jdFromDate(1, 1, YEAR);
-  const end = jdFromDate(31, 12, YEAR);
+  const start = jdFromDate(1, 1, YEAR_START);
+  const end = jdFromDate(31, 12, YEAR_END);
   const params: { slug: string }[] = [];
   for (let jd = start; jd <= end; jd++) {
     params.push({ slug: dateToSlug(jdToDate(jd)) });
@@ -38,15 +37,15 @@ function capitalizeEachWord(s: string): string {
 export default async function DayPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const date = slugToDate(slug);
-  if (!date || date.year !== YEAR) notFound();
+  if (!date || date.year < YEAR_START || date.year > YEAR_END) notFound();
 
   const info = getDayInfo(date);
   const { day, month, year } = date;
 
   const prevDate = jdToDate(jdFromDate(day, month, year) - 1);
   const nextDate = jdToDate(jdFromDate(day, month, year) + 1);
-  const hasPrev = prevDate.year === YEAR;
-  const hasNext = nextDate.year === YEAR;
+  const hasPrev = prevDate.year >= YEAR_START;
+  const hasNext = nextDate.year <= YEAR_END;
 
   const hoangDaoHours = info.hours.filter((h) => h.isHoangDao);
   const hacDaoHours = info.hours.filter((h) => !h.isHoangDao);
