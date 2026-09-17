@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "node --experimental-strip-types --experimental-loader ../core/scripts/ts-extension-loader.mjs scripts/generate-tu-vi.ts && next build",
+    "build": "node --experimental-strip-types --experimental-loader ../core/scripts/ts-extension-loader.mjs scripts/generate-tu-vi.ts && node --experimental-strip-types --experimental-loader ./scripts/ts-web-loader.mjs scripts/generate-sitemap.ts && next build",
     "postbuild": "node scripts/check-routes.mjs",
     "check:routes": "node scripts/check-routes.mjs",
     "generate:tu-vi": "node --experimental-strip-types --experimental-loader ../core/scripts/ts-extension-loader.mjs scripts/generate-tu-vi.ts",
+    "generate:sitemap": "node --experimental-strip-types --experimental-loader ./scripts/ts-web-loader.mjs scripts/generate-sitemap.ts",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
