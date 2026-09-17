@@ -6,7 +6,7 @@ import { getVietnamToday } from "@/lib/today";
 const MENU = ["Hôm nay", "Lịch tháng", "Xem ngày tốt", "Văn khấn", "Tử vi", "Đổi ngày"] as const;
 
 // Chưa có trang đích — làm mờ, không cho bấm, tới khi trang được dựng.
-const DISABLED_MENU = new Set<(typeof MENU)[number]>(["Tử vi"]);
+const DISABLED_MENU = new Set<(typeof MENU)[number]>([]);
 
 function menuHref(item: (typeof MENU)[number]): string {
   switch (item) {
@@ -20,6 +20,8 @@ function menuHref(item: (typeof MENU)[number]): string {
       return `/xem-ngay-tot/${VIEC_LIST[0]!.slug}`;
     case "Văn khấn":
       return "/van-khan";
+    case "Tử vi":
+      return "/tu-vi";
     case "Đổi ngày":
       return "/doi-ngay-am-duong";
     default:

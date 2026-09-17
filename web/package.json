@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node --experimental-strip-types --experimental-loader ../core/scripts/ts-extension-loader.mjs scripts/generate-tu-vi.ts && next build",
     "postbuild": "node scripts/check-routes.mjs",
     "check:routes": "node scripts/check-routes.mjs",
+    "generate:tu-vi": "node --experimental-strip-types --experimental-loader ../core/scripts/ts-extension-loader.mjs scripts/generate-tu-vi.ts",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
