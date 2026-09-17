@@ -1,7 +1,7 @@
 const MENU = ["Hôm nay", "Lịch tháng", "Xem ngày tốt", "Văn khấn", "Tử vi", "Đổi ngày"] as const;
 
 // Chưa có trang đích — làm mờ, không cho bấm, tới khi trang được dựng.
-const DISABLED_MENU = new Set<(typeof MENU)[number]>(["Xem ngày tốt", "Văn khấn", "Tử vi"]);
+const DISABLED_MENU = new Set<(typeof MENU)[number]>(["Văn khấn", "Tử vi"]);
 
 export function Header({ activeMenu = "Hôm nay" }: { activeMenu?: (typeof MENU)[number] }) {
   return (

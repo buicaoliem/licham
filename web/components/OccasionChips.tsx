@@ -1,13 +1,7 @@
-const OCCASIONS = [
-  { label: "Xem ngày cưới hỏi", hot: true },
-  { label: "Xem ngày khai trương", hot: true },
-  { label: "Xem ngày động thổ", hot: false },
-  { label: "Xem ngày nhập trạch", hot: false },
-  { label: "Xem ngày mua xe", hot: false },
-  { label: "Xem ngày ký hợp đồng", hot: false },
-  { label: "Xem ngày xuất hành", hot: false },
-  { label: "Xem ngày cất nóc", hot: false },
-] as const;
+import Link from "next/link";
+import { VIEC_LIST } from "@/lib/xem-ngay-tot";
+
+const HOT_SLUGS = new Set(["cuoi-hoi", "khai-truong"]);
 
 export function OccasionChips() {
   return (
@@ -16,10 +10,10 @@ export function OccasionChips() {
         Chọn ngày cho việc lớn
       </h2>
       <div className="chips">
-        {OCCASIONS.map((o) => (
-          <span key={o.label} className={o.hot ? "chip hot" : "chip"}>
-            {o.label}
-          </span>
+        {VIEC_LIST.map((v) => (
+          <Link key={v.slug} href={`/xem-ngay-tot/${v.slug}`} className={HOT_SLUGS.has(v.slug) ? "chip hot" : "chip"}>
+            Xem ngày {v.label}
+          </Link>
         ))}
       </div>
     </>

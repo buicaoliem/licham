@@ -44,7 +44,7 @@ export interface ViecFaq {
   verdictLabel: string;
 }
 
-interface ViecDef {
+export interface ViecDef {
   /** Tên việc, dùng trong câu hỏi. */
   viec: string;
   /** Các cụm từ tìm trong mô tả sao — lấy đúng chữ đã xuất hiện trong mô tả, không suy diễn thêm. */
@@ -52,7 +52,7 @@ interface ViecDef {
 }
 
 /** "Tốt cho mọi việc" / "Kiêng mọi việc" trong mô tả sao thì tính cho mọi câu hỏi việc. */
-const WILDCARD_KEYWORDS = ["mọi việc", "mọi công việc"];
+export const WILDCARD_KEYWORDS = ["mọi việc", "mọi công việc"];
 
 const VIEC_DEFS: readonly ViecDef[] = [
   { viec: "cưới hỏi", keywords: ["cưới hỏi", "giá thú", "ăn hỏi", "dạm ngõ"] },
@@ -64,9 +64,9 @@ const VIEC_DEFS: readonly ViecDef[] = [
 ];
 
 /** Từ đánh dấu câu kiêng kỵ — chỉ những câu có chữ này mới tính là "xấu" cho việc đó. */
-const KIENG_TRIGGERS = ["kiêng"];
+export const KIENG_TRIGGERS = ["kiêng"];
 /** Từ đánh dấu câu thuận lợi — chỉ những câu có chữ này mới tính là "tốt" cho việc đó. */
-const HOP_TRIGGERS = ["hợp", "tốt", "thuận"];
+export const HOP_TRIGGERS = ["hợp", "tốt", "thuận"];
 
 function splitSentences(description: string): string[] {
   return description.split(/(?<=[.!?])\s+/).filter(Boolean);
@@ -86,7 +86,8 @@ function matchesViec(description: string, def: ViecDef, triggers: readonly strin
   });
 }
 
-function matchingStarNames(
+/** Tên các sao (trong danh sách đã cho) có câu mô tả khớp việc — dùng lại cho cả câu hỏi ngày và trang xem ngày tốt. */
+export function matchingStarNames(
   stars: readonly { name: string; description: string }[],
   def: ViecDef,
   triggers: readonly string[],
