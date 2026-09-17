@@ -208,7 +208,7 @@ export default async function DayPage({ params }: { params: Promise<{ slug: stri
               {info.khongMinh && (
                 <div className="row">
                   <span>Khổng Minh lục diệu</span>
-                  <span>
+                  <span style={{ color: info.khongMinh.isGood ? "var(--luc)" : "var(--son)" }}>
                     {info.khongMinh.name} — {info.khongMinh.isGood ? "tốt" : "xấu"}
                   </span>
                 </div>
@@ -216,7 +216,7 @@ export default async function DayPage({ params }: { params: Promise<{ slug: stri
               {info.nhiThapBatTu && (
                 <div className="row">
                   <span>Nhị thập bát tú</span>
-                  <span>
+                  <span style={{ color: info.nhiThapBatTu.isGood ? "var(--luc)" : "var(--son)" }}>
                     Sao {info.nhiThapBatTu.name} — {info.nhiThapBatTu.isGood ? "tốt" : "xấu"}
                   </span>
                 </div>

@@ -68,6 +68,10 @@ function buildStaticEntries(): SitemapEntry[] {
   const entries: SitemapEntry[] = [];
   entries.push({ url: `${SITE_URL}/`, changefreq: "daily", priority: 1 });
   entries.push({ url: `${SITE_URL}/doi-ngay-am-duong/`, changefreq: "yearly", priority: 0.6 });
+  entries.push({ url: `${SITE_URL}/gioi-thieu/`, changefreq: "yearly", priority: 0.4 });
+  entries.push({ url: `${SITE_URL}/lien-he/`, changefreq: "yearly", priority: 0.4 });
+  entries.push({ url: `${SITE_URL}/dieu-khoan/`, changefreq: "yearly", priority: 0.3 });
+  entries.push({ url: `${SITE_URL}/chinh-sach-bao-mat/`, changefreq: "yearly", priority: 0.3 });
 
   for (const v of VIEC_LIST) {
     entries.push({ url: `${SITE_URL}/xem-ngay-tot/${v.slug}/`, changefreq: "monthly", priority: 0.7 });

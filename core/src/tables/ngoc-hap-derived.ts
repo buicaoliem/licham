@@ -462,7 +462,7 @@ export const DERIVED_SAO: readonly DerivedSao[] = [
     matchRate: 1.0000,
   },
   {
-    name: "Hà khôi(Cẩu Giảo)",
+    name: "Hà khôi (Cẩu Giảo)",
     isGood: false,
     description: "Sao xấu, chủ về trở ngại. Kiêng khởi sự, xuất hành.",
     kind: "lunar-month-chi",
