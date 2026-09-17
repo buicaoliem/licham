@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { CHI, getDayInfo } from "@licham/core";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -10,6 +11,10 @@ import { getMonthCells } from "@/lib/month-grid";
 import { getVietnamToday } from "@/lib/today";
 import { getUpcomingOccasions } from "@/lib/upcoming-occasions";
 
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
+
 // Trang tĩnh: "hôm nay" được tính tại thời điểm build, theo giờ Việt Nam.
 export default function HomePage() {
   const today = getVietnamToday();
@@ -18,6 +23,10 @@ export default function HomePage() {
   const hoangDaoHours = info.hours
     .filter((h) => h.isHoangDao)
     .map((h) => ({ chiName: CHI[h.chiIndex]!, start: h.start, end: h.end }));
+  const worstHourInfo = info.hours.find((h) => !h.isHoangDao);
+  const worstHour = worstHourInfo
+    ? { chiName: CHI[worstHourInfo.chiIndex]!, start: worstHourInfo.start, end: worstHourInfo.end }
+    : null;
 
   const cells = getMonthCells(today.month, today.year, today);
 
@@ -52,7 +61,13 @@ export default function HomePage() {
             Xem lịch âm dương, giờ hoàng đạo, ngày tốt xấu. Không quảng cáo, không theo dõi, mở là thấy ngay.
           </p>
 
-          <TodayCards hoangDaoHours={hoangDaoHours} info={info} saoTotCount={saoTotCount} saoXauCount={saoXauCount} />
+          <TodayCards
+            hoangDaoHours={hoangDaoHours}
+            worstHour={worstHour}
+            info={info}
+            saoTotCount={saoTotCount}
+            saoXauCount={saoXauCount}
+          />
 
           <MonthGrid month={today.month} year={today.year} cells={cells} />
 
