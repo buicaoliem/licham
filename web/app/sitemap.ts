@@ -3,6 +3,7 @@ import { jdFromDate, jdToDate } from "@licham/core";
 import { dateToSlug } from "@/lib/date-slug";
 import { monthToSlug } from "@/lib/month-slug";
 import { SITE_URL } from "@/lib/site";
+import { CON_GIAP_LIST } from "@/lib/tu-vi";
 import { VAN_KHAN_LIST } from "@/lib/van-khan";
 import { VIEC_LIST } from "@/lib/xem-ngay-tot";
 
@@ -33,6 +34,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       priority: 0.7,
       changeFrequency: "yearly",
+    });
+  }
+
+  entries.push({ url: `${SITE_URL}/tu-vi/`, lastModified, priority: 0.7, changeFrequency: "daily" });
+  for (const cg of CON_GIAP_LIST) {
+    entries.push({
+      url: `${SITE_URL}/tu-vi/${cg.slug}/`,
+      lastModified,
+      priority: 0.6,
+      changeFrequency: "daily",
     });
   }
 
