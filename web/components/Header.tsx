@@ -32,13 +32,13 @@ function menuHref(item: (typeof MENU)[number]): string {
 export function Header({ activeMenu = "Hôm nay" }: { activeMenu?: (typeof MENU)[number] }) {
   return (
     <div className="nav">
-      <div className="logo">
+      <Link href="/" className="logo">
         <img src="/logo.svg" alt="LịchÂm" width={32} height={32} className="mk" />
         <span>
           <span className="logo-ink">Lịch</span>
           <span className="logo-son">Âm</span>
         </span>
-      </div>
+      </Link>
       <ul>
         {MENU.map((item) => {
           const disabled = DISABLED_MENU.has(item);

@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { bestHours, joinVi, ltpPairs, viecFaqs } from "@/lib/day-detail";
 import { dateToSlug, slugToDate } from "@/lib/date-slug";
+import { monthToSlug } from "@/lib/month-slug";
 import { MONTH_WORD, WEEKDAY_LONG, pad2 } from "@/lib/format";
 
 const YEAR = 2026;
@@ -69,7 +70,7 @@ export default async function DayPage({ params }: { params: Promise<{ slug: stri
 
         <div className="dhead">
           <div className="crumb">
-            Trang chủ › <b>Lịch tháng {month} năm {year}</b> › Ngày {ngayLabel}
+            <Link href="/">Trang chủ</Link> › <b>Lịch tháng {month} năm {year}</b> › Ngày {ngayLabel}
           </div>
           <h1 className="dh1">Ngày {ngayLabel} là ngày gì? Tốt hay xấu?</h1>
           <p className="dsub">
@@ -306,9 +307,9 @@ export default async function DayPage({ params }: { params: Promise<{ slug: stri
             Có thể anh cần
           </h2>
           <div className="chips">
-            <span className="chip">
+            <Link className="chip" href={`/${monthToSlug(month, year)}`}>
               Lịch tháng {month} năm {year}
-            </span>
+            </Link>
             <span className="chip">
               Ngày tốt cưới hỏi tháng {month}/{year}
             </span>
