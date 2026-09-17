@@ -11,6 +11,7 @@ import {
   birthYearsForChi,
   conGiapBySlug,
   getTuViData,
+  hasAiContent,
   parseDateStr,
   quanHeVoiNgay,
 } from "@/lib/tu-vi";
@@ -21,6 +22,7 @@ const data = getTuViData(today);
 const displayDate = parseDateStr(data.date);
 const info = getDayInfo(displayDate);
 const dateLabel = `${pad2(displayDate.day)}/${pad2(displayDate.month)}/${displayDate.year}`;
+const coNoiDung = hasAiContent(data);
 
 export function generateStaticParams() {
   return CON_GIAP_LIST.map((cg) => ({ slug: cg.slug }));
@@ -45,7 +47,7 @@ export default async function TuViConGiapPage({ params }: { params: Promise<{ sl
   if (!cg) notFound();
 
   const entry = data.tuoi[cg.slug];
-  const years = birthYearsForChi(cg.chiIndex, today.year, 6);
+  const years = birthYearsForChi(cg.chiIndex, today.year);
   const quanHe = quanHeVoiNgay(info.canChi.day.chiIndex, cg.chiIndex);
   const khac = CON_GIAP_LIST.filter((c) => c.slug !== cg.slug);
 
@@ -65,20 +67,24 @@ export default async function TuViConGiapPage({ params }: { params: Promise<{ sl
         </div>
 
         <div className="body">
-          <div style={{ textAlign: "center", marginBottom: 20 }}>
-            <span className="aihint">Phần luận do máy viết riêng cho ngày này, mang tính tham khảo</span>
-          </div>
-
-          <div className="box" style={{ marginBottom: 20 }}>
-            <div className="st" style={{ justifyContent: "center", marginBottom: 12 }}>
-              {[1, 2, 3, 4, 5].map((n) => (
-                <i className={n <= (entry?.diem ?? 0) ? "on" : undefined} key={n} />
-              ))}
+          {coNoiDung && (
+            <div style={{ textAlign: "center", marginBottom: 20 }}>
+              <span className="aihint">Phần luận do máy viết riêng cho ngày này, mang tính tham khảo</span>
             </div>
-            <p style={{ textAlign: "center", fontSize: 14.5, color: "var(--ink)", margin: 0 }}>{entry?.luan}</p>
-          </div>
+          )}
 
-          <div className="tuvi-detail">
+          {coNoiDung && (
+            <div className="box" style={{ marginBottom: 20 }}>
+              <div className="st" style={{ justifyContent: "center", marginBottom: 12 }}>
+                {[1, 2, 3, 4, 5].map((n) => (
+                  <i className={n <= (entry?.diem ?? 0) ? "on" : undefined} key={n} />
+                ))}
+              </div>
+              <p style={{ textAlign: "center", fontSize: 14.5, color: "var(--ink)", margin: 0 }}>{entry?.luan}</p>
+            </div>
+          )}
+
+          <div className={coNoiDung ? "tuvi-detail" : undefined}>
             <div className="box">
               <div className="box-h">
                 <span className="rule" />
@@ -93,22 +99,28 @@ export default async function TuViConGiapPage({ params }: { params: Promise<{ sl
                 <span>Quan hệ với ngày</span>
                 <span>{QUAN_HE_LABEL[quanHe]}</span>
               </div>
-            </div>
-            <div className="box">
-              <div className="box-h">
-                <span className="rule" />
-                <span className="t">Giờ tốt nhất trong ngày</span>
-                <span className="rule" />
-              </div>
-              <div className="row">
-                <span>Khung giờ</span>
-                <span>{entry?.gioTot}</span>
-              </div>
               <div className="row">
                 <span>Can chi ngày</span>
                 <span>{info.canChi.day.name}</span>
               </div>
             </div>
+            {coNoiDung && (
+              <div className="box">
+                <div className="box-h">
+                  <span className="rule" />
+                  <span className="t">Giờ tốt nhất trong ngày</span>
+                  <span className="rule" />
+                </div>
+                <div className="row">
+                  <span>Khung giờ</span>
+                  <span>{entry?.gioTot}</span>
+                </div>
+                <div className="row">
+                  <span>Can chi ngày</span>
+                  <span>{info.canChi.day.name}</span>
+                </div>
+              </div>
+            )}
           </div>
 
           <h2 className="hh" style={{ marginTop: 28 }}>

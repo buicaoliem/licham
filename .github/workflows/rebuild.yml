@@ -37,4 +37,12 @@ jobs:
         run: pnpm build
         working-directory: web
 
-      # TODO: thêm bước triển khai khi đã nối Vercel
+      - name: Gọi Vercel triển khai lại
+        env:
+          DEPLOY_HOOK_URL: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+        run: |
+          if [ -z "$DEPLOY_HOOK_URL" ]; then
+            echo "::warning::Chưa có secret VERCEL_DEPLOY_HOOK_URL, bỏ qua bước gọi Vercel triển khai lại."
+          else
+            curl -fsS -X POST "$DEPLOY_HOOK_URL" -o /dev/null
+          fi

@@ -4,7 +4,7 @@ import { getDayInfo } from "@licham/core";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { pad2 } from "@/lib/format";
-import { CON_GIAP_LIST, birthYearsForChi, getTuViData, parseDateStr } from "@/lib/tu-vi";
+import { CON_GIAP_LIST, QUAN_HE_LABEL, birthYearsForChi, getTuViData, hasAiContent, parseDateStr, quanHeVoiNgay } from "@/lib/tu-vi";
 import { getVietnamToday } from "@/lib/today";
 
 const today = getVietnamToday();
@@ -12,6 +12,7 @@ const data = getTuViData(today);
 const displayDate = parseDateStr(data.date);
 const info = getDayInfo(displayDate);
 const dateLabel = `${pad2(displayDate.day)}/${pad2(displayDate.month)}/${displayDate.year}`;
+const coNoiDung = hasAiContent(data);
 
 export const metadata: Metadata = {
   title: `Tử vi hôm nay ${dateLabel} của 12 con giáp | LịchÂm`,
@@ -37,24 +38,35 @@ export default function TuViIndexPage() {
         </div>
 
         <div className="body">
-          <div style={{ textAlign: "center", marginBottom: 20 }}>
-            <span className="aihint">Phần luận do máy viết riêng cho ngày này, mang tính tham khảo</span>
-          </div>
+          {coNoiDung && (
+            <div style={{ textAlign: "center", marginBottom: 20 }}>
+              <span className="aihint">Phần luận do máy viết riêng cho ngày này, mang tính tham khảo</span>
+            </div>
+          )}
 
           <div className="giap">
             {CON_GIAP_LIST.map((cg) => {
               const entry = data.tuoi[cg.slug];
               const years = birthYearsForChi(cg.chiIndex, today.year);
+              const quanHe = quanHeVoiNgay(info.canChi.day.chiIndex, cg.chiIndex);
               return (
                 <Link className="gcard" href={`/tu-vi/${cg.slug}/`} key={cg.slug}>
                   <div className="nm">{cg.ten}</div>
                   <div className="yr">{years.join(" · ")}</div>
-                  <div className="st">
-                    {[1, 2, 3, 4, 5].map((n) => (
-                      <i className={n <= (entry?.diem ?? 0) ? "on" : undefined} key={n} />
-                    ))}
-                  </div>
-                  <div className="tx">{entry?.luan}</div>
+                  {coNoiDung ? (
+                    <>
+                      <div className="st">
+                        {[1, 2, 3, 4, 5].map((n) => (
+                          <i className={n <= (entry?.diem ?? 0) ? "on" : undefined} key={n} />
+                        ))}
+                      </div>
+                      <div className="tx">{entry?.luan}</div>
+                    </>
+                  ) : (
+                    <div className="tx" style={{ textAlign: "center", marginTop: 9 }}>
+                      {QUAN_HE_LABEL[quanHe]}
+                    </div>
+                  )}
                 </Link>
               );
             })}

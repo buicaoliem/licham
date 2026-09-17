@@ -24,11 +24,11 @@ export function conGiapBySlug(slug: string): ConGiap | undefined {
 
 /**
  * Năm sinh dương lịch (ước lượng qua `canChiNamDuong`, xem giới hạn của nó ở core/canChi.ts)
- * gần đây nhất ứng với một chi, bỏ qua các năm dưới 18 tuổi để danh sách không lẫn năm sinh trẻ nhỏ.
+ * gần đây nhất ứng với một chi, tính lùi từ năm hiện tại — kể cả năm của trẻ nhỏ.
  */
-export function birthYearsForChi(chiIndex: number, currentYear: number, count = 3): number[] {
+export function birthYearsForChi(chiIndex: number, currentYear: number, count = 4): number[] {
   const years: number[] = [];
-  for (let y = currentYear - 18; years.length < count; y--) {
+  for (let y = currentYear; years.length < count; y--) {
     if (canChiNamDuong(y).chiIndex === chiIndex) years.push(y);
   }
   return years.reverse();
@@ -135,6 +135,11 @@ export interface TuViDayData {
   tuoi: Record<string, TuViEntry>;
 }
 
+/** false khi chưa từng sinh được nội dung thật (thiếu khóa lần đầu) — trang không được hiện đoạn luận/điểm/giờ giữ chỗ. */
+export function hasAiContent(data: TuViDayData): boolean {
+  return data.model !== "placeholder";
+}
+
 export function dateStr(d: { day: number; month: number; year: number }): string {
   return `${d.year}-${String(d.month).padStart(2, "0")}-${String(d.day).padStart(2, "0")}`;
 }
@@ -144,12 +149,14 @@ export function parseDateStr(s: string): { day: number; month: number; year: num
   return { day: day!, month: month!, year: year! };
 }
 
-const PLACEHOLDER_LUAN =
-  "Chưa có bản luận riêng cho ngày này — nội dung sẽ có ở lần dựng trang kế tiếp, mời quay lại sau.";
-
+/**
+ * Dùng khi chưa từng sinh được nội dung thật cho ngày nào — không có đoạn luận, điểm hay giờ tốt
+ * thật để hiện, nên `luan`/`gioTot` để rỗng và `diem` để 0; trang phải kiểm `hasAiContent()` và ẩn
+ * hẳn các phần này thay vì hiện giá trị giữ chỗ.
+ */
 export function placeholderTuViData(date: { day: number; month: number; year: number }): TuViDayData {
   const tuoi: Record<string, TuViEntry> = {};
-  for (const cg of CON_GIAP_LIST) tuoi[cg.slug] = { luan: PLACEHOLDER_LUAN, diem: 3, gioTot: "—" };
+  for (const cg of CON_GIAP_LIST) tuoi[cg.slug] = { luan: "", diem: 0, gioTot: "" };
   return { date: dateStr(date), generatedAt: new Date().toISOString(), model: "placeholder", tuoi };
 }
 
