@@ -47,7 +47,7 @@ export default async function MonthPage({ params }: { params: Promise<{ monthSlu
 
         <div className="dhead">
           <div className="crumb">
-            Trang chủ › <b>Lịch tháng {month} năm {year}</b>
+            <Link href="/">Trang chủ</Link> › <b>Lịch tháng {month} năm {year}</b>
           </div>
           <h1 className="dh1">Lịch tháng {month} năm {year}</h1>
         </div>
