@@ -15,6 +15,7 @@ import { khongMinhOfLunarDay } from "./tables/khong-minh";
 import { lyThuanPhongOfDay } from "./tables/ly-thuan-phong";
 import { DERIVED_SAO, derivedSaoMatches } from "./tables/ngoc-hap-derived";
 import { nhiThapBatTuIndexOfJd, nhiThapBatTuOfJd } from "./tables/nhi-thap-bat-tu";
+import { type XungEntry, xungNgay, xungThang } from "./tables/tuoi-xung";
 import { type Truc, getTruc, solarMonthChiIndex } from "./truc";
 
 export interface HourInfo extends CanChiHour {
@@ -41,8 +42,8 @@ export interface HourRatedEntry extends RatedEntry {
   chiIndex: number;
 }
 export interface TuoiXung {
-  ngay: CanChi[];
-  thang: CanChi[];
+  ngay: XungEntry[];
+  thang: XungEntry[];
 }
 
 export interface DayInfo {
@@ -74,8 +75,8 @@ export interface DayInfo {
   khongMinh: RatedEntry | null;
   // TODO: nạp từ nguồn ngoài, xem GĐ1b
   lyThuanPhong: HourRatedEntry[] | null;
-  // TODO: nạp từ nguồn ngoài, xem GĐ1b
-  tuoiXung: TuoiXung | null;
+  /** Tính bằng luật cứng lục xung/tứ xung, xem tables/tuoi-xung.ts — không phải bảng tra. */
+  tuoiXung: TuoiXung;
 }
 
 const VN_OFFSET_MS = VN_TIME_ZONE * 3600000;
@@ -110,6 +111,7 @@ export function getDayInfo(date: Date | SolarDate): DayInfo {
 
   const nhiThapBatTu = nhiThapBatTuOfJd(jd);
   const yearCanChi = canChiOfYear(lunar.year);
+  const monthCanChi = canChiOfMonth(lunar.month, lunar.year);
 
   const saoDay = {
     lunarMonth: lunar.month,
@@ -138,7 +140,7 @@ export function getDayInfo(date: Date | SolarDate): DayInfo {
     lunar,
     canChi: {
       day: dayCanChi,
-      month: canChiOfMonth(lunar.month, lunar.year),
+      month: monthCanChi,
       year: yearCanChi,
     },
     hours,
@@ -152,6 +154,6 @@ export function getDayInfo(date: Date | SolarDate): DayInfo {
     taiThan,
     khongMinh,
     lyThuanPhong,
-    tuoiXung: null, // TODO: Liêm cấp bảng
+    tuoiXung: { ngay: xungNgay(dayCanChi), thang: xungThang(monthCanChi) },
   };
 }
