@@ -384,9 +384,9 @@ export function birthYearsForCanChi(canChiIndex: number, currentYear: number): [
   return [y - 60, y, y + 60];
 }
 
-/** Năm tới gần nhất (> currentYear) mà chi của năm đó là chiIndex đã cho. */
+/** Năm gần nhất (>= currentYear, có thể là chính năm nay) mà chi của năm đó là chiIndex đã cho. */
 export function nextYearForChi(chiIndex: number, currentYear: number): number {
-  let y = currentYear + 1;
+  let y = currentYear;
   while (canChiNamDuong(y).chiIndex !== chiIndex) y++;
   return y;
 }

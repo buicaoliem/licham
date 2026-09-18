@@ -100,15 +100,17 @@ describe("năm sinh và số tuổi", () => {
 });
 
 describe("năm đáng lưu ý", () => {
-  it("trả về 4 năm tương lai gần nhất, tăng dần, phủ đủ 3 nhãn", () => {
-    const years = namDangLuuY(0, 2026); // tuổi Tý
+  it("trả về 4 năm gần nhất (kể cả năm nay nếu đúng), tăng dần, phủ đủ 3 nhãn", () => {
+    const years = namDangLuuY(0, 2026); // tuổi Tý; 2026 là năm Ngọ nên đã là năm xung ngay năm nay
     expect(years).toHaveLength(4);
     for (let i = 1; i < years.length; i++) expect(years[i]!.year).toBeGreaterThan(years[i - 1]!.year);
-    expect(years.every((y) => y.year > 2026)).toBe(true);
+    expect(years.every((y) => y.year >= 2026)).toBe(true);
+    expect(years[0]).toMatchObject({ year: 2026, nhan: "xung" });
     expect(new Set(years.map((y) => y.nhan))).toEqual(new Set(["xung", "tam-hop", "nam-tuoi"]));
   });
 
-  it("nextYearForChi tìm đúng năm Ngọ đầu tiên sau 2026", () => {
+  it("nextYearForChi tìm đúng năm Ngọ gần nhất từ 2020 (kể cả năm 2020 nếu đúng chi)", () => {
     expect(nextYearForChi(6, 2020)).toBe(2026);
+    expect(nextYearForChi(6, 2026)).toBe(2026);
   });
 });

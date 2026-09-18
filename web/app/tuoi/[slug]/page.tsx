@@ -72,7 +72,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 function ChiPage({ chi }: { chi: ChiInfo }) {
   const today = getVietnamToday();
   const years = birthYearsForChi(chi.chiIndex, today.year, 6);
-  const nextYear = nextYearForChi(chi.chiIndex, today.year - 1);
+  const nextYear = nextYearForChi(chi.chiIndex, today.year);
   const nextYearCanChi = canChiNamDuong(nextYear);
   const tamHop = tamHopGroup(chi.chiIndex);
   const tuHanhXung = tuHanhXungGroup(chi.chiIndex);
