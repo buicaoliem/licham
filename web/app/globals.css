@@ -13,40 +13,7 @@
   --luc-soft: #eef6f1;
   --kim: #c2932f;
   --kim-soft: #fbf4e6;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --page: #100e0a;
-    --ink: #f5f0e5;
-    --ink-2: #b9b1a2;
-    --ink-3: #8b8274;
-    --sheet: #1d1a14;
-    --line: #332d23;
-    --line-2: #26211a;
-    --son: #e0574f;
-    --son-dp: #b03730;
-    --son-soft: #2b1917;
-    --luc: #7cc6a0;
-    --luc-soft: #17241d;
-    --kim: #ddb85f;
-    --kim-soft: #282016;
-  }
-}
-:root[data-theme="dark"] {
-  --page: #100e0a;
-  --ink: #f5f0e5;
-  --ink-2: #b9b1a2;
-  --ink-3: #8b8274;
-  --sheet: #1d1a14;
-  --line: #332d23;
-  --line-2: #26211a;
-  --son: #e0574f;
-  --son-dp: #b03730;
-  --son-soft: #2b1917;
-  --luc: #7cc6a0;
-  --luc-soft: #17241d;
-  --kim: #ddb85f;
-  --kim-soft: #282016;
+  color-scheme: light;
 }
 * {
   box-sizing: border-box;
@@ -66,6 +33,18 @@ h3 {
   text-align: center;
   margin: 0;
 }
+a {
+  color: var(--son-dp);
+  text-decoration: none;
+}
+a:visited {
+  color: var(--son-dp);
+}
+a:hover,
+a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 .outer {
   max-width: 1180px;
   margin: 0 auto;
@@ -83,12 +62,13 @@ h3 {
 
 /* ---------- đầu trang ---------- */
 .nav {
+  border-bottom: 1px solid var(--line-2);
+}
+.navrow {
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 15px 26px;
-  border-bottom: 1px solid var(--line-2);
-  flex-wrap: wrap;
+  justify-content: center;
+  padding: 14px 26px 0;
 }
 .logo {
   display: flex;
@@ -112,30 +92,107 @@ h3 {
 .logo-son {
   color: var(--son);
 }
-.nav ul {
+/* menu 1 dòng, giữa, không xuống hàng — kiểu máy tính */
+.navlinks {
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 19px;
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 10px 26px 14px;
   font-size: 13.5px;
   color: var(--ink-2);
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
-.nav ul li.on {
+.navlinks li.on {
   color: var(--son);
   font-weight: 600;
 }
-.nav ul li.disabled {
+.navlinks li.disabled {
   opacity: 0.45;
   cursor: default;
 }
-.nav ul li a {
+.navlinks li a {
   color: inherit;
   text-decoration: none;
 }
-.nav .sp {
-  flex: 1;
+/* nút mở menu + ô trống giữ chỗ — chỉ dùng ở điện thoại */
+.navmenu,
+.navsp {
+  display: none;
+}
+.navpanel {
+  display: none;
+}
+.navbtn {
+  cursor: pointer;
+  list-style: none;
+}
+.navbtn::-webkit-details-marker {
+  display: none;
+}
+.navbtn::marker {
+  content: "";
+}
+
+@media (max-width: 759px) {
+  .navrow {
+    display: grid;
+    grid-template-columns: 44px 1fr 44px;
+    align-items: center;
+    padding: 13px 16px;
+  }
+  .navmenu {
+    display: block;
+  }
+  .navbtn {
+    width: 40px;
+    height: 36px;
+    border: 1px solid var(--line);
+    background: var(--kim-soft);
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    font-size: 16px;
+    color: var(--ink-2);
+  }
+  .navsp {
+    display: block;
+  }
+  .logo {
+    justify-content: center;
+  }
+  .navlinks {
+    display: none;
+  }
+  .nav:has(.navmenu[open]) .navpanel {
+    display: block;
+    border-top: 1px solid var(--line-2);
+  }
+  .navpanel ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 14.5px;
+  }
+  .navpanel li {
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--line-2);
+    color: var(--ink-2);
+  }
+  .navpanel li:last-child {
+    border-bottom: 0;
+  }
+  .navpanel li.on {
+    color: var(--son);
+    font-weight: 600;
+  }
+  .navpanel li a {
+    color: inherit;
+    text-decoration: none;
+  }
 }
 
 /* ---------- dải hero ---------- */
@@ -314,6 +371,7 @@ h3 {
 .right {
   display: flex;
   justify-content: flex-end;
+  gap: 12px;
   margin-top: 14px;
 }
 .btn {
@@ -336,9 +394,6 @@ h3 {
   background: #fff;
   border-color: #fff;
   color: #1d5f63;
-}
-:root[data-theme="dark"] .btn.pri {
-  color: #1a0f0e;
 }
 
 /* ---------- thân ---------- */
@@ -440,6 +495,32 @@ h3 {
   font-weight: 600;
   text-align: right;
 }
+/* danh sách ngày tốt/tránh trong tháng — cả dòng bấm được */
+.daylink {
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin: 0 -10px;
+  text-decoration: none;
+  color: inherit;
+}
+.daylink:hover,
+.daylink:focus-visible {
+  background: var(--kim-soft);
+}
+.daylink span:first-child {
+  color: var(--ink-2);
+  text-decoration: none;
+}
+.daylink span:last-child {
+  color: var(--son-dp);
+  font-weight: 600;
+  text-decoration: none;
+}
+.daylink:hover span,
+.daylink:focus-visible span {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 .star {
   padding: 8px 0;
   border-bottom: 1px solid var(--line-2);
@@ -524,7 +605,6 @@ h3 {
   font-weight: 600;
 }
 .cl.good {
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--luc) 30%, transparent);
   background: var(--luc-soft);
 }
 /* .today declared after .good so a day that is both today and hoàng đạo still shows as today. */
@@ -707,19 +787,48 @@ h3 {
 
 .foot {
   border-top: 1px solid var(--line-2);
-  padding: 18px 26px;
-  text-align: center;
-  font-size: 12.5px;
-  color: var(--ink-3);
+  padding: 18px 26px 16px;
+}
+.foot-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+.foot-brand .mk {
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  flex-shrink: 0;
 }
 .footlinks {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 6px;
-  margin-top: 8px;
+  gap: 6px 18px;
+  font-size: 13.5px;
+  margin-bottom: 10px;
 }
 .footlinks a {
+  color: var(--ink-2);
+  text-decoration: none;
+}
+.footlinks a:hover,
+.footlinks a:focus-visible {
+  color: var(--son);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.foot-line {
+  text-align: center;
+  font-size: 12.5px;
+  color: var(--ink-3);
+  line-height: 1.7;
+}
+.foot-line a {
   color: var(--ink-3);
 }
 
@@ -1018,18 +1127,13 @@ h3 {
   .body {
     padding: 20px 16px 24px;
   }
-  .nav {
-    padding: 13px 16px;
-    gap: 12px;
+  .daylink {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
   }
-  .nav ul {
-    font-size: 13px;
-    gap: 14px;
-    order: 3;
-    width: 100%;
-  }
-  .nav .sp {
-    display: none;
+  .daylink span:last-child {
+    text-align: left;
   }
   .dhead {
     padding: 20px 16px 4px;

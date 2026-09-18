@@ -15,24 +15,25 @@ const buildTimeLabel = `${BUILD_TIME_FORMATTER.format(new Date())} (giờ Việt
 export function Footer() {
   return (
     <footer className="foot">
-      <div>
-        <Link href="/">LịchÂm</Link> — licham.app — miễn phí, không quảng cáo · Thông tin phong thủy mang tính tham khảo
-      </div>
+      <Link href="/" className="foot-brand">
+        <img src="/logo.svg" alt="" width={26} height={26} className="mk" aria-hidden="true" />
+        <span>
+          <span className="logo-ink">Lịch</span>
+          <span className="logo-son">Âm</span>
+        </span>
+      </Link>
       <div className="footlinks">
         <Link href="/gioi-thieu">Giới thiệu</Link>
-        <span>·</span>
         <Link href="/lien-he">Liên hệ</Link>
-        <span>·</span>
         <Link href="/le">Ngày lễ</Link>
-        <span>·</span>
+        <Link href="/tuoi">Xem tuổi</Link>
         <Link href="/dieu-khoan">Điều khoản</Link>
-        <span>·</span>
         <Link href="/chinh-sach-bao-mat">Chính sách bảo mật</Link>
       </div>
-      <div style={{ marginTop: 6 }}>
-        <a href="mailto:lienhe@licham.app">Liên hệ: lienhe@licham.app</a>
+      <div className="foot-line">Miễn phí, không quảng cáo · Thông tin phong thủy mang tính tham khảo</div>
+      <div className="foot-line">
+        <a href="mailto:lienhe@licham.app">lienhe@licham.app</a> · Cập nhật {buildTimeLabel}
       </div>
-      <div style={{ fontSize: 12, color: "var(--ink-3)", marginTop: 6 }}>Cập nhật lần cuối: {buildTimeLabel}</div>
     </footer>
   );
 }

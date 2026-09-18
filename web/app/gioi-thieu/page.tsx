@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 
@@ -43,21 +42,6 @@ export default function GioiThieuPage() {
               dung như sao tốt xấu, giờ hoàng đạo hay tử vi là tri thức dân gian được lưu truyền, mang tính tham khảo,
               không phải là khoa học.
             </p>
-
-            <div className="box" style={{ marginTop: 18 }}>
-              <div className="box-h">
-                <span className="rule" />
-                <span className="t">Thông tin đơn vị</span>
-                <span className="rule" />
-              </div>
-              <p style={{ textAlign: "center" }}>
-                Công ty TNHH ISHI KOI FARM · Mã số thuế: 0601224050 · Địa chỉ: Số 185 đường Lộc Vượng, Phường Nam Định,
-                Tỉnh Ninh Bình.
-              </p>
-              <p style={{ textAlign: "center", marginTop: 10 }}>
-                Xem thêm tại trang <Link href="/lien-he">Liên hệ</Link>.
-              </p>
-            </div>
           </div>
         </div>
 

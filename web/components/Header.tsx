@@ -33,27 +33,47 @@ function menuHref(item: (typeof MENU)[number]): string {
   }
 }
 
+function MenuItems({ activeMenu }: { activeMenu: (typeof MENU)[number] }) {
+  return (
+    <>
+      {MENU.map((item) => {
+        const disabled = DISABLED_MENU.has(item);
+        return (
+          <li key={item} className={item === activeMenu ? "on" : disabled ? "disabled" : undefined}>
+            {disabled ? item : <Link href={menuHref(item)}>{item}</Link>}
+          </li>
+        );
+      })}
+    </>
+  );
+}
+
 export function Header({ activeMenu = "Hôm nay" }: { activeMenu?: (typeof MENU)[number] }) {
   return (
     <div className="nav">
-      <Link href="/" className="logo">
-        <img src="/logo.svg" alt="LịchÂm" width={32} height={32} className="mk" />
-        <span>
-          <span className="logo-ink">Lịch</span>
-          <span className="logo-son">Âm</span>
-        </span>
-      </Link>
-      <ul>
-        {MENU.map((item) => {
-          const disabled = DISABLED_MENU.has(item);
-          return (
-            <li key={item} className={item === activeMenu ? "on" : disabled ? "disabled" : undefined}>
-              {disabled ? item : <Link href={menuHref(item)}>{item}</Link>}
-            </li>
-          );
-        })}
+      <div className="navrow">
+        <details className="navmenu">
+          <summary className="navbtn" aria-label="Mở menu">
+            ☰
+          </summary>
+        </details>
+        <Link href="/" className="logo">
+          <img src="/logo.svg" alt="LịchÂm" width={32} height={32} className="mk" />
+          <span>
+            <span className="logo-ink">Lịch</span>
+            <span className="logo-son">Âm</span>
+          </span>
+        </Link>
+        <span className="navsp" aria-hidden="true" />
+      </div>
+      <ul className="navlinks">
+        <MenuItems activeMenu={activeMenu} />
       </ul>
-      <div className="sp" />
+      <div className="navpanel">
+        <ul>
+          <MenuItems activeMenu={activeMenu} />
+        </ul>
+      </div>
     </div>
   );
 }
