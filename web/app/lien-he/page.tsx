@@ -27,17 +27,6 @@ export default function LienHePage() {
             <div className="box">
               <div className="box-h">
                 <span className="rule" />
-                <span className="t">Email</span>
-                <span className="rule" />
-              </div>
-              <p style={{ textAlign: "center", fontSize: 18, fontWeight: 600 }}>
-                <a href="mailto:lienhe@licham.app">lienhe@licham.app</a>
-              </p>
-            </div>
-
-            <div className="box" style={{ marginTop: 18 }}>
-              <div className="box-h">
-                <span className="rule" />
                 <span className="t">Gửi cho chúng tôi</span>
                 <span className="rule" />
               </div>
@@ -47,6 +36,9 @@ export default function LienHePage() {
                 <li>Báo lỗi hiển thị</li>
                 <li>Hợp tác nội dung</li>
               </ul>
+              <p style={{ marginTop: 18 }}>
+                Mọi góp ý xin gửi về <a href="mailto:lienhe@licham.app">Lienhe@licham.app</a>
+              </p>
             </div>
 
             <p style={{ textAlign: "center", fontSize: 13.5, color: "var(--ink-3)", marginTop: 18 }}>

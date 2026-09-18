@@ -16,7 +16,7 @@ export function Footer() {
   return (
     <footer className="foot">
       <Link href="/" className="foot-brand">
-        <img src="/logo.svg" alt="" width={40} height={40} className="mk" aria-hidden="true" />
+        <img src="/logo.svg" alt="" width={60} height={60} className="mk" aria-hidden="true" />
         <span>
           <span className="logo-ink">Lịch</span> <span className="logo-son">Âm</span>
         </span>
@@ -31,7 +31,7 @@ export function Footer() {
       </div>
       <div className="foot-line">Miễn phí, không quảng cáo · Thông tin phong thủy mang tính tham khảo</div>
       <div className="foot-line">
-        <a href="mailto:lienhe@licham.app">lienhe@licham.app</a> · Cập nhật {buildTimeLabel}
+        <a href="mailto:lienhe@licham.app">Lienhe@licham.app</a> · Cập nhật {buildTimeLabel}
       </div>
     </footer>
   );
