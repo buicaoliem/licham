@@ -10,7 +10,7 @@ import {
   ketHonSlug,
   tinhKetHonPairInfo,
 } from "@/lib/xem-tuoi-ket-hon";
-import { luanGiaiConGiap, luanGiaiMenh } from "@/lib/xem-tuoi-ket-hon-text";
+import { luanGiaiConGiap, luanGiaiMenh, luanGiaiThienCan } from "@/lib/xem-tuoi-ket-hon-text";
 
 const NAM_OPTIONS = Array.from({ length: NAM_SINH_MAX - NAM_SINH_MIN + 1 }, (_, i) => NAM_SINH_MAX - i);
 
@@ -86,7 +86,7 @@ export function KetHonYearPicker({ initialNamNam = 1992, initialNamNu = 1994, ti
       </div>
       {ngoaiPhamVi && (
         <p style={{ fontSize: 12.5, color: "var(--ink-3)", margin: "8px 0 0" }}>
-          Chênh lệch tuổi &gt; {15} hoặc năm sinh ngoài {NAM_SINH_MIN}–{NAM_SINH_MAX}: kết quả sẽ hiển thị ngay tại đây thay vì mở trang riêng.
+          Năm sinh ngoài {NAM_SINH_MIN}–{NAM_SINH_MAX}: kết quả sẽ hiển thị ngay tại đây thay vì mở trang riêng.
         </p>
       )}
       <div className="right">
@@ -106,6 +106,7 @@ export function KetHonYearPicker({ initialNamNam = 1992, initialNamNu = 1994, ti
           </p>
           <p style={{ fontSize: 13.5 }}>{luanGiaiConGiap(inlineInfo.canChiNam, inlineInfo.canChiNu, inlineInfo.chiPair, inlineInfo.namNam, inlineInfo.namNu)}</p>
           <p style={{ fontSize: 13.5 }}>{luanGiaiMenh(inlineInfo.canChiNam, inlineInfo.canChiNu, inlineInfo.napAmPair, inlineInfo.namNam, inlineInfo.namNu)}</p>
+          <p style={{ fontSize: 13.5 }}>{luanGiaiThienCan(inlineInfo.canChiNam, inlineInfo.canChiNu, inlineInfo.canPair, inlineInfo.namNam, inlineInfo.namNu)}</p>
           {inlineInfo.namCuoiGanNhat && (
             <p style={{ fontSize: 13.5, textAlign: "center" }}>
               Năm cưới gần nhất nên chọn: <b>{inlineInfo.namCuoiGanNhat.nam}</b> (tuổi mụ cô dâu {inlineInfo.namCuoiGanNhat.tuoiMuCoDau}, không phạm Kim Lâu).

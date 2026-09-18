@@ -1,6 +1,6 @@
 import type { CanChi } from "@licham/core";
 import { chiByIndex } from "@/lib/tuoi";
-import type { ChiPairQuanHe, NapAmPairQuanHe } from "@/lib/xem-tuoi-ket-hon";
+import type { CanPairQuanHe, ChiPairQuanHe, NapAmPairQuanHe } from "@/lib/xem-tuoi-ket-hon";
 
 // Sinh văn bản "luận giải" cho mục 4 (con giáp) và mục 5 (mệnh nạp âm) trên trang
 // nam-{năm}-nu-{năm}. Vì các trang được sinh tĩnh với số lượng lớn, nếu chỉ có MỘT
@@ -85,27 +85,47 @@ export function luanGiaiConGiap(canChiNam: CanChi, canChiNu: CanChi, chiPair: Ch
 }
 
 // ---------------------------------------------------------------------------
-// Mục 5 — luận giải theo mệnh nạp âm (3 nhánh × 3 biến thể)
+// Mục 5 — luận giải theo mệnh nạp âm (5 nhánh × 3 biến thể)
 // ---------------------------------------------------------------------------
 
+// Tương sinh và tương khắc trong ngũ hành CHỈ CÓ MỘT CHIỀU (Thổ sinh Kim chứ không phải "hai
+// hành sinh cho nhau" — không dùng lối diễn đạt "có qua có lại"). Vì vậy phải tách riêng 4
+// nhánh có chiều (nam sinh nữ / nữ sinh nam / nam khắc nữ / nữ khắc nam), mỗi nhánh một cách
+// diễn đạt khác nhau, không chỉ đổi chỗ "nam"/"nữ" cho nhau trong cùng một câu.
 type NapAmVariant = (nam: string, nu: string, menhNam: string, menhNu: string, hanhNam: string, hanhNu: string) => string;
 
 const NAP_AM_TEXT: Record<NapAmPairQuanHe, readonly NapAmVariant[]> = {
-  "tuong-sinh": [
+  "nam-sinh-nu": [
     (nam, nu, menhNam, menhNu, hanhNam, hanhNu) =>
-      `Về mệnh, nam tuổi ${nam} mang mệnh ${menhNam} (hành ${hanhNam}), nữ tuổi ${nu} mang mệnh ${menhNu} (hành ${hanhNu}) — hai hành này tương sinh với nhau. Dân gian coi đây là một điểm cộng lớn, vì mệnh tương sinh thường được ví như hai người biết nâng đỡ nhau trong cuộc sống.`,
+      `Về mệnh, nam tuổi ${nam} mang mệnh ${menhNam} (hành ${hanhNam}) sinh cho nữ tuổi ${nu} mang mệnh ${menhNu} (hành ${hanhNu}) — chồng là người nâng đỡ, vợ là người được hưởng. Dân gian coi đây là một điểm cộng, vì mệnh chồng sinh mệnh vợ thường được xem là người chồng biết lo, che chở tốt cho vợ.`,
     (nam, nu, menhNam, menhNu, hanhNam, hanhNu) =>
-      `Mệnh ${menhNam} (${hanhNam}) của tuổi ${nam} và mệnh ${menhNu} (${hanhNu}) của tuổi ${nu} thuộc quan hệ tương sinh trong ngũ hành. Theo quan niệm phong thủy, đây là một trong những dấu hiệu tốt khi xét chuyện lâu dài giữa hai người.`,
+      `Mệnh ${menhNam} (${hanhNam}) của tuổi ${nam} sinh ra mệnh ${menhNu} (${hanhNu}) của tuổi ${nu} theo ngũ hành nạp âm. Đây là chiều sinh thuận về phía nam — chồng vượng thì vợ cũng được nhờ, được nhiều người xem tuổi đánh giá là một điểm tốt.`,
     (nam, nu, menhNam, menhNu, hanhNam, hanhNu) =>
-      `Xét ngũ hành nạp âm: tuổi ${nam} mệnh ${menhNam}, tuổi ${nu} mệnh ${menhNu}, hai hành ${hanhNam} và ${hanhNu} sinh cho nhau. Đây là kiểu kết hợp mà dân gian gọi vui là "có qua có lại", mỗi người một phần giúp đỡ phần còn lại.`,
+      `Xét ngũ hành nạp âm: tuổi ${nam} mệnh ${menhNam} (hành ${hanhNam}) sinh cho tuổi ${nu} mệnh ${menhNu} (hành ${hanhNu}). Tương sinh vốn chỉ có một chiều, và ở cặp này chiều sinh nằm về phía nam — vợ là người được hưởng lợi từ mệnh chồng.`,
   ],
-  "tuong-khac": [
+  "nu-sinh-nam": [
     (nam, nu, menhNam, menhNu, hanhNam, hanhNu) =>
-      `Về mệnh, nam tuổi ${nam} mang mệnh ${menhNam} (hành ${hanhNam}) trong khi nữ tuổi ${nu} mang mệnh ${menhNu} (hành ${hanhNu}) — hai hành này ở thế tương khắc. Đây là điểm nhiều người xem tuổi thường lưu ý thêm, dù không phải yếu tố quyết định duy nhất.`,
+      `Về mệnh, nữ tuổi ${nu} mang mệnh ${menhNu} (hành ${hanhNu}) lại là bên sinh cho nam tuổi ${nam} mang mệnh ${menhNam} (hành ${hanhNam}) — vợ là người vun vén, chồng là người được bồi đắp. Dân gian vẫn xem đây là một điểm tốt, chỉ khác chiều sinh so với kiểu thường gặp "chồng sinh vợ".`,
     (nam, nu, menhNam, menhNu, hanhNam, hanhNu) =>
-      `Mệnh ${menhNam} (${hanhNam}) của tuổi ${nam} và mệnh ${menhNu} (${hanhNu}) của tuổi ${nu} khắc nhau theo ngũ hành nạp âm. Dân gian cho rằng cặp mệnh khắc cần biết cách dung hòa nhiều hơn, nhưng vẫn có thể hóa giải bằng cách chọn màu sắc, hướng nhà hợp mệnh.`,
+      `Theo ngũ hành nạp âm, mệnh ${menhNu} (${hanhNu}) của tuổi ${nu} sinh ra mệnh ${menhNam} (${hanhNam}) của tuổi ${nam}. Chiều sinh nằm về phía nữ: vợ chủ động vun đắp cho chồng — vẫn là một dấu hiệu tốt về mệnh, không phải điều đáng lo.`,
     (nam, nu, menhNam, menhNu, hanhNam, hanhNu) =>
-      `Xét ngũ hành: tuổi ${nam} mệnh ${menhNam}, tuổi ${nu} mệnh ${menhNu}; hai hành ${hanhNam} và ${hanhNu} thuộc quan hệ tương khắc. Đây là chi tiết đáng tham khảo, song mức độ hợp nhau cuối cùng còn phụ thuộc nhiều vào quan hệ con giáp và thực tế cuộc sống của hai người.`,
+      `Xét ngũ hành: tuổi ${nu} mệnh ${menhNu} (hành ${hanhNu}) là bên sinh, tuổi ${nam} mệnh ${menhNam} (hành ${hanhNam}) là bên được sinh. Trường hợp vợ sinh mệnh cho chồng vẫn được dân gian tính là hợp mệnh, chỉ khác ai là người chủ động nâng đỡ ai.`,
+  ],
+  "nam-khac-nu": [
+    (nam, nu, menhNam, menhNu, hanhNam, hanhNu) =>
+      `Về mệnh, nam tuổi ${nam} mang mệnh ${menhNam} (hành ${hanhNam}) khắc mệnh ${menhNu} (hành ${hanhNu}) của nữ tuổi ${nu} — chồng là bên khắc, vợ là bên bị khắc. Đây là điểm nhiều người xem tuổi lưu ý thêm, dù không phải yếu tố quyết định duy nhất.`,
+    (nam, nu, menhNam, menhNu, hanhNam, hanhNu) =>
+      `Mệnh ${menhNam} (${hanhNam}) của tuổi ${nam} khắc mệnh ${menhNu} (${hanhNu}) của tuổi ${nu} theo ngũ hành nạp âm. Dân gian cho rằng chiều khắc này cần biết cách dung hòa, có thể hóa giải phần nào bằng cách chọn màu sắc, hướng nhà hợp mệnh cho người vợ.`,
+    (nam, nu, menhNam, menhNu, hanhNam, hanhNu) =>
+      `Xét ngũ hành: tuổi ${nam} mệnh ${menhNam} (hành ${hanhNam}) ở thế khắc chế tuổi ${nu} mệnh ${menhNu} (hành ${hanhNu}). Đây là chi tiết đáng tham khảo, mức độ hợp nhau cuối cùng còn phụ thuộc nhiều vào quan hệ con giáp và thiên can của hai người.`,
+  ],
+  "nu-khac-nam": [
+    (nam, nu, menhNam, menhNu, hanhNam, hanhNu) =>
+      `Về mệnh, nữ tuổi ${nu} mang mệnh ${menhNu} (hành ${hanhNu}) lại là bên khắc mệnh ${menhNam} (hành ${hanhNam}) của nam tuổi ${nam} — vợ là bên khắc, chồng là bên bị khắc. Đây cũng là điều nên biết để hai người chủ động dung hòa, không phải điều gì quá nghiêm trọng.`,
+    (nam, nu, menhNam, menhNu, hanhNam, hanhNu) =>
+      `Theo ngũ hành nạp âm, mệnh ${menhNu} (${hanhNu}) của tuổi ${nu} khắc mệnh ${menhNam} (${hanhNam}) của tuổi ${nam}. Chiều khắc nằm về phía nữ, khác với kiểu thường gặp là chồng khắc vợ — vẫn nên lưu ý để chọn cách hóa giải phù hợp.`,
+    (nam, nu, menhNam, menhNu, hanhNam, hanhNu) =>
+      `Xét ngũ hành: tuổi ${nu} mệnh ${menhNu} (hành ${hanhNu}) khắc chế tuổi ${nam} mệnh ${menhNam} (hành ${hanhNam}). Đây là chi tiết đáng tham khảo hơn là yếu tố quyết định, nên xem thêm quan hệ con giáp và thiên can để có cái nhìn đầy đủ.`,
   ],
   "cung-hanh": [
     (nam, nu, menhNam, menhNu, hanhNam, hanhNu) =>
@@ -113,7 +133,7 @@ const NAP_AM_TEXT: Record<NapAmPairQuanHe, readonly NapAmVariant[]> = {
     (nam, nu, menhNam, menhNu, hanhNam, hanhNu) =>
       `Mệnh ${menhNam} của tuổi ${nam} và mệnh ${menhNu} của tuổi ${nu} đều thuộc hành ${hanhNam}. Vì cùng hành nên quan hệ ngũ hành ở đây trung tính — không phải điểm cộng nhưng cũng không phải điều đáng lo.`,
     (nam, nu, menhNam, menhNu, hanhNam, hanhNu) =>
-      `Xét ngũ hành nạp âm, tuổi ${nam} (mệnh ${menhNam}) và tuổi ${nu} (mệnh ${menhNu}) cùng chung hành ${hanhNam}. Với trường hợp cùng hành, yếu tố mệnh coi như huề nhau, nên nhìn thêm vào quan hệ con giáp ở mục trên để có cái nhìn đầy đủ hơn.`,
+      `Xét ngũ hành nạp âm, tuổi ${nam} (mệnh ${menhNam}) và tuổi ${nu} (mệnh ${menhNu}) cùng chung hành ${hanhNam}. Với trường hợp cùng hành, yếu tố mệnh coi như huề nhau, nên nhìn thêm vào quan hệ con giáp và thiên can ở các mục khác để có cái nhìn đầy đủ hơn.`,
   ],
 };
 
@@ -121,4 +141,55 @@ export function luanGiaiMenh(canChiNam: CanChi, canChiNu: CanChi, napAmPair: Nap
   const variants = NAP_AM_TEXT[napAmPair];
   const fn = chonBienThe(variants, `napam:${namNam}:${namNu}:${napAmPair}`);
   return fn(String(namNam), String(namNu), canChiNam.napAm.name, canChiNu.napAm.name, canChiNam.napAm.element, canChiNu.napAm.element);
+}
+
+// ---------------------------------------------------------------------------
+// Mục 6 — luận giải theo thiên can (6 nhánh × 2 biến thể)
+// ---------------------------------------------------------------------------
+
+type ThienCanVariant = (nam: string, nu: string, canNam: string, canNu: string) => string;
+
+const THIEN_CAN_TEXT: Record<CanPairQuanHe, readonly ThienCanVariant[]> = {
+  "can-hop": [
+    (nam, nu, canNam, canNu) =>
+      `Về thiên can, can ${canNam} (nam, tuổi ${nam}) và can ${canNu} (nữ, tuổi ${nu}) là một cặp thiên can ngũ hợp — cặp can đặc biệt được dân gian xem là ăn ý, dễ hóa giải mâu thuẫn khi hai người ở gần nhau lâu dài.`,
+    (nam, nu, canNam, canNu) =>
+      `Xét thiên can, tuổi ${nam} (can ${canNam}) và tuổi ${nu} (can ${canNu}) rơi vào nhóm ngũ hợp thiên can. Đây là một điểm cộng thêm, thường được nhắc tới như một dấu hiệu hai người dễ đồng lòng trong việc lớn.`,
+  ],
+  "nam-sinh-nu": [
+    (nam, nu, canNam, canNu) =>
+      `Về thiên can, can ${canNam} (nam) thuộc hành sinh ra hành của can ${canNu} (nữ) — chiều sinh nằm về phía nam. Dân gian xem đây là một điểm thuận, tương tự chiều sinh ở mệnh nạp âm.`,
+    (nam, nu, canNam, canNu) =>
+      `Xét thiên can, tuổi ${nam} (can ${canNam}) sinh cho tuổi ${nu} (can ${canNu}) theo ngũ hành riêng của can. Đây là thêm một dấu hiệu tốt, dù thiên can chỉ là một trong ba tầng cần xem.`,
+  ],
+  "nu-sinh-nam": [
+    (nam, nu, canNam, canNu) =>
+      `Về thiên can, can ${canNu} (nữ) lại là bên thuộc hành sinh ra hành của can ${canNam} (nam) — chiều sinh nằm về phía nữ. Vẫn là một điểm thuận, chỉ khác chiều so với cách thường gặp.`,
+    (nam, nu, canNam, canNu) =>
+      `Xét thiên can, tuổi ${nu} (can ${canNu}) sinh cho tuổi ${nam} (can ${canNam}) theo ngũ hành riêng của can. Đây là dấu hiệu tốt về thiên can, dù không phải yếu tố duy nhất cần xét.`,
+  ],
+  "nam-khac-nu": [
+    (nam, nu, canNam, canNu) =>
+      `Về thiên can, can ${canNam} (nam) thuộc hành khắc hành của can ${canNu} (nữ). Đây là điểm cần lưu ý thêm ở tầng thiên can, bên cạnh quan hệ con giáp và mệnh nạp âm.`,
+    (nam, nu, canNam, canNu) =>
+      `Xét thiên can, tuổi ${nam} (can ${canNam}) khắc chế tuổi ${nu} (can ${canNu}) theo ngũ hành riêng của can. Mức ảnh hưởng ở tầng này thường được xem nhẹ hơn tầng con giáp và mệnh, nhưng vẫn đáng tham khảo.`,
+  ],
+  "nu-khac-nam": [
+    (nam, nu, canNam, canNu) =>
+      `Về thiên can, can ${canNu} (nữ) thuộc hành khắc hành của can ${canNam} (nam). Đây là điểm cần lưu ý thêm ở tầng thiên can, chiều khắc nằm về phía nữ.`,
+    (nam, nu, canNam, canNu) =>
+      `Xét thiên can, tuổi ${nu} (can ${canNu}) khắc chế tuổi ${nam} (can ${canNam}) theo ngũ hành riêng của can. Cũng như các cặp khắc khác, đây chỉ là một trong ba tầng cần xem, không phải yếu tố quyết định.`,
+  ],
+  "cung-hanh": [
+    (nam, nu, canNam, canNu) =>
+      `Về thiên can, can ${canNam} (nam) và can ${canNu} (nữ) không hợp cũng không sinh khắc nhau — quan hệ thiên can ở mức bình hòa.`,
+    (nam, nu, canNam, canNu) =>
+      `Xét thiên can, tuổi ${nam} (can ${canNam}) và tuổi ${nu} (can ${canNu}) trung tính với nhau: không phải cặp ngũ hợp, cũng không sinh hay khắc. Nên xem thêm quan hệ con giáp và mệnh nạp âm để có cái nhìn đầy đủ.`,
+  ],
+};
+
+export function luanGiaiThienCan(canChiNam: CanChi, canChiNu: CanChi, canPair: CanPairQuanHe, namNam: number, namNu: number): string {
+  const variants = THIEN_CAN_TEXT[canPair];
+  const fn = chonBienThe(variants, `can:${namNam}:${namNu}:${canPair}`);
+  return fn(String(namNam), String(namNu), canChiNam.can, canChiNu.can);
 }

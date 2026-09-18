@@ -3,10 +3,12 @@ import {
   bangNamCuoiToi,
   capNamSinhTrongPhamVi,
   kimLau,
+  lyDoBoQuaNamCuoi,
   mucDoHopNhau,
   parseKetHonSlug,
   tinhKetHonPairInfo,
   tuoiMu,
+  xepLoaiCanPair,
   xepLoaiChiPair,
   xepLoaiNapAmPair,
 } from "./xem-tuoi-ket-hon";
@@ -72,31 +74,82 @@ describe("xepLoaiChiPair", () => {
 });
 
 describe("xepLoaiNapAmPair", () => {
-  it("Mộc sinh Hỏa -> tương sinh", () => {
-    expect(xepLoaiNapAmPair("Mộc", "Hỏa")).toBe("tuong-sinh");
-    expect(xepLoaiNapAmPair("Hỏa", "Mộc")).toBe("tuong-sinh");
+  it("Mộc(nam) sinh Hỏa(nữ) -> nam sinh nữ", () => {
+    expect(xepLoaiNapAmPair("Mộc", "Hỏa")).toBe("nam-sinh-nu");
   });
-  it("Kim khắc Mộc -> tương khắc", () => {
-    expect(xepLoaiNapAmPair("Kim", "Mộc")).toBe("tuong-khac");
-    expect(xepLoaiNapAmPair("Mộc", "Kim")).toBe("tuong-khac");
+  it("Hỏa(nam) được Mộc(nữ) sinh -> nữ sinh nam", () => {
+    expect(xepLoaiNapAmPair("Hỏa", "Mộc")).toBe("nu-sinh-nam");
+  });
+  it("Thổ(nam) sinh Kim(nữ) -> nam sinh nữ (chồng Lộ Bàng Thổ, vợ Kiếm Phong Kim)", () => {
+    expect(xepLoaiNapAmPair("Thổ", "Kim")).toBe("nam-sinh-nu");
+  });
+  it("Kim(nam) khắc Mộc(nữ) -> nam khắc nữ", () => {
+    expect(xepLoaiNapAmPair("Kim", "Mộc")).toBe("nam-khac-nu");
+  });
+  it("Mộc(nam) bị Kim(nữ) khắc -> nữ khắc nam", () => {
+    expect(xepLoaiNapAmPair("Mộc", "Kim")).toBe("nu-khac-nam");
   });
   it("cùng hành -> cùng hành", () => {
     expect(xepLoaiNapAmPair("Thổ", "Thổ")).toBe("cung-hanh");
   });
 });
 
+describe("xepLoaiCanPair", () => {
+  it("Giáp(0)-Kỷ(5) là thiên can ngũ hợp", () => {
+    expect(xepLoaiCanPair(0, 5)).toBe("can-hop");
+    expect(xepLoaiCanPair(5, 0)).toBe("can-hop");
+  });
+  it("Đinh(3)-Nhâm(8) là thiên can ngũ hợp", () => {
+    expect(xepLoaiCanPair(3, 8)).toBe("can-hop");
+  });
+  it("Canh(6) và Nhâm(8) không phải cặp ngũ hợp -> xét theo hành riêng (Kim sinh Thủy, nam sinh nữ)", () => {
+    expect(xepLoaiCanPair(6, 8)).toBe("nam-sinh-nu");
+  });
+  it("Giáp(0) Mộc và Canh(6) Kim -> Kim khắc Mộc, nữ khắc nam", () => {
+    expect(xepLoaiCanPair(0, 6)).toBe("nu-khac-nam");
+  });
+  it("cùng hành (Giáp và Ất đều Mộc) -> cùng hành", () => {
+    expect(xepLoaiCanPair(0, 1)).toBe("cung-hanh");
+  });
+});
+
 describe("mucDoHopNhau", () => {
-  it("tam hợp + tương sinh -> rất hợp", () => {
-    expect(mucDoHopNhau("tam-hop", "tuong-sinh")).toBe("rất hợp");
+  it("cả 3 tầng đều tốt -> rất hợp", () => {
+    expect(mucDoHopNhau("tam-hop", "nam-sinh-nu", "can-hop")).toBe("rất hợp");
   });
-  it("xung + tương khắc -> cần cân nhắc", () => {
-    expect(mucDoHopNhau("xung", "tuong-khac")).toBe("cần cân nhắc");
+  it("2 tầng tốt, 1 tầng bình hòa -> rất hợp", () => {
+    expect(mucDoHopNhau("tam-hop", "nam-sinh-nu", "cung-hanh")).toBe("rất hợp");
   });
-  it("bình hòa + cùng hành -> bình thường", () => {
-    expect(mucDoHopNhau("binh-hoa", "cung-hanh")).toBe("bình thường");
+  it("1 tầng tốt, còn lại bình hòa -> hợp", () => {
+    expect(mucDoHopNhau("tam-hop", "cung-hanh", "cung-hanh")).toBe("hợp");
   });
-  it("nhị hợp + cùng hành -> hợp", () => {
-    expect(mucDoHopNhau("nhi-hop", "cung-hanh")).toBe("hợp");
+  it("cả 3 tầng bình hòa -> bình thường", () => {
+    expect(mucDoHopNhau("binh-hoa", "cung-hanh", "cung-hanh")).toBe("bình thường");
+  });
+  it("đúng 1 tầng xấu, còn lại bình hòa hoặc tốt -> bình thường", () => {
+    expect(mucDoHopNhau("xung", "cung-hanh", "cung-hanh")).toBe("bình thường");
+    expect(mucDoHopNhau("xung", "nam-sinh-nu", "can-hop")).toBe("bình thường");
+  });
+  it("từ 2 tầng xấu trở lên -> cần cân nhắc", () => {
+    expect(mucDoHopNhau("xung", "nam-khac-nu", "cung-hanh")).toBe("cần cân nhắc");
+    expect(mucDoHopNhau("xung", "nam-khac-nu", "nu-khac-nam")).toBe("cần cân nhắc");
+  });
+});
+
+describe("lyDoBoQuaNamCuoi", () => {
+  it("năm đầu bảng đã được chọn -> không cần giải thích", () => {
+    // Tuổi mụ cô dâu sinh 2000, năm 2019: tuổi mụ 20 (dư 2) -> không phạm ngay từ năm đầu.
+    const rows = bangNamCuoiToi(2000, 2019, 3);
+    const chon = rows.find((r) => r.nenHayTranh === "nên") ?? null;
+    expect(chon?.nam).toBe(2019);
+    expect(lyDoBoQuaNamCuoi(rows, chon)).toBeNull();
+  });
+  it("liệt kê đúng các năm bị bỏ qua trước năm được chọn", () => {
+    // Tuổi mụ cô dâu sinh 2000: năm 2018 tuổi mụ 19 (dư 1, phạm Kim Lâu Thân), năm 2019 tuổi mụ 20 (dư 2, không phạm).
+    const rows = bangNamCuoiToi(2000, 2018, 2); // 2018, 2019
+    const chon = rows.find((r) => r.nenHayTranh === "nên") ?? null;
+    expect(chon?.nam).toBe(2019);
+    expect(lyDoBoQuaNamCuoi(rows, chon)).toBe("2018 phạm Kim Lâu Thân");
   });
 });
 
@@ -115,12 +168,11 @@ describe("bangNamCuoiToi", () => {
 });
 
 describe("capNamSinhTrongPhamVi", () => {
-  it("chênh lệch 15 năm (biên tối đa) vẫn trong phạm vi", () => {
+  it("chênh lệch tuổi lớn vẫn trong phạm vi, miễn năm sinh nằm trong 1980-2010 (không còn giới hạn chênh lệch tuổi)", () => {
     expect(capNamSinhTrongPhamVi(1990, 2005)).toBe(true);
     expect(capNamSinhTrongPhamVi(2005, 1990)).toBe(true);
-  });
-  it("chênh lệch 16 năm thì ngoài phạm vi", () => {
-    expect(capNamSinhTrongPhamVi(1990, 2006)).toBe(false);
+    expect(capNamSinhTrongPhamVi(1980, 2010)).toBe(true);
+    expect(capNamSinhTrongPhamVi(2010, 1980)).toBe(true);
   });
   it("năm ngoài 1980-2010 thì ngoài phạm vi", () => {
     expect(capNamSinhTrongPhamVi(1975, 1980)).toBe(false);
@@ -129,15 +181,23 @@ describe("capNamSinhTrongPhamVi", () => {
 });
 
 describe("tinhKetHonPairInfo", () => {
-  it("hai người cùng năm sinh thì cùng can chi và bình hòa/cùng hành theo chi giống nhau", () => {
+  it("hai người cùng năm sinh thì cùng can chi, cùng hành và cùng thiên can", () => {
     const info = tinhKetHonPairInfo(1995, 1995, 2026);
     expect(info.canChiNam.name).toBe(info.canChiNu.name);
     expect(info.napAmPair).toBe("cung-hanh");
+    expect(info.canPair).toBe("cung-hanh");
   });
-  it("cặp năm sinh cách nhau 15 năm (biên tối đa) vẫn tính được đầy đủ", () => {
+  it("cặp năm sinh cách nhau 15 năm vẫn tính được đầy đủ, kể cả tầng thiên can", () => {
     const info = tinhKetHonPairInfo(1990, 2005, 2026);
     expect(info.bangNamCuoi).toHaveLength(5);
     expect(["rất hợp", "hợp", "bình thường", "cần cân nhắc"]).toContain(info.mucDo);
+    expect(info.canPair).toBeDefined();
+  });
+  it("nam 1990 (Canh Ngọ, mệnh Lộ Bàng Thổ) và nữ 1992 (Nhâm Thân, mệnh Kiếm Phong Kim): Thổ sinh Kim -> nam sinh nữ", () => {
+    const info = tinhKetHonPairInfo(1990, 1992, 2026);
+    expect(info.canChiNam.name).toBe("Canh Ngọ");
+    expect(info.canChiNu.name).toBe("Nhâm Thân");
+    expect(info.napAmPair).toBe("nam-sinh-nu");
   });
 });
 

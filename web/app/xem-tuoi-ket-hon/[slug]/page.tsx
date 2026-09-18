@@ -4,10 +4,8 @@ import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { KetHonYearPicker } from "@/components/KetHonYearPicker";
-import { getVietnamToday } from "@/lib/today";
 import { chiByIndex, hopMenh } from "@/lib/tuoi";
 import {
-  KHOANG_CACH_TUOI_TOI_DA,
   NAM_SINH_MAX,
   NAM_SINH_MIN,
   capNamSinhTrongPhamVi,
@@ -16,13 +14,15 @@ import {
   parseKetHonSlug,
   tinhKetHonPairInfo,
 } from "@/lib/xem-tuoi-ket-hon";
-import { luanGiaiConGiap, luanGiaiMenh } from "@/lib/xem-tuoi-ket-hon-text";
+import { luanGiaiConGiap, luanGiaiMenh, luanGiaiThienCan } from "@/lib/xem-tuoi-ket-hon-text";
 
+// Sinh MỌI cặp năm sinh trong khoảng 1980–2010 (961 trang), không giới hạn chênh lệch tuổi —
+// xem lý do ở comment của capNamSinhTrongPhamVi trong lib/xem-tuoi-ket-hon.ts.
 function allValidPairs(): { namNam: number; namNu: number }[] {
   const pairs: { namNam: number; namNu: number }[] = [];
   for (let namNam = NAM_SINH_MIN; namNam <= NAM_SINH_MAX; namNam++) {
     for (let namNu = NAM_SINH_MIN; namNu <= NAM_SINH_MAX; namNu++) {
-      if (Math.abs(namNam - namNu) <= KHOANG_CACH_TUOI_TOI_DA) pairs.push({ namNam, namNu });
+      pairs.push({ namNam, namNu });
     }
   }
   return pairs;
@@ -77,22 +77,23 @@ export default async function XemTuoiKetHonDetailPage({ params }: { params: Prom
   if (!parsed || !capNamSinhTrongPhamVi(parsed.namNam, parsed.namNu)) notFound();
   const { namNam, namNu } = parsed;
 
-  const today = getVietnamToday();
-  const info = tinhKetHonPairInfo(namNam, namNu, today.year);
+  const info = tinhKetHonPairInfo(namNam, namNu);
   const hMenhNam = hopMenh(info.canChiNam.napAm.element);
+  const hMenhNu = hopMenh(info.canChiNu.napAm.element);
   const chiTenNam = chiByIndex(info.canChiNam.chiIndex).ten;
   const chiTenNu = chiByIndex(info.canChiNu.chiIndex).ten;
   const similar = similarPairs(namNam, namNu);
   const mucDoCls = mucDoClassName(info.mucDo);
   const textConGiap = luanGiaiConGiap(info.canChiNam, info.canChiNu, info.chiPair, namNam, namNu);
   const textMenh = luanGiaiMenh(info.canChiNam, info.canChiNu, info.napAmPair, namNam, namNu);
+  const textThienCan = luanGiaiThienCan(info.canChiNam, info.canChiNu, info.canPair, namNam, namNu);
 
   return (
     <div className="outer">
       <div className="site">
         <Header activeMenu="Xem tuổi" />
 
-        <div className="tuoiband">
+        <div className="tuoiband kethon">
           <div className="crumb">
             <Link href="/xem-tuoi-ket-hon">Xem tuổi kết hôn</Link> › Nam {namNam} · Nữ {namNu}
           </div>
@@ -114,7 +115,8 @@ export default async function XemTuoiKetHonDetailPage({ params }: { params: Prom
             <div className={`kh-mucdo ${mucDoCls}`}>{info.mucDo.charAt(0).toUpperCase() + info.mucDo.slice(1)}</div>
             {info.namCuoiGanNhat ? (
               <p className="kh-nam-cuoi">
-                Năm cưới gần nhất nên chọn: <b>{info.namCuoiGanNhat.nam}</b> (tuổi mụ cô dâu {info.namCuoiGanNhat.tuoiMuCoDau}, không phạm Kim Lâu).
+                Năm cưới gần nhất nên chọn: <b>{info.namCuoiGanNhat.nam}</b> (tuổi mụ cô dâu {info.namCuoiGanNhat.tuoiMuCoDau}, không phạm Kim Lâu
+                {info.lyDoBoQuaNamCuoi ? `; ${info.lyDoBoQuaNamCuoi}` : ""}).
               </p>
             ) : (
               <p className="kh-nam-cuoi">Cả 5 năm tới đều phạm Kim Lâu với tuổi cô dâu — xem bảng chi tiết bên dưới để cân nhắc thêm.</p>
@@ -175,8 +177,20 @@ export default async function XemTuoiKetHonDetailPage({ params }: { params: Prom
             </div>
             <p>{textMenh}</p>
             <p style={{ fontSize: 12.5, color: "var(--ink-3)", textAlign: "center", marginTop: 4 }}>
-              Màu hợp mệnh {info.canChiNam.napAm.name}: {hMenhNam.mauHop.join(", ")}.
+              Màu hợp mệnh {info.canChiNam.napAm.name} (chồng): {hMenhNam.mauHop.join(", ")}. Màu hợp mệnh {info.canChiNu.napAm.name} (vợ):{" "}
+              {hMenhNu.mauHop.join(", ")}.
             </p>
+          </div>
+
+          <div className="box" style={{ marginTop: 18 }}>
+            <div className="box-h">
+              <span className="rule" />
+              <span className="t" style={{ textAlign: "center" }}>
+                Thiên can có hợp nhau không
+              </span>
+              <span className="rule" />
+            </div>
+            <p>{textThienCan}</p>
           </div>
 
           <KetHonYearPicker initialNamNam={namNam} initialNamNu={namNu} />
