@@ -1658,10 +1658,6 @@ table.letable tr.toi td {
 .tuoiband.kim {
   background: linear-gradient(135deg, #8a6512, #c2932f);
 }
-/* Trang xem tuổi kết hôn dùng hệ màu son của site thay vì dải xanh mặc định. */
-.tuoiband.kethon {
-  background: linear-gradient(135deg, var(--son-dp), var(--son));
-}
 .tuoiband .crumb {
   color: rgba(255, 255, 255, 0.85);
   margin-bottom: 8px;
@@ -1690,6 +1686,15 @@ table.letable tr.toi td {
   color: rgba(255, 255, 255, 0.9);
   margin: 8px auto 0;
   max-width: 620px;
+}
+/* Trang xem tuổi kết hôn dùng dải band dùng chung của site (bg-luc); breadcrumb riêng vì band mặc định không có. */
+.kh-crumb {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 8px;
+}
+.kh-crumb a {
+  color: #fff;
 }
 .tuoihero {
   margin: 18px auto 0;

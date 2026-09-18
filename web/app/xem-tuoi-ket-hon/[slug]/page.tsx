@@ -93,20 +93,21 @@ export default async function XemTuoiKetHonDetailPage({ params }: { params: Prom
       <div className="site">
         <Header activeMenu="Xem tuổi" />
 
-        <div className="tuoiband kethon">
-          <div className="crumb">
-            <Link href="/xem-tuoi-ket-hon">Xem tuổi kết hôn</Link> › Nam {namNam} · Nữ {namNu}
+        <div className="band">
+          <div className="bg bg-luc" />
+          <div className="band-in">
+            <div className="kh-crumb">
+              <Link href="/xem-tuoi-ket-hon">Xem tuổi kết hôn</Link> › Nam {namNam} · Nữ {namNu}
+            </div>
+            <span className="tuoibadge">
+              {info.canChiNam.name} — {info.canChiNu.name}
+            </span>
+            <h1>Nam {namNam} và nữ {namNu} có hợp nhau không?</h1>
+            <p>
+              Nam tuổi {chiTenNam} ({info.canChiNam.name}, mệnh {info.canChiNam.napAm.name}) và nữ tuổi {chiTenNu} ({info.canChiNu.name}, mệnh{" "}
+              {info.canChiNu.napAm.name}).
+            </p>
           </div>
-          <span className="tuoibadge">
-            {info.canChiNam.name} — {info.canChiNu.name}
-          </span>
-          <h1 style={{ textAlign: "center" }}>
-            Nam {namNam} và nữ {namNu} có hợp nhau không?
-          </h1>
-          <p className="sub">
-            Nam tuổi {chiTenNam} ({info.canChiNam.name}, mệnh {info.canChiNam.napAm.name}) và nữ tuổi {chiTenNu} ({info.canChiNu.name}, mệnh{" "}
-            {info.canChiNu.napAm.name}).
-          </p>
         </div>
 
         <div className="body">

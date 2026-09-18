@@ -27,9 +27,12 @@ export default function XemTuoiKetHonHubPage() {
       <div className="site">
         <Header activeMenu="Xem tuổi" />
 
-        <div className="tuoiband kethon">
-          <h1 style={{ textAlign: "center" }}>Xem tuổi kết hôn: Kim Lâu và hợp tuổi vợ chồng</h1>
-          <p className="sub">Tra Kim Lâu theo tuổi mụ cô dâu, xem con giáp và mệnh hai người có hợp nhau không, theo quan niệm dân gian.</p>
+        <div className="band">
+          <div className="bg bg-luc" />
+          <div className="band-in">
+            <h1>Xem tuổi kết hôn: Kim Lâu và hợp tuổi vợ chồng</h1>
+            <p>Tra Kim Lâu theo tuổi mụ cô dâu, xem con giáp và mệnh hai người có hợp nhau không, theo quan niệm dân gian.</p>
+          </div>
         </div>
 
         <div className="body">
