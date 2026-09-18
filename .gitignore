@@ -11,3 +11,6 @@ core/scripts/data/
 web/public/sitemap.xml
 web/public/sitemaps/
 web/data/
+
+.claude/
+mock/
