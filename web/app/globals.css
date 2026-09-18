@@ -82,15 +82,20 @@ a:focus-visible {
   transition: opacity 0.15s ease;
 }
 .logo,
-.logo * {
+.logo *,
+.foot-brand,
+.foot-brand * {
   text-decoration: none;
 }
 .logo:hover,
-.logo:focus-visible {
+.logo:focus-visible,
+.foot-brand:hover,
+.foot-brand:focus-visible {
   opacity: 0.82;
   text-decoration: none;
 }
-.logo:focus-visible {
+.logo:focus-visible,
+.foot-brand:focus-visible {
   outline: 2px solid var(--son);
   outline-offset: 3px;
 }
@@ -819,6 +824,7 @@ a:focus-visible {
   font-weight: 600;
   font-size: 23px;
   margin-bottom: 10px;
+  transition: opacity 0.15s ease;
 }
 .foot-brand .mk {
   width: 60px;
