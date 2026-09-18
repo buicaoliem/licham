@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Fragment } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { jdFromDate } from "@licham/core";
+import { canChiOfYear, jdFromDate } from "@licham/core";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { LeFlagIllustration, LeIllustration } from "@/components/LeIllustration";
@@ -247,7 +247,7 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
                   return (
                     <tr key={r.year} className={isPast ? "qua" : isNext ? "toi" : undefined}>
                       <td data-k="Năm">
-                        {r.year} · {r.canChi}
+                        {page.lich === "am-cuoi-thang" ? `Giao thừa Tết ${canChiOfYear(r.year + 1).name}` : `${r.year} · ${r.canChi}`}
                       </td>
                       <td data-k="Âm lịch">{r.lunarLabel}</td>
                       <td data-k="Dương lịch">
@@ -292,7 +292,7 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
                   ))}
                 </dl>
               ) : (
-                <ul className="dot" style={{ margin: 0, paddingLeft: 18, color: "var(--ink-2)" }}>
+                <ul className="dotlist">
                   {(page.bullets ?? []).map((b) => (
                     <li key={b}>{b}</li>
                   ))}
