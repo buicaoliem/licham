@@ -1318,6 +1318,7 @@ h3 {
   aspect-ratio: 3/4;
   border-radius: 10px;
   background: var(--kim-soft);
+  color: var(--son-dp);
   display: grid;
   place-items: center;
   overflow: hidden;
@@ -1326,6 +1327,10 @@ h3 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.leportrait .ill svg {
+  width: 64%;
+  height: 64%;
 }
 .leportrait small {
   display: block;

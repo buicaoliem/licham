@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { canChiOfYear, jdFromDate } from "@licham/core";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { LeFlagIllustration, LeIllustration } from "@/components/LeIllustration";
+import { LeFlagIllustration, LeHeroIllustration, LeIllustration, hasHeroIllustration } from "@/components/LeIllustration";
 import { dateToSlug } from "@/lib/date-slug";
 import { WEEKDAY_LONG, pad2 } from "@/lib/format";
 import { LE_LIST, LE_NHOM_LABEL, leBySlug, leKhac } from "@/lib/le";
@@ -121,6 +121,8 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
                 <div className="ill">
                   {page.coAnhThat ? (
                     <img src="/le/ho-chi-minh-1946.jpg" alt="Chủ tịch Hồ Chí Minh năm 1946" />
+                  ) : hasHeroIllustration(page.slug) ? (
+                    <LeHeroIllustration slug={page.slug} />
                   ) : (
                     <LeIllustration />
                   )}
