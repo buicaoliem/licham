@@ -99,7 +99,7 @@ export default async function XemTuoiKetHonDetailPage({ params }: { params: Prom
             <div className="kh-crumb">
               <Link href="/xem-tuoi-ket-hon">Xem tuổi kết hôn</Link> › Nam {namNam} · Nữ {namNu}
             </div>
-            <span className="tuoibadge">
+            <span className="tuoibadge kh-canchi-badge">
               {info.canChiNam.name} — {info.canChiNu.name}
             </span>
             <h1>Nam {namNam} và nữ {namNu} có hợp nhau không?</h1>

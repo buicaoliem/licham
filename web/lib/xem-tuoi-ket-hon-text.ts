@@ -81,7 +81,9 @@ const CHI_TEXT: Record<ChiPairQuanHe, readonly ChiVariant[]> = {
 export function luanGiaiConGiap(canChiNam: CanChi, canChiNu: CanChi, chiPair: ChiPairQuanHe, namNam: number, namNu: number): string {
   const variants = CHI_TEXT[chiPair];
   const fn = chonBienThe(variants, `chi:${namNam}:${namNu}:${chiPair}`);
-  return fn(String(namNam), String(namNu), canChiNam.name, canChiNu.name);
+  // Người Việt gọi tuổi theo con giáp (ví dụ "tuổi Ngọ"), không gọi theo năm sinh dương lịch
+  // ("tuổi 1990") — nên truyền tên chi vào các mẫu câu "tuổi ${nam}/${nu}" thay vì năm sinh.
+  return fn(tenChi(canChiNam), tenChi(canChiNu), canChiNam.name, canChiNu.name);
 }
 
 // ---------------------------------------------------------------------------
@@ -144,9 +146,11 @@ export function luanGiaiMenh(canChiNam: CanChi, canChiNu: CanChi, napAmPair: Nap
 }
 
 // ---------------------------------------------------------------------------
-// Mục 6 — luận giải theo thiên can (6 nhánh × 2 biến thể)
+// Mục 6 — luận giải theo thiên can (3 nhánh × 3 biến thể)
 // ---------------------------------------------------------------------------
 
+// Dân gian xét quan hệ thiên can theo NGŨ HỢP (tốt) và XUNG (xấu) — không xét theo sinh/khắc
+// ngũ hành. Xem bảng cụ thể ở xepLoaiCanPair trong xem-tuoi-ket-hon.ts.
 type ThienCanVariant = (nam: string, nu: string, canNam: string, canNu: string) => string;
 
 const THIEN_CAN_TEXT: Record<CanPairQuanHe, readonly ThienCanVariant[]> = {
@@ -155,36 +159,24 @@ const THIEN_CAN_TEXT: Record<CanPairQuanHe, readonly ThienCanVariant[]> = {
       `Về thiên can, can ${canNam} (nam, tuổi ${nam}) và can ${canNu} (nữ, tuổi ${nu}) là một cặp thiên can ngũ hợp — cặp can đặc biệt được dân gian xem là ăn ý, dễ hóa giải mâu thuẫn khi hai người ở gần nhau lâu dài.`,
     (nam, nu, canNam, canNu) =>
       `Xét thiên can, tuổi ${nam} (can ${canNam}) và tuổi ${nu} (can ${canNu}) rơi vào nhóm ngũ hợp thiên can. Đây là một điểm cộng thêm, thường được nhắc tới như một dấu hiệu hai người dễ đồng lòng trong việc lớn.`,
+    (nam, nu, canNam, canNu) =>
+      `Can ${canNam} và can ${canNu} nằm trong năm cặp thiên can ngũ hợp mà dân gian truyền lại. Tuổi ${nam} (nam) và tuổi ${nu} (nữ) vì thế được xem là hợp can, thêm một điểm thuận bên cạnh quan hệ con giáp và mệnh nạp âm.`,
   ],
-  "nam-sinh-nu": [
+  "can-xung": [
     (nam, nu, canNam, canNu) =>
-      `Về thiên can, can ${canNam} (nam) thuộc hành sinh ra hành của can ${canNu} (nữ) — chiều sinh nằm về phía nam. Dân gian xem đây là một điểm thuận, tương tự chiều sinh ở mệnh nạp âm.`,
+      `Về thiên can, can ${canNam} (nam, tuổi ${nam}) xung với can ${canNu} (nữ, tuổi ${nu}). Đây là điểm cần lưu ý ở tầng thiên can, dù không phải yếu tố quyết định duy nhất khi xét tổng thể.`,
     (nam, nu, canNam, canNu) =>
-      `Xét thiên can, tuổi ${nam} (can ${canNam}) sinh cho tuổi ${nu} (can ${canNu}) theo ngũ hành riêng của can. Đây là thêm một dấu hiệu tốt, dù thiên can chỉ là một trong ba tầng cần xem.`,
+      `Xét thiên can, can ${canNam} và can ${canNu} thuộc một trong bốn cặp thiên can xung mà dân gian lưu truyền. Tuổi ${nam} và tuổi ${nu} nên biết điều này để chủ động dung hòa, bên cạnh quan hệ con giáp và mệnh nạp âm.`,
+    (nam, nu, canNam, canNu) =>
+      `Can ${canNam} (nam) và can ${canNu} (nữ) đối xung nhau theo bảng thiên can. Đây là một điểm chưa thuận ở tầng thiên can của tuổi ${nam} và tuổi ${nu}, cần cân nhắc thêm cùng các tầng còn lại.`,
   ],
-  "nu-sinh-nam": [
+  "binh-thuong": [
     (nam, nu, canNam, canNu) =>
-      `Về thiên can, can ${canNu} (nữ) lại là bên thuộc hành sinh ra hành của can ${canNam} (nam) — chiều sinh nằm về phía nữ. Vẫn là một điểm thuận, chỉ khác chiều so với cách thường gặp.`,
+      `Về thiên can, can ${canNam} (nam) và can ${canNu} (nữ) không thuộc cặp ngũ hợp nào, cũng không xung nhau — quan hệ thiên can ở mức bình thường.`,
     (nam, nu, canNam, canNu) =>
-      `Xét thiên can, tuổi ${nu} (can ${canNu}) sinh cho tuổi ${nam} (can ${canNam}) theo ngũ hành riêng của can. Đây là dấu hiệu tốt về thiên can, dù không phải yếu tố duy nhất cần xét.`,
-  ],
-  "nam-khac-nu": [
+      `Xét thiên can, tuổi ${nam} (can ${canNam}) và tuổi ${nu} (can ${canNu}) trung tính với nhau: không phải cặp ngũ hợp, cũng không phải cặp xung. Nên xem thêm quan hệ con giáp và mệnh nạp âm để có cái nhìn đầy đủ.`,
     (nam, nu, canNam, canNu) =>
-      `Về thiên can, can ${canNam} (nam) thuộc hành khắc hành của can ${canNu} (nữ). Đây là điểm cần lưu ý thêm ở tầng thiên can, bên cạnh quan hệ con giáp và mệnh nạp âm.`,
-    (nam, nu, canNam, canNu) =>
-      `Xét thiên can, tuổi ${nam} (can ${canNam}) khắc chế tuổi ${nu} (can ${canNu}) theo ngũ hành riêng của can. Mức ảnh hưởng ở tầng này thường được xem nhẹ hơn tầng con giáp và mệnh, nhưng vẫn đáng tham khảo.`,
-  ],
-  "nu-khac-nam": [
-    (nam, nu, canNam, canNu) =>
-      `Về thiên can, can ${canNu} (nữ) thuộc hành khắc hành của can ${canNam} (nam). Đây là điểm cần lưu ý thêm ở tầng thiên can, chiều khắc nằm về phía nữ.`,
-    (nam, nu, canNam, canNu) =>
-      `Xét thiên can, tuổi ${nu} (can ${canNu}) khắc chế tuổi ${nam} (can ${canNam}) theo ngũ hành riêng của can. Cũng như các cặp khắc khác, đây chỉ là một trong ba tầng cần xem, không phải yếu tố quyết định.`,
-  ],
-  "cung-hanh": [
-    (nam, nu, canNam, canNu) =>
-      `Về thiên can, can ${canNam} (nam) và can ${canNu} (nữ) không hợp cũng không sinh khắc nhau — quan hệ thiên can ở mức bình hòa.`,
-    (nam, nu, canNam, canNu) =>
-      `Xét thiên can, tuổi ${nam} (can ${canNam}) và tuổi ${nu} (can ${canNu}) trung tính với nhau: không phải cặp ngũ hợp, cũng không sinh hay khắc. Nên xem thêm quan hệ con giáp và mệnh nạp âm để có cái nhìn đầy đủ.`,
+      `Can ${canNam} và can ${canNu} không nằm trong bảng ngũ hợp lẫn bảng xung của thiên can. Tầng thiên can giữa tuổi ${nam} và tuổi ${nu} vì vậy được xem là bình thường, không cộng cũng không trừ điểm.`,
   ],
 };
 

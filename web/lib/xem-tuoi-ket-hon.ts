@@ -2,11 +2,6 @@ import { type CanChi, type NguHanh, canChiNamDuong } from "@licham/core";
 import { getVietnamToday } from "@/lib/today";
 import { chiByIndex, hopMenh, kyTuoiChi, nhiHopChi, tamHopGroup } from "@/lib/tuoi";
 
-// Ngũ hành riêng của 10 thiên can (khác với ngũ hành nạp âm ở lib/tuoi.ts — đây là hành gốc
-// của bản thân từng can): Giáp/Ất Mộc, Bính/Đinh Hỏa, Mậu/Kỷ Thổ, Canh/Tân Kim, Nhâm/Quý Thủy.
-// canIndex 0..9 tương ứng Giáp, Ất, Bính, Đinh, Mậu, Kỷ, Canh, Tân, Nhâm, Quý (xem CAN ở @licham/core).
-const CAN_NGU_HANH: readonly NguHanh[] = ["Mộc", "Mộc", "Hỏa", "Hỏa", "Thổ", "Thổ", "Kim", "Kim", "Thủy", "Thủy"];
-
 // Module này thuần logic (không dùng API riêng của server) để dùng được cả ở
 // trang tĩnh (server) lẫn khối công cụ chọn năm sinh (client component).
 
@@ -105,23 +100,38 @@ export function xepLoaiNapAmPair(hanhNam: NguHanh, hanhNu: NguHanh): NapAmPairQu
 // Quan hệ theo thiên can
 // ---------------------------------------------------------------------------
 
-export type CanPairQuanHe = "can-hop" | QuanHeNguHanhCoChieu;
+export type CanPairQuanHe = "can-hop" | "can-xung" | "binh-thuong";
 
 /**
- * Thiên can ngũ hợp (hợp hóa): Giáp-Kỷ, Ất-Canh, Bính-Tân, Đinh-Nhâm, Mậu-Quý — mỗi cặp cách
- * nhau đúng 5 vị trí trong 10 thiên can (canIndex 0..9). Đây là bảng cố định, không suy ra được
- * từ ngũ hành riêng của can, nên phải kiểm tra trước, tách khỏi quan hệ sinh/khắc thông thường.
+ * Dân gian KHÔNG xét quan hệ giữa hai thiên can theo sinh/khắc ngũ hành (can Giáp thuộc Mộc,
+ * can Kỷ thuộc Thổ... không có nghĩa hai can này sinh/khắc nhau). Thiên can chỉ được xét theo
+ * hai bảng cố định dưới đây — không suy ra được từ ngũ hành riêng của can.
+ *
+ * Bảng NGŨ HỢP (can hóa hợp với nhau, mỗi can chỉ có đúng một can hợp — cách nhau 5 vị trí
+ * trong 10 thiên can, canIndex 0..9 = Giáp, Ất, Bính, Đinh, Mậu, Kỷ, Canh, Tân, Nhâm, Quý):
+ *   Giáp hợp Kỷ, Ất hợp Canh, Bính hợp Tân, Đinh hợp Nhâm, Mậu hợp Quý.
  */
 function laCanNguHop(canIndexNam: number, canIndexNu: number): boolean {
   return Math.abs(canIndexNam - canIndexNu) === 5;
 }
 
-/** Xếp loại quan hệ giữa thiên can của nam và của nữ: ngũ hợp trước, còn lại xét sinh/khắc theo hành riêng của can. */
+/**
+ * Bảng XUNG (can đối nhau — cách nhau 6 vị trí trong 10 thiên can): Giáp xung Canh, Ất xung
+ * Tân, Bính xung Nhâm, Đinh xung Quý. Mậu và Kỷ (canIndex 4, 5) không xung với can nào — vì ở
+ * hai đầu dải index nên không có can nào cách chúng đúng 6 vị trí trong khoảng 0..9.
+ */
+function laCanXung(canIndexNam: number, canIndexNu: number): boolean {
+  return Math.abs(canIndexNam - canIndexNu) === 6;
+}
+
+/**
+ * Xếp loại quan hệ giữa thiên can của nam và của nữ theo đúng hai bảng ngũ hợp / xung ở trên.
+ * Hai can cùng tên (cùng canIndex), hoặc không rơi vào cặp hợp/xung nào, đều xếp "bình thường".
+ */
 export function xepLoaiCanPair(canIndexNam: number, canIndexNu: number): CanPairQuanHe {
   if (laCanNguHop(canIndexNam, canIndexNu)) return "can-hop";
-  const hanhNam = CAN_NGU_HANH[canIndexNam]!;
-  const hanhNu = CAN_NGU_HANH[canIndexNu]!;
-  return xepLoaiHuongNguHanh(hanhNam, hanhNu);
+  if (laCanXung(canIndexNam, canIndexNu)) return "can-xung";
+  return "binh-thuong";
 }
 
 // ---------------------------------------------------------------------------
@@ -161,8 +171,14 @@ function mucTangNguHanhCoChieu(quanHe: QuanHeNguHanhCoChieu): MucTang {
 }
 
 function mucTangCanPair(canPair: CanPairQuanHe): MucTang {
-  if (canPair === "can-hop") return "tot";
-  return mucTangNguHanhCoChieu(canPair);
+  switch (canPair) {
+    case "can-hop":
+      return "tot";
+    case "can-xung":
+      return "xau";
+    case "binh-thuong":
+      return "binh-hoa";
+  }
 }
 
 /**

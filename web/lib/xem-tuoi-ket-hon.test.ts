@@ -95,21 +95,48 @@ describe("xepLoaiNapAmPair", () => {
 });
 
 describe("xepLoaiCanPair", () => {
-  it("Giáp(0)-Kỷ(5) là thiên can ngũ hợp", () => {
+  // Bảng ngũ hợp (5 cặp): Giáp-Kỷ, Ất-Canh, Bính-Tân, Đinh-Nhâm, Mậu-Quý.
+  it("Giáp(0)-Kỷ(5) hợp", () => {
     expect(xepLoaiCanPair(0, 5)).toBe("can-hop");
     expect(xepLoaiCanPair(5, 0)).toBe("can-hop");
   });
-  it("Đinh(3)-Nhâm(8) là thiên can ngũ hợp", () => {
+  it("Ất(1)-Canh(6) hợp", () => {
+    expect(xepLoaiCanPair(1, 6)).toBe("can-hop");
+  });
+  it("Bính(2)-Tân(7) hợp", () => {
+    expect(xepLoaiCanPair(2, 7)).toBe("can-hop");
+  });
+  it("Đinh(3)-Nhâm(8) hợp", () => {
     expect(xepLoaiCanPair(3, 8)).toBe("can-hop");
   });
-  it("Canh(6) và Nhâm(8) không phải cặp ngũ hợp -> xét theo hành riêng (Kim sinh Thủy, nam sinh nữ)", () => {
-    expect(xepLoaiCanPair(6, 8)).toBe("nam-sinh-nu");
+  it("Mậu(4)-Quý(9) hợp", () => {
+    expect(xepLoaiCanPair(4, 9)).toBe("can-hop");
   });
-  it("Giáp(0) Mộc và Canh(6) Kim -> Kim khắc Mộc, nữ khắc nam", () => {
-    expect(xepLoaiCanPair(0, 6)).toBe("nu-khac-nam");
+  // Bảng xung (4 cặp): Giáp-Canh, Ất-Tân, Bính-Nhâm, Đinh-Quý. Mậu, Kỷ không xung với can nào.
+  it("Giáp(0)-Canh(6) xung", () => {
+    expect(xepLoaiCanPair(0, 6)).toBe("can-xung");
+    expect(xepLoaiCanPair(6, 0)).toBe("can-xung");
   });
-  it("cùng hành (Giáp và Ất đều Mộc) -> cùng hành", () => {
-    expect(xepLoaiCanPair(0, 1)).toBe("cung-hanh");
+  it("Ất(1)-Tân(7) xung", () => {
+    expect(xepLoaiCanPair(1, 7)).toBe("can-xung");
+  });
+  it("Bính(2)-Nhâm(8) xung", () => {
+    expect(xepLoaiCanPair(2, 8)).toBe("can-xung");
+  });
+  it("Đinh(3)-Quý(9) xung", () => {
+    expect(xepLoaiCanPair(3, 9)).toBe("can-xung");
+  });
+  it("Canh(6) và Nhâm(8) không hợp không xung -> bình thường", () => {
+    expect(xepLoaiCanPair(6, 8)).toBe("binh-thuong");
+  });
+  it("Giáp(0) và Ất(1) không hợp không xung -> bình thường", () => {
+    expect(xepLoaiCanPair(0, 1)).toBe("binh-thuong");
+  });
+  it("Mậu(4) không xung với can nào (kể cả cách 6 vị trí ngoài phạm vi index) -> bình thường", () => {
+    expect(xepLoaiCanPair(4, 8)).toBe("binh-thuong");
+  });
+  it("cùng một can (Giáp và Giáp) -> bình thường", () => {
+    expect(xepLoaiCanPair(0, 0)).toBe("binh-thuong");
   });
 });
 
@@ -118,21 +145,21 @@ describe("mucDoHopNhau", () => {
     expect(mucDoHopNhau("tam-hop", "nam-sinh-nu", "can-hop")).toBe("rất hợp");
   });
   it("2 tầng tốt, 1 tầng bình hòa -> rất hợp", () => {
-    expect(mucDoHopNhau("tam-hop", "nam-sinh-nu", "cung-hanh")).toBe("rất hợp");
+    expect(mucDoHopNhau("tam-hop", "nam-sinh-nu", "binh-thuong")).toBe("rất hợp");
   });
   it("1 tầng tốt, còn lại bình hòa -> hợp", () => {
-    expect(mucDoHopNhau("tam-hop", "cung-hanh", "cung-hanh")).toBe("hợp");
+    expect(mucDoHopNhau("tam-hop", "cung-hanh", "binh-thuong")).toBe("hợp");
   });
   it("cả 3 tầng bình hòa -> bình thường", () => {
-    expect(mucDoHopNhau("binh-hoa", "cung-hanh", "cung-hanh")).toBe("bình thường");
+    expect(mucDoHopNhau("binh-hoa", "cung-hanh", "binh-thuong")).toBe("bình thường");
   });
   it("đúng 1 tầng xấu, còn lại bình hòa hoặc tốt -> bình thường", () => {
-    expect(mucDoHopNhau("xung", "cung-hanh", "cung-hanh")).toBe("bình thường");
+    expect(mucDoHopNhau("xung", "cung-hanh", "binh-thuong")).toBe("bình thường");
     expect(mucDoHopNhau("xung", "nam-sinh-nu", "can-hop")).toBe("bình thường");
   });
   it("từ 2 tầng xấu trở lên -> cần cân nhắc", () => {
-    expect(mucDoHopNhau("xung", "nam-khac-nu", "cung-hanh")).toBe("cần cân nhắc");
-    expect(mucDoHopNhau("xung", "nam-khac-nu", "nu-khac-nam")).toBe("cần cân nhắc");
+    expect(mucDoHopNhau("xung", "nam-khac-nu", "binh-thuong")).toBe("cần cân nhắc");
+    expect(mucDoHopNhau("xung", "nam-khac-nu", "can-xung")).toBe("cần cân nhắc");
   });
 });
 
@@ -181,11 +208,11 @@ describe("capNamSinhTrongPhamVi", () => {
 });
 
 describe("tinhKetHonPairInfo", () => {
-  it("hai người cùng năm sinh thì cùng can chi, cùng hành và cùng thiên can", () => {
+  it("hai người cùng năm sinh thì cùng can chi, cùng hành nạp âm và thiên can bình thường", () => {
     const info = tinhKetHonPairInfo(1995, 1995, 2026);
     expect(info.canChiNam.name).toBe(info.canChiNu.name);
     expect(info.napAmPair).toBe("cung-hanh");
-    expect(info.canPair).toBe("cung-hanh");
+    expect(info.canPair).toBe("binh-thuong");
   });
   it("cặp năm sinh cách nhau 15 năm vẫn tính được đầy đủ, kể cả tầng thiên can", () => {
     const info = tinhKetHonPairInfo(1990, 2005, 2026);
@@ -193,11 +220,12 @@ describe("tinhKetHonPairInfo", () => {
     expect(["rất hợp", "hợp", "bình thường", "cần cân nhắc"]).toContain(info.mucDo);
     expect(info.canPair).toBeDefined();
   });
-  it("nam 1990 (Canh Ngọ, mệnh Lộ Bàng Thổ) và nữ 1992 (Nhâm Thân, mệnh Kiếm Phong Kim): Thổ sinh Kim -> nam sinh nữ", () => {
+  it("nam 1990 (Canh Ngọ, mệnh Lộ Bàng Thổ) và nữ 1992 (Nhâm Thân, mệnh Kiếm Phong Kim): Thổ sinh Kim -> nam sinh nữ; can Canh-Nhâm không hợp không xung -> bình thường", () => {
     const info = tinhKetHonPairInfo(1990, 1992, 2026);
     expect(info.canChiNam.name).toBe("Canh Ngọ");
     expect(info.canChiNu.name).toBe("Nhâm Thân");
     expect(info.napAmPair).toBe("nam-sinh-nu");
+    expect(info.canPair).toBe("binh-thuong");
   });
 });
 

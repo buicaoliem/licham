@@ -1687,6 +1687,14 @@ table.letable tr.toi td {
   margin: 8px auto 0;
   max-width: 620px;
 }
+/* .tuoibadge vốn căn giữa nhờ text-align:center của .tuoiband (trang /tuoi/[slug]); trang này
+   dùng .band-in dùng chung, không có text-align:center, nên phải tự căn giữa cho badge can chi. */
+.kh-canchi-badge {
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
 /* Trang xem tuổi kết hôn dùng dải band dùng chung của site (bg-luc); breadcrumb riêng vì band mặc định không có. */
 .kh-crumb {
   text-align: center;
