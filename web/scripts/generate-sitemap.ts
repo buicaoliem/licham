@@ -14,6 +14,7 @@ import { LE_LIST } from "../lib/le";
 import { SITE_URL } from "../lib/site";
 import { YEAR_END, YEAR_START } from "../lib/site-years";
 import { CON_GIAP_LIST } from "../lib/tu-vi";
+import { ALL_CAN_CHI, CHI_LIST, canChiSlug } from "../lib/tuoi";
 import { VAN_KHAN_LIST } from "../lib/van-khan";
 import { VIEC_LIST } from "../lib/xem-ngay-tot";
 
@@ -90,6 +91,14 @@ function buildStaticEntries(): SitemapEntry[] {
   entries.push({ url: `${SITE_URL}/le/`, changefreq: "weekly", priority: 0.8 });
   for (const le of LE_LIST) {
     entries.push({ url: `${SITE_URL}/le/${le.slug}/`, changefreq: "weekly", priority: 0.7 });
+  }
+
+  entries.push({ url: `${SITE_URL}/tuoi/`, changefreq: "yearly", priority: 0.7 });
+  for (const c of CHI_LIST) {
+    entries.push({ url: `${SITE_URL}/tuoi/${c.slug}/`, changefreq: "yearly", priority: 0.6 });
+  }
+  for (const cc of ALL_CAN_CHI) {
+    entries.push({ url: `${SITE_URL}/tuoi/${canChiSlug(cc)}/`, changefreq: "yearly", priority: 0.5 });
   }
 
   return entries;

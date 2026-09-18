@@ -3,7 +3,7 @@ import { VIEC_LIST } from "@/lib/xem-ngay-tot";
 import { monthToSlug } from "@/lib/month-slug";
 import { getVietnamToday } from "@/lib/today";
 
-const MENU = ["Hôm nay", "Lịch tháng", "Xem ngày tốt", "Văn khấn", "Tử vi", "Đổi ngày", "Ngày lễ"] as const;
+const MENU = ["Hôm nay", "Lịch tháng", "Xem ngày tốt", "Văn khấn", "Tử vi", "Đổi ngày", "Ngày lễ", "Xem tuổi"] as const;
 
 // Chưa có trang đích — làm mờ, không cho bấm, tới khi trang được dựng.
 const DISABLED_MENU = new Set<(typeof MENU)[number]>([]);
@@ -26,6 +26,8 @@ function menuHref(item: (typeof MENU)[number]): string {
       return "/doi-ngay-am-duong";
     case "Ngày lễ":
       return "/le";
+    case "Xem tuổi":
+      return "/tuoi";
     default:
       return "/";
   }

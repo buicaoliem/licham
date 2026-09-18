@@ -660,6 +660,10 @@ h3 {
   background: var(--kim-soft);
   color: var(--kim);
 }
+.pill.g {
+  background: var(--luc-soft);
+  color: var(--luc);
+}
 .faqs .faq:first-child {
   border-top: 0;
   padding-top: 0;
@@ -1539,6 +1543,156 @@ table.letable tr.toi td {
   color: var(--ink-3);
   margin-left: 5px;
 }
+
+/* ---------- trang tuổi ---------- */
+.tuoiband {
+  background: linear-gradient(135deg, #1f5c57, #3f7d6e);
+  color: #fff;
+  padding: 28px 20px;
+  text-align: center;
+}
+.tuoiband.kim {
+  background: linear-gradient(135deg, #8a6512, #c2932f);
+}
+.tuoiband .crumb {
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 8px;
+}
+.tuoiband .crumb a {
+  color: #fff;
+}
+.tuoibadge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  margin-bottom: 8px;
+}
+.tuoiband h1 {
+  font-family: var(--font-lora), serif;
+  font-size: 27px;
+  line-height: 1.3;
+  color: #fff;
+}
+.tuoiband .sub {
+  text-align: center;
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 8px auto 0;
+  max-width: 620px;
+}
+.tuoihero {
+  margin: 18px auto 0;
+  max-width: 640px;
+  background: var(--sheet);
+  color: var(--ink);
+  border-radius: 14px;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  text-align: center;
+}
+.tuoihero .k {
+  font-size: 11.5px;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.tuoihero .v {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+table.tuoitable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+table.tuoitable th {
+  font-size: 11.5px;
+  color: var(--ink-3);
+  font-weight: 500;
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--line);
+}
+table.tuoitable td {
+  padding: 10px;
+  border-bottom: 1px solid var(--line-2);
+}
+table.tuoitable td a {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+}
+table.tuoitable tr.now td {
+  background: var(--kim-soft);
+}
+.tuoifacts {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 7px 14px;
+  font-size: 13.5px;
+}
+.tuoifacts dt {
+  color: var(--ink-3);
+}
+.tuoifacts dd {
+  margin: 0;
+  font-weight: 600;
+  text-align: right;
+}
+.tuoi-grid5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+.tuoi-gc {
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  text-decoration: none;
+  color: var(--ink);
+  background: var(--kim-soft);
+  text-align: center;
+}
+.tuoi-gc b {
+  display: block;
+  font-size: 14.5px;
+}
+.tuoi-gc span {
+  font-size: 12px;
+  color: var(--ink-2);
+}
+.tuoi-hub-card {
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px;
+  text-decoration: none;
+  color: var(--ink);
+  background: var(--sheet);
+  text-align: center;
+}
+.tuoi-hub-card b {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+.tuoi-hub-card span {
+  font-size: 12px;
+  color: var(--ink-3);
+}
+.tuoi-hub-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
 @media (max-width: 760px) {
   .leband-grid {
     grid-template-columns: 1fr;
@@ -1584,6 +1738,46 @@ table.letable tr.toi td {
     gap: 10px;
   }
   table.letable td::before {
+    content: attr(data-k);
+    color: var(--ink-3);
+    font-size: 11.5px;
+  }
+  .tuoiband h1 {
+    font-size: 22px;
+  }
+  .tuoihero {
+    grid-template-columns: 1fr;
+  }
+  .tuoi-grid5 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .tuoi-hub-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  table.tuoitable thead {
+    display: none;
+  }
+  table.tuoitable,
+  table.tuoitable tbody,
+  table.tuoitable tr,
+  table.tuoitable td {
+    display: block;
+    width: 100%;
+  }
+  table.tuoitable tr {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    margin-bottom: 8px;
+    padding: 8px 12px;
+  }
+  table.tuoitable td {
+    border: 0;
+    padding: 3px 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  table.tuoitable td::before {
     content: attr(data-k);
     color: var(--ink-3);
     font-size: 11.5px;
