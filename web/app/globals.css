@@ -1658,6 +1658,10 @@ table.letable tr.toi td {
 .tuoiband.kim {
   background: linear-gradient(135deg, #8a6512, #c2932f);
 }
+/* Trang xem tuổi kết hôn dùng hệ màu son của site thay vì dải xanh mặc định. */
+.tuoiband.kethon {
+  background: linear-gradient(135deg, var(--son-dp), var(--son));
+}
 .tuoiband .crumb {
   color: rgba(255, 255, 255, 0.85);
   margin-bottom: 8px;
@@ -1885,6 +1889,55 @@ table.tuoitable tr.now td {
     content: attr(data-k);
     color: var(--ink-3);
     font-size: 11.5px;
+  }
+}
+
+/* ---------- trang xem tuổi kết hôn ---------- */
+.kh-answer {
+  margin: -8px auto 18px;
+  max-width: 620px;
+  background: var(--sheet);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(32, 27, 20, 0.08);
+  padding: 18px 20px;
+  text-align: center;
+}
+.kh-answer .kh-mucdo {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 5px 16px;
+  border-radius: 999px;
+  margin: 4px 0 10px;
+}
+.kh-answer .kh-mucdo.rat-hop {
+  background: var(--luc-soft);
+  color: var(--luc);
+}
+.kh-answer .kh-mucdo.hop {
+  background: var(--luc-soft);
+  color: var(--luc);
+}
+.kh-answer .kh-mucdo.binh-thuong {
+  background: var(--kim-soft);
+  color: var(--kim);
+}
+.kh-answer .kh-mucdo.can-can-nhac {
+  background: var(--son-soft);
+  color: var(--son-dp);
+}
+.kh-answer .kh-nam-cuoi {
+  font-size: 13.5px;
+  color: var(--ink-2);
+  margin: 0;
+}
+.kh-answer .kh-nam-cuoi b {
+  color: var(--ink);
+}
+@media (max-width: 760px) {
+  .kh-answer {
+    margin-top: 0;
   }
 }
 
