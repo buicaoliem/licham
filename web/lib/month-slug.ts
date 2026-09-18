@@ -1,6 +1,11 @@
-/** "lich-thang-1-2026" — the URL slug for the month calendar page. */
+/** "lich-thang-1-2026" — the URL slug for the month calendar page (canonical, no leading zero). */
 export function monthToSlug(month: number, year: number): string {
   return `lich-thang-${month}-${year}`;
+}
+
+/** "lich-thang-09-2026" — the zero-padded alias some users/bots guess; redirects to the canonical slug. */
+export function paddedMonthSlug(month: number, year: number): string {
+  return `lich-thang-${String(month).padStart(2, "0")}-${year}`;
 }
 
 export function slugToMonth(slug: string): { month: number; year: number } | null {
