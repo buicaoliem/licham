@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const today = getVietnamToday();
   const { year } = nextOccurrence(page, today);
   return {
-    title: `${page.tieuDe} ${year} là ngày nào? | LịchÂm`,
+    title: `${page.tieuDe} ${year} là ngày nào? | Lịch Âm`,
     description: page.moTa,
     alternates: { canonical: `/le/${slug}/` },
   };

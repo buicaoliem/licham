@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const cg = conGiapBySlug(slug);
   if (!cg) return {};
   return {
-    title: `Tử vi tuổi ${cg.ten} hôm nay ${dateLabel} | LịchÂm`,
+    title: `Tử vi tuổi ${cg.ten} hôm nay ${dateLabel} | Lịch Âm`,
     description: `Tử vi tuổi ${cg.ten} ngày ${info.canChi.day.name}: mức đánh giá, giờ tốt nhất và quan hệ với chi ngày hôm nay.`,
     alternates: { canonical: `/tu-vi/${slug}/` },
   };

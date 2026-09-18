@@ -5,7 +5,7 @@ import { VanKhanSearch } from "@/components/VanKhanSearch";
 import { VAN_KHAN_NHOM_LIST, vanKhanByNhom } from "@/lib/van-khan";
 
 export const metadata: Metadata = {
-  title: "Văn khấn cổ truyền Việt Nam — Tuyển tập đầy đủ | LịchÂm",
+  title: "Văn khấn cổ truyền Việt Nam — Tuyển tập đầy đủ | Lịch Âm",
   description: "Tuyển tập 40 bài văn khấn cổ truyền: trong nhà, lễ tết, việc lớn, cầu an và đi lễ — đầy đủ sắm lễ, lưu ý và bài khấn nguyên văn.",
   alternates: { canonical: "/van-khan/" },
 };

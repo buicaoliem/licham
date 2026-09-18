@@ -15,7 +15,7 @@ const dateLabel = `${pad2(displayDate.day)}/${pad2(displayDate.month)}/${display
 const coNoiDung = hasAiContent(data);
 
 export const metadata: Metadata = {
-  title: `Tử vi hôm nay ${dateLabel} của 12 con giáp | LịchÂm`,
+  title: `Tử vi hôm nay ${dateLabel} của 12 con giáp | Lịch Âm`,
   description: `Tử vi ngày ${info.canChi.day.name} cho cả 12 con giáp: mức đánh giá, giờ tốt nhất và lời luận riêng cho ngày này.`,
   alternates: { canonical: "/tu-vi/" },
 };

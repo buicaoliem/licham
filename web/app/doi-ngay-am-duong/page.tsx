@@ -7,7 +7,7 @@ import { Header } from "@/components/Header";
 import { getVietnamToday } from "@/lib/today";
 
 export const metadata: Metadata = {
-  title: "Đổi ngày âm dương — Tra cứu lịch âm chính xác | LịchÂm",
+  title: "Đổi ngày âm dương — Tra cứu lịch âm chính xác | Lịch Âm",
   description: "Đổi qua lại giữa dương lịch và âm lịch, kèm can chi, đếm ngày, đổi ngày giỗ và tính tuổi — miễn phí, không quảng cáo.",
   alternates: { canonical: "/doi-ngay-am-duong/" },
 };

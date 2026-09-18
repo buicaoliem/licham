@@ -3,7 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 
 export const metadata: Metadata = {
-  title: "Chính sách bảo mật | LịchÂm",
+  title: "Chính sách bảo mật | Lịch Âm",
   description: "Chính sách bảo mật của licham.app: không thu thập thông tin cá nhân, không dùng cookie theo dõi.",
   alternates: { canonical: "/chinh-sach-bao-mat/" },
 };

@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const chi = chiBySlug(slug);
   if (chi) {
     return {
-      title: `Tuổi ${chi.ten}: hợp tuổi nào, kỵ tuổi nào? | LịchÂm`,
+      title: `Tuổi ${chi.ten}: hợp tuổi nào, kỵ tuổi nào? | Lịch Âm`,
       description: `Tuổi ${chi.ten} (${chi.conVat}) hợp và kỵ tuổi nào, mệnh gì theo từng năm sinh, các năm sinh gần đây cho tuổi ${chi.ten}.`,
       alternates: { canonical: `/tuoi/${slug}/` },
     };
@@ -60,7 +60,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (canChi) {
     const recentYear = birthYearsForCanChi(canChi.index, today.year)[1];
     return {
-      title: `Tuổi ${canChi.name} ${recentYear}: mệnh gì, hợp tuổi nào? | LịchÂm`,
+      title: `Tuổi ${canChi.name} ${recentYear}: mệnh gì, hợp tuổi nào? | Lịch Âm`,
       description: `Tuổi ${canChi.name} mệnh ${canChi.napAm.name}, hành ${canChi.napAm.element}. Xem năm sinh, tuổi hợp, tuổi kỵ và tuổi xung của ${canChi.name}.`,
       alternates: { canonical: `/tuoi/${slug}/` },
     };

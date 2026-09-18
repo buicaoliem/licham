@@ -3,7 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 
 export const metadata: Metadata = {
-  title: "Điều khoản sử dụng | LịchÂm",
+  title: "Điều khoản sử dụng | Lịch Âm",
   description: "Điều khoản sử dụng nội dung trên licham.app.",
   alternates: { canonical: "/dieu-khoan/" },
 };

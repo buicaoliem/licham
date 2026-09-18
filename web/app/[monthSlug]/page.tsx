@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: { params: Promise<{ monthSlug
   if (!parsed) return { alternates: { canonical: `/${monthSlug}/` } };
   const { month, year } = parsed;
   return {
-    title: `Lịch tháng ${month} năm ${year} — Âm lịch, ngày tốt xấu | LịchÂm`,
+    title: `Lịch tháng ${month} năm ${year} — Âm lịch, ngày tốt xấu | Lịch Âm`,
     description: `Lịch tháng ${month} năm ${year} đầy đủ dương lịch và âm lịch, ngày hoàng đạo hắc đạo, ngày mùng một rằm.`,
     alternates: { canonical: `/${monthSlug}/` },
   };

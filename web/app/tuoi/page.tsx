@@ -6,7 +6,7 @@ import { ALL_CAN_CHI, CHI_LIST, birthYearsForChi, canChiSlug } from "@/lib/tuoi"
 import { getVietnamToday } from "@/lib/today";
 
 export const metadata: Metadata = {
-  title: "Xem tuổi: 12 con giáp và 60 tuổi can chi | LịchÂm",
+  title: "Xem tuổi: 12 con giáp và 60 tuổi can chi | Lịch Âm",
   description:
     "Tra cứu tuổi theo 12 con giáp và 60 tuổi can chi: mệnh nạp âm, ngũ hành, tuổi hợp, tuổi kỵ và các năm sinh tương ứng.",
   alternates: { canonical: "/tuoi/" },
