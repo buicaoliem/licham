@@ -1888,6 +1888,55 @@ table.tuoitable tr.now td {
   }
 }
 
+/* ---------- trang xem tuổi kết hôn ---------- */
+.kh-answer {
+  margin: -8px auto 18px;
+  max-width: 620px;
+  background: var(--sheet);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(32, 27, 20, 0.08);
+  padding: 18px 20px;
+  text-align: center;
+}
+.kh-answer .kh-mucdo {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 5px 16px;
+  border-radius: 999px;
+  margin: 4px 0 10px;
+}
+.kh-answer .kh-mucdo.rat-hop {
+  background: var(--luc-soft);
+  color: var(--luc);
+}
+.kh-answer .kh-mucdo.hop {
+  background: var(--luc-soft);
+  color: var(--luc);
+}
+.kh-answer .kh-mucdo.binh-thuong {
+  background: var(--kim-soft);
+  color: var(--kim);
+}
+.kh-answer .kh-mucdo.can-can-nhac {
+  background: var(--son-soft);
+  color: var(--son-dp);
+}
+.kh-answer .kh-nam-cuoi {
+  font-size: 13.5px;
+  color: var(--ink-2);
+  margin: 0;
+}
+.kh-answer .kh-nam-cuoi b {
+  color: var(--ink);
+}
+@media (max-width: 760px) {
+  .kh-answer {
+    margin-top: 0;
+  }
+}
+
 @media print {
   body {
     background: #fff;

@@ -16,6 +16,7 @@ import { YEAR_END, YEAR_START } from "../lib/site-years";
 import { CON_GIAP_LIST } from "../lib/tu-vi";
 import { ALL_CAN_CHI, CHI_LIST, canChiSlug } from "../lib/tuoi";
 import { VAN_KHAN_LIST } from "../lib/van-khan";
+import { KHOANG_CACH_TUOI_TOI_DA, NAM_SINH_MAX, NAM_SINH_MIN, ketHonSlug } from "../lib/xem-tuoi-ket-hon";
 import { VIEC_LIST } from "../lib/xem-ngay-tot";
 
 // Reimplemented here (not imported from lib/date-slug, lib/month-slug) because those
@@ -99,6 +100,14 @@ function buildStaticEntries(): SitemapEntry[] {
   }
   for (const cc of ALL_CAN_CHI) {
     entries.push({ url: `${SITE_URL}/tuoi/${canChiSlug(cc)}/`, changefreq: "yearly", priority: 0.5 });
+  }
+
+  entries.push({ url: `${SITE_URL}/xem-tuoi-ket-hon/`, changefreq: "yearly", priority: 0.7 });
+  for (let namNam = NAM_SINH_MIN; namNam <= NAM_SINH_MAX; namNam++) {
+    for (let namNu = NAM_SINH_MIN; namNu <= NAM_SINH_MAX; namNu++) {
+      if (Math.abs(namNam - namNu) > KHOANG_CACH_TUOI_TOI_DA) continue;
+      entries.push({ url: `${SITE_URL}/xem-tuoi-ket-hon/${ketHonSlug(namNam, namNu)}/`, changefreq: "yearly", priority: 0.5 });
+    }
   }
 
   return entries;
