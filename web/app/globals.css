@@ -95,9 +95,9 @@ a:focus-visible {
   outline-offset: 3px;
 }
 .logo .mk {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
   flex-shrink: 0;
 }
 .logo-ink {
@@ -814,9 +814,9 @@ a:focus-visible {
   margin-bottom: 10px;
 }
 .foot-brand .mk {
-  width: 26px;
-  height: 26px;
-  border-radius: 7px;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
   flex-shrink: 0;
 }
 .footlinks {
