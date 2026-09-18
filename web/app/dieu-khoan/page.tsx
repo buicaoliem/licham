@@ -38,7 +38,7 @@ export default function DieuKhoanPage() {
             </ul>
 
             <p style={{ marginTop: 18 }}>
-              Mọi thắc mắc về điều khoản sử dụng, vui lòng liên hệ <a href="mailto:lienhe@licham.app">lienhe@licham.app</a>.
+              Mọi thắc mắc về điều khoản sử dụng, vui lòng liên hệ <a href="mailto:lienhe@licham.app">Lienhe@licham.app</a>.
             </p>
           </div>
         </div>

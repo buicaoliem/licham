@@ -58,7 +58,7 @@ export function Header({ activeMenu = "Hôm nay" }: { activeMenu?: (typeof MENU)
           </summary>
         </details>
         <Link href="/" className="logo">
-          <img src="/logo.svg" alt="Lịch Âm" width={40} height={40} className="mk" />
+          <img src="/logo.svg" alt="Lịch Âm" width={60} height={60} className="mk" />
           <span>
             <span className="logo-ink">Lịch</span> <span className="logo-son">Âm</span>
           </span>
