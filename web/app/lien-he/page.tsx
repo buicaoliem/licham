@@ -49,18 +49,6 @@ export default function LienHePage() {
               </ul>
             </div>
 
-            <div className="box" style={{ marginTop: 18 }}>
-              <div className="box-h">
-                <span className="rule" />
-                <span className="t">Thông tin đơn vị</span>
-                <span className="rule" />
-              </div>
-              <p style={{ textAlign: "center" }}>
-                Công ty TNHH ISHI KOI FARM · Mã số thuế: 0601224050 · Địa chỉ: Số 185 đường Lộc Vượng, Phường Nam Định,
-                Tỉnh Ninh Bình.
-              </p>
-            </div>
-
             <p style={{ textAlign: "center", fontSize: 13.5, color: "var(--ink-3)", marginTop: 18 }}>
               Chúng tôi phản hồi trong vòng vài ngày làm việc.
             </p>

@@ -5,7 +5,7 @@ import type { MonthDayRef, MonthSummary } from "@/lib/month-summary";
 
 function DayRow({ d }: { d: MonthDayRef }) {
   return (
-    <Link href={`/ngay/${dateToSlug(d)}`} className="row">
+    <Link href={`/ngay/${dateToSlug(d)}`} className="row daylink">
       <span>
         {pad2(d.day)}/{pad2(d.month)} · Âm {d.lunarDay}/{d.lunarMonth}
       </span>
