@@ -3,7 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 
 export const metadata: Metadata = {
-  title: "Liên hệ | LịchÂm",
+  title: "Liên hệ | Lịch Âm",
   description: "Liên hệ với licham.app để báo lỗi, góp ý nội dung hoặc hợp tác.",
   alternates: { canonical: "/lien-he/" },
 };

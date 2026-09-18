@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ viec: str
   const viec = viecBySlug(slug);
   if (!viec) return {};
   return {
-    title: `Xem ngày tốt ${viec.label} năm ${YEAR} — Chọn ngày hợp tuổi | LịchÂm`,
+    title: `Xem ngày tốt ${viec.label} năm ${YEAR} — Chọn ngày hợp tuổi | Lịch Âm`,
     description: `Chấm điểm và xếp hạng ngày tốt xấu cho việc ${viec.label} năm ${YEAR}, dựa trên hoàng đạo, sao tốt xấu và ngày đại kỵ.`,
     alternates: { canonical: `/xem-ngay-tot/${slug}/` },
   };

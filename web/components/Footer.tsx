@@ -18,8 +18,7 @@ export function Footer() {
       <Link href="/" className="foot-brand">
         <img src="/logo.svg" alt="" width={26} height={26} className="mk" aria-hidden="true" />
         <span>
-          <span className="logo-ink">Lịch</span>
-          <span className="logo-son">Âm</span>
+          <span className="logo-ink">Lịch</span> <span className="logo-son">Âm</span>
         </span>
       </Link>
       <div className="footlinks">

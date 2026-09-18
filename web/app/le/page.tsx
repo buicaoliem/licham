@@ -9,7 +9,7 @@ import { nextOccurrence } from "@/lib/le-date-engine";
 import { getVietnamToday } from "@/lib/today";
 
 export const metadata: Metadata = {
-  title: "Ngày lễ Việt Nam trong năm — Âm lịch, dương lịch, nghỉ lễ | LịchÂm",
+  title: "Ngày lễ Việt Nam trong năm — Âm lịch, dương lịch, nghỉ lễ | Lịch Âm",
   description:
     "Tra cứu 60 ngày lễ, ngày giỗ và ngày kỷ niệm của Việt Nam: ngày nghỉ lễ theo luật, lễ âm lịch, giỗ anh hùng dân tộc, ngày kỷ niệm và ngày quốc tế phổ biến.",
   alternates: { canonical: "/le/" },

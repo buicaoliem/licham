@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const bai = vanKhanBySlug(slug);
   if (!bai) return {};
   return {
-    title: `${bai.ten} đầy đủ và chuẩn nhất | LịchÂm`,
+    title: `${bai.ten} đầy đủ và chuẩn nhất | Lịch Âm`,
     description: bai.moTa,
     alternates: { canonical: `/van-khan/${slug}/` },
   };

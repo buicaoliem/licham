@@ -3,7 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 
 export const metadata: Metadata = {
-  title: "Giới thiệu | LịchÂm",
+  title: "Giới thiệu | Lịch Âm",
   description: "licham.app là trang lịch âm dương miễn phí, không quảng cáo, không cần đăng ký tài khoản.",
   alternates: { canonical: "/gioi-thieu/" },
 };
