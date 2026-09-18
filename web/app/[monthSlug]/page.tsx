@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { MonthFaq } from "@/components/MonthFaq";
@@ -8,7 +8,7 @@ import { MonthGrid } from "@/components/MonthGrid";
 import { MonthSummaryCards } from "@/components/MonthSummaryCards";
 import { dateToSlug } from "@/lib/date-slug";
 import { getMonthCells } from "@/lib/month-grid";
-import { monthToSlug, slugToMonth } from "@/lib/month-slug";
+import { monthToSlug, paddedMonthSlug, slugToMonth } from "@/lib/month-slug";
 import { getMonthSummary } from "@/lib/month-summary";
 import { getVietnamToday } from "@/lib/today";
 import { YEAR_END, YEAR_START } from "@/lib/site-years";
@@ -18,6 +18,11 @@ export function generateStaticParams() {
   for (let year = YEAR_START; year <= YEAR_END; year++) {
     for (let month = 1; month <= 12; month++) {
       params.push({ monthSlug: monthToSlug(month, year) });
+      // Also pre-generate the zero-padded alias ("lich-thang-09-2026") so a guessed
+      // or previously-shared padded link redirects instead of crashing the static
+      // export (dynamicParams = false rejects any slug not listed here).
+      const padded = paddedMonthSlug(month, year);
+      if (padded !== monthToSlug(month, year)) params.push({ monthSlug: padded });
     }
   }
   return params;
@@ -33,7 +38,7 @@ export async function generateMetadata({ params }: { params: Promise<{ monthSlug
   return {
     title: `Lịch tháng ${month} năm ${year} — Âm lịch, ngày tốt xấu | Lịch Âm`,
     description: `Lịch tháng ${month} năm ${year} đầy đủ dương lịch và âm lịch, ngày hoàng đạo hắc đạo, ngày mùng một rằm.`,
-    alternates: { canonical: `/${monthSlug}/` },
+    alternates: { canonical: `/${monthToSlug(month, year)}/` },
   };
 }
 
@@ -42,6 +47,9 @@ export default async function MonthPage({ params }: { params: Promise<{ monthSlu
   const parsed = slugToMonth(monthSlug);
   if (!parsed || parsed.year < YEAR_START || parsed.year > YEAR_END) notFound();
   const { month, year } = parsed;
+
+  const canonicalSlug = monthToSlug(month, year);
+  if (monthSlug !== canonicalSlug) redirect(`/${canonicalSlug}/`);
 
   const today = getVietnamToday();
 
