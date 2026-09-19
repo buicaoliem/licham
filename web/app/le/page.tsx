@@ -53,6 +53,15 @@ export default function LeHubPage() {
             <Link className="chip" href="/countdown/trung-thu">
               Trung thu
             </Link>
+            <Link className="chip" href="/countdown/doan-ngo">
+              Đoan ngọ
+            </Link>
+            <Link className="chip" href="/countdown/ong-tao">
+              Ông Táo
+            </Link>
+            <Link className="chip" href="/countdown/giao-thua">
+              Giao thừa
+            </Link>
             <Link className="chip" href={`/lich-nghi-le/${today.year}`}>
               Lịch nghỉ lễ {today.year}
             </Link>

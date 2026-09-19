@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
 import { dateToSlug } from "@/lib/date-slug";
 import {
   NGHI_LE_YEAR_END,
@@ -100,6 +101,7 @@ export default async function LichNghiLePage({ params }: { params: Promise<{ yea
               Tất cả ngày lễ
             </Link>
           </div>
+          <TraditionalDisclaimer compact />
         </div>
 
         <Footer />

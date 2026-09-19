@@ -20,10 +20,10 @@ const LUNAR_HOLIDAYS = [
   { name: "Tết Nguyên đán", month: 1, day: 1, href: "/countdown/tet" },
   { name: "Rằm tháng Giêng", month: 1, day: 15, href: "/le/ram-thang-gieng" },
   { name: "Giỗ Tổ Hùng Vương", month: 3, day: 10, href: "/le/gio-to-hung-vuong" },
-  { name: "Tết Đoan ngọ", month: 5, day: 5, href: "/le/tet-doan-ngo" },
+  { name: "Tết Đoan ngọ", month: 5, day: 5, href: "/countdown/doan-ngo" },
   { name: "Vu lan", month: 7, day: 15, href: "/countdown/vu-lan" },
   { name: "Trung thu", month: 8, day: 15, href: "/countdown/trung-thu" },
-  { name: "Ông Công ông Táo", month: 12, day: 23, href: "/le/ong-cong-ong-tao" },
+  { name: "Ông Công ông Táo", month: 12, day: 23, href: "/countdown/ong-tao" },
 ] as const;
 
 /** "dd/mm" — nhãn cột ngày quan trọng sắp tới. */

@@ -80,6 +80,21 @@ export const TEN_LIST: readonly TenEntry[] = [
   { slug: "truc", ten: "Trúc", chuHan: "竹", nghia: "cây trúc", hanh: "Mộc", gioi: "nu", nguon: "Hán Việt, chữ Trúc (竹)", luan: "Trúc là tre trúc, hành Mộc. Tên nữ, cũng gặp ở nam (Trúc Lâm)." },
   { slug: "an", ten: "An", chuHan: "安", nghia: "yên ổn", hanh: "Thổ", gioi: "chung", nguon: "Hán Việt, chữ An (安)", luan: "An là yên. Dùng rất rộng cho cả hai giới, hay đứng trước hoặc sau." },
   { slug: "khanh", ten: "Khánh", chuHan: "慶", nghia: "mừng, khánh tiết", hanh: "Mộc", gioi: "chung", nguon: "Hán Việt, chữ Khánh (慶)", luan: "Khánh là mừng. Dùng cho nam và nữ (Khánh Linh, Khánh)." },
+  { slug: "khoa", ten: "Khoa", chuHan: "科", nghia: "khoa cử, ngành học", hanh: "Mộc", gioi: "nam", nguon: "Hán Việt, chữ Khoa (科)", luan: "Khoa gắn khoa cử, học hành. Tên nam, hay gặp thế hệ sau 1990." },
+  { slug: "khoi", ten: "Khôi", chuHan: "魁", nghia: "đứng đầu", hanh: "Mộc", gioi: "nam", nguon: "Hán Việt, chữ Khôi (魁)", luan: "Khôi nghĩa người đứng đầu. Tên nam phổ biến gần đây." },
+  { slug: "phat", ten: "Phát", chuHan: "發", nghia: "phát đạt", hanh: "Hỏa", gioi: "nam", nguon: "Hán Việt, chữ Phát (發)", luan: "Phát là phát đạt. Tên nam; khác Phật (佛)." },
+  { slug: "thinh", ten: "Thịnh", chuHan: "盛", nghia: "thịnh vượng", hanh: "Hỏa", gioi: "nam", nguon: "Hán Việt, chữ Thịnh (盛)", luan: "Thịnh là thịnh vượng. Tên nam, hay đi với Hưng." },
+  { slug: "truong", ten: "Trường", chuHan: "長", nghia: "dài, lâu", hanh: "Hỏa", gioi: "nam", nguon: "Hán Việt, chữ Trường (長)", luan: "Trường nghĩa dài lâu. Tên nam; khác Trường (場) là bãi." },
+  { slug: "nguyen", ten: "Nguyên", chuHan: "元", nghia: "đầu, gốc", hanh: "Thủy", gioi: "nam", nguon: "Hán Việt, chữ Nguyên (元)", luan: "Nguyên là đầu, nguyên khí. Dùng làm tên, không phải họ Nguyễn." },
+  { slug: "my", ten: "My", chuHan: "媚", nghia: "duyên", hanh: "Thủy", gioi: "nu", nguon: "Hán Việt, chữ My (媚)", luan: "My (媚) là duyên. Tên nữ; khác Mỹ (美) là đẹp." },
+  { slug: "my-dep", ten: "Mỹ", chuHan: "美", nghia: "đẹp", hanh: "Kim", gioi: "nu", nguon: "Hán Việt, chữ Mỹ (美)", luan: "Mỹ là đẹp. Tên nữ, hay đứng sau (Thu Mỹ). Khác My (媚)." },
+  { slug: "vy", ten: "Vy", chuHan: "薇", nghia: "hoa tường vi", hanh: "Mộc", gioi: "nu", nguon: "Hán Việt, chữ Vy (薇), bộ thảo", luan: "Vy là tường vi, bộ thảo — hành Mộc. Tên nữ rất phổ biến." },
+  { slug: "nhi", ten: "Nhi", chuHan: "兒", nghia: "con, trẻ", hanh: "Kim", gioi: "nu", nguon: "Hán Việt, chữ Nhi (兒)", luan: "Nhi nghĩa con trẻ. Tên nữ, thường đứng sau (Minh Nhi)." },
+  { slug: "nhu", ten: "Như", chuHan: "如", nghia: "như, giống", hanh: "Kim", gioi: "nu", nguon: "Hán Việt, chữ Như (如)", luan: "Như là như thế. Tên nữ, hay tên kép (Như Ý)." },
+  { slug: "hien", ten: "Hiền", chuHan: "賢", nghia: "hiền lành, hiền tài", hanh: "Mộc", gioi: "chung", nguon: "Hán Việt, chữ Hiền (賢)", luan: "Hiền là đức hiền. Dùng cho nữ nhiều, cũng gặp ở nam." },
+  { slug: "hang", ten: "Hằng", chuHan: "姮", nghia: "Hằng Nga; thường hằng", hanh: "Thủy", gioi: "nu", nguon: "Hán Việt, chữ Hằng (姮 / 恆)", luan: "Hằng gắn Hằng Nga và nghĩa bền. Tên nữ." },
+  { slug: "nga", ten: "Nga", chuHan: "娥", nghia: "đẹp; Hằng Nga", hanh: "Kim", gioi: "nu", nguon: "Hán Việt, chữ Nga (娥)", luan: "Nga là vẻ đẹp, Hằng Nga. Tên nữ." },
+  { slug: "thuy", ten: "Thủy", chuHan: "水", nghia: "nước", hanh: "Thủy", gioi: "nu", nguon: "Hán Việt, chữ Thủy (水)", luan: "Thủy là nước, hành trùng tên. Tên nữ, đôi khi nam trong tên kép." },
 ] as const;
 
 export function tenBySlug(slug: string): TenEntry | undefined {

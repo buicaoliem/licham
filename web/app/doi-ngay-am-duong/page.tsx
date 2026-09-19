@@ -5,6 +5,7 @@ import { DoiNgayConverter } from "@/components/DoiNgayConverter";
 import { DoiNgayTools } from "@/components/DoiNgayTools";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
 import { dateToSlug } from "@/lib/date-slug";
 import { getVietnamToday } from "@/lib/today";
 
@@ -29,8 +30,8 @@ export default function DoiNgayPage() {
         <div className="band">
           <div className="bg bg-lam" />
           <div className="band-in">
-            <h1>Đổi ngày âm dương</h1>
-            <p>Đổi qua lại giữa dương lịch và âm lịch, kèm can chi và thông tin ngày</p>
+            <h1>Đổi ngày âm dương {today.year}</h1>
+            <p>Đổi qua lại giữa dương lịch và âm lịch năm {today.year}, kèm can chi và thông tin ngày</p>
           </div>
         </div>
 
@@ -92,6 +93,7 @@ export default function DoiNgayPage() {
               Lịch hôm nay
             </Link>
           </div>
+          <TraditionalDisclaimer compact />
         </div>
 
         <Footer />

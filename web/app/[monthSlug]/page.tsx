@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
 import { MonthFaq } from "@/components/MonthFaq";
 import { MonthGrid } from "@/components/MonthGrid";
 import { MonthSummaryCards } from "@/components/MonthSummaryCards";
@@ -117,6 +118,7 @@ export default async function MonthPage({ params }: { params: Promise<{ monthSlu
               Đếm ngược Tết
             </Link>
           </div>
+          <TraditionalDisclaimer compact />
         </div>
 
         <Footer />

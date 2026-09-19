@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
 import { VanKhanSearch } from "@/components/VanKhanSearch";
 import { getVietnamToday } from "@/lib/today";
 import { VAN_KHAN_NHOM_LIST, vanKhanByNhom } from "@/lib/van-khan";
@@ -16,6 +17,7 @@ export function generateMetadata(): Metadata {
 }
 
 export default function VanKhanIndexPage() {
+  const year = getVietnamToday().year;
   const nhomList = VAN_KHAN_NHOM_LIST.map((nhom) => ({ ten: nhom, items: vanKhanByNhom(nhom) }));
 
   return (
@@ -26,8 +28,8 @@ export default function VanKhanIndexPage() {
         <div className="band">
           <div className="bg bg-son" />
           <div className="band-in">
-            <h1>Văn khấn cổ truyền Việt Nam</h1>
-            <p>40 bài văn khấn đầy đủ, chia theo năm nhóm: trong nhà, lễ tết, việc lớn, cầu an và đi lễ</p>
+            <h1>Văn khấn cổ truyền Việt Nam {year}</h1>
+            <p>Bài văn khấn đầy đủ, chia theo năm nhóm: trong nhà, lễ tết, việc lớn, cầu an và đi lễ</p>
           </div>
         </div>
 
@@ -47,6 +49,7 @@ export default function VanKhanIndexPage() {
             </Link>
           </div>
           <VanKhanSearch nhomList={nhomList} />
+          <TraditionalDisclaimer />
         </div>
 
         <Footer />

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
 import { VanKhanActions } from "@/components/VanKhanActions";
 import { LE_LIST } from "@/lib/le";
 import { getVietnamToday } from "@/lib/today";
@@ -180,6 +181,7 @@ export default async function VanKhanPage({ params }: { params: Promise<{ slug: 
               Xem ngày tốt
             </Link>
           </div>
+          <TraditionalDisclaimer />
         </div>
 
         <Footer />

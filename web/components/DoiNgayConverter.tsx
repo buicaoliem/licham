@@ -5,8 +5,7 @@ import { useState } from "react";
 import { type SolarDate, getDayInfo, isValidSolarDate, jdFromDate, lunarToSolar, solarToLunar } from "@licham/core";
 import { dateToSlug } from "@/lib/date-slug";
 import { MONTH_WORD, WEEKDAY_LONG, pad2 } from "@/lib/format";
-
-const DETAIL_PAGE_YEAR = 2026;
+import { YEAR_END, YEAR_START } from "@/lib/site-years";
 
 interface AmDraft {
   day: number;
@@ -83,7 +82,7 @@ export function DoiNgayConverter() {
   const today = todaySolar();
   const diffDays = jdFromDate(duong.day, duong.month, duong.year) - jdFromDate(today.day, today.month, today.year);
   const diffLabel = diffDays === 0 ? "Chính là hôm nay" : diffDays > 0 ? `${diffDays} ngày nữa` : `${-diffDays} ngày trước`;
-  const hasDetailPage = duong.year === DETAIL_PAGE_YEAR;
+  const hasDetailPage = duong.year >= YEAR_START && duong.year <= YEAR_END;
 
   return (
     <>

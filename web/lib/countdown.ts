@@ -42,6 +42,33 @@ export const COUNTDOWN_LIST: readonly CountdownDef[] = [
     intro: (y) =>
       `Trung thu ${y} là rằm tháng Tám âm lịch. Ngày dương dịch theo trăng; số ngày còn lại dưới đây tính từ hôm nay theo giờ Việt Nam.`,
   },
+  {
+    slug: "doan-ngo",
+    leSlug: "tet-doan-ngo",
+    h1: "Đếm ngược Tết Đoan ngọ",
+    titleYear: (y) => `Còn bao nhiêu ngày nữa đến Đoan ngọ ${y}? — Lịch Âm`,
+    description: (y) => `Đếm ngược Tết Đoan ngọ ${y} (mùng 5 tháng Năm âm): số ngày còn lại, ngày dương và ngày âm.`,
+    intro: (y) =>
+      `Đoan ngọ ${y} là mùng 5 tháng Năm âm lịch. Ngày dương đổi từng năm; trang này tính từ lịch âm, không gắn 5/5 dương lịch.`,
+  },
+  {
+    slug: "ong-tao",
+    leSlug: "ong-cong-ong-tao",
+    h1: "Đếm ngược ông Công ông Táo",
+    titleYear: (y) => `Còn bao nhiêu ngày nữa đến ông Táo ${y}? — Lịch Âm`,
+    description: (y) => `Đếm ngược ông Công ông Táo ${y} (23 tháng Chạp): số ngày còn lại, ngày dương và ngày âm.`,
+    intro: (y) =>
+      `Ông Táo ${y} là 23 tháng Chạp âm lịch — mốc vào tuần Tết. Ngày dương lấy từ lõi lịch, cập nhật mỗi lần dựng trang.`,
+  },
+  {
+    slug: "giao-thua",
+    leSlug: "giao-thua",
+    h1: "Đếm ngược giao thừa",
+    titleYear: (y) => `Còn bao nhiêu ngày nữa đến giao thừa ${y}? — Lịch Âm`,
+    description: (y) => `Đếm ngược giao thừa Tết ${y}: đêm cuối năm âm, ngày dương và số ngày còn lại.`,
+    intro: (y) =>
+      `Giao thừa không phải lúc nào cũng “30 Tết”: tháng Chạp có năm 29 ngày, có năm 30. Trang này lấy đúng ngày cuối tháng 12 âm.`,
+  },
 ];
 
 export function countdownBySlug(slug: string): CountdownDef | undefined {

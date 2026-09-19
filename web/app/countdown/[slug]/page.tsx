@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
 import { COUNTDOWN_LIST, countdownBySlug, countdownState, formatCountdownSolar, lunarMonthWord } from "@/lib/countdown";
 import { dateToSlug } from "@/lib/date-slug";
 import { getVietnamToday } from "@/lib/today";
@@ -92,6 +93,7 @@ export default async function CountdownPage({ params }: { params: Promise<{ slug
               Lịch nghỉ lễ {today.year}
             </Link>
           </div>
+          <TraditionalDisclaimer />
         </div>
 
         <Footer />

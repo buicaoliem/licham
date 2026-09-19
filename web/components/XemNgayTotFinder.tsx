@@ -5,19 +5,20 @@ import { useMemo, useState } from "react";
 import type { SolarDate } from "@licham/core";
 import { dateToSlug } from "@/lib/date-slug";
 import { pad2 } from "@/lib/format";
+import { YEAR_END, YEAR_START } from "@/lib/site-years";
 import { getVietnamToday } from "@/lib/today";
 import { type DayResult, type ViecMeta, bestDaysInRange, birthDateLabel, formatSolarDate } from "@/lib/xem-ngay-tot";
 
-const DETAIL_PAGE_YEAR = 2026;
-
 type RangeOption = "3-thang" | "6-thang" | "den-het-nam" | "ca-nam";
 
-const RANGE_LABELS: Record<RangeOption, string> = {
-  "3-thang": "3 tháng tới",
-  "6-thang": "6 tháng tới",
-  "den-het-nam": "Từ nay đến hết năm 2026",
-  "ca-nam": "Cả năm 2026",
-};
+function rangeLabels(year: number): Record<RangeOption, string> {
+  return {
+    "3-thang": "3 tháng tới",
+    "6-thang": "6 tháng tới",
+    "den-het-nam": `Từ nay đến hết năm ${year}`,
+    "ca-nam": `Cả năm ${year}`,
+  };
+}
 
 function addMonths(d: SolarDate, months: number): SolarDate {
   const total = (d.month - 1) + months;
@@ -34,9 +35,9 @@ function rangeFor(option: RangeOption, today: SolarDate): { from: SolarDate; to:
     case "6-thang":
       return { from: today, to: addMonths(today, 6) };
     case "den-het-nam":
-      return { from: today, to: { day: 31, month: 12, year: DETAIL_PAGE_YEAR } };
+      return { from: today, to: { day: 31, month: 12, year: today.year } };
     case "ca-nam":
-      return { from: { day: 1, month: 1, year: DETAIL_PAGE_YEAR }, to: { day: 31, month: 12, year: DETAIL_PAGE_YEAR } };
+      return { from: { day: 1, month: 1, year: today.year }, to: { day: 31, month: 12, year: today.year } };
   }
 }
 
@@ -70,8 +71,10 @@ export function XemNgayTotFinder({ viec }: { viec: ViecMeta }) {
   const [draft, setDraft] = useState<Params>(() => defaultParams());
 
   const today = getVietnamToday();
+  const labels = rangeLabels(today.year);
   const { from, to } = rangeFor(applied.range, today);
-  const rangeLabel = `${RANGE_LABELS[applied.range]} (${formatSolarDate(from)} – ${formatSolarDate(to)})`;
+  const rangeLabel = `${labels[applied.range]} (${formatSolarDate(from)} – ${formatSolarDate(to)})`;
+  const dateMax = `${today.year}-12-31`;
 
   const twoPersons = viec.personLabels.length > 1;
   const dateA = parseISODate(applied.dateA) ?? defaultBirthDate(28);
@@ -112,7 +115,7 @@ export function XemNgayTotFinder({ viec }: { viec: ViecMeta }) {
                 id="date-a"
                 type="date"
                 min="1900-01-01"
-                max="2026-12-31"
+                max={dateMax}
                 value={draft.dateA}
                 onChange={(e) => setDraft((p) => ({ ...p, dateA: e.target.value }))}
               />
@@ -124,7 +127,7 @@ export function XemNgayTotFinder({ viec }: { viec: ViecMeta }) {
                 id="date-b"
                 type="date"
                 min="1900-01-01"
-                max="2026-12-31"
+                max={dateMax}
                 value={draft.dateB}
                 onChange={(e) => setDraft((p) => ({ ...p, dateB: e.target.value }))}
               />
@@ -138,7 +141,7 @@ export function XemNgayTotFinder({ viec }: { viec: ViecMeta }) {
               id="date-a"
               type="date"
               min="1900-01-01"
-              max="2026-12-31"
+              max={dateMax}
               value={draft.dateA}
               onChange={(e) => setDraft((p) => ({ ...p, dateA: e.target.value }))}
             />
@@ -152,9 +155,9 @@ export function XemNgayTotFinder({ viec }: { viec: ViecMeta }) {
             value={draft.range}
             onChange={(e) => setDraft((p) => ({ ...p, range: e.target.value as RangeOption }))}
           >
-            {(Object.keys(RANGE_LABELS) as RangeOption[]).map((opt) => (
+            {(Object.keys(labels) as RangeOption[]).map((opt) => (
               <option key={opt} value={opt}>
-                {RANGE_LABELS[opt]}
+                {labels[opt]}
               </option>
             ))}
           </select>
@@ -175,7 +178,7 @@ export function XemNgayTotFinder({ viec }: { viec: ViecMeta }) {
       <div className="box" style={{ padding: 14 }}>
         {results.length === 0 && <p style={{ textAlign: "center", color: "var(--ink-3)", margin: 0 }}>Không có ngày nào trong khoảng đã chọn.</p>}
         {results.map((r) => {
-          const hasDetailPage = r.solar.year === DETAIL_PAGE_YEAR;
+          const hasDetailPage = r.solar.year >= YEAR_START && r.solar.year <= YEAR_END;
           const badgeClass = r.score.score >= 85 ? "n" : r.score.score >= 70 ? "n mid" : "n low";
           const barClass = r.score.score >= 85 ? "" : r.score.score >= 70 ? "mid" : "low";
           const dateSlug = dateToSlug(r.solar);

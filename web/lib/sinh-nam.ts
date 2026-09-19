@@ -2,8 +2,8 @@ import { type CanChi, canChiNamDuong } from "@licham/core";
 import { NAP_AM_MO_TA, canChiSlug, chiByIndex } from "@/lib/tuoi";
 import { tuoiMu } from "@/lib/xem-tuoi-ket-hon";
 
-export const SINH_NAM_MIN = 1950;
-export const SINH_NAM_MAX = 2010;
+export const SINH_NAM_MIN = 1940;
+export const SINH_NAM_MAX = 2018;
 
 export function sinhNamTrongPhamVi(year: number): boolean {
   return Number.isInteger(year) && year >= SINH_NAM_MIN && year <= SINH_NAM_MAX;
