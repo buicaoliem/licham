@@ -42,6 +42,12 @@ export default function TuoiHubPage() {
             <Link className="chip" href="/sinh-nam/1990">
               Sinh năm 1990
             </Link>
+            <Link className="chip" href="/ten">
+              Đặt tên con
+            </Link>
+            <Link className="chip" href="/tu-vi">
+              Tử vi
+            </Link>
           </div>
           <div className="box">
             <div className="box-h">

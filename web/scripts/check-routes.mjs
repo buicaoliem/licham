@@ -54,6 +54,9 @@ if (monthPageCount < 12) {
 const requiredStatic = [
   "tinh-tuoi/index.html",
   "xem-ngay-tot/index.html",
+  "ten/index.html",
+  "ten/minh/index.html",
+  "tu-vi/ty/2026/index.html",
   "countdown/tet/index.html",
   "phong-thuy/xung-tuoi/index.html",
   "phong-thuy/xem-tuoi-xay-nha/index.html",

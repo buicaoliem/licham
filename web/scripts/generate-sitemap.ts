@@ -18,6 +18,7 @@ import { ALL_CAN_CHI, CHI_LIST, canChiSlug } from "../lib/tuoi";
 import { VAN_KHAN_LIST } from "../lib/van-khan";
 import { NAM_SINH_MAX, NAM_SINH_MIN, ketHonSlug } from "../lib/xem-tuoi-ket-hon";
 import { COUNTDOWN_LIST } from "../lib/countdown";
+import { TEN_LIST } from "../lib/ten";
 import { nghiLeYears } from "../lib/lich-nghi-le";
 import { sinhNamYears } from "../lib/sinh-nam";
 import { VIEC_LIST } from "../lib/xem-ngay-tot";
@@ -91,6 +92,14 @@ function buildStaticEntries(): SitemapEntry[] {
   entries.push({ url: `${SITE_URL}/tu-vi/`, changefreq: "daily", priority: 0.7 });
   for (const cg of CON_GIAP_LIST) {
     entries.push({ url: `${SITE_URL}/tu-vi/${cg.slug}/`, changefreq: "daily", priority: 0.6 });
+    for (let y = YEAR_START; y <= YEAR_END; y++) {
+      entries.push({ url: `${SITE_URL}/tu-vi/${cg.slug}/${y}/`, changefreq: "yearly", priority: 0.5 });
+    }
+  }
+
+  entries.push({ url: `${SITE_URL}/ten/`, changefreq: "yearly", priority: 0.7 });
+  for (const t of TEN_LIST) {
+    entries.push({ url: `${SITE_URL}/ten/${t.slug}/`, changefreq: "yearly", priority: 0.5 });
   }
 
   entries.push({ url: `${SITE_URL}/le/`, changefreq: "weekly", priority: 0.8 });

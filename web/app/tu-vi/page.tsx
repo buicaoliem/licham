@@ -93,6 +93,16 @@ export default function TuViIndexPage() {
               </div>
             </div>
           </div>
+          <h2 className="hh" style={{ marginTop: 28 }}>
+            Tử vi theo năm {today.year}
+          </h2>
+          <div className="chips">
+            {CON_GIAP_LIST.map((cg) => (
+              <Link className="chip" href={`/tu-vi/${cg.slug}/${today.year}`} key={cg.slug}>
+                Tuổi {cg.ten} {today.year}
+              </Link>
+            ))}
+          </div>
           <TraditionalDisclaimer />
         </div>
 
