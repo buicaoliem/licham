@@ -12,7 +12,7 @@ import { holidaysOnDate } from "@/lib/le-date-engine";
 import { monthToSlug } from "@/lib/month-slug";
 import { MONTH_WORD, WEEKDAY_LONG, pad2 } from "@/lib/format";
 import { YEAR_END, YEAR_START } from "@/lib/site-years";
-import { canChiSlug } from "@/lib/tuoi";
+import { canChiSlug, chiByIndex } from "@/lib/tuoi";
 
 export function generateStaticParams() {
   const start = jdFromDate(1, 1, YEAR_START);
@@ -366,6 +366,12 @@ export default async function DayPage({ params }: { params: Promise<{ slug: stri
             </Link>
             <Link className="chip" href="/tinh-tuoi">
               Tính tuổi
+            </Link>
+            <Link className="chip" href={`/tu-vi/${chiByIndex(info.canChi.year.chiIndex).slug}/${year}`}>
+              Tử vi tuổi {info.canChi.year.chi} năm {year}
+            </Link>
+            <Link className="chip" href="/ten">
+              Đặt tên
             </Link>
           </div>
         </div>

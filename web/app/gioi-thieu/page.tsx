@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 
@@ -29,9 +30,9 @@ export default function GioiThieuPage() {
               muốn tra cứu lịch âm, lịch dương và các thông tin liên quan trở nên nhanh, gọn và dễ dùng cho bất kỳ ai.
             </p>
             <p>
-              Trên trang có lịch xem theo ngày và lịch tháng cho 10 năm, công cụ đổi ngày âm dương, xem ngày tốt theo
-              12 việc thường gặp, 59 bài văn khấn, tử vi 12 con giáp, cùng 60 trang ngày lễ và ngày giỗ các anh hùng
-              dân tộc.
+              Trên trang có lịch theo ngày và theo tháng (2022–2031), đổi ngày âm dương, xem ngày tốt theo việc, văn
+              khấn, tử vi hôm nay và tử vi theo tuổi–năm, tính tuổi dương/tuổi mụ, năm sinh, đặt tên theo chữ Hán (từ
+              điển hữu hạn, không ghép họ), cùng ngày lễ và ngày giỗ.
             </p>
             <p>
               Lịch được tính bằng thuật toán thiên văn riêng cho múi giờ Việt Nam (GMT+7), áp dụng cho khoảng thời gian
@@ -42,6 +43,23 @@ export default function GioiThieuPage() {
               dung như sao tốt xấu, giờ hoàng đạo hay tử vi là tri thức dân gian được lưu truyền, mang tính tham khảo,
               không phải là khoa học.
             </p>
+          </div>
+          <div className="chips" style={{ marginTop: 22, justifyContent: "center" }}>
+            <Link className="chip" href="/tinh-tuoi">
+              Tính tuổi
+            </Link>
+            <Link className="chip" href="/ten">
+              Đặt tên
+            </Link>
+            <Link className="chip" href="/tu-vi">
+              Tử vi
+            </Link>
+            <Link className="chip" href="/xem-ngay-tot">
+              Ngày tốt
+            </Link>
+            <Link className="chip" href="/countdown/tet">
+              Đếm ngược Tết
+            </Link>
           </div>
         </div>
 

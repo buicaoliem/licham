@@ -4,7 +4,9 @@ import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
+import { YEAR_END, YEAR_START } from "@/lib/site-years";
 import { SINH_NAM_MAX, SINH_NAM_MIN, sinhNamInfo, sinhNamTrongPhamVi, sinhNamYears } from "@/lib/sinh-nam";
+import { goiYTenTheoNam } from "@/lib/ten";
 import { getVietnamToday } from "@/lib/today";
 import { canChiSlug } from "@/lib/tuoi";
 
@@ -36,6 +38,9 @@ export default async function SinhNamPage({ params }: { params: Promise<{ yyyy: 
   const info = sinhNamInfo(year, today.year);
   const prev = year > SINH_NAM_MIN ? year - 1 : null;
   const next = year < SINH_NAM_MAX ? year + 1 : null;
+  const tenGoiY = goiYTenTheoNam(year).slice(0, 10);
+  const tuViNamHref =
+    today.year >= YEAR_START && today.year <= YEAR_END ? `/tu-vi/${info.chiSlug}/${today.year}` : "/tu-vi";
 
   return (
     <div className="outer">
@@ -85,6 +90,30 @@ export default async function SinhNamPage({ params }: { params: Promise<{ yyyy: 
             </div>
           </div>
 
+          {tenGoiY.length > 0 && (
+            <div className="box" style={{ marginTop: 18 }}>
+              <div className="box-h">
+                <span className="rule" />
+                <span className="t">Gợi ý tên theo mệnh năm {year}</span>
+                <span className="rule" />
+              </div>
+              <p>
+                Theo tục hành chữ sinh mệnh {info.canChi.napAm.element} hoặc cùng hành — không ghép họ. Xem nghĩa từng
+                chữ ở trang tên.
+              </p>
+              <div className="chips">
+                {tenGoiY.map((t) => (
+                  <Link className="chip" href={`/ten/${t.slug}`} key={t.slug}>
+                    {t.ten}
+                  </Link>
+                ))}
+                <Link className="chip" href="/ten">
+                  Từ điển tên
+                </Link>
+              </div>
+            </div>
+          )}
+
           <TraditionalDisclaimer />
 
           <h2 className="hh" style={{ marginTop: 32 }}>
@@ -97,11 +126,14 @@ export default async function SinhNamPage({ params }: { params: Promise<{ yyyy: 
             <Link className="chip" href={`/tuoi/${canChiSlug(info.canChi)}`}>
               Tuổi {info.canChi.name}
             </Link>
+            <Link className="chip" href={tuViNamHref}>
+              Tử vi tuổi {info.canChi.chi} năm {today.year}
+            </Link>
+            <Link className="chip" href={`/tu-vi/${info.chiSlug}`}>
+              Tử vi tuổi {info.canChi.chi} hôm nay
+            </Link>
             <Link className="chip" href="/xem-ngay-tot/cuoi-hoi">
               Ngày tốt cưới hỏi
-            </Link>
-            <Link className="chip" href="/tu-vi">
-              Tử vi hôm nay
             </Link>
             {prev && (
               <Link className="chip" href={`/sinh-nam/${prev}`}>

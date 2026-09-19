@@ -7,7 +7,7 @@ const VAN_KHAN_SLUGS = ["mung-mot-ngay-ram", "gia-tien-ngay-gio", "than-tai-tho-
 const TU_VI = [
   { href: "/tu-vi", label: "Tử vi hôm nay 12 con giáp" },
   { href: "/tinh-tuoi", label: "Tính tuổi dương và tuổi mụ" },
-  { href: "/phong-thuy/xung-tuoi", label: "Xem tuổi xung khắc" },
+  { href: "/ten", label: "Đặt tên con theo chữ Hán" },
   { href: "/phong-thuy/xem-tuoi-xay-nha", label: "Xem tuổi làm nhà" },
 ] as const;
 

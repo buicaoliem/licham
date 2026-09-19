@@ -225,6 +225,12 @@ function ChiPage({ chi }: { chi: ChiInfo }) {
                   {c.ten}
                 </Link>
               ))}
+              <Link className="chip" href={`/tu-vi/${chi.slug}/${today.year}`}>
+                Tử vi tuổi {chi.ten} năm {today.year}
+              </Link>
+              <Link className="chip" href="/ten">
+                Đặt tên
+              </Link>
             </div>
           </div>
           <TraditionalDisclaimer />
@@ -462,6 +468,9 @@ function CanChiPage({ slug }: { slug: string }) {
                   Sinh năm {recentYear}
                 </Link>
               )}
+              <Link className="chip" href={`/tu-vi/${chi.slug}/${today.year}`}>
+                Tử vi tuổi {chi.ten} năm {today.year}
+              </Link>
             </div>
           </div>
           <TraditionalDisclaimer />

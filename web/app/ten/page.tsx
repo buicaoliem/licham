@@ -39,6 +39,31 @@ export default function TenHubPage() {
 
         <div className="body">
           <TenGoiY />
+
+          <div style={{ marginTop: 32 }}>
+            <h2 className="hh">Câu hỏi thường gặp</h2>
+            <div className="box faqs">
+              <div className="faq">
+                <b>Có sinh trang mọi họ + tên không?</b>
+                <p>Không. Chỉ tên có chữ Hán, nghĩa và nguồn trong từ điển. Không ghép Nguyễn + Minh thành URL riêng.</p>
+              </div>
+              <div className="faq">
+                <b>Hành của tên có phải mệnh năm sinh không?</b>
+                <p>
+                  Không. Hành tên lấy từ nghĩa hoặc bộ chữ. Mệnh năm là nạp âm can chi. Gợi ý chỉ ghép hai lớp theo tục
+                  sinh/cùng hành.
+                </p>
+              </div>
+              <div className="faq">
+                <b>Sinh trước Tết chọn tên theo năm nào?</b>
+                <p>
+                  Can chi năm âm của ngày sinh. Nhập đủ ngày ở tính tuổi rồi lấy năm âm, không lấy năm dương nếu sinh
+                  tháng 1–2.
+                </p>
+              </div>
+            </div>
+          </div>
+
           <TraditionalDisclaimer />
 
           {HANH_ORDER.map((hanh) => {

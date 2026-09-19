@@ -16,11 +16,36 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
+const FAQ = [
+  {
+    q: "Tuổi mụ khác tuổi dương thế nào?",
+    a: "Tuổi dương đếm theo ngày sinh thật. Tuổi mụ = năm âm hiện tại trừ năm âm lúc sinh, cộng 1. Vì Tết dao động từ cuối tháng 1 đến giữa tháng 2 dương lịch, hai cách tính có thể lệch 1–2 tuổi.",
+  },
+  {
+    q: "Mệnh ngũ hành lấy theo con giáp hay theo năm?",
+    a: "Theo năm can chi (nạp âm), không theo con giáp. Tuổi Tý năm Giáp Tý khác mệnh tuổi Tý năm Canh Tý.",
+  },
+  {
+    q: "Sinh ngày 29/2 thì sinh nhật năm không nhuận tính ra sao?",
+    a: "Lấy 28/2 năm không nhuận; năm nhuận kế tiếp lại là 29/2.",
+  },
+] as const;
+
 export default function TinhTuoiPage() {
   const year = getVietnamToday().year;
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQ.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
 
   return (
     <div className="outer">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <div className="site">
         <Header activeMenu="Xem tuổi" />
 
@@ -81,6 +106,12 @@ export default function TinhTuoiPage() {
             </Link>
             <Link className="chip" href="/tuoi">
               12 con giáp
+            </Link>
+            <Link className="chip" href="/ten">
+              Đặt tên con
+            </Link>
+            <Link className="chip" href="/tu-vi">
+              Tử vi
             </Link>
           </div>
         </div>
