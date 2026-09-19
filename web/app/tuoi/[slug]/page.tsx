@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { canChiNamDuong, xungNgay } from "@licham/core";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
+import { SINH_NAM_MAX, SINH_NAM_MIN } from "@/lib/sinh-nam";
 import { getVietnamToday } from "@/lib/today";
 import {
   ALL_CAN_CHI,
@@ -135,9 +137,11 @@ function ChiPage({ chi }: { chi: ChiInfo }) {
                   return (
                     <tr key={y} className={i === years.length - 1 ? "now" : undefined}>
                       <td data-k="Năm sinh">
-                        <Link href={`/tuoi/${canChiSlug(cc)}`}>{y}</Link>
+                        {y >= SINH_NAM_MIN && y <= SINH_NAM_MAX ? <Link href={`/sinh-nam/${y}`}>{y}</Link> : y}
                       </td>
-                      <td data-k="Can chi">{cc.name}</td>
+                      <td data-k="Can chi">
+                        <Link href={`/tuoi/${canChiSlug(cc)}`}>{cc.name}</Link>
+                      </td>
                       <td data-k="Mệnh">{cc.napAm.name}</td>
                       <td data-k="Tuổi">{soTuoi(y, today.year)}</td>
                     </tr>
@@ -145,6 +149,9 @@ function ChiPage({ chi }: { chi: ChiInfo }) {
                 })}
               </tbody>
             </table>
+            <p style={{ fontSize: 12.5, color: "var(--ink-3)", textAlign: "center", marginTop: 8 }}>
+              Ngũ hành / nạp âm gắn với từng năm can chi, không phải một mệnh chung cho mọi người tuổi {chi.ten}.
+            </p>
           </div>
 
           <div className="cols2">
@@ -220,6 +227,7 @@ function ChiPage({ chi }: { chi: ChiInfo }) {
               ))}
             </div>
           </div>
+          <TraditionalDisclaimer />
         </div>
 
         <Footer />
@@ -449,8 +457,14 @@ function CanChiPage({ slug }: { slug: string }) {
               <Link className="chip" href="/tuoi" style={{ fontWeight: 600 }}>
                 Xem tất cả 60 tuổi ›
               </Link>
+              {recentYear >= SINH_NAM_MIN && recentYear <= SINH_NAM_MAX && (
+                <Link className="chip" href={`/sinh-nam/${recentYear}`}>
+                  Sinh năm {recentYear}
+                </Link>
+              )}
             </div>
           </div>
+          <TraditionalDisclaimer />
         </div>
 
         <Footer />

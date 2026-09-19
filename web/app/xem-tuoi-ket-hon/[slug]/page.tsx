@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
 import { KetHonYearPicker } from "@/components/KetHonYearPicker";
 import { chiByIndex, hopMenh } from "@/lib/tuoi";
 import {
@@ -214,6 +215,7 @@ export default async function XemTuoiKetHonDetailPage({ params }: { params: Prom
               </Link>
             </div>
           </div>
+          <TraditionalDisclaimer />
         </div>
 
         <Footer />

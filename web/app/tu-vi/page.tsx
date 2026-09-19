@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getDayInfo } from "@licham/core";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
 import { pad2 } from "@/lib/format";
 import { CON_GIAP_LIST, QUAN_HE_LABEL, birthYearsForChi, getTuViData, hasAiContent, parseDateStr, quanHeVoiNgay } from "@/lib/tu-vi";
 import { getVietnamToday } from "@/lib/today";
@@ -92,6 +93,7 @@ export default function TuViIndexPage() {
               </div>
             </div>
           </div>
+          <TraditionalDisclaimer />
         </div>
 
         <Footer />

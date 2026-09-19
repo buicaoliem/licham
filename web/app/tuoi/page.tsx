@@ -22,10 +22,27 @@ export default function TuoiHubPage() {
 
         <div className="tuoiband">
           <h1>Xem tuổi: 12 con giáp và 60 tuổi can chi</h1>
-          <p className="sub">Tra cứu mệnh nạp âm, ngũ hành, tuổi hợp, tuổi kỵ và các năm sinh tương ứng, theo quan niệm dân gian.</p>
+          <p className="sub">Tra cứu mệnh nạp âm theo từng năm can chi (không gán một hành cho cả con giáp), tuổi hợp, tuổi kỵ.</p>
         </div>
 
         <div className="body">
+          <div className="chips" style={{ marginBottom: 22, justifyContent: "center" }}>
+            <Link className="chip hot" href="/tinh-tuoi">
+              Tính tuổi dương và tuổi mụ
+            </Link>
+            <Link className="chip" href="/phong-thuy/xung-tuoi">
+              Xung tuổi
+            </Link>
+            <Link className="chip" href="/phong-thuy/xem-tuoi-xay-nha">
+              Tuổi xây nhà
+            </Link>
+            <Link className="chip" href="/xem-tuoi-ket-hon">
+              Tuổi kết hôn
+            </Link>
+            <Link className="chip" href="/sinh-nam/1990">
+              Sinh năm 1990
+            </Link>
+          </div>
           <div className="box">
             <div className="box-h">
               <span className="rule" />

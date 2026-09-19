@@ -4,12 +4,15 @@ import { notFound } from "next/navigation";
 import { CHI, getDayInfo, jdFromDate, jdToDate } from "@licham/core";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
 import { bestHours, joinVi, ltpPairs, viecFaqs } from "@/lib/day-detail";
+import { NGAY_VIEC_LINKS, vanKhanChoNgay } from "@/lib/day-links";
 import { dateToSlug, slugToDate } from "@/lib/date-slug";
 import { holidaysOnDate } from "@/lib/le-date-engine";
 import { monthToSlug } from "@/lib/month-slug";
 import { MONTH_WORD, WEEKDAY_LONG, pad2 } from "@/lib/format";
 import { YEAR_END, YEAR_START } from "@/lib/site-years";
+import { canChiSlug } from "@/lib/tuoi";
 
 export function generateStaticParams() {
   const start = jdFromDate(1, 1, YEAR_START);
@@ -25,7 +28,14 @@ export const dynamicParams = false;
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  return { alternates: { canonical: `/ngay/${slug}/` } };
+  const date = slugToDate(slug);
+  if (!date) return { alternates: { canonical: `/ngay/${slug}/` } };
+  const label = `${pad2(date.day)}/${pad2(date.month)}/${date.year}`;
+  return {
+    title: `Ngày ${label} là ngày gì? Tốt hay xấu? | Lịch Âm`,
+    description: `Lịch âm dương ngày ${label}: can chi, giờ hoàng đạo, sao tốt xấu, việc nên xem và văn khấn nếu là rằm hoặc mùng một.`,
+    alternates: { canonical: `/ngay/${slug}/` },
+  };
 }
 
 function capitalizeEachWord(s: string): string {
@@ -62,6 +72,7 @@ export default async function DayPage({ params }: { params: Promise<{ slug: stri
   const best = bestHours(info, CHI);
   const viec = viecFaqs(info);
   const holidaysToday = holidaysOnDate(date);
+  const khan = vanKhanChoNgay(info);
 
   return (
     <div className="outer">
@@ -70,7 +81,8 @@ export default async function DayPage({ params }: { params: Promise<{ slug: stri
 
         <div className="dhead">
           <div className="crumb">
-            <Link href="/">Trang chủ</Link> › <b>Lịch tháng {month} năm {year}</b> › Ngày {ngayLabel}
+            <Link href="/">Trang chủ</Link> ›{" "}
+            <Link href={`/${monthToSlug(month, year)}`}>Lịch tháng {month} năm {year}</Link> › Ngày {ngayLabel}
           </div>
           <h1 className="dh1">Ngày {ngayLabel} là ngày gì? Tốt hay xấu?</h1>
           <p className="dsub">
@@ -318,6 +330,25 @@ export default async function DayPage({ params }: { params: Promise<{ slug: stri
             </div>
           </div>
 
+          {khan.length > 0 && (
+            <div className="box" style={{ marginTop: 24 }}>
+              <div className="box-h">
+                <span className="rule" />
+                <span className="t">Văn khấn ngày này</span>
+                <span className="rule" />
+              </div>
+              <ul className="lst">
+                {khan.map((k) => (
+                  <li key={k.slug}>
+                    <Link href={`/van-khan/${k.slug}`}>{k.ten}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <TraditionalDisclaimer compact />
+
           <h2 className="hh" style={{ marginTop: 32 }}>
             Có thể anh cần
           </h2>
@@ -325,17 +356,17 @@ export default async function DayPage({ params }: { params: Promise<{ slug: stri
             <Link className="chip" href={`/${monthToSlug(month, year)}`}>
               Lịch tháng {month} năm {year}
             </Link>
-            <span className="chip">
-              Ngày tốt cưới hỏi tháng {month}/{year}
-            </span>
-            <span className="chip">
-              Ngày tốt khai trương tháng {month}/{year}
-            </span>
-            <span className="chip">
-              Rằm tháng {MONTH_WORD[info.lunar.month - 1]} năm {year}
-            </span>
-            <span className="chip">Tiết {info.solarTerm.name} là gì</span>
-            <span className="chip">Tuổi {info.canChi.day.name}</span>
+            {NGAY_VIEC_LINKS.map((v) => (
+              <Link className="chip" href={`/xem-ngay-tot/${v.slug}`} key={v.slug}>
+                Ngày tốt {v.label} {year}
+              </Link>
+            ))}
+            <Link className="chip" href={`/tuoi/${canChiSlug(info.canChi.day)}`}>
+              Tuổi {info.canChi.day.name}
+            </Link>
+            <Link className="chip" href="/tinh-tuoi">
+              Tính tuổi
+            </Link>
           </div>
         </div>
 

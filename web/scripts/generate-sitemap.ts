@@ -17,6 +17,9 @@ import { CON_GIAP_LIST } from "../lib/tu-vi";
 import { ALL_CAN_CHI, CHI_LIST, canChiSlug } from "../lib/tuoi";
 import { VAN_KHAN_LIST } from "../lib/van-khan";
 import { NAM_SINH_MAX, NAM_SINH_MIN, ketHonSlug } from "../lib/xem-tuoi-ket-hon";
+import { COUNTDOWN_LIST } from "../lib/countdown";
+import { nghiLeYears } from "../lib/lich-nghi-le";
+import { sinhNamYears } from "../lib/sinh-nam";
 import { VIEC_LIST } from "../lib/xem-ngay-tot";
 
 // Reimplemented here (not imported from lib/date-slug, lib/month-slug) because those
@@ -92,6 +95,19 @@ function buildStaticEntries(): SitemapEntry[] {
   entries.push({ url: `${SITE_URL}/le/`, changefreq: "weekly", priority: 0.8 });
   for (const le of LE_LIST) {
     entries.push({ url: `${SITE_URL}/le/${le.slug}/`, changefreq: "weekly", priority: 0.7 });
+  }
+
+  entries.push({ url: `${SITE_URL}/tinh-tuoi/`, changefreq: "daily", priority: 0.9 });
+  entries.push({ url: `${SITE_URL}/phong-thuy/xung-tuoi/`, changefreq: "yearly", priority: 0.7 });
+  entries.push({ url: `${SITE_URL}/phong-thuy/xem-tuoi-xay-nha/`, changefreq: "yearly", priority: 0.7 });
+  for (const c of COUNTDOWN_LIST) {
+    entries.push({ url: `${SITE_URL}/countdown/${c.slug}/`, changefreq: "daily", priority: 0.8 });
+  }
+  for (const y of nghiLeYears()) {
+    entries.push({ url: `${SITE_URL}/lich-nghi-le/${y}/`, changefreq: "yearly", priority: 0.6 });
+  }
+  for (const y of sinhNamYears()) {
+    entries.push({ url: `${SITE_URL}/sinh-nam/${y}/`, changefreq: "yearly", priority: 0.6 });
   }
 
   entries.push({ url: `${SITE_URL}/tuoi/`, changefreq: "yearly", priority: 0.7 });

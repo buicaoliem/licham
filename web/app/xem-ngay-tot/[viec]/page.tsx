@@ -3,11 +3,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
 import { XemNgayTotFinder } from "@/components/XemNgayTotFinder";
 import { MONTH_WORD } from "@/lib/format";
+import { getVietnamToday } from "@/lib/today";
 import { VIEC_LIST, bestMonthOfYear, viecBySlug } from "@/lib/xem-ngay-tot";
-
-const YEAR = 2026;
 
 export function generateStaticParams() {
   return VIEC_LIST.map((v) => ({ viec: v.slug }));
@@ -19,9 +19,10 @@ export async function generateMetadata({ params }: { params: Promise<{ viec: str
   const { viec: slug } = await params;
   const viec = viecBySlug(slug);
   if (!viec) return {};
+  const year = getVietnamToday().year;
   return {
-    title: `Xem ngày tốt ${viec.label} năm ${YEAR} — Chọn ngày hợp tuổi | Lịch Âm`,
-    description: `Chấm điểm và xếp hạng ngày tốt xấu cho việc ${viec.label} năm ${YEAR}, dựa trên hoàng đạo, sao tốt xấu và ngày đại kỵ.`,
+    title: `Xem ngày tốt ${viec.label} năm ${year} — Chọn ngày hợp tuổi | Lịch Âm`,
+    description: `Chấm điểm và xếp hạng ngày tốt xấu cho việc ${viec.label} năm ${year}, dựa trên hoàng đạo, sao tốt xấu và ngày đại kỵ.`,
     alternates: { canonical: `/xem-ngay-tot/${slug}/` },
   };
 }
@@ -31,7 +32,8 @@ export default async function XemNgayTotPage({ params }: { params: Promise<{ vie
   const viec = viecBySlug(slug);
   if (!viec) notFound();
 
-  const bestMonth = bestMonthOfYear(viec, YEAR);
+  const year = getVietnamToday().year;
+  const bestMonth = bestMonthOfYear(viec, year);
 
   return (
     <div className="outer">
@@ -41,12 +43,19 @@ export default async function XemNgayTotPage({ params }: { params: Promise<{ vie
         <div className="band">
           <div className="bg bg-luc" />
           <div className="band-in">
-            <h1>Xem ngày tốt {viec.label}</h1>
+            <div className="crumb" style={{ color: "inherit", marginBottom: 10 }}>
+              <Link href="/">Trang chủ</Link> › Xem ngày tốt {viec.label} {year}
+            </div>
+            <h1>Xem ngày tốt {viec.label} năm {year}</h1>
             <p>{viec.tagline}</p>
           </div>
         </div>
 
         <div className="body">
+          <p style={{ maxWidth: 720, margin: "0 auto 22px", textAlign: "center", color: "var(--ink-2)", fontSize: 14.5 }}>
+            {viec.intro}
+          </p>
+
           <h2 className="hh">Xem ngày cho việc khác</h2>
           <div className="chips">
             {VIEC_LIST.map((v) =>
@@ -115,7 +124,7 @@ export default async function XemNgayTotPage({ params }: { params: Promise<{ vie
               <div className="faq">
                 <b>Tháng nào trong năm hợp {viec.label} nhất?</b>
                 <p>
-                  Theo tính toán trên dữ liệu ngày của năm {YEAR}, tháng {MONTH_WORD[bestMonth.month - 1]} (tháng{" "}
+                  Theo tính toán trên dữ liệu ngày của năm {year}, tháng {MONTH_WORD[bestMonth.month - 1]} (tháng{" "}
                   {bestMonth.month}) có điểm trung bình cao nhất, khoảng {Math.round(bestMonth.avgScore)} điểm, nên là
                   tháng đáng cân nhắc nhất trong năm cho việc {viec.label}.
                 </p>
@@ -128,8 +137,16 @@ export default async function XemNgayTotPage({ params }: { params: Promise<{ vie
                   lịch) hoặc Nguyệt kỵ (mùng 5, 14, 23 âm lịch).
                 </p>
               </div>
+              {viec.extraFaqs.map((f) => (
+                <div className="faq" key={f.q}>
+                  <b>{f.q}</b>
+                  <p>{f.a}</p>
+                </div>
+              ))}
             </div>
           </div>
+
+          <TraditionalDisclaimer />
         </div>
 
         <Footer />

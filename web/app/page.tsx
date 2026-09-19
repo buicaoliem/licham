@@ -11,9 +11,15 @@ import { getMonthCells } from "@/lib/month-grid";
 import { getVietnamToday } from "@/lib/today";
 import { getUpcomingOccasions } from "@/lib/upcoming-occasions";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/" },
-};
+export function generateMetadata(): Metadata {
+  const year = getVietnamToday().year;
+  return {
+    title: `Lịch âm hôm nay — Lịch vạn niên ${year} | licham.app`,
+    description:
+      "Lịch âm dương hôm nay, giờ hoàng đạo, ngày tốt xấu, tính tuổi, đếm ngược Tết. Miễn phí, không quảng cáo.",
+    alternates: { canonical: "/" },
+  };
+}
 
 // Trang tĩnh: "hôm nay" được tính tại thời điểm build, theo giờ Việt Nam.
 export default function HomePage() {

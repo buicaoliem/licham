@@ -51,6 +51,17 @@ if (monthPageCount < 12) {
   errors.push(`Thiếu trang tháng: chỉ có ${monthPageCount}, cần ít nhất 12`);
 }
 
+const requiredStatic = [
+  "tinh-tuoi/index.html",
+  "countdown/tet/index.html",
+  "phong-thuy/xung-tuoi/index.html",
+  "phong-thuy/xem-tuoi-xay-nha/index.html",
+  "sinh-nam/1990/index.html",
+];
+for (const rel of requiredStatic) {
+  if (!existsSync(join(OUT_DIR, rel))) errors.push(`Thiếu ${rel}`);
+}
+
 if (errors.length > 0) {
   console.error("\nKiểm tra thất bại:");
   for (const err of errors) console.error(`- ${err}`);

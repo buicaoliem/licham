@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getDayInfo } from "@licham/core";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
 import { pad2 } from "@/lib/format";
 import {
   CON_GIAP_LIST,
@@ -133,6 +134,7 @@ export default async function TuViConGiapPage({ params }: { params: Promise<{ sl
               </Link>
             ))}
           </div>
+          <TraditionalDisclaimer />
         </div>
 
         <Footer />

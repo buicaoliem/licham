@@ -1,7 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
-import { type SolarDate, canChiOfYear, isValidSolarDate, jdFromDate, lunarToSolar } from "@licham/core";
+import { type SolarDate, isValidSolarDate, jdFromDate, lunarToSolar } from "@licham/core";
 import { pad2 } from "@/lib/format";
 
 function todaySolar(): SolarDate {
@@ -106,13 +107,6 @@ function DoiNgayGio() {
 }
 
 function TinhTuoi() {
-  const today = todaySolar();
-  const [birthYear, setBirthYear] = useState(today.year - 30);
-
-  const valid = Number.isInteger(birthYear) && birthYear >= 1900 && birthYear <= today.year;
-  const canChi = valid ? canChiOfYear(birthYear) : null;
-  const tuoiDuong = valid ? today.year - birthYear : null;
-
   return (
     <div className="box">
       <div className="box-h">
@@ -120,39 +114,13 @@ function TinhTuoi() {
         <span className="t">Tính tuổi</span>
         <span className="rule" />
       </div>
-      <div className="difld">
-        <label htmlFor="tt-year">Năm sinh</label>
-        <input
-          id="tt-year"
-          type="number"
-          min={1900}
-          max={today.year}
-          value={birthYear}
-          onChange={(e) => setBirthYear(Number(e.target.value))}
-        />
-      </div>
-      {valid && canChi && tuoiDuong !== null ? (
-        <>
-          <div className="diresrow">
-            <span>Tuổi dương</span>
-            <span>{tuoiDuong} tuổi</span>
-          </div>
-          <div className="diresrow">
-            <span>Tuổi mụ</span>
-            <span>{tuoiDuong + 1} tuổi</span>
-          </div>
-          <div className="diresrow">
-            <span>Can chi năm sinh</span>
-            <span>{canChi.name}</span>
-          </div>
-          <div className="diresrow">
-            <span>Nạp âm</span>
-            <span>{canChi.napAm.name}</span>
-          </div>
-        </>
-      ) : (
-        <div className="dierr">Năm sinh không hợp lệ.</div>
-      )}
+      <p style={{ fontSize: 13.5, margin: "0 0 10px" }}>
+        Tuổi dương, tuổi mụ, can chi và sinh nhật tới — nhập đủ ngày sinh (kể cả trước Tết) ở trang riêng. Ô năm sinh
+        cũ không còn cộng tuổi mụ = tuổi dương + 1.
+      </p>
+      <p style={{ textAlign: "center", margin: 0 }}>
+        <Link href="/tinh-tuoi">Mở tính tuổi dương và tuổi mụ</Link>
+      </p>
     </div>
   );
 }

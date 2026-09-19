@@ -5,10 +5,10 @@ import { vanKhanBySlug } from "@/lib/van-khan";
 const VAN_KHAN_SLUGS = ["mung-mot-ngay-ram", "gia-tien-ngay-gio", "than-tai-tho-dia", "ram-thang-tam"] as const;
 
 const TU_VI = [
-  "Tử vi hôm nay 12 con giáp",
-  "Lập lá số tử vi trọn đời",
-  "Xem tuổi xung khắc",
-  "Xem tuổi làm nhà năm 2027",
+  { href: "/tu-vi", label: "Tử vi hôm nay 12 con giáp" },
+  { href: "/tinh-tuoi", label: "Tính tuổi dương và tuổi mụ" },
+  { href: "/phong-thuy/xung-tuoi", label: "Xem tuổi xung khắc" },
+  { href: "/phong-thuy/xem-tuoi-xay-nha", label: "Xem tuổi làm nhà" },
 ] as const;
 
 export function LinkColumns({ upcomingOccasions }: { upcomingOccasions: UpcomingOccasion[] }) {
@@ -57,8 +57,8 @@ export function LinkColumns({ upcomingOccasions }: { upcomingOccasions: Upcoming
         </div>
         <ul className="lst">
           {TU_VI.map((item) => (
-            <li key={item}>
-              <span>{item}</span>
+            <li key={item.href}>
+              <Link href={item.href}>{item.label}</Link>
             </li>
           ))}
         </ul>

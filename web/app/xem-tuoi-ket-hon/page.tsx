@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
 import { KetHonYearPicker } from "@/components/KetHonYearPicker";
 import { CHI_LIST, chiByIndex, tamHopGroup, tuHanhXungGroup } from "@/lib/tuoi";
 import { kimLau } from "@/lib/xem-tuoi-ket-hon";
@@ -135,6 +136,7 @@ export default function XemTuoiKetHonHubPage() {
               })}
             </div>
           </div>
+          <TraditionalDisclaimer />
         </div>
 
         <Footer />
