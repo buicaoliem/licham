@@ -48,6 +48,10 @@ export function countdownBySlug(slug: string): CountdownDef | undefined {
   return COUNTDOWN_LIST.find((c) => c.slug === slug);
 }
 
+export function countdownSlugForLe(leSlug: string): string | undefined {
+  return COUNTDOWN_LIST.find((c) => c.leSlug === leSlug)?.slug;
+}
+
 export interface CountdownState {
   def: CountdownDef;
   le: LePage;

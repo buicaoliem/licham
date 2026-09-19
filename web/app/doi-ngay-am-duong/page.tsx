@@ -1,16 +1,21 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { getDayInfo } from "@licham/core";
 import { DoiNgayConverter } from "@/components/DoiNgayConverter";
 import { DoiNgayTools } from "@/components/DoiNgayTools";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { dateToSlug } from "@/lib/date-slug";
 import { getVietnamToday } from "@/lib/today";
 
-export const metadata: Metadata = {
-  title: "Đổi ngày âm dương — Tra cứu lịch âm chính xác | Lịch Âm",
-  description: "Đổi qua lại giữa dương lịch và âm lịch, kèm can chi, đếm ngày, đổi ngày giỗ và tính tuổi — miễn phí, không quảng cáo.",
-  alternates: { canonical: "/doi-ngay-am-duong/" },
-};
+export function generateMetadata(): Metadata {
+  const year = getVietnamToday().year;
+  return {
+    title: `Đổi ngày âm dương ${year} — Tra cứu lịch âm | Lịch Âm`,
+    description: `Đổi dương lịch ↔ âm lịch năm ${year}, kèm can chi, đếm ngày, đổi ngày giỗ. Tính tuổi đủ ngày sinh ở trang riêng.`,
+    alternates: { canonical: "/doi-ngay-am-duong/" },
+  };
+}
 
 export default function DoiNgayPage() {
   const today = getVietnamToday();
@@ -71,6 +76,21 @@ export default function DoiNgayPage() {
                 </p>
               </div>
             </div>
+          </div>
+
+          <h2 className="hh" style={{ marginTop: 32 }}>
+            Có thể anh cần
+          </h2>
+          <div className="chips">
+            <Link className="chip" href="/tinh-tuoi">
+              Tính tuổi dương và tuổi mụ
+            </Link>
+            <Link className="chip" href="/xem-ngay-tot">
+              Xem ngày tốt
+            </Link>
+            <Link className="chip" href={`/ngay/${dateToSlug(today)}`}>
+              Lịch hôm nay
+            </Link>
           </div>
         </div>
 

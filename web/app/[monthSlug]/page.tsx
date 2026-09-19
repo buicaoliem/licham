@@ -93,6 +93,30 @@ export default async function MonthPage({ params }: { params: Promise<{ monthSlu
           </div>
 
           <MonthFaq month={month} year={year} summary={summary} />
+
+          <h2 className="hh" style={{ marginTop: 32 }}>
+            Có thể anh cần
+          </h2>
+          <div className="chips">
+            <Link className="chip" href={`/xem-ngay-tot/cuoi-hoi`}>
+              Ngày tốt cưới hỏi {year}
+            </Link>
+            <Link className="chip" href={`/xem-ngay-tot/khai-truong`}>
+              Ngày tốt khai trương {year}
+            </Link>
+            <Link className="chip" href={`/xem-ngay-tot/dong-tho`}>
+              Ngày tốt động thổ {year}
+            </Link>
+            <Link className="chip" href="/van-khan/mung-mot-ngay-ram">
+              Văn khấn mùng một, rằm
+            </Link>
+            <Link className="chip" href="/tinh-tuoi">
+              Tính tuổi
+            </Link>
+            <Link className="chip" href="/countdown/tet">
+              Đếm ngược Tết
+            </Link>
+          </div>
         </div>
 
         <Footer />

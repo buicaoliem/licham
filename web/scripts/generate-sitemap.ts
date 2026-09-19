@@ -78,6 +78,7 @@ function buildStaticEntries(): SitemapEntry[] {
   entries.push({ url: `${SITE_URL}/dieu-khoan/`, changefreq: "yearly", priority: 0.3 });
   entries.push({ url: `${SITE_URL}/chinh-sach-bao-mat/`, changefreq: "yearly", priority: 0.3 });
 
+  entries.push({ url: `${SITE_URL}/xem-ngay-tot/`, changefreq: "monthly", priority: 0.8 });
   for (const v of VIEC_LIST) {
     entries.push({ url: `${SITE_URL}/xem-ngay-tot/${v.slug}/`, changefreq: "monthly", priority: 0.7 });
   }

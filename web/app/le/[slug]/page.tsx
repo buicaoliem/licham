@@ -9,6 +9,7 @@ import { LeFlagIllustration, LeHeroIllustration, LeIllustration, hasHeroIllustra
 import { dateToSlug } from "@/lib/date-slug";
 import { WEEKDAY_LONG, pad2 } from "@/lib/format";
 import { LE_LIST, LE_NHOM_LABEL, leBySlug, leKhac } from "@/lib/le";
+import { countdownSlugForLe } from "@/lib/countdown";
 import { daysUntil, nextOccurrence, tenYearTable } from "@/lib/le-date-engine";
 import { monthToSlug } from "@/lib/month-slug";
 import { getVietnamToday } from "@/lib/today";
@@ -78,6 +79,7 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
         : undefined;
 
   const vanKhanBai = page.vanKhan.map((s) => vanKhanBySlug(s)).filter((v): v is NonNullable<typeof v> => Boolean(v));
+  const countdownSlug = countdownSlugForLe(page.slug);
   const heroesKhac = isHero ? leKhac(page, 4) : [];
   const chips = upcomingHolidayChips(todayJd, page.slug, 5, today);
 
@@ -321,6 +323,18 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
                 <Link className="lk" href="/van-khan">
                   <b>Văn khấn đi lễ</b>
                   <span>Tuyển tập bài khấn đầy đủ</span>
+                </Link>
+              )}
+              {countdownSlug && (
+                <Link className="lk" href={`/countdown/${countdownSlug}`}>
+                  <b>Đếm ngược {page.ten} {year}</b>
+                  <span>Số ngày còn lại, ngày dương và ngày âm</span>
+                </Link>
+              )}
+              {page.nghiLe && (
+                <Link className="lk" href={`/lich-nghi-le/${solar.year}`}>
+                  <b>Lịch nghỉ lễ {solar.year}</b>
+                  <span>Các ngày nghỉ trong năm này</span>
                 </Link>
               )}
               <Link className="lk" href={`/ngay/${dateToSlug(solar)}`}>

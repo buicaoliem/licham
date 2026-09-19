@@ -23,8 +23,8 @@ export function LinkColumns({ upcomingOccasions }: { upcomingOccasions: Upcoming
         <ul className="lst">
           {upcomingOccasions.map((occasion) => (
             <li key={occasion.label}>
-              <span>{occasion.label}</span>
-              <span>{formatSolarShort(occasion.solarDate)}</span>
+              <Link href={occasion.href}>{occasion.label}</Link>
+              <span>{formatSolarShort(occasion.solar)}</span>
             </li>
           ))}
         </ul>

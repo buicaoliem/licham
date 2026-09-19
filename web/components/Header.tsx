@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { VIEC_LIST } from "@/lib/xem-ngay-tot";
 import { monthToSlug } from "@/lib/month-slug";
 import { getVietnamToday } from "@/lib/today";
 
@@ -17,7 +16,7 @@ function menuHref(item: (typeof MENU)[number]): string {
       return `/${monthToSlug(today.month, today.year)}`;
     }
     case "Xem ngày tốt":
-      return `/xem-ngay-tot/${VIEC_LIST[0]!.slug}`;
+      return "/xem-ngay-tot";
     case "Văn khấn":
       return "/van-khan";
     case "Tử vi":

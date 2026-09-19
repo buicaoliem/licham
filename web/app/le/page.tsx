@@ -8,12 +8,14 @@ import { LE_LIST, LE_NHOM_LABEL, type LeNhom } from "@/lib/le";
 import { nextOccurrence } from "@/lib/le-date-engine";
 import { getVietnamToday } from "@/lib/today";
 
-export const metadata: Metadata = {
-  title: "Ngày lễ Việt Nam trong năm — Âm lịch, dương lịch, nghỉ lễ | Lịch Âm",
-  description:
-    "Tra cứu 60 ngày lễ, ngày giỗ và ngày kỷ niệm của Việt Nam: ngày nghỉ lễ theo luật, lễ âm lịch, giỗ anh hùng dân tộc, ngày kỷ niệm và ngày quốc tế phổ biến.",
-  alternates: { canonical: "/le/" },
-};
+export function generateMetadata(): Metadata {
+  const year = getVietnamToday().year;
+  return {
+    title: `Ngày lễ Việt Nam năm ${year} — Âm lịch, dương lịch, nghỉ lễ | Lịch Âm`,
+    description: `Tra cứu ngày lễ ${year}: nghỉ lễ theo luật, lễ âm lịch, giỗ anh hùng dân tộc. Đếm ngược Tết và lịch nghỉ từng năm.`,
+    alternates: { canonical: "/le/" },
+  };
+}
 
 const NHOM_ORDER: LeNhom[] = ["nghi-le", "am-lich", "anh-hung", "ky-niem", "quoc-te"];
 
@@ -36,11 +38,25 @@ export default function LeHubPage() {
         <Header activeMenu="Ngày lễ" />
 
         <div className="leband">
-          <h1>Các ngày lễ trong năm</h1>
+          <h1>Các ngày lễ trong năm {today.year}</h1>
           <p className="sub">Tra cứu ngày âm lịch, dương lịch, ngày nghỉ lễ và ý nghĩa của các ngày lễ, ngày giỗ trong năm</p>
         </div>
 
         <div className="body">
+          <div className="chips" style={{ marginBottom: 22, justifyContent: "center" }}>
+            <Link className="chip hot" href="/countdown/tet">
+              Đếm ngược Tết
+            </Link>
+            <Link className="chip" href="/countdown/vu-lan">
+              Vu Lan
+            </Link>
+            <Link className="chip" href="/countdown/trung-thu">
+              Trung thu
+            </Link>
+            <Link className="chip" href={`/lich-nghi-le/${today.year}`}>
+              Lịch nghỉ lễ {today.year}
+            </Link>
+          </div>
           <section className="lehub-nhom">
             <h2 style={{ textAlign: "center" }}>Sắp tới</h2>
             <div className="chips">

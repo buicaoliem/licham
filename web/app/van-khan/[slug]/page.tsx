@@ -5,7 +5,9 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { VanKhanActions } from "@/components/VanKhanActions";
 import { LE_LIST } from "@/lib/le";
+import { getVietnamToday } from "@/lib/today";
 import { VAN_KHAN_LIST, splitFillIns, vanKhanBySlug, vanKhanLienQuan } from "@/lib/van-khan";
+import { viecLienQuanKhan } from "@/lib/van-khan-viec";
 
 export function generateStaticParams() {
   return VAN_KHAN_LIST.map((v) => ({ slug: v.slug }));
@@ -17,8 +19,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const bai = vanKhanBySlug(slug);
   if (!bai) return {};
+  const year = getVietnamToday().year;
   return {
-    title: `${bai.ten} đầy đủ và chuẩn nhất | Lịch Âm`,
+    title: `${bai.ten} ${year} — đầy đủ sắm lễ | Lịch Âm`,
     description: bai.moTa,
     alternates: { canonical: `/van-khan/${slug}/` },
   };
@@ -53,6 +56,7 @@ export default async function VanKhanPage({ params }: { params: Promise<{ slug: 
 
   const cungNhom = vanKhanLienQuan(bai);
   const leLienQuan = LE_LIST.filter((l) => l.vanKhan.includes(bai.slug));
+  const viecLienQuan = viecLienQuanKhan(bai.slug);
 
   return (
     <div className="outer">
@@ -109,15 +113,25 @@ export default async function VanKhanPage({ params }: { params: Promise<{ slug: 
 
           <VanKhanActions bai={bai} />
 
-          {leLienQuan.length > 0 && (
+          {(leLienQuan.length > 0 || viecLienQuan) && (
             <p style={{ textAlign: "center", fontSize: 13.5, marginTop: 16 }} className="khan-noprint">
-              Ngày lễ liên quan:{" "}
-              {leLienQuan.map((l, i) => (
-                <span key={l.slug}>
-                  {i > 0 && ", "}
-                  <Link href={`/le/${l.slug}`}>{l.ten}</Link>
-                </span>
-              ))}
+              {leLienQuan.length > 0 && (
+                <>
+                  Ngày lễ liên quan:{" "}
+                  {leLienQuan.map((l, i) => (
+                    <span key={l.slug}>
+                      {i > 0 && ", "}
+                      <Link href={`/le/${l.slug}`}>{l.ten}</Link>
+                    </span>
+                  ))}
+                </>
+              )}
+              {viecLienQuan && (
+                <>
+                  {leLienQuan.length > 0 ? " · " : null}
+                  <Link href={`/xem-ngay-tot/${viecLienQuan.slug}`}>{viecLienQuan.label}</Link>
+                </>
+              )}
             </p>
           )}
 
@@ -157,6 +171,14 @@ export default async function VanKhanPage({ params }: { params: Promise<{ slug: 
                 </Link>
               ),
             )}
+            {viecLienQuan && (
+              <Link className="chip" href={`/xem-ngay-tot/${viecLienQuan.slug}`}>
+                {viecLienQuan.label}
+              </Link>
+            )}
+            <Link className="chip" href="/xem-ngay-tot">
+              Xem ngày tốt
+            </Link>
           </div>
         </div>
 
