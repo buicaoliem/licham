@@ -1,5 +1,6 @@
 import type { SolarDate } from "@licham/core";
 import type { CalendarDay } from "./calendar-day";
+import { knowledgeLinks } from "../knowledge";
 import { isSupportedYear } from "./config";
 import { monthHref, yearHref } from "./urls";
 
@@ -33,6 +34,13 @@ export function getRelatedActivityLinks(day: CalendarDay): RelatedLink[] {
   return links;
 }
 
+/** Thuật ngữ xuất hiện trên trang ngày, theo thứ tự cố định; thêm bài tháng nhuận khi ngày nằm trong tháng nhuận. */
+export function getRelatedKnowledgeLinks(day: CalendarDay): RelatedLink[] {
+  const slugs = ["tiet-khi", "truc-ngay", "gio-hoang-dao", "nhi-thap-bat-tu", "sao-tot-xau", "can-chi"];
+  if (day.lunarDate.isLeapMonth) slugs.push("thang-nhuan-am-lich");
+  return knowledgeLinks(slugs);
+}
+
 export function getRelatedToolLinks(): RelatedLink[] {
   return [
     { label: "Đổi ngày âm dương", href: "/doi-ngay-am-duong/" },
@@ -48,6 +56,7 @@ export function getRelatedLinksForDay(date: SolarDate, day: CalendarDay): Relate
     ...getRelatedCalendarLinks(date),
     ...getRelatedHolidayLinks(day),
     ...getRelatedActivityLinks(day),
+    ...getRelatedKnowledgeLinks(day),
     ...getRelatedToolLinks(),
   ];
 }

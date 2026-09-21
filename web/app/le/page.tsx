@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { jdFromDate } from "@licham/core";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { pad2 } from "@/lib/format";
 import { LE_LIST, LE_NHOM_LABEL, type LeNhom } from "@/lib/le";
-import { nextOccurrence } from "@/lib/le-date-engine";
+import { getNextHolidayOccurrence, getUpcomingHolidays } from "@/lib/holiday";
+import { WEEKDAY_LONG } from "@/lib/format";
 import { getVietnamToday } from "@/lib/today";
 
 export function generateMetadata(): Metadata {
@@ -17,20 +17,16 @@ export function generateMetadata(): Metadata {
   };
 }
 
+// Dựng lại mỗi giờ để "sắp tới" và số ngày còn lại theo giờ Việt Nam không bị cũ.
+export const revalidate = 300;
+
 const NHOM_ORDER: LeNhom[] = ["nghi-le", "am-lich", "anh-hung", "ky-niem", "quoc-te"];
 
 export default function LeHubPage() {
   const today = getVietnamToday();
 
-  const withNext = LE_LIST.map((page) => ({ page, next: nextOccurrence(page, today) }));
-
-  const sapToi = [...withNext]
-    .sort(
-      (a, b) =>
-        jdFromDate(a.next.solar.day, a.next.solar.month, a.next.solar.year) -
-        jdFromDate(b.next.solar.day, b.next.solar.month, b.next.solar.year),
-    )
-    .slice(0, 8);
+  const withNext = LE_LIST.map((page) => ({ page, next: getNextHolidayOccurrence(page.slug, today) }));
+  const sapToi = getUpcomingHolidays(today, 8);
 
   return (
     <div className="outer">
@@ -68,16 +64,19 @@ export default function LeHubPage() {
           </div>
           <section className="lehub-nhom">
             <h2 style={{ textAlign: "center" }}>Sắp tới</h2>
-            <div className="chips">
-              {sapToi.map(({ page, next }) => (
-                <Link className="chip lehub-chip" href={`/le/${page.slug}/`} key={page.slug}>
-                  {page.ten}
-                  <small>
-                    {pad2(next.solar.day)}/{pad2(next.solar.month)}
-                  </small>
-                </Link>
+            <ul className="lehub-up">
+              {sapToi.map(({ event, occurrence: o }) => (
+                <li key={event.slug}>
+                  <Link href={`/le/${event.slug}/`}>
+                    <b>{event.shortName}</b>
+                    <span>
+                      {WEEKDAY_LONG[o.weekday]}, {pad2(o.solar.day)}/{pad2(o.solar.month)}/{o.solar.year} · {o.lunarLabel} âm lịch
+                    </span>
+                    <em>{o.daysLeft === 0 ? "Hôm nay" : `Còn ${o.daysLeft} ngày`}</em>
+                  </Link>
+                </li>
               ))}
-            </div>
+            </ul>
           </section>
 
           {NHOM_ORDER.map((nhom) => {

@@ -11,12 +11,18 @@ import { WEEKDAY_LONG, pad2 } from "@/lib/format";
 import { LE_LIST, LE_NHOM_LABEL, leBySlug, leKhac } from "@/lib/le";
 import { countdownSlugForLe } from "@/lib/countdown";
 import { daysUntil, nextOccurrence, tenYearTable } from "@/lib/le-date-engine";
+import { getRelatedHolidays, googleCalendarUrl, icsDataUri } from "@/lib/holiday";
+import { SITE_URL } from "@/lib/site";
 import { monthHref } from "@/lib/calendar/urls";
 import { getVietnamToday } from "@/lib/today";
 import { vanKhanBySlug } from "@/lib/van-khan";
 
-const YEAR_START = 2022;
-const YEAR_END = 2031;
+/** Bảng năm: 2 năm trước, năm sắp tới, 5 năm sau. */
+const YEARS_BEFORE = 2;
+const YEARS_AFTER = 5;
+
+// Hôm nay tính theo giờ Việt Nam nên trang dựng lại mỗi giờ để đếm ngược và năm hiện tại không bị cũ.
+export const revalidate = 300;
 
 export function generateStaticParams() {
   return LE_LIST.map((p) => ({ slug: p.slug }));
@@ -58,7 +64,9 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
   const todayJd = jdFromDate(today.day, today.month, today.year);
   const { year, solar, canChi, lunarLabel, weekday } = nextOccurrence(page, today);
   const soNgayConLai = daysUntil(today, solar);
-  const rows = tenYearTable(page, YEAR_START, YEAR_END);
+  const rows = tenYearTable(page, year - YEARS_BEFORE, year + YEARS_AFTER);
+  const related = getRelatedHolidays(page.slug, today, 4);
+  const calDetails = `${page.moTa} (${lunarLabel} âm lịch) — ${SITE_URL}/le/${page.slug}/`;
   const isHero = page.nhom === "anh-hung";
 
   const badgeLich =
@@ -108,6 +116,16 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
     })),
   };
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Trang chủ", item: `${SITE_URL}/` },
+      { "@type": "ListItem", position: 2, name: "Ngày lễ", item: `${SITE_URL}/le/` },
+      { "@type": "ListItem", position: 3, name: page.tieuDe, item: `${SITE_URL}/le/${page.slug}/` },
+    ],
+  };
+
   return (
     <div className="outer">
       <div className="site">
@@ -115,6 +133,8 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
 
         { }
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
         {isHero ? (
           <div className="leband son">
@@ -241,6 +261,7 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
                   <th>Âm lịch</th>
                   <th>Dương lịch</th>
                   <th>Thứ</th>
+                  <th>Thêm vào lịch</th>
                 </tr>
               </thead>
               <tbody>
@@ -262,6 +283,11 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
                         {isNext && <span className="letag son">Sắp tới</span>}
                       </td>
                       <td data-k="Thứ">{WEEKDAY_LONG[r.weekday]}</td>
+                      <td data-k="Thêm vào lịch">
+                        <a href={googleCalendarUrl(`${page.tieuDe} ${r.year}`, r.solar, calDetails)} target="_blank" rel="noopener noreferrer">Google</a>
+                        {" · "}
+                        <a href={icsDataUri(`${page.tieuDe} ${r.year}`, r.solar, page.slug, page.moTa)} download={`${page.slug}-${r.solar.year}.ics`}>.ics</a>
+                      </td>
                     </tr>
                   );
                 })}
@@ -387,6 +413,10 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
             </div>
           )}
 
+          <p className="srcnote">
+            Ngày dương lịch được tính (thiên văn, giờ Việt Nam UTC+7); ý nghĩa và phong tục là biên soạn của licham.app. Xem <Link href="/phuong-phap-tinh-lich/">phương pháp tính lịch</Link>.
+          </p>
+
           <div className="box" style={{ marginTop: 18 }}>
             <div className="box-h">
               <span className="rule" />
@@ -402,6 +432,23 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
               ))}
             </div>
           </div>
+
+          {related.length > 0 && (
+            <div className="box" style={{ marginTop: 18 }}>
+              <div className="box-h">
+                <span className="rule" />
+                <span className="t">Ngày lễ liên quan</span>
+                <span className="rule" />
+              </div>
+              <div className="chips">
+                {related.map((e) => (
+                  <Link className="chip" href={`/le/${e.slug}/`} key={e.slug}>
+                    {e.shortName}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
 
           <div className="box" style={{ marginTop: 18 }}>
             <div className="box-h">
