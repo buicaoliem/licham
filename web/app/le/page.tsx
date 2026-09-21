@@ -18,7 +18,7 @@ export function generateMetadata(): Metadata {
 }
 
 // Dựng lại mỗi giờ để "sắp tới" và số ngày còn lại theo giờ Việt Nam không bị cũ.
-export const revalidate = 3600;
+export const revalidate = 300;
 
 const NHOM_ORDER: LeNhom[] = ["nghi-le", "am-lich", "anh-hung", "ky-niem", "quoc-te"];
 

@@ -22,7 +22,7 @@ const YEARS_BEFORE = 2;
 const YEARS_AFTER = 5;
 
 // Hôm nay tính theo giờ Việt Nam nên trang dựng lại mỗi giờ để đếm ngược và năm hiện tại không bị cũ.
-export const revalidate = 3600;
+export const revalidate = 300;
 
 export function generateStaticParams() {
   return LE_LIST.map((p) => ({ slug: p.slug }));

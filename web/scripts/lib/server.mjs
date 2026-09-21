@@ -1,6 +1,7 @@
 // Dùng chung cho seo-audit.mjs và smoke.mjs: khởi động `next start` (cần đã build) hoặc dùng URL có sẵn.
 import { spawn } from "node:child_process";
 import { createRequire } from "node:module";
+import { createServer } from "node:net";
 import { join } from "node:path";
 
 const require = createRequire(import.meta.url);
@@ -21,10 +22,35 @@ async function waitReady(base, child, timeoutMs = 60000) {
   throw new Error("Hết thời gian chờ server khởi động");
 }
 
+/** Xin hệ điều hành một cổng đang trống (tránh đụng cổng còn giữ bởi lượt chạy trước). */
+function freePort() {
+  return new Promise((resolve, reject) => {
+    const srv = createServer();
+    srv.once("error", reject);
+    srv.listen(0, "127.0.0.1", () => {
+      const { port } = srv.address();
+      srv.close(() => resolve(port));
+    });
+  });
+}
+
+/** Dừng process (cả cây process con) và chờ nó thoát thật sự, không dùng sleep cố định. */
+function stop(child) {
+  if (child.exitCode !== null || child.signalCode !== null) return Promise.resolve();
+  return new Promise((resolve) => {
+    child.once("exit", resolve);
+    if (process.platform === "win32") {
+      spawn("taskkill", ["/pid", String(child.pid), "/t", "/f"], { stdio: "ignore" }).on("error", () => child.kill("SIGKILL"));
+    } else {
+      child.kill("SIGKILL");
+    }
+  });
+}
+
 /** Chạy `fn(base)` với một server đang chạy. Đặt SEO_AUDIT_BASE_URL để dùng server có sẵn thay vì tự khởi động. */
 export async function withServer(fn) {
   if (process.env.SEO_AUDIT_BASE_URL) return fn(process.env.SEO_AUDIT_BASE_URL.replace(/\/$/, ""));
-  const port = Number(process.env.SEO_AUDIT_PORT ?? 3199);
+  const port = Number(process.env.SEO_AUDIT_PORT) || (await freePort());
   const nextBin = require.resolve("next/dist/bin/next", { paths: [WEB_ROOT] });
   const child = spawn(process.execPath, [nextBin, "start", "-p", String(port)], { cwd: WEB_ROOT, stdio: ["ignore", "pipe", "pipe"] });
   let log = "";
@@ -38,7 +64,7 @@ export async function withServer(fn) {
     if (log) console.error(log.split("\n").slice(-15).join("\n"));
     throw e;
   } finally {
-    child.kill();
+    await stop(child);
   }
 }
 
