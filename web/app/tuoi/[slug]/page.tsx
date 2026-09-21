@@ -4,8 +4,10 @@ import { notFound } from "next/navigation";
 import { canChiNamDuong, xungNgay } from "@licham/core";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { ShareButton } from "@/components/ShareButton";
 import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
 import { SINH_NAM_MAX, SINH_NAM_MIN } from "@/lib/sinh-nam";
+import { buildShareUrl } from "@/lib/share";
 import { getVietnamToday } from "@/lib/today";
 import {
   ALL_CAN_CHI,
@@ -97,6 +99,14 @@ function ChiPage({ chi }: { chi: ChiInfo }) {
           <p className="sub">
             Người sinh năm {chi.ten} — {nhomCanChi.map((cc) => cc.name).join(", ")}.
           </p>
+          <div className="share-row">
+            <ShareButton
+              variant="onband"
+              url={buildShareUrl(`/tuoi/${chi.slug}/`)}
+              title={`Tuổi ${chi.ten}`}
+              text={`Tuổi ${chi.ten}: hợp tuổi nào, kỵ tuổi nào – xem đầy đủ tại Lịch Âm.`}
+            />
+          </div>
           <div className="tuoihero">
             <div>
               <div className="k">Tam hợp</div>
@@ -310,6 +320,14 @@ function CanChiPage({ slug }: { slug: string }) {
           <p className="sub">
             {canChi.name} — mệnh {canChi.napAm.name}.
           </p>
+          <div className="share-row">
+            <ShareButton
+              variant="onband"
+              url={buildShareUrl(`/tuoi/${slug}/`)}
+              title={`Tuổi ${canChi.name}`}
+              text={`Tuổi ${canChi.name}: mệnh ${canChi.napAm.name}, hợp tuổi nào – xem đầy đủ tại Lịch Âm.`}
+            />
+          </div>
           <div className="tuoihero">
             <div>
               <div className="k">Mệnh</div>

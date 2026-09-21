@@ -72,7 +72,13 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
   const isHero = page.nhom === "anh-hung";
   const heroActions = (
     <div className="lehero-act">
-      <a className="btn" href={googleCalendarUrl(`${page.tieuDe} ${year}`, solar, calDetails)} target="_blank" rel="noopener noreferrer">
+      <a
+        className="btn"
+        href={googleCalendarUrl(`${page.tieuDe} ${year}`, solar, calDetails)}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Thêm ${page.tieuDe} ${year} (${pad2(solar.day)}/${pad2(solar.month)}/${solar.year}) vào Google Calendar`}
+      >
         Thêm vào lịch
       </a>
       <ShareButton

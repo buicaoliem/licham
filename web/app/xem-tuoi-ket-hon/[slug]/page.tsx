@@ -3,8 +3,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { ShareButton } from "@/components/ShareButton";
 import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
 import { KetHonYearPicker } from "@/components/KetHonYearPicker";
+import { buildShareUrl } from "@/lib/share";
 import { chiByIndex, hopMenh } from "@/lib/tuoi";
 import {
   NAM_SINH_MAX,
@@ -108,6 +110,14 @@ export default async function XemTuoiKetHonDetailPage({ params }: { params: Prom
             Nam tuổi {chiTenNam} ({info.canChiNam.name}, mệnh {info.canChiNam.napAm.name}) và nữ tuổi {chiTenNu} ({info.canChiNu.name}, mệnh{" "}
             {info.canChiNu.napAm.name}).
           </p>
+          <div className="share-row">
+            <ShareButton
+              variant="onband"
+              url={buildShareUrl(`/xem-tuoi-ket-hon/${slug}/`)}
+              title={`Nam ${namNam} và nữ ${namNu}`}
+              text={`Nam ${namNam} và nữ ${namNu} có hợp nhau không? Mức độ hợp: ${info.mucDo} – xem chi tiết tại Lịch Âm.`}
+            />
+          </div>
         </div>
 
         <div className="body">
