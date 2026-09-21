@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { ShareButton } from "@/components/ShareButton";
 import { Breadcrumb } from "@/components/calendar/Breadcrumb";
 import { RelatedLinks } from "@/components/calendar/RelatedLinks";
 import type { DateSummary } from "@/lib/calendar/date-info";
@@ -131,7 +132,7 @@ export function ToolError({ children }: { children: ReactNode }) {
   );
 }
 
-export function ResultBox({ title, rows }: { title: string; rows: [string, ReactNode][] }) {
+export function ResultBox({ title, rows, share }: { title: string; rows: [string, ReactNode][]; share?: { url: string; title: string; text: string } | null }) {
   return (
     <section className="box" style={{ marginTop: 16 }} aria-live="polite">
       <h2 className="box-h">
@@ -145,6 +146,11 @@ export function ResultBox({ title, rows }: { title: string; rows: [string, React
           <span>{v}</span>
         </div>
       ))}
+      {share && (
+        <div className="resbox-act">
+          <ShareButton url={share.url} title={share.title} text={share.text} />
+        </div>
+      )}
     </section>
   );
 }

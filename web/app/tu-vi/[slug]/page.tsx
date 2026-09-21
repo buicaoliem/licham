@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getDayInfo } from "@licham/core";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { ShareButton } from "@/components/ShareButton";
 import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
 import { pad2 } from "@/lib/format";
 import {
@@ -17,6 +18,7 @@ import {
   quanHeVoiNgay,
 } from "@/lib/tu-vi";
 import { YEAR_END } from "@/lib/site-years";
+import { buildShareUrl } from "@/lib/share";
 import { getVietnamToday } from "@/lib/today";
 
 const today = getVietnamToday();
@@ -65,6 +67,14 @@ export default async function TuViConGiapPage({ params }: { params: Promise<{ sl
             <p>
               Ngày {info.canChi.day.name} — {QUAN_HE_LABEL[quanHe]}
             </p>
+            <div className="share-row">
+              <ShareButton
+                variant="onband"
+                url={buildShareUrl(`/tu-vi/${slug}/`)}
+                title={`Tử vi tuổi ${cg.ten} hôm nay`}
+                text={`Tử vi tuổi ${cg.ten} hôm nay ${dateLabel} – xem đầy đủ tại Lịch Âm.`}
+              />
+            </div>
           </div>
         </div>
 

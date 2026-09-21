@@ -3,9 +3,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { ShareButton } from "@/components/ShareButton";
 import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
 import { XemNgayTotFinder } from "@/components/XemNgayTotFinder";
 import { MONTH_WORD } from "@/lib/format";
+import { buildShareUrl } from "@/lib/share";
 import { getVietnamToday } from "@/lib/today";
 import { VIEC_LIST, bestMonthOfYear, viecBySlug } from "@/lib/xem-ngay-tot";
 
@@ -48,6 +50,14 @@ export default async function XemNgayTotPage({ params }: { params: Promise<{ vie
             </div>
             <h1>Xem ngày tốt {viec.label} năm {year}</h1>
             <p>{viec.tagline}</p>
+            <div className="share-row">
+              <ShareButton
+                variant="onband"
+                url={buildShareUrl(`/xem-ngay-tot/${viec.slug}/`)}
+                title={`Xem ngày tốt ${viec.label} năm ${year}`}
+                text={`Xem ngày tốt ${viec.label} năm ${year} – danh sách ngày đẹp tại Lịch Âm.`}
+              />
+            </div>
           </div>
         </div>
 

@@ -7,6 +7,7 @@ import { LE_LIST, leBySlug } from "@/lib/le";
 import { nextOccurrence } from "@/lib/le-date-engine";
 import { daysBetween, formatDmy, parseIsoDate, splitWeeks, toIso } from "@/lib/tools/date-math";
 import { type SearchParams, first } from "@/lib/tools/params";
+import { toolShare } from "@/lib/tools/share";
 import { generateToolMetadata, toolBySlug } from "@/lib/tools/tools";
 import { getVietnamToday } from "@/lib/today";
 
@@ -41,6 +42,13 @@ export default async function ConBaoNhieuNgayPage({ searchParams }: { searchPara
       body = (
         <ResultBox
           title={customDate ? `Đến ngày ${label}` : `Đến ${label}`}
+          share={toolShare(
+            tool,
+            sp,
+            left === 0
+              ? `Hôm nay ${formatDmy(today)} chính là ${customDate ? `ngày ${label}` : label}.`
+              : `Tính đến ${formatDmy(today)}, ${left > 0 ? "còn" : "đã qua"} ${Math.abs(left).toLocaleString("vi-VN")} ngày ${left > 0 ? "nữa " : ""}đến ${customDate ? `ngày ${label}` : label}.`,
+          )}
           rows={[
             [
               left >= 0 ? "Còn lại" : "Đã qua",

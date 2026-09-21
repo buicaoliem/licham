@@ -2,6 +2,7 @@ import { DateField, DateLine, NumberField, ResultBox, ToolError, ToolForm, ToolS
 import { describeDate } from "@/lib/calendar/date-info";
 import { addDays, formatDmy, parseIntParam, parseIsoDate, toIso } from "@/lib/tools/date-math";
 import { type SearchParams, first } from "@/lib/tools/params";
+import { toolShare } from "@/lib/tools/share";
 import type { ToolDef } from "@/lib/tools/tools";
 import { getVietnamToday } from "@/lib/today";
 
@@ -28,6 +29,7 @@ export function OffsetTool({ tool, direction, sp }: { tool: ToolDef; direction: 
       body = (
         <ResultBox
           title={`${n.toLocaleString("vi-VN")} ngày ${word} ${formatDmy(from)}`}
+          share={toolShare(tool, sp, `${n.toLocaleString("vi-VN")} ngày ${word} ${formatDmy(from)} là ngày ${formatDmy(result)}.`)}
           rows={[
             ["Ngày kết quả", <DateLine key="r" s={describeDate(result)} />],
             ["Ngày bắt đầu", <DateLine key="f" s={describeDate(from)} />],

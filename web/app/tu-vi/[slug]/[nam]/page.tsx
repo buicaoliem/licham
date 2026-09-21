@@ -3,6 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { ShareButton } from "@/components/ShareButton";
+import { buildShareUrl } from "@/lib/share";
 import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
 import { SINH_NAM_MAX, SINH_NAM_MIN } from "@/lib/sinh-nam";
 import { goiYTenTheoNam } from "@/lib/ten";
@@ -63,6 +65,14 @@ export default async function TuViNamPage({ params }: { params: Promise<{ slug: 
               Mệnh năm {info.canChiNam.napAm.name} (hành {info.canChiNam.napAm.element}) — nạp âm của năm {year}, không
               phải một hành cho mọi người tuổi {giap.ten}.
             </p>
+            <div className="share-row">
+              <ShareButton
+                variant="onband"
+                url={buildShareUrl(`/tu-vi/${giap.slug}/${year}/`)}
+                title={`Tử vi tuổi ${giap.ten} năm ${year}`}
+                text={`Tử vi tuổi ${giap.ten} năm ${year} (${info.canChiNam.name}) – xem đầy đủ tại Lịch Âm.`}
+              />
+            </div>
           </div>
         </div>
 

@@ -4,6 +4,7 @@ import { DateField, DateLine, ResultBox, ToolError, ToolForm, ToolShell } from "
 import { describeDate } from "@/lib/calendar/date-info";
 import { calendarSpan, daysBetween, formatDmy, parseIsoDate, spanLabel, splitWeeks, toIso, weekdaysBetween } from "@/lib/tools/date-math";
 import { type SearchParams, first } from "@/lib/tools/params";
+import { toolShare } from "@/lib/tools/share";
 import { generateToolMetadata, toolBySlug } from "@/lib/tools/tools";
 import { getVietnamToday } from "@/lib/today";
 
@@ -36,6 +37,7 @@ export default async function DaBaoNhieuNgayPage({ searchParams }: { searchParam
         body = (
           <ResultBox
             title={`Kể từ ${formatDmy(from)} đến hôm nay`}
+            share={toolShare(tool, sp, `Kể từ ${formatDmy(from)} đến ${formatDmy(today)} đã qua ${passed.toLocaleString("vi-VN")} ngày.`)}
             rows={[
               ["Đã qua", passed === 0 ? "Chính là hôm nay" : `${passed.toLocaleString("vi-VN")} ngày`],
               ["Số tuần", `${w.weeks.toLocaleString("vi-VN")} tuần${w.days ? ` ${w.days} ngày` : ""}`],

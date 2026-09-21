@@ -4,6 +4,7 @@ import { DateField, DateLine, ResultBox, ToolError, ToolForm, ToolShell } from "
 import { describeDate } from "@/lib/calendar/date-info";
 import { calendarSpan, daysBetween, formatDmy, parseIsoDate, spanLabel, splitWeeks, toIso } from "@/lib/tools/date-math";
 import { type SearchParams, first } from "@/lib/tools/params";
+import { toolShare } from "@/lib/tools/share";
 import { generateToolMetadata, toolBySlug } from "@/lib/tools/tools";
 import { nextBirthdayOn } from "@/lib/tinh-tuoi";
 import { getVietnamToday } from "@/lib/today";
@@ -38,6 +39,7 @@ export default async function TuoiTheoNgaySinhPage({ searchParams }: { searchPar
       body = (
         <ResultBox
           title={`Sinh ngày ${formatDmy(birth)}`}
+          share={toolShare(tool, sp, `Sinh ngày ${formatDmy(birth)}, tính đến ${formatDmy(asOf)} là ${span.years} tuổi (${total.toLocaleString("vi-VN")} ngày).`)}
           rows={[
             ["Tuổi", `${span.years} tuổi (${spanLabel(span)})`],
             ["Tổng số ngày đã sống", `${total.toLocaleString("vi-VN")} ngày`],
