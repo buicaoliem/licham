@@ -2,7 +2,7 @@
 /** Smoke test trên server production thật (`pnpm build` trước, hoặc SEO_AUDIT_BASE_URL). Thoát mã 1 nếu có ca sai. */
 import { get, withServer } from "./lib/server.mjs";
 
-const SITE = "https://licham.app";
+const SITE = "https://www.licham.app";
 const failures = [];
 let passed = 0;
 
