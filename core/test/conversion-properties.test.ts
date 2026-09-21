@@ -25,7 +25,7 @@ describe("round trip", () => {
       const l = solarToLunar(s.day, s.month, s.year);
       expect(lunarToSolar(l.day, l.month, l.year, l.isLeapMonth), `${s.day}/${s.month}/${s.year}`).toEqual(s);
     }
-  });
+  }, 30000);
 });
 
 describe("lunar month structure over the whole range", () => {
@@ -58,8 +58,8 @@ describe("lunar month structure over the whole range", () => {
       expect(leapByYear.size).toBeGreaterThan(70);
       expect(leapByYear.size).toBeLessThan(78);
     },
-    // Iterates every day in 1900–2100 to verify calendar structure; ~5.7s under load, so allow 3x headroom.
-    18000,
+    // Iterates every day in 1900–2100 to verify calendar structure; ~6s alone and several times slower under parallel load.
+    30000,
   );
 });
 
@@ -119,5 +119,6 @@ describe("day can chi monotonicity", () => {
       expect(cur).toBe((prev + 1) % 60);
       prev = cur;
     }
-  });
+    // ~4.6s alone; the 5s default is too tight under parallel workspace load.
+  }, 30000);
 });
