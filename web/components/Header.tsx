@@ -16,17 +16,17 @@ function menuHref(item: (typeof MENU)[number]): string {
       return monthHref(today.month, today.year);
     }
     case "Xem ngày tốt":
-      return "/xem-ngay-tot";
+      return "/xem-ngay-tot/";
     case "Văn khấn":
-      return "/van-khan";
+      return "/van-khan/";
     case "Tử vi":
-      return "/tu-vi";
+      return "/tu-vi/";
     case "Đổi ngày":
-      return "/doi-ngay-am-duong";
+      return "/doi-ngay-am-duong/";
     case "Ngày lễ":
-      return "/le";
+      return "/le/";
     case "Xem tuổi":
-      return "/tuoi";
+      return "/tuoi/";
     default:
       return "/";
   }

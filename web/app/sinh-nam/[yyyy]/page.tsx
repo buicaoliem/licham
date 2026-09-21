@@ -40,7 +40,7 @@ export default async function SinhNamPage({ params }: { params: Promise<{ yyyy: 
   const next = year < SINH_NAM_MAX ? year + 1 : null;
   const tenGoiY = goiYTenTheoNam(year).slice(0, 10);
   const tuViNamHref =
-    today.year >= YEAR_START && today.year <= YEAR_END ? `/tu-vi/${info.chiSlug}/${today.year}` : "/tu-vi";
+    today.year >= YEAR_START && today.year <= YEAR_END ? `/tu-vi/${info.chiSlug}/${today.year}/` : "/tu-vi/";
 
   return (
     <div className="outer">

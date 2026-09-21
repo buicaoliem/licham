@@ -153,7 +153,7 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
               </div>
               <div className="leband-txt">
                 <div className="crumb">
-                  <Link href="/le/">Ngày lễ</Link> › <Link href="/le?nhom=anh-hung">Anh hùng dân tộc</Link> › {page.ten}
+                  <Link href="/le/">Ngày lễ</Link> › <Link href="/le/?nhom=anh-hung">Anh hùng dân tộc</Link> › {page.ten}
                 </div>
                 <span className="lebadge">
                   {LE_NHOM_LABEL[page.nhom]} · {badgeLich}
