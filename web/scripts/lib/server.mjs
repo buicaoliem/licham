@@ -70,7 +70,17 @@ export async function withServer(fn) {
 
 /** GET không tự theo redirect; trả về {status, location, body}. */
 export async function get(base, path) {
-  const res = await fetch(base + path, { redirect: "manual" });
+  // Server từ xa (SEO_AUDIT_BASE_URL) đôi khi ngắt kết nối tạm thời: thử lại vài lần trước khi coi là lỗi.
+  let res;
+  for (let attempt = 0; ; attempt++) {
+    try {
+      res = await fetch(base + path, { redirect: "manual" });
+      break;
+    } catch (e) {
+      if (attempt >= 4) throw e;
+      await new Promise((r) => setTimeout(r, 500 * 2 ** attempt));
+    }
+  }
   const ct = res.headers.get("content-type") ?? "";
   const body = ct.includes("html") || ct.includes("xml") || ct.includes("text") ? await res.text() : (await res.arrayBuffer(), "");
   return { status: res.status, location: res.headers.get("location"), body };

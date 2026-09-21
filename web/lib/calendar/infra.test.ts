@@ -140,7 +140,7 @@ describe("json-ld", () => {
     const j = breadcrumbJsonLd([{ label: "Trang chủ", href: "/" }, { label: "Lịch âm", href: "/nam/2026/" }, { label: "Ngày" }]);
     expect(j["@type"]).toBe("BreadcrumbList");
     expect(j.itemListElement.map((i) => i.position)).toEqual([1, 2, 3]);
-    expect(j.itemListElement[0]!.item).toBe("https://licham.app/");
+    expect(j.itemListElement[0]!.item).toBe("https://www.licham.app/");
     expect("item" in j.itemListElement[2]!).toBe(false);
   });
   it("rejects a middle crumb without href", () => {
