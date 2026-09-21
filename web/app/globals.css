@@ -2037,3 +2037,10 @@ table.tuoitable tr.now td {
     align-items: start;
   }
 }
+
+/* Hub ngày lễ: danh sách sắp tới, ghi chú nguồn */
+.lehub-up { list-style: none; margin: 0 auto; padding: 0; max-width: 720px; display: grid; gap: 8px; }
+.lehub-up a { display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; padding: 10px 14px; min-height: 44px; border: 1px solid var(--rule, #d9cfc0); border-radius: 8px; text-decoration: none; color: inherit; }
+.lehub-up a span { grid-column: 1; font-size: 13px; color: var(--ink-3); }
+.lehub-up a em { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-style: normal; font-weight: 600; white-space: nowrap; }
+.srcnote { margin: 14px 0 0; text-align: center; font-size: 12.5px; color: var(--ink-3); }
