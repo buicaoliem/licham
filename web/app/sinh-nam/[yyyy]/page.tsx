@@ -3,10 +3,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { ShareButton } from "@/components/ShareButton";
 import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
 import { YEAR_END, YEAR_START } from "@/lib/site-years";
 import { SINH_NAM_MAX, SINH_NAM_MIN, sinhNamInfo, sinhNamTrongPhamVi, sinhNamYears } from "@/lib/sinh-nam";
 import { goiYTenTheoNam } from "@/lib/ten";
+import { buildShareUrl } from "@/lib/share";
 import { getVietnamToday } from "@/lib/today";
 import { canChiSlug } from "@/lib/tuoi";
 
@@ -55,6 +57,14 @@ export default async function SinhNamPage({ params }: { params: Promise<{ yyyy: 
             Sinh năm {year}: tuổi {info.canChi.name}, mệnh {info.canChi.napAm.name}
           </h1>
           <p className="sub">{info.uniqueIntro}</p>
+          <div className="share-row">
+            <ShareButton
+              variant="onband"
+              url={buildShareUrl(`/sinh-nam/${year}/`)}
+              title={`Sinh năm ${year}`}
+              text={`Sinh năm ${year}: tuổi ${info.canChi.name}, mệnh ${info.canChi.napAm.name} – xem đầy đủ tại Lịch Âm.`}
+            />
+          </div>
         </div>
 
         <div className="body">

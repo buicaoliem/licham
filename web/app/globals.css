@@ -2076,3 +2076,145 @@ table.tuoitable tr.now td {
     box-sizing: border-box;
   }
 }
+
+/* ---------- chia sẻ (nút phụ, dùng lại .btn) ---------- */
+.share {
+  position: relative;
+  display: inline-block;
+}
+.btn.share-btn {
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  min-height: 36px;
+}
+.btn.share-btn:hover {
+  border-color: var(--ink-3);
+  color: var(--ink);
+}
+.btn.share-btn:focus-visible,
+.share-menu a:focus-visible,
+.share-menu button:focus-visible {
+  outline: 2px solid var(--son);
+  outline-offset: 2px;
+}
+.btn.share-btn.onband {
+  border-color: rgba(255, 255, 255, 0.55);
+  color: #fff;
+}
+.btn.share-btn.onband:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: #fff;
+  color: #fff;
+}
+.btn.share-btn.onband:focus-visible {
+  outline-color: #fff;
+}
+.share-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  z-index: 20;
+  min-width: 190px;
+  padding: 5px;
+  background: var(--sheet);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(32, 27, 20, 0.14);
+  text-align: left;
+}
+.share-center .share-menu {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.share-end .share-menu {
+  right: 0;
+}
+.share-menu button,
+.share-menu a {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 13.5px;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+.share-menu button:hover,
+.share-menu a:hover {
+  background: var(--line-2);
+}
+.share-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  z-index: 60;
+  transform: translateX(-50%);
+  max-width: calc(100vw - 32px);
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 13.5px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(32, 27, 20, 0.25);
+}
+.share-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+.lehero .lehero-act {
+  grid-column: 1/-1;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.lehero .btn.share-btn,
+.lehero .lehero-act a.btn {
+  font-size: 12.5px;
+}
+.lehero .lehero-act a.btn,
+.lehero .lehero-act a.btn:visited {
+  color: var(--ink-2);
+}
+.lehero .lehero-act a.btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 8px 14px;
+  text-decoration: none;
+}
+.resbox-act {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+@media (pointer: coarse) {
+  .btn.share-btn,
+  .lehero .lehero-act a.btn {
+    min-height: 44px;
+  }
+}
+@media print {
+  .share {
+    display: none;
+  }
+}
+.khan-actions {
+  flex-wrap: wrap;
+  row-gap: 10px;
+}
+@media (max-width: 480px) {
+  .khan-actions {
+    justify-content: center;
+  }
+}

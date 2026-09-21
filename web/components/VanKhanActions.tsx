@@ -1,5 +1,7 @@
 "use client";
 
+import { ShareButton } from "@/components/ShareButton";
+import { buildShareUrl } from "@/lib/share";
 import type { VanKhanBai } from "@/lib/van-khan";
 
 /** Ghép toàn bộ nội dung bài khấn thành văn bản thuần để in hoặc tải về. */
@@ -16,10 +18,16 @@ function toPlainText(bai: VanKhanBai): string {
 
 export function VanKhanActions({ bai }: { bai: VanKhanBai }) {
   return (
-    <div className="right khan-noprint">
+    <div className="right khan-actions khan-noprint">
       <button type="button" className="btn" onClick={() => window.print()}>
         In ra giấy
       </button>
+      <ShareButton
+        align="end"
+        url={buildShareUrl(`/van-khan/${bai.slug}/`)}
+        title={bai.ten}
+        text={`${bai.ten} – xem đầy đủ tại Lịch Âm.`}
+      />
       <button
         type="button"
         className="btn pri"

@@ -3,6 +3,7 @@ import { DateField, DateLine, ResultBox, ToolError, ToolForm, ToolShell } from "
 import { describeDate } from "@/lib/calendar/date-info";
 import { calendarSpan, daysBetween, formatDmy, parseIsoDate, spanLabel, splitWeeks, toIso, weekdaysBetween } from "@/lib/tools/date-math";
 import { type SearchParams, first } from "@/lib/tools/params";
+import { toolShare } from "@/lib/tools/share";
 import { generateToolMetadata, toolBySlug } from "@/lib/tools/tools";
 import { getVietnamToday } from "@/lib/today";
 
@@ -32,6 +33,7 @@ export default async function DemNgayPage({ searchParams }: { searchParams: Prom
       body = (
         <ResultBox
           title={`Từ ${formatDmy(from)} đến ${formatDmy(to)}`}
+          share={toolShare(tool, sp, `Từ ${formatDmy(from)} đến ${formatDmy(to)} là ${abs.toLocaleString("vi-VN")} ngày.`)}
           rows={[
             ["Tổng số ngày", `${abs.toLocaleString("vi-VN")} ngày${total < 0 ? " (ngày kết thúc trước ngày bắt đầu)" : ""}`],
             ["Tính cả hai đầu", `${(abs + 1).toLocaleString("vi-VN")} ngày`],

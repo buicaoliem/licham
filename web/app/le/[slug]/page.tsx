@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { canChiOfYear, jdFromDate } from "@licham/core";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { ShareButton } from "@/components/ShareButton";
 import { LeFlagIllustration, LeHeroIllustration, LeIllustration, hasHeroIllustration } from "@/components/LeIllustration";
 import { dayHref } from "@/lib/calendar/urls";
 import { WEEKDAY_LONG, pad2 } from "@/lib/format";
@@ -12,6 +13,7 @@ import { LE_LIST, LE_NHOM_LABEL, leBySlug, leKhac } from "@/lib/le";
 import { countdownSlugForLe } from "@/lib/countdown";
 import { daysUntil, nextOccurrence, tenYearTable } from "@/lib/le-date-engine";
 import { getRelatedHolidays, googleCalendarUrl, icsDataUri } from "@/lib/holiday";
+import { buildShareUrl } from "@/lib/share";
 import { SITE_URL } from "@/lib/site";
 import { monthHref } from "@/lib/calendar/urls";
 import { getVietnamToday } from "@/lib/today";
@@ -68,6 +70,18 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
   const related = getRelatedHolidays(page.slug, today, 4);
   const calDetails = `${page.moTa} (${lunarLabel} âm lịch) — ${SITE_URL}/le/${page.slug}/`;
   const isHero = page.nhom === "anh-hung";
+  const heroActions = (
+    <div className="lehero-act">
+      <a className="btn" href={googleCalendarUrl(`${page.tieuDe} ${year}`, solar, calDetails)} target="_blank" rel="noopener noreferrer">
+        Thêm vào lịch
+      </a>
+      <ShareButton
+        url={buildShareUrl(`/le/${page.slug}/`)}
+        title={`${page.tieuDe} ${year}`}
+        text={`${page.tieuDe} năm ${year} rơi vào ngày ${pad2(solar.day)}/${pad2(solar.month)}/${solar.year}.`}
+      />
+    </div>
+  );
 
   const badgeLich =
     page.lich === "am" || page.lich === "am-cuoi-thang"
@@ -178,6 +192,7 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
                   <div className="dem">
                     {soNgayConLai === 0 ? "Hôm nay" : <>Còn <b>{soNgayConLai}</b> ngày nữa</>}
                   </div>
+                  {heroActions}
                 </div>
               </div>
             </div>
@@ -211,6 +226,7 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
               <div className="dem">
                 {soNgayConLai === 0 ? "Hôm nay" : <>Còn <b>{soNgayConLai}</b> ngày nữa</>}
               </div>
+              {heroActions}
             </div>
           </div>
         )}
