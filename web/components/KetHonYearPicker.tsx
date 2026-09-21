@@ -39,7 +39,7 @@ export function KetHonYearPicker({ initialNamNam = 1992, initialNamNu = 1994, ti
   function handleXem() {
     if (capNamSinhTrongPhamVi(namNam, namNu)) {
       setInlineResultKey(null);
-      router.push(`/xem-tuoi-ket-hon/${ketHonSlug(namNam, namNu)}`);
+      router.push(`/xem-tuoi-ket-hon/${ketHonSlug(namNam, namNu)}/`);
       return;
     }
     // Ngoài phạm vi sinh tĩnh (chênh lệch tuổi > 15 hoặc năm ngoài 1980-2010):

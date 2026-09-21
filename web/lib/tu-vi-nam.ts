@@ -56,7 +56,7 @@ const LUAN: Record<QuanHe, readonly LuanFn[]> = {
   "tam-hop": [
     (ten, nam, cc, nap, hanh) =>
       `Năm ${nam} ${cc} tam hợp với tuổi ${ten}. Nạp âm năm ${nap} (hành ${hanh}) — tam hợp là nhóm ba chi, khác ngũ hành nạp âm. Dân gian coi đây là năm dễ thuận việc hơn năm xung.`,
-    (ten, nam, cc, nap, hanh) =>
+    (ten, nam, cc, nap) =>
       `Tuổi ${ten} nằm cùng bộ tam hợp với chi năm ${nam} (${cc}). ${nap} là mệnh của năm ${nam}, không phải mệnh mọi người tuổi ${ten}. Tam hợp không xóa Kim Lâu hay năm tuổi của từng người.`,
   ],
   "luc-hop": [

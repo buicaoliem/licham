@@ -49,7 +49,7 @@ export default async function SinhNamPage({ params }: { params: Promise<{ yyyy: 
 
         <div className="tuoiband">
           <div className="crumb">
-            <Link href="/">Trang chủ</Link> › <Link href="/tuoi">Xem tuổi</Link> › Sinh năm {year}
+            <Link href="/">Trang chủ</Link> › <Link href="/tuoi/">Xem tuổi</Link> › Sinh năm {year}
           </div>
           <h1>
             Sinh năm {year}: tuổi {info.canChi.name}, mệnh {info.canChi.napAm.name}
@@ -103,11 +103,11 @@ export default async function SinhNamPage({ params }: { params: Promise<{ yyyy: 
               </p>
               <div className="chips">
                 {tenGoiY.map((t) => (
-                  <Link className="chip" href={`/ten/${t.slug}`} key={t.slug}>
+                  <Link className="chip" href={`/ten/${t.slug}/`} key={t.slug}>
                     {t.ten}
                   </Link>
                 ))}
-                <Link className="chip" href="/ten">
+                <Link className="chip" href="/ten/">
                   Từ điển tên
                 </Link>
               </div>
@@ -120,28 +120,28 @@ export default async function SinhNamPage({ params }: { params: Promise<{ yyyy: 
             Có thể anh cần
           </h2>
           <div className="chips">
-            <Link className="chip" href="/tinh-tuoi">
+            <Link className="chip" href="/tinh-tuoi/">
               Tính tuổi theo ngày sinh
             </Link>
-            <Link className="chip" href={`/tuoi/${canChiSlug(info.canChi)}`}>
+            <Link className="chip" href={`/tuoi/${canChiSlug(info.canChi)}/`}>
               Tuổi {info.canChi.name}
             </Link>
             <Link className="chip" href={tuViNamHref}>
               Tử vi tuổi {info.canChi.chi} năm {today.year}
             </Link>
-            <Link className="chip" href={`/tu-vi/${info.chiSlug}`}>
+            <Link className="chip" href={`/tu-vi/${info.chiSlug}/`}>
               Tử vi tuổi {info.canChi.chi} hôm nay
             </Link>
-            <Link className="chip" href="/xem-ngay-tot/cuoi-hoi">
+            <Link className="chip" href="/xem-ngay-tot/cuoi-hoi/">
               Ngày tốt cưới hỏi
             </Link>
             {prev && (
-              <Link className="chip" href={`/sinh-nam/${prev}`}>
+              <Link className="chip" href={`/sinh-nam/${prev}/`}>
                 Năm {prev}
               </Link>
             )}
             {next && (
-              <Link className="chip" href={`/sinh-nam/${next}`}>
+              <Link className="chip" href={`/sinh-nam/${next}/`}>
                 Năm {next}
               </Link>
             )}

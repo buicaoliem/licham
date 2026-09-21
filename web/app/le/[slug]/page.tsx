@@ -6,12 +6,12 @@ import { canChiOfYear, jdFromDate } from "@licham/core";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { LeFlagIllustration, LeHeroIllustration, LeIllustration, hasHeroIllustration } from "@/components/LeIllustration";
-import { dateToSlug } from "@/lib/date-slug";
+import { dayHref } from "@/lib/calendar/urls";
 import { WEEKDAY_LONG, pad2 } from "@/lib/format";
 import { LE_LIST, LE_NHOM_LABEL, leBySlug, leKhac } from "@/lib/le";
 import { countdownSlugForLe } from "@/lib/countdown";
 import { daysUntil, nextOccurrence, tenYearTable } from "@/lib/le-date-engine";
-import { monthToSlug } from "@/lib/month-slug";
+import { monthHref } from "@/lib/calendar/urls";
 import { getVietnamToday } from "@/lib/today";
 import { vanKhanBySlug } from "@/lib/van-khan";
 
@@ -113,7 +113,7 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
       <div className="site">
         <Header activeMenu="Ngày lễ" />
 
-        {/* eslint-disable-next-line react/no-danger */}
+        { }
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
         {isHero ? (
@@ -133,7 +133,7 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
               </div>
               <div className="leband-txt">
                 <div className="crumb">
-                  <Link href="/le">Ngày lễ</Link> › <Link href="/le?nhom=anh-hung">Anh hùng dân tộc</Link> › {page.ten}
+                  <Link href="/le/">Ngày lễ</Link> › <Link href="/le?nhom=anh-hung">Anh hùng dân tộc</Link> › {page.ten}
                 </div>
                 <span className="lebadge">
                   {LE_NHOM_LABEL[page.nhom]} · {badgeLich}
@@ -165,7 +165,7 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
         ) : (
           <div className="leband">
             <div className="crumb">
-              <Link href="/le">Ngày lễ</Link> › {page.ten}
+              <Link href="/le/">Ngày lễ</Link> › {page.ten}
             </div>
             <span className="lebadge">
               {LE_NHOM_LABEL[page.nhom]} · {badgeLich}
@@ -255,7 +255,7 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
                       </td>
                       <td data-k="Âm lịch">{r.lunarLabel}</td>
                       <td data-k="Dương lịch">
-                        <Link href={`/ngay/${dateToSlug(r.solar)}`}>
+                        <Link href={dayHref(r.solar)}>
                           {pad2(r.solar.day)}/{pad2(r.solar.month)}/{r.solar.year}
                         </Link>
                         {isPast && <span className="letag xam">Đã qua</span>}
@@ -314,36 +314,36 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
             <div className="cols3">
               {vanKhanBai.length > 0 ? (
                 vanKhanBai.map((v) => (
-                  <Link className="lk" href={`/van-khan/${v.slug}`} key={v.slug}>
+                  <Link className="lk" href={`/van-khan/${v.slug}/`} key={v.slug}>
                     <b>{v.ten}</b>
                     <span>{v.moTa}</span>
                   </Link>
                 ))
               ) : (
-                <Link className="lk" href="/van-khan">
+                <Link className="lk" href="/van-khan/">
                   <b>Văn khấn đi lễ</b>
                   <span>Tuyển tập bài khấn đầy đủ</span>
                 </Link>
               )}
               {countdownSlug && (
-                <Link className="lk" href={`/countdown/${countdownSlug}`}>
+                <Link className="lk" href={`/countdown/${countdownSlug}/`}>
                   <b>Đếm ngược {page.ten} {year}</b>
                   <span>Số ngày còn lại, ngày dương và ngày âm</span>
                 </Link>
               )}
               {page.nghiLe && (
-                <Link className="lk" href={`/lich-nghi-le/${solar.year}`}>
+                <Link className="lk" href={`/lich-nghi-le/${solar.year}/`}>
                   <b>Lịch nghỉ lễ {solar.year}</b>
                   <span>Các ngày nghỉ trong năm này</span>
                 </Link>
               )}
-              <Link className="lk" href={`/ngay/${dateToSlug(solar)}`}>
+              <Link className="lk" href={dayHref(solar)}>
                 <b>
                   Xem ngày {pad2(solar.day)}/{pad2(solar.month)}/{solar.year}
                 </b>
                 <span>Giờ hoàng đạo, sao tốt xấu của ngày này</span>
               </Link>
-              <Link className="lk" href={`/${monthToSlug(solar.month, solar.year)}`}>
+              <Link className="lk" href={monthHref(solar.month, solar.year)}>
                 <b>
                   Lịch tháng {solar.month}/{solar.year}
                 </b>
@@ -367,7 +367,7 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
               </div>
               <div className="leheroes">
                 {heroesKhac.map((h) => (
-                  <Link className="lehc" href={`/le/${h.slug}`} key={h.slug}>
+                  <Link className="lehc" href={`/le/${h.slug}/`} key={h.slug}>
                     <div className="pic">
                       {h.coAnhThat ? (
                         <img src="/le/ho-chi-minh-1946.jpg" alt={h.ten} />
@@ -411,14 +411,14 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
             </div>
             <div className="chips">
               {chips.map(({ page: p, next }) => (
-                <Link className="chip" href={`/le/${p.slug}`} key={p.slug}>
+                <Link className="chip" href={`/le/${p.slug}/`} key={p.slug}>
                   {p.ten}
                   <small>
                     {pad2(next.solar.day)}/{pad2(next.solar.month)}
                   </small>
                 </Link>
               ))}
-              <Link className="chip" href="/le" style={{ fontWeight: 600 }}>
+              <Link className="chip" href="/le/" style={{ fontWeight: 600 }}>
                 Xem tất cả ngày lễ ›
               </Link>
             </div>

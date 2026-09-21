@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { useState } from "react";
 import { type SolarDate, getDayInfo, isValidSolarDate, jdFromDate, lunarToSolar, solarToLunar } from "@licham/core";
-import { dateToSlug } from "@/lib/date-slug";
+import { dayHref } from "@/lib/calendar/urls";
 import { MONTH_WORD, WEEKDAY_LONG, pad2 } from "@/lib/format";
-import { YEAR_END, YEAR_START } from "@/lib/site-years";
+import { isSupportedYear } from "@/lib/calendar/config";
 
 interface AmDraft {
   day: number;
@@ -82,7 +82,7 @@ export function DoiNgayConverter() {
   const today = todaySolar();
   const diffDays = jdFromDate(duong.day, duong.month, duong.year) - jdFromDate(today.day, today.month, today.year);
   const diffLabel = diffDays === 0 ? "Chính là hôm nay" : diffDays > 0 ? `${diffDays} ngày nữa` : `${-diffDays} ngày trước`;
-  const hasDetailPage = duong.year >= YEAR_START && duong.year <= YEAR_END;
+  const hasDetailPage = isSupportedYear(duong.year);
 
   return (
     <>
@@ -232,7 +232,7 @@ export function DoiNgayConverter() {
             <div className="row">
               <span>Xem đầy đủ</span>
               <span>
-                <Link href={`/ngay/${dateToSlug(duong)}`}>Trang chi tiết ngày ›</Link>
+                <Link href={dayHref(duong)}>Trang chi tiết ngày ›</Link>
               </span>
             </div>
           )}

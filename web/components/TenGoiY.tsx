@@ -44,11 +44,11 @@ export function TenGoiY() {
       <p style={{ fontSize: 13.5 }}>
         Năm {year} ước lượng {canChi.name}, mệnh nạp âm {canChi.napAm.name} (hành {namMenh}). Tục hay chọn chữ hành{" "}
         {hanhSinh} (sinh ra mệnh) hoặc cùng hành {namMenh}. Sinh trước Tết thì can chi thật là năm trước — xem{" "}
-        <Link href="/tinh-tuoi">tính tuổi</Link>.
+        <Link href="/tinh-tuoi/">tính tuổi</Link>.
       </p>
       <div className="chips">
         {list.map((t) => (
-          <Link className="chip" href={`/ten/${t.slug}`} key={t.slug}>
+          <Link className="chip" href={`/ten/${t.slug}/`} key={t.slug}>
             {t.ten} ({t.hanh})
           </Link>
         ))}

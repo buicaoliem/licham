@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { WEEKDAY_FULL_MON_FIRST } from "@/lib/format";
-import type { MonthCell } from "@/lib/month-grid";
+import type { MonthCell } from "@/lib/calendar/calendar-month";
 
 interface MonthGridProps {
   month: number;

@@ -1,5 +1,4 @@
 import type { CanChi } from "@licham/core";
-import { chiByIndex } from "@/lib/tuoi";
 import type { CanPairQuanHe, ChiPairQuanHe, NapAmPairQuanHe } from "@/lib/xem-tuoi-ket-hon";
 
 // Sinh văn bản "luận giải" cho mục 4 (con giáp) và mục 5 (mệnh nạp âm) trên trang
@@ -25,9 +24,6 @@ function chonBienThe<T>(bienThe: readonly T[], seed: string): T {
   return v;
 }
 
-function tenChi(canChi: CanChi): string {
-  return chiByIndex(canChi.chiIndex).ten;
-}
 
 // ---------------------------------------------------------------------------
 // Mục 4 — luận giải theo con giáp (5 nhánh × 3 biến thể)
@@ -128,11 +124,11 @@ const NAP_AM_TEXT: Record<NapAmPairQuanHe, readonly NapAmVariant[]> = {
       `Xét ngũ hành: tuổi ${nu} mệnh ${menhNu} (hành ${hanhNu}) khắc chế tuổi ${nam} mệnh ${menhNam} (hành ${hanhNam}). Đây là chi tiết đáng tham khảo hơn là yếu tố quyết định, nên xem thêm quan hệ con giáp và thiên can để có cái nhìn đầy đủ.`,
   ],
   "cung-hanh": [
-    (nam, nu, menhNam, menhNu, hanhNam, hanhNu) =>
+    (nam, nu, menhNam, menhNu, hanhNam) =>
       `Về mệnh, nam tuổi ${nam} mệnh ${menhNam} và nữ tuổi ${nu} mệnh ${menhNu} tuy tên gọi khác nhau nhưng cùng thuộc hành ${hanhNam}. Cùng một hành thì không sinh cũng không khắc, dân gian xem là mức bình hòa về mệnh.`,
-    (nam, nu, menhNam, menhNu, hanhNam, hanhNu) =>
+    (nam, nu, menhNam, menhNu, hanhNam) =>
       `Mệnh ${menhNam} của tuổi ${nam} và mệnh ${menhNu} của tuổi ${nu} đều thuộc hành ${hanhNam}. Vì cùng hành nên quan hệ ngũ hành ở đây trung tính — không phải điểm cộng nhưng cũng không phải điều đáng lo.`,
-    (nam, nu, menhNam, menhNu, hanhNam, hanhNu) =>
+    (nam, nu, menhNam, menhNu, hanhNam) =>
       `Xét ngũ hành nạp âm, tuổi ${nam} (mệnh ${menhNam}) và tuổi ${nu} (mệnh ${menhNu}) cùng chung hành ${hanhNam}. Với trường hợp cùng hành, yếu tố mệnh coi như huề nhau, nên nhìn thêm vào quan hệ con giáp và thiên can ở các mục khác để có cái nhìn đầy đủ hơn.`,
   ],
 };

@@ -1,4 +1,4 @@
-import type { MonthCell } from "@/lib/month-grid";
+import type { MonthCell } from "@/lib/calendar/calendar-month";
 
 export interface MonthDayRef {
   day: number;

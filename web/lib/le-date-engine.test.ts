@@ -61,7 +61,7 @@ describe("le-date-engine — bảng đối chiếu 10 năm", () => {
   it("in bảng Giao thừa 2022-2031", () => {
     const page = leBySlug("giao-thua")!;
     const rows = tenYearTable(page, 2022, 2031);
-    // eslint-disable-next-line no-console
+     
     console.log("Giao thừa:", rows.map((r) => `${r.year} (${r.canChi}) -> ${fmt(r.solar)}`).join(" | "));
     expect(rows).toHaveLength(10);
   });
@@ -69,7 +69,7 @@ describe("le-date-engine — bảng đối chiếu 10 năm", () => {
   it("in bảng Tết Thanh minh 2022-2031", () => {
     const page = leBySlug("tet-thanh-minh")!;
     const rows = tenYearTable(page, 2022, 2031);
-    // eslint-disable-next-line no-console
+     
     console.log("Tết Thanh minh:", rows.map((r) => `${r.year} -> ${fmt(r.solar)}`).join(" | "));
     expect(rows).toHaveLength(10);
   });

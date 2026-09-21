@@ -45,19 +45,19 @@ export default function GioiThieuPage() {
             </p>
           </div>
           <div className="chips" style={{ marginTop: 22, justifyContent: "center" }}>
-            <Link className="chip" href="/tinh-tuoi">
+            <Link className="chip" href="/tinh-tuoi/">
               Tính tuổi
             </Link>
-            <Link className="chip" href="/ten">
+            <Link className="chip" href="/ten/">
               Đặt tên
             </Link>
-            <Link className="chip" href="/tu-vi">
+            <Link className="chip" href="/tu-vi/">
               Tử vi
             </Link>
-            <Link className="chip" href="/xem-ngay-tot">
+            <Link className="chip" href="/xem-ngay-tot/">
               Ngày tốt
             </Link>
-            <Link className="chip" href="/countdown/tet">
+            <Link className="chip" href="/countdown/tet/">
               Đếm ngược Tết
             </Link>
           </div>

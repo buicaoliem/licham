@@ -96,7 +96,7 @@ export default async function XemTuoiKetHonDetailPage({ params }: { params: Prom
 
         <div className="tuoiband kethon">
           <div className="crumb">
-            <Link href="/xem-tuoi-ket-hon">Xem tuổi kết hôn</Link> › Nam {namNam} · Nữ {namNu}
+            <Link href="/xem-tuoi-ket-hon/">Xem tuổi kết hôn</Link> › Nam {namNam} · Nữ {namNu}
           </div>
           <span className="tuoibadge">
             {info.canChiNam.name} — {info.canChiNu.name}
@@ -153,7 +153,7 @@ export default async function XemTuoiKetHonDetailPage({ params }: { params: Prom
               </tbody>
             </table>
             <p style={{ fontSize: 12.5, color: "var(--ink-3)", textAlign: "center", marginTop: 8 }}>
-              Kim Lâu chỉ xét trên tuổi mụ của cô dâu, theo tục "lấy vợ xem tuổi đàn bà". Chỉ mang tính tham khảo dân gian.
+              Kim Lâu chỉ xét trên tuổi mụ của cô dâu, theo tục &ldquo;lấy vợ xem tuổi đàn bà&rdquo;. Chỉ mang tính tham khảo dân gian.
             </p>
           </div>
 
@@ -206,11 +206,11 @@ export default async function XemTuoiKetHonDetailPage({ params }: { params: Prom
             </div>
             <div className="chips">
               {similar.map((p) => (
-                <Link className="chip" href={`/xem-tuoi-ket-hon/${ketHonSlug(p.namNam, p.namNu)}`} key={`${p.namNam}-${p.namNu}`}>
+                <Link className="chip" href={`/xem-tuoi-ket-hon/${ketHonSlug(p.namNam, p.namNu)}/`} key={`${p.namNam}-${p.namNu}`}>
                   Nam {p.namNam} · Nữ {p.namNu}
                 </Link>
               ))}
-              <Link className="chip hot" href="/xem-ngay-tot/cuoi-hoi">
+              <Link className="chip hot" href="/xem-ngay-tot/cuoi-hoi/">
                 Xem ngày tốt cưới hỏi ›
               </Link>
             </div>

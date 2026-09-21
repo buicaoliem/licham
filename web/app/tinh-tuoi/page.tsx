@@ -51,7 +51,7 @@ export default function TinhTuoiPage() {
 
         <div className="tuoiband">
           <div className="crumb">
-            <Link href="/">Trang chủ</Link> › <Link href="/tuoi">Xem tuổi</Link> › Tính tuổi {year}
+            <Link href="/">Trang chủ</Link> › <Link href="/tuoi/">Xem tuổi</Link> › Tính tuổi {year}
           </div>
           <h1>Tính tuổi dương và tuổi mụ</h1>
           <p className="sub">
@@ -92,25 +92,25 @@ export default function TinhTuoiPage() {
             Có thể anh cần
           </h2>
           <div className="chips">
-            <Link className="chip" href="/sinh-nam/1990">
+            <Link className="chip" href="/sinh-nam/1990/">
               Sinh năm 1990
             </Link>
-            <Link className="chip" href="/xem-ngay-tot/cuoi-hoi">
+            <Link className="chip" href="/xem-ngay-tot/cuoi-hoi/">
               Xem ngày tốt cưới hỏi
             </Link>
-            <Link className="chip" href="/phong-thuy/xung-tuoi">
+            <Link className="chip" href="/phong-thuy/xung-tuoi/">
               Xung tuổi
             </Link>
-            <Link className="chip" href="/phong-thuy/xem-tuoi-xay-nha">
+            <Link className="chip" href="/phong-thuy/xem-tuoi-xay-nha/">
               Tuổi xây nhà
             </Link>
-            <Link className="chip" href="/tuoi">
+            <Link className="chip" href="/tuoi/">
               12 con giáp
             </Link>
-            <Link className="chip" href="/ten">
+            <Link className="chip" href="/ten/">
               Đặt tên con
             </Link>
-            <Link className="chip" href="/tu-vi">
+            <Link className="chip" href="/tu-vi/">
               Tử vi
             </Link>
           </div>

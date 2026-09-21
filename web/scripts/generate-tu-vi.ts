@@ -156,7 +156,7 @@ function writeData(outPath: string, data: TuViDayData): void {
   writeFileSync(outPath, `${JSON.stringify(data, null, 2)}\n`);
 }
 
-function useFallback(day: { day: number; month: number; year: number }, outPath: string, reason: string): void {
+function applyFallback(day: { day: number; month: number; year: number }, outPath: string, reason: string): void {
   console.warn(`tu-vi: ${reason} Dùng file cũ nhất hiện có nếu có, ngược lại dùng nội dung giữ chỗ.`);
   const latestDate = listAvailableTuViDates().at(-1);
   const latest = latestDate ? readTuViFile(latestDate) : null;
@@ -180,7 +180,7 @@ async function main(): Promise<void> {
   // KHÔNG bao giờ in khóa API ra màn hình hay ghi vào file.
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
-    useFallback(day, outPath, "Thiếu biến môi trường GEMINI_API_KEY, bỏ qua bước sinh nội dung.");
+    applyFallback(day, outPath, "Thiếu biến môi trường GEMINI_API_KEY, bỏ qua bước sinh nội dung.");
     return;
   }
 
@@ -198,7 +198,7 @@ async function main(): Promise<void> {
     }
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
-    useFallback(day, outPath, `Gọi Gemini thất bại (${message}).`);
+    applyFallback(day, outPath, `Gọi Gemini thất bại (${message}).`);
     return;
   }
 

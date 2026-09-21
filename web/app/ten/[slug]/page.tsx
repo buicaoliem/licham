@@ -42,7 +42,7 @@ export default async function TenPage({ params }: { params: Promise<{ slug: stri
 
         <div className="tuoiband">
           <div className="crumb">
-            <Link href="/">Trang chủ</Link> › <Link href="/ten">Đặt tên</Link> › {t.ten}
+            <Link href="/">Trang chủ</Link> › <Link href="/ten/">Đặt tên</Link> › {t.ten}
           </div>
           <h1>
             Tên {t.ten} ({t.chuHan}): {t.nghia}
@@ -99,14 +99,14 @@ export default async function TenPage({ params }: { params: Promise<{ slug: stri
           </h2>
           <div className="chips">
             {cungHanh.map((x) => (
-              <Link className="chip" href={`/ten/${x.slug}`} key={x.slug}>
+              <Link className="chip" href={`/ten/${x.slug}/`} key={x.slug}>
                 {x.ten}
               </Link>
             ))}
-            <Link className="chip" href="/ten">
+            <Link className="chip" href="/ten/">
               Tất cả tên
             </Link>
-            <Link className="chip" href="/tinh-tuoi">
+            <Link className="chip" href="/tinh-tuoi/">
               Tính tuổi
             </Link>
           </div>

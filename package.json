@@ -7,6 +7,10 @@
     "typecheck": "pnpm -r typecheck",
     "check:compare": "pnpm --filter @licham/core run check:compare",
     "verify:ltp": "pnpm --filter @licham/core run verify:ltp",
-    "check:routes": "pnpm --filter @licham/web run check:routes"
+    "check:routes": "pnpm --filter @licham/web run check:routes",
+    "lint": "pnpm -r --if-present lint",
+    "seo:audit": "pnpm --filter @licham/web run seo:audit",
+    "smoke": "pnpm --filter @licham/web run smoke",
+    "build": "pnpm --filter @licham/web run build"
   }
 }

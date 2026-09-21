@@ -44,7 +44,7 @@ export default async function XemNgayTotPage({ params }: { params: Promise<{ vie
           <div className="bg bg-luc" />
           <div className="band-in">
             <div className="crumb" style={{ color: "inherit", marginBottom: 10 }}>
-              <Link href="/">Trang chủ</Link> › <Link href="/xem-ngay-tot">Xem ngày tốt</Link> › {viec.label} {year}
+              <Link href="/">Trang chủ</Link> › <Link href="/xem-ngay-tot/">Xem ngày tốt</Link> › {viec.label} {year}
             </div>
             <h1>Xem ngày tốt {viec.label} năm {year}</h1>
             <p>{viec.tagline}</p>
@@ -64,7 +64,7 @@ export default async function XemNgayTotPage({ params }: { params: Promise<{ vie
                   Ngày tốt {v.label}
                 </span>
               ) : (
-                <Link className="chip" href={`/xem-ngay-tot/${v.slug}`} key={v.slug}>
+                <Link className="chip" href={`/xem-ngay-tot/${v.slug}/`} key={v.slug}>
                   Ngày tốt {v.label}
                 </Link>
               ),

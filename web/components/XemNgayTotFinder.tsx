@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import type { SolarDate } from "@licham/core";
-import { dateToSlug } from "@/lib/date-slug";
+import { dayHref } from "@/lib/calendar/urls";
 import { pad2 } from "@/lib/format";
-import { YEAR_END, YEAR_START } from "@/lib/site-years";
+import { isSupportedYear } from "@/lib/calendar/config";
 import { getVietnamToday } from "@/lib/today";
 import { type DayResult, type ViecMeta, bestDaysInRange, birthDateLabel, formatSolarDate } from "@/lib/xem-ngay-tot";
 
@@ -81,10 +81,13 @@ export function XemNgayTotFinder({ viec }: { viec: ViecMeta }) {
   const dateB = parseISODate(applied.dateB) ?? defaultBirthDate(26);
   const birthDates = twoPersons ? [dateA, dateB] : [dateA];
 
+  // Phụ thuộc theo từng thành phần ngày (số) để không tính lại khi object ngày đổi tham chiếu nhưng cùng giá trị.
+  /* eslint-disable react-hooks/exhaustive-deps */
   const results = useMemo<DayResult[]>(
     () => bestDaysInRange(viec, from, to, birthDates, 7),
     [viec, from.day, from.month, from.year, to.day, to.month, to.year, dateA.day, dateA.month, dateA.year, dateB.day, dateB.month, dateB.year, twoPersons],
   );
+  /* eslint-enable react-hooks/exhaustive-deps */
 
   function handleReset() {
     const d = defaultParams();
@@ -178,10 +181,10 @@ export function XemNgayTotFinder({ viec }: { viec: ViecMeta }) {
       <div className="box" style={{ padding: 14 }}>
         {results.length === 0 && <p style={{ textAlign: "center", color: "var(--ink-3)", margin: 0 }}>Không có ngày nào trong khoảng đã chọn.</p>}
         {results.map((r) => {
-          const hasDetailPage = r.solar.year >= YEAR_START && r.solar.year <= YEAR_END;
+          const hasDetailPage = isSupportedYear(r.solar.year);
           const badgeClass = r.score.score >= 85 ? "n" : r.score.score >= 70 ? "n mid" : "n low";
           const barClass = r.score.score >= 85 ? "" : r.score.score >= 70 ? "mid" : "low";
-          const dateSlug = dateToSlug(r.solar);
+          const dateSlug = dayHref(r.solar);
           return (
             <div className="res" key={dateSlug}>
               <div className="dt">
@@ -192,7 +195,7 @@ export function XemNgayTotFinder({ viec }: { viec: ViecMeta }) {
               <div className="mid">
                 <div className="a">
                   {hasDetailPage ? (
-                    <Link href={`/ngay/${dateSlug}`}>
+                    <Link href={dateSlug}>
                       Ngày {r.canChiName} · {r.lunarLabel}
                     </Link>
                   ) : (

@@ -27,25 +27,25 @@ export default function TuoiHubPage() {
 
         <div className="body">
           <div className="chips" style={{ marginBottom: 22, justifyContent: "center" }}>
-            <Link className="chip hot" href="/tinh-tuoi">
+            <Link className="chip hot" href="/tinh-tuoi/">
               Tính tuổi dương và tuổi mụ
             </Link>
-            <Link className="chip" href="/phong-thuy/xung-tuoi">
+            <Link className="chip" href="/phong-thuy/xung-tuoi/">
               Xung tuổi
             </Link>
-            <Link className="chip" href="/phong-thuy/xem-tuoi-xay-nha">
+            <Link className="chip" href="/phong-thuy/xem-tuoi-xay-nha/">
               Tuổi xây nhà
             </Link>
-            <Link className="chip" href="/xem-tuoi-ket-hon">
+            <Link className="chip" href="/xem-tuoi-ket-hon/">
               Tuổi kết hôn
             </Link>
-            <Link className="chip" href="/sinh-nam/1990">
+            <Link className="chip" href="/sinh-nam/1990/">
               Sinh năm 1990
             </Link>
-            <Link className="chip" href="/ten">
+            <Link className="chip" href="/ten/">
               Đặt tên con
             </Link>
-            <Link className="chip" href="/tu-vi">
+            <Link className="chip" href="/tu-vi/">
               Tử vi
             </Link>
           </div>
@@ -59,7 +59,7 @@ export default function TuoiHubPage() {
               {CHI_LIST.map((c) => {
                 const years = birthYearsForChi(c.chiIndex, today.year, 3);
                 return (
-                  <Link className="tuoi-hub-card" href={`/tuoi/${c.slug}`} key={c.slug}>
+                  <Link className="tuoi-hub-card" href={`/tuoi/${c.slug}/`} key={c.slug}>
                     <b>
                       Tuổi {c.ten} ({c.conVat})
                     </b>
@@ -85,11 +85,11 @@ export default function TuoiHubPage() {
                   </div>
                   <div className="chips">
                     {group.map((cc) => (
-                      <Link className="chip" href={`/tuoi/${canChiSlug(cc)}`} key={cc.name}>
+                      <Link className="chip" href={`/tuoi/${canChiSlug(cc)}/`} key={cc.name}>
                         {cc.name}
                       </Link>
                     ))}
-                    <Link className="chip" href={`/tuoi/${c.slug}`} style={{ fontWeight: 600 }}>
+                    <Link className="chip" href={`/tuoi/${c.slug}/`} style={{ fontWeight: 600 }}>
                       Xem tuổi {c.ten} ›
                     </Link>
                   </div>

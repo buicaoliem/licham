@@ -109,7 +109,7 @@ export function LeHeroIllustration({ slug }: { slug: string }) {
       strokeWidth={3.2}
       strokeLinecap="round"
       strokeLinejoin="round"
-      // eslint-disable-next-line react/no-danger
+       
       dangerouslySetInnerHTML={{ __html: def.content }}
     />
   );

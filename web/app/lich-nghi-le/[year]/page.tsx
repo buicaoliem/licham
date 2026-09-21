@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
-import { dateToSlug } from "@/lib/date-slug";
+import { dayHref } from "@/lib/calendar/urls";
 import {
   NGHI_LE_YEAR_END,
   NGHI_LE_YEAR_START,
@@ -45,7 +45,7 @@ export default async function LichNghiLePage({ params }: { params: Promise<{ yea
 
         <div className="dhead">
           <div className="crumb">
-            <Link href="/">Trang chủ</Link> › <Link href="/le">Ngày lễ</Link> › Lịch nghỉ lễ {year}
+            <Link href="/">Trang chủ</Link> › <Link href="/le/">Ngày lễ</Link> › Lịch nghỉ lễ {year}
           </div>
           <h1 className="dh1">Lịch nghỉ lễ năm {year}</h1>
           <p className="dsub">
@@ -69,11 +69,11 @@ export default async function LichNghiLePage({ params }: { params: Promise<{ yea
                 {rows.map((r) => (
                   <tr key={r.page.slug}>
                     <td data-k="Ngày">
-                      <Link href={`/ngay/${dateToSlug(r.solar)}`}>{formatNghiLeDate(r.solar)}</Link>
+                      <Link href={dayHref(r.solar)}>{formatNghiLeDate(r.solar)}</Link>
                     </td>
                     <td data-k="Thứ">{r.weekday}</td>
                     <td data-k="Lễ">
-                      <Link href={`/le/${r.page.slug}`}>{r.page.ten}</Link>
+                      <Link href={`/le/${r.page.slug}/`}>{r.page.ten}</Link>
                     </td>
                     <td data-k="Số ngày">
                       {r.soNgay}
@@ -86,18 +86,18 @@ export default async function LichNghiLePage({ params }: { params: Promise<{ yea
           </div>
 
           <div className="pn">
-            {prev ? <Link href={`/lich-nghi-le/${prev}`}>‹ Năm {prev}</Link> : <span />}
-            {next ? <Link href={`/lich-nghi-le/${next}`}>Năm {next} ›</Link> : <span />}
+            {prev ? <Link href={`/lich-nghi-le/${prev}/`}>‹ Năm {prev}</Link> : <span />}
+            {next ? <Link href={`/lich-nghi-le/${next}/`}>Năm {next} ›</Link> : <span />}
           </div>
 
           <h2 className="hh" style={{ marginTop: 32 }}>
             Có thể anh cần
           </h2>
           <div className="chips">
-            <Link className="chip" href="/countdown/tet">
+            <Link className="chip" href="/countdown/tet/">
               Đếm ngược Tết
             </Link>
-            <Link className="chip" href="/le">
+            <Link className="chip" href="/le/">
               Tất cả ngày lễ
             </Link>
           </div>

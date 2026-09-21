@@ -122,7 +122,7 @@ export default async function VanKhanPage({ params }: { params: Promise<{ slug: 
                   {leLienQuan.map((l, i) => (
                     <span key={l.slug}>
                       {i > 0 && ", "}
-                      <Link href={`/le/${l.slug}`}>{l.ten}</Link>
+                      <Link href={`/le/${l.slug}/`}>{l.ten}</Link>
                     </span>
                   ))}
                 </>
@@ -130,7 +130,7 @@ export default async function VanKhanPage({ params }: { params: Promise<{ slug: 
               {viecLienQuan && (
                 <>
                   {leLienQuan.length > 0 ? " · " : null}
-                  <Link href={`/xem-ngay-tot/${viecLienQuan.slug}`}>{viecLienQuan.label}</Link>
+                  <Link href={`/xem-ngay-tot/${viecLienQuan.slug}/`}>{viecLienQuan.label}</Link>
                 </>
               )}
             </p>
@@ -167,17 +167,17 @@ export default async function VanKhanPage({ params }: { params: Promise<{ slug: 
                   {v.ten}
                 </span>
               ) : (
-                <Link className="chip" href={`/van-khan/${v.slug}`} key={v.slug}>
+                <Link className="chip" href={`/van-khan/${v.slug}/`} key={v.slug}>
                   {v.ten}
                 </Link>
               ),
             )}
             {viecLienQuan && (
-              <Link className="chip" href={`/xem-ngay-tot/${viecLienQuan.slug}`}>
+              <Link className="chip" href={`/xem-ngay-tot/${viecLienQuan.slug}/`}>
                 {viecLienQuan.label}
               </Link>
             )}
-            <Link className="chip" href="/xem-ngay-tot">
+            <Link className="chip" href="/xem-ngay-tot/">
               Xem ngày tốt
             </Link>
           </div>

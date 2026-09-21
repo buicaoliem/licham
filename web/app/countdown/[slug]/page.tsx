@@ -5,7 +5,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
 import { COUNTDOWN_LIST, countdownBySlug, countdownState, formatCountdownSolar, lunarMonthWord } from "@/lib/countdown";
-import { dateToSlug } from "@/lib/date-slug";
+import { dayHref } from "@/lib/calendar/urls";
 import { getVietnamToday } from "@/lib/today";
 
 export function generateStaticParams() {
@@ -45,7 +45,7 @@ export default async function CountdownPage({ params }: { params: Promise<{ slug
 
         <div className="dhead">
           <div className="crumb">
-            <Link href="/">Trang chủ</Link> › <Link href="/le">Ngày lễ</Link> › {def.h1} {year}
+            <Link href="/">Trang chủ</Link> › <Link href="/le/">Ngày lễ</Link> › {def.h1} {year}
           </div>
           <h1 className="dh1">{def.h1} {year}</h1>
           <p className="dsub">{def.intro(year)}</p>
@@ -65,7 +65,7 @@ export default async function CountdownPage({ params }: { params: Promise<{ slug
             <div className="diresrow">
               <span>Ngày dương</span>
               <span>
-                <Link href={`/ngay/${dateToSlug(state.target)}`}>{formatCountdownSolar(state.target)}</Link>
+                <Link href={dayHref(state.target)}>{formatCountdownSolar(state.target)}</Link>
               </span>
             </div>
             <div className="diresrow">
@@ -77,7 +77,7 @@ export default async function CountdownPage({ params }: { params: Promise<{ slug
           </div>
 
           <p style={{ textAlign: "center", marginTop: 16 }}>
-            <Link href={`/le/${state.le.slug}`}>{state.le.tieuDe} — ý nghĩa và văn khấn</Link>
+            <Link href={`/le/${state.le.slug}/`}>{state.le.tieuDe} — ý nghĩa và văn khấn</Link>
           </p>
 
           <h2 className="hh" style={{ marginTop: 32 }}>
@@ -85,11 +85,11 @@ export default async function CountdownPage({ params }: { params: Promise<{ slug
           </h2>
           <div className="chips">
             {others.map((c) => (
-              <Link className="chip" href={`/countdown/${c.slug}`} key={c.slug}>
+              <Link className="chip" href={`/countdown/${c.slug}/`} key={c.slug}>
                 {c.h1}
               </Link>
             ))}
-            <Link className="chip" href={`/lich-nghi-le/${today.year}`}>
+            <Link className="chip" href={`/lich-nghi-le/${today.year}/`}>
               Lịch nghỉ lễ {today.year}
             </Link>
           </div>

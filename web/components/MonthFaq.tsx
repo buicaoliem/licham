@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { dateToSlug } from "@/lib/date-slug";
+import { dayHref } from "@/lib/calendar/urls";
 import { pad2 } from "@/lib/format";
 import type { MonthDayRef, MonthSummary } from "@/lib/month-summary";
 
@@ -8,7 +8,7 @@ function dayLabel(d: MonthDayRef): string {
 }
 
 function DayLink({ d }: { d: MonthDayRef }) {
-  return <Link href={`/ngay/${dateToSlug(d)}`}>{dayLabel(d)}</Link>;
+  return <Link href={dayHref(d)}>{dayLabel(d)}</Link>;
 }
 
 export function MonthFaq({ month, year, summary }: { month: number; year: number; summary: MonthSummary }) {
