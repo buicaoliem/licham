@@ -132,7 +132,7 @@ await withServer(async (base) => {
   const days2026 = await get(base, files.find((f) => f.includes("days-2026")));
   const locs = [...days2026.body.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
   check("days-2026 có 365 URL", locs.length === 365, String(locs.length));
-  check("days-2026 chỉ chứa URL canonical mới", locs.every((l) => /^https:\/\/licham\.app\/ngay\/2026-\d{2}-\d{2}\/$/.test(l)));
+  check("days-2026 chỉ chứa URL canonical mới", locs.every((l) => /^https:\/\/www\.licham\.app\/ngay\/2026-\d{2}-\d{2}\/$/.test(l)));
   for (const sample of [locs[0], locs[100], locs.at(-1)]) {
     check(`mẫu sitemap ${sample} → 200`, (await get(base, sample.replace(SITE, ""))).status === 200);
   }
