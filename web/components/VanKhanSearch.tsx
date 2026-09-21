@@ -53,7 +53,7 @@ export function VanKhanSearch({ nhomList }: { nhomList: Nhom[] }) {
               <h2>{nhom.ten}</h2>
               <div className="khanlist">
                 {nhom.items.map((v) => (
-                  <Link className="khanitem" href={`/van-khan/${v.slug}`} key={v.slug}>
+                  <Link className="khanitem" href={`/van-khan/${v.slug}/`} key={v.slug}>
                     <div className="n">{v.ten}</div>
                     <div className="s">{v.moTa}</div>
                   </Link>

@@ -46,7 +46,7 @@ export default function XemTuoiKetHonHubPage() {
             </div>
             <p>
               Kim Lâu là một kiêng kỵ dân gian khi chọn năm cưới, tính theo <b>tuổi mụ</b> (năm xem trừ năm sinh cộng 1) của{" "}
-              <b>cô dâu</b> — theo tục "lấy vợ xem tuổi đàn bà", Kim Lâu không xét đến tuổi chú rể. Cách tính: lấy tuổi mụ chia
+              <b>cô dâu</b> — theo tục &ldquo;lấy vợ xem tuổi đàn bà&rdquo;, Kim Lâu không xét đến tuổi chú rể. Cách tính: lấy tuổi mụ chia
               cho 9, xét số dư.
             </p>
             <table className="tuoitable">
@@ -106,7 +106,7 @@ export default function XemTuoiKetHonHubPage() {
             </div>
             <p style={{ fontSize: 12.5, color: "var(--ink-3)", textAlign: "center", marginTop: 8 }}>
               Ngoài ra còn nhị hợp (lục hợp — từng cặp hai chi) và lục hại (mức xung nhẹ hơn tứ hành xung). Xem chi tiết ở trang{" "}
-              <Link href="/tuoi">Xem tuổi</Link> theo từng con giáp.
+              <Link href="/tuoi/">Xem tuổi</Link> theo từng con giáp.
             </p>
           </div>
 
@@ -129,7 +129,7 @@ export default function XemTuoiKetHonHubPage() {
                   .map((i) => chiByIndex(i).ten)
                   .join(", ");
                 return (
-                  <Link className="chip" href={`/tuoi/${c.slug}`} key={c.slug} title={`Tam hợp: ${tamHop} · Xung: ${xung}`}>
+                  <Link className="chip" href={`/tuoi/${c.slug}/`} key={c.slug} title={`Tam hợp: ${tamHop} · Xung: ${xung}`}>
                     Tuổi {c.ten}
                   </Link>
                 );

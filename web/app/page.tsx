@@ -7,7 +7,7 @@ import { LinkColumns } from "@/components/LinkColumns";
 import { MonthGrid } from "@/components/MonthGrid";
 import { OccasionChips } from "@/components/OccasionChips";
 import { TodayCards } from "@/components/TodayCards";
-import { getMonthCells } from "@/lib/month-grid";
+import { getMonthCells } from "@/lib/calendar/calendar-month";
 import { getVietnamToday } from "@/lib/today";
 import { getUpcomingOccasions } from "@/lib/upcoming-occasions";
 

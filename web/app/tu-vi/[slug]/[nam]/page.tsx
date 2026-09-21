@@ -53,8 +53,8 @@ export default async function TuViNamPage({ params }: { params: Promise<{ slug: 
           <div className="bg bg-kim" />
           <div className="band-in">
             <div className="crumb" style={{ marginBottom: 10 }}>
-              <Link href="/">Trang chủ</Link> › <Link href="/tu-vi">Tử vi</Link> ›{" "}
-              <Link href={`/tu-vi/${giap.slug}`}>{giap.ten}</Link> › Năm {year}
+              <Link href="/">Trang chủ</Link> › <Link href="/tu-vi/">Tử vi</Link> ›{" "}
+              <Link href={`/tu-vi/${giap.slug}/`}>{giap.ten}</Link> › Năm {year}
             </div>
             <h1>
               Tử vi tuổi {giap.ten} năm {year} — {info.canChiNam.name}
@@ -82,7 +82,7 @@ export default async function TuViNamPage({ params }: { params: Promise<{ slug: 
               <div className="diresrow">
                 <span>Can chi năm</span>
                 <span>
-                  <Link href={`/tuoi/${canChiSlug(info.canChiNam)}`}>{info.canChiNam.name}</Link>
+                  <Link href={`/tuoi/${canChiSlug(info.canChiNam)}/`}>{info.canChiNam.name}</Link>
                 </span>
               </div>
               <div className="diresrow">
@@ -108,7 +108,7 @@ export default async function TuViNamPage({ params }: { params: Promise<{ slug: 
               </div>
               <p>
                 Trang này luận theo <b>năm</b> {year}.{" "}
-                <Link href={`/tu-vi/${giap.slug}`}>Tử vi tuổi {giap.ten} hôm nay</Link> luận theo can chi <b>ngày</b>. Hai
+                <Link href={`/tu-vi/${giap.slug}/`}>Tử vi tuổi {giap.ten} hôm nay</Link> luận theo can chi <b>ngày</b>. Hai
                 trang không copy một đoạn.
               </p>
             </div>
@@ -135,7 +135,7 @@ export default async function TuViNamPage({ params }: { params: Promise<{ slug: 
                   <tr key={r.namSinh}>
                     <td data-k="Năm sinh">
                       {r.namSinh >= SINH_NAM_MIN && r.namSinh <= SINH_NAM_MAX ? (
-                        <Link href={`/sinh-nam/${r.namSinh}`}>{r.namSinh}</Link>
+                        <Link href={`/sinh-nam/${r.namSinh}/`}>{r.namSinh}</Link>
                       ) : (
                         r.namSinh
                       )}
@@ -163,11 +163,11 @@ export default async function TuViNamPage({ params }: { params: Promise<{ slug: 
               <p>Gợi ý chữ theo nạp âm năm {year} ({info.canChiNam.napAm.name}), không ghép họ.</p>
               <div className="chips">
                 {tenGoiY.map((t) => (
-                  <Link className="chip" href={`/ten/${t.slug}`} key={t.slug}>
+                  <Link className="chip" href={`/ten/${t.slug}/`} key={t.slug}>
                     {t.ten}
                   </Link>
                 ))}
-                <Link className="chip" href="/ten">
+                <Link className="chip" href="/ten/">
                   Từ điển tên
                 </Link>
               </div>
@@ -177,8 +177,8 @@ export default async function TuViNamPage({ params }: { params: Promise<{ slug: 
           <TraditionalDisclaimer />
 
           <div className="pn">
-            {prev ? <Link href={`/tu-vi/${giap.slug}/${prev}`}>‹ Năm {prev}</Link> : <span />}
-            {next ? <Link href={`/tu-vi/${giap.slug}/${next}`}>Năm {next} ›</Link> : <span />}
+            {prev ? <Link href={`/tu-vi/${giap.slug}/${prev}/`}>‹ Năm {prev}</Link> : <span />}
+            {next ? <Link href={`/tu-vi/${giap.slug}/${next}/`}>Năm {next} ›</Link> : <span />}
           </div>
 
           <h2 className="hh" style={{ marginTop: 32 }}>
@@ -186,7 +186,7 @@ export default async function TuViNamPage({ params }: { params: Promise<{ slug: 
           </h2>
           <div className="chips">
             {CON_GIAP_LIST.filter((c) => c.slug !== giap.slug).map((c) => (
-              <Link className="chip" href={`/tu-vi/${c.slug}/${year}`} key={c.slug}>
+              <Link className="chip" href={`/tu-vi/${c.slug}/${year}/`} key={c.slug}>
                 {c.ten}
               </Link>
             ))}

@@ -9,7 +9,10 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { type SolarDate, jdFromDate, jdToDate } from "@licham/core";
+import { jdFromDate, jdToDate } from "@licham/core";
+import { canIndexPage } from "../lib/calendar/policy";
+import { INDEX_RANGE } from "../lib/calendar/config";
+import { dayHref, monthHref, yearHref } from "../lib/calendar/urls";
 import { LE_LIST } from "../lib/le";
 import { SITE_URL } from "../lib/site";
 import { YEAR_END, YEAR_START } from "../lib/site-years";
@@ -23,20 +26,6 @@ import { nghiLeYears } from "../lib/lich-nghi-le";
 import { sinhNamYears } from "../lib/sinh-nam";
 import { VIEC_LIST } from "../lib/xem-ngay-tot";
 
-// Reimplemented here (not imported from lib/date-slug, lib/month-slug) because those
-// pull in "@/lib/format" via the Next.js "@/*" path alias, which the plain Node loader
-// used to run this build-time script cannot resolve.
-function pad2(n: number): string {
-  return String(n).padStart(2, "0");
-}
-
-function dateToSlug(d: SolarDate): string {
-  return `${pad2(d.day)}-${pad2(d.month)}-${d.year}`;
-}
-
-function monthToSlug(month: number, year: number): string {
-  return `lich-thang-${month}-${year}`;
-}
 
 const PUBLIC_DIR = join(dirname(fileURLToPath(import.meta.url)), "..", "public");
 const SITEMAPS_DIR = join(PUBLIC_DIR, "sitemaps");
@@ -138,19 +127,33 @@ function buildStaticEntries(): SitemapEntry[] {
   return entries;
 }
 
-function buildYearEntries(year: number): SitemapEntry[] {
+function buildMonthEntries(): SitemapEntry[] {
   const entries: SitemapEntry[] = [];
-
-  for (let month = 1; month <= 12; month++) {
-    entries.push({ url: `${SITE_URL}/${monthToSlug(month, year)}/`, changefreq: "monthly", priority: 0.7 });
+  for (let year = INDEX_RANGE.start; year <= INDEX_RANGE.end; year++) {
+    for (let month = 1; month <= 12; month++) {
+      if (canIndexPage({ kind: "month", month, year })) {
+        entries.push({ url: `${SITE_URL}${monthHref(month, year)}`, changefreq: "monthly", priority: 0.7 });
+      }
+    }
   }
+  return entries;
+}
 
-  const start = jdFromDate(1, 1, year);
-  const end = jdFromDate(31, 12, year);
-  for (let jd = start; jd <= end; jd++) {
-    entries.push({ url: `${SITE_URL}/ngay/${dateToSlug(jdToDate(jd))}/`, changefreq: "yearly", priority: 0.5 });
+function buildYearListEntries(): SitemapEntry[] {
+  const entries: SitemapEntry[] = [];
+  for (let year = INDEX_RANGE.start; year <= INDEX_RANGE.end; year++) {
+    if (canIndexPage({ kind: "year", year })) entries.push({ url: `${SITE_URL}${yearHref(year)}`, changefreq: "yearly", priority: 0.8 });
   }
+  return entries;
+}
 
+/** Mỗi năm một file, luôn dưới 50.000 URL và chỉ chứa URL canonical được phép index. */
+function buildDayEntries(year: number): SitemapEntry[] {
+  const entries: SitemapEntry[] = [];
+  for (let jd = jdFromDate(1, 1, year); jd <= jdFromDate(31, 12, year); jd++) {
+    const date = jdToDate(jd);
+    if (canIndexPage({ kind: "day", date })) entries.push({ url: `${SITE_URL}${dayHref(date)}`, changefreq: "yearly", priority: 0.5 });
+  }
   return entries;
 }
 
@@ -158,15 +161,15 @@ function main() {
   mkdirSync(SITEMAPS_DIR, { recursive: true });
 
   const files: string[] = [];
+  const write = (name: string, entries: SitemapEntry[]) => {
+    writeFileSync(join(SITEMAPS_DIR, name), renderUrlset(entries));
+    files.push(name);
+  };
 
-  writeFileSync(join(SITEMAPS_DIR, "static.xml"), renderUrlset(buildStaticEntries()));
-  files.push("static.xml");
-
-  for (let year = YEAR_START; year <= YEAR_END; year++) {
-    const fileName = `${year}.xml`;
-    writeFileSync(join(SITEMAPS_DIR, fileName), renderUrlset(buildYearEntries(year)));
-    files.push(fileName);
-  }
+  write("static.xml", buildStaticEntries());
+  write("months.xml", buildMonthEntries());
+  write("years.xml", buildYearListEntries());
+  for (let year = INDEX_RANGE.start; year <= INDEX_RANGE.end; year++) write(`days-${year}.xml`, buildDayEntries(year));
 
   writeFileSync(join(PUBLIC_DIR, "sitemap.xml"), renderSitemapIndex(files));
 

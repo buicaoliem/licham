@@ -25,7 +25,7 @@ export default function XemTuoiXayNhaPage() {
 
         <div className="tuoiband">
           <div className="crumb">
-            <Link href="/">Trang chủ</Link> › <Link href="/tuoi">Xem tuổi</Link> › Tuổi xây nhà {year}
+            <Link href="/">Trang chủ</Link> › <Link href="/tuoi/">Xem tuổi</Link> › Tuổi xây nhà {year}
           </div>
           <h1>Xem tuổi xây nhà: Kim Lâu, Hoang Ốc, Tam tai</h1>
           <p className="sub">
@@ -48,7 +48,7 @@ export default function XemTuoiXayNhaPage() {
               Kim Lâu: tuổi mụ chia 9, dư 1–3–6–8 thì phạm. Hoang Ốc: (tuổi mụ − 1) chia 6 lấy dư, vòng Nhất Cát → Lục Hoang
               Ốc — có bản đếm khác cho nam/nữ, trang này ghi rõ một vòng. Tam tai: bốn nhóm tam hợp, mỗi nhóm kỵ ba năm chi
               kế tiếp. Ngày động thổ cụ thể xem{" "}
-              <Link href="/xem-ngay-tot/dong-tho">ngày tốt động thổ</Link>.
+              <Link href="/xem-ngay-tot/dong-tho/">ngày tốt động thổ</Link>.
             </p>
           </div>
 
@@ -56,13 +56,13 @@ export default function XemTuoiXayNhaPage() {
             Có thể anh cần
           </h2>
           <div className="chips">
-            <Link className="chip" href="/xem-ngay-tot/dong-tho">
+            <Link className="chip" href="/xem-ngay-tot/dong-tho/">
               Ngày tốt động thổ
             </Link>
-            <Link className="chip" href="/xem-ngay-tot/cat-noc">
+            <Link className="chip" href="/xem-ngay-tot/cat-noc/">
               Ngày tốt cất nóc
             </Link>
-            <Link className="chip" href="/tinh-tuoi">
+            <Link className="chip" href="/tinh-tuoi/">
               Tính tuổi
             </Link>
           </div>

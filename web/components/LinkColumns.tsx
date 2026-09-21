@@ -5,10 +5,10 @@ import { vanKhanBySlug } from "@/lib/van-khan";
 const VAN_KHAN_SLUGS = ["mung-mot-ngay-ram", "gia-tien-ngay-gio", "than-tai-tho-dia", "ram-thang-tam"] as const;
 
 const TU_VI = [
-  { href: "/tu-vi", label: "Tử vi hôm nay 12 con giáp" },
-  { href: "/tinh-tuoi", label: "Tính tuổi dương và tuổi mụ" },
-  { href: "/ten", label: "Đặt tên con theo chữ Hán" },
-  { href: "/phong-thuy/xem-tuoi-xay-nha", label: "Xem tuổi làm nhà" },
+  { href: "/tu-vi/", label: "Tử vi hôm nay 12 con giáp" },
+  { href: "/tinh-tuoi/", label: "Tính tuổi dương và tuổi mụ" },
+  { href: "/ten/", label: "Đặt tên con theo chữ Hán" },
+  { href: "/phong-thuy/xem-tuoi-xay-nha/", label: "Xem tuổi làm nhà" },
 ] as const;
 
 export function LinkColumns({ upcomingOccasions }: { upcomingOccasions: UpcomingOccasion[] }) {
@@ -42,7 +42,7 @@ export function LinkColumns({ upcomingOccasions }: { upcomingOccasions: Upcoming
             if (!bai) return null;
             return (
               <li key={slug}>
-                <Link href={`/van-khan/${slug}`}>{bai.ten}</Link>
+                <Link href={`/van-khan/${slug}/`}>{bai.ten}</Link>
               </li>
             );
           })}

@@ -26,7 +26,7 @@ export default function XungTuoiPage() {
 
         <div className="tuoiband">
           <div className="crumb">
-            <Link href="/">Trang chủ</Link> › <Link href="/tuoi">Xem tuổi</Link> › Xung tuổi {year}
+            <Link href="/">Trang chủ</Link> › <Link href="/tuoi/">Xem tuổi</Link> › Xung tuổi {year}
           </div>
           <h1>Xem xung tuổi và hợp tuổi</h1>
           <p className="sub">
@@ -48,7 +48,7 @@ export default function XungTuoiPage() {
             <p>
               Kết quả chỉ nói hai năm can chi có đứng đối trong bảng xung hay không. Không chẩn bệnh, không kết luận hôn nhân,
               không schema y khoa. Muốn đủ ngày sinh (kể cả trước Tết) thì dùng{" "}
-              <Link href="/tinh-tuoi">tính tuổi</Link>.
+              <Link href="/tinh-tuoi/">tính tuổi</Link>.
             </p>
           </div>
 
@@ -56,13 +56,13 @@ export default function XungTuoiPage() {
             Có thể anh cần
           </h2>
           <div className="chips">
-            <Link className="chip" href="/xem-tuoi-ket-hon">
+            <Link className="chip" href="/xem-tuoi-ket-hon/">
               Xem tuổi kết hôn
             </Link>
-            <Link className="chip" href="/tinh-tuoi">
+            <Link className="chip" href="/tinh-tuoi/">
               Tính tuổi
             </Link>
-            <Link className="chip" href="/tuoi">
+            <Link className="chip" href="/tuoi/">
               12 con giáp
             </Link>
           </div>

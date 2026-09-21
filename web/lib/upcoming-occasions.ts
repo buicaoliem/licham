@@ -7,7 +7,7 @@ import {
   solarToLunar,
   vietnamDateOf,
 } from "@licham/core";
-import { dateToSlug } from "@/lib/date-slug";
+import { dayHref } from "@/lib/calendar/urls";
 import { pad2 } from "@/lib/format";
 
 export interface UpcomingOccasion {
@@ -17,13 +17,13 @@ export interface UpcomingOccasion {
 }
 
 const LUNAR_HOLIDAYS = [
-  { name: "Tết Nguyên đán", month: 1, day: 1, href: "/countdown/tet" },
-  { name: "Rằm tháng Giêng", month: 1, day: 15, href: "/le/ram-thang-gieng" },
-  { name: "Giỗ Tổ Hùng Vương", month: 3, day: 10, href: "/le/gio-to-hung-vuong" },
-  { name: "Tết Đoan ngọ", month: 5, day: 5, href: "/countdown/doan-ngo" },
-  { name: "Vu lan", month: 7, day: 15, href: "/countdown/vu-lan" },
-  { name: "Trung thu", month: 8, day: 15, href: "/countdown/trung-thu" },
-  { name: "Ông Công ông Táo", month: 12, day: 23, href: "/countdown/ong-tao" },
+  { name: "Tết Nguyên đán", month: 1, day: 1, href: "/countdown/tet/" },
+  { name: "Rằm tháng Giêng", month: 1, day: 15, href: "/le/ram-thang-gieng/" },
+  { name: "Giỗ Tổ Hùng Vương", month: 3, day: 10, href: "/le/gio-to-hung-vuong/" },
+  { name: "Tết Đoan ngọ", month: 5, day: 5, href: "/countdown/doan-ngo/" },
+  { name: "Vu lan", month: 7, day: 15, href: "/countdown/vu-lan/" },
+  { name: "Trung thu", month: 8, day: 15, href: "/countdown/trung-thu/" },
+  { name: "Ông Công ông Táo", month: 12, day: 23, href: "/countdown/ong-tao/" },
 ] as const;
 
 /** "dd/mm" — nhãn cột ngày quan trọng sắp tới. */
@@ -67,20 +67,20 @@ export function getUpcomingOccasions(today: SolarDate): UpcomingOccasion[] {
     occasions.push({
       label: "Mùng một âm lịch",
       solar: nextMungMot,
-      href: `/ngay/${dateToSlug(nextMungMot)}`,
+      href: dayHref(nextMungMot),
     });
   }
   if (nextRam) {
     occasions.push({
       label: "Ngày rằm",
       solar: nextRam,
-      href: `/ngay/${dateToSlug(nextRam)}`,
+      href: dayHref(nextRam),
     });
   }
   occasions.push({
     label: nextTermName,
     solar: nextTermSolar,
-    href: `/ngay/${dateToSlug(nextTermSolar)}`,
+    href: dayHref(nextTermSolar),
   });
   if (nextHoliday) {
     occasions.push({ label: nextHoliday.name, solar: nextHoliday.solar, href: nextHoliday.href });

@@ -44,25 +44,25 @@ export default function LeHubPage() {
 
         <div className="body">
           <div className="chips" style={{ marginBottom: 22, justifyContent: "center" }}>
-            <Link className="chip hot" href="/countdown/tet">
+            <Link className="chip hot" href="/countdown/tet/">
               Đếm ngược Tết
             </Link>
-            <Link className="chip" href="/countdown/vu-lan">
+            <Link className="chip" href="/countdown/vu-lan/">
               Vu Lan
             </Link>
-            <Link className="chip" href="/countdown/trung-thu">
+            <Link className="chip" href="/countdown/trung-thu/">
               Trung thu
             </Link>
-            <Link className="chip" href="/countdown/doan-ngo">
+            <Link className="chip" href="/countdown/doan-ngo/">
               Đoan ngọ
             </Link>
-            <Link className="chip" href="/countdown/ong-tao">
+            <Link className="chip" href="/countdown/ong-tao/">
               Ông Táo
             </Link>
-            <Link className="chip" href="/countdown/giao-thua">
+            <Link className="chip" href="/countdown/giao-thua/">
               Giao thừa
             </Link>
-            <Link className="chip" href={`/lich-nghi-le/${today.year}`}>
+            <Link className="chip" href={`/lich-nghi-le/${today.year}/`}>
               Lịch nghỉ lễ {today.year}
             </Link>
           </div>
@@ -70,7 +70,7 @@ export default function LeHubPage() {
             <h2 style={{ textAlign: "center" }}>Sắp tới</h2>
             <div className="chips">
               {sapToi.map(({ page, next }) => (
-                <Link className="chip lehub-chip" href={`/le/${page.slug}`} key={page.slug}>
+                <Link className="chip lehub-chip" href={`/le/${page.slug}/`} key={page.slug}>
                   {page.ten}
                   <small>
                     {pad2(next.solar.day)}/{pad2(next.solar.month)}
@@ -88,7 +88,7 @@ export default function LeHubPage() {
                 <h2 style={{ textAlign: "center" }}>{LE_NHOM_LABEL[nhom]}</h2>
                 <div className="chips">
                   {items.map(({ page, next }) => (
-                    <Link className="chip lehub-chip" href={`/le/${page.slug}`} key={page.slug}>
+                    <Link className="chip lehub-chip" href={`/le/${page.slug}/`} key={page.slug}>
                       {page.ten}
                       <small>
                         {pad2(next.solar.day)}/{pad2(next.solar.month)}

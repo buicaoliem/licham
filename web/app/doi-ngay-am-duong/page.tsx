@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getDayInfo } from "@licham/core";
 import { DoiNgayConverter } from "@/components/DoiNgayConverter";
 import { DoiNgayTools } from "@/components/DoiNgayTools";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
-import { dateToSlug } from "@/lib/date-slug";
+import { dayHref } from "@/lib/calendar/urls";
 import { getVietnamToday } from "@/lib/today";
 
 export function generateMetadata(): Metadata {
@@ -20,7 +19,6 @@ export function generateMetadata(): Metadata {
 
 export default function DoiNgayPage() {
   const today = getVietnamToday();
-  const info = getDayInfo(today);
 
   return (
     <div className="outer">
@@ -83,13 +81,13 @@ export default function DoiNgayPage() {
             Có thể anh cần
           </h2>
           <div className="chips">
-            <Link className="chip" href="/tinh-tuoi">
+            <Link className="chip" href="/tinh-tuoi/">
               Tính tuổi dương và tuổi mụ
             </Link>
-            <Link className="chip" href="/xem-ngay-tot">
+            <Link className="chip" href="/xem-ngay-tot/">
               Xem ngày tốt
             </Link>
-            <Link className="chip" href={`/ngay/${dateToSlug(today)}`}>
+            <Link className="chip" href={dayHref(today)}>
               Lịch hôm nay
             </Link>
           </div>

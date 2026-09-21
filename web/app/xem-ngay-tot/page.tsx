@@ -37,7 +37,7 @@ export default function XemNgayTotHubPage() {
         <div className="body">
           <div className="chips">
             {VIEC_LIST.map((v) => (
-              <Link className="chip" href={`/xem-ngay-tot/${v.slug}`} key={v.slug}>
+              <Link className="chip" href={`/xem-ngay-tot/${v.slug}/`} key={v.slug}>
                 Ngày tốt {v.label}
               </Link>
             ))}
@@ -52,7 +52,7 @@ export default function XemNgayTotHubPage() {
             {VIEC_LIST.map((v) => (
               <div className="row" key={v.slug}>
                 <span>
-                  <Link href={`/xem-ngay-tot/${v.slug}`}>{v.label}</Link>
+                  <Link href={`/xem-ngay-tot/${v.slug}/`}>{v.label}</Link>
                 </span>
                 <span>{v.tagline}</span>
               </div>
@@ -65,13 +65,13 @@ export default function XemNgayTotHubPage() {
             Có thể anh cần
           </h2>
           <div className="chips">
-            <Link className="chip" href="/tinh-tuoi">
+            <Link className="chip" href="/tinh-tuoi/">
               Tính tuổi
             </Link>
-            <Link className="chip" href="/van-khan">
+            <Link className="chip" href="/van-khan/">
               Văn khấn
             </Link>
-            <Link className="chip" href="/countdown/tet">
+            <Link className="chip" href="/countdown/tet/">
               Đếm ngược Tết
             </Link>
           </div>

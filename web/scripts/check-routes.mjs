@@ -1,78 +1,49 @@
 #!/usr/bin/env node
-import { existsSync, readdirSync, statSync } from "node:fs";
+// Kiểm tra sau build: Next không còn "output: export", nên đọc thư mục app đã prerender trong .next/server/app.
+import { existsSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 
-const OUT_DIR = join(import.meta.dirname, "..", "out");
-
-function countHtmlFiles(dir) {
-  let count = 0;
-  for (const entry of readdirSync(dir)) {
-    const full = join(dir, entry);
-    if (statSync(full).isDirectory()) {
-      count += countHtmlFiles(full);
-    } else if (entry.endsWith(".html")) {
-      count += 1;
-    }
-  }
-  return count;
-}
-
-function countMatchingPages(dir, pattern) {
-  if (!existsSync(dir)) return 0;
-  return readdirSync(dir).filter((entry) => pattern.test(entry)).length;
-}
-
+const APP_DIR = join(import.meta.dirname, "..", ".next", "server", "app");
 const errors = [];
 
-if (!existsSync(OUT_DIR)) {
-  console.error(`Thiếu thư mục xuất: ${OUT_DIR}. Hãy chạy "pnpm build" trước.`);
+if (!existsSync(APP_DIR)) {
+  console.error(`Thiếu thư mục dựng: ${APP_DIR}. Hãy chạy "pnpm build" trước.`);
   process.exit(1);
 }
 
-const totalHtml = countHtmlFiles(OUT_DIR);
-console.log(`Tổng số file html: ${totalHtml}`);
-
-const indexPath = join(OUT_DIR, "index.html");
-if (!existsSync(indexPath)) {
-  errors.push("Thiếu out/index.html (trang chủ)");
-} else {
-  console.log("Có out/index.html");
+function count(dir, pattern) {
+  if (!existsSync(dir)) return 0;
+  return readdirSync(dir).filter((f) => pattern.test(f)).length;
 }
 
-const dayPageCount = countMatchingPages(join(OUT_DIR, "ngay"), /^\d{2}-\d{2}-\d{4}(\.html)?$/);
-console.log(`Số trang ngày: ${dayPageCount}`);
-if (dayPageCount < 365) {
-  errors.push(`Thiếu trang ngày: chỉ có ${dayPageCount}, cần ít nhất 365`);
-}
+const days = count(join(APP_DIR, "ngay"), /^\d{4}-\d{2}-\d{2}\.html$/);
+const months = count(join(APP_DIR, "thang"), /^\d{4}-\d{2}\.html$/);
+const years = count(join(APP_DIR, "nam"), /^\d{4}\.html$/);
+console.log(`Trang ngày dựng sẵn: ${days}, tháng: ${months}, năm: ${years}`);
+if (days < 365) errors.push(`Thiếu trang ngày dựng sẵn: chỉ có ${days}, cần ít nhất 365`);
+if (months < 12) errors.push(`Thiếu trang tháng dựng sẵn: chỉ có ${months}, cần ít nhất 12`);
+if (years < 1) errors.push("Thiếu trang năm dựng sẵn");
 
-const monthPageCount = countMatchingPages(OUT_DIR, /^lich-thang-\d{1,2}-\d{4}(\.html)?$/);
-console.log(`Số trang tháng: ${monthPageCount}`);
-if (monthPageCount < 12) {
-  errors.push(`Thiếu trang tháng: chỉ có ${monthPageCount}, cần ít nhất 12`);
-}
-
-const requiredStatic = [
-  "tinh-tuoi/index.html",
-  "xem-ngay-tot/index.html",
-  "ten/index.html",
-  "ten/minh/index.html",
-  "tu-vi/ty/2026/index.html",
-  "countdown/tet/index.html",
-  "countdown/giao-thua/index.html",
-  "sinh-nam/1940/index.html",
-  "sinh-nam/2018/index.html",
-  "phong-thuy/xung-tuoi/index.html",
-  "phong-thuy/xem-tuoi-xay-nha/index.html",
-  "sinh-nam/1990/index.html",
-];
-for (const rel of requiredStatic) {
-  if (!existsSync(join(OUT_DIR, rel))) errors.push(`Thiếu ${rel}`);
+for (const rel of [
+  "index.html",
+  "tinh-tuoi.html",
+  "xem-ngay-tot.html",
+  "ten.html",
+  "ten/minh.html",
+  "tu-vi/ty/2026.html",
+  "countdown/tet.html",
+  "countdown/giao-thua.html",
+  "sinh-nam/1940.html",
+  "sinh-nam/1990.html",
+  "phong-thuy/xung-tuoi.html",
+  "phong-thuy/xem-tuoi-xay-nha.html",
+]) {
+  if (!existsSync(join(APP_DIR, rel))) errors.push(`Thiếu ${rel}`);
 }
 
 if (errors.length > 0) {
   console.error("\nKiểm tra thất bại:");
-  for (const err of errors) console.error(`- ${err}`);
+  for (const e of errors) console.error(`- ${e}`);
   process.exit(1);
 }
-
-console.log("\nKiểm tra thành công: đủ trang chủ, trang ngày và trang tháng.");
+console.log("\nKiểm tra thành công.");

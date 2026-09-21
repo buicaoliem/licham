@@ -11,7 +11,7 @@ export function OccasionChips() {
       </h2>
       <div className="chips">
         {VIEC_LIST.map((v) => (
-          <Link key={v.slug} href={`/xem-ngay-tot/${v.slug}`} className={HOT_SLUGS.has(v.slug) ? "chip hot" : "chip"}>
+          <Link key={v.slug} href={`/xem-ngay-tot/${v.slug}/`} className={HOT_SLUGS.has(v.slug) ? "chip hot" : "chip"}>
             Xem ngày {v.label}
           </Link>
         ))}

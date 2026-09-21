@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { monthToSlug } from "@/lib/month-slug";
+import { monthHref } from "@/lib/calendar/urls";
 import { getVietnamToday } from "@/lib/today";
 
 const MENU = ["Hôm nay", "Lịch tháng", "Xem ngày tốt", "Văn khấn", "Tử vi", "Đổi ngày", "Ngày lễ", "Xem tuổi"] as const;
@@ -13,7 +13,7 @@ function menuHref(item: (typeof MENU)[number]): string {
       return "/";
     case "Lịch tháng": {
       const today = getVietnamToday();
-      return `/${monthToSlug(today.month, today.year)}`;
+      return monthHref(today.month, today.year);
     }
     case "Xem ngày tốt":
       return "/xem-ngay-tot";

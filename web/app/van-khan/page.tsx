@@ -35,16 +35,16 @@ export default function VanKhanIndexPage() {
 
         <div className="body">
           <div className="chips" style={{ marginBottom: 18, justifyContent: "center" }}>
-            <Link className="chip" href="/xem-ngay-tot">
+            <Link className="chip" href="/xem-ngay-tot/">
               Xem ngày tốt
             </Link>
-            <Link className="chip" href="/van-khan/mung-mot-ngay-ram">
+            <Link className="chip" href="/van-khan/mung-mot-ngay-ram/">
               Mùng một, rằm
             </Link>
-            <Link className="chip" href="/van-khan/dong-tho">
+            <Link className="chip" href="/van-khan/dong-tho/">
               Khấn động thổ
             </Link>
-            <Link className="chip" href="/countdown/tet">
+            <Link className="chip" href="/countdown/tet/">
               Đếm ngược Tết
             </Link>
           </div>

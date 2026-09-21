@@ -55,13 +55,13 @@ export function TinhTuoiForm() {
           <div className="diresrow">
             <span>Can chi năm sinh</span>
             <span>
-              <Link href={`/tuoi/${canChiSlug(value.canChi)}`}>{value.canChi.name}</Link>
+              <Link href={`/tuoi/${canChiSlug(value.canChi)}/`}>{value.canChi.name}</Link>
             </span>
           </div>
           <div className="diresrow">
             <span>Con giáp</span>
             <span>
-              <Link href={`/tuoi/${chiByIndex(value.canChi.chiIndex).slug}`}>
+              <Link href={`/tuoi/${chiByIndex(value.canChi.chiIndex).slug}/`}>
                 {value.canChi.chi} ({value.conGiap})
               </Link>
             </span>

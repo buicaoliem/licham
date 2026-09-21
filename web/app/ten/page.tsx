@@ -77,7 +77,7 @@ export default function TenHubPage() {
                 </div>
                 <div className="chips">
                   {items.map((t) => (
-                    <Link className="chip" href={`/ten/${t.slug}`} key={t.slug}>
+                    <Link className="chip" href={`/ten/${t.slug}/`} key={t.slug}>
                       {t.ten}
                     </Link>
                   ))}

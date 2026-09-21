@@ -129,15 +129,15 @@ export default async function TuViConGiapPage({ params }: { params: Promise<{ sl
             Tử vi tuổi {cg.ten} theo năm
           </h2>
           <div className="chips">
-            <Link className="chip hot" href={`/tu-vi/${cg.slug}/${today.year}`}>
+            <Link className="chip hot" href={`/tu-vi/${cg.slug}/${today.year}/`}>
               Năm {today.year}
             </Link>
             {today.year + 1 <= YEAR_END && (
-              <Link className="chip" href={`/tu-vi/${cg.slug}/${today.year + 1}`}>
+              <Link className="chip" href={`/tu-vi/${cg.slug}/${today.year + 1}/`}>
                 Năm {today.year + 1}
               </Link>
             )}
-            <Link className="chip" href={`/tuoi/${cg.slug}`}>
+            <Link className="chip" href={`/tuoi/${cg.slug}/`}>
               Tuổi {cg.ten}
             </Link>
           </div>

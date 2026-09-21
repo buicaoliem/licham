@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { dateToSlug } from "@/lib/date-slug";
+import { dayHref } from "@/lib/calendar/urls";
 import { pad2 } from "@/lib/format";
 import type { MonthDayRef, MonthSummary } from "@/lib/month-summary";
 
 function DayRow({ d }: { d: MonthDayRef }) {
   return (
-    <Link href={`/ngay/${dateToSlug(d)}`} className="row daylink">
+    <Link href={dayHref(d)} className="row daylink">
       <span>
         {pad2(d.day)}/{pad2(d.month)} · Âm {d.lunarDay}/{d.lunarMonth}
       </span>
@@ -14,7 +14,7 @@ function DayRow({ d }: { d: MonthDayRef }) {
   );
 }
 
-export function MonthSummaryCards({ month, year, summary }: { month: number; year: number; summary: MonthSummary }) {
+export function MonthSummaryCards({ month, summary }: { month: number; year: number; summary: MonthSummary }) {
   const { totalDays, goodDaysCount, avoidDaysCount, goodDays, avoidDays, mungMotOrRamDays } = summary;
 
   return (

@@ -90,7 +90,7 @@ function ChiPage({ chi }: { chi: ChiInfo }) {
 
         <div className="tuoiband">
           <div className="crumb">
-            <Link href="/tuoi">Xem tuổi</Link> › Tuổi {chi.ten}
+            <Link href="/tuoi/">Xem tuổi</Link> › Tuổi {chi.ten}
           </div>
           <span className="tuoibadge">Con giáp thứ {chi.chiIndex + 1}</span>
           <h1>Tuổi {chi.ten}: hợp tuổi nào, kỵ tuổi nào?</h1>
@@ -137,10 +137,10 @@ function ChiPage({ chi }: { chi: ChiInfo }) {
                   return (
                     <tr key={y} className={i === years.length - 1 ? "now" : undefined}>
                       <td data-k="Năm sinh">
-                        {y >= SINH_NAM_MIN && y <= SINH_NAM_MAX ? <Link href={`/sinh-nam/${y}`}>{y}</Link> : y}
+                        {y >= SINH_NAM_MIN && y <= SINH_NAM_MAX ? <Link href={`/sinh-nam/${y}/`}>{y}</Link> : y}
                       </td>
                       <td data-k="Can chi">
-                        <Link href={`/tuoi/${canChiSlug(cc)}`}>{cc.name}</Link>
+                        <Link href={`/tuoi/${canChiSlug(cc)}/`}>{cc.name}</Link>
                       </td>
                       <td data-k="Mệnh">{cc.napAm.name}</td>
                       <td data-k="Tuổi">{soTuoi(y, today.year)}</td>
@@ -205,7 +205,7 @@ function ChiPage({ chi }: { chi: ChiInfo }) {
             </div>
             <div className="tuoi-grid5">
               {nhomCanChi.map((cc) => (
-                <Link className="tuoi-gc" href={`/tuoi/${canChiSlug(cc)}`} key={cc.name}>
+                <Link className="tuoi-gc" href={`/tuoi/${canChiSlug(cc)}/`} key={cc.name}>
                   <b>{cc.name}</b>
                   <span>{birthYearsForCanChi(cc.index, today.year).join(" · ")}</span>
                 </Link>
@@ -221,14 +221,14 @@ function ChiPage({ chi }: { chi: ChiInfo }) {
             </div>
             <div className="chips">
               {otherChi.map((c) => (
-                <Link className="chip" href={`/tuoi/${c.slug}`} key={c.slug}>
+                <Link className="chip" href={`/tuoi/${c.slug}/`} key={c.slug}>
                   {c.ten}
                 </Link>
               ))}
-              <Link className="chip" href={`/tu-vi/${chi.slug}/${today.year}`}>
+              <Link className="chip" href={`/tu-vi/${chi.slug}/${today.year}/`}>
                 Tử vi tuổi {chi.ten} năm {today.year}
               </Link>
-              <Link className="chip" href="/ten">
+              <Link className="chip" href="/ten/">
                 Đặt tên
               </Link>
             </div>
@@ -294,12 +294,12 @@ function CanChiPage({ slug }: { slug: string }) {
       <div className="site">
         <Header activeMenu="Xem tuổi" />
 
-        {/* eslint-disable-next-line react/no-danger */}
+        { }
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
         <div className="tuoiband kim">
           <div className="crumb">
-            <Link href="/tuoi">Xem tuổi</Link> › <Link href={`/tuoi/${chi.slug}`}>Tuổi {chi.ten}</Link> › {canChi.name}
+            <Link href="/tuoi/">Xem tuổi</Link> › <Link href={`/tuoi/${chi.slug}/`}>Tuổi {chi.ten}</Link> › {canChi.name}
           </div>
           <span className="tuoibadge">
             Sinh năm {prevYear} · {recentYear} · {nextCycleYear}
@@ -456,19 +456,19 @@ function CanChiPage({ slug }: { slug: string }) {
             </div>
             <div className="chips">
               {siblings.map((cc) => (
-                <Link className="chip" href={`/tuoi/${canChiSlug(cc)}`} key={cc.name}>
+                <Link className="chip" href={`/tuoi/${canChiSlug(cc)}/`} key={cc.name}>
                   {cc.name}
                 </Link>
               ))}
-              <Link className="chip" href="/tuoi" style={{ fontWeight: 600 }}>
+              <Link className="chip" href="/tuoi/" style={{ fontWeight: 600 }}>
                 Xem tất cả 60 tuổi ›
               </Link>
               {recentYear >= SINH_NAM_MIN && recentYear <= SINH_NAM_MAX && (
-                <Link className="chip" href={`/sinh-nam/${recentYear}`}>
+                <Link className="chip" href={`/sinh-nam/${recentYear}/`}>
                   Sinh năm {recentYear}
                 </Link>
               )}
-              <Link className="chip" href={`/tu-vi/${chi.slug}/${today.year}`}>
+              <Link className="chip" href={`/tu-vi/${chi.slug}/${today.year}/`}>
                 Tử vi tuổi {chi.ten} năm {today.year}
               </Link>
             </div>

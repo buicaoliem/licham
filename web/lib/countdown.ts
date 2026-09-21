@@ -66,7 +66,7 @@ export const COUNTDOWN_LIST: readonly CountdownDef[] = [
     h1: "Đếm ngược giao thừa",
     titleYear: (y) => `Còn bao nhiêu ngày nữa đến giao thừa ${y}? — Lịch Âm`,
     description: (y) => `Đếm ngược giao thừa Tết ${y}: đêm cuối năm âm, ngày dương và số ngày còn lại.`,
-    intro: (y) =>
+    intro: () =>
       `Giao thừa không phải lúc nào cũng “30 Tết”: tháng Chạp có năm 29 ngày, có năm 30. Trang này lấy đúng ngày cuối tháng 12 âm.`,
   },
 ];

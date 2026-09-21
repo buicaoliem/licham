@@ -119,7 +119,7 @@ function TinhTuoi() {
         cũ không còn cộng tuổi mụ = tuổi dương + 1.
       </p>
       <p style={{ textAlign: "center", margin: 0 }}>
-        <Link href="/tinh-tuoi">Mở tính tuổi dương và tuổi mụ</Link>
+        <Link href="/tinh-tuoi/">Mở tính tuổi dương và tuổi mụ</Link>
       </p>
     </div>
   );

@@ -690,7 +690,7 @@ const DOT_3: LePage[] = [
     moTa: "Ngày 2/9/1945 — Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập, khai sinh nước Việt Nam Dân chủ Cộng hòa.",
     yNghia: ["Tại Quảng trường Ba Đình, Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập. Ngày 2/9 cũng là ngày Người mất năm 1969."],
     bullets: ["Treo cờ Tổ quốc", "Lễ chào cờ, lễ kỷ niệm, bắn pháo hoa", "Viếng Lăng Chủ tịch Hồ Chí Minh"],
-    lienKet: [{ label: "Ngày sinh Chủ tịch Hồ Chí Minh", href: "/le/ngay-sinh-bac-ho" }],
+    lienKet: [{ label: "Ngày sinh Chủ tịch Hồ Chí Minh", href: "/le/ngay-sinh-bac-ho/" }],
   },
   {
     slug: "ngay-van-hoa-viet-nam",
@@ -794,7 +794,7 @@ const DOT_3: LePage[] = [
       "Chiến thắng Điện Biên Phủ \"lừng lẫy năm châu, chấn động địa cầu\" buộc thực dân Pháp ký Hiệp định Genève, kết thúc cuộc kháng chiến chống Pháp.",
     ],
     bullets: ["Lễ kỷ niệm tại Điện Biên và cả nước", "Thăm các di tích chiến trường"],
-    lienKet: [{ label: "Ngày sinh Đại tướng Võ Nguyên Giáp", href: "/le/ngay-sinh-dai-tuong-vo-nguyen-giap" }],
+    lienKet: [{ label: "Ngày sinh Đại tướng Võ Nguyên Giáp", href: "/le/ngay-sinh-dai-tuong-vo-nguyen-giap/" }],
   },
   {
     slug: "quoc-te-thieu-nhi",
@@ -865,7 +865,7 @@ const DOT_3: LePage[] = [
       "Thắng lợi ở Hà Nội ngày 19/8/1945 tạo đà cho tổng khởi nghĩa trên cả nước, dẫn tới ngày 2/9 khai sinh nước Việt Nam Dân chủ Cộng hòa.",
     ],
     bullets: ["Lễ kỷ niệm, treo cờ", "Ngày truyền thống của lực lượng Công an nhân dân"],
-    lienKet: [{ label: "Quốc khánh 2/9", href: "/le/quoc-khanh" }],
+    lienKet: [{ label: "Quốc khánh 2/9", href: "/le/quoc-khanh/" }],
   },
   {
     slug: "giai-phong-thu-do",
@@ -937,7 +937,7 @@ const DOT_3: LePage[] = [
       "Đội Việt Nam Tuyên truyền Giải phóng quân do Võ Nguyên Giáp chỉ huy được thành lập ngày 22/12/1944. Ngày này cũng là Ngày hội Quốc phòng toàn dân.",
     ],
     bullets: ["Thăm hỏi, chúc mừng bộ đội, cựu chiến binh", "Lễ kỷ niệm tại các đơn vị"],
-    lienKet: [{ label: "Ngày sinh Đại tướng Võ Nguyên Giáp", href: "/le/ngay-sinh-dai-tuong-vo-nguyen-giap" }],
+    lienKet: [{ label: "Ngày sinh Đại tướng Võ Nguyên Giáp", href: "/le/ngay-sinh-dai-tuong-vo-nguyen-giap/" }],
   },
   {
     slug: "valentine",
