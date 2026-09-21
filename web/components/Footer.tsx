@@ -25,6 +25,7 @@ export function Footer() {
         <Link href="/gioi-thieu/">Giới thiệu</Link>
         <Link href="/lien-he/">Liên hệ</Link>
         <Link href="/le/">Ngày lễ</Link>
+        <Link href="/cong-cu/">Công cụ ngày tháng</Link>
         <Link href="/tinh-tuoi/">Tính tuổi</Link>
         <Link href="/countdown/tet/">Đếm ngược Tết</Link>
         <Link href="/tuoi/">Xem tuổi</Link>

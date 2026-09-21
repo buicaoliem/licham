@@ -14,6 +14,7 @@ import { canIndexPage } from "../lib/calendar/policy";
 import { INDEX_RANGE } from "../lib/calendar/config";
 import { dayHref, monthHref, yearHref } from "../lib/calendar/urls";
 import { LE_LIST } from "../lib/le";
+import { TOOLS, TOOLS_HUB } from "../lib/tools/tools";
 import { SITE_URL } from "../lib/site";
 import { YEAR_END, YEAR_START } from "../lib/site-years";
 import { CON_GIAP_LIST } from "../lib/tu-vi";
@@ -67,6 +68,11 @@ function buildStaticEntries(): SitemapEntry[] {
   entries.push({ url: `${SITE_URL}/lien-he/`, changefreq: "yearly", priority: 0.4 });
   entries.push({ url: `${SITE_URL}/dieu-khoan/`, changefreq: "yearly", priority: 0.3 });
   entries.push({ url: `${SITE_URL}/chinh-sach-bao-mat/`, changefreq: "yearly", priority: 0.3 });
+
+  entries.push({ url: `${SITE_URL}${TOOLS_HUB.href}`, changefreq: "monthly", priority: 0.8 });
+  for (const t of TOOLS) {
+    entries.push({ url: `${SITE_URL}${t.href}`, changefreq: "monthly", priority: 0.7 });
+  }
 
   entries.push({ url: `${SITE_URL}/xem-ngay-tot/`, changefreq: "monthly", priority: 0.8 });
   for (const v of VIEC_LIST) {
