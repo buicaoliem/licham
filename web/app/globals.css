@@ -2044,3 +2044,10 @@ table.tuoitable tr.now td {
 .lehub-up a span { grid-column: 1; font-size: 13px; color: var(--ink-3); }
 .lehub-up a em { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-style: normal; font-weight: 600; white-space: nowrap; }
 .srcnote { margin: 14px 0 0; text-align: center; font-size: 12.5px; color: var(--ink-3); }
+
+/* Nhãn nguồn nội dung, trang kiến thức */
+.srctag { display: inline-block; margin-left: 8px; padding: 1px 8px; border: 1px solid var(--rule, #d9cfc0); border-radius: 999px; font-size: 11.5px; font-weight: 500; color: var(--ink-3); vertical-align: middle; white-space: nowrap; }
+.kt-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.kt-list a { display: block; padding: 12px 14px; min-height: 44px; border: 1px solid var(--rule, #d9cfc0); border-radius: 8px; text-decoration: none; color: inherit; }
+.kt-list a b { display: block; }
+.kt-list a span { font-size: 13.5px; color: var(--ink-3); }
