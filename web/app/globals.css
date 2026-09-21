@@ -2051,3 +2051,15 @@ table.tuoitable tr.now td {
 .kt-list a { display: block; padding: 12px 14px; min-height: 44px; border: 1px solid var(--rule, #d9cfc0); border-radius: 8px; text-decoration: none; color: inherit; }
 .kt-list a b { display: block; }
 .kt-list a span { font-size: 13.5px; color: var(--ink-3); }
+
+/* Vùng chạm tối thiểu ~44px trên thiết bị cảm ứng cho liên kết dạng chữ */
+@media (pointer: coarse) {
+  .footlinks a,
+  .lst li a,
+  table.letable td a {
+    display: inline-block;
+    padding: 11px 6px;
+    min-height: 44px;
+    box-sizing: border-box;
+  }
+}

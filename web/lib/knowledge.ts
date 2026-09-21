@@ -113,7 +113,7 @@ export const KNOWLEDGE: readonly KnowledgeArticle[] = [
     ],
     related: ["ngu-hanh", "am-lich-la-gi", "gio-hoang-dao"],
     links: [
-      { label: "Tra tuổi và can chi năm sinh", href: "/sinh-nam/" },
+      { label: "Tính tuổi theo năm sinh", href: "/tinh-tuoi/" },
       { label: "Xem ngày hôm nay", href: "/hom-nay/" },
     ],
   },
