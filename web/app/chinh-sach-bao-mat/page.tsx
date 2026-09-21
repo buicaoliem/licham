@@ -47,7 +47,7 @@ export default function ChinhSachBaoMatPage() {
             </ul>
 
             <p style={{ marginTop: 18 }}>
-              Nếu có thắc mắc về dữ liệu, vui lòng liên hệ <a href="mailto:lienhe@licham.app">lienhe@licham.app</a>.
+              Nếu có thắc mắc về dữ liệu, vui lòng liên hệ <a href="mailto:lienhe@licham.app">Lienhe@licham.app</a>.
             </p>
 
             <p style={{ fontSize: 12, color: "var(--ink-3)", marginTop: 24, textAlign: "center" }}>

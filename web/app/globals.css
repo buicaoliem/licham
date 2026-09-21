@@ -68,36 +68,41 @@ a:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 26px 0;
+  padding: 20px 26px 0;
 }
 .logo {
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 10px;
   font-weight: 600;
-  font-size: 21px;
+  font-size: 32px;
   letter-spacing: -0.01em;
   text-decoration: none;
   cursor: pointer;
   transition: opacity 0.15s ease;
 }
 .logo,
-.logo * {
+.logo *,
+.foot-brand,
+.foot-brand * {
   text-decoration: none;
 }
 .logo:hover,
-.logo:focus-visible {
+.logo:focus-visible,
+.foot-brand:hover,
+.foot-brand:focus-visible {
   opacity: 0.82;
   text-decoration: none;
 }
-.logo:focus-visible {
+.logo:focus-visible,
+.foot-brand:focus-visible {
   outline: 2px solid var(--son);
   outline-offset: 3px;
 }
 .logo .mk {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
+  width: 60px;
+  height: 60px;
+  border-radius: 15px;
   flex-shrink: 0;
 }
 .logo-ink {
@@ -181,6 +186,13 @@ a:focus-visible {
   }
   .navlinks {
     display: none;
+  }
+}
+
+@media (max-width: 479px) {
+  .logo .mk {
+    width: 48px;
+    height: 48px;
   }
   .nav:has(.navmenu[open]) .navpanel {
     display: block;
@@ -819,15 +831,16 @@ a:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 12px;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 23px;
   margin-bottom: 10px;
+  transition: opacity 0.15s ease;
 }
 .foot-brand .mk {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
+  width: 60px;
+  height: 60px;
+  border-radius: 15px;
   flex-shrink: 0;
 }
 .footlinks {

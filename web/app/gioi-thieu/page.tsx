@@ -26,7 +26,7 @@ export default function GioiThieuPage() {
         <div className="body">
           <div className="prose">
             <p>
-              licham.app là trang lịch âm dương miễn phí, không quảng cáo và không yêu cầu đăng ký tài khoản. Chúng tôi
+              Licham.app là trang lịch âm dương miễn phí, không quảng cáo và không yêu cầu đăng ký tài khoản. Chúng tôi
               muốn tra cứu lịch âm, lịch dương và các thông tin liên quan trở nên nhanh, gọn và dễ dùng cho bất kỳ ai.
             </p>
             <p>
