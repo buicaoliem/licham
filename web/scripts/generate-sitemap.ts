@@ -26,6 +26,7 @@ import { TEN_LIST } from "../lib/ten";
 import { nghiLeYears } from "../lib/lich-nghi-le";
 import { sinhNamYears } from "../lib/sinh-nam";
 import { VIEC_LIST } from "../lib/xem-ngay-tot";
+import { KNOWLEDGE } from "../lib/knowledge";
 
 
 const PUBLIC_DIR = join(dirname(fileURLToPath(import.meta.url)), "..", "public");
@@ -63,6 +64,13 @@ function renderSitemapIndex(files: string[]): string {
 function buildStaticEntries(): SitemapEntry[] {
   const entries: SitemapEntry[] = [];
   entries.push({ url: `${SITE_URL}/`, changefreq: "daily", priority: 1 });
+  entries.push({ url: `${SITE_URL}/hom-nay/`, changefreq: "daily", priority: 0.9 });
+  entries.push({ url: `${SITE_URL}/ngay-mai/`, changefreq: "daily", priority: 0.8 });
+  entries.push({ url: `${SITE_URL}/phuong-phap-tinh-lich/`, changefreq: "yearly", priority: 0.5 });
+  entries.push({ url: `${SITE_URL}/kien-thuc/`, changefreq: "monthly", priority: 0.7 });
+  for (const k of KNOWLEDGE) {
+    entries.push({ url: `${SITE_URL}/kien-thuc/${k.slug}/`, changefreq: "yearly", priority: 0.6 });
+  }
   entries.push({ url: `${SITE_URL}/doi-ngay-am-duong/`, changefreq: "yearly", priority: 0.6 });
   entries.push({ url: `${SITE_URL}/gioi-thieu/`, changefreq: "yearly", priority: 0.4 });
   entries.push({ url: `${SITE_URL}/lien-he/`, changefreq: "yearly", priority: 0.4 });

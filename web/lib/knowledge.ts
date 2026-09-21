@@ -376,7 +376,7 @@ export function knowledgeBySlug(slug: string): KnowledgeArticle | undefined {
 export const knowledgeHref = (slug: string) => `/kien-thuc/${slug}/`;
 
 /** Liên kết kiến thức có thứ tự cố định theo danh sách slug (bỏ slug không tồn tại). */
-export function getRelatedKnowledgeLinks(slugs: readonly string[]): RelatedLink[] {
+export function knowledgeLinks(slugs: readonly string[]): RelatedLink[] {
   return slugs.flatMap((s) => {
     const k = knowledgeBySlug(s);
     return k ? [{ label: k.h1, href: knowledgeHref(s) }] : [];

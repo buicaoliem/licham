@@ -8,6 +8,8 @@ import { MonthGrid } from "@/components/MonthGrid";
 import { OccasionChips } from "@/components/OccasionChips";
 import { TodayCards } from "@/components/TodayCards";
 import { getMonthCells } from "@/lib/calendar/calendar-month";
+import Link from "next/link";
+import { monthHref } from "@/lib/calendar/urls";
 import { getVietnamToday } from "@/lib/today";
 import { getUpcomingOccasions } from "@/lib/upcoming-occasions";
 
@@ -21,7 +23,8 @@ export function generateMetadata(): Metadata {
   };
 }
 
-// Trang tĩnh: "hôm nay" được tính tại thời điểm build, theo giờ Việt Nam.
+// "Hôm nay" tính theo giờ Việt Nam; trang dựng lại mỗi 5 phút (ISR) để không bị cũ sau ngày build.
+export const revalidate = 300;
 export default function HomePage() {
   const today = getVietnamToday();
   const info = getDayInfo(today);
@@ -63,6 +66,17 @@ export default function HomePage() {
           <p style={{ textAlign: "center", color: "var(--ink-3)", fontSize: 13.5, margin: "9px auto 24px", maxWidth: 600 }}>
             Xem lịch âm dương, giờ hoàng đạo, ngày tốt xấu. Không quảng cáo, không theo dõi, mở là thấy ngay.
           </p>
+
+          <nav aria-label="Lối tắt" className="chips" style={{ justifyContent: "center", marginBottom: 22 }}>
+            <Link className="chip hot" href="/hom-nay/">Lịch hôm nay</Link>
+            <Link className="chip" href="/ngay-mai/">Lịch ngày mai</Link>
+            <Link className="chip" href={monthHref(today.month, today.year)}>Lịch tháng này</Link>
+            <Link className="chip" href="/doi-ngay-am-duong/">Đổi âm dương</Link>
+            <Link className="chip" href="/xem-ngay-tot/">Xem ngày tốt</Link>
+            <Link className="chip" href="/le/">Ngày lễ sắp tới</Link>
+            <Link className="chip" href="/cong-cu/">Công cụ ngày tháng</Link>
+            <Link className="chip" href="/kien-thuc/">Kiến thức lịch</Link>
+          </nav>
 
           <TodayCards hoangDaoHours={hoangDaoHours} worstHour={worstHour} info={info} />
 

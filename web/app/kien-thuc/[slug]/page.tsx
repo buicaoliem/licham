@@ -8,7 +8,7 @@ import { SourceTag } from "@/components/calendar/SourceTag";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { faqJsonLd } from "@/lib/calendar/jsonld";
-import { KNOWLEDGE, getRelatedKnowledgeLinks, knowledgeBySlug, knowledgeHref } from "@/lib/knowledge";
+import { KNOWLEDGE, knowledgeBySlug, knowledgeLinks, knowledgeHref } from "@/lib/knowledge";
 import { SITE_URL } from "@/lib/site";
 
 export const dynamicParams = false;
@@ -39,7 +39,7 @@ export default async function KienThucPage({ params }: { params: Promise<{ slug:
     author: { "@type": "Organization", name: "licham.app", url: SITE_URL },
     publisher: { "@type": "Organization", name: "licham.app", url: SITE_URL },
   };
-  const related = [...getRelatedKnowledgeLinks(k.related), ...k.links];
+  const related = [...knowledgeLinks(k.related), ...k.links];
 
   return (
     <div className="outer">
