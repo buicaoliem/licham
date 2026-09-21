@@ -36,8 +36,10 @@ export function getRelatedActivityLinks(day: CalendarDay): RelatedLink[] {
 export function getRelatedToolLinks(): RelatedLink[] {
   return [
     { label: "Đổi ngày âm dương", href: "/doi-ngay-am-duong/" },
+    { label: "Đếm ngày giữa hai ngày", href: "/cong-cu/dem-ngay/" },
+    { label: "Bao nhiêu ngày nữa là ngày nào", href: "/cong-cu/ngay-sau/" },
+    { label: "Còn bao nhiêu ngày nữa", href: "/cong-cu/con-bao-nhieu-ngay/" },
     { label: "Tính tuổi", href: "/tinh-tuoi/" },
-    { label: "Đếm ngược Tết", href: "/countdown/tet/" },
   ];
 }
 
