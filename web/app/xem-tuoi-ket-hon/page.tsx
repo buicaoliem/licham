@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
 import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
 import { KetHonYearPicker } from "@/components/KetHonYearPicker";
+import { ChHero, ChShell } from "@/components/heritage/ChShell";
+import { KetHonLegend, XemTuoiRelated, XemTuoiTabs } from "@/components/heritage/KetHonParts";
 import { CHI_LIST, chiByIndex, tamHopGroup, tuHanhXungGroup } from "@/lib/tuoi";
 import { kimLau } from "@/lib/xem-tuoi-ket-hon";
 
@@ -24,30 +24,31 @@ const KIM_LAU_ROWS = [0, 1, 2, 3, 4, 5, 6, 7, 8].map((du) => ({
 
 export default function XemTuoiKetHonHubPage() {
   return (
-    <div className="outer">
-      <div className="site">
-        <Header activeMenu="Xem tuổi" />
+    <ChShell activeMenu="Xem tuổi">
+      <ChHero
+        crumbs={[{ label: "Trang chủ", href: "/" }, { label: "Xem tuổi", href: "/tuoi/" }, { label: "Xem tuổi kết hôn" }]}
+        crumbJsonLd={false}
+        title="Xem tuổi kết hôn: Kim Lâu và hợp tuổi vợ chồng"
+        lead="Tra Kim Lâu theo tuổi mụ cô dâu, xem con giáp và mệnh hai người có hợp nhau không, theo quan niệm dân gian."
+      />
 
-        <div className="tuoiband kethon">
-          <h1 style={{ textAlign: "center" }}>Xem tuổi kết hôn: Kim Lâu và hợp tuổi vợ chồng</h1>
-          <p className="sub">Tra Kim Lâu theo tuổi mụ cô dâu, xem con giáp và mệnh hai người có hợp nhau không, theo quan niệm dân gian.</p>
-        </div>
+      <div className="ch-wrap ch-main ch-layout">
+        <div className="ch-stack">
+          <section className="ch-card">
+            <XemTuoiTabs current="ket-hon" />
+            <KetHonYearPicker title="Tra nhanh theo năm sinh" />
+          </section>
 
-        <div className="body">
-          <KetHonYearPicker title="Tra nhanh theo năm sinh" />
-
-          <div className="box" style={{ marginTop: 18 }}>
+          <div className="box">
             <div className="box-h">
               <span className="rule" />
-              <span className="t" style={{ textAlign: "center" }}>
-                Kim Lâu là gì
-              </span>
+              <span className="t">Kim Lâu là gì</span>
               <span className="rule" />
             </div>
             <p>
-              Kim Lâu là một kiêng kỵ dân gian khi chọn năm cưới, tính theo <b>tuổi mụ</b> (năm xem trừ năm sinh cộng 1) của{" "}
-              <b>cô dâu</b> — theo tục &ldquo;lấy vợ xem tuổi đàn bà&rdquo;, Kim Lâu không xét đến tuổi chú rể. Cách tính: lấy tuổi mụ chia
-              cho 9, xét số dư.
+              Kim Lâu là một kiêng kỵ dân gian khi chọn năm cưới, tính theo <b>tuổi mụ</b> (năm xem trừ năm sinh cộng 1) của <b>cô dâu</b> —
+              theo tục &ldquo;lấy vợ xem tuổi đàn bà&rdquo;, Kim Lâu không xét đến tuổi chú rể. Cách tính: lấy tuổi mụ chia cho 9, xét số
+              dư.
             </p>
             <table className="tuoitable">
               <thead>
@@ -69,17 +70,15 @@ export default function XemTuoiKetHonHubPage() {
                 ))}
               </tbody>
             </table>
-            <p style={{ fontSize: 12.5, color: "var(--ink-3)", textAlign: "center", marginTop: 8 }}>
+            <p style={{ fontSize: 12.5, color: "var(--ink-3)", marginTop: 8 }}>
               Ví dụ: cô dâu tuổi mụ 19 (19 chia 9 dư 1) thì phạm Kim Lâu Thân. Tuổi mụ 27 (chia hết cho 9, dư 0) thì không phạm.
             </p>
           </div>
 
-          <div className="box" style={{ marginTop: 18 }}>
+          <div className="box">
             <div className="box-h">
               <span className="rule" />
-              <span className="t" style={{ textAlign: "center" }}>
-                Tam hợp và tứ hành xung 12 con giáp
-              </span>
+              <span className="t">Tam hợp và tứ hành xung 12 con giáp</span>
               <span className="rule" />
             </div>
             <div className="cols2">
@@ -104,18 +103,16 @@ export default function XemTuoiKetHonHubPage() {
                 </ul>
               </div>
             </div>
-            <p style={{ fontSize: 12.5, color: "var(--ink-3)", textAlign: "center", marginTop: 8 }}>
+            <p style={{ fontSize: 12.5, color: "var(--ink-3)", marginTop: 8 }}>
               Ngoài ra còn nhị hợp (lục hợp — từng cặp hai chi) và lục hại (mức xung nhẹ hơn tứ hành xung). Xem chi tiết ở trang{" "}
               <Link href="/tuoi/">Xem tuổi</Link> theo từng con giáp.
             </p>
           </div>
 
-          <div className="box" style={{ marginTop: 18 }}>
+          <div className="box">
             <div className="box-h">
               <span className="rule" />
-              <span className="t" style={{ textAlign: "center" }}>
-                Xem theo con giáp
-              </span>
+              <span className="t">Xem theo con giáp</span>
               <span className="rule" />
             </div>
             <div className="chips">
@@ -139,8 +136,11 @@ export default function XemTuoiKetHonHubPage() {
           <TraditionalDisclaimer />
         </div>
 
-        <Footer />
+        <aside className="ch-side">
+          <KetHonLegend />
+          <XemTuoiRelated />
+        </aside>
       </div>
-    </div>
+    </ChShell>
   );
 }

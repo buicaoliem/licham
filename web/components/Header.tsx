@@ -2,12 +2,14 @@ import Link from "next/link";
 import { monthHref } from "@/lib/calendar/urls";
 import { getVietnamToday } from "@/lib/today";
 
-const MENU = ["Hôm nay", "Lịch tháng", "Xem ngày tốt", "Văn khấn", "Tử vi", "Đổi ngày", "Ngày lễ", "Xem tuổi"] as const;
+export const MENU = ["Hôm nay", "Lịch tháng", "Xem ngày tốt", "Văn khấn", "Tử vi", "Đổi ngày", "Ngày lễ", "Xem tuổi"] as const;
 
 // Chưa có trang đích — làm mờ, không cho bấm, tới khi trang được dựng.
 const DISABLED_MENU = new Set<(typeof MENU)[number]>([]);
 
-function menuHref(item: (typeof MENU)[number]): string {
+export type MenuItem = (typeof MENU)[number];
+
+export function menuHref(item: MenuItem): string {
   switch (item) {
     case "Hôm nay":
       return "/";

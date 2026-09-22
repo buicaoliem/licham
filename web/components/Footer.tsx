@@ -10,7 +10,21 @@ const BUILD_TIME_FORMATTER = new Intl.DateTimeFormat("vi-VN", {
 });
 
 // Tính một lần khi trang được dựng — cùng thời điểm cho mọi trang trong một lần build.
-const buildTimeLabel = `${BUILD_TIME_FORMATTER.format(new Date())} (giờ Việt Nam)`;
+export const buildTimeLabel = `${BUILD_TIME_FORMATTER.format(new Date())} (giờ Việt Nam)`;
+
+export const FOOTER_LINKS: readonly { href: string; label: string }[] = [
+  { href: "/gioi-thieu/", label: "Giới thiệu" },
+  { href: "/lien-he/", label: "Liên hệ" },
+  { href: "/le/", label: "Ngày lễ" },
+  { href: "/cong-cu/", label: "Công cụ ngày tháng" },
+  { href: "/tinh-tuoi/", label: "Tính tuổi" },
+  { href: "/countdown/tet/", label: "Đếm ngược Tết" },
+  { href: "/tuoi/", label: "Xem tuổi" },
+  { href: "/ten/", label: "Đặt tên" },
+  { href: "/tu-vi/", label: "Tử vi" },
+  { href: "/dieu-khoan/", label: "Điều khoản" },
+  { href: "/chinh-sach-bao-mat/", label: "Chính sách bảo mật" },
+];
 
 export function Footer() {
   return (
@@ -22,17 +36,11 @@ export function Footer() {
         </span>
       </Link>
       <div className="footlinks">
-        <Link href="/gioi-thieu/">Giới thiệu</Link>
-        <Link href="/lien-he/">Liên hệ</Link>
-        <Link href="/le/">Ngày lễ</Link>
-        <Link href="/cong-cu/">Công cụ ngày tháng</Link>
-        <Link href="/tinh-tuoi/">Tính tuổi</Link>
-        <Link href="/countdown/tet/">Đếm ngược Tết</Link>
-        <Link href="/tuoi/">Xem tuổi</Link>
-        <Link href="/ten/">Đặt tên</Link>
-        <Link href="/tu-vi/">Tử vi</Link>
-        <Link href="/dieu-khoan/">Điều khoản</Link>
-        <Link href="/chinh-sach-bao-mat/">Chính sách bảo mật</Link>
+        {FOOTER_LINKS.map((l) => (
+          <Link href={l.href} key={l.href}>
+            {l.label}
+          </Link>
+        ))}
       </div>
       <div className="foot-line">Miễn phí, không quảng cáo · Thông tin phong thủy mang tính tham khảo</div>
       <div className="foot-line">

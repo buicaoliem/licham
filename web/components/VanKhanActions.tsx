@@ -18,12 +18,12 @@ function toPlainText(bai: VanKhanBai): string {
 
 export function VanKhanActions({ bai }: { bai: VanKhanBai }) {
   return (
-    <div className="right khan-actions khan-noprint">
+    <div className="vk-actions khan-noprint">
       <button type="button" className="btn" onClick={() => window.print()}>
         In ra giấy
       </button>
       <ShareButton
-        align="end"
+        align="center"
         url={buildShareUrl(`/van-khan/${bai.slug}/`)}
         title={bai.ten}
         text={`${bai.ten} – xem đầy đủ tại Lịch Âm.`}

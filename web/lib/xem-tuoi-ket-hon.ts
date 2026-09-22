@@ -134,7 +134,7 @@ export type MucDoHopNhau = "rất hợp" | "hợp" | "bình thường" | "cần 
 /** Xếp mỗi tầng vào đúng 3 mức để so sánh được với nhau: tốt / bình hòa / xấu. */
 export type MucTang = "tot" | "binh-hoa" | "xau";
 
-function mucTangChiPair(chiPair: ChiPairQuanHe): MucTang {
+export function mucTangChiPair(chiPair: ChiPairQuanHe): MucTang {
   switch (chiPair) {
     case "tam-hop":
     case "nhi-hop":
@@ -147,7 +147,7 @@ function mucTangChiPair(chiPair: ChiPairQuanHe): MucTang {
   }
 }
 
-function mucTangNguHanhCoChieu(quanHe: QuanHeNguHanhCoChieu): MucTang {
+export function mucTangNguHanhCoChieu(quanHe: QuanHeNguHanhCoChieu): MucTang {
   switch (quanHe) {
     case "nam-sinh-nu":
     case "nu-sinh-nam":
@@ -160,7 +160,7 @@ function mucTangNguHanhCoChieu(quanHe: QuanHeNguHanhCoChieu): MucTang {
   }
 }
 
-function mucTangCanPair(canPair: CanPairQuanHe): MucTang {
+export function mucTangCanPair(canPair: CanPairQuanHe): MucTang {
   if (canPair === "can-hop") return "tot";
   return mucTangNguHanhCoChieu(canPair);
 }

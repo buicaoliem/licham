@@ -34,12 +34,18 @@ export default async function DemNgayPage({ searchParams }: { searchParams: Prom
         <ResultBox
           title={`Từ ${formatDmy(from)} đến ${formatDmy(to)}`}
           share={toolShare(tool, sp, `Từ ${formatDmy(from)} đến ${formatDmy(to)} là ${abs.toLocaleString("vi-VN")} ngày.`)}
+          stats={[
+            {
+              value: abs.toLocaleString("vi-VN"),
+              label: "Số ngày",
+              hint: total < 0 ? "ngày kết thúc trước ngày bắt đầu" : "không tính ngày bắt đầu",
+            },
+            { value: (abs + 1).toLocaleString("vi-VN"), label: "Tính cả hai đầu", hint: "cộng thêm 1 ngày" },
+            { value: w.weeks.toLocaleString("vi-VN"), label: "Số tuần", hint: w.days ? `và ${w.days} ngày` : "tròn tuần" },
+            { value: spanLabel(calendarSpan(from, to)), label: "Theo lịch", hint: "năm, tháng, ngày dương lịch", small: true },
+            { value: weekdaysBetween(from, to).toLocaleString("vi-VN"), label: "Ngày làm việc", hint: "thứ Hai–thứ Sáu, chưa trừ ngày lễ" },
+          ]}
           rows={[
-            ["Tổng số ngày", `${abs.toLocaleString("vi-VN")} ngày${total < 0 ? " (ngày kết thúc trước ngày bắt đầu)" : ""}`],
-            ["Tính cả hai đầu", `${(abs + 1).toLocaleString("vi-VN")} ngày`],
-            ["Số tuần", `${w.weeks.toLocaleString("vi-VN")} tuần${w.days ? ` ${w.days} ngày` : ""}`],
-            ["Theo lịch", spanLabel(calendarSpan(from, to))],
-            ["Ngày làm việc", `${weekdaysBetween(from, to).toLocaleString("vi-VN")} ngày (thứ Hai–thứ Sáu, chưa trừ ngày lễ)`],
             ["Ngày bắt đầu", <DateLine key="a" s={describeDate(from)} />],
             ["Ngày kết thúc", <DateLine key="b" s={describeDate(to)} />],
           ]}
@@ -57,7 +63,7 @@ export default async function DemNgayPage({ searchParams }: { searchParams: Prom
         "Ngày làm việc đếm từ thứ Hai đến thứ Sáu trong khoảng sau ngày bắt đầu tới hết ngày kết thúc, chưa trừ ngày lễ và ngày nghỉ bù.",
       ]}
     >
-      <ToolForm tool={tool} title="Chọn hai ngày">
+      <ToolForm tool={tool} title="Chọn hai ngày" submitLabel="Tính số ngày">
         <DateField id="tu" name="tu" label="Từ ngày" value={from ? toIso(from) : toIso({ ...today, month: 1, day: 1 })} />
         <DateField id="den" name="den" label="Đến ngày" value={to ? toIso(to) : toIso(today)} />
       </ToolForm>

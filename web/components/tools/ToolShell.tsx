@@ -1,63 +1,87 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
 import { ShareButton } from "@/components/ShareButton";
-import { Breadcrumb } from "@/components/calendar/Breadcrumb";
-import { RelatedLinks } from "@/components/calendar/RelatedLinks";
+import { ChHero, ChShell } from "@/components/heritage/ChShell";
+import { Icon, type IconName } from "@/components/heritage/Icon";
 import type { DateSummary } from "@/lib/calendar/date-info";
 import { monthHref } from "@/lib/calendar/urls";
 import { TOOLS, type ToolDef } from "@/lib/tools/tools";
 import { getVietnamToday } from "@/lib/today";
 
+/** Icon minh họa cho từng công cụ (chỉ trang trí). */
+export const TOOL_ICON: Record<string, IconName> = {
+  "dem-ngay": "calendar",
+  "ngay-sau": "calPlus",
+  "ngay-truoc": "calMinus",
+  "con-bao-nhieu-ngay": "hourglass",
+  "da-bao-nhieu-ngay": "history",
+  "tuoi-theo-ngay-sinh": "cake",
+};
+
 export function ToolShell({ tool, children, notes }: { tool: ToolDef; children: ReactNode; notes?: string[] }) {
   const today = getVietnamToday();
   const related = [
-    ...TOOLS.filter((t) => t.slug !== tool.slug).map((t) => ({ label: t.name, href: t.href })),
-    { label: `Lịch tháng ${today.month} năm ${today.year}`, href: monthHref(today.month, today.year) },
-    { label: "Đổi ngày âm dương", href: "/doi-ngay-am-duong/" },
+    ...TOOLS.filter((t) => t.slug !== tool.slug).map((t) => ({ label: t.name, href: t.href, icon: TOOL_ICON[t.slug] ?? "calendar" })),
+    { label: `Lịch tháng ${today.month} năm ${today.year}`, href: monthHref(today.month, today.year), icon: "calendar" as IconName },
+    { label: "Đổi ngày âm dương", href: "/doi-ngay-am-duong/", icon: "swap" as IconName },
   ];
   return (
-    <div className="outer">
-      <div className="site">
-        <Header activeMenu="Đổi ngày" />
-        <div className="dhead">
-          <Breadcrumb items={[{ label: "Trang chủ", href: "/" }, { label: "Công cụ", href: "/cong-cu/" }, { label: tool.name }]} />
-          <h1 className="dh1">{tool.h1}</h1>
-          <p className="dsub">{tool.intro}</p>
-        </div>
-        <div className="body">
-          {children}
+    <ChShell activeMenu="Đổi ngày">
+      <ChHero
+        crumbs={[{ label: "Trang chủ", href: "/" }, { label: "Công cụ", href: "/cong-cu/" }, { label: tool.name }]}
+        title={tool.h1}
+        lead={tool.intro}
+      />
+      <div className="ch-wrap ch-main ch-stack">
+        {children}
+        <div className="tool-bottom">
           {notes && notes.length > 0 && (
-            <section style={{ marginTop: 28 }}>
-              <h2 className="hh">Cách tính</h2>
-              <ul className="lst">
+            <section className="ch-card">
+              <h2 className="ch-h2 ch-card-h">Cách tính</h2>
+              <ol className="ch-steps">
                 {notes.map((n) => (
                   <li key={n}>{n}</li>
                 ))}
-              </ul>
+              </ol>
             </section>
           )}
-          <RelatedLinks links={related} />
+          <section className="ch-card">
+            <h2 className="ch-h2 ch-card-h">Có thể bạn quan tâm</h2>
+            <div className="ch-grid c2">
+              {related.map((l) => (
+                <Link className="ch-rowcard" href={l.href} key={l.href}>
+                  <Icon name={l.icon} size={20} />
+                  <span>{l.label}</span>
+                  <Icon name="chevron" size={16} className="arr" />
+                </Link>
+              ))}
+            </div>
+          </section>
         </div>
-        <Footer />
       </div>
-    </div>
+    </ChShell>
   );
 }
 
-export function ToolForm({ tool, title, children }: { tool: ToolDef; title: string; children: ReactNode }) {
+export function ToolForm({
+  tool,
+  title,
+  submitLabel = "Tính",
+  children,
+}: {
+  tool: ToolDef;
+  title: string;
+  submitLabel?: string;
+  children: ReactNode;
+}) {
   return (
-    <form method="get" action={tool.href} className="box">
-      <h2 className="box-h">
-        <span className="rule" />
-        <span className="t">{title}</span>
-        <span className="rule" />
-      </h2>
-      {children}
-      <div style={{ textAlign: "center", marginTop: 14 }}>
-        <button type="submit" className="btn pri">
-          Tính
+    <form method="get" action={tool.href} className="ch-card tool-form">
+      <h2 className="ch-h2 ch-card-h">{title}</h2>
+      <div className="ch-formrow">
+        {children}
+        <button type="submit" className="ch-btn pri lg">
+          {submitLabel}
+          <Icon name="arrow" size={18} />
         </button>
       </div>
     </form>
@@ -126,20 +150,49 @@ export function NumberField({ id, name, label, value, max }: { id: string; name:
 
 export function ToolError({ children }: { children: ReactNode }) {
   return (
-    <div className="dierr" role="alert" style={{ marginTop: 14 }}>
+    <div className="dierr" role="alert">
       {children}
     </div>
   );
 }
 
-export function ResultBox({ title, rows, share }: { title: string; rows: [string, ReactNode][]; share?: { url: string; title: string; text: string } | null }) {
+/** Ô số liệu nổi bật trong khối kết quả: giá trị lớn, nhãn, ghi chú nhỏ. */
+export interface ResultStat {
+  value: string;
+  label: string;
+  hint?: string;
+  /** Giá trị dạng chữ dài (vd. "1 năm 2 tháng") hiển thị cỡ nhỏ hơn. */
+  small?: boolean;
+}
+
+export function ResultBox({
+  title,
+  rows,
+  stats,
+  share,
+}: {
+  title: string;
+  rows: [string, ReactNode][];
+  stats?: ResultStat[];
+  share?: { url: string; title: string; text: string } | null;
+}) {
   return (
-    <section className="box" style={{ marginTop: 16 }} aria-live="polite">
-      <h2 className="box-h">
-        <span className="rule" />
-        <span className="t">{title}</span>
-        <span className="rule" />
-      </h2>
+    <section className="ch-card" aria-live="polite">
+      <div className="ch-card-h">
+        <h2 className="ch-h2">Kết quả</h2>
+        <p className="ch-sub">{title}</p>
+      </div>
+      {stats && stats.length > 0 && (
+        <div className="ch-stats" style={{ marginBottom: rows.length ? 18 : 0 }}>
+          {stats.map((s) => (
+            <div className="ch-stat" key={s.label}>
+              <div className={s.small ? "v sm" : "v"}>{s.value}</div>
+              <div className="k">{s.label}</div>
+              {s.hint && <div className="h">{s.hint}</div>}
+            </div>
+          ))}
+        </div>
+      )}
       {rows.map(([k, v]) => (
         <div className="diresrow" key={k}>
           <span>{k}</span>
@@ -171,4 +224,3 @@ export function DateLine({ s }: { s: DateSummary }) {
     </>
   );
 }
-
