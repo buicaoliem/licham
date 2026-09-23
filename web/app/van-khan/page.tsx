@@ -121,7 +121,7 @@ export default function VanKhanIndexPage() {
   );
 
   return (
-    <ChShell activeMenu="Văn khấn">
+    <ChShell activeMenu="Văn khấn" className="ch-vk">
       <ChHero
         className="vk-index-hero"
         crumbs={[{ label: "Trang chủ", href: "/" }, { label: "Văn khấn" }]}

@@ -112,7 +112,7 @@ export default async function VanKhanPage({ params }: { params: Promise<{ slug: 
   );
 
   return (
-    <ChShell activeMenu="Văn khấn">
+    <ChShell activeMenu="Văn khấn" className="ch-vk">
       <div className="ch-wrap ch-main vk-detail">
         <div className="vk-crumb">
           <Breadcrumb
@@ -191,12 +191,10 @@ export default async function VanKhanPage({ params }: { params: Promise<{ slug: 
                     key={phan.tieuDe ?? i}
                     id={coNhieuPhan ? `bai-khan-${i + 1}` : undefined}
                   >
-                    {goc && (
-                      <>
-                        <img className="vk-scroll-corner" src={goc} alt="" style={{ top: 10, left: 10 }} />
-                        <img className="vk-scroll-corner" src={goc} alt="" style={{ top: 10, right: 10, transform: "scaleX(-1)" }} />
-                      </>
-                    )}
+                    {goc &&
+                      (["tl", "tr", "bl", "br"] as const).map((pos) => (
+                        <img className={`vk-scroll-corner ${pos}`} src={goc} alt="" aria-hidden="true" key={pos} />
+                      ))}
                     {phan.tieuDe ? (
                       <h3 className="vk-scroll-t">{phan.tieuDe}</h3>
                     ) : (

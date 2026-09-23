@@ -94,9 +94,18 @@ function ChFooter() {
 }
 
 /** Khung trang Contemporary Heritage: tranh lề hai bên (nếu có asset), đầu trang, nội dung, chân trang. */
-export function ChShell({ activeMenu, children }: { activeMenu: MenuItem; children: ReactNode }) {
+export function ChShell({
+  activeMenu,
+  className,
+  children,
+}: {
+  activeMenu: MenuItem;
+  /** Lớp bổ sung để một nhóm trang tinh chỉnh khung riêng (vd. tranh lề). */
+  className?: string;
+  children: ReactNode;
+}) {
   return (
-    <div className="ch">
+    <div className={className ? `ch ${className}` : "ch"}>
       <div className="ch-side-art l" aria-hidden="true">
         <HeritageImage src={HERITAGE_SLOTS.sideLeft.path} label={HERITAGE_SLOTS.sideLeft.spec} />
       </div>
