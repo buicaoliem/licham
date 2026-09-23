@@ -27,7 +27,8 @@ function Logo({ small = false }: { small?: boolean }) {
   );
 }
 
-function ChHeader({ activeMenu }: { activeMenu: MenuItem }) {
+/** activeMenu = null: trang không thuộc mục nào của menu chính (vd. Công cụ) — không đánh dấu mục nào. */
+function ChHeader({ activeMenu }: { activeMenu: MenuItem | null }) {
   const items = MENU.map((item) => (
     <li key={item} className={item === activeMenu ? "on" : undefined}>
       <Link href={menuHref(item)} aria-current={item === activeMenu ? "page" : undefined}>
@@ -99,7 +100,7 @@ export function ChShell({
   className,
   children,
 }: {
-  activeMenu: MenuItem;
+  activeMenu: MenuItem | null;
   /** Lớp bổ sung để một nhóm trang tinh chỉnh khung riêng (vd. tranh lề). */
   className?: string;
   children: ReactNode;

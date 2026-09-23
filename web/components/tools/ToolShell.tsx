@@ -26,7 +26,7 @@ export function ToolShell({ tool, children, notes }: { tool: ToolDef; children: 
     { label: "Đổi ngày âm dương", href: "/doi-ngay-am-duong/", icon: "swap" as IconName },
   ];
   return (
-    <ChShell activeMenu="Đổi ngày">
+    <ChShell activeMenu={null} className="ch-cc">
       <ChHero
         crumbs={[{ label: "Trang chủ", href: "/" }, { label: "Công cụ", href: "/cong-cu/" }, { label: tool.name }]}
         title={tool.h1}

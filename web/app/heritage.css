@@ -307,9 +307,9 @@ body:has(.ch) {
     display: none;
   }
 }
-/* Văn khấn: tranh lề lùi vào nền — dịu màu (không blur), cách cột nội dung một khoảng,
+/* Văn khấn, Công cụ: tranh lề lùi vào nền — dịu màu (không blur), cách cột nội dung một khoảng,
    mép trong tan dần qua gần nửa khung thay vì một dải 48px. */
-.ch-vk .ch-side-art {
+:is(.ch-vk, .ch-cc) .ch-side-art {
   width: max(0px, calc((100% - 1248px) / 2 + 24px - 20px));
   opacity: 0.5;
   /* multiply: giấy nền của tranh hòa vào màu trang, chỉ còn nét mực nhạt */
@@ -318,15 +318,15 @@ body:has(.ch) {
   -webkit-mask-image: linear-gradient(180deg, #000 45%, rgba(0, 0, 0, 0.4) 75%, transparent 100%), var(--fade-x);
   mask-image: linear-gradient(180deg, #000 45%, rgba(0, 0, 0, 0.4) 75%, transparent 100%), var(--fade-x);
 }
-.ch-vk .ch-side-art.r {
+:is(.ch-vk, .ch-cc) .ch-side-art.r {
   --fade-x: linear-gradient(270deg, #000 35%, rgba(0, 0, 0, 0.55) 62%, rgba(0, 0, 0, 0.18) 84%, transparent);
 }
-.ch-vk .ch-side-art img {
+:is(.ch-vk, .ch-cc) .ch-side-art img {
   filter: saturate(0.62) contrast(0.74) brightness(1.06);
 }
 /* màn trung gian: lề ngoài quá hẹp, tranh sẽ sát mép thẻ nội dung — ẩn hẳn */
 @media (max-width: 1359px) {
-  .ch-vk .ch-side-art {
+  :is(.ch-vk, .ch-cc) .ch-side-art {
     display: none;
   }
 }
@@ -2923,6 +2923,390 @@ a.ch-tile:hover {
 @media (max-width: 1023px) {
   .tool-bottom {
     grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* --- Công cụ theo nền Contemporary Heritage (Văn khấn R4.2): cùng token, thẻ viền ấm, nhịp chữ --- */
+/* hero gọn: không tranh, chỉ chữ + gạch son như danh mục Văn khấn */
+.ch-cc .ch-hero-in {
+  padding-bottom: 6px;
+}
+.ch-cc .ch-hero-grid {
+  margin-top: 10px;
+}
+.ch-cc .ch-h1 {
+  font-size: clamp(32px, 3.3vw, 44px);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+.ch-cc .ch-lead {
+  margin-top: 10px;
+  max-width: 860px;
+  text-wrap: pretty;
+}
+.ch-cc .ch-hero-body {
+  max-width: 880px;
+}
+.ch-cc .ch-hero-body::after {
+  content: "";
+  display: block;
+  width: 44px;
+  height: 2px;
+  margin-top: 16px;
+  border-radius: 2px;
+  background: var(--son);
+}
+.ch-cc .ch-main {
+  padding-top: 24px;
+}
+.ch-cc .ch-card,
+.ch-cc .ch-tile,
+.ch-cc a.ch-tile:visited,
+.ch-cc .ch-rowcard,
+.ch-cc a.ch-rowcard:visited {
+  border-color: color-mix(in srgb, var(--gold) 22%, var(--line));
+}
+.ch-cc .ch-card {
+  border-radius: 14px;
+}
+.ch-cc .ch-h2 {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.ch-cc .ch-sec-head {
+  margin-bottom: 16px;
+}
+.ch-cc .ch-sec-head .ch-sub {
+  margin-top: 3px;
+}
+/* trạng thái focus bàn phím rõ ràng, cùng màu son cho mọi thẻ/liên kết/nút của Công cụ */
+.ch-cc .ch-tile:focus-visible,
+.ch-cc .ch-rowcard:focus-visible,
+.ch-cc .ch-btn:focus-visible,
+.ch-cc .diresrow a:focus-visible {
+  outline: 2px solid var(--son);
+  outline-offset: 3px;
+}
+
+/* danh mục: thẻ công cụ — icon → tên → mô tả → hành động, cùng nền thẻ, màu chỉ ở ô icon */
+.cc-tools {
+  gap: 16px;
+}
+.ch-cc .cc-tools .ch-tile {
+  gap: 0;
+  padding: 22px 24px 20px;
+}
+.ch-cc .cc-tools .ch-ico {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+}
+.ch-cc .cc-tools .ch-ico svg {
+  width: 24px;
+  height: 24px;
+}
+.ch-cc .cc-tools .ttl {
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.005em;
+}
+.ch-cc .cc-tools .dsc {
+  margin-top: 7px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: color-mix(in srgb, var(--ink-2) 65%, var(--ink-3));
+}
+.ch-cc .cc-tools .go {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 16px;
+  font-family: var(--sans);
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+.ch-cc .cc-tools .ch-tile:hover .ttl,
+.ch-cc .cc-tools .ch-tile:focus-visible .ttl {
+  color: var(--son);
+}
+.ch-cc .cc-tools .ch-tile:hover .go,
+.ch-cc .cc-tools .ch-tile:focus-visible .go {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.ch-cc .cc-tools .go svg {
+  transition: transform 0.15s ease;
+}
+.ch-cc .cc-tools .ch-tile:hover .go svg,
+.ch-cc .cc-tools .ch-tile:focus-visible .go svg {
+  transform: translateX(3px);
+}
+.cc-related {
+  margin-top: 44px;
+}
+.ch-cc .ch-rowcard small {
+  margin-top: 2px;
+  line-height: 1.45;
+}
+
+/* biểu mẫu */
+.ch-cc .tool-form .ch-formrow {
+  gap: 14px 16px;
+}
+.ch-cc .tool-form .ch-formrow > .ch-btn {
+  min-width: 176px;
+}
+
+/* kết quả: số đầu tiên là số chính (tông son, cỡ lớn), các số còn lại cùng một kiểu trung tính */
+.ch-cc .ch-stats {
+  gap: 12px;
+}
+.ch-cc .ch-stat,
+.ch-cc .ch-stat:nth-child(5n + 2),
+.ch-cc .ch-stat:nth-child(5n + 3) {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 18px 14px 16px;
+  background: #fffdf8;
+  border-color: color-mix(in srgb, var(--gold) 24%, var(--line));
+}
+.ch-cc .ch-stat .v,
+.ch-cc .ch-stat:nth-child(5n + 2) .v {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.ch-cc .ch-stat .v.sm {
+  font-size: 19px;
+  line-height: 1.25;
+  padding: 0;
+}
+.ch-cc .ch-stat .k {
+  margin-top: 8px;
+  font-family: var(--sans);
+  font-size: 13px;
+  letter-spacing: 0.01em;
+}
+.ch-cc .ch-stat .h {
+  margin-top: 3px;
+  font-size: 12.5px;
+  text-wrap: balance;
+}
+.ch-cc .ch-stat:first-child {
+  background: linear-gradient(160deg, var(--son-soft), #fdf6f3);
+  border-color: color-mix(in srgb, var(--son) 26%, transparent);
+}
+.ch-cc .ch-stat:first-child .v {
+  font-size: 42px;
+  line-height: 1.05;
+  color: var(--son);
+}
+.ch-cc .diresrow {
+  gap: 16px;
+}
+.ch-cc .diresrow span:first-child {
+  color: var(--ink-3);
+}
+.ch-cc .diresrow a {
+  white-space: nowrap;
+}
+
+/* khối cuối: Cách tính + liên quan, hai thẻ cao bằng nhau; liên kết là danh sách có vạch ngăn */
+.ch-cc .tool-bottom {
+  align-items: stretch;
+}
+@media (min-width: 1024px) {
+  .ch-cc .tool-bottom {
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.25fr);
+  }
+}
+/* máy tính bảng: số chính một hàng, các số còn lại chia đều hàng dưới (tránh 4 + 1) */
+@media (min-width: 760px) and (max-width: 1023px) {
+  .ch-cc .ch-stat:first-child {
+    grid-column: 1 / -1;
+  }
+  .ch-cc .ch-stats .ch-stat:last-child:nth-child(odd):not(:first-child) {
+    grid-column: auto;
+  }
+}
+.ch-cc .tool-bottom .ch-steps li {
+  line-height: 1.6;
+}
+.ch-cc .tool-bottom .ch-grid.c2 {
+  gap: 0 24px;
+}
+.ch-cc .tool-bottom .ch-rowcard,
+.ch-cc .tool-bottom a.ch-rowcard:visited {
+  gap: 12px;
+  padding: 12px 2px;
+  border: 0;
+  border-bottom: 1px solid var(--line-2);
+  border-radius: 0;
+  background: none;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.ch-cc .tool-bottom .ch-rowcard > svg:first-child {
+  flex-shrink: 0;
+  color: var(--son);
+}
+
+@media (max-width: 759px) {
+  .ch-cc .ch-hero-in {
+    padding-bottom: 2px;
+  }
+  .ch-cc .ch-h1 {
+    font-size: 29px;
+  }
+  .ch-cc .ch-lead {
+    font-size: 16.5px;
+  }
+  .ch-cc .ch-hero-body::after {
+    margin-top: 14px;
+  }
+  .ch-cc .ch-main {
+    padding-top: 20px;
+  }
+  .ch-cc .ch-h2 {
+    font-size: 21px;
+  }
+  /* thẻ công cụ thành hàng gọn: icon trái, chữ phải, không lặp nhãn "Mở công cụ" */
+  .cc-tools {
+    gap: 10px;
+  }
+  .ch-cc .cc-tools .ch-tile,
+  .ch-cc .cc-tools a.ch-tile:visited {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr) 18px;
+    align-items: center;
+    column-gap: 14px;
+    min-height: 76px;
+    padding: 14px 14px 14px 16px;
+  }
+  .ch-cc .cc-tools .ch-ico {
+    grid-row: 1 / span 2;
+    align-self: start;
+    width: 44px;
+    height: 44px;
+    margin: 2px 0 0;
+  }
+  .ch-cc .cc-tools .ch-ico svg {
+    width: 24px;
+    height: 24px;
+  }
+  .ch-cc .cc-tools .ttl {
+    grid-column: 2;
+    font-size: 17px;
+  }
+  .ch-cc .cc-tools .dsc {
+    grid-column: 2;
+    margin-top: 3px;
+    font-size: 13.5px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .ch-cc .cc-tools .go {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    align-self: center;
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+    color: var(--son);
+  }
+  .ch-cc .cc-tools .go svg {
+    width: 18px;
+    height: 18px;
+  }
+  .cc-related {
+    margin-top: 32px;
+  }
+  .ch-cc .cc-related .ch-grid {
+    gap: 10px;
+  }
+  .ch-cc .ch-rowcard,
+  .ch-cc a.ch-rowcard:visited {
+    padding: 14px 16px;
+  }
+  /* biểu mẫu: hai ô ngày cạnh nhau, nút rộng hết hàng */
+  .ch-cc .tool-form .ch-formrow {
+    gap: 12px;
+  }
+  .ch-cc .tool-form .ch-formrow > .difld {
+    flex: 1 1 136px;
+    min-width: 0;
+  }
+  /* ô chọn danh sách và ô có dòng gợi ý cần đủ chiều ngang: một hàng riêng */
+  .ch-cc .tool-form .ch-formrow > .difld:has(select),
+  .ch-cc .tool-form .ch-formrow > .difld:has(.fldhint) {
+    flex-basis: 100%;
+  }
+  .ch-cc .tool-form .difld input[type="date"] {
+    padding: 0 10px;
+    font-size: 15px;
+  }
+  /* kết quả: số chính trải hết hàng, còn lại hai cột; ô lẻ cuối cùng trải hết hàng */
+  .ch-cc .ch-stats {
+    gap: 10px;
+  }
+  .ch-cc .ch-stat:first-child {
+    grid-column: 1 / -1;
+    padding: 16px 14px 14px;
+  }
+  .ch-cc .ch-stat:first-child .v {
+    min-height: 44px;
+    font-size: 40px;
+  }
+  /* ghi đè quy tắc chung "ô lẻ cuối trải hết hàng": ở đây ô 1 đã trải hàng nên ô chẵn cuối mới lẻ cặp */
+  .ch-cc .ch-stats .ch-stat:last-child:nth-child(odd):not(:first-child) {
+    grid-column: auto;
+  }
+  .ch-cc .ch-stat:nth-child(even):last-child {
+    grid-column: 1 / -1;
+  }
+  .ch-cc .ch-stat {
+    padding: 14px 10px 12px;
+  }
+  .ch-cc .ch-stat .v {
+    min-height: 40px;
+    font-size: 26px;
+  }
+  .ch-cc .ch-stat .v.sm {
+    font-size: 16.5px;
+  }
+}
+@media (max-width: 380px) {
+  /* 360px: giữ "11 tháng 30 ngày" trên một dòng trong ô nửa hàng */
+  .ch-cc .ch-stat .v.sm {
+    font-size: 15px;
+  }
+  .ch-cc .ch-stat .k {
+    margin-top: 6px;
+  }
+  .ch-cc .diresrow {
+    flex-direction: column;
+    gap: 2px;
+  }
+  .ch-cc .diresrow a {
+    white-space: normal;
+  }
+  .ch-cc .tool-bottom .ch-grid.c2 {
+    gap: 0;
   }
 }
 

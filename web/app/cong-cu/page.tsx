@@ -11,18 +11,17 @@ export const metadata: Metadata = {
   alternates: { canonical: TOOLS_HUB.href },
 };
 
-const TONES = ["t-son", "t-jade", "t-gold"] as const;
 const ICON_TONES = ["", "jade", "gold"] as const;
 
-const RELATED: { label: string; href: string; icon: IconName }[] = [
-  { label: "Đổi ngày âm dương", href: "/doi-ngay-am-duong/", icon: "swap" },
-  { label: "Tính tuổi và con giáp", href: "/tinh-tuoi/", icon: "user" },
-  { label: "Xem ngày tốt", href: "/xem-ngay-tot/", icon: "sun" },
+const RELATED: { label: string; desc: string; href: string; icon: IconName }[] = [
+  { label: "Đổi ngày âm dương", desc: "Đổi qua lại dương lịch và âm lịch, kèm can chi", href: "/doi-ngay-am-duong/", icon: "swap" },
+  { label: "Tính tuổi và con giáp", desc: "Tuổi dương, tuổi mụ, can chi và con giáp", href: "/tinh-tuoi/", icon: "user" },
+  { label: "Xem ngày tốt", desc: "Chọn ngày hoàng đạo theo từng việc", href: "/xem-ngay-tot/", icon: "sun" },
 ];
 
 export default function ToolsHubPage() {
   return (
-    <ChShell activeMenu="Đổi ngày">
+    <ChShell activeMenu={null} className="ch-cc">
       <ChHero
         crumbs={[{ label: "Trang chủ", href: "/" }, { label: "Công cụ" }]}
         title="Công cụ ngày tháng"
@@ -30,30 +29,34 @@ export default function ToolsHubPage() {
       />
       <div className="ch-wrap ch-main">
         <section>
-          <ChSectionHead title="Chọn công cụ" />
-          <div className="ch-grid c3">
+          <ChSectionHead title="Chọn công cụ" sub={`${TOOLS.length} công cụ tính ngày dương lịch, kèm thứ và ngày âm lịch.`} />
+          <div className="ch-grid c3 cc-tools">
             {TOOLS.map((t, i) => (
-              <Link key={t.slug} href={t.href} className={`ch-tile ${TONES[i % 3]}`}>
+              <Link key={t.slug} href={t.href} className="ch-tile">
                 <span className={`ch-ico ${ICON_TONES[i % 3]}`}>
                   <Icon name={TOOL_ICON[t.slug] ?? "calendar"} size={28} />
                 </span>
                 <span className="ttl">{t.name}</span>
                 <span className="dsc">{t.description}</span>
                 <span className="go" aria-hidden="true">
-                  <Icon name="arrow" size={20} />
+                  Mở công cụ
+                  <Icon name="arrow" size={16} />
                 </span>
               </Link>
             ))}
           </div>
         </section>
 
-        <section style={{ marginTop: 44 }}>
+        <section className="cc-related">
           <ChSectionHead title="Công cụ liên quan" />
           <div className="ch-grid c3">
             {RELATED.map((r) => (
               <Link className="ch-rowcard" href={r.href} key={r.href}>
                 <Icon name={r.icon} size={20} />
-                <span>{r.label}</span>
+                <span>
+                  {r.label}
+                  <small>{r.desc}</small>
+                </span>
                 <Icon name="chevron" size={16} className="arr" />
               </Link>
             ))}
