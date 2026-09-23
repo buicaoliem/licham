@@ -10444,7 +10444,7 @@ a.ly-cell:hover {
 }
 .hm-hero-in {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 640px);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 680px);
   gap: 28px;
   align-items: center;
   padding-top: 30px;
@@ -10456,7 +10456,7 @@ a.ly-cell:hover {
 /* Tờ lịch · thông tin âm lịch · nút xem chi tiết (cột phải, cùng thẻ). Dưới 760px nút xuống hàng riêng. */
 .hm-today {
   display: grid;
-  grid-template-columns: 172px minmax(0, 1fr) auto;
+  grid-template-columns: 184px minmax(0, 1fr) auto;
   grid-template-rows: 1fr auto;
   background: var(--card);
   border: 1px solid var(--line);
@@ -10466,6 +10466,11 @@ a.ly-cell:hover {
 }
 .ch-home .hm-leaf {
   grid-row: 1 / 3;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.ch-home .hm-leaf .my {
+  font-size: 16px;
 }
 .ch-home .hm-leaf b {
   font-size: 84px;
@@ -10477,6 +10482,9 @@ a.ly-cell:hover {
   gap: 4px;
   padding: 22px 8px 0 24px;
   min-width: 0;
+}
+.hm-canchi span {
+  white-space: nowrap;
 }
 .hm-canchi {
   margin: 0;

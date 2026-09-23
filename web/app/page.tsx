@@ -100,7 +100,7 @@ export default function HomePage() {
                 {l.isLeapMonth ? " nhuận" : ""}
               </p>
               <p className="hm-canchi">
-                Ngày {info.canChi.day.name} · Năm {info.canChi.year.name}
+                <span>Ngày {info.canChi.day.name}</span> · <span>Năm {info.canChi.year.name}</span>
               </p>
             </div>
             <div className="hm-today-act">
