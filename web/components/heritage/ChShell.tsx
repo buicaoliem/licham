@@ -118,6 +118,7 @@ export function ChHero({
   title,
   lead,
   art,
+  className,
   children,
 }: {
   crumbs?: Crumb[];
@@ -128,11 +129,14 @@ export function ChHero({
   lead?: ReactNode;
   /** Asset tranh hero (đường dẫn trong public). */
   art?: { src: string; label?: string };
+  /** Lớp bổ sung để trang tinh chỉnh tỷ lệ hero riêng. */
+  className?: string;
   children?: ReactNode;
 }) {
   const hasArt = art ? heritageVisible(art.src) : false;
+  const cls = ["ch-hero", hasArt ? "has-art" : "", className ?? ""].filter(Boolean).join(" ");
   return (
-    <section className={hasArt ? "ch-hero has-art" : "ch-hero"}>
+    <section className={cls}>
       <div className="ch-wrap ch-hero-in">
         {crumbs && <Breadcrumb items={crumbs} jsonLd={crumbJsonLd} />}
         <div className="ch-hero-grid">

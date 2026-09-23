@@ -7,6 +7,7 @@ import { Breadcrumb } from "@/components/calendar/Breadcrumb";
 import { ChShell } from "@/components/heritage/ChShell";
 import { Icon } from "@/components/heritage/Icon";
 import { HeritageImage, heritageVisible } from "@/components/heritage/HeritageImage";
+import { TocDetails } from "@/components/heritage/TocDetails";
 import { NHOM_ICON } from "@/components/heritage/vanKhanUi";
 import { heritageSlot, vanKhanImagePaths } from "@/lib/heritage-assets";
 import { LE_LIST } from "@/lib/le";
@@ -51,6 +52,18 @@ function Doan({ text }: { text: string }) {
         </span>
       ))}
     </p>
+  );
+}
+
+/** "Hương: ba nén hoặc năm nén" → tên lễ vật đậm, phần định lượng nhạt; mục không có ":" giữ nguyên. */
+function LeVat({ text }: { text: string }) {
+  const i = text.indexOf(":");
+  if (i < 0) return <>{text}</>;
+  return (
+    <>
+      <b>{text.slice(0, i)}</b>
+      {text.slice(i)}
+    </>
   );
 }
 
@@ -100,14 +113,16 @@ export default async function VanKhanPage({ params }: { params: Promise<{ slug: 
 
   return (
     <ChShell activeMenu="Văn khấn">
-      <div className="ch-wrap ch-main">
+      <div className="ch-wrap ch-main vk-detail">
+        <div className="vk-crumb">
+          <Breadcrumb
+            items={[{ label: "Trang chủ", href: "/" }, { label: "Văn khấn", href: "/van-khan/" }, { label: bai.ten }]}
+            jsonLd={false}
+          />
+        </div>
         <div className="ch-layout vk-layout">
           <section className={coAnh ? "vk-herocard vk-hero has-art" : "vk-herocard vk-hero"}>
             <div className="vk-hero-text">
-              <Breadcrumb
-                items={[{ label: "Trang chủ", href: "/" }, { label: "Văn khấn", href: "/van-khan/" }, { label: bai.ten }]}
-                jsonLd={false}
-              />
               <div className="ch-eyebrow">
                 <Icon name={NHOM_ICON[bai.nhom]} size={15} />
                 Văn khấn · {bai.nhom}
@@ -123,51 +138,53 @@ export default async function VanKhanPage({ params }: { params: Promise<{ slug: 
             )}
           </section>
 
-          <div className="vk-main ch-stack">
-            <details className="vk-toc-m khan-noprint">
-              <summary>
-                <Icon name="list" size={19} />
-                Mục lục bài viết
-                <span className="n">4 mục</span>
-                <Icon name="chevron" size={18} className="chev" />
-              </summary>
+          <div className="vk-main">
+            <TocDetails
+              className="vk-toc-m khan-noprint"
+              summary={
+                <>
+                  <Icon name="list" size={19} />
+                  Mục lục bài viết
+                  <span className="n">4 mục</span>
+                  <Icon name="chevron" size={18} className="chev" />
+                </>
+              }
+            >
               {toc}
-            </details>
+            </TocDetails>
 
             <section className="ch-card vk-sec" id="sam-le">
               <div className="vk-sec-ico">
-                <Icon name="bowl" size={28} stroke={1.4} />
+                <Icon name="bowl" size={26} stroke={1.4} />
               </div>
-              <div>
-                <h2 className="vk-sec-h">Sắm lễ</h2>
-                <ul className="vk-list">
-                  {bai.samLe.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </div>
+              <h2 className="vk-sec-h">Sắm lễ</h2>
+              <ul className="vk-list vk-sec-b">
+                {bai.samLe.map((item) => (
+                  <li key={item}>
+                    <LeVat text={item} />
+                  </li>
+                ))}
+              </ul>
             </section>
 
             <section className="ch-card vk-sec" id="luu-y">
               <div className="vk-sec-ico">
-                <Icon name="note" size={28} stroke={1.4} />
+                <Icon name="note" size={26} stroke={1.4} />
               </div>
-              <div>
-                <h2 className="vk-sec-h">Lưu ý</h2>
-                <ul className="vk-list one">
-                  {bai.luuY.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </div>
+              <h2 className="vk-sec-h">Lưu ý</h2>
+              <ul className="vk-list one vk-sec-b">
+                {bai.luuY.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
             </section>
 
             <section className="ch-card vk-sec" id="bai-khan">
               <div className="vk-sec-ico">
-                <Icon name="scroll" size={28} stroke={1.4} />
+                <Icon name="scroll" size={26} stroke={1.4} />
               </div>
-              <div>
-                <h2 className="vk-sec-h">Nội dung bài khấn</h2>
+              <h2 className="vk-sec-h">Nội dung bài khấn</h2>
+              <div className="vk-sec-b wide">
                 {bai.baiKhan.map((phan, i) => (
                   <div
                     className={goc ? "vk-scroll has-corner" : "vk-scroll"}
@@ -197,26 +214,24 @@ export default async function VanKhanPage({ params }: { params: Promise<{ slug: 
 
             <section className="ch-card vk-sec khan-noprint" id="hoi-dap">
               <div className="vk-sec-ico">
-                <Icon name="question" size={28} stroke={1.4} />
+                <Icon name="question" size={26} stroke={1.4} />
               </div>
-              <div>
-                <h2 className="vk-sec-h">Câu hỏi thường gặp</h2>
-                <div className="faqs vk-faq">
-                  <div className="faq">
-                    <b>Khấn {tenNgan} vào lúc nào?</b>
-                    <p>{bai.luuY[0]}.</p>
-                  </div>
-                  <div className="faq">
-                    <b>Sắm lễ {tenNgan} gồm những gì?</b>
-                    <p>Chuẩn bị: {bai.samLe.join("; ")}.</p>
-                  </div>
-                  <div className="faq">
-                    <b>Có cần đọc đúng nguyên văn không?</b>
-                    <p>
-                      Không nhất thiết. Thành tâm là chính, không cần thuộc lòng từng chữ, có thể vừa đọc vừa khấn theo ý mình miễn giữ đủ ý
-                      chính của bài.
-                    </p>
-                  </div>
+              <h2 className="vk-sec-h">Câu hỏi thường gặp</h2>
+              <div className="faqs vk-faq vk-sec-b">
+                <div className="faq">
+                  <b>Khấn {tenNgan} vào lúc nào?</b>
+                  <p>{bai.luuY[0]}.</p>
+                </div>
+                <div className="faq">
+                  <b>Sắm lễ {tenNgan} gồm những gì?</b>
+                  <p>Chuẩn bị: {bai.samLe.join("; ")}.</p>
+                </div>
+                <div className="faq">
+                  <b>Có cần đọc đúng nguyên văn không?</b>
+                  <p>
+                    Không nhất thiết. Thành tâm là chính, không cần thuộc lòng từng chữ, có thể vừa đọc vừa khấn theo ý mình miễn giữ đủ ý
+                    chính của bài.
+                  </p>
                 </div>
               </div>
             </section>
@@ -293,7 +308,7 @@ export default async function VanKhanPage({ params }: { params: Promise<{ slug: 
             <div className="ch-sidebox">
               <h2 className="vk-sidebox-h gold">
                 <Icon name="book" size={20} />
-                Văn khấn cùng nhóm {bai.nhom.toLowerCase()}
+                Cùng nhóm {bai.nhom.toLowerCase()}
               </h2>
               <div className="vk-sidebox-b">
                 <ul className="vk-rel">
@@ -314,7 +329,7 @@ export default async function VanKhanPage({ params }: { params: Promise<{ slug: 
                     );
                   })}
                 </ul>
-                <Link className="ch-more" href="/van-khan/" style={{ display: "inline-flex", gap: 6, marginTop: 10 }}>
+                <Link className="vk-side-more" href="/van-khan/">
                   Tất cả văn khấn <Icon name="arrow" size={15} />
                 </Link>
               </div>
