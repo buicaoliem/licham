@@ -1,4 +1,4 @@
-import { existsSync, readFileSync, readdirSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { CHI, type ChiName, canChiNamDuong } from "@licham/core";
 
@@ -127,20 +127,76 @@ export interface TuViEntry {
 }
 
 export interface TuViDayData {
-  /** Ngày (YYYY-MM-DD) mà nội dung này được sinh cho — có thể khác ngày build nếu phải dùng file cũ. */
+  /** Ngày (YYYY-MM-DD) mà nội dung được sinh riêng cho — phải trùng tên file và trùng ngày trang hiển thị. */
   date: string;
   generatedAt: string;
-  /** Tên model Gemini đã dùng, hoặc "fallback-cu" / "placeholder" khi không gọi được máy sinh. */
+  /** Tên model Gemini đã sinh nội dung. Chỉ để tra cứu, không phải bằng chứng file có nội dung. */
   model: string;
   tuoi: Record<string, TuViEntry>;
 }
 
 /**
- * false khi chưa có nội dung thật để hiện — trang không được hiện đoạn luận/điểm/giờ giữ chỗ. Xét cả nội dung chứ không
- * chỉ tên model: bản "fallback-cu" chép lại file gần nhất, nếu file đó là placeholder thì mọi đoạn luận vẫn rỗng.
+ * Giá trị `model` mà bản cũ của script ghi vào file không do Gemini sinh cho đúng ngày đó: "placeholder" là file giữ chỗ
+ * rỗng, "fallback-cu" là bản chép nguyên lời luận của file ngày khác. Cả hai đều bị loại dù trường nội dung trông ra sao.
  */
-export function hasAiContent(data: TuViDayData): boolean {
-  return data.model !== "placeholder" && Object.values(data.tuoi).some((e) => e.luan.trim().length > 0);
+const NON_GENERATED_MODELS: ReadonlySet<string> = new Set(["placeholder", "fallback-cu"]);
+
+export const LUAN_MIN_LENGTH = 20;
+export const LUAN_MAX_LENGTH = 1200;
+const GIO_TOT_RE = /^\d{1,2}h–\d{1,2}h$/;
+
+/** Đưa các biến thể gạch nối Gemini hay trả ("7h - 9h", "7h-9h", "7h—9h") về dạng chuẩn "7h–9h". */
+export function normalizeGioTot(s: string): string {
+  return s.trim().replace(/\s*[-‐‑‒–—]\s*/g, "–");
+}
+
+function isRecord(v: unknown): v is Record<string, unknown> {
+  return typeof v === "object" && v !== null && !Array.isArray(v);
+}
+
+/** Kiểm nội dung thật của một tuổi: lời luận có chữ, điểm nguyên 1-5, giờ tốt đúng dạng. Trả về lỗi hoặc bản đã chuẩn hóa. */
+export function validateTuViEntry(raw: unknown): { entry: TuViEntry } | { error: string } {
+  if (!isRecord(raw)) return { error: "không phải object" };
+  const { luan, diem, gioTot } = raw;
+  if (typeof luan !== "string") return { error: "thiếu luan" };
+  const luanTrim = luan.trim();
+  if (luanTrim.length < LUAN_MIN_LENGTH) return { error: `luan quá ngắn (${luanTrim.length} ký tự)` };
+  if (luanTrim.length > LUAN_MAX_LENGTH) return { error: `luan quá dài (${luanTrim.length} ký tự)` };
+  if (typeof diem !== "number" || !Number.isInteger(diem) || diem < 1 || diem > 5) {
+    return { error: `diem không phải số nguyên 1-5 (${String(diem)})` };
+  }
+  if (typeof gioTot !== "string" || !GIO_TOT_RE.test(gioTot)) return { error: `gioTot sai dạng (${String(gioTot)})` };
+  return { entry: { luan: luanTrim, diem, gioTot } };
+}
+
+export type TuViValidation = { ok: true; data: TuViDayData } | { ok: false; errors: string[] };
+
+/**
+ * Kiểm cả file của một ngày: đúng ngày mong đợi, không phải bản giữ chỗ/chép lại, và ĐỦ 12 tuổi đều có nội dung hợp lệ.
+ * Thiếu một tuổi là loại cả file — trang không được hiện lời luận cho tuổi này mà bỏ trống tuổi kia.
+ */
+export function validateTuViDayData(raw: unknown, expectedDate: string): TuViValidation {
+  if (!isRecord(raw)) return { ok: false, errors: ["không phải object JSON"] };
+  const errors: string[] = [];
+  if (raw.date !== expectedDate) errors.push(`date là ${String(raw.date)}, cần ${expectedDate}`);
+  if (typeof raw.generatedAt !== "string" || Number.isNaN(Date.parse(raw.generatedAt))) errors.push("generatedAt sai");
+  if (typeof raw.model !== "string" || raw.model.trim() === "") errors.push("thiếu model");
+  else if (NON_GENERATED_MODELS.has(raw.model)) errors.push(`model "${raw.model}" không phải nội dung sinh cho ngày này`);
+  const tuoi: Record<string, TuViEntry> = {};
+  if (!isRecord(raw.tuoi)) {
+    errors.push("thiếu tuoi");
+  } else {
+    for (const cg of CON_GIAP_LIST) {
+      const r = validateTuViEntry(raw.tuoi[cg.slug]);
+      if ("error" in r) errors.push(`tuổi ${cg.ten}: ${r.error}`);
+      else tuoi[cg.slug] = r.entry;
+    }
+  }
+  if (errors.length > 0) return { ok: false, errors };
+  return {
+    ok: true,
+    data: { date: expectedDate, generatedAt: raw.generatedAt as string, model: raw.model as string, tuoi },
+  };
 }
 
 export function dateStr(d: { day: number; month: number; year: number }): string {
@@ -152,46 +208,37 @@ export function parseDateStr(s: string): { day: number; month: number; year: num
   return { day: day!, month: month!, year: year! };
 }
 
-/**
- * Dùng khi chưa từng sinh được nội dung thật cho ngày nào — không có đoạn luận, điểm hay giờ tốt
- * thật để hiện, nên `luan`/`gioTot` để rỗng và `diem` để 0; trang phải kiểm `hasAiContent()` và ẩn
- * hẳn các phần này thay vì hiện giá trị giữ chỗ.
- */
-export function placeholderTuViData(date: { day: number; month: number; year: number }): TuViDayData {
-  const tuoi: Record<string, TuViEntry> = {};
-  for (const cg of CON_GIAP_LIST) tuoi[cg.slug] = { luan: "", diem: 0, gioTot: "" };
-  return { date: dateStr(date), generatedAt: new Date().toISOString(), model: "placeholder", tuoi };
-}
-
-function dataDir(): string {
+/** Thư mục dữ liệu khi dựng trang (cwd là web/). */
+export function tuViDataDir(): string {
   return join(process.cwd(), "data", "tu-vi");
 }
 
-export function listAvailableTuViDates(): string[] {
-  const dir = dataDir();
-  if (!existsSync(dir)) return [];
-  return readdirSync(dir)
-    .filter((f) => f.endsWith(".json"))
-    .map((f) => f.replace(/\.json$/, ""))
-    .sort();
+export function tuViFilePath(dir: string, date: string): string {
+  return join(dir, `${date}.json`);
 }
 
-export function readTuViFile(date: string): TuViDayData | null {
-  const path = join(dataDir(), `${date}.json`);
-  if (!existsSync(path)) return null;
-  return JSON.parse(readFileSync(path, "utf8")) as TuViDayData;
+export type TuViLoad = { status: "missing" } | { status: "invalid"; errors: string[] } | { status: "ok"; data: TuViDayData };
+
+/** Đọc và kiểm file của đúng một ngày. File hỏng/ghi dở (JSON lỗi) được coi là không hợp lệ chứ không làm vỡ build. */
+export function loadTuViDay(date: string, dir: string = tuViDataDir()): TuViLoad {
+  const path = tuViFilePath(dir, date);
+  if (!existsSync(path)) return { status: "missing" };
+  let raw: unknown;
+  try {
+    raw = JSON.parse(readFileSync(path, "utf8"));
+  } catch (err) {
+    return { status: "invalid", errors: [`không đọc được JSON: ${err instanceof Error ? err.message : String(err)}`] };
+  }
+  const v = validateTuViDayData(raw, date);
+  return v.ok ? { status: "ok", data: v.data } : { status: "invalid", errors: v.errors };
 }
 
 /**
- * Dữ liệu tử vi để hiển thị: ưu tiên file của ngày hôm nay; nếu chưa có thì dùng file mới nhất
- * hiện có (ví dụ hôm qua sinh lỗi); nếu chưa từng có file nào thì dùng nội dung giữ chỗ cho đúng
- * ngày hôm nay, để trang luôn dựng được kể cả lần chạy đầu tiên chưa có khóa Gemini.
+ * Lời luận tử vi để hiển thị cho `today`, hoặc null khi chưa có nội dung hợp lệ sinh riêng cho đúng ngày này.
+ * Không bao giờ lấy file của ngày khác: khi null, trang chỉ hiện phần tính được bằng luật (can chi, quan hệ tuổi với ngày)
+ * và ẩn lời luận, điểm, giờ tốt.
  */
-export function getTuViData(today: { day: number; month: number; year: number }): TuViDayData {
-  const wanted = dateStr(today);
-  const direct = readTuViFile(wanted);
-  if (direct) return direct;
-  const latest = listAvailableTuViDates().at(-1);
-  const fallback = latest ? readTuViFile(latest) : null;
-  return fallback ?? placeholderTuViData(today);
+export function getTuViData(today: { day: number; month: number; year: number }, dir?: string): TuViDayData | null {
+  const r = loadTuViDay(dateStr(today), dir);
+  return r.status === "ok" ? r.data : null;
 }

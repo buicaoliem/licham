@@ -6,15 +6,15 @@ import { ConGiapArt } from "@/components/heritage/ConGiapArt";
 import { LcFaq } from "@/components/lich/LichParts";
 import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
 import { pad2 } from "@/lib/format";
-import { CON_GIAP_LIST, QUAN_HE_LABEL, birthYearsForChi, getTuViData, hasAiContent, parseDateStr, quanHeVoiNgay } from "@/lib/tu-vi";
+import { CON_GIAP_LIST, QUAN_HE_LABEL, birthYearsForChi, getTuViData, quanHeVoiNgay } from "@/lib/tu-vi";
 import { getVietnamToday } from "@/lib/today";
 
 const today = getVietnamToday();
+// null khi chưa có lời luận hợp lệ sinh riêng cho hôm nay — không bao giờ mượn file ngày khác.
 const data = getTuViData(today);
-const displayDate = parseDateStr(data.date);
-const info = getDayInfo(displayDate);
-const dateLabel = `${pad2(displayDate.day)}/${pad2(displayDate.month)}/${displayDate.year}`;
-const coNoiDung = hasAiContent(data);
+const info = getDayInfo(today);
+const dateLabel = `${pad2(today.day)}/${pad2(today.month)}/${today.year}`;
+const coNoiDung = data !== null;
 
 export const metadata: Metadata = {
   title: `Tử vi hôm nay ${dateLabel} của 12 con giáp | Lịch Âm`,
@@ -42,7 +42,7 @@ export default function TuViIndexPage() {
       <div className="ch-wrap ch-main ch-stack">
         <ul className="tv-grid">
           {CON_GIAP_LIST.map((cg) => {
-            const entry = data.tuoi[cg.slug];
+            const entry = data?.tuoi[cg.slug];
             const years = birthYearsForChi(cg.chiIndex, today.year);
             const quanHe = quanHeVoiNgay(info.canChi.day.chiIndex, cg.chiIndex);
             return (

@@ -14,8 +14,6 @@ import {
   birthYearsForChi,
   conGiapBySlug,
   getTuViData,
-  hasAiContent,
-  parseDateStr,
   quanHeVoiNgay,
 } from "@/lib/tu-vi";
 import { YEAR_END } from "@/lib/site-years";
@@ -23,11 +21,11 @@ import { buildShareUrl } from "@/lib/share";
 import { getVietnamToday } from "@/lib/today";
 
 const today = getVietnamToday();
+// null khi chưa có lời luận hợp lệ sinh riêng cho hôm nay — không bao giờ mượn file ngày khác.
 const data = getTuViData(today);
-const displayDate = parseDateStr(data.date);
-const info = getDayInfo(displayDate);
-const dateLabel = `${pad2(displayDate.day)}/${pad2(displayDate.month)}/${displayDate.year}`;
-const coNoiDung = hasAiContent(data);
+const info = getDayInfo(today);
+const dateLabel = `${pad2(today.day)}/${pad2(today.month)}/${today.year}`;
+const coNoiDung = data !== null;
 
 export function generateStaticParams() {
   return CON_GIAP_LIST.map((cg) => ({ slug: cg.slug }));
@@ -51,7 +49,7 @@ export default async function TuViConGiapPage({ params }: { params: Promise<{ sl
   const cg = conGiapBySlug(slug);
   if (!cg) notFound();
 
-  const entry = data.tuoi[cg.slug];
+  const entry = data?.tuoi[cg.slug];
   const years = birthYearsForChi(cg.chiIndex, today.year);
   const quanHe = quanHeVoiNgay(info.canChi.day.chiIndex, cg.chiIndex);
   const khac = CON_GIAP_LIST.filter((c) => c.slug !== cg.slug);
