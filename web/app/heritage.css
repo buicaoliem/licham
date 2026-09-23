@@ -3340,33 +3340,12 @@ a.ch-tile:hover {
   color: color-mix(in srgb, var(--gold-dp) 72%, transparent);
 }
 
-/* tranh con giáp (800×800, nền trong suốt, chủ thể kèm mặt trời và nền đá): giữ nguyên khung vuông,
+/* tranh con giáp (1024×1024, nền trong suốt, chủ thể kèm mặt trời và nền đá): giữ nguyên khung vuông,
    không cắt tròn, không nền */
 .cg-slot.has-img {
   border-radius: 0;
   overflow: visible;
 }
-/* Bản tách từ bảng tranh gốc còn sót mảnh của tranh bên cạnh ở mép trái (đo theo cột alpha).
-   Chỉ cắt dải mép đó, không chạm chủ thể; bỏ các dòng này khi có bản tranh sạch. */
-.cg-slot[data-cg="suu"] img {
-  clip-path: inset(0 0 0 18.1%);
-}
-.cg-slot[data-cg="dan"] img {
-  clip-path: inset(0 0 0 17.5%);
-}
-.cg-slot[data-cg="mao"] img {
-  clip-path: inset(0 0 0 19.7%);
-}
-.cg-slot[data-cg="thin"] img {
-  clip-path: inset(0 0 0 15.6%);
-}
-.cg-slot[data-cg="ty-ran"] img {
-  clip-path: inset(0 0 0 16.8%);
-}
-.cg-slot[data-cg="dau"] img {
-  clip-path: inset(0 0 0 15.9%);
-}
-
 /* hero danh mục: tranh sơn thủy bên phải, sau điểm cuối hàng chip, mờ dần sang trái */
 .tu-hero.has-art .ch-hero-grid {
   position: relative;
@@ -10644,5 +10623,56 @@ a.ly-cell:hover {
   }
   .hm-doi .ch-btn {
     width: 100%;
+  }
+}
+
+/* Hero trang chủ (hero/home.webp 1200×460): tranh sơn thủy nằm sau nội dung, nửa trái trống để giữ chữ dễ đọc,
+   mờ dần sang trái và xuống đáy. Từ 1024px trở xuống tranh thành dải ảnh riêng phía trên tiêu đề. */
+.hm-hero-art {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 72%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  -webkit-mask-image:
+    linear-gradient(90deg, transparent 0%, #000 34%, #000 100%),
+    linear-gradient(180deg, #000 0%, #000 78%, transparent 100%);
+  mask-image:
+    linear-gradient(90deg, transparent 0%, #000 34%, #000 100%),
+    linear-gradient(180deg, #000 0%, #000 78%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+.hm-hero-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 100% 30%;
+}
+.hm-hero.has-art .hm-hero-in {
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 1023px) {
+  .hm-hero-art {
+    position: relative;
+    inset: auto;
+    width: auto;
+    height: 170px;
+    margin: 12px 20px 0;
+    border-radius: 14px;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+}
+@media (max-width: 759px) {
+  .hm-hero-art {
+    height: 120px;
+    margin: 10px 16px 0;
+    border-radius: 12px;
   }
 }

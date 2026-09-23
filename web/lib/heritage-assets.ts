@@ -11,6 +11,7 @@ export const HERITAGE_SLOTS = {
   sideRight: { path: "/heritage/decor/side-right.webp", spec: "Tranh lề phải (núi, sen, hạc), ~480×1600, nền trong suốt" },
   heroVanKhan: { path: "/heritage/hero/van-khan.webp", spec: "Hero danh mục văn khấn (sen, núi), ~1200×460, mờ dần sang trái" },
   heroTuoi: { path: "/heritage/hero/tuoi.webp", spec: "Hero danh mục Xem tuổi (núi, chùa), ~1200×460, mờ dần sang trái" },
+  heroHome: { path: "/heritage/hero/home.webp", spec: "Hero trang chủ (núi, chùa, mặt trời đỏ, sen), ~1200×460, nửa trái để trống cho chữ" },
   heroLe: { path: "/heritage/hero/le.webp", spec: "Hero danh mục Ngày lễ & tiết khí (đèn lồng, sen, núi), ~1200×460, mờ dần sang trái" },
   scriptureCorner: { path: "/heritage/decor/scripture-corner.svg", spec: "Họa tiết góc khung bài khấn, SVG" },
 } as const;
@@ -48,11 +49,10 @@ export function vanKhanImage(slug: string, nhom: string): string | null {
 }
 
 /**
- * Tranh con giáp Batch 3 là bản tách từ một bảng tranh gốc (ô gốc ~256×320, phóng lên 800×800), chưa phải bản vẽ riêng.
- * Sáu tranh sau còn sót mảnh tranh bên cạnh ở mép trái, đang được che tạm bằng clip-path trong heritage.css
- * (.cg-slot[data-cg=…]). Khi có bản sạch: thay file cùng tên rồi bỏ các dòng clip-path đó.
+ * Tranh con giáp cần thay. Batch B (2026-09-24) đã thay sáu tranh riêng (Sửu, Dần, Mão, Thìn, Tỵ, Dậu, 1024×1024)
+ * và bỏ clip-path che bleed; sáu tranh còn lại (Tý, Ngọ, Mùi, Thân, Tuất, Hợi) vẫn là bản tách 800×800, sạch mép, chưa cần thay gấp.
  */
-export const CON_GIAP_CAN_THAY = ["suu", "dan", "mao", "thin", "ty-ran", "dau"] as const;
+export const CON_GIAP_CAN_THAY: readonly string[] = [];
 
 export function conGiapImagePath(chiSlug: string): string {
   return `/heritage/con-giap/${chiSlug}.webp`;

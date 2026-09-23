@@ -16,6 +16,7 @@ export const HERITAGE_FILES: readonly string[] = [
   "/heritage/decor/scripture-corner.svg",
   "/heritage/decor/side-left.webp",
   "/heritage/decor/side-right.webp",
+  "/heritage/hero/home.webp",
   "/heritage/hero/tuoi.webp",
   "/heritage/hero/van-khan.webp",
   "/heritage/le/ca-thang-tu.webp",

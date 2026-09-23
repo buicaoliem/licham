@@ -1,6 +1,6 @@
 {
   "generated": "2026-09-24",
-  "checkpoint": "caaef3a",
+  "checkpoint": "e46863f",
   "total_to_make": 78,
   "progress": {
     "updated": "2026-09-24",
@@ -12,9 +12,23 @@
         "le-gio-to-hung-vuong"
       ]
     },
-    "da_tich_hop_tong": 9,
-    "con_thieu_hoac_can_sua": 69,
-    "ghi_chu": "Batch A chỉ phủ 9/78 ảnh cần làm; chưa hoàn thành toàn bộ manifest."
+    "da_tich_hop_tong": 16,
+    "con_thieu_hoac_can_sua": 62,
+    "ghi_chu": "Batch A (9) + Batch B (7) = 16/78; còn 62 mục. Chưa hoàn thành toàn bộ manifest.",
+    "batch_b": {
+      "nhan": 7,
+      "da_tich_hop": 7,
+      "giu_lai": 0,
+      "ids": [
+        "site-hero-home",
+        "cg-suu",
+        "cg-dan",
+        "cg-mao",
+        "cg-thin",
+        "cg-ty-ran",
+        "cg-dau"
+      ]
+    }
   },
   "items": [
     {
@@ -26,10 +40,11 @@
       "subject": "Hero trang chủ: núi, chùa, mặt trời đỏ, ink-wash, chừa trống bên trái cho chữ",
       "target": "/heritage/hero/home.webp",
       "size": "1200×460 (≈2.6:1), RGB, mờ dần sang trái; khuyến nghị vẽ 2400×920",
-      "status": "thiếu slot: trang chủ chưa có art, cần thêm HERITAGE_SLOTS.heroHome",
-      "current": null,
+      "status": "đã tích hợp (Batch B, 2026-09-24)",
+      "current": "/heritage/hero/home.webp 1200×460 82 KB",
       "priority": "P0",
-      "notes": "Sửa code ở phase sau"
+      "notes": "Slot HERITAGE_SLOTS.heroHome; tranh nền phải hero trang chủ (absolute ≥1024px, mờ dần sang trái; dải ảnh bo góc phía trên tiêu đề ≤1023px), tải eager. QA 1440/1280/768/390/360 đạt, vùng chữ trái không bị đè.",
+      "batch": "B"
     },
     {
       "id": "site-hero-le",
@@ -166,10 +181,11 @@
       "subject": "Trâu, tranh khắc màu cổ (mặt trời đỏ sau lưng, đá, cây theo con vật), cùng bộ với các tranh còn lại",
       "target": "/heritage/con-giap/suu.webp",
       "size": "1024×1024 vẽ gốc, RGBA nền trong suốt (hiện 800×800 phóng từ ô gốc ~256×320)",
-      "status": "lỗi bleed: còn mảnh tranh bên cạnh ở mép trái, đang che tạm bằng clip-path",
-      "current": "/heritage/con-giap/suu.webp 800×800",
+      "status": "đã tích hợp (Batch B, 2026-09-24)",
+      "current": "/heritage/con-giap/suu.webp 1024×1024 RGBA",
       "priority": "P0",
-      "notes": "Thay file cùng tên rồi bỏ dòng clip-path (.cg-slot[data-cg=...]) trong heritage.css và bỏ khỏi CON_GIAP_CAN_THAY"
+      "notes": "Tranh riêng thay bản tách bảng gốc; đã bỏ clip-path bleed và bỏ khỏi CON_GIAP_CAN_THAY. QA 1440/768/390/360 đạt: /tuoi, trang con giáp, /sinh-nam, /tu-vi.",
+      "batch": "B"
     },
     {
       "id": "cg-dan",
@@ -180,10 +196,11 @@
       "subject": "Hổ, tranh khắc màu cổ (mặt trời đỏ sau lưng, đá, cây theo con vật), cùng bộ với các tranh còn lại",
       "target": "/heritage/con-giap/dan.webp",
       "size": "1024×1024 vẽ gốc, RGBA nền trong suốt (hiện 800×800 phóng từ ô gốc ~256×320)",
-      "status": "lỗi bleed: còn mảnh tranh bên cạnh ở mép trái, đang che tạm bằng clip-path",
-      "current": "/heritage/con-giap/dan.webp 800×800",
+      "status": "đã tích hợp (Batch B, 2026-09-24)",
+      "current": "/heritage/con-giap/dan.webp 1024×1024 RGBA",
       "priority": "P0",
-      "notes": "Thay file cùng tên rồi bỏ dòng clip-path (.cg-slot[data-cg=...]) trong heritage.css và bỏ khỏi CON_GIAP_CAN_THAY"
+      "notes": "Tranh riêng thay bản tách bảng gốc; đã bỏ clip-path bleed và bỏ khỏi CON_GIAP_CAN_THAY. QA 1440/768/390/360 đạt: /tuoi, trang con giáp, /sinh-nam, /tu-vi.",
+      "batch": "B"
     },
     {
       "id": "cg-mao",
@@ -194,10 +211,11 @@
       "subject": "Mèo, tranh khắc màu cổ (mặt trời đỏ sau lưng, đá, cây theo con vật), cùng bộ với các tranh còn lại",
       "target": "/heritage/con-giap/mao.webp",
       "size": "1024×1024 vẽ gốc, RGBA nền trong suốt (hiện 800×800 phóng từ ô gốc ~256×320)",
-      "status": "lỗi bleed: còn mảnh tranh bên cạnh ở mép trái, đang che tạm bằng clip-path",
-      "current": "/heritage/con-giap/mao.webp 800×800",
+      "status": "đã tích hợp (Batch B, 2026-09-24)",
+      "current": "/heritage/con-giap/mao.webp 1024×1024 RGBA",
       "priority": "P0",
-      "notes": "Thay file cùng tên rồi bỏ dòng clip-path (.cg-slot[data-cg=...]) trong heritage.css và bỏ khỏi CON_GIAP_CAN_THAY"
+      "notes": "Tranh riêng thay bản tách bảng gốc; đã bỏ clip-path bleed và bỏ khỏi CON_GIAP_CAN_THAY. QA 1440/768/390/360 đạt: /tuoi, trang con giáp, /sinh-nam, /tu-vi.",
+      "batch": "B"
     },
     {
       "id": "cg-thin",
@@ -208,10 +226,11 @@
       "subject": "Rồng, tranh khắc màu cổ (mặt trời đỏ sau lưng, đá, cây theo con vật), cùng bộ với các tranh còn lại",
       "target": "/heritage/con-giap/thin.webp",
       "size": "1024×1024 vẽ gốc, RGBA nền trong suốt (hiện 800×800 phóng từ ô gốc ~256×320)",
-      "status": "lỗi bleed: còn mảnh tranh bên cạnh ở mép trái, đang che tạm bằng clip-path",
-      "current": "/heritage/con-giap/thin.webp 800×800",
+      "status": "đã tích hợp (Batch B, 2026-09-24)",
+      "current": "/heritage/con-giap/thin.webp 1024×1024 RGBA",
       "priority": "P0",
-      "notes": "Thay file cùng tên rồi bỏ dòng clip-path (.cg-slot[data-cg=...]) trong heritage.css và bỏ khỏi CON_GIAP_CAN_THAY"
+      "notes": "Tranh riêng thay bản tách bảng gốc; đã bỏ clip-path bleed và bỏ khỏi CON_GIAP_CAN_THAY. QA 1440/768/390/360 đạt: /tuoi, trang con giáp, /sinh-nam, /tu-vi.",
+      "batch": "B"
     },
     {
       "id": "cg-ty-ran",
@@ -222,10 +241,11 @@
       "subject": "Rắn, tranh khắc màu cổ (mặt trời đỏ sau lưng, đá, cây theo con vật), cùng bộ với các tranh còn lại",
       "target": "/heritage/con-giap/ty-ran.webp",
       "size": "1024×1024 vẽ gốc, RGBA nền trong suốt (hiện 800×800 phóng từ ô gốc ~256×320)",
-      "status": "lỗi bleed: còn mảnh tranh bên cạnh ở mép trái, đang che tạm bằng clip-path",
-      "current": "/heritage/con-giap/ty-ran.webp 800×800",
+      "status": "đã tích hợp (Batch B, 2026-09-24)",
+      "current": "/heritage/con-giap/ty-ran.webp 1024×1024 RGBA",
       "priority": "P0",
-      "notes": "Thay file cùng tên rồi bỏ dòng clip-path (.cg-slot[data-cg=...]) trong heritage.css và bỏ khỏi CON_GIAP_CAN_THAY"
+      "notes": "Tranh riêng thay bản tách bảng gốc; đã bỏ clip-path bleed và bỏ khỏi CON_GIAP_CAN_THAY. QA 1440/768/390/360 đạt: /tuoi, trang con giáp, /sinh-nam, /tu-vi.",
+      "batch": "B"
     },
     {
       "id": "cg-ngo",
@@ -278,10 +298,11 @@
       "subject": "Gà, tranh khắc màu cổ (mặt trời đỏ sau lưng, đá, cây theo con vật), cùng bộ với các tranh còn lại",
       "target": "/heritage/con-giap/dau.webp",
       "size": "1024×1024 vẽ gốc, RGBA nền trong suốt (hiện 800×800 phóng từ ô gốc ~256×320)",
-      "status": "lỗi bleed: còn mảnh tranh bên cạnh ở mép trái, đang che tạm bằng clip-path",
-      "current": "/heritage/con-giap/dau.webp 800×800",
+      "status": "đã tích hợp (Batch B, 2026-09-24)",
+      "current": "/heritage/con-giap/dau.webp 1024×1024 RGBA",
       "priority": "P0",
-      "notes": "Thay file cùng tên rồi bỏ dòng clip-path (.cg-slot[data-cg=...]) trong heritage.css và bỏ khỏi CON_GIAP_CAN_THAY"
+      "notes": "Tranh riêng thay bản tách bảng gốc; đã bỏ clip-path bleed và bỏ khỏi CON_GIAP_CAN_THAY. QA 1440/768/390/360 đạt: /tuoi, trang con giáp, /sinh-nam, /tu-vi.",
+      "batch": "B"
     },
     {
       "id": "cg-tuat",

@@ -12,6 +12,7 @@ export function HeritageImage({
   width,
   height,
   label,
+  eager = false,
 }: {
   src: string;
   fallback?: string;
@@ -21,10 +22,12 @@ export function HeritageImage({
   height?: number;
   /** Mô tả asset hiển thị trong khung đánh dấu. */
   label?: string;
+  /** Ảnh nằm trong màn hình đầu tiên: tải ngay, không lazy. */
+  eager?: boolean;
 }) {
   const file = heritageFile(src) ?? (fallback ? heritageFile(fallback) : null);
   if (file) {
-    return <img src={file} alt={alt} className={className} width={width} height={height} loading="lazy" decoding="async" />;
+    return <img src={file} alt={alt} className={className} width={width} height={height} loading={eager ? "eager" : "lazy"} fetchPriority={eager ? "high" : undefined} decoding="async" />;
   }
   if (!PLACEHOLDER_MODE) return null;
   return (

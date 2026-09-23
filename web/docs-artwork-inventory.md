@@ -5,7 +5,8 @@ Checkpoint `caaef3a`, ngày 2026-09-24. Nguồn dữ liệu: `LE_LIST` (60 trang
 ## Tiến độ
 
 - **Batch A (2026-09-24):** nhận 10 tranh lễ; **đã tích hợp 9** vào `public/heritage/le/` (tet-nguyen-dan, tet-trung-thu, tet-han-thuc, tet-doan-ngo, phat-dan, vu-lan, giang-sinh, ca-thang-tu, tet-thanh-minh); **giữ lại 1** (gio-to-hung-vuong — chờ đối chiếu kiến trúc Đền Hùng, vẫn dùng tranh chung). QA: `mock/contemporary-heritage/qa-phase8b/`.
-- Còn thiếu hoặc cần sửa: **69/78**. Chưa hoàn thành toàn bộ danh sách.
+- **Batch B (2026-09-24):** nhận 7 ảnh, **đã tích hợp 7**: hero trang chủ (`hero/home.webp`, slot `heroHome`) và 6 tranh con giáp riêng (Sửu, Dần, Mão, Thìn, Tỵ, Dậu, 1024×1024 RGBA), đã bỏ `clip-path` che bleed. QA: `mock/contemporary-heritage/qa-batch-b/`.
+- Tổng đã tích hợp: **16/78**; còn thiếu hoặc cần sửa: **62**. Chưa hoàn thành toàn bộ danh sách.
 
 ## Tổng số ảnh cần làm: 78
 
@@ -26,7 +27,7 @@ Không tính: `hero/tuoi.webp`, `decor/side-left|right.webp`, logo, SVG trang tr
 
 1. **Chưa có file `/heritage/le/*.webp` nào.** Trang lễ hiện dùng 5 tranh văn khấn dùng chung cho 12 lễ; 15 anh hùng dùng SVG biểu tượng; 1 ảnh thật (Hồ Chí Minh); còn lại 32 lễ chưa có ảnh (khối ảnh bị ẩn).
 2. **Tranh dùng chung sai chủ đề:** Trung thu, Hạ nguyên, Rằm tháng Chạp, Rằm tháng Giêng đều dùng 'bàn thờ trăng'; Giỗ Tổ Hùng Vương dùng cảnh đình chùa chung, không phải Đền Hùng; Giao thừa trùng tranh Tết Nguyên đán.
-3. **Bleed con giáp:** 6/12 tranh còn mảnh tranh cạnh ở mép trái (Sửu, Dần, Mão, Thìn, Tỵ, Dậu), đang che tạm bằng `clip-path` trong `heritage.css`. Cả 12 phóng từ ô gốc ~256×320 lên 800×800, mềm khi phóng to.
+3. **Bleed con giáp:** đã xử lý ở Batch B — 6 tranh (Sửu, Dần, Mão, Thìn, Tỵ, Dậu) được thay bằng bản vẽ riêng 1024×1024 và bỏ `clip-path`. Sáu con còn lại (Tý, Ngọ, Mùi, Thân, Tuất, Hợi) vẫn là bản tách 800×800 phóng từ ô gốc, sạch mép nhưng mềm khi phóng to (P2).
 4. **Hero:** `hero/le.webp` thiếu (slot có, file không) nên hero Ngày lễ đang trống; `hero/van-khan.webp` lệch spec (1200×560 so với 460) và có dải mờ ở đáy, vệt trắng mép trái; trang chủ, lịch tháng, lịch năm, chi tiết ngày chưa có slot ảnh.
 5. **Ảnh Hồ Chí Minh** `/le/ho-chi-minh-1946.jpg` chỉ 282×383, hiển thị hero sẽ mờ. Cần bản gốc lớn hơn từ Wikimedia Commons và xác minh giấy phép.
 6. **Phong cách chưa đồng nhất:** con giáp là tranh khắc màu cổ, hero là ink-wash, tranh nhóm văn khấn là ảnh minh họa chân thực (bàn thờ). Cần chốt một style guide cho lô ảnh mới.
@@ -51,7 +52,7 @@ Trạng thái: 'tạm' là đang dùng tranh dùng chung; 'thiếu slot' cần t
 
 | Slug | Chủ đề | Nội dung tranh | Đường dẫn đích | Kích thước | Hiện tại | Ưu tiên |
 |---|---|---|---|---|---|---|
-| `home` | Trang chủ | Hero trang chủ: núi, chùa, mặt trời đỏ, ink-wash, chừa trống bên trái cho chữ | `/heritage/hero/home.webp` | 1200×460 (≈2.6:1), RGB, mờ dần sang trái; khuyến nghị vẽ 2400×920 | thiếu slot: trang chủ chưa có art, cần thêm HERITAGE_SLOTS.heroHome | P0 |
+| `home` | Trang chủ | Hero trang chủ: núi, chùa, mặt trời đỏ, ink-wash, chừa trống bên trái cho chữ | `/heritage/hero/home.webp` | 1200×460 (≈2.6:1), RGB, mờ dần sang trái; khuyến nghị vẽ 2400×920 | đã tích hợp (Batch B, 2026-09-24) | P0 |
 | `le` | Hero danh mục Ngày lễ & tiết khí | Đèn lồng, sen, núi (đúng mô tả slot heroLe) | `/heritage/hero/le.webp` | 1200×460 (≈2.6:1), RGB, mờ dần sang trái; khuyến nghị vẽ 2400×920 | thiếu file (slot heroLe đã có trong code nên khối hero đang bị ẩn) | P0 |
 | `lich-thang` | Lịch tháng | Trăng khuyết và hoa, ink-wash nền nhạt; một ảnh dùng chung cho mọi tháng | `/heritage/hero/lich-thang.webp` | 1200×460 (≈2.6:1), RGB, mờ dần sang trái; khuyến nghị vẽ 2400×920 | thiếu slot | P1 |
 | `lich-nam` | Lịch năm | Vòng thời gian, mặt trời đỏ, ink-wash; không lặp tranh riêng từng con giáp | `/heritage/hero/lich-nam.webp` | 1200×460 (≈2.6:1), RGB, mờ dần sang trái; khuyến nghị vẽ 2400×920 | thiếu slot | P1 |
@@ -66,15 +67,15 @@ Trạng thái: 'tạm' là đang dùng tranh dùng chung; 'thiếu slot' cần t
 | Slug | Chủ đề | Nội dung tranh | Đường dẫn đích | Kích thước | Hiện tại | Ưu tiên |
 |---|---|---|---|---|---|---|
 | `ty` | Tý — Chuột | Chuột, tranh khắc màu cổ (mặt trời đỏ sau lưng, đá, cây theo con vật), cùng bộ với các tranh còn lại | `/heritage/con-giap/ty.webp` | 1024×1024 vẽ gốc, RGBA nền trong suốt (hiện 800×800 phóng từ ô gốc ~256×320) | dùng được nhưng độ phân giải gốc thấp (cắt từ bảng tranh), mềm khi phóng to | P2 |
-| `suu` | Sửu — Trâu | Trâu, tranh khắc màu cổ (mặt trời đỏ sau lưng, đá, cây theo con vật), cùng bộ với các tranh còn lại | `/heritage/con-giap/suu.webp` | 1024×1024 vẽ gốc, RGBA nền trong suốt (hiện 800×800 phóng từ ô gốc ~256×320) | lỗi bleed: còn mảnh tranh bên cạnh ở mép trái, đang che tạm bằng clip-path | P0 |
-| `dan` | Dần — Hổ | Hổ, tranh khắc màu cổ (mặt trời đỏ sau lưng, đá, cây theo con vật), cùng bộ với các tranh còn lại | `/heritage/con-giap/dan.webp` | 1024×1024 vẽ gốc, RGBA nền trong suốt (hiện 800×800 phóng từ ô gốc ~256×320) | lỗi bleed: còn mảnh tranh bên cạnh ở mép trái, đang che tạm bằng clip-path | P0 |
-| `mao` | Mão — Mèo | Mèo, tranh khắc màu cổ (mặt trời đỏ sau lưng, đá, cây theo con vật), cùng bộ với các tranh còn lại | `/heritage/con-giap/mao.webp` | 1024×1024 vẽ gốc, RGBA nền trong suốt (hiện 800×800 phóng từ ô gốc ~256×320) | lỗi bleed: còn mảnh tranh bên cạnh ở mép trái, đang che tạm bằng clip-path | P0 |
-| `thin` | Thìn — Rồng | Rồng, tranh khắc màu cổ (mặt trời đỏ sau lưng, đá, cây theo con vật), cùng bộ với các tranh còn lại | `/heritage/con-giap/thin.webp` | 1024×1024 vẽ gốc, RGBA nền trong suốt (hiện 800×800 phóng từ ô gốc ~256×320) | lỗi bleed: còn mảnh tranh bên cạnh ở mép trái, đang che tạm bằng clip-path | P0 |
-| `ty-ran` | Tỵ — Rắn | Rắn, tranh khắc màu cổ (mặt trời đỏ sau lưng, đá, cây theo con vật), cùng bộ với các tranh còn lại | `/heritage/con-giap/ty-ran.webp` | 1024×1024 vẽ gốc, RGBA nền trong suốt (hiện 800×800 phóng từ ô gốc ~256×320) | lỗi bleed: còn mảnh tranh bên cạnh ở mép trái, đang che tạm bằng clip-path | P0 |
+| `suu` | Sửu — Trâu | Trâu, tranh khắc màu cổ (mặt trời đỏ sau lưng, đá, cây theo con vật), cùng bộ với các tranh còn lại | `/heritage/con-giap/suu.webp` | 1024×1024 vẽ gốc, RGBA nền trong suốt (hiện 800×800 phóng từ ô gốc ~256×320) | đã tích hợp (Batch B, 2026-09-24) | P0 |
+| `dan` | Dần — Hổ | Hổ, tranh khắc màu cổ (mặt trời đỏ sau lưng, đá, cây theo con vật), cùng bộ với các tranh còn lại | `/heritage/con-giap/dan.webp` | 1024×1024 vẽ gốc, RGBA nền trong suốt (hiện 800×800 phóng từ ô gốc ~256×320) | đã tích hợp (Batch B, 2026-09-24) | P0 |
+| `mao` | Mão — Mèo | Mèo, tranh khắc màu cổ (mặt trời đỏ sau lưng, đá, cây theo con vật), cùng bộ với các tranh còn lại | `/heritage/con-giap/mao.webp` | 1024×1024 vẽ gốc, RGBA nền trong suốt (hiện 800×800 phóng từ ô gốc ~256×320) | đã tích hợp (Batch B, 2026-09-24) | P0 |
+| `thin` | Thìn — Rồng | Rồng, tranh khắc màu cổ (mặt trời đỏ sau lưng, đá, cây theo con vật), cùng bộ với các tranh còn lại | `/heritage/con-giap/thin.webp` | 1024×1024 vẽ gốc, RGBA nền trong suốt (hiện 800×800 phóng từ ô gốc ~256×320) | đã tích hợp (Batch B, 2026-09-24) | P0 |
+| `ty-ran` | Tỵ — Rắn | Rắn, tranh khắc màu cổ (mặt trời đỏ sau lưng, đá, cây theo con vật), cùng bộ với các tranh còn lại | `/heritage/con-giap/ty-ran.webp` | 1024×1024 vẽ gốc, RGBA nền trong suốt (hiện 800×800 phóng từ ô gốc ~256×320) | đã tích hợp (Batch B, 2026-09-24) | P0 |
 | `ngo` | Ngọ — Ngựa | Ngựa, tranh khắc màu cổ (mặt trời đỏ sau lưng, đá, cây theo con vật), cùng bộ với các tranh còn lại | `/heritage/con-giap/ngo.webp` | 1024×1024 vẽ gốc, RGBA nền trong suốt (hiện 800×800 phóng từ ô gốc ~256×320) | dùng được nhưng độ phân giải gốc thấp (cắt từ bảng tranh), mềm khi phóng to | P2 |
 | `mui` | Mùi — Dê | Dê, tranh khắc màu cổ (mặt trời đỏ sau lưng, đá, cây theo con vật), cùng bộ với các tranh còn lại | `/heritage/con-giap/mui.webp` | 1024×1024 vẽ gốc, RGBA nền trong suốt (hiện 800×800 phóng từ ô gốc ~256×320) | dùng được nhưng độ phân giải gốc thấp (cắt từ bảng tranh), mềm khi phóng to | P2 |
 | `than` | Thân — Khỉ | Khỉ, tranh khắc màu cổ (mặt trời đỏ sau lưng, đá, cây theo con vật), cùng bộ với các tranh còn lại | `/heritage/con-giap/than.webp` | 1024×1024 vẽ gốc, RGBA nền trong suốt (hiện 800×800 phóng từ ô gốc ~256×320) | dùng được nhưng độ phân giải gốc thấp (cắt từ bảng tranh), mềm khi phóng to | P2 |
-| `dau` | Dậu — Gà | Gà, tranh khắc màu cổ (mặt trời đỏ sau lưng, đá, cây theo con vật), cùng bộ với các tranh còn lại | `/heritage/con-giap/dau.webp` | 1024×1024 vẽ gốc, RGBA nền trong suốt (hiện 800×800 phóng từ ô gốc ~256×320) | lỗi bleed: còn mảnh tranh bên cạnh ở mép trái, đang che tạm bằng clip-path | P0 |
+| `dau` | Dậu — Gà | Gà, tranh khắc màu cổ (mặt trời đỏ sau lưng, đá, cây theo con vật), cùng bộ với các tranh còn lại | `/heritage/con-giap/dau.webp` | 1024×1024 vẽ gốc, RGBA nền trong suốt (hiện 800×800 phóng từ ô gốc ~256×320) | đã tích hợp (Batch B, 2026-09-24) | P0 |
 | `tuat` | Tuất — Chó | Chó, tranh khắc màu cổ (mặt trời đỏ sau lưng, đá, cây theo con vật), cùng bộ với các tranh còn lại | `/heritage/con-giap/tuat.webp` | 1024×1024 vẽ gốc, RGBA nền trong suốt (hiện 800×800 phóng từ ô gốc ~256×320) | dùng được nhưng độ phân giải gốc thấp (cắt từ bảng tranh), mềm khi phóng to | P2 |
 | `hoi` | Hợi — Lợn | Lợn, tranh khắc màu cổ (mặt trời đỏ sau lưng, đá, cây theo con vật), cùng bộ với các tranh còn lại | `/heritage/con-giap/hoi.webp` | 1024×1024 vẽ gốc, RGBA nền trong suốt (hiện 800×800 phóng từ ô gốc ~256×320) | dùng được nhưng độ phân giải gốc thấp (cắt từ bảng tranh), mềm khi phóng to | P2 |
 

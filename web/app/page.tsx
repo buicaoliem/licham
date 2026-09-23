@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CHI, getDayInfo } from "@licham/core";
 import { ChShell } from "@/components/heritage/ChShell";
+import { HeritageImage, heritageVisible } from "@/components/heritage/HeritageImage";
 import { Icon, type IconName } from "@/components/heritage/Icon";
 import { LcCard, LcDate } from "@/components/lich/LichParts";
 import { LichGrid, LichLegend } from "@/components/lich/LichGrid";
 import { LichTodayMarker } from "@/components/lich/LichTodayMarker";
 import { VIEC_ICON } from "@/components/heritage/viecIcon";
+import { HERITAGE_SLOTS } from "@/lib/heritage-assets";
 import { dateKey, lichCells } from "@/lib/calendar/lich-view";
 import { monthHref } from "@/lib/calendar/urls";
 import { MONTH_WORD, WEEKDAY_LONG, pad2 } from "@/lib/format";
@@ -52,6 +54,7 @@ export default function HomePage() {
     .split(" ")
     .map((word, i) => (i === 0 ? word : word.toLowerCase()))
     .join(" ");
+  const heroArt = heritageVisible(HERITAGE_SLOTS.heroHome.path);
   const cells = lichCells(today.month, today.year, today);
 
   const shortcuts: { href: string; label: string; icon: IconName; hot?: boolean }[] = [
@@ -67,7 +70,12 @@ export default function HomePage() {
 
   return (
     <ChShell activeMenu="Hôm nay" className="ch-lich ch-home">
-      <section className="hm-hero">
+      <section className={heroArt ? "hm-hero has-art" : "hm-hero"}>
+        {heroArt && (
+          <div className="hm-hero-art" aria-hidden="true">
+            <HeritageImage src={HERITAGE_SLOTS.heroHome.path} label={HERITAGE_SLOTS.heroHome.spec} eager />
+          </div>
+        )}
         <div className="ch-wrap hm-hero-in">
           <div className="hm-hero-text">
             <p className="ch-eyebrow">Lịch âm dương · giờ Việt Nam</p>
