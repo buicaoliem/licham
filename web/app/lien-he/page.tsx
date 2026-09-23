@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
+import { ChHero, ChShell } from "@/components/heritage/ChShell";
 
 export const metadata: Metadata = {
   title: "Liên hệ | Lịch Âm",
@@ -10,45 +9,29 @@ export const metadata: Metadata = {
 
 export default function LienHePage() {
   return (
-    <div className="outer">
-      <div className="site">
-        <Header />
+    <ChShell activeMenu={null} className="ch-page">
+      <ChHero
+        crumbs={[{ label: "Trang chủ", href: "/" }, { label: "Liên hệ" }]}
+        crumbJsonLd={false}
+        title="Liên hệ"
+        lead="Góp ý, báo lỗi hoặc đề nghị bổ sung nội dung cho licham.app"
+      />
 
-        <div className="band">
-          <div className="bg bg-lam" />
-          <div className="band-in">
-            <h1>Liên hệ</h1>
-            <p>Góp ý, báo lỗi hoặc đề nghị bổ sung nội dung cho licham.app</p>
-          </div>
-        </div>
-
-        <div className="body">
-          <div className="prose">
-            <div className="box">
-              <div className="box-h">
-                <span className="rule" />
-                <span className="t">Gửi cho chúng tôi</span>
-                <span className="rule" />
-              </div>
-              <ul className="dotlist">
-                <li>Báo sai ngày tháng hoặc thông tin trên trang</li>
-                <li>Đề nghị thêm bài văn khấn hoặc ngày lễ còn thiếu</li>
-                <li>Báo lỗi hiển thị</li>
-                <li>Hợp tác nội dung</li>
-              </ul>
-              <p style={{ marginTop: 18 }}>
-                Mọi góp ý xin gửi về <a href="mailto:lienhe@licham.app">Lienhe@licham.app</a>
-              </p>
-            </div>
-
-            <p style={{ textAlign: "center", fontSize: 13.5, color: "var(--ink-3)", marginTop: 18 }}>
-              Chúng tôi phản hồi trong vòng vài ngày làm việc.
-            </p>
-          </div>
-        </div>
-
-        <Footer />
+      <div className="ch-wrap ch-main ch-stack ch-page-body">
+        <article className="ch-card ch-prose">
+          <h2>Gửi cho chúng tôi</h2>
+          <ul className="dotlist">
+            <li>Báo sai ngày tháng hoặc thông tin trên trang</li>
+            <li>Đề nghị thêm bài văn khấn hoặc ngày lễ còn thiếu</li>
+            <li>Báo lỗi hiển thị</li>
+            <li>Hợp tác nội dung</li>
+          </ul>
+          <p>
+            Mọi góp ý xin gửi về <a href="mailto:lienhe@licham.app">Lienhe@licham.app</a>
+          </p>
+          <p className="ch-prose-meta">Chúng tôi phản hồi trong vòng vài ngày làm việc.</p>
+        </article>
       </div>
-    </div>
+    </ChShell>
   );
 }

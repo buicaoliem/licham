@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getDayInfo } from "@licham/core";
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
+import { ChHero, ChShell } from "@/components/heritage/ChShell";
+import { ConGiapArt } from "@/components/heritage/ConGiapArt";
+import { TuSec, TuoiFact } from "@/components/heritage/TuParts";
 import { ShareButton } from "@/components/ShareButton";
 import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
 import { pad2 } from "@/lib/format";
@@ -13,8 +14,6 @@ import {
   birthYearsForChi,
   conGiapBySlug,
   getTuViData,
-  hasAiContent,
-  parseDateStr,
   quanHeVoiNgay,
 } from "@/lib/tu-vi";
 import { YEAR_END } from "@/lib/site-years";
@@ -22,11 +21,11 @@ import { buildShareUrl } from "@/lib/share";
 import { getVietnamToday } from "@/lib/today";
 
 const today = getVietnamToday();
+// null khi chưa có lời luận hợp lệ sinh riêng cho hôm nay — không bao giờ mượn file ngày khác.
 const data = getTuViData(today);
-const displayDate = parseDateStr(data.date);
-const info = getDayInfo(displayDate);
-const dateLabel = `${pad2(displayDate.day)}/${pad2(displayDate.month)}/${displayDate.year}`;
-const coNoiDung = hasAiContent(data);
+const info = getDayInfo(today);
+const dateLabel = `${pad2(today.day)}/${pad2(today.month)}/${today.year}`;
+const coNoiDung = data !== null;
 
 export function generateStaticParams() {
   return CON_GIAP_LIST.map((cg) => ({ slug: cg.slug }));
@@ -50,92 +49,74 @@ export default async function TuViConGiapPage({ params }: { params: Promise<{ sl
   const cg = conGiapBySlug(slug);
   if (!cg) notFound();
 
-  const entry = data.tuoi[cg.slug];
+  const entry = data?.tuoi[cg.slug];
   const years = birthYearsForChi(cg.chiIndex, today.year);
   const quanHe = quanHeVoiNgay(info.canChi.day.chiIndex, cg.chiIndex);
   const khac = CON_GIAP_LIST.filter((c) => c.slug !== cg.slug);
 
   return (
-    <div className="outer">
-      <div className="site">
-        <Header activeMenu="Tử vi" />
+    <ChShell activeMenu="Tử vi" className="ch-tu ch-tv">
+      <ChHero
+        className="tu-hero"
+        crumbs={[{ label: "Trang chủ", href: "/" }, { label: "Tử vi", href: "/tu-vi/" }, { label: `Tuổi ${cg.ten}` }]}
+        crumbJsonLd={false}
+        eyebrow={`Ngày ${info.canChi.day.name}`}
+        title={`Tử vi tuổi ${cg.ten} hôm nay ${dateLabel}`}
+        lead={`Ngày ${info.canChi.day.name} — ${QUAN_HE_LABEL[quanHe]}`}
+      >
+        <ShareButton
+          url={buildShareUrl(`/tu-vi/${slug}/`)}
+          title={`Tử vi tuổi ${cg.ten} hôm nay`}
+          text={`Tử vi tuổi ${cg.ten} hôm nay ${dateLabel} – xem đầy đủ tại Lịch Âm.`}
+        />
+      </ChHero>
 
-        <div className="band">
-          <div className="bg bg-kim" />
-          <div className="band-in">
-            <h1>Tử vi tuổi {cg.ten} hôm nay {dateLabel}</h1>
-            <p>
-              Ngày {info.canChi.day.name} — {QUAN_HE_LABEL[quanHe]}
-            </p>
-            <div className="share-row">
-              <ShareButton
-                variant="onband"
-                url={buildShareUrl(`/tu-vi/${slug}/`)}
-                title={`Tử vi tuổi ${cg.ten} hôm nay`}
-                text={`Tử vi tuổi ${cg.ten} hôm nay ${dateLabel} – xem đầy đủ tại Lịch Âm.`}
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="body">
-          {coNoiDung && (
-            <div style={{ textAlign: "center", marginBottom: 20 }}>
-              <span className="aihint">Phần luận do máy viết riêng cho ngày này, mang tính tham khảo</span>
-            </div>
-          )}
-
-          {coNoiDung && (
-            <div className="box" style={{ marginBottom: 20 }}>
-              <div className="st" style={{ justifyContent: "center", marginBottom: 12 }}>
+      <div className="ch-wrap ch-main ch-stack">
+        <section className="ch-card tu-profile" aria-labelledby="tv-info-h">
+          <div className="tuoi-medal">
+            <ConGiapArt chiSlug={cg.slug} ten={cg.ten} so={cg.chiIndex + 1} className="tuoi-medal-art" />
+            <b>Tuổi {cg.ten}</b>
+            {coNoiDung && (
+              <span className="tv-stars lg" aria-label={`${entry?.diem ?? 0} trên 5`}>
                 {[1, 2, 3, 4, 5].map((n) => (
                   <i className={n <= (entry?.diem ?? 0) ? "on" : undefined} key={n} />
                 ))}
-              </div>
-              <p style={{ textAlign: "center", fontSize: 14.5, color: "var(--ink)", margin: 0 }}>{entry?.luan}</p>
-            </div>
-          )}
-
-          <div className={coNoiDung ? "tuvi-detail" : undefined}>
-            <div className="box">
-              <div className="box-h">
-                <span className="rule" />
-                <span className="t">Thông tin tuổi {cg.ten}</span>
-                <span className="rule" />
-              </div>
-              <div className="row">
-                <span>Năm sinh</span>
-                <span>{years.join(" · ")}</span>
-              </div>
-              <div className="row">
-                <span>Quan hệ với ngày</span>
-                <span>{QUAN_HE_LABEL[quanHe]}</span>
-              </div>
-              <div className="row">
-                <span>Can chi ngày</span>
-                <span>{info.canChi.day.name}</span>
-              </div>
-            </div>
-            {coNoiDung && (
-              <div className="box">
-                <div className="box-h">
-                  <span className="rule" />
-                  <span className="t">Giờ tốt nhất trong ngày</span>
-                  <span className="rule" />
-                </div>
-                <div className="row">
-                  <span>Khung giờ</span>
-                  <span>{entry?.gioTot}</span>
-                </div>
-                <div className="row">
-                  <span>Can chi ngày</span>
-                  <span>{info.canChi.day.name}</span>
-                </div>
-              </div>
+              </span>
             )}
           </div>
+          <div className="tuoi-facts">
+            <h2 className="tu-sec-h" id="tv-info-h">
+              Thông tin tuổi {cg.ten}
+            </h2>
+            {coNoiDung && (
+              <>
+                <p className="tv-ai">Phần luận do máy viết riêng cho ngày này, mang tính tham khảo</p>
+                <p className="tv-luan">{entry?.luan}</p>
+              </>
+            )}
+            <TuoiFact k="Năm sinh" v={years.join(" · ")} />
+            <TuoiFact k="Quan hệ với ngày" v={QUAN_HE_LABEL[quanHe]} />
+            <TuoiFact k="Can chi ngày" v={info.canChi.day.name} />
+          </div>
+        </section>
 
-          <h2 className="hh" style={{ marginTop: 28 }}>
+        {coNoiDung && (
+          <TuSec title="Giờ tốt nhất trong ngày">
+            <ul className="tu-hk">
+              <li>
+                <span className="k">Khung giờ</span>
+                <span className="v">{entry?.gioTot}</span>
+              </li>
+              <li>
+                <span className="k">Can chi ngày</span>
+                <span className="v">{info.canChi.day.name}</span>
+              </li>
+            </ul>
+          </TuSec>
+        )}
+
+        <section className="lc-related" aria-labelledby="tv-nam-h">
+          <h2 className="ch-h2" id="tv-nam-h">
             Tử vi tuổi {cg.ten} theo năm
           </h2>
           <div className="chips">
@@ -151,8 +132,10 @@ export default async function TuViConGiapPage({ params }: { params: Promise<{ sl
               Tuổi {cg.ten}
             </Link>
           </div>
+        </section>
 
-          <h2 className="hh" style={{ marginTop: 28 }}>
+        <section className="lc-related" aria-labelledby="tv-khac-h">
+          <h2 className="ch-h2" id="tv-khac-h">
             Tử vi các tuổi khác hôm nay
           </h2>
           <div className="chips">
@@ -162,11 +145,9 @@ export default async function TuViConGiapPage({ params }: { params: Promise<{ sl
               </Link>
             ))}
           </div>
-          <TraditionalDisclaimer />
-        </div>
-
-        <Footer />
+        </section>
+        <TraditionalDisclaimer />
       </div>
-    </div>
+    </ChShell>
   );
 }

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
+import { ChHero, ChShell } from "@/components/heritage/ChShell";
+import { ConGiapArt } from "@/components/heritage/ConGiapArt";
+import { HkRow, TuSec } from "@/components/heritage/TuParts";
+import { LcPager } from "@/components/lich/LichParts";
 import { ShareButton } from "@/components/ShareButton";
 import { buildShareUrl } from "@/lib/share";
 import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
@@ -47,151 +49,124 @@ export default async function TuViNamPage({ params }: { params: Promise<{ slug: 
   const next = year < TU_VI_NAM_END ? year + 1 : null;
 
   return (
-    <div className="outer">
-      <div className="site">
-        <Header activeMenu="Tử vi" />
+    <ChShell activeMenu="Tử vi" className="ch-tu ch-tv">
+      <ChHero
+        className="tu-hero"
+        crumbs={[
+          { label: "Trang chủ", href: "/" },
+          { label: "Tử vi", href: "/tu-vi/" },
+          { label: giap.ten, href: `/tu-vi/${giap.slug}/` },
+          { label: `Năm ${year}` },
+        ]}
+        crumbJsonLd={false}
+        eyebrow={`Năm ${info.canChiNam.name}`}
+        title={`Tử vi tuổi ${giap.ten} năm ${year} — ${info.canChiNam.name}`}
+        lead={`Mệnh năm ${info.canChiNam.napAm.name} (hành ${info.canChiNam.napAm.element}) — nạp âm của năm ${year}, không phải một hành cho mọi người tuổi ${giap.ten}.`}
+      >
+        <ShareButton
+          url={buildShareUrl(`/tu-vi/${giap.slug}/${year}/`)}
+          title={`Tử vi tuổi ${giap.ten} năm ${year}`}
+          text={`Tử vi tuổi ${giap.ten} năm ${year} (${info.canChiNam.name}) – xem đầy đủ tại Lịch Âm.`}
+        />
+      </ChHero>
 
-        <div className="band">
-          <div className="bg bg-kim" />
-          <div className="band-in">
-            <div className="crumb" style={{ marginBottom: 10 }}>
-              <Link href="/">Trang chủ</Link> › <Link href="/tu-vi/">Tử vi</Link> ›{" "}
-              <Link href={`/tu-vi/${giap.slug}/`}>{giap.ten}</Link> › Năm {year}
-            </div>
-            <h1>
-              Tử vi tuổi {giap.ten} năm {year} — {info.canChiNam.name}
-            </h1>
-            <p>
-              Mệnh năm {info.canChiNam.napAm.name} (hành {info.canChiNam.napAm.element}) — nạp âm của năm {year}, không
-              phải một hành cho mọi người tuổi {giap.ten}.
-            </p>
-            <div className="share-row">
-              <ShareButton
-                variant="onband"
-                url={buildShareUrl(`/tu-vi/${giap.slug}/${year}/`)}
-                title={`Tử vi tuổi ${giap.ten} năm ${year}`}
-                text={`Tử vi tuổi ${giap.ten} năm ${year} (${info.canChiNam.name}) – xem đầy đủ tại Lịch Âm.`}
-              />
-            </div>
+      <div className="ch-wrap ch-main ch-stack">
+        <section className="ch-card tu-profile" aria-label={`Tổng quan tuổi ${giap.ten} năm ${year}`}>
+          <div className="tuoi-medal">
+            <ConGiapArt chiSlug={giap.slug} ten={giap.ten} so={giap.chiIndex + 1} className="tuoi-medal-art" />
+            <b>Tuổi {giap.ten}</b>
+            <span>Năm {year}</span>
           </div>
-        </div>
-
-        <div className="body">
-          <div className="box">
+          <div className="tu-prose tv-luan-y">
             <p>{info.luan}</p>
             {info.napAmMoTa && <p>{info.napAmMoTa}</p>}
           </div>
+        </section>
 
-          <div className="cols2" style={{ marginTop: 16 }}>
-            <div className="box">
-              <div className="box-h">
-                <span className="rule" />
-                <span className="t">Năm {year} với tuổi {giap.ten}</span>
-                <span className="rule" />
-              </div>
-              <div className="diresrow">
-                <span>Can chi năm</span>
-                <span>
-                  <Link href={`/tuoi/${canChiSlug(info.canChiNam)}/`}>{info.canChiNam.name}</Link>
-                </span>
-              </div>
-              <div className="diresrow">
-                <span>Quan hệ chi</span>
-                <span>{QUAN_HE_LABEL[info.quanHe]}</span>
-              </div>
-              <div className="diresrow">
-                <span>Năm tuổi</span>
-                <span>{info.namTuoi ? "Có" : "Không"}</span>
-              </div>
-              <div className="diresrow">
-                <span>Tam tai</span>
-                <span>
-                  {info.tamTai ? `Phạm (tuổi ${giap.ten} kỵ năm ${info.tamTaiNam})` : `Không — kỵ ${info.tamTaiNam}`}
-                </span>
-              </div>
-            </div>
-            <div className="box">
-              <div className="box-h">
-                <span className="rule" />
-                <span className="t">Khác tử vi hôm nay</span>
-                <span className="rule" />
-              </div>
+        <div className="tu-cols">
+          <TuSec title={`Năm ${year} với tuổi ${giap.ten}`}>
+            <ul className="tu-hk">
+              <HkRow k="Can chi năm" v={<Link href={`/tuoi/${canChiSlug(info.canChiNam)}/`}>{info.canChiNam.name}</Link>} />
+              <HkRow k="Quan hệ chi" v={QUAN_HE_LABEL[info.quanHe]} />
+              <HkRow k="Năm tuổi" v={info.namTuoi ? "Có" : "Không"} />
+              <HkRow
+                k="Tam tai"
+                v={info.tamTai ? `Phạm (tuổi ${giap.ten} kỵ năm ${info.tamTaiNam})` : `Không — kỵ ${info.tamTaiNam}`}
+              />
+            </ul>
+          </TuSec>
+          <TuSec title="Khác tử vi hôm nay">
+            <div className="tu-prose">
               <p>
                 Trang này luận theo <b>năm</b> {year}.{" "}
                 <Link href={`/tu-vi/${giap.slug}/`}>Tử vi tuổi {giap.ten} hôm nay</Link> luận theo can chi <b>ngày</b>. Hai
                 trang không copy một đoạn.
               </p>
             </div>
-          </div>
+          </TuSec>
+        </div>
 
-          <div className="box" style={{ marginTop: 16 }}>
-            <div className="box-h">
-              <span className="rule" />
-              <span className="t">Từng năm sinh tuổi {giap.ten} — hạn năm {year}</span>
-              <span className="rule" />
-            </div>
-            <table className="tuoitable">
-              <thead>
-                <tr>
-                  <th>Năm sinh</th>
-                  <th>Can chi</th>
-                  <th>Tuổi mụ {year}</th>
-                  <th>Kim Lâu</th>
-                  <th>Hoang Ốc</th>
+        <TuSec
+          title={`Từng năm sinh tuổi ${giap.ten} — hạn năm ${year}`}
+          note="Kim Lâu / Hoang Ốc theo tuổi mụ từng người. Sinh trước Tết nhập ngày đủ ở tính tuổi."
+        >
+          <table className="tuoitable">
+            <thead>
+              <tr>
+                <th>Năm sinh</th>
+                <th>Can chi</th>
+                <th>Tuổi mụ {year}</th>
+                <th>Kim Lâu</th>
+                <th>Hoang Ốc</th>
+              </tr>
+            </thead>
+            <tbody>
+              {info.birthRows.map((r) => (
+                <tr key={r.namSinh}>
+                  <td data-k="Năm sinh">
+                    {r.namSinh >= SINH_NAM_MIN && r.namSinh <= SINH_NAM_MAX ? (
+                      <Link href={`/sinh-nam/${r.namSinh}/`}>{r.namSinh}</Link>
+                    ) : (
+                      r.namSinh
+                    )}
+                  </td>
+                  <td data-k="Can chi">{r.canChi}</td>
+                  <td data-k="Tuổi mụ">{r.tuoiMu}</td>
+                  <td data-k="Kim Lâu">{r.kimLau}</td>
+                  <td data-k="Hoang Ốc">{r.hoangOc}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {info.birthRows.map((r) => (
-                  <tr key={r.namSinh}>
-                    <td data-k="Năm sinh">
-                      {r.namSinh >= SINH_NAM_MIN && r.namSinh <= SINH_NAM_MAX ? (
-                        <Link href={`/sinh-nam/${r.namSinh}/`}>{r.namSinh}</Link>
-                      ) : (
-                        r.namSinh
-                      )}
-                    </td>
-                    <td data-k="Can chi">{r.canChi}</td>
-                    <td data-k="Tuổi mụ">{r.tuoiMu}</td>
-                    <td data-k="Kim Lâu">{r.kimLau}</td>
-                    <td data-k="Hoang Ốc">{r.hoangOc}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            <p style={{ fontSize: 12.5, color: "var(--ink-3)", textAlign: "center", marginTop: 8 }}>
-              Kim Lâu / Hoang Ốc theo tuổi mụ từng người. Sinh trước Tết nhập ngày đủ ở tính tuổi.
-            </p>
-          </div>
+              ))}
+            </tbody>
+          </table>
+        </TuSec>
 
-          {tenGoiY.length > 0 && (
-            <div className="box" style={{ marginTop: 16 }}>
-              <div className="box-h">
-                <span className="rule" />
-                <span className="t">Đặt tên năm {year}</span>
-                <span className="rule" />
-              </div>
-              <p>Gợi ý chữ theo nạp âm năm {year} ({info.canChiNam.napAm.name}), không ghép họ.</p>
-              <div className="chips">
-                {tenGoiY.map((t) => (
-                  <Link className="chip" href={`/ten/${t.slug}/`} key={t.slug}>
-                    {t.ten}
-                  </Link>
-                ))}
-                <Link className="chip" href="/ten/">
-                  Từ điển tên
+        {tenGoiY.length > 0 && (
+          <TuSec title={`Đặt tên năm ${year}`}>
+            <p className="tu-lead">Gợi ý chữ theo nạp âm năm {year} ({info.canChiNam.napAm.name}), không ghép họ.</p>
+            <div className="chips">
+              {tenGoiY.map((t) => (
+                <Link className="chip" href={`/ten/${t.slug}/`} key={t.slug}>
+                  {t.ten}
                 </Link>
-              </div>
+              ))}
+              <Link className="chip" href="/ten/">
+                Từ điển tên
+              </Link>
             </div>
-          )}
+          </TuSec>
+        )}
 
-          <TraditionalDisclaimer />
+        <TraditionalDisclaimer />
 
-          <div className="pn">
-            {prev ? <Link href={`/tu-vi/${giap.slug}/${prev}/`}>‹ Năm {prev}</Link> : <span />}
-            {next ? <Link href={`/tu-vi/${giap.slug}/${next}/`}>Năm {next} ›</Link> : <span />}
-          </div>
+        <LcPager
+          label="Năm trước, năm sau"
+          prev={prev ? { href: `/tu-vi/${giap.slug}/${prev}/`, text: `Năm ${prev}`, sub: "Năm trước" } : null}
+          mid={{ href: `/tu-vi/${giap.slug}/`, text: `Tử vi tuổi ${giap.ten} hôm nay` }}
+          next={next ? { href: `/tu-vi/${giap.slug}/${next}/`, text: `Năm ${next}`, sub: "Năm sau" } : null}
+        />
 
-          <h2 className="hh" style={{ marginTop: 32 }}>
+        <section className="lc-related" aria-labelledby="tv-khac-h">
+          <h2 className="ch-h2" id="tv-khac-h">
             Tuổi khác năm {year}
           </h2>
           <div className="chips">
@@ -201,10 +176,8 @@ export default async function TuViNamPage({ params }: { params: Promise<{ slug: 
               </Link>
             ))}
           </div>
-        </div>
-
-        <Footer />
+        </section>
       </div>
-    </div>
+    </ChShell>
   );
 }

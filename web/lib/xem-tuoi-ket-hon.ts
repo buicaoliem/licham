@@ -7,6 +7,11 @@ import { chiByIndex, hopMenh, kyTuoiChi, nhiHopChi, tamHopGroup } from "@/lib/tu
 // canIndex 0..9 tương ứng Giáp, Ất, Bính, Đinh, Mậu, Kỷ, Canh, Tân, Nhâm, Quý (xem CAN ở @licham/core).
 const CAN_NGU_HANH: readonly NguHanh[] = ["Mộc", "Mộc", "Hỏa", "Hỏa", "Thổ", "Thổ", "Kim", "Kim", "Thủy", "Thủy"];
 
+/** Hành riêng của thiên can (canIndex 0..9) — dùng để diễn giải tầng thiên can trên giao diện. */
+export function hanhCuaCan(canIndex: number): NguHanh {
+  return CAN_NGU_HANH[canIndex]!;
+}
+
 // Module này thuần logic (không dùng API riêng của server) để dùng được cả ở
 // trang tĩnh (server) lẫn khối công cụ chọn năm sinh (client component).
 
@@ -134,7 +139,7 @@ export type MucDoHopNhau = "rất hợp" | "hợp" | "bình thường" | "cần 
 /** Xếp mỗi tầng vào đúng 3 mức để so sánh được với nhau: tốt / bình hòa / xấu. */
 export type MucTang = "tot" | "binh-hoa" | "xau";
 
-function mucTangChiPair(chiPair: ChiPairQuanHe): MucTang {
+export function mucTangChiPair(chiPair: ChiPairQuanHe): MucTang {
   switch (chiPair) {
     case "tam-hop":
     case "nhi-hop":
@@ -147,7 +152,7 @@ function mucTangChiPair(chiPair: ChiPairQuanHe): MucTang {
   }
 }
 
-function mucTangNguHanhCoChieu(quanHe: QuanHeNguHanhCoChieu): MucTang {
+export function mucTangNguHanhCoChieu(quanHe: QuanHeNguHanhCoChieu): MucTang {
   switch (quanHe) {
     case "nam-sinh-nu":
     case "nu-sinh-nam":
@@ -160,7 +165,7 @@ function mucTangNguHanhCoChieu(quanHe: QuanHeNguHanhCoChieu): MucTang {
   }
 }
 
-function mucTangCanPair(canPair: CanPairQuanHe): MucTang {
+export function mucTangCanPair(canPair: CanPairQuanHe): MucTang {
   if (canPair === "can-hop") return "tot";
   return mucTangNguHanhCoChieu(canPair);
 }
@@ -205,7 +210,7 @@ export interface NamCuoiRow {
  * (từ tháng 7 trở đi theo giờ Việt Nam) thì bắt đầu từ năm sau, vì phần lớn năm nay đã trôi
  * qua nên xem năm cưới của năm nay không còn nhiều ý nghĩa thực tế.
  */
-function namBatDauMacDinh(): number {
+export function namBatDauMacDinh(): number {
   const today = getVietnamToday();
   return today.month >= 7 ? today.year + 1 : today.year;
 }

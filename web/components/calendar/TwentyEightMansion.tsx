@@ -1,25 +1,24 @@
+import type { ReactNode } from "react";
+import type { RatedEntry } from "@licham/core";
 import type { CalendarDay } from "@/lib/calendar/calendar-day";
-import { Box } from "./Box";
+import { LcCard, LcKv } from "@/components/lich/LichParts";
+
+function Rated({ e }: { e: RatedEntry }) {
+  return (
+    <span className={e.isGood ? "lc-good" : "lc-bad"}>
+      {e.name} — {e.isGood ? "tốt" : "xấu"}
+    </span>
+  );
+}
 
 export function TwentyEightMansion({ day }: { day: CalendarDay }) {
   const s = day.twentyEightMansion;
   if (!s) return null;
+  const rows: [ReactNode, ReactNode][] = [["Sao", <Rated key="s" e={s} />]];
+  if (day.khongMinh) rows.push(["Khổng Minh lục diệu", <Rated key="k" e={day.khongMinh} />]);
   return (
-    <Box title="Nhị thập bát tú">
-      <div className="row">
-        <span>Sao</span>
-        <span style={{ color: s.isGood ? "var(--luc)" : "var(--son)" }}>
-          {s.name} — {s.isGood ? "tốt" : "xấu"}
-        </span>
-      </div>
-      {day.khongMinh && (
-        <div className="row">
-          <span>Khổng Minh lục diệu</span>
-          <span style={{ color: day.khongMinh.isGood ? "var(--luc)" : "var(--son)" }}>
-            {day.khongMinh.name} — {day.khongMinh.isGood ? "tốt" : "xấu"}
-          </span>
-        </div>
-      )}
-    </Box>
+    <LcCard icon="book" tone="gold" title="Nhị thập bát tú" id="ld-ntbt-h">
+      <LcKv rows={rows} />
+    </LcCard>
   );
 }

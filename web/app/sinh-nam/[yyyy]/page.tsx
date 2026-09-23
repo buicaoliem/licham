@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
+import { ChHero, ChShell } from "@/components/heritage/ChShell";
+import { ConGiapArt } from "@/components/heritage/ConGiapArt";
+import { TuSec, TuoiFact } from "@/components/heritage/TuParts";
+import { LcPager, LcRelated } from "@/components/lich/LichParts";
 import { ShareButton } from "@/components/ShareButton";
 import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
 import { YEAR_END, YEAR_START } from "@/lib/site-years";
@@ -45,121 +47,86 @@ export default async function SinhNamPage({ params }: { params: Promise<{ yyyy: 
     today.year >= YEAR_START && today.year <= YEAR_END ? `/tu-vi/${info.chiSlug}/${today.year}/` : "/tu-vi/";
 
   return (
-    <div className="outer">
-      <div className="site">
-        <Header activeMenu="Xem tuổi" />
+    <ChShell activeMenu="Xem tuổi" className="ch-tu">
+      <ChHero
+        className="tu-hero"
+        crumbs={[{ label: "Trang chủ", href: "/" }, { label: "Xem tuổi", href: "/tuoi/" }, { label: `Sinh năm ${year}` }]}
+        crumbJsonLd={false}
+        eyebrow={`Sinh năm ${year}`}
+        title={`Sinh năm ${year}: tuổi ${info.canChi.name}, mệnh ${info.canChi.napAm.name}`}
+        lead={info.uniqueIntro}
+      >
+        <ShareButton
+          url={buildShareUrl(`/sinh-nam/${year}/`)}
+          title={`Sinh năm ${year}`}
+          text={`Sinh năm ${year}: tuổi ${info.canChi.name}, mệnh ${info.canChi.napAm.name} – xem đầy đủ tại Lịch Âm.`}
+        />
+      </ChHero>
 
-        <div className="tuoiband">
-          <div className="crumb">
-            <Link href="/">Trang chủ</Link> › <Link href="/tuoi/">Xem tuổi</Link> › Sinh năm {year}
+      <div className="ch-wrap ch-main ch-stack">
+        <section className="ch-card tu-profile" aria-labelledby="sn-facts-h">
+          <div className="tuoi-medal">
+            <ConGiapArt chiSlug={info.chiSlug} ten={info.canChi.chi} so={info.canChi.chiIndex + 1} className="tuoi-medal-art" />
+            <b>Tuổi {info.canChi.name}</b>
+            <span>{info.conGiap}</span>
           </div>
-          <h1>
-            Sinh năm {year}: tuổi {info.canChi.name}, mệnh {info.canChi.napAm.name}
-          </h1>
-          <p className="sub">{info.uniqueIntro}</p>
-          <div className="share-row">
-            <ShareButton
-              variant="onband"
-              url={buildShareUrl(`/sinh-nam/${year}/`)}
-              title={`Sinh năm ${year}`}
-              text={`Sinh năm ${year}: tuổi ${info.canChi.name}, mệnh ${info.canChi.napAm.name} – xem đầy đủ tại Lịch Âm.`}
-            />
-          </div>
-        </div>
-
-        <div className="body">
-          <div className="box">
-            <div className="box-h">
-              <span className="rule" />
-              <span className="t">Số liệu năm {year}</span>
-              <span className="rule" />
-            </div>
-            <div className="diresrow">
-              <span>Can chi</span>
-              <span>
-                <Link href={info.canChiPath}>{info.canChi.name}</Link>
-              </span>
-            </div>
-            <div className="diresrow">
-              <span>Con giáp</span>
-              <span>
+          <div className="tuoi-facts">
+            <h2 className="le-sr" id="sn-facts-h">
+              Số liệu năm {year}
+            </h2>
+            <TuoiFact k="Can chi" v={<Link href={info.canChiPath}>{info.canChi.name}</Link>} />
+            <TuoiFact
+              k="Con giáp"
+              v={
                 <Link href={info.chiPath}>
                   {info.canChi.chi} ({info.conGiap})
                 </Link>
-              </span>
-            </div>
-            <div className="diresrow">
-              <span>Nạp âm</span>
-              <span>
-                {info.canChi.napAm.name} — hành {info.canChi.napAm.element}
-              </span>
-            </div>
-            <div className="diresrow">
-              <span>Tuổi mụ năm {today.year}</span>
-              <span>{info.tuoiMuHienTai} (nếu đúng năm âm {year})</span>
-            </div>
+              }
+            />
+            <TuoiFact k="Nạp âm" v={`${info.canChi.napAm.name} — hành ${info.canChi.napAm.element}`} />
+            <TuoiFact k={`Tuổi mụ năm ${today.year}`} v={`${info.tuoiMuHienTai} (nếu đúng năm âm ${year})`} />
           </div>
+        </section>
 
-          {tenGoiY.length > 0 && (
-            <div className="box" style={{ marginTop: 18 }}>
-              <div className="box-h">
-                <span className="rule" />
-                <span className="t">Gợi ý tên theo mệnh năm {year}</span>
-                <span className="rule" />
-              </div>
-              <p>
-                Theo tục hành chữ sinh mệnh {info.canChi.napAm.element} hoặc cùng hành — không ghép họ. Xem nghĩa từng
-                chữ ở trang tên.
-              </p>
-              <div className="chips">
-                {tenGoiY.map((t) => (
-                  <Link className="chip" href={`/ten/${t.slug}/`} key={t.slug}>
-                    {t.ten}
-                  </Link>
-                ))}
-                <Link className="chip" href="/ten/">
-                  Từ điển tên
+        {tenGoiY.length > 0 && (
+          <TuSec title={`Gợi ý tên theo mệnh năm ${year}`}>
+            <p className="tu-lead">
+              Theo tục hành chữ sinh mệnh {info.canChi.napAm.element} hoặc cùng hành — không ghép họ. Xem nghĩa từng chữ ở
+              trang tên.
+            </p>
+            <div className="chips">
+              {tenGoiY.map((t) => (
+                <Link className="chip" href={`/ten/${t.slug}/`} key={t.slug}>
+                  {t.ten}
                 </Link>
-              </div>
+              ))}
+              <Link className="chip" href="/ten/">
+                Từ điển tên
+              </Link>
             </div>
-          )}
+          </TuSec>
+        )}
 
-          <TraditionalDisclaimer />
+        <TraditionalDisclaimer />
 
-          <h2 className="hh" style={{ marginTop: 32 }}>
-            Có thể anh cần
-          </h2>
-          <div className="chips">
-            <Link className="chip" href="/tinh-tuoi/">
-              Tính tuổi theo ngày sinh
-            </Link>
-            <Link className="chip" href={`/tuoi/${canChiSlug(info.canChi)}/`}>
-              Tuổi {info.canChi.name}
-            </Link>
-            <Link className="chip" href={tuViNamHref}>
-              Tử vi tuổi {info.canChi.chi} năm {today.year}
-            </Link>
-            <Link className="chip" href={`/tu-vi/${info.chiSlug}/`}>
-              Tử vi tuổi {info.canChi.chi} hôm nay
-            </Link>
-            <Link className="chip" href="/xem-ngay-tot/cuoi-hoi/">
-              Ngày tốt cưới hỏi
-            </Link>
-            {prev && (
-              <Link className="chip" href={`/sinh-nam/${prev}/`}>
-                Năm {prev}
-              </Link>
-            )}
-            {next && (
-              <Link className="chip" href={`/sinh-nam/${next}/`}>
-                Năm {next}
-              </Link>
-            )}
-          </div>
-        </div>
+        <LcPager
+          label="Năm sinh trước, sau"
+          prev={prev ? { href: `/sinh-nam/${prev}/`, text: `Năm ${prev}`, sub: "Năm trước" } : null}
+          mid={{ href: "/tuoi/", text: "12 con giáp" }}
+          next={next ? { href: `/sinh-nam/${next}/`, text: `Năm ${next}`, sub: "Năm sau" } : null}
+        />
 
-        <Footer />
+        <LcRelated
+          title="Có thể anh cần"
+          links={[
+            { label: "Tính tuổi theo ngày sinh", href: "/tinh-tuoi/" },
+            { label: `Tuổi ${info.canChi.name}`, href: `/tuoi/${canChiSlug(info.canChi)}/` },
+            { label: `Tử vi tuổi ${info.canChi.chi} năm ${today.year}`, href: tuViNamHref },
+            { label: `Tử vi tuổi ${info.canChi.chi} hôm nay`, href: `/tu-vi/${info.chiSlug}/` },
+            { label: "Ngày tốt cưới hỏi", href: "/xem-ngay-tot/cuoi-hoi/" },
+          ]}
+        />
       </div>
-    </div>
+    </ChShell>
   );
 }

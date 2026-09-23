@@ -1,5 +1,5 @@
 import type { CalendarDay } from "@/lib/calendar/calendar-day";
-import { Box } from "./Box";
+import { LcCard, LcKv } from "@/components/lich/LichParts";
 
 export function CanChiRelations({ day }: { day: CalendarDay }) {
   const chi = day.canChiDay.chi;
@@ -18,13 +18,8 @@ export function CanChiRelations({ day }: { day: CalendarDay }) {
     ["Phá", `Chi ${chi} phá với chi ${day.pha}.`],
   ];
   return (
-    <Box title="Quan hệ can chi">
-      {rows.map(([k, v]) => (
-        <div className="row" key={k}>
-          <span>{k}</span>
-          <span style={{ textAlign: "right" }}>{v}</span>
-        </div>
-      ))}
-    </Box>
+    <LcCard icon="yinyang" title="Quan hệ can chi" id="ld-qh-h">
+      <LcKv rows={rows} className="wide" />
+    </LcCard>
   );
 }

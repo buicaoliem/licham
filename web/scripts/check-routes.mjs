@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Kiểm tra sau build: Next không còn "output: export", nên đọc thư mục app đã prerender trong .next/server/app.
-import { existsSync, readdirSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 
 const APP_DIR = join(import.meta.dirname, "..", ".next", "server", "app");
@@ -39,6 +39,28 @@ for (const rel of [
   "phong-thuy/xem-tuoi-xay-nha.html",
 ]) {
   if (!existsSync(join(APP_DIR, rel))) errors.push(`Thiếu ${rel}`);
+}
+
+// Tử vi hôm nay: trang chỉ được hiện lời luận khi có file dữ liệu đúng ngày trong content/tu-vi; không có thì phải ở
+// trạng thái dự phòng (không nhãn "máy viết", không sao chấm điểm).
+const CONTENT_DIR = join(import.meta.dirname, "..", "content", "tu-vi");
+for (const rel of ["tu-vi.html", "tu-vi/ty.html"]) {
+  const file = join(APP_DIR, rel);
+  if (!existsSync(file)) {
+    errors.push(`Thiếu ${rel}`);
+    continue;
+  }
+  const html = readFileSync(file, "utf8");
+  const m = html.match(/hôm nay (\d{2})\/(\d{2})\/(\d{4})/);
+  if (!m) {
+    errors.push(`${rel}: không thấy ngày trong tiêu đề`);
+    continue;
+  }
+  const date = `${m[3]}-${m[2]}-${m[1]}`;
+  const coLuan = html.includes('class="tv-ai"');
+  const coFile = existsSync(join(CONTENT_DIR, `${date}.json`));
+  console.log(`${rel}: ngày ${date}, ${coLuan ? "có lời luận" : "trạng thái dự phòng"}${coFile ? " (có file dữ liệu)" : ""}`);
+  if (coLuan && !coFile) errors.push(`${rel}: hiện lời luận nhưng không có content/tu-vi/${date}.json`);
 }
 
 if (errors.length > 0) {

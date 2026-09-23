@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
+import { ChHero, ChShell } from "@/components/heritage/ChShell";
 
 export const metadata: Metadata = {
   title: "Chính sách bảo mật | Lịch Âm",
@@ -19,45 +18,36 @@ const buildDateLabel = BUILD_DATE_FORMATTER.format(new Date());
 
 export default function ChinhSachBaoMatPage() {
   return (
-    <div className="outer">
-      <div className="site">
-        <Header />
+    <ChShell activeMenu={null} className="ch-page">
+      <ChHero
+        crumbs={[{ label: "Trang chủ", href: "/" }, { label: "Chính sách bảo mật" }]}
+        crumbJsonLd={false}
+        title="Chính sách bảo mật"
+        lead="Cách licham.app xử lý dữ liệu người xem"
+      />
 
-        <div className="band">
-          <div className="bg bg-lam" />
-          <div className="band-in">
-            <h1>Chính sách bảo mật</h1>
-            <p>Cách licham.app xử lý dữ liệu người xem</p>
-          </div>
-        </div>
+      <div className="ch-wrap ch-main ch-stack ch-page-body">
+        <article className="ch-card ch-prose">
+          <ul className="dotlist">
+            <li>Trang không yêu cầu đăng ký, không thu thập tên, email hay số điện thoại của người xem.</li>
+            <li>Trang không cài công cụ thống kê hay mã quảng cáo của bên thứ ba.</li>
+            <li>
+              Máy chủ lưu trữ (Vercel) có thể ghi nhật ký kỹ thuật thông thường như địa chỉ IP và loại trình duyệt để
+              vận hành và chống tấn công.
+            </li>
+            <li>
+              Trang không đặt cookie theo dõi. Nếu sau này có thay đổi, chính sách này sẽ được cập nhật và ghi rõ ngày
+              thay đổi.
+            </li>
+          </ul>
 
-        <div className="body">
-          <div className="prose">
-            <ul className="dotlist">
-              <li>Trang không yêu cầu đăng ký, không thu thập tên, email hay số điện thoại của người xem.</li>
-              <li>Trang không cài công cụ thống kê hay mã quảng cáo của bên thứ ba.</li>
-              <li>
-                Máy chủ lưu trữ (Vercel) có thể ghi nhật ký kỹ thuật thông thường như địa chỉ IP và loại trình duyệt
-                để vận hành và chống tấn công.
-              </li>
-              <li>
-                Trang không đặt cookie theo dõi. Nếu sau này có thay đổi, chính sách này sẽ được cập nhật và ghi rõ
-                ngày thay đổi.
-              </li>
-            </ul>
+          <p>
+            Nếu có thắc mắc về dữ liệu, vui lòng liên hệ <a href="mailto:lienhe@licham.app">Lienhe@licham.app</a>.
+          </p>
 
-            <p style={{ marginTop: 18 }}>
-              Nếu có thắc mắc về dữ liệu, vui lòng liên hệ <a href="mailto:lienhe@licham.app">Lienhe@licham.app</a>.
-            </p>
-
-            <p style={{ fontSize: 12, color: "var(--ink-3)", marginTop: 24, textAlign: "center" }}>
-              Cập nhật lần cuối: {buildDateLabel}
-            </p>
-          </div>
-        </div>
-
-        <Footer />
+          <p className="ch-prose-meta">Cập nhật lần cuối: {buildDateLabel}</p>
+        </article>
       </div>
-    </div>
+    </ChShell>
   );
 }
