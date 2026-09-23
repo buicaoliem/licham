@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { FOOTER_LINKS, buildTimeLabel } from "@/components/Footer";
-import { MENU, type MenuItem, menuHref } from "@/components/Header";
+import { FOOTER_LINKS, MENU, type MenuItem, buildTimeLabel, menuHref } from "@/lib/site-nav";
 import { Breadcrumb, type Crumb } from "@/components/calendar/Breadcrumb";
 import { HERITAGE_SLOTS, heritageSlot } from "@/lib/heritage-assets";
 import { HeritageImage, heritageVisible } from "./HeritageImage";

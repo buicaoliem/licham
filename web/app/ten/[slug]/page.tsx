@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
+import { ChHero, ChShell } from "@/components/heritage/ChShell";
+import { TuSec, TuoiFact } from "@/components/heritage/TuParts";
+import { LcRelated } from "@/components/lich/LichParts";
 import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
 import { TEN_LIST, namKhopTen, tenBySlug, tenCungHanh } from "@/lib/ten";
 import { getVietnamToday } from "@/lib/today";
@@ -36,84 +36,57 @@ export default async function TenPage({ params }: { params: Promise<{ slug: stri
   const gioiLabel = t.gioi === "nam" ? "thường đặt cho nam" : t.gioi === "nu" ? "thường đặt cho nữ" : "dùng được cho cả hai giới";
 
   return (
-    <div className="outer">
-      <div className="site">
-        <Header activeMenu="Xem tuổi" />
+    <ChShell activeMenu="Xem tuổi" className="ch-tu ch-ten">
+      <ChHero
+        className="tu-hero"
+        crumbs={[{ label: "Trang chủ", href: "/" }, { label: "Đặt tên", href: "/ten/" }, { label: t.ten }]}
+        crumbJsonLd={false}
+        title={`Tên ${t.ten} (${t.chuHan}): ${t.nghia}`}
+        lead={t.luan}
+      />
 
-        <div className="tuoiband">
-          <div className="crumb">
-            <Link href="/">Trang chủ</Link> › <Link href="/ten/">Đặt tên</Link> › {t.ten}
+      <div className="ch-wrap ch-main ch-stack">
+        <section className="ch-card tu-profile" aria-labelledby="ten-chu-h">
+          <div className="tuoi-medal ten-medal">
+            <span className="ten-han" lang="zh-Hant">
+              {t.chuHan}
+            </span>
+            <b>{t.ten}</b>
+            <span>Hành {t.hanh}</span>
           </div>
-          <h1>
-            Tên {t.ten} ({t.chuHan}): {t.nghia}
-          </h1>
-          <p className="sub">{t.luan}</p>
-        </div>
-
-        <div className="body">
-          <div className="box">
-            <div className="box-h">
-              <span className="rule" />
-              <span className="t">Chữ và nguồn</span>
-              <span className="rule" />
-            </div>
-            <div className="diresrow">
-              <span>Chữ Hán</span>
-              <span>{t.chuHan}</span>
-            </div>
-            <div className="diresrow">
-              <span>Nghĩa</span>
-              <span>{t.nghia}</span>
-            </div>
-            <div className="diresrow">
-              <span>Nguồn</span>
-              <span>{t.nguon}</span>
-            </div>
-            <div className="diresrow">
-              <span>Hành theo chữ</span>
-              <span>{t.hanh}</span>
-            </div>
-            <div className="diresrow">
-              <span>Giới theo tục</span>
-              <span>{gioiLabel}</span>
-            </div>
+          <div className="tuoi-facts">
+            <h2 className="tu-sec-h" id="ten-chu-h">
+              Chữ và nguồn
+            </h2>
+            <TuoiFact k="Chữ Hán" v={t.chuHan} />
+            <TuoiFact k="Nghĩa" v={t.nghia} />
+            <TuoiFact k="Nguồn" v={t.nguon} />
+            <TuoiFact k="Hành theo chữ" v={t.hanh} />
+            <TuoiFact k="Giới theo tục" v={gioiLabel} />
           </div>
+        </section>
 
-          <div className="box" style={{ marginTop: 18 }}>
-            <div className="box-h">
-              <span className="rule" />
-              <span className="t">Năm sinh hay được gợi ý {t.ten}</span>
-              <span className="rule" />
-            </div>
+        <TuSec title={`Năm sinh hay được gợi ý ${t.ten}`}>
+          <div className="tu-prose">
             <p>
-              Theo tục hành chữ sinh mệnh năm hoặc cùng hành nạp âm năm (không phải mệnh con giáp). Trong 2024–2031, tên{" "}
-              {t.ten} khớp: {namKhop.length > 0 ? namKhop.join(", ") : "không năm nào trong dải — vẫn dùng được nếu thích nghĩa chữ"}.
-              Năm hiện tại trên trang: {year}.
+              Theo tục hành chữ sinh mệnh năm hoặc cùng hành nạp âm năm (không phải mệnh con giáp). Trong 2024–2031, tên {t.ten}{" "}
+              khớp: {namKhop.length > 0 ? namKhop.join(", ") : "không năm nào trong dải — vẫn dùng được nếu thích nghĩa chữ"}. Năm
+              hiện tại trên trang: {year}.
             </p>
           </div>
+        </TuSec>
 
-          <TraditionalDisclaimer />
+        <TraditionalDisclaimer />
 
-          <h2 className="hh" style={{ marginTop: 32 }}>
-            Tên cùng hành {t.hanh}
-          </h2>
-          <div className="chips">
-            {cungHanh.map((x) => (
-              <Link className="chip" href={`/ten/${x.slug}/`} key={x.slug}>
-                {x.ten}
-              </Link>
-            ))}
-            <Link className="chip" href="/ten/">
-              Tất cả tên
-            </Link>
-            <Link className="chip" href="/tinh-tuoi/">
-              Tính tuổi
-            </Link>
-          </div>
-        </div>
-
-        <Footer />
+        <LcRelated
+          title={`Tên cùng hành ${t.hanh}`}
+          links={[
+            ...cungHanh.map((x) => ({ label: x.ten, href: `/ten/${x.slug}/` })),
+            { label: "Tất cả tên", href: "/ten/" },
+            { label: "Tính tuổi", href: "/tinh-tuoi/" },
+          ]}
+        />
       </div>
-    </div>
+    </ChShell>
   );
 }

@@ -135,9 +135,12 @@ export interface TuViDayData {
   tuoi: Record<string, TuViEntry>;
 }
 
-/** false khi chưa từng sinh được nội dung thật (thiếu khóa lần đầu) — trang không được hiện đoạn luận/điểm/giờ giữ chỗ. */
+/**
+ * false khi chưa có nội dung thật để hiện — trang không được hiện đoạn luận/điểm/giờ giữ chỗ. Xét cả nội dung chứ không
+ * chỉ tên model: bản "fallback-cu" chép lại file gần nhất, nếu file đó là placeholder thì mọi đoạn luận vẫn rỗng.
+ */
 export function hasAiContent(data: TuViDayData): boolean {
-  return data.model !== "placeholder";
+  return data.model !== "placeholder" && Object.values(data.tuoi).some((e) => e.luan.trim().length > 0);
 }
 
 export function dateStr(d: { day: number; month: number; year: number }): string {

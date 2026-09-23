@@ -17,7 +17,7 @@ import { TwentyEightMansion } from "@/components/calendar/TwentyEightMansion";
 import { ZodiacHours } from "@/components/calendar/ZodiacHours";
 import { ChShell } from "@/components/heritage/ChShell";
 import { Icon } from "@/components/heritage/Icon";
-import { type MenuItem } from "@/components/Header";
+import type { MenuItem } from "@/lib/site-nav";
 import { type CalendarDay, adjacentDays } from "@/lib/calendar/calendar-day";
 import { faqJsonLd } from "@/lib/calendar/jsonld";
 import { getRelatedLinksForDay } from "@/lib/calendar/related";

@@ -5,18 +5,7 @@ import { type MouseEvent, useEffect, useState } from "react";
 import { Icon } from "@/components/heritage/Icon";
 import type { DayBrief, LichCell } from "@/lib/calendar/lich-view";
 import { vnTodayKey } from "@/lib/calendar/vn-today";
-import { WEEKDAY_FULL_MON_FIRST } from "@/lib/format";
-
-const WD_SHORT = ["T2", "T3", "T4", "T5", "T6", "T7", "CN"];
-
-function cellLabel(c: LichCell, isToday: boolean): string {
-  const parts = [`Ngày ${c.day}/${c.month}/${c.year}`, `âm lịch ${c.lunarLabel.replace("N", " nhuận")}`, c.canChi];
-  if (isToday) parts.unshift("Hôm nay");
-  parts.push(c.isHoangDao ? "hoàng đạo" : "hắc đạo");
-  if (c.term) parts.push(`tiết ${c.term}`);
-  for (const h of c.holidays) parts.push(h.name);
-  return parts.join(", ");
-}
+import { LichGrid, LichLegend } from "./LichGrid";
 
 function DayPanel({ b, isToday, onPrev, onNext }: { b: DayBrief; isToday: boolean; onPrev?: () => void; onNext?: () => void }) {
   return (
@@ -147,13 +136,11 @@ export function LichMonthCalendar({
   briefs,
   todayKey: serverToday,
   header,
-  legendExtra,
 }: {
   cells: LichCell[];
   briefs: Record<string, DayBrief>;
   todayKey: string;
   header: React.ReactNode;
-  legendExtra?: React.ReactNode;
 }) {
   const inMonth = cells.filter((c) => c.inMonth).map((c) => c.key);
   const pick = (t: string) => (briefs[t] ? t : inMonth[0]!);
@@ -190,97 +177,8 @@ export function LichMonthCalendar({
     <div className="lc-month">
       <section className="lc-cal" aria-label="Lưới lịch tháng">
         {header}
-        <div className="lc-grid" role="presentation">
-          {WEEKDAY_FULL_MON_FIRST.map((w, i) => (
-            <div key={w} className={i === 6 ? "lc-dw sun" : "lc-dw"}>
-              <span className="full">{w}</span>
-              <span className="short" aria-hidden="true">
-                {WD_SHORT[i]}
-              </span>
-            </div>
-          ))}
-          {cells.map((c) => {
-            const isToday = c.key === todayKey;
-            const cls = [
-              "lc-cell",
-              c.inMonth ? "" : "out",
-              c.weekday === 0 ? "sun" : "",
-              isToday ? "today" : "",
-              c.inMonth && c.key === selected ? "sel" : "",
-              c.isHoangDao ? "hd" : "",
-              c.holidays.length > 0 ? "le" : "",
-            ]
-              .filter(Boolean)
-              .join(" ");
-            const body = (
-              <>
-                <span className="sd">{c.day}</span>
-                <span className="ld">{c.lunarLabel}</span>
-                <span className="cc">{c.canChi}</span>
-                <span className="mk" aria-hidden="true">
-                  {c.isHoangDao && <i className="m-hd" />}
-                  {c.isMungMot && <i className="m-m1" />}
-                  {c.isRam && <i className="m-ram" />}
-                  {c.term && <i className="m-tk" />}
-                  {c.holidays.length > 0 && <i className="m-le" />}
-                </span>
-                {c.inMonth && (c.holidays[0] || c.term) && (
-                  <span className="ev" aria-hidden="true">
-                    {c.holidays[0]?.name ?? `Tiết ${c.term}`}
-                  </span>
-                )}
-                {isToday && <span className="tag">Hôm nay</span>}
-              </>
-            );
-            return c.inMonth ? (
-              <Link
-                key={c.key}
-                href={c.href}
-                className={cls}
-                aria-label={cellLabel(c, isToday)}
-                aria-current={isToday ? "date" : undefined}
-                onClick={(e) => onCell(e, c.key)}
-              >
-                {body}
-              </Link>
-            ) : (
-              <div key={c.key} className={cls} aria-hidden="true">
-                {body}
-              </div>
-            );
-          })}
-        </div>
-        <ul className="lc-legend" aria-label="Chú thích">
-          <li>
-            <i className="k-today" />
-            Hôm nay
-          </li>
-          <li>
-            <i className="k-sel" />
-            Đang chọn
-          </li>
-          <li>
-            <i className="m-hd" />
-            Hoàng đạo
-          </li>
-          <li>
-            <i className="m-m1" />
-            Mùng một
-          </li>
-          <li>
-            <i className="m-ram" />
-            Rằm
-          </li>
-          <li>
-            <i className="m-le" />
-            Ngày lễ
-          </li>
-          <li>
-            <i className="m-tk" />
-            Tiết khí
-          </li>
-          {legendExtra}
-        </ul>
+        <LichGrid cells={cells} todayKey={todayKey} selectedKey={selected} onCellClick={onCell} />
+        <LichLegend selected />
       </section>
       <DayPanel
         b={brief}
