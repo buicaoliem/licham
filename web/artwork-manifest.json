@@ -12,9 +12,9 @@
         "le-gio-to-hung-vuong"
       ]
     },
-    "da_tich_hop_tong": 16,
-    "con_thieu_hoac_can_sua": 62,
-    "ghi_chu": "Batch A (9) + Batch B (7) = 16/78; còn 62 mục. Chưa hoàn thành toàn bộ manifest.",
+    "da_tich_hop_tong": 24,
+    "con_thieu_hoac_can_sua": 54,
+    "ghi_chu": "Batch A (9) + Batch B (7) + Batch D (8) = 24/78; còn 54 mục. Batch C (4 hero) bị loại; Batch D giữ lại 2 tranh. Chưa hoàn thành toàn bộ manifest.",
     "batch_b": {
       "nhan": 7,
       "da_tich_hop": 7,
@@ -27,6 +27,25 @@
         "cg-thin",
         "cg-ty-ran",
         "cg-dau"
+      ]
+    },
+    "batch_d": {
+      "nhan": 10,
+      "da_tich_hop": 8,
+      "giu_lai": 2,
+      "giu_lai_ids": [
+        "le-ngay-giai-phong-mien-nam",
+        "le-tet-duong-lich"
+      ],
+      "ids": [
+        "le-halloween",
+        "le-ngay-cua-cha",
+        "le-ngay-cua-me",
+        "le-ngay-van-hoa-viet-nam",
+        "le-quoc-khanh",
+        "le-quoc-te-lao-dong",
+        "le-valentine",
+        "le-valentine-trang"
       ]
     }
   },
@@ -573,10 +592,11 @@
       "subject": "Đầu năm dương lịch: pháo hoa nhẹ, lịch tờ, hoa, đô thị Việt Nam về đêm",
       "target": "/heritage/le/tet-duong-lich.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "chưa có tranh, khối ảnh đang ẩn",
+      "status": "cần sửa: có tranh Batch D nhưng GIỮ LẠI, chưa đưa lên site; khối ảnh vẫn ẩn",
       "current": null,
       "priority": "P1",
-      "notes": ""
+      "notes": "GIỮ LẠI: sai địa danh — tháp Bitexco (TP.HCM) đứng sau Hồ Gươm/Tháp Rùa (Hà Nội); bánh chưng, mâm quýt, hoa đào là đồ Tết Nguyên đán, không phải Tết Dương lịch. Bản Batch D nằm ở artwork-inbox/licham-artwork-batch-d/web/public/heritage/le/ (staging).",
+      "batch": "D (hold)"
     },
     {
       "id": "le-ngay-giai-phong-mien-nam",
@@ -587,10 +607,11 @@
       "subject": "30/4: biểu tượng hòa bình – thống nhất: cờ Tổ quốc, hoa, bản đồ chữ S; không dựng cảnh chiến sự như ảnh lịch sử",
       "target": "/heritage/le/ngay-giai-phong-mien-nam.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "chưa có tranh, khối ảnh đang ẩn",
+      "status": "cần sửa: có tranh Batch D nhưng GIỮ LẠI, chưa đưa lên site; khối ảnh vẫn ẩn",
       "current": null,
       "priority": "P1",
-      "notes": ""
+      "notes": "GIỮ LẠI: bản đồ chữ S không có quần đảo Hoàng Sa và Trường Sa, đường viền bản đồ méo (miền Bắc, đồng bằng sông Cửu Long). Cần vẽ lại đủ lãnh thổ hoặc bỏ bản đồ. Bản Batch D nằm ở artwork-inbox/licham-artwork-batch-d/web/public/heritage/le/ (staging).",
+      "batch": "D (hold)"
     },
     {
       "id": "le-quoc-te-lao-dong",
@@ -601,10 +622,11 @@
       "subject": "1/5: bàn tay lao động, bánh răng, lúa, công trường — tranh biểu tượng",
       "target": "/heritage/le/quoc-te-lao-dong.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "chưa có tranh, khối ảnh đang ẩn",
-      "current": null,
+      "status": "đã tích hợp (Batch D, 2026-09-24)",
+      "current": "/heritage/le/quoc-te-lao-dong.webp 1600×1200 241 KB",
       "priority": "P1",
-      "notes": ""
+      "notes": "Nông dân, công nhân, bác sĩ, thợ thủ công; bánh răng, lúa, công trường — đúng mô tả. QA 1440/390: trang chi tiết lễ, thẻ ở /le.",
+      "batch": "D"
     },
     {
       "id": "le-quoc-khanh",
@@ -615,10 +637,11 @@
       "subject": "2/9: Quảng trường Ba Đình, cờ đỏ sao vàng, hoa sen; không vẽ lại chân dung Bác",
       "target": "/heritage/le/quoc-khanh.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "chưa có tranh, khối ảnh đang ẩn",
-      "current": null,
+      "status": "đã tích hợp (Batch D, 2026-09-24)",
+      "current": "/heritage/le/quoc-khanh.webp 1600×1200 231 KB",
       "priority": "P1",
-      "notes": ""
+      "notes": "Quảng trường Ba Đình, Lăng Chủ tịch Hồ Chí Minh, cờ đỏ sao vàng (sao 5 cánh ở giữa), hoa sen; không có chân dung Bác. Tranh minh họa, không phải ảnh tư liệu; lăng vẽ giản lược (thiếu dòng chữ trên mái). QA 1440/390: trang chi tiết lễ, thẻ ở /le.",
+      "batch": "D"
     },
     {
       "id": "le-ngay-van-hoa-viet-nam",
@@ -629,10 +652,11 @@
       "subject": "24/11: hoa văn trống đồng, Văn Miếu, áo dài, nhạc cụ dân tộc",
       "target": "/heritage/le/ngay-van-hoa-viet-nam.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "chưa có tranh, khối ảnh đang ẩn",
-      "current": null,
+      "status": "đã tích hợp (Batch D, 2026-09-24)",
+      "current": "/heritage/le/ngay-van-hoa-viet-nam.webp 1600×1200 232 KB",
       "priority": "P2",
-      "notes": ""
+      "notes": "Hoa văn trống đồng, Khuê Văn Các (Văn Miếu), áo dài, đàn tranh, đàn nguyệt, sáo — đúng mô tả. QA 1440/390: trang chi tiết lễ, thẻ ở /le.",
+      "batch": "D"
     },
     {
       "id": "le-ngay-hoc-sinh-sinh-vien",
@@ -867,10 +891,11 @@
       "subject": "14/2: hoa hồng, socola, thiệp, ánh đèn ấm",
       "target": "/heritage/le/valentine.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "chưa có tranh, khối ảnh đang ẩn",
-      "current": null,
+      "status": "đã tích hợp (Batch D, 2026-09-24)",
+      "current": "/heritage/le/valentine.webp 1600×1200 237 KB",
       "priority": "P1",
-      "notes": ""
+      "notes": "Hoa hồng, socola, thiệp, ánh nến — đúng mô tả. QA 1440/390: trang chi tiết lễ, thẻ ở /le.",
+      "batch": "D"
     },
     {
       "id": "le-valentine-trang",
@@ -881,10 +906,11 @@
       "subject": "14/3: kẹo/bánh trắng, hoa trắng, hộp quà",
       "target": "/heritage/le/valentine-trang.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "chưa có tranh, khối ảnh đang ẩn",
-      "current": null,
+      "status": "đã tích hợp (Batch D, 2026-09-24)",
+      "current": "/heritage/le/valentine-trang.webp 1600×1200 233 KB",
       "priority": "P2",
-      "notes": ""
+      "notes": "Hoa trắng, socola trắng, hộp quà — đúng mô tả. QA 1440/390: trang chi tiết lễ, thẻ ở /le.",
+      "batch": "D"
     },
     {
       "id": "le-ca-thang-tu",
@@ -910,10 +936,11 @@
       "subject": "Chủ nhật thứ 2 tháng 5: hoa cẩm chướng, mẹ và con, thiệp",
       "target": "/heritage/le/ngay-cua-me.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "chưa có tranh, khối ảnh đang ẩn",
-      "current": null,
+      "status": "đã tích hợp (Batch D, 2026-09-24)",
+      "current": "/heritage/le/ngay-cua-me.webp 1600×1200 230 KB",
       "priority": "P1",
-      "notes": ""
+      "notes": "Mẹ và con, hoa cẩm chướng, thiệp — đúng mô tả. QA 1440/390: trang chi tiết lễ, thẻ ở /le.",
+      "batch": "D"
     },
     {
       "id": "le-ngay-cua-cha",
@@ -924,10 +951,11 @@
       "subject": "Chủ nhật thứ 3 tháng 6: cha và con, cà vạt/đồng hồ, thiệp",
       "target": "/heritage/le/ngay-cua-cha.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "chưa có tranh, khối ảnh đang ẩn",
-      "current": null,
+      "status": "đã tích hợp (Batch D, 2026-09-24)",
+      "current": "/heritage/le/ngay-cua-cha.webp 1600×1200 230 KB",
       "priority": "P2",
-      "notes": ""
+      "notes": "Cha và con, đồng hồ, thiệp — đúng mô tả. QA 1440/390: trang chi tiết lễ, thẻ ở /le.",
+      "batch": "D"
     },
     {
       "id": "le-halloween",
@@ -938,10 +966,11 @@
       "subject": "31/10: bí ngô, đèn lồng, mèo đen, nền tối — vui, an toàn cho trẻ em",
       "target": "/heritage/le/halloween.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "chưa có tranh, khối ảnh đang ẩn",
-      "current": null,
+      "status": "đã tích hợp (Batch D, 2026-09-24)",
+      "current": "/heritage/le/halloween.webp 1600×1200 243 KB",
       "priority": "P1",
-      "notes": ""
+      "notes": "Bí ngô, mèo đen, trẻ em hóa trang, nền tối — đúng mô tả, vui và an toàn cho trẻ em. QA 1440/390: trang chi tiết lễ, thẻ ở /le.",
+      "batch": "D"
     },
     {
       "id": "le-giang-sinh",

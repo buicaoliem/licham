@@ -59,7 +59,7 @@ export function conGiapImagePath(chiSlug: string): string {
 }
 
 /**
- * Tranh cho trang lễ: ưu tiên tranh riêng /heritage/le/<slug>.webp (Batch A: 9 lễ; Giỗ Tổ Hùng Vương đang giữ lại
+ * Tranh cho trang lễ: ưu tiên tranh riêng /heritage/le/<slug>.webp (Batch A: 9 lễ, Batch D: 8 lễ; Giỗ Tổ Hùng Vương đang giữ lại
  * chờ đối chiếu kiến trúc Đền Hùng nên vẫn dùng tranh chung); nếu chưa có thì
  * dùng lại tranh heritage sẵn có khi cảnh trong tranh đúng với lễ (bàn thờ ngày Tết, sen, mâm cúng rằm,
  * đình chùa, bàn thờ trong nhà). Lễ không có tranh phù hợp thì trả null — không dùng tranh thay thế.
