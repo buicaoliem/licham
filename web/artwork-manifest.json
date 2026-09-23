@@ -12,9 +12,9 @@
         "le-gio-to-hung-vuong"
       ]
     },
-    "da_tich_hop_tong": 24,
-    "con_thieu_hoac_can_sua": 54,
-    "ghi_chu": "Batch A (9) + Batch B (7) + Batch D (8) = 24/78; còn 54 mục. Batch C (4 hero) bị loại; Batch D giữ lại 2 tranh. Chưa hoàn thành toàn bộ manifest.",
+    "da_tich_hop_tong": 40,
+    "con_thieu_hoac_can_sua": 38,
+    "ghi_chu": "Batch A (9) + Batch B (7) + Batch D (8) + Review-33 (16) = 40/78; còn 38 mục (21 chưa có ứng viên + 17 ứng viên Review-33 bị loại). Chưa hoàn thành toàn bộ manifest.",
     "batch_b": {
       "nhan": 7,
       "da_tich_hop": 7,
@@ -47,6 +47,48 @@
         "le-valentine",
         "le-valentine-trang"
       ]
+    },
+    "review_33": {
+      "nhan": 33,
+      "da_tich_hop": 16,
+      "loai": 17,
+      "ids_tich_hop": [
+        "site-hero-le",
+        "site-hero-lich-thang",
+        "site-hero-lich-nam",
+        "le-tet-trung-cuu",
+        "le-ong-cong-ong-tao",
+        "le-ngay-hoc-sinh-sinh-vien",
+        "le-chien-thang-dien-bien-phu",
+        "le-bao-chi-cach-mang",
+        "le-gio-hai-ba-trung",
+        "le-gio-ba-trieu",
+        "le-gio-ngo-quyen",
+        "le-gio-quang-trung",
+        "le-gio-nguyen-trai",
+        "le-gio-duc-thanh-tran",
+        "le-gio-nguyen-trung-truc",
+        "le-gio-tran-nhan-tong"
+      ],
+      "ids_loai": [
+        "site-hero-van-khan",
+        "cg-ty",
+        "cg-ngo",
+        "cg-mui",
+        "cg-than",
+        "cg-tuat",
+        "cg-hoi",
+        "le-giao-thua",
+        "le-via-than-tai",
+        "le-ram-thang-gieng",
+        "le-thanh-lap-dang",
+        "le-thay-thuoc-viet-nam",
+        "le-quoc-te-phu-nu",
+        "le-doanh-nhan-viet-nam",
+        "le-quan-doi-nhan-dan",
+        "le-gio-le-loi",
+        "le-gio-vo-thi-sau"
+      ]
     }
   },
   "items": [
@@ -74,10 +116,11 @@
       "subject": "Đèn lồng, sen, núi (đúng mô tả slot heroLe)",
       "target": "/heritage/hero/le.webp",
       "size": "1200×460 (≈2.6:1), RGB, mờ dần sang trái; khuyến nghị vẽ 2400×920",
-      "status": "thiếu file (slot heroLe đã có trong code nên khối hero đang bị ẩn)",
-      "current": null,
+      "status": "đã tích hợp (Review-33, 2026-09-24)",
+      "current": "/heritage/hero/le.webp 1200×460 152 KB",
       "priority": "P0",
-      "notes": "Không cần sửa code: thả file rồi chạy assets:scan"
+      "notes": "Đèn lồng, sen, núi, đình; nửa trái sương nhạt cho chữ. QA 1440/390.",
+      "batch": "R33"
     },
     {
       "id": "site-hero-lich-thang",
@@ -88,10 +131,11 @@
       "subject": "Trăng khuyết và hoa, ink-wash nền nhạt; một ảnh dùng chung cho mọi tháng",
       "target": "/heritage/hero/lich-thang.webp",
       "size": "1200×460 (≈2.6:1), RGB, mờ dần sang trái; khuyến nghị vẽ 2400×920",
-      "status": "thiếu slot",
-      "current": null,
+      "status": "đã tích hợp (Review-33, 2026-09-24)",
+      "current": "/heritage/hero/lich-thang.webp 1200×460 111 KB",
       "priority": "P1",
-      "notes": "Cần thêm slot vào code"
+      "notes": "Trăng khuyết, hoa, làng ven sông, ink-wash; dùng chung mọi tháng (slot heroLichThang). QA 1440/390.",
+      "batch": "R33"
     },
     {
       "id": "site-hero-lich-nam",
@@ -102,10 +146,11 @@
       "subject": "Vòng thời gian, mặt trời đỏ, ink-wash; không lặp tranh riêng từng con giáp",
       "target": "/heritage/hero/lich-nam.webp",
       "size": "1200×460 (≈2.6:1), RGB, mờ dần sang trái; khuyến nghị vẽ 2400×920",
-      "status": "thiếu slot",
-      "current": null,
+      "status": "đã tích hợp (Review-33, 2026-09-24)",
+      "current": "/heritage/hero/lich-nam.webp 1200×460 121 KB",
       "priority": "P1",
-      "notes": "Cần thêm slot vào code"
+      "notes": "Vòng thời gian mờ, mặt trời đỏ, ink-wash (slot heroLichNam). Vòng con giáp rất mờ, chỉ là họa tiết. QA 1440/390.",
+      "batch": "R33"
     },
     {
       "id": "site-hero-lich-ngay",
@@ -133,7 +178,8 @@
       "status": "có nhưng lệch spec và lỗi mép/đáy — nên làm lại",
       "current": "/heritage/hero/van-khan.webp 1200×560 223 KB",
       "priority": "P2",
-      "notes": "Làm lại cùng lô hero"
+      "notes": "Làm lại cùng lô hero",
+      "review33": "REJECT: Không đúng subject (đình, tùng, núi, sen): là góc bàn thờ ngày Tết (bánh chưng, quất, mai) — trang văn khấn dùng quanh năm. Bản ứng viên ở artwork-inbox/review33/review-only/web/public/heritage/hero/van-khan.webp (staging)."
     },
     {
       "id": "site-hero-tuoi",
@@ -189,7 +235,8 @@
       "status": "dùng được nhưng độ phân giải gốc thấp (cắt từ bảng tranh), mềm khi phóng to",
       "current": "/heritage/con-giap/ty.webp 800×800",
       "priority": "P2",
-      "notes": "Làm lại cả bộ cho đồng nhất khi có điều kiện"
+      "notes": "Làm lại cả bộ cho đồng nhất khi có điều kiện",
+      "review33": "REJECT: Không cùng bộ với 6 con giáp Batch B: không có mặt trời đỏ và nền đá–cỏ, phong cách mây/hoa khác hẳn. Giữ tranh hiện tại. Bản ứng viên ở artwork-inbox/review33/review-only/web/public/heritage/con-giap/ty.webp (staging)."
     },
     {
       "id": "cg-suu",
@@ -278,7 +325,8 @@
       "status": "dùng được nhưng độ phân giải gốc thấp (cắt từ bảng tranh), mềm khi phóng to",
       "current": "/heritage/con-giap/ngo.webp 800×800",
       "priority": "P2",
-      "notes": "Làm lại cả bộ cho đồng nhất khi có điều kiện"
+      "notes": "Làm lại cả bộ cho đồng nhất khi có điều kiện",
+      "review33": "REJECT: Không cùng bộ với 6 con giáp Batch B: không có mặt trời đỏ và nền đá–cỏ, phong cách mây/hoa khác hẳn. Giữ tranh hiện tại. Bản ứng viên ở artwork-inbox/review33/review-only/web/public/heritage/con-giap/ngo.webp (staging)."
     },
     {
       "id": "cg-mui",
@@ -292,7 +340,8 @@
       "status": "dùng được nhưng độ phân giải gốc thấp (cắt từ bảng tranh), mềm khi phóng to",
       "current": "/heritage/con-giap/mui.webp 800×800",
       "priority": "P2",
-      "notes": "Làm lại cả bộ cho đồng nhất khi có điều kiện"
+      "notes": "Làm lại cả bộ cho đồng nhất khi có điều kiện",
+      "review33": "REJECT: Không cùng bộ với 6 con giáp Batch B: không có mặt trời đỏ và nền đá–cỏ, phong cách mây/hoa khác hẳn. Giữ tranh hiện tại. Bản ứng viên ở artwork-inbox/review33/review-only/web/public/heritage/con-giap/mui.webp (staging)."
     },
     {
       "id": "cg-than",
@@ -306,7 +355,8 @@
       "status": "dùng được nhưng độ phân giải gốc thấp (cắt từ bảng tranh), mềm khi phóng to",
       "current": "/heritage/con-giap/than.webp 800×800",
       "priority": "P2",
-      "notes": "Làm lại cả bộ cho đồng nhất khi có điều kiện"
+      "notes": "Làm lại cả bộ cho đồng nhất khi có điều kiện",
+      "review33": "REJECT: Không cùng bộ với 6 con giáp Batch B: không có mặt trời đỏ và nền đá–cỏ, phong cách mây/hoa khác hẳn. Giữ tranh hiện tại. Bản ứng viên ở artwork-inbox/review33/review-only/web/public/heritage/con-giap/than.webp (staging)."
     },
     {
       "id": "cg-dau",
@@ -335,7 +385,8 @@
       "status": "dùng được nhưng độ phân giải gốc thấp (cắt từ bảng tranh), mềm khi phóng to",
       "current": "/heritage/con-giap/tuat.webp 800×800",
       "priority": "P2",
-      "notes": "Làm lại cả bộ cho đồng nhất khi có điều kiện"
+      "notes": "Làm lại cả bộ cho đồng nhất khi có điều kiện",
+      "review33": "REJECT: Không cùng bộ với 6 con giáp Batch B: không có mặt trời đỏ và nền đá–cỏ, phong cách mây/hoa khác hẳn; chó giống Shiba Inu (Nhật). Giữ tranh hiện tại. Bản ứng viên ở artwork-inbox/review33/review-only/web/public/heritage/con-giap/tuat.webp (staging)."
     },
     {
       "id": "cg-hoi",
@@ -349,7 +400,8 @@
       "status": "dùng được nhưng độ phân giải gốc thấp (cắt từ bảng tranh), mềm khi phóng to",
       "current": "/heritage/con-giap/hoi.webp 800×800",
       "priority": "P2",
-      "notes": "Làm lại cả bộ cho đồng nhất khi có điều kiện"
+      "notes": "Làm lại cả bộ cho đồng nhất khi có điều kiện",
+      "review33": "REJECT: Không cùng bộ với 6 con giáp Batch B: không có mặt trời đỏ và nền đá–cỏ, phong cách mây/hoa khác hẳn. Giữ tranh hiện tại. Bản ứng viên ở artwork-inbox/review33/review-only/web/public/heritage/con-giap/hoi.webp (staging)."
     },
     {
       "id": "le-tet-nguyen-dan",
@@ -378,7 +430,8 @@
       "status": "tạm: đang dùng tranh dùng chung /heritage/van-khan/nhom/le-tet.webp, chưa có tranh riêng",
       "current": "/heritage/van-khan/nhom/le-tet.webp 1600×1200",
       "priority": "P1",
-      "notes": "Đang dùng lại tranh Tết Nguyên đán; cần cảnh đêm riêng"
+      "notes": "Đang dùng lại tranh Tết Nguyên đán; cần cảnh đêm riêng",
+      "review33": "REJECT: Trăng tròn trên trời đêm giao thừa — đêm 30 tháng Chạp là cuối tháng âm, không có trăng. Sai với nội dung một trang lịch âm. Bản ứng viên ở artwork-inbox/review33/review-only/web/public/heritage/le/giao-thua.webp (staging)."
     },
     {
       "id": "le-via-than-tai",
@@ -392,7 +445,8 @@
       "status": "tạm: đang dùng tranh dùng chung /heritage/van-khan/nhom/trong-nha.webp, chưa có tranh riêng",
       "current": "/heritage/van-khan/nhom/trong-nha.webp 1600×1200",
       "priority": "P1",
-      "notes": "Tranh chung 'trong-nha' chỉ là bàn thờ nói chung"
+      "notes": "Tranh chung 'trong-nha' chỉ là bàn thờ nói chung",
+      "review33": "REJECT: Ông Địa vẽ thành cụ già râu trắng; tượng thờ Ông Địa là ông mập, cười, cầm quạt. Sai hình tượng thờ. Bản ứng viên ở artwork-inbox/review33/review-only/web/public/heritage/le/via-than-tai.webp (staging)."
     },
     {
       "id": "le-ram-thang-gieng",
@@ -406,7 +460,8 @@
       "status": "tạm: đang dùng tranh dùng chung /heritage/van-khan/mung-mot-ngay-ram.webp, chưa có tranh riêng",
       "current": "/heritage/van-khan/mung-mot-ngay-ram.webp 1600×1200",
       "priority": "P1",
-      "notes": "Đang dùng tranh 'mùng một–ngày rằm' chung với 3 lễ rằm khác"
+      "notes": "Đang dùng tranh 'mùng một–ngày rằm' chung với 3 lễ rằm khác",
+      "review33": "REJECT: Nền trời dày đèn trời (sky lantern) — không phải tục Rằm tháng Giêng của Việt Nam và bị cấm thả (NĐ 36/2009). Đèn hoa đăng trên nước thì đúng. Bản ứng viên ở artwork-inbox/review33/review-only/web/public/heritage/le/ram-thang-gieng.webp (staging)."
     },
     {
       "id": "le-via-quan-am",
@@ -521,10 +576,11 @@
       "subject": "Trùng cửu: hoa cúc, rượu cúc, lên núi cao, bánh cúc",
       "target": "/heritage/le/tet-trung-cuu.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "chưa có tranh, khối ảnh đang ẩn",
-      "current": null,
+      "status": "đã tích hợp (Review-33, 2026-09-24)",
+      "current": "/heritage/le/tet-trung-cuu.webp 1600×1200 243 KB",
       "priority": "P2",
-      "notes": ""
+      "notes": "Hoa cúc, rượu cúc, núi cao mùa thu, lầu trên đỉnh — đúng tục đăng cao. Nén lại WebP cùng độ phân giải để ≤ 250 KB. QA 1440/390.",
+      "batch": "R33"
     },
     {
       "id": "le-tet-ha-nguyen",
@@ -563,10 +619,11 @@
       "subject": "Ông Công ông Táo: cá chép cưỡi mây, mũ ba chiếc, bếp, ban thờ Táo quân — theo tranh dân gian, không vẽ chân dung",
       "target": "/heritage/le/ong-cong-ong-tao.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "tạm: đang dùng tranh dùng chung /heritage/van-khan/nhom/trong-nha.webp, chưa có tranh riêng",
-      "current": "/heritage/van-khan/nhom/trong-nha.webp 1600×1200",
+      "status": "đã tích hợp (Review-33, 2026-09-24)",
+      "current": "/heritage/le/ong-cong-ong-tao.webp 1600×1200 242 KB",
       "priority": "P1",
-      "notes": "Tranh chung 'trong-nha' không có cá chép/bếp"
+      "notes": "Ba mũ Táo quân (2 mũ ông có cánh chuồn, 1 mũ bà), cá chép vượt sóng, mâm gà luộc, hương đèn; không chân dung. Nén lại WebP cùng độ phân giải để ≤ 250 KB. QA 1440/390.",
+      "batch": "R33"
     },
     {
       "id": "le-tet-thanh-minh",
@@ -667,10 +724,11 @@
       "subject": "9/1: sách, bút, cổng trường, học sinh cách điệu",
       "target": "/heritage/le/ngay-hoc-sinh-sinh-vien.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "chưa có tranh, khối ảnh đang ẩn",
-      "current": null,
+      "status": "đã tích hợp (Review-33, 2026-09-24)",
+      "current": "/heritage/le/ngay-hoc-sinh-sinh-vien.webp 1600×1200 239 KB",
       "priority": "P2",
-      "notes": ""
+      "notes": "Học sinh, sinh viên cách điệu với sách vở trước cổng trường; không chỉ định trường cụ thể. Nén lại WebP cùng độ phân giải để ≤ 250 KB. QA 1440/390.",
+      "batch": "R33"
     },
     {
       "id": "le-thanh-lap-dang",
@@ -684,7 +742,8 @@
       "status": "chưa có tranh, khối ảnh đang ẩn",
       "current": null,
       "priority": "P2",
-      "notes": ""
+      "notes": "",
+      "review33": "REJECT: Bịa địa lý: sau Lăng Chủ tịch là mặt hồ lớn và dãy cao ốc, cột cờ đặt bên bờ nước. Cùng lý do đã loại tet-duong-lich. Bản ứng viên ở artwork-inbox/review33/review-only/web/public/heritage/le/thanh-lap-dang.webp (staging)."
     },
     {
       "id": "le-thay-thuoc-viet-nam",
@@ -698,7 +757,8 @@
       "status": "chưa có tranh, khối ảnh đang ẩn",
       "current": null,
       "priority": "P2",
-      "notes": ""
+      "notes": "",
+      "review33": "REJECT: Ghép Hồ Gươm (tháp, cầu) với núi đá vôi phía sau — không có thật; cảnh mổ ngoài trời cạnh bệnh nhân khám bệnh. Bản ứng viên ở artwork-inbox/review33/review-only/web/public/heritage/le/thay-thuoc-viet-nam.webp (staging)."
     },
     {
       "id": "le-quoc-te-phu-nu",
@@ -712,7 +772,8 @@
       "status": "chưa có tranh, khối ảnh đang ẩn",
       "current": null,
       "priority": "P2",
-      "notes": ""
+      "notes": "",
+      "review33": "REJECT: Dùng đạo cụ Tết (bánh chưng, cây quất, hoa đào, mai, đèn lồng) cho ngày 8/3. Bản ứng viên ở artwork-inbox/review33/review-only/web/public/heritage/le/quoc-te-phu-nu.webp (staging)."
     },
     {
       "id": "le-thanh-lap-doan",
@@ -737,10 +798,11 @@
       "subject": "7/5: cánh đồng Mường Thanh, đồi A1, cờ chiến thắng — dựng theo địa hình/tư liệu, không giả ảnh chiến trường",
       "target": "/heritage/le/chien-thang-dien-bien-phu.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "chưa có tranh, khối ảnh đang ẩn",
-      "current": null,
+      "status": "đã tích hợp (Review-33, 2026-09-24)",
+      "current": "/heritage/le/chien-thang-dien-bien-phu.webp 1600×1200 244 KB",
       "priority": "P2",
-      "notes": ""
+      "notes": "Cảnh biểu tượng: bộ đội cắm cờ trên đồi, cánh đồng Mường Thanh, hương hoa tưởng niệm. Trang lễ có chú thích 'Tranh minh họa'. Nén lại WebP cùng độ phân giải để ≤ 250 KB. QA 1440/390.",
+      "batch": "R33"
     },
     {
       "id": "le-quoc-te-thieu-nhi",
@@ -765,10 +827,11 @@
       "subject": "21/6: máy chữ, tờ báo, bút, máy ảnh",
       "target": "/heritage/le/bao-chi-cach-mang.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "chưa có tranh, khối ảnh đang ẩn",
-      "current": null,
+      "status": "đã tích hợp (Review-33, 2026-09-24)",
+      "current": "/heritage/le/bao-chi-cach-mang.webp 1600×1200 240 KB",
       "priority": "P2",
-      "notes": ""
+      "notes": "Máy chữ, báo, máy ảnh phim, sổ phác họa; nền Hồ Gươm giản lược. Không trình bày như tư liệu. Nén lại WebP cùng độ phân giải để ≤ 250 KB. QA 1440/390.",
+      "batch": "R33"
     },
     {
       "id": "le-gia-dinh-viet-nam",
@@ -838,7 +901,8 @@
       "status": "chưa có tranh, khối ảnh đang ẩn",
       "current": null,
       "priority": "P2",
-      "notes": ""
+      "notes": "",
+      "review33": "REJECT: Bản đồ Việt Nam (trên trời và trong sổ) không có Hoàng Sa, Trường Sa; tháp Bitexco ghép với núi đá kiểu Hạ Long. Bản ứng viên ở artwork-inbox/review33/review-only/web/public/heritage/le/doanh-nhan-viet-nam.webp (staging)."
     },
     {
       "id": "le-phu-nu-viet-nam",
@@ -880,7 +944,8 @@
       "status": "chưa có tranh, khối ảnh đang ẩn",
       "current": null,
       "priority": "P2",
-      "notes": ""
+      "notes": "",
+      "review33": "REJECT: Bản đồ Việt Nam không có Hoàng Sa, Trường Sa (cùng lý do đã loại ngay-giai-phong-mien-nam). Bản ứng viên ở artwork-inbox/review33/review-only/web/public/heritage/le/quan-doi-nhan-dan.webp (staging)."
     },
     {
       "id": "le-valentine",
@@ -996,13 +1061,14 @@
       "subject": "Tranh minh họa biểu tượng/cảnh, không vẽ chân dung như ảnh thật: voi chiến, cờ khởi nghĩa, cảnh Mê Linh/đền Hạ Lôi",
       "target": "/heritage/le/gio-hai-ba-trung.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "có minh họa SVG biểu tượng (components/LeIllustration.tsx), chưa có tranh",
-      "current": "SVG inline",
+      "status": "đã tích hợp (Review-33, 2026-09-24)",
+      "current": "/heritage/le/gio-hai-ba-trung.webp 1600×1200 238 KB",
       "priority": "P2",
-      "notes": "Chú thích bắt buộc: 'Tranh minh họa của licham.app' (không phải ảnh lịch sử)",
+      "notes": "Hai Bà cưỡi voi, cờ khởi nghĩa, đền; tranh tưởng tượng, có chú thích 'Tranh minh họa'. Nén lại WebP cùng độ phân giải để ≤ 250 KB. QA 1440/390.",
       "figure": "Trưng Trắc, Trưng Nhị",
       "reference_to_verify": "Đại Việt sử ký toàn thư; Hậu Hán thư; kiến trúc đền Hạ Lôi, đền Đồng Nhân",
-      "portrait_policy": "Không tạo khuôn mặt cụ thể trình bày như xác thực; chỉ biểu tượng, cảnh, di tích"
+      "portrait_policy": "Không tạo khuôn mặt cụ thể trình bày như xác thực; chỉ biểu tượng, cảnh, di tích",
+      "batch": "R33"
     },
     {
       "id": "le-gio-ba-trieu",
@@ -1013,13 +1079,14 @@
       "subject": "Tranh minh họa biểu tượng/cảnh, không vẽ chân dung như ảnh thật: voi, núi Nưa (Thanh Hóa), áo giáp vàng theo truyền thuyết",
       "target": "/heritage/le/gio-ba-trieu.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "có minh họa SVG biểu tượng (components/LeIllustration.tsx), chưa có tranh",
-      "current": "SVG inline",
+      "status": "đã tích hợp (Review-33, 2026-09-24)",
+      "current": "/heritage/le/gio-ba-trieu.webp 1600×1200 239 KB",
       "priority": "P2",
-      "notes": "Chú thích bắt buộc: 'Tranh minh họa của licham.app' (không phải ảnh lịch sử)",
+      "notes": "Bà Triệu giáp vàng bên voi, núi Nưa; tranh tưởng tượng, có chú thích 'Tranh minh họa'. Nén lại WebP cùng độ phân giải để ≤ 250 KB. QA 1440/390.",
       "figure": "Triệu Thị Trinh (Bà Triệu)",
       "reference_to_verify": "Đại Việt sử ký toàn thư; tư liệu di tích núi Nưa, đền Bà Triệu",
-      "portrait_policy": "Không tạo khuôn mặt cụ thể trình bày như xác thực; chỉ biểu tượng, cảnh, di tích"
+      "portrait_policy": "Không tạo khuôn mặt cụ thể trình bày như xác thực; chỉ biểu tượng, cảnh, di tích",
+      "batch": "R33"
     },
     {
       "id": "le-gio-ngo-quyen",
@@ -1030,13 +1097,14 @@
       "subject": "Tranh minh họa biểu tượng/cảnh, không vẽ chân dung như ảnh thật: cọc gỗ ngầm sông Bạch Đằng năm 938, thuyền, thủy triều",
       "target": "/heritage/le/gio-ngo-quyen.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "có minh họa SVG biểu tượng (components/LeIllustration.tsx), chưa có tranh",
-      "current": "SVG inline",
+      "status": "đã tích hợp (Review-33, 2026-09-24)",
+      "current": "/heritage/le/gio-ngo-quyen.webp 1600×1200 240 KB",
       "priority": "P2",
-      "notes": "Chú thích bắt buộc: 'Tranh minh họa của licham.app' (không phải ảnh lịch sử)",
+      "notes": "Tượng thờ trong đền (không vẽ chân dung), bãi cọc Bạch Đằng, thuyền địch; có chú thích 'Tranh minh họa'. Nén lại WebP cùng độ phân giải để ≤ 250 KB. QA 1440/390.",
       "figure": "Ngô Quyền",
       "reference_to_verify": "Đại Việt sử ký toàn thư; kết quả khảo cổ bãi cọc Bạch Đằng",
-      "portrait_policy": "Không tạo khuôn mặt cụ thể trình bày như xác thực; chỉ biểu tượng, cảnh, di tích"
+      "portrait_policy": "Không tạo khuôn mặt cụ thể trình bày như xác thực; chỉ biểu tượng, cảnh, di tích",
+      "batch": "R33"
     },
     {
       "id": "le-gio-phung-hung",
@@ -1098,13 +1166,14 @@
       "subject": "Tranh minh họa biểu tượng/cảnh, không vẽ chân dung như ảnh thật: Gò Đống Đa, voi trận, cờ áo đỏ, mùa xuân 1789",
       "target": "/heritage/le/gio-quang-trung.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "có minh họa SVG biểu tượng (components/LeIllustration.tsx), chưa có tranh",
-      "current": "SVG inline",
+      "status": "đã tích hợp (Review-33, 2026-09-24)",
+      "current": "/heritage/le/gio-quang-trung.webp 1600×1200 241 KB",
       "priority": "P2",
-      "notes": "Chú thích bắt buộc: 'Tranh minh họa của licham.app' (không phải ảnh lịch sử)",
+      "notes": "Voi trận, hoa đào (Tết Kỷ Dậu 1789), đồn giặc cháy; tranh tưởng tượng, có chú thích 'Tranh minh họa'. Nén lại WebP cùng độ phân giải để ≤ 250 KB. QA 1440/390.",
       "figure": "Hoàng đế Quang Trung (Nguyễn Huệ)",
       "reference_to_verify": "Sử liệu Tây Sơn; tư liệu Gò Đống Đa; bảo tàng Quang Trung",
-      "portrait_policy": "Không tạo khuôn mặt cụ thể trình bày như xác thực; chỉ biểu tượng, cảnh, di tích"
+      "portrait_policy": "Không tạo khuôn mặt cụ thể trình bày như xác thực; chỉ biểu tượng, cảnh, di tích",
+      "batch": "R33"
     },
     {
       "id": "le-gio-nguyen-trai",
@@ -1115,13 +1184,14 @@
       "subject": "Tranh minh họa biểu tượng/cảnh, không vẽ chân dung như ảnh thật: Bình Ngô đại cáo (cuộn thư), Côn Sơn, tùng",
       "target": "/heritage/le/gio-nguyen-trai.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "có minh họa SVG biểu tượng (components/LeIllustration.tsx), chưa có tranh",
-      "current": "SVG inline",
+      "status": "đã tích hợp (Review-33, 2026-09-24)",
+      "current": "/heritage/le/gio-nguyen-trai.webp 1600×1200 238 KB",
       "priority": "P2",
-      "notes": "Chú thích bắt buộc: 'Tranh minh họa của licham.app' (không phải ảnh lịch sử)",
+      "notes": "Nho sĩ nhìn từ sau lưng, cuộn thư, tùng Côn Sơn; có chú thích 'Tranh minh họa'. Nén lại WebP cùng độ phân giải để ≤ 250 KB. QA 1440/390.",
       "figure": "Nguyễn Trãi",
       "reference_to_verify": "Đại Việt sử ký toàn thư; Bình Ngô đại cáo; di tích Côn Sơn",
-      "portrait_policy": "Không tạo khuôn mặt cụ thể trình bày như xác thực; chỉ biểu tượng, cảnh, di tích"
+      "portrait_policy": "Không tạo khuôn mặt cụ thể trình bày như xác thực; chỉ biểu tượng, cảnh, di tích",
+      "batch": "R33"
     },
     {
       "id": "le-gio-duc-thanh-tran",
@@ -1132,13 +1202,14 @@
       "subject": "Tranh minh họa biểu tượng/cảnh, không vẽ chân dung như ảnh thật: Bạch Đằng, thuyền, cờ, đền Kiếp Bạc",
       "target": "/heritage/le/gio-duc-thanh-tran.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "có minh họa SVG biểu tượng (components/LeIllustration.tsx), chưa có tranh",
-      "current": "SVG inline",
+      "status": "đã tích hợp (Review-33, 2026-09-24)",
+      "current": "/heritage/le/gio-duc-thanh-tran.webp 1600×1200 239 KB",
       "priority": "P2",
-      "notes": "Chú thích bắt buộc: 'Tranh minh họa của licham.app' (không phải ảnh lịch sử)",
+      "notes": "Vị tướng, đền, bãi cọc và chiến thuyền Bạch Đằng 1288; tranh tưởng tượng, có chú thích 'Tranh minh họa'. Nén lại WebP cùng độ phân giải để ≤ 250 KB. QA 1440/390.",
       "figure": "Trần Hưng Đạo (Hưng Đạo Đại Vương)",
       "reference_to_verify": "Đại Việt sử ký toàn thư; Hịch tướng sĩ; kiến trúc đền Kiếp Bạc",
-      "portrait_policy": "Không tạo khuôn mặt cụ thể trình bày như xác thực; chỉ biểu tượng, cảnh, di tích"
+      "portrait_policy": "Không tạo khuôn mặt cụ thể trình bày như xác thực; chỉ biểu tượng, cảnh, di tích",
+      "batch": "R33"
     },
     {
       "id": "le-gio-le-lai",
@@ -1172,7 +1243,8 @@
       "notes": "Chú thích bắt buộc: 'Tranh minh họa của licham.app' (không phải ảnh lịch sử)",
       "figure": "Vua Lê Thái Tổ (Lê Lợi)",
       "reference_to_verify": "Đại Việt sử ký toàn thư; Lam Sơn thực lục; di tích Lam Kinh",
-      "portrait_policy": "Không tạo khuôn mặt cụ thể trình bày như xác thực; chỉ biểu tượng, cảnh, di tích"
+      "portrait_policy": "Không tạo khuôn mặt cụ thể trình bày như xác thực; chỉ biểu tượng, cảnh, di tích",
+      "review33": "REJECT: Tháp Rùa (xây 1886) xuất hiện trong cảnh Lê Lợi thế kỷ XV — sai niên đại. Bản ứng viên ở artwork-inbox/review33/review-only/web/public/heritage/le/gio-le-loi.webp (staging)."
     },
     {
       "id": "le-gio-nguyen-trung-truc",
@@ -1183,13 +1255,14 @@
       "subject": "Tranh minh họa biểu tượng/cảnh, không vẽ chân dung như ảnh thật: sông nước Nam Bộ, đốt tàu Esperance 1861 (Nhật Tảo), Rạch Giá",
       "target": "/heritage/le/gio-nguyen-trung-truc.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "có minh họa SVG biểu tượng (components/LeIllustration.tsx), chưa có tranh",
-      "current": "SVG inline",
+      "status": "đã tích hợp (Review-33, 2026-09-24)",
+      "current": "/heritage/le/gio-nguyen-trung-truc.webp 1600×1200 240 KB",
       "priority": "P2",
-      "notes": "Chú thích bắt buộc: 'Tranh minh họa của licham.app' (không phải ảnh lịch sử)",
+      "notes": "Nghĩa quân Nam Bộ, tàu Pháp cháy trên sông (Nhật Tảo 1861); tranh tưởng tượng, có chú thích 'Tranh minh họa'. Nén lại WebP cùng độ phân giải để ≤ 250 KB. QA 1440/390.",
       "figure": "Nguyễn Trung Trực",
       "reference_to_verify": "Sử liệu khởi nghĩa Nhật Tảo; di tích đền Nguyễn Trung Trực (Kiên Giang)",
-      "portrait_policy": "Không tạo khuôn mặt cụ thể trình bày như xác thực; chỉ biểu tượng, cảnh, di tích"
+      "portrait_policy": "Không tạo khuôn mặt cụ thể trình bày như xác thực; chỉ biểu tượng, cảnh, di tích",
+      "batch": "R33"
     },
     {
       "id": "le-gio-tran-nhan-tong",
@@ -1200,13 +1273,14 @@
       "subject": "Tranh minh họa biểu tượng/cảnh, không vẽ chân dung như ảnh thật: Yên Tử, chùa, rừng trúc, tháp",
       "target": "/heritage/le/gio-tran-nhan-tong.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "có minh họa SVG biểu tượng (components/LeIllustration.tsx), chưa có tranh",
-      "current": "SVG inline",
+      "status": "đã tích hợp (Review-33, 2026-09-24)",
+      "current": "/heritage/le/gio-tran-nhan-tong.webp 1600×1200 236 KB",
       "priority": "P2",
-      "notes": "Chú thích bắt buộc: 'Tranh minh họa của licham.app' (không phải ảnh lịch sử)",
+      "notes": "Thiền sư trên non Yên Tử, rừng trúc, chùa tháp; có chú thích 'Tranh minh họa'. Nén lại WebP cùng độ phân giải để ≤ 250 KB. QA 1440/390.",
       "figure": "Phật hoàng Trần Nhân Tông",
       "reference_to_verify": "Đại Việt sử ký toàn thư; tư liệu Thiền phái Trúc Lâm; di tích Yên Tử",
-      "portrait_policy": "Không tạo khuôn mặt cụ thể trình bày như xác thực; chỉ biểu tượng, cảnh, di tích"
+      "portrait_policy": "Không tạo khuôn mặt cụ thể trình bày như xác thực; chỉ biểu tượng, cảnh, di tích",
+      "batch": "R33"
     },
     {
       "id": "le-ngay-sinh-bac-ho",
@@ -1257,7 +1331,8 @@
       "notes": "Chú thích bắt buộc: 'Tranh minh họa của licham.app' (không phải ảnh lịch sử)",
       "figure": "Anh hùng Võ Thị Sáu",
       "reference_to_verify": "Tư liệu Bảo tàng Bà Rịa–Vũng Tàu, di tích Côn Đảo; không dùng ảnh khi chưa xác minh bản quyền",
-      "portrait_policy": "Không tạo khuôn mặt cụ thể trình bày như xác thực; chỉ biểu tượng, cảnh, di tích"
+      "portrait_policy": "Không tạo khuôn mặt cụ thể trình bày như xác thực; chỉ biểu tượng, cảnh, di tích",
+      "review33": "REJECT: Vẽ cận mặt kiểu chân dung chân thực một nhân vật có ảnh thật — dễ bị hiểu là chân dung; trái yêu cầu 'không vẽ chân dung như ảnh thật'. Bản ứng viên ở artwork-inbox/review33/review-only/web/public/heritage/le/gio-vo-thi-sau.webp (staging)."
     }
   ]
 }

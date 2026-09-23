@@ -5,9 +5,10 @@ import { notFound } from "next/navigation";
 import { canChiOfYear, jdFromDate } from "@licham/core";
 import { Breadcrumb } from "@/components/calendar/Breadcrumb";
 import { ShareButton } from "@/components/ShareButton";
-import { LeFlagIllustration, LeHeroIllustration } from "@/components/LeIllustration";
+import { LeFlagIllustration, LeHeroIllustration, hasHeroIllustration } from "@/components/LeIllustration";
 import { ChShell } from "@/components/heritage/ChShell";
 import { HeritageImage } from "@/components/heritage/HeritageImage";
+import { LE_TRANH_LICH_SU } from "@/lib/heritage-assets";
 import { Icon, type IconName } from "@/components/heritage/Icon";
 import { LE_LICH_ICON, LeDateTile } from "@/components/heritage/LeParts";
 import { TocDetails } from "@/components/heritage/TocDetails";
@@ -88,6 +89,8 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
   const calDetails = `${page.moTa} (${lunarLabel} âm lịch) — ${SITE_URL}/le/${page.slug}/`;
   const isHero = page.nhom === "anh-hung";
   const art = leArt(page);
+  // Tranh riêng về nhân vật/sự kiện lịch sử là tranh tưởng tượng: luôn ghi rõ, không để hiểu là chân dung hay tư liệu.
+  const tranhLichSu = art?.kind === "img" && art.src.startsWith("/heritage/le/") && (isHero || LE_TRANH_LICH_SU.has(page.slug));
   const lichKind = leLichKind(page);
 
   const badgeLich =
@@ -277,8 +280,9 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
               </div>
             </div>
 
-            <div className="le-hero-art" aria-hidden={art?.kind === "photo" ? undefined : true}>
+            <div className="le-hero-art" aria-hidden={art?.kind === "photo" || tranhLichSu ? undefined : true}>
               {art?.kind === "img" && <HeritageImage src={art.src} alt="" />}
+              {tranhLichSu && <span className="le-art-note">Tranh minh họa của licham.app, không phải chân dung hay tư liệu lịch sử</span>}
               {art?.kind === "photo" && (
                 <figure className="le-photo">
                   <img src="/le/ho-chi-minh-1946.jpg" alt="Chủ tịch Hồ Chí Minh năm 1946" />
@@ -497,7 +501,7 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
                       <span className="pic">
                         {h.coAnhThat ? (
                           <img src="/le/ho-chi-minh-1946.jpg" alt={h.ten} />
-                        ) : leArt(h)?.kind === "icon" ? (
+                        ) : hasHeroIllustration(h.slug) ? (
                           <LeHeroIllustration slug={h.slug} />
                         ) : (
                           <LeFlagIllustration />

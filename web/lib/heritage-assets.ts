@@ -13,6 +13,8 @@ export const HERITAGE_SLOTS = {
   heroTuoi: { path: "/heritage/hero/tuoi.webp", spec: "Hero danh mục Xem tuổi (núi, chùa), ~1200×460, mờ dần sang trái" },
   heroHome: { path: "/heritage/hero/home.webp", spec: "Hero trang chủ (núi, chùa, mặt trời đỏ, sen), ~1200×460, nửa trái để trống cho chữ" },
   heroLe: { path: "/heritage/hero/le.webp", spec: "Hero danh mục Ngày lễ & tiết khí (đèn lồng, sen, núi), ~1200×460, mờ dần sang trái" },
+  heroLichThang: { path: "/heritage/hero/lich-thang.webp", spec: "Hero lịch tháng (trăng khuyết, hoa, ink-wash), dùng chung mọi tháng, ~1200×460, mờ dần sang trái" },
+  heroLichNam: { path: "/heritage/hero/lich-nam.webp", spec: "Hero lịch năm (vòng thời gian, mặt trời đỏ, ink-wash), ~1200×460, mờ dần sang trái" },
   scriptureCorner: { path: "/heritage/decor/scripture-corner.svg", spec: "Họa tiết góc khung bài khấn, SVG" },
 } as const;
 
@@ -59,7 +61,7 @@ export function conGiapImagePath(chiSlug: string): string {
 }
 
 /**
- * Tranh cho trang lễ: ưu tiên tranh riêng /heritage/le/<slug>.webp (Batch A: 9 lễ, Batch D: 8 lễ; Giỗ Tổ Hùng Vương đang giữ lại
+ * Tranh cho trang lễ: ưu tiên tranh riêng /heritage/le/<slug>.webp (Batch A: 9 lễ, Batch D: 8 lễ, Review-33: 13 lễ; Giỗ Tổ Hùng Vương đang giữ lại
  * chờ đối chiếu kiến trúc Đền Hùng nên vẫn dùng tranh chung); nếu chưa có thì
  * dùng lại tranh heritage sẵn có khi cảnh trong tranh đúng với lễ (bàn thờ ngày Tết, sen, mâm cúng rằm,
  * đình chùa, bàn thờ trong nhà). Lễ không có tranh phù hợp thì trả null — không dùng tranh thay thế.
@@ -78,6 +80,9 @@ const LE_TRANH_CHUNG: Record<string, string> = {
   "via-than-tai": "/heritage/van-khan/nhom/trong-nha.webp",
   "ong-cong-ong-tao": "/heritage/van-khan/nhom/trong-nha.webp",
 };
+
+/** Lễ ngoài nhóm anh hùng có tranh riêng tái hiện sự kiện lịch sử — trang lễ ghi chú thích "Tranh minh họa". */
+export const LE_TRANH_LICH_SU: ReadonlySet<string> = new Set(["chien-thang-dien-bien-phu"]);
 
 export function leImagePath(slug: string): string {
   return `/heritage/le/${slug}.webp`;
