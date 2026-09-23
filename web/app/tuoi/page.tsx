@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ChHero, ChSectionHead, ChShell } from "@/components/heritage/ChShell";
-import { ChiSeal } from "@/components/heritage/ChiSeal";
+import { ConGiapArt } from "@/components/heritage/ConGiapArt";
 import { Icon } from "@/components/heritage/Icon";
 import { ALL_CAN_CHI, CHI_LIST, birthYearsForCanChi, birthYearsForChi, canChiSlug } from "@/lib/tuoi";
 import { getVietnamToday } from "@/lib/today";
@@ -56,7 +56,7 @@ export default function TuoiHubPage() {
               const years = birthYearsForChi(c.chiIndex, today.year, 3);
               return (
                 <Link className="tuoi-chi-card" href={`/tuoi/${c.slug}/`} key={c.slug}>
-                  <ChiSeal chiIndex={c.chiIndex} tone={c.chiIndex % 2 ? "jade" : undefined} />
+                  <ConGiapArt chiSlug={c.slug} ten={c.ten} className="tuoi-chi-art" />
                   <b>Tuổi {c.ten}</b>
                   <span className="cv">{c.conVat}</span>
                   <span className="yr">{years.join(" · ")}</span>

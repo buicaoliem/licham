@@ -19,7 +19,9 @@ const playfairDisplay = Playfair_Display({
 const lora = Lora({
   variable: "--font-lora",
   subsets: ["latin", "vietnamese"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
+  // nghiêng: bài văn khấn và trích dẫn trong giao diện Contemporary Heritage
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {

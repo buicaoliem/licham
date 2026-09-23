@@ -5,7 +5,7 @@ import { canChiNamDuong, xungNgay } from "@licham/core";
 import { ShareButton } from "@/components/ShareButton";
 import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
 import { ChHero, ChShell } from "@/components/heritage/ChShell";
-import { ChiSeal } from "@/components/heritage/ChiSeal";
+import { ConGiapArt } from "@/components/heritage/ConGiapArt";
 import { SINH_NAM_MAX, SINH_NAM_MIN } from "@/lib/sinh-nam";
 import { buildShareUrl } from "@/lib/share";
 import { getVietnamToday } from "@/lib/today";
@@ -117,7 +117,7 @@ function ChiPage({ chi }: { chi: ChiInfo }) {
         <section className="ch-card">
           <div className="tuoi-result">
             <div className="tuoi-medal">
-              <ChiSeal chiIndex={chi.chiIndex} size="lg" />
+              <ConGiapArt chiSlug={chi.slug} ten={chi.ten} className="tuoi-medal-art" />
               <b>Tuổi {chi.ten}</b>
               <span>{chi.conVat}</span>
             </div>
@@ -321,7 +321,7 @@ function CanChiPage({ slug }: { slug: string }) {
           <h2 className="ch-h2 ch-card-h">Thông tin nhanh</h2>
           <div className="tuoi-result">
             <div className="tuoi-medal">
-              <ChiSeal chiIndex={canChi.chiIndex} size="lg" />
+              <ConGiapArt chiSlug={chi.slug} ten={chi.ten} className="tuoi-medal-art" />
               <b>Tuổi {canChi.name}</b>
               <span>
                 Con giáp {chi.ten} ({chi.conVat})

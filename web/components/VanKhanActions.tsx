@@ -1,6 +1,7 @@
 "use client";
 
 import { ShareButton } from "@/components/ShareButton";
+import { Icon } from "@/components/heritage/Icon";
 import { buildShareUrl } from "@/lib/share";
 import type { VanKhanBai } from "@/lib/van-khan";
 
@@ -18,8 +19,9 @@ function toPlainText(bai: VanKhanBai): string {
 
 export function VanKhanActions({ bai }: { bai: VanKhanBai }) {
   return (
-    <div className="vk-actions khan-noprint">
+    <div className="vk-meta khan-noprint">
       <button type="button" className="btn" onClick={() => window.print()}>
+        <Icon name="printer" size={17} />
         In ra giấy
       </button>
       <ShareButton
@@ -30,7 +32,7 @@ export function VanKhanActions({ bai }: { bai: VanKhanBai }) {
       />
       <button
         type="button"
-        className="btn pri"
+        className="btn"
         onClick={() => {
           const blob = new Blob([toPlainText(bai)], { type: "text/plain;charset=utf-8" });
           const url = URL.createObjectURL(blob);
@@ -41,6 +43,7 @@ export function VanKhanActions({ bai }: { bai: VanKhanBai }) {
           URL.revokeObjectURL(url);
         }}
       >
+        <Icon name="download" size={17} />
         Lưu về máy
       </button>
     </div>

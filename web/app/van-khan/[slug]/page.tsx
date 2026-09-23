@@ -6,7 +6,9 @@ import { VanKhanActions } from "@/components/VanKhanActions";
 import { Breadcrumb } from "@/components/calendar/Breadcrumb";
 import { ChShell } from "@/components/heritage/ChShell";
 import { Icon } from "@/components/heritage/Icon";
-import { InkLandscape } from "@/components/heritage/InkLandscape";
+import { HeritageImage, heritageVisible } from "@/components/heritage/HeritageImage";
+import { NHOM_ICON } from "@/components/heritage/vanKhanUi";
+import { heritageSlot, vanKhanImagePaths } from "@/lib/heritage-assets";
 import { LE_LIST } from "@/lib/le";
 import { getVietnamToday } from "@/lib/today";
 import { VAN_KHAN_LIST, splitFillIns, vanKhanBySlug, vanKhanLienQuan } from "@/lib/van-khan";
@@ -63,66 +65,81 @@ export default async function VanKhanPage({ params }: { params: Promise<{ slug: 
 
   const coNhieuPhan = bai.baiKhan.length > 1;
   const tenNgan = bai.ten.replace(/^Văn khấn /, "");
+  const anh = vanKhanImagePaths(bai.slug, bai.nhom);
+  const coAnh = heritageVisible(anh.own, anh.nhom);
+  const goc = heritageSlot("scriptureCorner");
+  const lienQuan = cungNhom.filter((v) => v.slug !== bai.slug);
+
+  const toc = (
+    <ol className="ch-toc">
+      <li>
+        <a href="#sam-le">Sắm lễ</a>
+      </li>
+      <li>
+        <a href="#luu-y">Lưu ý</a>
+      </li>
+      <li>
+        <a href="#bai-khan">Nội dung bài khấn</a>
+        {coNhieuPhan && (
+          <ul>
+            {bai.baiKhan.map((phan, i) =>
+              phan.tieuDe ? (
+                <li key={phan.tieuDe}>
+                  <a href={`#bai-khan-${i + 1}`}>{phan.tieuDe}</a>
+                </li>
+              ) : null,
+            )}
+          </ul>
+        )}
+      </li>
+      <li>
+        <a href="#hoi-dap">Câu hỏi thường gặp</a>
+      </li>
+    </ol>
+  );
 
   return (
     <ChShell activeMenu="Văn khấn">
       <div className="ch-wrap ch-main">
         <div className="ch-layout vk-layout">
-          <section className="vk-herocard vk-hero">
-            <div className="ch-hero-art">
-              <InkLandscape idPrefix="vk" />
+          <section className={coAnh ? "vk-herocard vk-hero has-art" : "vk-herocard vk-hero"}>
+            <div className="vk-hero-text">
+              <Breadcrumb
+                items={[{ label: "Trang chủ", href: "/" }, { label: "Văn khấn", href: "/van-khan/" }, { label: bai.ten }]}
+                jsonLd={false}
+              />
+              <div className="ch-eyebrow">
+                <Icon name={NHOM_ICON[bai.nhom]} size={15} />
+                Văn khấn · {bai.nhom}
+              </div>
+              <h1 className="ch-h1">{bai.ten}</h1>
+              <p className="ch-lead">{bai.moTa}</p>
+              <VanKhanActions bai={bai} />
             </div>
-            <Breadcrumb
-              items={[{ label: "Trang chủ", href: "/" }, { label: "Văn khấn", href: "/van-khan/" }, { label: bai.ten }]}
-              jsonLd={false}
-            />
-            <div className="ch-eyebrow">Văn khấn · {bai.nhom}</div>
-            <h1 className="ch-h1">{bai.ten}</h1>
-            <p className="ch-lead">{bai.moTa}</p>
-            <VanKhanActions bai={bai} />
+            {coAnh && (
+              <div className="vk-hero-art">
+                <HeritageImage src={anh.own} fallback={anh.nhom} alt="" label="Ảnh chủ đạo bài (4:3); thiếu thì dùng ảnh nhóm" />
+              </div>
+            )}
           </section>
 
-          <nav className="ch-sidebox vk-toc khan-noprint" aria-labelledby="vk-toc-h">
-            <div className="ch-sidebox-h" id="vk-toc-h">
-              <Icon name="list" size={20} />
-              Mục lục bài viết
-            </div>
-            <div className="ch-sidebox-b">
-              <ol className="ch-toc">
-                <li>
-                  <a href="#sam-le">Sắm lễ</a>
-                </li>
-                <li>
-                  <a href="#luu-y">Lưu ý</a>
-                </li>
-                <li>
-                  <a href="#bai-khan">Nội dung bài khấn</a>
-                  {coNhieuPhan && (
-                    <ul>
-                      {bai.baiKhan.map((phan, i) =>
-                        phan.tieuDe ? (
-                          <li key={phan.tieuDe}>
-                            <a href={`#bai-khan-${i + 1}`}>{phan.tieuDe}</a>
-                          </li>
-                        ) : null,
-                      )}
-                    </ul>
-                  )}
-                </li>
-                <li>
-                  <a href="#hoi-dap">Câu hỏi thường gặp</a>
-                </li>
-              </ol>
-            </div>
-          </nav>
-
           <div className="vk-main ch-stack">
+            <details className="vk-toc-m khan-noprint">
+              <summary>
+                <Icon name="list" size={19} />
+                Mục lục bài viết
+                <span className="n">4 mục</span>
+                <Icon name="chevron" size={18} className="chev" />
+              </summary>
+              {toc}
+            </details>
+
             <section className="ch-card vk-sec" id="sam-le">
               <div className="vk-sec-ico">
-                <Icon name="bowl" size={26} />
+                <Icon name="bowl" size={28} stroke={1.4} />
               </div>
               <div>
-                <h2 className="ch-h2">Sắm lễ</h2>
+                <h2 className="vk-sec-h">Sắm lễ</h2>
                 <ul className="vk-list">
                   {bai.samLe.map((item) => (
                     <li key={item}>{item}</li>
@@ -133,10 +150,10 @@ export default async function VanKhanPage({ params }: { params: Promise<{ slug: 
 
             <section className="ch-card vk-sec" id="luu-y">
               <div className="vk-sec-ico">
-                <Icon name="note" size={26} />
+                <Icon name="note" size={28} stroke={1.4} />
               </div>
               <div>
-                <h2 className="ch-h2">Lưu ý</h2>
+                <h2 className="vk-sec-h">Lưu ý</h2>
                 <ul className="vk-list one">
                   {bai.luuY.map((item) => (
                     <li key={item}>{item}</li>
@@ -147,13 +164,29 @@ export default async function VanKhanPage({ params }: { params: Promise<{ slug: 
 
             <section className="ch-card vk-sec" id="bai-khan">
               <div className="vk-sec-ico">
-                <Icon name="scroll" size={26} />
+                <Icon name="scroll" size={28} stroke={1.4} />
               </div>
               <div>
-                <h2 className="ch-h2">Nội dung bài khấn</h2>
+                <h2 className="vk-sec-h">Nội dung bài khấn</h2>
                 {bai.baiKhan.map((phan, i) => (
-                  <div className="scripture" key={phan.tieuDe ?? i} id={coNhieuPhan ? `bai-khan-${i + 1}` : undefined}>
-                    {phan.tieuDe && <h3>{phan.tieuDe}</h3>}
+                  <div
+                    className={goc ? "vk-scroll has-corner" : "vk-scroll"}
+                    key={phan.tieuDe ?? i}
+                    id={coNhieuPhan ? `bai-khan-${i + 1}` : undefined}
+                  >
+                    {goc && (
+                      <>
+                        <img className="vk-scroll-corner" src={goc} alt="" style={{ top: 10, left: 10 }} />
+                        <img className="vk-scroll-corner" src={goc} alt="" style={{ top: 10, right: 10, transform: "scaleX(-1)" }} />
+                      </>
+                    )}
+                    {phan.tieuDe ? (
+                      <h3 className="vk-scroll-t">{phan.tieuDe}</h3>
+                    ) : (
+                      <div className="vk-scroll-t" aria-hidden="true">
+                        {bai.ten}
+                      </div>
+                    )}
                     {phan.doanVan.map((doan, j) => (
                       <Doan text={doan} key={j} />
                     ))}
@@ -164,10 +197,10 @@ export default async function VanKhanPage({ params }: { params: Promise<{ slug: 
 
             <section className="ch-card vk-sec khan-noprint" id="hoi-dap">
               <div className="vk-sec-ico">
-                <Icon name="question" size={26} />
+                <Icon name="question" size={28} stroke={1.4} />
               </div>
               <div>
-                <h2 className="ch-h2">Câu hỏi thường gặp</h2>
+                <h2 className="vk-sec-h">Câu hỏi thường gặp</h2>
                 <div className="faqs vk-faq">
                   <div className="faq">
                     <b>Khấn {tenNgan} vào lúc nào?</b>
@@ -191,80 +224,99 @@ export default async function VanKhanPage({ params }: { params: Promise<{ slug: 
           </div>
 
           <aside className="ch-side vk-side khan-noprint">
+            <nav className="ch-sidebox vk-toc khan-noprint" aria-labelledby="vk-toc-h">
+              <div className="vk-sidebox-h son" id="vk-toc-h">
+                <Icon name="list" size={20} />
+                Mục lục bài viết
+              </div>
+              <div className="vk-sidebox-b">{toc}</div>
+            </nav>
+
             <div className="ch-sidebox">
-              <div className="ch-sidebox-h jade">
-                <Icon name="lotus" size={20} />
+              <div className="vk-sidebox-h jade">
+                <span className="dot">
+                  <Icon name="lotus" size={20} />
+                </span>
                 Thông tin nhanh
               </div>
-              <div className="ch-sidebox-b">
-                <dl className="ch-facts">
-                  <dt>Nhóm</dt>
-                  <dd>{bai.nhom}</dd>
-                  <dt>Sắm lễ</dt>
-                  <dd>{bai.samLe.length} mục</dd>
-                  <dt>Bài khấn</dt>
-                  <dd>{coNhieuPhan ? `${bai.baiKhan.length} phần` : "1 bài"}</dd>
+              <div className="vk-sidebox-b">
+                <ul className="vk-facts">
+                  <li>
+                    <Icon name={NHOM_ICON[bai.nhom]} size={18} />
+                    <span className="k">Nhóm</span>
+                    <span className="v">{bai.nhom}</span>
+                  </li>
+                  <li>
+                    <Icon name="bowl" size={18} />
+                    <span className="k">Sắm lễ</span>
+                    <span className="v">{bai.samLe.length} mục</span>
+                  </li>
+                  <li>
+                    <Icon name="scroll" size={18} />
+                    <span className="k">Bài khấn</span>
+                    <span className="v">{coNhieuPhan ? `${bai.baiKhan.length} phần` : "1 bài"}</span>
+                  </li>
                   {leLienQuan.length > 0 && (
-                    <>
-                      <dt>Ngày lễ liên quan</dt>
-                      <dd>
+                    <li>
+                      <Icon name="calendar" size={18} />
+                      <span className="k">Ngày lễ liên quan</span>
+                      <span className="v">
                         {leLienQuan.map((l, i) => (
                           <span key={l.slug}>
                             {i > 0 && ", "}
                             <Link href={`/le/${l.slug}/`}>{l.ten}</Link>
                           </span>
                         ))}
-                      </dd>
-                    </>
+                      </span>
+                    </li>
                   )}
                   {viecLienQuan && (
-                    <>
-                      <dt>Chọn ngày</dt>
-                      <dd>
+                    <li>
+                      <Icon name="sun" size={18} />
+                      <span className="k">Chọn ngày</span>
+                      <span className="v">
                         <Link href={`/xem-ngay-tot/${viecLienQuan.slug}/`}>{viecLienQuan.label}</Link>
-                      </dd>
-                    </>
+                      </span>
+                    </li>
                   )}
-                </dl>
+                  <li>
+                    <Icon name="calendar" size={18} />
+                    <span className="k">Xem ngày</span>
+                    <span className="v">
+                      <Link href="/xem-ngay-tot/">Xem ngày tốt</Link>
+                    </span>
+                  </li>
+                </ul>
               </div>
             </div>
 
             <div className="ch-sidebox">
-              <h2 className="ch-sidebox-h gold">
-                <Icon name="scroll" size={20} />
+              <h2 className="vk-sidebox-h gold">
+                <Icon name="book" size={20} />
                 Văn khấn cùng nhóm {bai.nhom.toLowerCase()}
               </h2>
-              <div className="ch-sidebox-b">
-                <ul className="ch-linklist">
-                  {cungNhom.map((v) =>
-                    v.slug === bai.slug ? (
-                      <li className="on" key={v.slug}>
-                        <span aria-current="page">{v.ten}</span>
-                      </li>
-                    ) : (
+              <div className="vk-sidebox-b">
+                <ul className="vk-rel">
+                  {lienQuan.map((v) => {
+                    const p = vanKhanImagePaths(v.slug, v.nhom);
+                    const coThumb = heritageVisible(p.own, p.nhom);
+                    return (
                       <li key={v.slug}>
-                        <Link href={`/van-khan/${v.slug}/`}>
-                          {v.ten}
-                          <Icon name="chevron" size={16} className="arr" />
+                        <Link href={`/van-khan/${v.slug}/`} className={coThumb ? undefined : "no-thumb"}>
+                          {coThumb && <HeritageImage src={p.own} fallback={p.nhom} alt="" />}
+                          <span>
+                            <span className="t">{v.ten}</span>
+                            <small>{v.nhom}</small>
+                          </span>
+                          {!coThumb && <Icon name="chevron" size={16} className="arr" />}
                         </Link>
                       </li>
-                    ),
-                  )}
-                  {viecLienQuan && (
-                    <li>
-                      <Link href={`/xem-ngay-tot/${viecLienQuan.slug}/`}>
-                        {viecLienQuan.label}
-                        <Icon name="chevron" size={16} className="arr" />
-                      </Link>
-                    </li>
-                  )}
-                  <li>
-                    <Link href="/xem-ngay-tot/">
-                      Xem ngày tốt
-                      <Icon name="chevron" size={16} className="arr" />
-                    </Link>
-                  </li>
+                    );
+                  })}
                 </ul>
+                <Link className="ch-more" href="/van-khan/" style={{ display: "inline-flex", gap: 6, marginTop: 10 }}>
+                  Tất cả văn khấn <Icon name="arrow" size={15} />
+                </Link>
               </div>
             </div>
           </aside>
