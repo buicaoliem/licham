@@ -11,6 +11,7 @@ export const HERITAGE_SLOTS = {
   sideRight: { path: "/heritage/decor/side-right.webp", spec: "Tranh lề phải (núi, sen, hạc), ~480×1600, nền trong suốt" },
   heroVanKhan: { path: "/heritage/hero/van-khan.webp", spec: "Hero danh mục văn khấn (sen, núi), ~1200×460, mờ dần sang trái" },
   heroTuoi: { path: "/heritage/hero/tuoi.webp", spec: "Hero danh mục Xem tuổi (núi, chùa), ~1200×460, mờ dần sang trái" },
+  heroLe: { path: "/heritage/hero/le.webp", spec: "Hero danh mục Ngày lễ & tiết khí (đèn lồng, sen, núi), ~1200×460, mờ dần sang trái" },
   scriptureCorner: { path: "/heritage/decor/scripture-corner.svg", spec: "Họa tiết góc khung bài khấn, SVG" },
 } as const;
 
@@ -55,4 +56,33 @@ export const CON_GIAP_CAN_THAY = ["suu", "dan", "mao", "thin", "ty-ran", "dau"] 
 
 export function conGiapImagePath(chiSlug: string): string {
   return `/heritage/con-giap/${chiSlug}.webp`;
+}
+
+/**
+ * Tranh cho trang lễ: ưu tiên tranh riêng /heritage/le/<slug>.webp (chưa có tranh nào); nếu chưa có thì
+ * dùng lại tranh heritage sẵn có khi cảnh trong tranh đúng với lễ (bàn thờ ngày Tết, sen, mâm cúng rằm,
+ * đình chùa, bàn thờ trong nhà). Lễ không có tranh phù hợp thì trả null — không dùng tranh thay thế.
+ */
+const LE_TRANH_CHUNG: Record<string, string> = {
+  "tet-nguyen-dan": "/heritage/van-khan/nhom/le-tet.webp",
+  "giao-thua": "/heritage/van-khan/nhom/le-tet.webp",
+  "phat-dan": "/heritage/van-khan/nhom/cau-an.webp",
+  "via-quan-am": "/heritage/van-khan/nhom/cau-an.webp",
+  "vu-lan": "/heritage/van-khan/nhom/cau-an.webp",
+  "ram-thang-gieng": "/heritage/van-khan/mung-mot-ngay-ram.webp",
+  "tet-trung-thu": "/heritage/van-khan/mung-mot-ngay-ram.webp",
+  "tet-ha-nguyen": "/heritage/van-khan/mung-mot-ngay-ram.webp",
+  "ram-thang-chap": "/heritage/van-khan/mung-mot-ngay-ram.webp",
+  "gio-to-hung-vuong": "/heritage/van-khan/nhom/di-le.webp",
+  "via-than-tai": "/heritage/van-khan/nhom/trong-nha.webp",
+  "ong-cong-ong-tao": "/heritage/van-khan/nhom/trong-nha.webp",
+};
+
+export function leImagePath(slug: string): string {
+  return `/heritage/le/${slug}.webp`;
+}
+
+export function leImage(slug: string): string | null {
+  const chung = LE_TRANH_CHUNG[slug];
+  return heritageFile(leImagePath(slug)) ?? (chung ? heritageFile(chung) : null);
 }
