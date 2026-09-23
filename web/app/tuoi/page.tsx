@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ChHero, ChSectionHead, ChShell } from "@/components/heritage/ChShell";
 import { ConGiapArt } from "@/components/heritage/ConGiapArt";
 import { Icon } from "@/components/heritage/Icon";
+import { HERITAGE_SLOTS } from "@/lib/heritage-assets";
 import { ALL_CAN_CHI, CHI_LIST, birthYearsForCanChi, birthYearsForChi, canChiSlug } from "@/lib/tuoi";
 import { getVietnamToday } from "@/lib/today";
 
@@ -16,12 +17,14 @@ export default function TuoiHubPage() {
   const today = getVietnamToday();
 
   return (
-    <ChShell activeMenu="Xem tuổi">
+    <ChShell activeMenu="Xem tuổi" className="ch-tu">
       <ChHero
+        className="tu-hero"
         crumbs={[{ label: "Trang chủ", href: "/" }, { label: "Xem tuổi" }]}
         crumbJsonLd={false}
         title="Xem tuổi: 12 con giáp và 60 tuổi can chi"
         lead="Tra cứu mệnh nạp âm theo từng năm can chi (không gán một hành cho cả con giáp), tuổi hợp, tuổi kỵ."
+        art={{ src: HERITAGE_SLOTS.heroTuoi.path, label: HERITAGE_SLOTS.heroTuoi.spec }}
       >
         <div className="chips">
           <Link className="chip hot" href="/tinh-tuoi/">
@@ -49,39 +52,54 @@ export default function TuoiHubPage() {
       </ChHero>
 
       <div className="ch-wrap ch-main">
-        <section>
-          <ChSectionHead title="12 con giáp" />
-          <div className="ch-grid c6">
+        <section aria-labelledby="tu-12-h">
+          <ChSectionHead
+            id="tu-12-h"
+            title="12 con giáp"
+            sub="Chọn con giáp để xem tuổi hợp, tuổi kỵ và các năm sinh tương ứng."
+          />
+          <div className="tu-chi-grid">
             {CHI_LIST.map((c) => {
               const years = birthYearsForChi(c.chiIndex, today.year, 3);
               return (
-                <Link className="tuoi-chi-card" href={`/tuoi/${c.slug}/`} key={c.slug}>
-                  <ConGiapArt chiSlug={c.slug} ten={c.ten} className="tuoi-chi-art" />
+                <Link className="tu-chi" href={`/tuoi/${c.slug}/`} key={c.slug}>
+                  <ConGiapArt chiSlug={c.slug} ten={c.ten} so={c.chiIndex + 1} className="tu-chi-art" />
                   <b>Tuổi {c.ten}</b>
                   <span className="cv">{c.conVat}</span>
-                  <span className="yr">{years.join(" · ")}</span>
+                  <span className="yr">
+                    {years.map((y) => (
+                      <span key={y}>{y}</span>
+                    ))}
+                  </span>
                 </Link>
               );
             })}
           </div>
         </section>
 
-        <section style={{ marginTop: 48 }}>
-          <ChSectionHead title="Tra nhanh 60 tuổi can chi" />
-          <div className="ch-grid c4">
+        <section className="tu-cc" aria-labelledby="tu-60-h">
+          <ChSectionHead
+            id="tu-60-h"
+            title="Tra nhanh 60 tuổi can chi"
+            sub={`Mỗi con giáp gồm 5 tuổi can chi. Năm ghi bên cạnh là năm sinh gần nhất tính đến ${today.year}.`}
+          />
+          <div className="tu-cc-grid">
             {CHI_LIST.map((c) => {
-              const group = ALL_CAN_CHI.filter((cc) => cc.chiIndex === c.chiIndex);
+              const group = ALL_CAN_CHI.filter((cc) => cc.chiIndex === c.chiIndex)
+                .map((cc) => ({ cc, year: birthYearsForCanChi(cc.index, today.year)[1] }))
+                .sort((a, b) => a.year - b.year);
               return (
-                <div className="tuoi-cc-col" key={c.slug}>
+                <div className="tu-cc-col" key={c.slug}>
                   <h3>
-                    Nhóm tuổi {c.ten} <span>({group.length} tuổi)</span>
+                    Nhóm tuổi {c.ten}
+                    <span>{group.length} tuổi</span>
                   </h3>
                   <ul>
-                    {group.map((cc) => (
+                    {group.map(({ cc, year }) => (
                       <li key={cc.name}>
                         <Link href={`/tuoi/${canChiSlug(cc)}/`}>
                           {cc.name}
-                          <span>{birthYearsForCanChi(cc.index, today.year)[1]}</span>
+                          <span>{year}</span>
                         </Link>
                       </li>
                     ))}

@@ -10,6 +10,7 @@ export const HERITAGE_SLOTS = {
   sideLeft: { path: "/heritage/decor/side-left.webp", spec: "Tranh lề trái (đình, tùng), ~480×1600, nền trong suốt" },
   sideRight: { path: "/heritage/decor/side-right.webp", spec: "Tranh lề phải (núi, sen, hạc), ~480×1600, nền trong suốt" },
   heroVanKhan: { path: "/heritage/hero/van-khan.webp", spec: "Hero danh mục văn khấn (sen, núi), ~1200×460, mờ dần sang trái" },
+  heroTuoi: { path: "/heritage/hero/tuoi.webp", spec: "Hero danh mục Xem tuổi (núi, chùa), ~1200×460, mờ dần sang trái" },
   scriptureCorner: { path: "/heritage/decor/scripture-corner.svg", spec: "Họa tiết góc khung bài khấn, SVG" },
 } as const;
 
@@ -44,6 +45,13 @@ export function vanKhanImage(slug: string, nhom: string): string | null {
   const p = vanKhanImagePaths(slug, nhom);
   return heritageFile(p.own) ?? heritageFile(p.nhom);
 }
+
+/**
+ * Tranh con giáp Batch 3 là bản tách từ một bảng tranh gốc (ô gốc ~256×320, phóng lên 800×800), chưa phải bản vẽ riêng.
+ * Sáu tranh sau còn sót mảnh tranh bên cạnh ở mép trái, đang được che tạm bằng clip-path trong heritage.css
+ * (.cg-slot[data-cg=…]). Khi có bản sạch: thay file cùng tên rồi bỏ các dòng clip-path đó.
+ */
+export const CON_GIAP_CAN_THAY = ["suu", "dan", "mao", "thin", "ty-ran", "dau"] as const;
 
 export function conGiapImagePath(chiSlug: string): string {
   return `/heritage/con-giap/${chiSlug}.webp`;

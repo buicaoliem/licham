@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
 import { canChiNamDuong, xungNgay } from "@licham/core";
 import { ShareButton } from "@/components/ShareButton";
@@ -13,6 +14,7 @@ import {
   ALL_CAN_CHI,
   CHI_LIST,
   type ChiInfo,
+  NAP_AM_MO_TA,
   assertNoSlugCollision,
   birthYearsForCanChi,
   birthYearsForChi,
@@ -73,15 +75,38 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {};
 }
 
-function TuoiFact({ k, v, tone }: { k: string; v: string; tone?: "g" | "r" }) {
+function TuoiFact({ k, v, h, tone }: { k: string; v: string; h?: string; tone?: "g" | "r" }) {
   return (
     <div className="tuoi-fact">
       <span className={tone ? `dot ${tone}` : "dot"} aria-hidden="true" />
       <div>
         <div className="k">{k}</div>
         <div className="v">{v}</div>
+        {h && <div className="h">{h}</div>}
       </div>
     </div>
+  );
+}
+
+/** Khối nội dung của trang tuổi: thẻ + tiêu đề mục + ghi chú nguồn (tùy chọn). */
+function TuSec({ title, note, className, children }: { title: string; note?: string; className?: string; children: ReactNode }) {
+  return (
+    <section className={className ? `ch-card tu-sec ${className}` : "ch-card tu-sec"}>
+      <h2 className="tu-sec-h">{title}</h2>
+      {children}
+      {note && <p className="tu-note">{note}</p>}
+    </section>
+  );
+}
+
+/** Một dòng hợp/kỵ: nhãn · giá trị · nhãn trạng thái. */
+function HkRow({ k, v, tone }: { k: string; v: ReactNode; tone?: "g" | "r" }) {
+  return (
+    <li>
+      <span className="k">{k}</span>
+      <span className="v">{v}</span>
+      {tone && <span className={`pill ${tone}`}>{tone === "g" ? "Hợp" : "Kỵ"}</span>}
+    </li>
   );
 }
 
@@ -98,8 +123,9 @@ function ChiPage({ chi }: { chi: ChiInfo }) {
   const otherChi = CHI_LIST.filter((c) => c.chiIndex !== chi.chiIndex);
 
   return (
-    <ChShell activeMenu="Xem tuổi">
+    <ChShell activeMenu="Xem tuổi" className="ch-tu">
       <ChHero
+        className="tu-hero"
         crumbs={[{ label: "Trang chủ", href: "/" }, { label: "Xem tuổi", href: "/tuoi/" }, { label: `Tuổi ${chi.ten}` }]}
         crumbJsonLd={false}
         eyebrow={`Con giáp thứ ${chi.chiIndex + 1}`}
@@ -114,34 +140,34 @@ function ChiPage({ chi }: { chi: ChiInfo }) {
       </ChHero>
 
       <div className="ch-wrap ch-main ch-stack">
-        <section className="ch-card">
-          <div className="tuoi-result">
-            <div className="tuoi-medal">
-              <ConGiapArt chiSlug={chi.slug} ten={chi.ten} className="tuoi-medal-art" />
-              <b>Tuổi {chi.ten}</b>
-              <span>{chi.conVat}</span>
-            </div>
-            <div className="tuoi-facts">
-              <TuoiFact k="Tam hợp" v={chiNames(tamHop)} tone="g" />
-              <TuoiFact k="Tứ hành xung" v={chiNames(tuHanhXung)} tone="r" />
-              <TuoiFact k={`Năm ${chi.ten} gần nhất`} v={`${nextYear} ${nextYearCanChi.name}`} />
-              <TuoiFact k={`Các tuổi ${chi.ten}`} v={nhomCanChi.map((cc) => cc.name).join(", ")} />
-            </div>
+        <section className="ch-card tu-profile" aria-label={`Tóm tắt tuổi ${chi.ten}`}>
+          <div className="tuoi-medal">
+            <ConGiapArt chiSlug={chi.slug} ten={chi.ten} so={chi.chiIndex + 1} className="tuoi-medal-art" />
+            <b>Tuổi {chi.ten}</b>
+            <span>{chi.conVat}</span>
+            <span className="gio">
+              Giờ {chi.ten}: {chi.gio}
+            </span>
+          </div>
+          <div className="tuoi-facts">
+            <TuoiFact k="Tam hợp" v={chiNames(tamHop)} tone="g" />
+            <TuoiFact k="Tứ hành xung" v={chiNames(tuHanhXung)} tone="r" />
+            <TuoiFact k={`Năm ${chi.ten} gần nhất`} v={`${nextYear} ${nextYearCanChi.name}`} />
+            <TuoiFact k={`Các tuổi ${chi.ten}`} v={nhomCanChi.map((cc) => cc.name).join(", ")} />
           </div>
         </section>
-        <div className="box">
-          <div className="box-h">
-            <span className="rule" />
-            <span className="t">Năm nào là tuổi {chi.ten}</span>
-            <span className="rule" />
-          </div>
+
+        <TuSec
+          title={`Năm nào là tuổi ${chi.ten}`}
+          note={`Ngũ hành / nạp âm gắn với từng năm can chi, không phải một mệnh chung cho mọi người tuổi ${chi.ten}.`}
+        >
           <table className="tuoitable">
             <thead>
               <tr>
                 <th>Năm sinh</th>
                 <th>Can chi</th>
                 <th>Mệnh</th>
-                <th>Tuổi ({today.year})</th>
+                <th>Tuổi năm {today.year}</th>
               </tr>
             </thead>
             <tbody>
@@ -160,72 +186,37 @@ function ChiPage({ chi }: { chi: ChiInfo }) {
               })}
             </tbody>
           </table>
-          <p style={{ fontSize: 12.5, color: "var(--ink-3)", marginTop: 8 }}>
-            Ngũ hành / nạp âm gắn với từng năm can chi, không phải một mệnh chung cho mọi người tuổi {chi.ten}.
-          </p>
-        </div>
+        </TuSec>
 
-        <div className="cols2">
-          <div className="box">
-            <div className="box-h">
-              <span className="rule" />
-              <span className="t">Hợp và kỵ theo con giáp</span>
-              <span className="rule" />
-            </div>
-            <ul className="dotlist">
-              <li>
-                Tam hợp: {chiNames(tamHop)} <span className="pill g">Hợp</span>
-              </li>
-              {nhiHop !== undefined && (
-                <li>
-                  Nhị hợp: {chiByIndex(nhiHop).ten} <span className="pill g">Hợp</span>
-                </li>
-              )}
-              <li>
-                Xung: {chiByIndex(xungChi).ten} <span className="pill r">Kỵ</span>
-              </li>
-              {haiChi !== undefined && (
-                <li>
-                  Hại: {chiByIndex(haiChi).ten} <span className="pill r">Kỵ</span>
-                </li>
-              )}
+        <div className="tu-cols">
+          <TuSec title="Hợp và kỵ theo con giáp" note="Theo quan niệm dân gian, chỉ mang tính tham khảo.">
+            <ul className="tu-hk">
+              <HkRow k="Tam hợp" v={chiNames(tamHop)} tone="g" />
+              {nhiHop !== undefined && <HkRow k="Nhị hợp" v={chiByIndex(nhiHop).ten} tone="g" />}
+              <HkRow k="Xung" v={chiByIndex(xungChi).ten} tone="r" />
+              {haiChi !== undefined && <HkRow k="Hại" v={chiByIndex(haiChi).ten} tone="r" />}
             </ul>
-            <p style={{ fontSize: 12.5, color: "var(--ink-3)", marginTop: 8 }}>Theo quan niệm dân gian, chỉ mang tính tham khảo.</p>
-          </div>
-          <div className="box">
-            <div className="box-h">
-              <span className="rule" />
-              <span className="t">Đặc điểm thường nói</span>
-              <span className="rule" />
+          </TuSec>
+          <TuSec title="Đặc điểm thường nói" note="Đây là mô tả theo quan niệm dân gian, không phải kết luận khoa học.">
+            <div className="tu-prose">
+              <p>{chi.moTa1}</p>
+              <p>{chi.moTa2}</p>
             </div>
-            <p>{chi.moTa1}</p>
-            <p>{chi.moTa2}</p>
-            <p style={{ fontSize: 12.5, color: "var(--ink-3)" }}>Đây là mô tả theo quan niệm dân gian, không phải kết luận khoa học.</p>
-          </div>
+          </TuSec>
         </div>
 
-        <div className="box">
-          <div className="box-h">
-            <span className="rule" />
-            <span className="t">Xem chi tiết theo từng tuổi</span>
-            <span className="rule" />
-          </div>
-          <div className="tuoi-grid5">
+        <TuSec title="Xem chi tiết theo từng tuổi">
+          <div className="tu-gc-grid">
             {nhomCanChi.map((cc) => (
-              <Link className="tuoi-gc" href={`/tuoi/${canChiSlug(cc)}/`} key={cc.name}>
+              <Link className="tu-gc" href={`/tuoi/${canChiSlug(cc)}/`} key={cc.name}>
                 <b>{cc.name}</b>
                 <span>{birthYearsForCanChi(cc.index, today.year).join(" · ")}</span>
               </Link>
             ))}
           </div>
-        </div>
+        </TuSec>
 
-        <div className="box">
-          <div className="box-h">
-            <span className="rule" />
-            <span className="t">Con giáp khác</span>
-            <span className="rule" />
-          </div>
+        <TuSec title="Con giáp khác">
           <div className="chips">
             {otherChi.map((c) => (
               <Link className="chip" href={`/tuoi/${c.slug}/`} key={c.slug}>
@@ -239,7 +230,7 @@ function ChiPage({ chi }: { chi: ChiInfo }) {
               Đặt tên
             </Link>
           </div>
-        </div>
+        </TuSec>
         <TraditionalDisclaimer />
       </div>
     </ChShell>
@@ -256,6 +247,8 @@ function CanChiPage({ slug }: { slug: string }) {
   const hopTuoi = hopTuoiChi(canChi.chiIndex);
   const kyTuoi = kyTuoiChi(canChi.chiIndex);
   const namLuuY = namDangLuuY(canChi.chiIndex, today.year);
+  // "Đất ven đường — đất chịu người qua lại…" → phần nghĩa ngắn trước dấu gạch.
+  const napAmNghia = (NAP_AM_MO_TA[canChi.napAm.name] ?? "").split(" — ")[0];
 
   const xungEntries = xungNgay(canChi);
   const xungChinh = xungEntries.find((e) => e.isThienKhacDiaXung) ?? xungEntries.find((e) => e.canChi.canIndex === canChi.canIndex)!;
@@ -294,10 +287,11 @@ function CanChiPage({ slug }: { slug: string }) {
   };
 
   return (
-    <ChShell activeMenu="Xem tuổi">
+    <ChShell activeMenu="Xem tuổi" className="ch-tu">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <ChHero
+        className="tu-hero"
         crumbs={[
           { label: "Trang chủ", href: "/" },
           { label: "Xem tuổi", href: "/tuoi/" },
@@ -317,79 +311,48 @@ function CanChiPage({ slug }: { slug: string }) {
       </ChHero>
 
       <div className="ch-wrap ch-main ch-stack">
-        <section className="ch-card">
-          <h2 className="ch-h2 ch-card-h">Thông tin nhanh</h2>
-          <div className="tuoi-result">
+        <TuSec title="Thông tin nhanh" className="tu-profile-sec">
+          <div className="tu-profile">
             <div className="tuoi-medal">
-              <ConGiapArt chiSlug={chi.slug} ten={chi.ten} className="tuoi-medal-art" />
+              <ConGiapArt chiSlug={chi.slug} ten={chi.ten} so={chi.chiIndex + 1} className="tuoi-medal-art" />
               <b>Tuổi {canChi.name}</b>
               <span>
                 Con giáp {chi.ten} ({chi.conVat})
               </span>
             </div>
-            <div className="tuoi-facts">
+            <div className="tuoi-facts c3">
               <TuoiFact k="Năm sinh" v={`${prevYear} · ${recentYear} · ${nextCycleYear}`} />
               <TuoiFact k="Can chi" v={canChi.name} />
-              <TuoiFact k="Mệnh nạp âm" v={canChi.napAm.name} tone="g" />
+              <TuoiFact k="Mệnh nạp âm" v={canChi.napAm.name} h={napAmNghia || undefined} tone="g" />
               <TuoiFact k="Ngũ hành" v={canChi.napAm.element} tone="g" />
-              <TuoiFact k={`Tuổi (${today.year})`} v={String(tuoiNam)} />
+              <TuoiFact k={`Tuổi năm ${today.year}`} v={`${tuoiNam} tuổi`} h={`Người sinh năm ${recentYear}, chưa cộng tuổi mụ`} />
               <TuoiFact k="Tuổi xung" v={xungChinh.canChi.name} tone="r" />
             </div>
           </div>
-        </section>
-        <div>
-          <div className="box">
-            <div className="box-h">
-              <span className="rule" />
-              <span className="t">Hợp và kỵ</span>
-              <span className="rule" />
-            </div>
-            <ul className="dotlist">
-              <li>
-                Hợp mệnh: {h.sinhRa} sinh {canChi.napAm.element}, {canChi.napAm.element} sinh {h.sinhBoi}{" "}
-                <span className="pill g">Hợp</span>
-              </li>
-              <li>
-                Khắc mệnh: {h.khacBoi} khắc {canChi.napAm.element} <span className="pill r">Kỵ</span>
-              </li>
-              <li>
-                Hợp tuổi: {chiNames(hopTuoi)} <span className="pill g">Hợp</span>
-              </li>
-              <li>
-                Kỵ tuổi: {chiNames(kyTuoi)} <span className="pill r">Kỵ</span>
-              </li>
+        </TuSec>
+
+        <div className="tu-cols">
+          <TuSec title="Hợp và kỵ" note="Theo quan niệm dân gian, chỉ mang tính tham khảo.">
+            <ul className="tu-hk">
+              <HkRow
+                k="Hợp mệnh"
+                v={`${h.sinhRa} sinh ${canChi.napAm.element}, ${canChi.napAm.element} sinh ${h.sinhBoi}`}
+                tone="g"
+              />
+              <HkRow k="Khắc mệnh" v={`${h.khacBoi} khắc ${canChi.napAm.element}`} tone="r" />
+              <HkRow k="Hợp tuổi" v={chiNames(hopTuoi)} tone="g" />
+              <HkRow k="Kỵ tuổi" v={chiNames(kyTuoi)} tone="r" />
             </ul>
-            <p style={{ fontSize: 12.5, color: "var(--ink-3)", marginTop: 8 }}>Theo quan niệm dân gian, chỉ mang tính tham khảo.</p>
-          </div>
+          </TuSec>
+          <TuSec title="Màu sắc thường dùng" note="Quan niệm phong thủy dân gian, không bắt buộc.">
+            <ul className="tu-hk">
+              <HkRow k="Màu hợp" v={`${h.mauHop.join(", ")}.`} />
+              <HkRow k="Màu nên tránh" v={`${h.mauTranh.join(", ")}.`} />
+            </ul>
+          </TuSec>
         </div>
 
-        <div className="box">
-          <div className="box-h">
-            <span className="rule" />
-            <span className="t">Màu sắc thường dùng</span>
-            <span className="rule" />
-          </div>
-          <div className="cols2" style={{ margin: 0 }}>
-            <div>
-              <p>
-                <b>Màu hợp:</b> {h.mauHop.join(", ")}.
-              </p>
-            </div>
-            <div>
-              <p>
-                <b>Màu nên tránh:</b> {h.mauTranh.join(", ")}.
-              </p>
-            </div>
-          </div>
-          <p style={{ fontSize: 12.5, color: "var(--ink-3)", margin: "8px 0 0" }}>Quan niệm phong thủy dân gian, không bắt buộc.</p>
-        </div>
-
-        <div className="box">
-          <div className="box-h">
-            <span className="rule" />
-            <span className="t">Các năm đáng lưu ý</span>
-            <span className="rule" />
-          </div>
+        <TuSec title="Các năm đáng lưu ý">
           <table className="tuoitable">
             <thead>
               <tr>
@@ -412,14 +375,9 @@ function CanChiPage({ slug }: { slug: string }) {
               ))}
             </tbody>
           </table>
-        </div>
+        </TuSec>
 
-        <div className="box">
-          <div className="box-h">
-            <span className="rule" />
-            <span className="t">Câu hỏi thường gặp</span>
-            <span className="rule" />
-          </div>
+        <TuSec title="Câu hỏi thường gặp">
           <div className="faqs">
             {faqItems.map((f) => (
               <div className="faq" key={f.q}>
@@ -428,21 +386,16 @@ function CanChiPage({ slug }: { slug: string }) {
               </div>
             ))}
           </div>
-        </div>
+        </TuSec>
 
-        <div className="box">
-          <div className="box-h">
-            <span className="rule" />
-            <span className="t">Tuổi khác trong nhóm {chi.ten}</span>
-            <span className="rule" />
-          </div>
+        <TuSec title={`Tuổi khác trong nhóm ${chi.ten}`}>
           <div className="chips">
             {siblings.map((cc) => (
               <Link className="chip" href={`/tuoi/${canChiSlug(cc)}/`} key={cc.name}>
                 {cc.name}
               </Link>
             ))}
-            <Link className="chip" href="/tuoi/" style={{ fontWeight: 600 }}>
+            <Link className="chip strong" href="/tuoi/">
               Xem tất cả 60 tuổi ›
             </Link>
             {recentYear >= SINH_NAM_MIN && recentYear <= SINH_NAM_MAX && (
@@ -454,7 +407,7 @@ function CanChiPage({ slug }: { slug: string }) {
               Tử vi tuổi {chi.ten} năm {today.year}
             </Link>
           </div>
-        </div>
+        </TuSec>
         <TraditionalDisclaimer />
       </div>
     </ChShell>

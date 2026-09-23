@@ -3518,6 +3518,773 @@ a.ch-tile:hover {
   gap: 10px 16px;
 }
 
+/* --- Xem tuổi theo nền Contemporary Heritage (Văn khấn R4.2, Công cụ): chỉ trong .ch-tu --- */
+.ch-tu .ch-hero-in {
+  padding-bottom: 6px;
+}
+.ch-tu .ch-hero-grid {
+  margin-top: 10px;
+}
+.ch-tu .ch-hero-body {
+  max-width: 880px;
+}
+.ch-tu .ch-h1 {
+  font-size: clamp(32px, 3.3vw, 44px);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+.ch-tu .ch-lead {
+  margin-top: 10px;
+  max-width: 760px;
+  text-wrap: pretty;
+}
+.ch-tu .ch-hero-extra {
+  margin-top: 16px;
+}
+.ch-tu .ch-hero-extra .chips {
+  gap: 8px;
+}
+.ch-tu .ch-main {
+  padding-top: 26px;
+}
+.ch-tu .ch-h2 {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.ch-tu .ch-sec-head {
+  margin-bottom: 16px;
+}
+.ch-tu .ch-sec-head .ch-sub {
+  margin-top: 3px;
+}
+.ch-tu .ch-card {
+  border-radius: 14px;
+  border-color: color-mix(in srgb, var(--gold) 22%, var(--line));
+}
+.ch-tu .chip.strong {
+  font-weight: 600;
+  color: var(--son);
+  border-color: color-mix(in srgb, var(--son) 35%, var(--line));
+}
+
+/* ô tranh con giáp: kích thước cố định; chưa có tranh thì là ô giấy trống ghi số thứ tự */
+.cg-slot {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.cg-slot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.cg-slot.empty {
+  background: radial-gradient(circle at 50% 38%, #fffbf3, var(--gold-soft) 78%);
+  border: 1px solid color-mix(in srgb, var(--gold) 38%, transparent);
+}
+.ch-tu .cg-slot-n {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: color-mix(in srgb, var(--gold-dp) 72%, transparent);
+}
+
+/* tranh con giáp (800×800, nền trong suốt, chủ thể kèm mặt trời và nền đá): giữ nguyên khung vuông,
+   không cắt tròn, không nền */
+.cg-slot.has-img {
+  border-radius: 0;
+  overflow: visible;
+}
+/* Bản tách từ bảng tranh gốc còn sót mảnh của tranh bên cạnh ở mép trái (đo theo cột alpha).
+   Chỉ cắt dải mép đó, không chạm chủ thể; bỏ các dòng này khi có bản tranh sạch. */
+.cg-slot[data-cg="suu"] img {
+  clip-path: inset(0 0 0 18.1%);
+}
+.cg-slot[data-cg="dan"] img {
+  clip-path: inset(0 0 0 17.5%);
+}
+.cg-slot[data-cg="mao"] img {
+  clip-path: inset(0 0 0 19.7%);
+}
+.cg-slot[data-cg="thin"] img {
+  clip-path: inset(0 0 0 15.6%);
+}
+.cg-slot[data-cg="ty-ran"] img {
+  clip-path: inset(0 0 0 16.8%);
+}
+.cg-slot[data-cg="dau"] img {
+  clip-path: inset(0 0 0 15.9%);
+}
+
+/* hero danh mục: tranh sơn thủy bên phải, sau điểm cuối hàng chip, mờ dần sang trái */
+.tu-hero.has-art .ch-hero-grid {
+  position: relative;
+  grid-template-columns: minmax(0, 1fr);
+  min-height: 200px;
+}
+.tu-hero.has-art .ch-hero-body {
+  position: relative;
+  z-index: 1;
+}
+.tu-hero.has-art .ch-hero-art {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  bottom: -6px;
+  width: 30%;
+  z-index: 0;
+  overflow: hidden;
+  -webkit-mask-image:
+    linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.45) 22%, #000 44%, #000 95%, transparent 100%),
+    linear-gradient(180deg, transparent 0%, #000 12%, #000 84%, transparent 100%);
+  mask-image:
+    linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.45) 22%, #000 44%, #000 95%, transparent 100%),
+    linear-gradient(180deg, transparent 0%, #000 12%, #000 84%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+/* Asset hero/tuoi.webp (1200×460): 3px viền sáng ở trên và dải y 432–460 là hàng lặp mờ của bảng gốc.
+   Khung ảnh cao 108% (460/426), đẩy lên ~1% để chỉ lộ hàng 4–430. */
+.tu-hero.has-art .ch-hero-art img {
+  position: absolute;
+  top: -0.9%;
+  left: 0;
+  width: 100%;
+  height: 108%;
+  object-fit: cover;
+  object-position: 100% 0;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+.tu-hero.has-art .ch-hero-art .ch-asset-missing {
+  height: 100%;
+}
+@media (max-width: 1279px) {
+  .tu-hero.has-art .ch-hero-art {
+    width: 26%;
+  }
+}
+@media (min-width: 760px) and (max-width: 1023px) {
+  /* máy tính bảng: hàng chip xuống dòng dài hơn, tranh chỉ còn là dải hẹp — bỏ để chữ đủ chỗ */
+  .tu-hero.has-art .ch-hero-art {
+    display: none;
+  }
+  .tu-hero.has-art .ch-hero-grid {
+    min-height: 0;
+  }
+}
+@media (max-width: 759px) {
+  /* điện thoại: tranh thành dải ảnh bo góc trên tiêu đề, như danh mục Văn khấn */
+  .tu-hero.has-art .ch-hero-grid {
+    min-height: 0;
+  }
+  .tu-hero.has-art .ch-hero-art {
+    position: relative;
+    inset: auto;
+    order: -1;
+    width: auto;
+    height: 132px;
+    border-radius: 12px;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .tu-hero.has-art .ch-hero-art img {
+    border-radius: 0;
+    object-position: 50% 0;
+  }
+}
+
+/* danh mục: lưới 12 con giáp */
+.tu-chi-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 14px;
+}
+.tu-chi,
+.ch a.tu-chi:visited {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 10px 16px;
+  text-align: center;
+  background: var(--card);
+  border: 1px solid color-mix(in srgb, var(--gold) 22%, var(--line));
+  border-radius: 14px;
+  box-shadow: 0 1px 2px rgba(37, 39, 34, 0.04);
+  color: var(--ink);
+  text-decoration: none;
+  transition:
+    border-color 0.15s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+.tu-chi:hover {
+  border-color: color-mix(in srgb, var(--son) 40%, var(--line));
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  text-decoration: none;
+}
+.tu-chi:focus-visible,
+.tu-gc:focus-visible {
+  outline: 2px solid var(--son);
+  outline-offset: 3px;
+}
+.tu-chi-art {
+  width: 96px;
+  height: 96px;
+  margin-bottom: 12px;
+}
+.tu-chi-art.has-img {
+  width: 132px;
+  height: 132px;
+  margin: -6px 0 8px;
+}
+.tu-chi b {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+.tu-chi:hover b {
+  color: var(--son);
+}
+.tu-chi .cv {
+  margin-top: 2px;
+  font-size: 13.5px;
+  color: var(--ink-2);
+}
+.tu-chi .yr {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line-2);
+  align-self: stretch;
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--ink-3);
+}
+/* mỗi năm là một khối riêng: khi xuống dòng không bao giờ mở đầu bằng dấu chấm */
+.tu-chi .yr span + span::before {
+  content: "·";
+  margin: 0 5px;
+}
+
+/* danh mục: 60 tuổi can chi theo nhóm con giáp */
+.tu-cc {
+  margin-top: 48px;
+}
+.tu-cc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+.tu-cc-col {
+  padding: 16px 18px 14px;
+  background: var(--card);
+  border: 1px solid color-mix(in srgb, var(--gold) 22%, var(--line));
+  border-radius: 14px;
+}
+.tu-cc-col h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding-bottom: 10px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid var(--line-2);
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--son);
+}
+.tu-cc-col h3 span {
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: var(--gold-soft);
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #8a6a2e;
+}
+.tu-cc-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.tu-cc-col li a,
+.ch .tu-cc-col li a:visited {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 0;
+  font-size: 14.5px;
+  color: var(--ink);
+  text-decoration: none;
+}
+.tu-cc-col li a:hover {
+  color: var(--son);
+}
+.tu-cc-col li a span {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--ink-3);
+}
+.tu-cc-col .ch-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 8px;
+  font-family: var(--sans);
+  font-size: 13px;
+}
+
+/* chi tiết: thẻ tóm tắt (tranh + số liệu) */
+.tu-profile {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 20px;
+  align-items: stretch;
+}
+.ch-tu .tuoi-medal {
+  padding: 24px 16px;
+  border-color: color-mix(in srgb, var(--gold) 40%, transparent);
+}
+.ch-tu .tuoi-medal-art {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 14px;
+}
+.ch-tu .tuoi-medal-art.has-img {
+  width: 180px;
+  height: 180px;
+  margin: -6px 0 6px;
+}
+/* con giáp: 4 số liệu thành 4 hàng "nhãn · giá trị" cao bằng ô tranh */
+@media (min-width: 1024px) {
+  .ch-tu .tuoi-facts:not(.c3) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ch-tu .tuoi-facts:not(.c3) .tuoi-fact > div {
+    display: grid;
+    grid-template-columns: 170px minmax(0, 1fr);
+    align-items: baseline;
+    column-gap: 16px;
+    flex: 1;
+  }
+  .ch-tu .tuoi-facts:not(.c3) .tuoi-fact .k {
+    font-size: 13.5px;
+  }
+}
+.ch-tu .tuoi-medal .cg-slot-n {
+  font-size: 40px;
+  color: color-mix(in srgb, var(--gold-dp) 70%, transparent);
+}
+.ch-tu .tuoi-medal b {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.ch-tu .tuoi-medal .gio {
+  margin-top: 2px;
+  font-family: var(--sans);
+  font-size: 12.5px;
+  color: var(--ink-3);
+}
+/* desktop: hàng số liệu giãn đều theo chiều cao ô tranh, chấm và chữ canh giữa hàng */
+.ch-tu .tuoi-facts {
+  grid-auto-rows: 1fr;
+  align-content: stretch;
+}
+.ch-tu .tuoi-fact {
+  align-items: center;
+}
+.ch-tu .tuoi-fact .dot {
+  margin-top: 0;
+}
+/* can chi: 6 số liệu 2 cột × 3 hàng (như mock) cao bằng ô tranh */
+.ch-tu .tuoi-facts.c3 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.ch-tu .tuoi-fact {
+  padding: 14px 16px;
+  background: #fffdf8;
+  border-color: color-mix(in srgb, var(--gold) 24%, var(--line));
+}
+.ch-tu .tuoi-fact .k {
+  font-family: var(--sans);
+  font-size: 12px;
+}
+.ch-tu .tuoi-fact .v {
+  margin-top: 1px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.ch-tu .tuoi-fact .h {
+  margin-top: 2px;
+}
+
+/* chi tiết: mục nội dung */
+.tu-sec-h {
+  margin-bottom: 14px;
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.tu-profile-sec .tu-sec-h {
+  margin-bottom: 16px;
+}
+.tu-note {
+  margin: 12px 0 0;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--ink-3);
+}
+.tu-cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+.tu-hk {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.tu-hk li {
+  display: grid;
+  grid-template-columns: 116px minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--line-2);
+}
+.tu-hk li:first-child {
+  padding-top: 2px;
+}
+.tu-hk li:last-child {
+  border-bottom: 0;
+}
+.tu-hk .k {
+  font-size: 14px;
+  color: var(--ink-3);
+}
+.tu-hk .v {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.tu-prose p {
+  margin: 0 0 10px;
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--ink-2);
+}
+.tu-prose p:last-child {
+  margin-bottom: 0;
+}
+.tu-gc-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+.tu-gc,
+.ch a.tu-gc:visited {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 14px 10px;
+  text-align: center;
+  background: #fffdf8;
+  border: 1px solid color-mix(in srgb, var(--gold) 24%, var(--line));
+  border-radius: 12px;
+  color: var(--ink);
+  text-decoration: none;
+}
+.tu-gc:hover {
+  border-color: color-mix(in srgb, var(--son) 45%, var(--line));
+  text-decoration: none;
+}
+.tu-gc b {
+  font-family: var(--serif);
+  font-size: 16.5px;
+  font-weight: 700;
+  color: var(--son);
+}
+.tu-gc span {
+  font-family: var(--sans);
+  font-size: 12.5px;
+  color: var(--ink-3);
+}
+.ch-tu table.tuoitable th {
+  background: #faf6ee;
+}
+.ch-tu table.tuoitable td {
+  padding: 11px 12px;
+}
+.ch-tu .faqs .faq:first-child {
+  padding-top: 0;
+}
+
+@media (max-width: 1023px) {
+  .tu-chi-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .tu-cc-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  /* máy tính bảng trở xuống: tranh + tên thành đầu thẻ ngang phía trên số liệu */
+  .tu-profile {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+  .ch-tu .tuoi-medal {
+    display: grid;
+    grid-template-columns: 72px minmax(0, 1fr);
+    align-items: center;
+    justify-items: start;
+    column-gap: 14px;
+    row-gap: 0;
+    padding: 14px 16px;
+    text-align: left;
+  }
+  .ch-tu .tuoi-medal-art,
+  .ch-tu .tuoi-medal-art.has-img {
+    grid-row: 1 / span 3;
+    width: 72px;
+    height: 72px;
+    margin: 0;
+  }
+  .ch-tu .tuoi-medal-art.has-img {
+    width: 96px;
+    height: 96px;
+    margin: -8px 0 -8px -6px;
+  }
+  .ch-tu .tuoi-medal:has(.has-img) {
+    grid-template-columns: 96px minmax(0, 1fr);
+  }
+  .ch-tu .tuoi-medal .cg-slot-n {
+    font-size: 20px;
+  }
+  .ch-tu .tuoi-medal b {
+    font-size: 20px;
+  }
+}
+@media (max-width: 900px) {
+  .tu-cols {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+}
+@media (max-width: 760px) {
+  /* bảng giữ dạng bảng gọn thay vì thẻ xếp dọc (quy tắc chung của site) — 3–4 cột ngắn vẫn vừa 360px */
+  .ch-tu table.tuoitable {
+    display: table;
+    width: 100%;
+    font-size: 13.5px;
+  }
+  .ch-tu table.tuoitable thead {
+    display: table-header-group;
+  }
+  .ch-tu table.tuoitable tbody {
+    display: table-row-group;
+  }
+  .ch-tu table.tuoitable tr {
+    display: table-row;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    background: none;
+  }
+  .ch-tu table.tuoitable th,
+  .ch-tu table.tuoitable td {
+    display: table-cell;
+    width: auto;
+    padding: 9px 6px;
+    border-bottom: 1px solid var(--line-2);
+  }
+  .ch-tu table.tuoitable th {
+    font-size: 11px;
+    letter-spacing: 0.02em;
+  }
+  .ch-tu table.tuoitable th:first-child,
+  .ch-tu table.tuoitable td:first-child {
+    padding-left: 8px;
+  }
+  .ch-tu table.tuoitable td::before {
+    content: none;
+  }
+  /* năm, can chi, tuổi luôn một dòng; chỉ cột mệnh được xuống dòng */
+  .ch-tu table.tuoitable td:not([data-k="Mệnh"]) {
+    white-space: nowrap;
+  }
+}
+@media (max-width: 759px) {
+  .ch-tu .ch-h1 {
+    font-size: 29px;
+  }
+  .ch-tu .ch-lead {
+    font-size: 16.5px;
+  }
+  .ch-tu .ch-main {
+    padding-top: 22px;
+  }
+  .ch-tu .ch-h2 {
+    font-size: 21px;
+  }
+  .tu-chi-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .tu-chi,
+  .ch a.tu-chi:visited {
+    padding: 14px 6px 12px;
+  }
+  .tu-chi-art {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 8px;
+  }
+  .tu-chi-art.has-img {
+    width: 92px;
+    height: 92px;
+    margin: -4px 0 4px;
+  }
+  .ch-tu .tu-chi-art .cg-slot-n {
+    font-size: 17px;
+  }
+  .tu-chi b {
+    font-size: 16px;
+  }
+  .tu-chi .cv {
+    font-size: 12.5px;
+  }
+  .tu-chi .yr {
+    column-gap: 5px;
+    margin-top: 6px;
+    padding-top: 6px;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+  .tu-chi .yr span + span::before {
+    content: none;
+  }
+  .ch-tu .ch-hero-extra .chips {
+    gap: 6px;
+  }
+  .ch-tu .ch-hero-extra .chip {
+    padding: 6px 11px;
+    font-size: 13px;
+  }
+  .tu-cc {
+    margin-top: 36px;
+  }
+  .tu-cc-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .tu-cc-col {
+    padding: 12px 12px 10px;
+  }
+  .tu-cc-col h3 {
+    font-size: 15.5px;
+    padding-bottom: 8px;
+  }
+  /* "5 tuổi" đã nói ở mô tả mục; bỏ nhãn để tên nhóm không bị xuống dòng */
+  .tu-cc-col h3 span {
+    display: none;
+  }
+  .tu-cc-col li a,
+  .ch .tu-cc-col li a:visited {
+    padding: 5px 0;
+    font-size: 14px;
+  }
+  .tu-cc-col li a span {
+    font-size: 12.5px;
+  }
+  /* số liệu: danh sách một cột "nhãn — giá trị", tránh ô hai cột bị ngắt chữ */
+  .ch-tu .tuoi-facts,
+  .ch-tu .tuoi-facts.c3 {
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: auto;
+    gap: 0;
+  }
+  .ch-tu .tuoi-fact {
+    align-items: baseline;
+    gap: 10px;
+    padding: 10px 2px;
+    background: none;
+    border: 0;
+    border-bottom: 1px solid var(--line-2);
+    border-radius: 0;
+  }
+  .ch-tu .tuoi-fact:last-child {
+    border-bottom: 0;
+  }
+  .ch-tu .tuoi-fact .dot {
+    flex-basis: 8px;
+    height: 8px;
+    margin-top: 7px;
+    align-self: flex-start;
+  }
+  .ch-tu .tuoi-fact > div {
+    display: grid;
+    grid-template-columns: 104px minmax(0, 1fr);
+    column-gap: 10px;
+    flex: 1;
+    min-width: 0;
+  }
+  .ch-tu .tuoi-fact .k {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .ch-tu .tuoi-fact .v {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.45;
+  }
+  .ch-tu .tuoi-fact .h {
+    grid-column: 2;
+  }
+  .tu-sec-h {
+    font-size: 19px;
+    margin-bottom: 10px;
+  }
+  .tu-hk li {
+    grid-template-columns: 88px minmax(0, 1fr) auto;
+    gap: 10px;
+    padding: 10px 0;
+  }
+  .tu-hk .k {
+    font-size: 13px;
+  }
+  .tu-hk .v {
+    font-size: 14.5px;
+  }
+  .tu-prose p {
+    font-size: 15px;
+  }
+  .tu-gc-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .tu-gc:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
+
 /* ================= XEM TUỔI HỢP (kết hôn) ================= */
 .kh-tabs {
   display: grid;
