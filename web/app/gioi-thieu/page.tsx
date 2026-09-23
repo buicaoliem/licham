@@ -15,7 +15,6 @@ export default function GioiThieuPage() {
         crumbs={[{ label: "Trang chủ", href: "/" }, { label: "Giới thiệu" }]}
         crumbJsonLd={false}
         title="Giới thiệu"
-        lead="Về licham.app"
       />
 
       <div className="ch-wrap ch-main ch-stack ch-page-body">
