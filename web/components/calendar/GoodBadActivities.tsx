@@ -1,37 +1,55 @@
 import Link from "next/link";
 import type { CalendarActivity, CalendarDay } from "@/lib/calendar/calendar-day";
-import { Box } from "./Box";
 
-function List({ items, tone }: { items: CalendarActivity[]; tone: "g" | "x" }) {
+function List({ items }: { items: CalendarActivity[] }) {
   return (
-    <>
+    <ul className="ld-viec-list">
       {items.map((a) => (
-        <div key={a.label} className={`star ${tone}`}>
-          <b>{a.toolSlug ? <Link href={`/xem-ngay-tot/${a.toolSlug}/`}>{a.label}</Link> : a.label}</b>
-          <p>{a.reason}</p>
-        </div>
+        <li key={a.label}>
+          <span className="ic" aria-hidden="true" />
+          <span>
+            <b>{a.toolSlug ? <Link href={`/xem-ngay-tot/${a.toolSlug}/`}>{a.label}</Link> : a.label}</b>
+            <small>{a.reason}</small>
+          </span>
+        </li>
       ))}
-    </>
+    </ul>
   );
 }
 
+/** Việc nên làm / việc nên tránh — tổng hợp từ mô tả sao (viecFaqs), giữ nguyên nhãn và lý do. */
 export function GoodBadActivities({ day }: { day: CalendarDay }) {
   if (day.goodActivities.length === 0 && day.badActivities.length === 0) return null;
   return (
-    <Box title="Việc nên làm, không nên làm">
-      {day.goodActivities.length > 0 && (
-        <>
-          <h3 className="sub-h">Việc nên làm</h3>
-          <List items={day.goodActivities} tone="g" />
-        </>
-      )}
-      {day.badActivities.length > 0 && (
-        <>
-          <h3 className="sub-h">Việc nên tránh</h3>
-          <List items={day.badActivities} tone="x" />
-        </>
-      )}
-      <p className="src-note">Tổng hợp từ mô tả các sao trong ngày, mang tính tham khảo.</p>
-    </Box>
+    <section className="ld-viec ld-o-viec" aria-labelledby="ld-viec-h">
+      <h2 className="le-sr" id="ld-viec-h">
+        Việc nên làm, không nên làm
+      </h2>
+      <div className="ld-viec-grid">
+        {day.goodActivities.length > 0 && (
+          <div className="ld-viec-card good">
+            <h3>
+              <span className="badge" aria-hidden="true">
+                ✓
+              </span>
+              Việc nên làm
+            </h3>
+            <List items={day.goodActivities} />
+          </div>
+        )}
+        {day.badActivities.length > 0 && (
+          <div className="ld-viec-card bad">
+            <h3>
+              <span className="badge" aria-hidden="true">
+                ✕
+              </span>
+              Việc nên tránh
+            </h3>
+            <List items={day.badActivities} />
+          </div>
+        )}
+      </div>
+      <p className="lc-note">Tổng hợp từ mô tả các sao trong ngày, mang tính tham khảo.</p>
+    </section>
   );
 }

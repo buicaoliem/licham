@@ -1,56 +1,133 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import type { CalendarDay } from "@/lib/calendar/calendar-day";
 import { ShareButton } from "@/components/ShareButton";
-import { dayHref, monthHref, yearHref } from "@/lib/calendar/urls";
+import { Icon } from "@/components/heritage/Icon";
+import { dayHref, monthHref } from "@/lib/calendar/urls";
 import { pad2 } from "@/lib/format";
 import { buildShareUrl } from "@/lib/share";
-import { Breadcrumb } from "./Breadcrumb";
+import { termStartLabel } from "./SolarTerm";
 
-export function CalendarDayHero({ day }: { day: CalendarDay }) {
+/**
+ * Khối đầu trang ngày: tờ lịch (ngày dương), ngày âm + can chi, ba nhãn (hoàng/hắc đạo, trực, tiết khí),
+ * và thẻ "Ngày này" (ngày lễ, chia sẻ, ngày trước/sau). Tiêu đề h1 do trang truyền vào.
+ */
+export function CalendarDayHero({
+  day,
+  title,
+  prev,
+  next,
+  extra,
+}: {
+  day: CalendarDay;
+  title: ReactNode;
+  prev: { href: string; label: string } | null;
+  next: { href: string; label: string } | null;
+  extra?: ReactNode;
+}) {
   const { day: d, month: m, year: y } = day.solarDate;
   const l = day.lunarDate;
+  const t = day.solarTerm;
   return (
-    <div className="dhead">
-      <Breadcrumb
-        items={[
-          { label: "Trang chủ", href: "/" },
-          { label: "Lịch âm", href: yearHref(y) },
-          { label: `Tháng ${m} năm ${y}`, href: monthHref(m, y) },
-          { label: `${pad2(d)}/${pad2(m)}/${y}` },
-        ]}
-      />
-      <h1 className="dh1">Lịch âm ngày {d} tháng {m} năm {y}</h1>
-      <p className="dsub">
-        {day.weekday.name}, ngày {d} tháng {m} năm {y} dương lịch
-        <br />
-        Ngày {l.day} tháng {day.lunarMonthName} năm {day.lunarYearName} âm lịch · ngày {day.canChiDay.name}
-        <br />
-        Tiết khí: {day.solarTerm.name}
-        {day.solarTerm.startsToday ? " (bắt đầu từ hôm nay)" : ""}
-      </p>
-      <div className="pills">
-        <span className={day.isHoangDaoDay ? "pill k" : "pill r"}>{day.isHoangDaoDay ? "Ngày hoàng đạo" : "Ngày hắc đạo"}</span>
-        <span className="pill k">Trực {day.truc.name}</span>
-        <span className="pill k">Mệnh {day.dayNapAm}</span>
-      </div>
-      <div className="share-row">
-        <ShareButton
-          url={buildShareUrl(dayHref(day.solarDate))}
-          title={`Lịch âm ngày ${d}/${m}/${y}`}
-          text={`Xem lịch âm ngày ${pad2(d)}/${pad2(m)}/${y} – ngày âm, giờ hoàng đạo và thông tin ngày.`}
-        />
-      </div>
-      {day.holidayEvents.length > 0 && (
-        <p className="dsub" style={{ marginTop: 10 }}>
-          Ngày này là:{" "}
-          {day.holidayEvents.map((h, i) => (
-            <span key={h.slug}>
-              {i > 0 && ", "}
-              <Link href={`/le/${h.slug}/`}>{h.name}</Link>
+    <section className="ld-hero" aria-labelledby="ld-h1">
+      <h1 className="ch-h1 ld-h1" id="ld-h1">
+        {title}
+      </h1>
+      <div className="ld-hero-grid">
+        <div className="ld-hero-card">
+          <div className="ld-leaf">
+            <span className="wd">{day.weekday.name}</span>
+            <b>{d}</b>
+            <span className="my">
+              Tháng {m} năm {y}
             </span>
-          ))}
-        </p>
-      )}
-    </div>
+            <span className="dl">Dương lịch: {`${pad2(d)}/${pad2(m)}/${y}`}</span>
+          </div>
+          <div className="ld-hero-body">
+            <p className="ld-eyebrow">Âm lịch</p>
+            <p className="ld-lunar">
+              Ngày {l.day} tháng {day.lunarMonthName} năm {day.lunarYearName}
+            </p>
+            <p className="ld-canchi">
+              <span>Ngày {day.canChiDay.name}</span>
+              <span>Tháng {day.canChiMonth.name}</span>
+              <span>Năm {day.canChiYear.name}</span>
+            </p>
+            <p className="ld-menh">Mệnh ngày: {day.dayNapAm}</p>
+            <ul className="ld-badges">
+              <li className={day.isHoangDaoDay ? "good" : "bad"}>
+                <Icon name={day.isHoangDaoDay ? "clover" : "bolt"} size={20} />
+                <span>
+                  <b>{day.isHoangDaoDay ? "Ngày hoàng đạo" : "Ngày hắc đạo"}</b>
+                  <small>Sao {day.dayStarName}</small>
+                </span>
+              </li>
+              <li className="gold">
+                <Icon name="temple" size={20} />
+                <span>
+                  <b>Trực {day.truc.name}</b>
+                  <small>Thập nhị trực</small>
+                </span>
+              </li>
+              <li className="blue">
+                <Icon name="sun" size={20} />
+                <span>
+                  <b>{t.name}</b>
+                  <small>{t.startsToday ? `Bắt đầu ${termStartLabel(t.start, true)}` : "Tiết khí trong ngày"}</small>
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <aside className="ld-hero-side" aria-label="Ngày này">
+          <p className="ld-side-h">
+            <Icon name="list" size={17} />
+            Ngày này
+          </p>
+          {day.holidayEvents.length > 0 ? (
+            <ul className="ld-events">
+              {day.holidayEvents.map((h) => (
+                <li key={h.slug}>
+                  <Link href={`/le/${h.slug}/`}>{h.name}</Link>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="ld-noev">Không trùng ngày lễ nào trong dữ liệu của licham.app.</p>
+          )}
+          {extra}
+          <div className="ld-hero-actions">
+            <ShareButton
+              url={buildShareUrl(dayHref(day.solarDate))}
+              title={`Lịch âm ngày ${d}/${m}/${y}`}
+              text={`Xem lịch âm ngày ${pad2(d)}/${pad2(m)}/${y} – ngày âm, giờ hoàng đạo và thông tin ngày.`}
+            />
+            <Link className="btn" href={monthHref(m, y)}>
+              <Icon name="calendar" size={16} />
+              Tháng {m}/{y}
+            </Link>
+          </div>
+          <nav className="ld-mini-nav" aria-label="Ngày trước, ngày sau">
+            {prev ? (
+              <Link href={prev.href}>
+                <Icon name="chevron" size={15} className="flip" />
+                {prev.label}
+              </Link>
+            ) : (
+              <span />
+            )}
+            {next ? (
+              <Link href={next.href}>
+                {next.label}
+                <Icon name="chevron" size={15} />
+              </Link>
+            ) : (
+              <span />
+            )}
+          </nav>
+        </aside>
+      </div>
+    </section>
   );
 }
