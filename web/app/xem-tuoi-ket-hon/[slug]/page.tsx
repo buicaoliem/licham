@@ -5,24 +5,19 @@ import { ShareButton } from "@/components/ShareButton";
 import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
 import { KetHonYearPicker } from "@/components/KetHonYearPicker";
 import { ChHero, ChShell } from "@/components/heritage/ChShell";
-import { Icon } from "@/components/heritage/Icon";
-import { KetHonLegend, XemTuoiRelated, XemTuoiTabs } from "@/components/heritage/KetHonParts";
+import { KetHonKetQua } from "@/components/heritage/KetHonKetQua";
+import { KET_HON_STEPS, KetHonLegend, XemTuoiFormCard, XemTuoiRelated, XemTuoiSteps } from "@/components/heritage/KetHonParts";
+import { KetHonNamCuoi } from "@/components/KetHonNamCuoi";
 import { buildShareUrl } from "@/lib/share";
-import { chiByIndex, hopMenh } from "@/lib/tuoi";
+import { chiByIndex } from "@/lib/tuoi";
 import {
   NAM_SINH_MAX,
   NAM_SINH_MIN,
   capNamSinhTrongPhamVi,
   ketHonSlug,
-  type MucTang,
-  mucDoClassName,
-  mucTangCanPair,
-  mucTangChiPair,
-  mucTangNguHanhCoChieu,
   parseKetHonSlug,
   tinhKetHonPairInfo,
 } from "@/lib/xem-tuoi-ket-hon";
-import { luanGiaiConGiap, luanGiaiMenh, luanGiaiThienCan } from "@/lib/xem-tuoi-ket-hon-text";
 
 // Sinh MỌI cặp năm sinh trong khoảng 1980–2010 (961 trang), không giới hạn chênh lệch tuổi —
 // xem lý do ở comment của capNamSinhTrongPhamVi trong lib/xem-tuoi-ket-hon.ts.
@@ -52,17 +47,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     description: `Xem tuổi kết hôn nam sinh ${namNam} và nữ sinh ${namNu}: mức độ hợp con giáp và mệnh, tra Kim Lâu, gợi ý năm cưới hợp tuổi cô dâu.`,
     alternates: { canonical: `/xem-tuoi-ket-hon/${slug}/` },
   };
-}
-
-const MUC_TANG_PILL: Record<MucTang, { cls: string; label: string }> = {
-  tot: { cls: "pill g", label: "Tốt" },
-  "binh-hoa": { cls: "pill k", label: "Bình hòa" },
-  xau: { cls: "pill r", label: "Không tốt" },
-};
-
-function TangPill({ muc }: { muc: MucTang }) {
-  const p = MUC_TANG_PILL[muc];
-  return <span className={p.cls}>{p.label}</span>;
 }
 
 function similarPairs(namNam: number, namNu: number): { namNam: number; namNu: number }[] {
@@ -97,19 +81,15 @@ export default async function XemTuoiKetHonDetailPage({ params }: { params: Prom
   const { namNam, namNu } = parsed;
 
   const info = tinhKetHonPairInfo(namNam, namNu);
-  const hMenhNam = hopMenh(info.canChiNam.napAm.element);
-  const hMenhNu = hopMenh(info.canChiNu.napAm.element);
   const chiTenNam = chiByIndex(info.canChiNam.chiIndex).ten;
   const chiTenNu = chiByIndex(info.canChiNu.chiIndex).ten;
   const similar = similarPairs(namNam, namNu);
-  const mucDoCls = mucDoClassName(info.mucDo);
-  const textConGiap = luanGiaiConGiap(info.canChiNam, info.canChiNu, info.chiPair, namNam, namNu);
-  const textMenh = luanGiaiMenh(info.canChiNam, info.canChiNu, info.napAmPair, namNam, namNu);
-  const textThienCan = luanGiaiThienCan(info.canChiNam, info.canChiNu, info.canPair, namNam, namNu);
+  const namMacDinh = info.bangNamCuoi[0]!.nam;
 
   return (
-    <ChShell activeMenu="Xem tuổi">
+    <ChShell activeMenu="Xem tuổi" className="ch-tu ch-kh">
       <ChHero
+        className="kh-hero"
         crumbs={[
           { label: "Trang chủ", href: "/" },
           { label: "Xem tuổi kết hôn", href: "/xem-tuoi-ket-hon/" },
@@ -134,150 +114,36 @@ export default async function XemTuoiKetHonDetailPage({ params }: { params: Prom
 
       <div className="ch-wrap ch-main ch-layout">
         <div className="ch-stack">
-          <section className="ch-card">
-            <XemTuoiTabs current="ket-hon" exact={false} />
-            <KetHonYearPicker initialNamNam={namNam} initialNamNu={namNu} />
-          </section>
+          <XemTuoiFormCard
+            current="ket-hon"
+            exact={false}
+            desc="Xem cặp năm sinh khác, hoặc chọn năm xem cưới để đổi bảng năm cưới bên dưới."
+          >
+            <KetHonYearPicker initialNamNam={namNam} initialNamNu={namNu} namMacDinh={namMacDinh} />
+          </XemTuoiFormCard>
 
-          <section className="ch-card">
-            <div className="ch-card-h">
-              <h2 className="ch-h2">Kết quả xem tuổi</h2>
-              <p className="ch-sub">
-                Nam {namNam} ({info.canChiNam.name}) và nữ {namNu} ({info.canChiNu.name})
-              </p>
-            </div>
+          <KetHonKetQua info={info} />
 
-            <div className={`kh-overview ${mucDoCls}`}>
-              <span className="kh-emblem" aria-hidden="true">
-                <Icon name="clover" size={40} stroke={1.4} />
-              </span>
-              <div>
-                <div className="k">Mức độ hợp nhau</div>
-                <div className="v">{info.mucDo.charAt(0).toUpperCase() + info.mucDo.slice(1)}</div>
-                <p>Xét trên ba yếu tố: con giáp, mệnh nạp âm và thiên can.</p>
-              </div>
-            </div>
+          <KetHonNamCuoi namNam={namNam} namNu={namNu} initialRows={info.bangNamCuoi} namMacDinh={namMacDinh} />
 
-            <div className="kh-factors">
-              <div className="kh-factor">
-                <div className="kh-factor-h">
-                  <b>Con giáp</b>
-                  <TangPill muc={mucTangChiPair(info.chiPair)} />
-                </div>
-                <div className="pair">
-                  {chiTenNam} — {chiTenNu}
-                </div>
-                <h3 className="ch-h3" style={{ fontSize: 15, margin: "0 0 4px" }}>
-                  Hai tuổi có xung nhau không
-                </h3>
-                <p>{textConGiap}</p>
-              </div>
-              <div className="kh-factor">
-                <div className="kh-factor-h">
-                  <b>Mệnh</b>
-                  <TangPill muc={mucTangNguHanhCoChieu(info.napAmPair)} />
-                </div>
-                <div className="pair">
-                  {info.canChiNam.napAm.name} — {info.canChiNu.napAm.name}
-                </div>
-                <h3 className="ch-h3" style={{ fontSize: 15, margin: "0 0 4px" }}>
-                  Mệnh có hợp nhau không
-                </h3>
-                <p>{textMenh}</p>
-                <p style={{ fontSize: 12.5, color: "var(--ink-3)", marginTop: 8 }}>
-                  Màu hợp mệnh {info.canChiNam.napAm.name} (chồng): {hMenhNam.mauHop.join(", ")}. Màu hợp mệnh {info.canChiNu.napAm.name}{" "}
-                  (vợ): {hMenhNu.mauHop.join(", ")}.
-                </p>
-              </div>
-              <div className="kh-factor">
-                <div className="kh-factor-h">
-                  <b>Thiên can</b>
-                  <TangPill muc={mucTangCanPair(info.canPair)} />
-                </div>
-                <div className="pair">
-                  {info.canChiNam.can} — {info.canChiNu.can}
-                </div>
-                <h3 className="ch-h3" style={{ fontSize: 15, margin: "0 0 4px" }}>
-                  Thiên can có hợp nhau không
-                </h3>
-                <p>{textThienCan}</p>
-              </div>
-            </div>
-
-            <div className="kh-conclude">
-              <b className="t">Năm cưới</b>
-              {info.namCuoiGanNhat ? (
-                <p>
-                  Năm cưới gần nhất nên chọn: <b>{info.namCuoiGanNhat.nam}</b> (tuổi mụ cô dâu {info.namCuoiGanNhat.tuoiMuCoDau}, không phạm
-                  Kim Lâu{info.lyDoBoQuaNamCuoi ? `; ${info.lyDoBoQuaNamCuoi}` : ""}).
-                </p>
-              ) : (
-                <p>Cả 5 năm tới đều phạm Kim Lâu với tuổi cô dâu — xem bảng chi tiết bên dưới để cân nhắc thêm.</p>
-              )}
-              <Link className="ch-btn ghost" href="/xem-ngay-tot/cuoi-hoi/">
-                Xem ngày tốt cưới hỏi
-                <Icon name="arrow" size={16} />
-              </Link>
-            </div>
-          </section>
-
-          <div className="box">
-            <div className="box-h">
-              <span className="rule" />
-              <span className="t">5 năm cưới sắp tới, xét theo tuổi cô dâu</span>
-              <span className="rule" />
-            </div>
-            <table className="tuoitable">
-              <thead>
-                <tr>
-                  <th>Năm</th>
-                  <th>Tuổi mụ cô dâu</th>
-                  <th>Kim Lâu</th>
-                  <th>Kết luận</th>
-                </tr>
-              </thead>
-              <tbody>
-                {info.bangNamCuoi.map((r) => (
-                  <tr key={r.nam}>
-                    <td data-k="Năm">{r.nam}</td>
-                    <td data-k="Tuổi mụ cô dâu">{r.tuoiMuCoDau}</td>
-                    <td data-k="Kim Lâu">
-                      {r.kimLau.phamKimLau ? <span className="pill r">{r.kimLau.loai}</span> : <span className="pill g">Không phạm</span>}
-                    </td>
-                    <td data-k="Kết luận">
-                      {r.nenHayTranh === "nên" ? <span className="pill g">Nên</span> : <span className="pill r">Nên cân nhắc</span>}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            <p style={{ fontSize: 12.5, color: "var(--ink-3)", marginTop: 10 }}>
-              Kim Lâu chỉ xét trên tuổi mụ của cô dâu, theo tục &ldquo;lấy vợ xem tuổi đàn bà&rdquo;. Chỉ mang tính tham khảo dân gian.
-            </p>
-          </div>
-
-          <div className="box">
-            <div className="box-h">
-              <span className="rule" />
-              <span className="t">Các cặp năm sinh gần đây</span>
-              <span className="rule" />
-            </div>
+          <section className="ch-card kh-near" aria-labelledby="kh-near-h">
+            <h2 className="kh-sec-h" id="kh-near-h">
+              Các cặp năm sinh gần đây
+            </h2>
             <div className="chips">
               {similar.map((p) => (
                 <Link className="chip" href={`/xem-tuoi-ket-hon/${ketHonSlug(p.namNam, p.namNu)}/`} key={`${p.namNam}-${p.namNu}`}>
                   Nam {p.namNam} · Nữ {p.namNu}
                 </Link>
               ))}
-              <Link className="chip hot" href="/xem-ngay-tot/cuoi-hoi/">
-                Xem ngày tốt cưới hỏi ›
-              </Link>
             </div>
-          </div>
+          </section>
           <TraditionalDisclaimer />
         </div>
 
         <aside className="ch-side">
           <KetHonLegend />
+          <XemTuoiSteps title="Cách xem" steps={KET_HON_STEPS} />
           <XemTuoiRelated />
         </aside>
       </div>
