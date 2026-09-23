@@ -50,3 +50,22 @@ Vercel build (pnpm build) — KHÔNG gọi Gemini, chỉ đọc web/content/tu-v
 5. Job đỏ khi: Gemini lỗi, thiếu khóa, bị từ chối, lượt bị khóa, đẩy commit hỏng, hoặc gọi hook lỗi.
 6. Workflow dùng pnpm 10 (đã thử `install --frozen-lockfile` với 10.34.5 trên lockfile 9.0; pnpm 9 lỗi vì `overrides` trong pnpm-workspace.yaml).
 
+## Checklist E2E và nghiệm thu (Phase 8A.3)
+
+Trước lượt chạy thật:
+1. [ ] Ổ C: còn ≥ 2 GB trống (`web/.next` ~540 MB dựng lại được).
+2. [ ] GitHub → Settings → Secrets → Actions: thêm `GEMINI_API_KEY` (hiện CHỈ có `VERCEL_DEPLOY_HOOK_URL`). Chưa đặt variable `VERCEL_DEPLOYS_ON_PUSH` và `GEMINI_MODEL` (tùy chọn).
+3. [ ] E2E một request tại máy, ghi vào thư mục tạm, không đụng `web/content`: `TU_VI_E2E=1 GEMINI_API_KEY=... pnpm --filter @licham/web tu-vi:e2e`. Đạt khi đúng 1 request, đủ 12/12 tuổi, kiểm định qua.
+4. [ ] Merge nhánh vào main (workflow cũ `rebuild.yml` trên main sẽ bị xóa, tránh chạy song song hai lịch).
+5. [ ] Xác nhận Vercel: Git kết nối `buicaoliem/licham`, nhánh production `main`, Deploy Hook "Lichamhooks" trỏ `main`, root `web`.
+
+Chạy thật đầu tiên (Actions → Run workflow trên main, `redeploy` để false):
+1. [ ] Generate: log có "written", `Request Gemini` ≤ 3, không lộ khóa.
+2. [ ] Validate: file `web/content/tu-vi/<ngày VN>.json` đủ 12 tuổi (script đã kiểm trước khi ghi).
+3. [ ] Commit: main có commit `chore(tu-vi): dữ liệu tử vi ngày ...` của github-actions[bot].
+4. [ ] Deploy: vào Vercel xem có deployment tự sinh từ commit của bot không.
+   - Có → đặt variable `VERCEL_DEPLOYS_ON_PUSH=true` để bỏ lần gọi hook thừa.
+   - Không (ví dụ bị chặn do tác giả commit không phải thành viên Vercel) → giữ biến chưa đặt; workflow gọi Deploy Hook.
+5. [ ] `https://www.licham.app/tu-vi` hiện đúng ngày và nội dung, không ở trạng thái dự phòng.
+6. [ ] Lượt chạy lại ngay: trạng thái `exists`, 0 request, không commit mới.
+7. [ ] Thử đường lỗi (sau cùng, chỉ khi cần): dispatch với khóa sai → job đỏ, trang vẫn dựng; lượt 00:05 vẫn gọi hook.
