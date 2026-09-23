@@ -4,7 +4,7 @@ import { FOOTER_LINKS, MENU, type MenuItem, buildTimeLabel, menuHref } from "@/l
 import { Breadcrumb, type Crumb } from "@/components/calendar/Breadcrumb";
 import { HERITAGE_SLOTS, heritageSlot } from "@/lib/heritage-assets";
 import { HeritageImage, heritageVisible } from "./HeritageImage";
-import { Icon } from "./Icon";
+import { ChMenu } from "./ChMenu";
 
 /** Khẩu hiệu thương hiệu theo mock Contemporary Heritage (licham-01, licham-10). */
 export const BRAND_TAGLINE = "Giữ gìn cội nguồn Việt";
@@ -42,14 +42,9 @@ function ChHeader({ activeMenu }: { activeMenu: MenuItem | null }) {
         <nav className="ch-nav" aria-label="Menu chính">
           <ul>{items}</ul>
         </nav>
-        <details className="ch-menu">
-          <summary aria-label="Mở menu">
-            <Icon name="menu" size={22} />
-          </summary>
-          <nav className="ch-menu-panel" aria-label="Menu chính">
-            <ul>{items}</ul>
-          </nav>
-        </details>
+        <ChMenu>
+          <ul>{items}</ul>
+        </ChMenu>
       </div>
     </header>
   );
