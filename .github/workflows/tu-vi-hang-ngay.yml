@@ -1,0 +1,138 @@
+name: Tử vi hằng ngày và dựng lại trang
+
+# Thay cho "Dựng lại trang mỗi đêm" (rebuild.yml). Sinh tử vi 12 con giáp bằng MỘT request Gemini, commit
+# web/content/tu-vi/YYYY-MM-DD.json lên main. Build trên Vercel chỉ đọc file đã commit, không gọi Gemini.
+#
+# Làm mới trang (Deploy Hook production):
+#  - Lượt 00:05 và workflow_dispatch redeploy=true: luôn làm mới, kể cả khi Gemini lỗi (trang sang ngày mới, hiện dự phòng).
+#  - Lượt 06:05/12:05: chỉ làm mới khi vừa commit dữ liệu mới.
+#  - CHƯA KIỂM CHỨNG: commit của bot lên main có tự kích hoạt Vercel hay không. Đến khi đặt repository variable
+#    VERCEL_DEPLOYS_ON_PUSH=true (sau khi xác nhận bằng một lượt chạy thật), sau mỗi lần commit workflow vẫn gọi Deploy Hook.
+#  - Chỉ chạy trên main: workflow_dispatch từ nhánh khác (Preview) bị bỏ qua, không bao giờ gọi Deploy Hook.
+
+on:
+  schedule:
+    # Giờ Việt Nam = UTC+7. GitHub có thể chạy lịch trễ vài giờ (đã thấy trễ 2–4 giờ).
+    - cron: "5 17 * * *" # 00:05 VN — lượt chính: sinh tử vi rồi dựng lại trang cho ngày mới
+    - cron: "5 23 * * *" # 06:05 VN — chạy bù nếu chưa có dữ liệu hợp lệ của hôm nay
+    - cron: "5 5 * * *" # 12:05 VN — chạy bù lần cuối trong ngày
+  workflow_dispatch:
+    inputs:
+      redeploy:
+        description: "Gọi Vercel dựng lại dù không có dữ liệu mới"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+# Không bao giờ có hai lượt chạy song song; lượt sau xếp hàng chứ không hủy lượt đang gọi Gemini.
+concurrency:
+  group: tu-vi-hang-ngay
+  cancel-in-progress: false
+
+env:
+  TZ: Asia/Ho_Chi_Minh
+
+jobs:
+  tu-vi:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Lấy mã nguồn nhánh main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      # pnpm 9 không đọc "overrides" trong pnpm-workspace.yaml nên --frozen-lockfile báo
+      # ERR_PNPM_LOCKFILE_CONFIG_MISMATCH (lý do rebuild.yml lỗi từ 21/9/2026). pnpm 10 cài được lockfile hiện tại
+      # (đã thử pnpm 10.34.5: install --frozen-lockfile thành công, lockfileVersion 9.0).
+      - name: Cài pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Cài Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Cài gói
+        run: pnpm install --frozen-lockfile
+
+      - name: Sinh tử vi 12 con giáp
+        id: gen
+        continue-on-error: true
+        working-directory: web
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+          TU_VI_MAX_REQUESTS: "3"
+        run: pnpm run generate:tu-vi
+
+      - name: Commit dữ liệu lên main
+        id: commit
+        if: steps.gen.outputs.status == 'written'
+        env:
+          DATE: ${{ steps.gen.outputs.date }}
+        run: |
+          set -euo pipefail
+          f="web/content/tu-vi/${DATE}.json"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- "$f"
+          git commit -m "chore(tu-vi): dữ liệu tử vi ngày ${DATE}"
+          for i in 1 2 3; do
+            if git push origin HEAD:main; then
+              echo "pushed=true" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            git fetch origin main
+            if git cat-file -e "origin/main:$f" 2>/dev/null; then
+              echo "::notice::main đã có $f (lượt khác đẩy trước), giữ bản trên main."
+              echo "pushed=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            git rebase origin/main
+          done
+          echo "::error::Không đẩy được dữ liệu lên main sau 3 lần."
+          exit 1
+
+      - name: Gọi Vercel dựng lại
+        id: hook
+        if: >-
+          always() && github.ref == 'refs/heads/main' && (
+            (steps.commit.outputs.pushed == 'true' && vars.VERCEL_DEPLOYS_ON_PUSH != 'true') ||
+            (steps.commit.outputs.pushed != 'true' && (github.event.schedule == '5 17 * * *' || inputs.redeploy))
+          )
+        env:
+          DEPLOY_HOOK_URL: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+        run: |
+          if [ -z "$DEPLOY_HOOK_URL" ]; then
+            echo "::error::Thiếu secret VERCEL_DEPLOY_HOOK_URL nên không làm mới được trang."
+            exit 1
+          fi
+          curl -fsS --max-time 30 -X POST "$DEPLOY_HOOK_URL" -o /dev/null
+          echo "Đã gọi Deploy Hook."
+
+      - name: Tóm tắt
+        if: always()
+        env:
+          STATUS: ${{ steps.gen.outputs.status }}
+          DATE: ${{ steps.gen.outputs.date }}
+          CATEGORY: ${{ steps.gen.outputs.category }}
+          REQUESTS: ${{ steps.gen.outputs.requests }}
+          PUSHED: ${{ steps.commit.outputs.pushed }}
+        run: |
+          {
+            echo "### Tử vi ${DATE:-?}"
+            echo "- Trạng thái: ${STATUS:-không rõ}${CATEGORY:+ ($CATEGORY)}"
+            echo "- Request Gemini: ${REQUESTS:-0}"
+            echo "- Đã commit lên main: ${PUSHED:-false}"
+          } >> "$GITHUB_STEP_SUMMARY"
+          case "$STATUS" in
+            written|exists) exit 0 ;;
+            *) echo "::error::Sinh tử vi không thành công (${STATUS:-không rõ}${CATEGORY:+, $CATEGORY}). Trang hiện trạng thái dự phòng; chạy lại bằng workflow_dispatch khi đã xử lý."; exit 1 ;;
+          esac

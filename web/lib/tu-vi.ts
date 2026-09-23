@@ -1,6 +1,6 @@
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import { CHI, type ChiName, canChiNamDuong } from "@licham/core";
+import { CAN, CHI, type ChiName, canChiNamDuong, getDayInfo } from "@licham/core";
 
 export interface ConGiap {
   /** 0..11, vị trí trong mảng CHI của @licham/core. */
@@ -117,6 +117,17 @@ export const QUAN_HE_LABEL: Record<QuanHe, string> = {
   "binh-hoa": "Bình hòa, không hợp không khắc với chi ngày",
 };
 
+/** Khoảng điểm hợp lý theo quan hệ chi — điểm Gemini chấm ngược với luật (xung mà 5 sao) bị loại. */
+export const DIEM_RANGE: Record<QuanHe, readonly [number, number]> = {
+  "tam-hop": [3, 5],
+  "luc-hop": [3, 5],
+  trung: [2, 4],
+  "binh-hoa": [2, 4],
+  xung: [1, 3],
+  hinh: [1, 3],
+  hai: [1, 3],
+};
+
 export interface TuViEntry {
   /** Đoạn luận 2-3 câu do Gemini sinh riêng cho ngày này. */
   luan: string;
@@ -132,6 +143,8 @@ export interface TuViDayData {
   generatedAt: string;
   /** Tên model Gemini đã sinh nội dung. Chỉ để tra cứu, không phải bằng chứng file có nội dung. */
   model: string;
+  /** Can chi ngày tính bằng @licham/core lúc sinh — chỉ để đối chiếu, trang luôn tính lại từ core. */
+  canChiNgay?: string;
   tuoi: Record<string, TuViEntry>;
 }
 
@@ -142,7 +155,7 @@ export interface TuViDayData {
 const NON_GENERATED_MODELS: ReadonlySet<string> = new Set(["placeholder", "fallback-cu"]);
 
 export const LUAN_MIN_LENGTH = 20;
-export const LUAN_MAX_LENGTH = 1200;
+export const LUAN_MAX_LENGTH = 600;
 const GIO_TOT_RE = /^\d{1,2}h–\d{1,2}h$/;
 
 /** Đưa các biến thể gạch nối Gemini hay trả ("7h - 9h", "7h-9h", "7h—9h") về dạng chuẩn "7h–9h". */
@@ -191,12 +204,90 @@ export function validateTuViDayData(raw: unknown, expectedDate: string): TuViVal
       if ("error" in r) errors.push(`tuổi ${cg.ten}: ${r.error}`);
       else tuoi[cg.slug] = r.entry;
     }
+    const known = new Set(CON_GIAP_LIST.map((c) => c.slug));
+    const extra = Object.keys(raw.tuoi).filter((k) => !known.has(k));
+    if (extra.length > 0) errors.push(`tuổi lạ: ${extra.join(", ")}`);
+  }
+  let canChiNgay: string | undefined;
+  if (errors.length === 0) {
+    // Lịch là của core: can chi ghi trong file (nếu có) và can chi "ngày ..." nhắc trong lời luận phải khớp core.
+    const actual = getDayInfo(parseDateStr(expectedDate)).canChi.day.name;
+    if (raw.canChiNgay !== undefined) {
+      if (raw.canChiNgay !== actual) errors.push(`canChiNgay là ${String(raw.canChiNgay)}, core tính ra ${actual}`);
+      else canChiNgay = actual;
+    }
+    for (const cg of CON_GIAP_LIST) {
+      const sai = ngayCanChiSai(tuoi[cg.slug]!.luan, actual);
+      if (sai) errors.push(`tuổi ${cg.ten}: lời luận nhắc "ngày ${sai}" nhưng hôm đó là ngày ${actual}`);
+    }
+    errors.push(...luanTrungNhau(tuoi));
   }
   if (errors.length > 0) return { ok: false, errors };
   return {
     ok: true,
-    data: { date: expectedDate, generatedAt: raw.generatedAt as string, model: raw.model as string, tuoi },
+    data: {
+      date: expectedDate,
+      generatedAt: raw.generatedAt as string,
+      model: raw.model as string,
+      ...(canChiNgay ? { canChiNgay } : {}),
+      tuoi,
+    },
   };
+}
+
+const CAN_CHI_RE = new RegExp(String.raw`ngày\s+(${CAN.join("|")})\s+(${CHI.join("|")})`, "giu");
+
+/** Can chi "ngày X Y" nhắc trong lời luận mà khác can chi thật của ngày, hoặc null. */
+export function ngayCanChiSai(luan: string, actual: string): string | null {
+  for (const m of luan.normalize("NFC").matchAll(CAN_CHI_RE)) {
+    const name = `${m[1]} ${m[2]}`;
+    if (name.toLocaleLowerCase("vi") !== actual.toLocaleLowerCase("vi")) return name;
+  }
+  return null;
+}
+
+function normalizeLuan(s: string): string[] {
+  return s
+    .normalize("NFC")
+    .toLocaleLowerCase("vi")
+    .replace(/[^\p{L}\p{N}\s]/gu, " ")
+    .split(/\s+/)
+    .filter(Boolean);
+}
+
+/** Độ giống nhau (Jaccard trên cặp từ liền nhau) của hai lời luận, 0..1. */
+export function luanSimilarity(a: string, b: string): number {
+  const bigrams = (s: string) => {
+    const w = normalizeLuan(s);
+    const set = new Set<string>();
+    for (let i = 0; i + 1 < w.length; i++) set.add(`${w[i]} ${w[i + 1]}`);
+    return set;
+  };
+  const A = bigrams(a);
+  const B = bigrams(b);
+  if (A.size === 0 || B.size === 0) return normalizeLuan(a).join(" ") === normalizeLuan(b).join(" ") ? 1 : 0;
+  let inter = 0;
+  for (const x of A) if (B.has(x)) inter++;
+  return inter / (A.size + B.size - inter);
+}
+
+/** Từ mức này trở lên coi là hai tuổi dùng chung một lời luận (chỉ đổi vài chữ). */
+export const LUAN_SIMILARITY_MAX = 0.6;
+
+/** Mỗi tuổi phải có lời luận riêng: báo các cặp tuổi có lời luận trùng hoặc gần như trùng. */
+export function luanTrungNhau(tuoi: Record<string, TuViEntry>): string[] {
+  const errors: string[] = [];
+  const list = CON_GIAP_LIST.filter((cg) => tuoi[cg.slug]);
+  for (let i = 0; i < list.length; i++) {
+    for (let j = i + 1; j < list.length; j++) {
+      const a = list[i]!;
+      const b = list[j]!;
+      if (luanSimilarity(tuoi[a.slug]!.luan, tuoi[b.slug]!.luan) >= LUAN_SIMILARITY_MAX) {
+        errors.push(`lời luận tuổi ${a.ten} và ${b.ten} gần như trùng nhau`);
+      }
+    }
+  }
+  return errors;
 }
 
 export function dateStr(d: { day: number; month: number; year: number }): string {
@@ -208,9 +299,12 @@ export function parseDateStr(s: string): { day: number; month: number; year: num
   return { day: day!, month: month!, year: year! };
 }
 
-/** Thư mục dữ liệu khi dựng trang (cwd là web/). */
+/**
+ * Thư mục dữ liệu khi dựng trang (cwd là web/). Nằm trong git: workflow "Tử vi hằng ngày" commit file mới lên main,
+ * nên dữ liệu sống qua mọi lần build/deploy và build chỉ đọc, không bao giờ ghi hay gọi Gemini.
+ */
 export function tuViDataDir(): string {
-  return join(process.cwd(), "data", "tu-vi");
+  return join(process.cwd(), "content", "tu-vi");
 }
 
 export function tuViFilePath(dir: string, date: string): string {

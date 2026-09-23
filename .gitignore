@@ -11,6 +11,9 @@ core/scripts/data/
 web/public/sitemap.xml
 web/public/sitemaps/
 web/data/
+# Dữ liệu tử vi được commit (workflow Tử vi hằng ngày); chỉ bỏ khóa và tệp tạm.
+web/content/tu-vi/.*.lock
+web/content/tu-vi/*.tmp
 
 .claude/
 mock/

@@ -8,12 +8,30 @@ const LUAN = "Ngày hợp với tuổi này, nên chủ động gặp gỡ và b
 const good = { luan: LUAN, diem: 4, gioTot: "7h–9h" };
 const empty = { luan: "", diem: 0, gioTot: "" };
 
+/** Mỗi tuổi một lời luận riêng — file dùng chung một lời luận cho nhiều tuổi bị loại. */
+const LUAN_RIENG = [
+  LUAN,
+  "Công việc cần kiên nhẫn hơn thường lệ; bàn bạc kỹ với đồng nghiệp trước khi chốt kế hoạch mới.",
+  "Hợp gặp gỡ bạn cũ, trò chuyện cởi mở giúp gỡ được một vướng mắc đã kéo dài từ tuần trước.",
+  "Nên giữ lời nói mềm mỏng, tránh tranh cãi chuyện nhỏ ở nơi làm việc để không mất hòa khí.",
+  "Thời điểm tốt để học thêm một kỹ năng, đọc sách hoặc hoàn thiện dự án cá nhân đang ấp ủ.",
+  "Việc đi lại nên chuẩn bị chu đáo, kiểm tra lịch hẹn kỹ càng để khỏi lỡ những cuộc gặp quan trọng.",
+  "Tinh thần phấn chấn, dễ nhận được sự ủng hộ khi đề xuất ý tưởng với cấp trên hoặc đối tác.",
+  "Hãy ưu tiên dọn dẹp nhà cửa, sắp xếp lại góc làm việc cho gọn gàng, tâm trí sẽ nhẹ nhõm hơn.",
+  "Người tuổi này nên lắng nghe nhiều hơn nói, một lời góp ý chân thành từ bạn bè sẽ rất đáng giá.",
+  "Chuyện gia đình êm ấm, buổi tối quây quần bên mâm cơm là cách vun đắp tình cảm tốt nhất hôm nay.",
+  "Đừng vội vàng quyết định việc lớn; ghi chép lại các phương án rồi cân nhắc thêm vài ngày nữa.",
+  "Nhịp làm việc đều đặn mang lại kết quả chắc chắn, cuối ngày có thể tự thưởng một chút nghỉ ngơi.",
+];
+
 function day(date: string, model: string, entry: unknown = good, overrides: Record<string, unknown> = {}) {
   return {
     date,
     generatedAt: "2026-09-22T17:12:00.000Z",
     model,
-    tuoi: Object.fromEntries(CON_GIAP_LIST.map((cg) => [cg.slug, overrides[cg.slug] ?? entry])),
+    tuoi: Object.fromEntries(
+      CON_GIAP_LIST.map((cg, i) => [cg.slug, overrides[cg.slug] ?? (entry === good ? { ...good, luan: LUAN_RIENG[i] } : entry)]),
+    ),
   };
 }
 
@@ -64,6 +82,35 @@ describe("validateTuViDayData — không tin metadata/model", () => {
   it("nội dung của ngày khác không được nhận cho hôm nay", () => {
     const v = validateTuViDayData(day("2026-09-22", "gemini-2.5-flash"), "2026-09-23");
     expect(v.ok).toBe(false);
+  });
+});
+
+describe("validateTuViDayData — lịch là của core, mỗi tuổi một lời luận", () => {
+  const base = () => day("2026-09-23", "gemini-2.5-flash") as ReturnType<typeof day> & { canChiNgay?: string };
+  it("canChiNgay khớp core thì nhận và giữ lại", () => {
+    const ok = validateTuViDayData(base(), "2026-09-23");
+    expect(ok.ok).toBe(true);
+  });
+  it("canChiNgay khác core → loại (không để file sửa dữ liệu lịch)", () => {
+    const v = validateTuViDayData({ ...base(), canChiNgay: "Giáp Tý" }, "2026-09-23");
+    expect(v.ok).toBe(false);
+  });
+  it("hai tuổi dùng chung một lời luận → loại", () => {
+    const raw = base();
+    raw.tuoi.suu = { ...good, luan: LUAN };
+    const v = validateTuViDayData(raw, "2026-09-23");
+    expect(v.ok).toBe(false);
+    if (!v.ok) expect(v.errors.join(" ")).toContain("gần như trùng");
+  });
+  it("lời luận nhắc 'ngày <can chi>' sai → loại", () => {
+    const raw = base();
+    raw.tuoi.mao = { ...good, luan: "Ngày Giáp Tý hôm nay rất hợp để khởi sự việc mới cho tuổi này." };
+    expect(validateTuViDayData(raw, "2026-09-23").ok).toBe(false);
+  });
+  it("tuổi lạ ngoài 12 con giáp → loại", () => {
+    const raw = base() as { tuoi: Record<string, unknown> };
+    raw.tuoi.meo = good;
+    expect(validateTuViDayData(raw, "2026-09-23").ok).toBe(false);
   });
 });
 

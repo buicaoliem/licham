@@ -1,12 +1,52 @@
-# Tử vi generation pipeline — Phase 8A status
+# Tử vi hằng ngày — pipeline (Phase 8A.2)
 
-## Trạng thái
-- Pipeline đã an toàn khi API lỗi: lỗi/quota Gemini không làm hỏng hoặc ghi đè dữ liệu tử vi hiện có; build vẫn chạy bằng dữ liệu đã commit.
-- **Chưa xác minh E2E thành công đủ 12/12 tuổi.**
-- **Chưa sẵn sàng bật sinh nội dung tự động trên production** do giới hạn quota (Gemini free tier) và dữ liệu sinh ra không được lưu bền vững (filesystem của Vercel build là tạm thời).
-- **Không được phụ thuộc vào mỗi lần Vercel build để sinh lại toàn bộ nội dung tử vi.** Nội dung phải được sinh ngoài build, kiểm duyệt, rồi commit vào repo.
+## Kiến trúc
+```
+GitHub Actions "Tử vi hằng ngày và dựng lại trang" (.github/workflows/tu-vi-hang-ngay.yml)
+  00:05 / 06:05 / 12:05 giờ VN (+ chạy tay)
+  └─ pnpm --filter @licham/web generate:tu-vi
+       ├─ đã có content/tu-vi/<ngày VN>.json hợp lệ → dừng, 0 request
+       ├─ khóa theo ngày (.<ngày>.lock) + concurrency group → không chạy trùng
+       ├─ MỘT request Gemini cho cả 12 tuổi (JSON schema, maxOutputTokens 8192), trần 3 request/lượt
+       └─ đủ 12/12 hợp lệ → ghi nguyên tử content/tu-vi/<ngày>.json
+  └─ commit file lên main → (CHƯA KIỂM CHỨNG) Vercel dựng production; xem mục "Việc cần kiểm chứng"
+  └─ lượt 00:05 không có commit mới (kể cả Gemini lỗi) → gọi VERCEL_DEPLOY_HOOK_URL để trang sang ngày mới (trạng thái dự phòng)
 
-## Quy trình đề xuất
-1. Chạy `pnpm generate:tu-vi` cục bộ (có khóa API trong môi trường, không commit khóa).
-2. Kiểm tra đủ 12 tuổi, review nội dung.
-3. Commit các file dữ liệu tử vi; build production chỉ đọc dữ liệu đã commit.
+Vercel build (pnpm build) — KHÔNG gọi Gemini, chỉ đọc web/content/tu-vi/<ngày VN lúc build>.json
+  └─ không có file hợp lệ đúng ngày → trang ở trạng thái dự phòng trung thực (can chi + quan hệ tuổi, không luận/điểm/giờ)
+```
+
+## Vì sao lưu trong git
+- Repo không có database hay object storage; chỉ có GitHub (repo public, main không bị bảo vệ) và Vercel (Git integration + Deploy Hook).
+- File đã commit sống qua mọi lần build/deploy, đọc lại không cần Gemini, Preview deployment không ghi được vào main.
+- `git push` là thao tác nguyên tử; đẩy trùng bị từ chối (non-fast-forward) và workflow kiểm lại main trước khi thử lại.
+- Không thêm dịch vụ trả phí. Đổi lại: mỗi ngày một commit bot nhỏ (~6 KB) trên main.
+
+## Quy tắc dữ liệu
+- Chỉ công nhận khi đủ 12/12 tuổi: đúng ngày, mỗi tuổi đúng một lần, luận 20–600 ký tự, điểm nguyên trong khoảng theo
+  quan hệ chi (hợp 3–5, bình hòa/trùng 2–4, xung/hình/hại 1–3), giờ tốt thuộc giờ hoàng đạo do core tính.
+- Không có hai tuổi dùng chung lời luận (độ giống ≥ 0,6 bị loại); lời luận nhắc "ngày <can chi>" sai bị loại.
+- `canChiNgay` trong file phải khớp core. Lịch luôn do @licham/core tính, file chỉ mang lời luận.
+- Output bị cắt (MAX_TOKENS), JSON lỗi, sai schema → không lưu gì. Không bao giờ chép luận ngày khác.
+
+## Cấu hình cần làm trước khi chạy production
+1. GitHub → Settings → Secrets → Actions: thêm `GEMINI_API_KEY` (hiện khóa chỉ nằm ở Vercel).
+2. (Tùy chọn) GitHub Variables: `GEMINI_MODEL` để đổi model chính.
+3. Có thể xóa `GEMINI_API_KEY` khỏi Vercel env: build không còn dùng; script tự từ chối chạy khi có biến `VERCEL`.
+4. Giữ secret `VERCEL_DEPLOY_HOOK_URL` (đã có).
+5. Merge vào main: lịch chạy của GitHub Actions chỉ có hiệu lực trên nhánh mặc định.
+
+## Chạy tay
+- Sinh lại khi lỗi: GitHub → Actions → "Tử vi hằng ngày và dựng lại trang" → Run workflow (bỏ qua nếu ngày đã có dữ liệu).
+- E2E thật, đúng 1 request, ghi vào thư mục tạm: `TU_VI_E2E=1 GEMINI_API_KEY=... pnpm --filter @licham/web tu-vi:e2e`.
+  Không chạy khi quota đang hết.
+
+## Việc cần kiểm chứng trước production
+
+1. **Bot commit có kích hoạt Vercel không?** Chưa biết. Khi chưa đặt repository variable `VERCEL_DEPLOYS_ON_PUSH=true`, workflow gọi Deploy Hook cả sau khi commit (có thể dựng 2 lần nếu Vercel cũng tự dựng). Sau khi được phép deploy: chạy một lượt thật, xem Vercel có dựng từ commit của bot không; nếu có thì đặt biến trên để bỏ lần gọi hook thừa.
+2. Secret `GEMINI_API_KEY`, `VERCEL_DEPLOY_HOOK_URL` có trong GitHub Actions; thiếu hook thì lượt cần làm mới báo lỗi (không im lặng).
+3. Main không bị bảo vệ nhánh chặn `github-actions[bot]` push (repo hiện không bảo vệ).
+4. Workflow chỉ chạy trên main (`github.ref`), lịch chỉ có hiệu lực sau khi merge; dispatch từ nhánh khác bị bỏ qua, không gọi hook.
+5. Job đỏ khi: Gemini lỗi, thiếu khóa, bị từ chối, lượt bị khóa, đẩy commit hỏng, hoặc gọi hook lỗi.
+6. Workflow dùng pnpm 10 (đã thử `install --frozen-lockfile` với 10.34.5 trên lockfile 9.0; pnpm 9 lỗi vì `overrides` trong pnpm-workspace.yaml).
+
