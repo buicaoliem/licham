@@ -53,7 +53,7 @@ export default function LeHubPage() {
         lead="Tra cứu ngày âm lịch, dương lịch, ngày nghỉ lễ và ý nghĩa của các ngày lễ, ngày giỗ trong năm"
         art={{ src: HERITAGE_SLOTS.heroLe.path, label: HERITAGE_SLOTS.heroLe.spec }}
       >
-        <div className="chips">
+        <div className="chips le-hero-chips">
           <Link className="chip hot" href="/countdown/tet/">
             Đếm ngược Tết
           </Link>

@@ -64,6 +64,10 @@ body:has(.ch) {
   /* :where giữ độ ưu tiên thấp để lớp thẻ (.vk-item, .ch-tile…) tự đặt màu chữ */
   color: var(--son);
 }
+:where(.ch) a:where(:hover) {
+  /* hover chỉ đổi màu, không gạch chân (globals.css) */
+  color: var(--son-dp);
+}
 .ch :focus-visible {
   outline: 2px solid var(--son);
   outline-offset: 2px;
@@ -366,78 +370,95 @@ body:has(.ch) {
 }
 
 /* ---------- chân trang ---------- */
+/* Ba nhóm: thương hiệu · Khám phá (công cụ, nội dung) · Về Lịch Âm (giới thiệu, liên hệ, pháp lý); dòng ghi chú riêng ở đáy. */
 .ch-foot {
   margin-top: 64px;
   border-top: 1px solid var(--line);
   background: var(--bg);
-  padding: 30px 0 28px;
+  padding: 40px 0 26px;
 }
-.ch-foot-top {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 18px 44px;
+.ch-foot-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.5fr) minmax(0, 0.9fr);
+  gap: 32px 56px;
+  align-items: start;
 }
-.ch-foot-primary {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 30px;
-  margin-left: auto;
-  font-family: var(--serif);
-  font-size: 15px;
+.ch-foot-brand p {
+  max-width: 320px;
+  margin: 14px 0 0;
+  font-family: var(--sans);
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ink-3);
 }
-.ch .ch-foot-primary a,
-.ch .ch-foot-primary a:visited,
-.ch .ch-foot-explore a,
-.ch .ch-foot-explore a:visited {
-  color: var(--ink);
-  text-decoration: none;
-}
-.ch .ch-foot-primary a:hover,
-.ch .ch-foot-explore a:hover {
-  color: var(--son);
-}
-.ch .ch-foot-mail,
-.ch .ch-foot-mail:visited {
-  font-size: 14px;
-  color: var(--son);
-}
-.ch-foot-explore {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 6px 20px;
-  margin-top: 22px;
-  padding-top: 18px;
-  border-top: 1px solid var(--line-2);
-  font-size: 14px;
-}
-.ch-foot-explore span {
+.ch-foot-h {
+  margin: 4px 0 12px;
   font-family: var(--sans);
   font-size: 11.5px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink-3);
+}
+.ch-foot-col ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ch-foot-col.explore ul {
+  grid-template-columns: repeat(2, minmax(0, max-content));
+  column-gap: 40px;
+}
+.ch .ch-foot-col a,
+.ch .ch-foot-col a:visited {
+  font-family: var(--sans);
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  transition: color 0.15s ease;
+}
+.ch .ch-foot-col a:hover {
+  color: var(--son);
 }
 .ch-foot-meta {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 6px 24px;
-  margin-top: 16px;
+  margin-top: 32px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line-2);
   font-family: var(--sans);
   font-size: 12.5px;
   color: var(--ink-3);
 }
-@media (max-width: 759px) {
-  .ch-foot-top {
-    flex-direction: column;
-    align-items: flex-start;
+@media (max-width: 1023px) {
+  .ch-foot-main {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
   }
-  .ch-foot-primary {
-    margin-left: 0;
-    gap: 8px 22px;
+  .ch-foot-brand {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 759px) {
+  .ch-foot {
+    padding: 30px 0 22px;
+  }
+  .ch-foot-main {
+    gap: 24px 20px;
+  }
+  .ch-foot-col.explore ul {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ch .ch-foot-col a {
+    display: inline-block;
+    padding: 2px 0;
+  }
+  .ch-foot-meta {
+    flex-direction: column;
+    margin-top: 24px;
   }
 }
 
@@ -780,6 +801,28 @@ body:has(.ch) {
   font-size: 12.5px;
   padding: 3px 11px;
   line-height: 1.5;
+  white-space: nowrap;
+}
+
+/* Hàng chip điều hướng trong hero (Ngày lễ): một hàng trên desktop, màn hẹp cuộn ngang trong khung — không để chip lẻ xuống dòng.
+   Đệm 3px để viền focus-visible không bị cắt bởi overflow. */
+.ch .le-hero-idx .ch-hero-body {
+  max-width: none;
+}
+.ch .chips.le-hero-chips {
+  flex-wrap: nowrap;
+  gap: 8px;
+  margin: -3px;
+  padding: 3px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+}
+.ch .chips.le-hero-chips::-webkit-scrollbar {
+  display: none;
+}
+.ch .le-hero-chips .chip {
+  flex: 0 0 auto;
   white-space: nowrap;
 }
 
@@ -2910,8 +2953,7 @@ a.ch-tile:hover {
 }
 .ch-cc .cc-tools .ch-tile:hover .go,
 .ch-cc .cc-tools .ch-tile:focus-visible .go {
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  color: var(--son-dp);
 }
 .ch-cc .cc-tools .go svg {
   transition: transform 0.15s ease;
@@ -4978,7 +5020,7 @@ a.ch-tile:hover {
   color: var(--son);
 }
 .xn-table td button:hover b {
-  text-decoration: underline;
+  color: var(--son-dp);
 }
 .xn-ho {
   font-size: 14px;
@@ -7279,19 +7321,31 @@ a.ch-tile:hover {
 .ch-lich .ch-lead a {
   font-weight: 600;
 }
+/* Chip tóm tắt tháng/năm: một hàng trên desktop (thân hero không giới hạn 720px); màn hẹp cuộn ngang trong khung. */
+.ch-lich .lc-hero .ch-hero-body {
+  max-width: none;
+}
 .lc-hero-facts {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px 10px;
+  flex-wrap: nowrap;
+  gap: 8px;
   margin: 0;
   padding: 0;
   list-style: none;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+}
+.lc-hero-facts::-webkit-scrollbar {
+  display: none;
 }
 .lc-hero-facts li {
   display: inline-flex;
+  flex: 0 0 auto;
   align-items: center;
-  gap: 8px;
-  padding: 6px 13px;
+  gap: 7px;
+  padding: 6px 12px;
+  white-space: nowrap;
   border: 1px solid var(--line);
   border-radius: 999px;
   background: var(--card);
@@ -9845,13 +9899,14 @@ a.ly-cell:hover {
 }
 
 /* ================= BATCH 7: ĐỔI NGÀY ÂM DƯƠNG ================= */
+/* Thẻ nhập: hàng 1 là hai chiều đổi (segmented), hàng 2 là ô nhập bên trái + nhóm nút bên phải; mọi ô/nút cao 48px. */
 .dn-conv {
   display: grid;
-  gap: 16px;
+  gap: 20px;
 }
 .dn-tabs {
-  display: inline-flex;
-  flex-wrap: wrap;
+  display: inline-grid;
+  grid-template-columns: repeat(2, minmax(0, auto));
   gap: 4px;
   justify-self: start;
   padding: 4px;
@@ -9860,79 +9915,112 @@ a.ly-cell:hover {
   background: var(--bg);
 }
 .dn-tabs button {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
   min-height: 40px;
-  padding: 0 16px;
-  border: 0;
+  padding: 0 20px;
+  border: 1px solid transparent;
   border-radius: 9px;
   background: transparent;
   color: var(--ink-2);
   font: inherit;
+  font-family: var(--sans);
   font-size: 14.5px;
   font-weight: 600;
+  white-space: nowrap;
   cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease;
 }
 .dn-tabs button:hover {
   color: var(--son);
+  background: color-mix(in srgb, var(--son-soft) 60%, transparent);
 }
 .dn-tabs button[aria-pressed="true"] {
   background: var(--card);
+  border-color: color-mix(in srgb, var(--son) 40%, var(--line));
   color: var(--son);
   box-shadow: 0 1px 3px rgba(37, 39, 34, 0.1);
 }
 .dn-input {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  gap: 14px 16px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 14px 20px;
 }
-.dn-input .difld {
-  flex: 1 1 280px;
+.ch .dn-input .difld {
   margin: 0;
+  min-width: 0;
 }
 .dn-am {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
   gap: 10px;
 }
-.ch .dn-am input[type="number"] {
-  flex: 0 1 110px;
-  width: 110px;
+.dn-num {
+  display: flex;
+  align-items: center;
   height: 48px;
-  padding: 0 12px;
   border: 1px solid var(--line);
   border-radius: 10px;
   background: #fff;
-  color: var(--ink);
-  font: inherit;
-  font-size: 15px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 2px rgba(37, 39, 34, 0.03);
 }
-.ch .dn-am input[type="number"]:focus {
-  outline: none;
+.dn-num:focus-within {
   border-color: var(--jade);
   box-shadow: 0 0 0 3px rgba(49, 109, 96, 0.14);
 }
-.dn-chk {
-  display: inline-flex !important;
+.dn-num > span {
+  flex: 0 0 auto;
+  padding: 0 4px 0 14px;
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--ink-3);
+}
+.ch .dn-num input[type="number"] {
+  flex: 1;
+  min-width: 0;
+  height: 46px;
+  border: 0;
+  border-radius: 0;
+  padding: 0 12px 0 6px;
+  background: transparent;
+  box-shadow: none;
+  font-weight: 600;
+}
+.ch .dn-num input[type="number"]:focus {
+  box-shadow: none;
+}
+.ch .dn-am .dn-chk {
+  display: inline-flex;
   align-items: center;
   gap: 8px;
-  min-height: 44px;
-  margin: 0 !important;
-  font-weight: 500 !important;
+  height: 48px;
+  margin: 0;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-2);
+  white-space: nowrap;
   cursor: pointer;
 }
 .dn-chk input {
   width: 18px;
   height: 18px;
+  margin: 0;
   accent-color: var(--son);
 }
 .dn-actions {
   display: flex;
-  flex-wrap: wrap;
   gap: 10px;
+}
+.ch .dn-actions .ch-btn {
+  min-height: 48px;
+  white-space: nowrap;
 }
 .dn-pair {
   display: grid;
@@ -9942,8 +10030,8 @@ a.ly-cell:hover {
 .dn-side {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  padding: 18px 20px;
+  gap: 6px;
+  padding: 20px 24px;
   border-radius: 14px;
   background: linear-gradient(120deg, var(--son-soft), #fff 80%);
   border: 1px solid color-mix(in srgb, var(--son) 18%, var(--line));
@@ -9956,9 +10044,11 @@ a.ly-cell:hover {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--serif);
-  font-size: 17px;
-  font-weight: 600;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: var(--son);
 }
 .dn-side.am .lb {
@@ -9968,18 +10058,21 @@ a.ly-cell:hover {
   font-family: var(--serif);
   font-size: clamp(30px, 3.2vw, 40px);
   font-weight: 700;
-  line-height: 1.15;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
   color: var(--ink);
   font-variant-numeric: tabular-nums;
 }
 .dn-side .sm {
-  font-size: 14.5px;
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.5;
   color: var(--ink-2);
 }
 .dn-facts {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
-  margin: 16px 0 0;
+  margin: 18px 0 0;
   border: 1px solid var(--line);
   border-radius: 12px;
   overflow: hidden;
@@ -10010,8 +10103,10 @@ a.ly-cell:hover {
   font-weight: 400;
   color: var(--ink-3);
 }
-.ch .dn-detail {
-  margin-top: 16px;
+.dn-detail-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 18px;
 }
 .dn-sec-h {
   margin-bottom: 14px;
@@ -10068,24 +10163,34 @@ a.ly-cell:hover {
   }
 }
 @media (max-width: 759px) {
+  .dn-conv {
+    gap: 16px;
+  }
   .dn-tabs {
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-self: stretch;
   }
   .dn-tabs button {
-    justify-content: center;
-    padding: 0 8px;
-    font-size: 13px;
+    min-height: 44px;
+    padding: 0 6px;
+    font-size: 13.5px;
+    white-space: normal;
+    line-height: 1.25;
   }
-  .dn-tabs button svg {
-    display: none;
+  .dn-input {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+  .dn-am {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .ch .dn-am .dn-chk {
+    grid-column: 1 / -1;
   }
   .dn-actions {
-    width: 100%;
-  }
-  .dn-actions .ch-btn {
-    flex: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
   }
   .dn-pair {
     grid-template-columns: minmax(0, 1fr);
@@ -10106,6 +10211,9 @@ a.ly-cell:hover {
   }
   .dn-facts > div:nth-child(2n) {
     border-left: 1px solid var(--line-2);
+  }
+  .dn-detail-row {
+    margin-top: 14px;
   }
   .ch .dn-detail {
     width: 100%;
@@ -10336,7 +10444,7 @@ a.ly-cell:hover {
 }
 .hm-hero-in {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 520px);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 640px);
   gap: 28px;
   align-items: center;
   padding-top: 30px;
@@ -10345,14 +10453,19 @@ a.ly-cell:hover {
 .ch-home .hm-hero .ch-h1 {
   font-size: clamp(32px, 3.4vw, 48px);
 }
+/* Tờ lịch · thông tin âm lịch · nút xem chi tiết (cột phải, cùng thẻ). Dưới 760px nút xuống hàng riêng. */
 .hm-today {
   display: grid;
-  grid-template-columns: 190px minmax(0, 1fr);
+  grid-template-columns: 172px minmax(0, 1fr) auto;
+  grid-template-rows: 1fr auto;
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 18px;
   box-shadow: var(--shadow);
   overflow: hidden;
+}
+.ch-home .hm-leaf {
+  grid-row: 1 / 3;
 }
 .ch-home .hm-leaf b {
   font-size: 84px;
@@ -10360,9 +10473,21 @@ a.ly-cell:hover {
 .hm-today-b {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 20px 22px;
+  justify-content: flex-end;
+  gap: 4px;
+  padding: 22px 8px 0 24px;
   min-width: 0;
+}
+.hm-canchi {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--ink-2);
+}
+.hm-today-act {
+  display: flex;
+  align-items: flex-end;
+  padding: 22px 22px 4px 8px;
 }
 .hm-lunar {
   margin: 0;
@@ -10379,13 +10504,16 @@ a.ly-cell:hover {
 .hm-marks {
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
   gap: 6px;
+  grid-column: 2 / 4;
   margin: 0;
-  padding: 0;
+  padding: 14px 22px 22px 24px;
   list-style: none;
 }
 .hm-marks li {
-  padding: 3px 11px;
+  padding: 3px 10px;
+  white-space: nowrap;
   border-radius: 999px;
   background: var(--bg);
   border: 1px solid var(--line);
@@ -10405,8 +10533,7 @@ a.ly-cell:hover {
   color: var(--bad);
 }
 .ch .hm-today-go {
-  align-self: flex-start;
-  margin-top: 4px;
+  white-space: nowrap;
 }
 .hm-short {
   display: grid;
@@ -10529,6 +10656,17 @@ a.ly-cell:hover {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .hm-hero-in {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 600px);
+  }
+  .hm-today {
+    grid-template-columns: 140px minmax(0, 1fr) auto;
+  }
+  .ch-home .hm-leaf b {
+    font-size: 70px;
+  }
+}
 @media (max-width: 1023px) {
   .hm-hero-in {
     grid-template-columns: minmax(0, 1fr);
@@ -10559,6 +10697,22 @@ a.ly-cell:hover {
     grid-template-columns: 124px minmax(0, 1fr);
     border-radius: 14px;
   }
+  .hm-today-b {
+    padding: 14px 14px 0;
+  }
+  .hm-marks {
+    grid-column: 2;
+    padding: 10px 14px 14px;
+  }
+  .hm-today-act {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    padding: 12px 14px 14px;
+    border-top: 1px solid var(--line-2);
+  }
+  .hm-canchi {
+    font-size: 13px;
+  }
   .ch-home .hm-leaf {
     flex-direction: column;
     align-items: center;
@@ -10579,8 +10733,7 @@ a.ly-cell:hover {
     font-size: 13px;
   }
   .hm-today-b {
-    padding: 14px;
-    gap: 6px;
+    gap: 2px;
   }
   .hm-lunar {
     font-size: 16px;
@@ -10589,10 +10742,9 @@ a.ly-cell:hover {
     font-size: 26px;
   }
   .ch .hm-today-go {
-    align-self: stretch;
-    min-height: 40px;
-    padding: 0 10px;
-    font-size: 13.5px;
+    flex: 1;
+    min-height: 44px;
+    padding: 0 12px;
   }
   .hm-short {
     grid-template-columns: repeat(4, minmax(0, 1fr));

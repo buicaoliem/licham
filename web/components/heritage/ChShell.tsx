@@ -9,8 +9,8 @@ import { Icon } from "./Icon";
 /** Khẩu hiệu thương hiệu theo mock Contemporary Heritage (licham-01, licham-10). */
 export const BRAND_TAGLINE = "Giữ gìn cội nguồn Việt";
 
-/** Liên kết giới thiệu/pháp lý hiển thị ở hàng đầu chân trang, theo mock. */
-const FOOT_PRIMARY = ["/gioi-thieu/", "/dieu-khoan/", "/chinh-sach-bao-mat/", "/lien-he/"];
+/** Nhóm "Về Lịch Âm" ở chân trang (giới thiệu, liên hệ, pháp lý); các liên kết còn lại thuộc nhóm "Khám phá". */
+const FOOT_ABOUT = ["/gioi-thieu/", "/lien-he/", "/dieu-khoan/", "/chinh-sach-bao-mat/"];
 
 function Logo({ small = false }: { small?: boolean }) {
   // Dấu triện là asset riêng; khi chưa có file thì dùng logo hiện hành của site.
@@ -56,34 +56,39 @@ function ChHeader({ activeMenu }: { activeMenu: MenuItem | null }) {
 }
 
 function ChFooter() {
-  const primary = FOOTER_LINKS.filter((l) => FOOT_PRIMARY.includes(l.href)).sort(
-    (a, b) => FOOT_PRIMARY.indexOf(a.href) - FOOT_PRIMARY.indexOf(b.href),
+  const about = FOOTER_LINKS.filter((l) => FOOT_ABOUT.includes(l.href)).sort(
+    (a, b) => FOOT_ABOUT.indexOf(a.href) - FOOT_ABOUT.indexOf(b.href),
   );
-  const explore = FOOTER_LINKS.filter((l) => !FOOT_PRIMARY.includes(l.href));
+  const explore = FOOTER_LINKS.filter((l) => !FOOT_ABOUT.includes(l.href));
   return (
     <footer className="ch-foot">
       <div className="ch-wrap">
-        <div className="ch-foot-top">
-          <Logo small />
-          <nav className="ch-foot-primary" aria-label="Thông tin">
-            {primary.map((l) => (
-              <Link href={l.href} key={l.href}>
-                {l.label}
-              </Link>
-            ))}
+        <div className="ch-foot-main">
+          <div className="ch-foot-brand">
+            <Logo small />
+            <p>Lịch âm dương, ngày tốt xấu, văn khấn và ngày lễ Việt Nam — tra cứu nhanh, miễn phí.</p>
+          </div>
+          <nav className="ch-foot-col explore" aria-labelledby="ch-foot-explore-h">
+            <p className="ch-foot-h" id="ch-foot-explore-h">Khám phá</p>
+            <ul>
+              {explore.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href}>{l.label}</Link>
+                </li>
+              ))}
+            </ul>
           </nav>
-          <a className="ch-foot-mail" href="mailto:lienhe@licham.app">
-            Lienhe@licham.app
-          </a>
+          <nav className="ch-foot-col" aria-labelledby="ch-foot-about-h">
+            <p className="ch-foot-h" id="ch-foot-about-h">Về Lịch Âm</p>
+            <ul>
+              {about.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href}>{l.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
-        <nav className="ch-foot-explore" aria-label="Khám phá">
-          <span>Khám phá</span>
-          {explore.map((l) => (
-            <Link href={l.href} key={l.href}>
-              {l.label}
-            </Link>
-          ))}
-        </nav>
         <div className="ch-foot-meta">
           <span>Miễn phí, không quảng cáo · Thông tin phong thủy mang tính tham khảo</span>
           <span>Cập nhật {buildTimeLabel}</span>

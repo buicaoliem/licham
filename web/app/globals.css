@@ -40,10 +40,15 @@ a {
 a:visited {
   color: var(--son-dp);
 }
-a:hover,
+/* Không gạch chân khi hover: liên kết đổi màu, thành phần có nền tự đổi nền/viền. Bàn phím dùng viền focus-visible. */
+a:where(:hover) {
+  /* độ ưu tiên thấp: thẻ/nút/ô lịch giữ màu hover riêng */
+  color: var(--son-dp);
+}
 a:focus-visible {
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+  text-decoration: none;
 }
 
 /* ---------- nút (lớp nền, .ch nâng cấp trong heritage.css) ---------- */

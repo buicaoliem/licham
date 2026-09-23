@@ -123,11 +123,9 @@ export function DoiNgayConverter({ initial }: { initial: SolarDate }) {
         </h2>
         <div className="dn-tabs" role="group" aria-label="Chiều đổi ngày">
           <button type="button" aria-pressed={activeSide === "duong"} onClick={() => pickSide("duong")}>
-            <Icon name="sun" size={17} />
             Dương lịch → Âm lịch
           </button>
           <button type="button" aria-pressed={activeSide === "am"} onClick={() => pickSide("am")}>
-            <Icon name="yinyang" size={17} />
             Âm lịch → Dương lịch
           </button>
         </div>
@@ -135,7 +133,7 @@ export function DoiNgayConverter({ initial }: { initial: SolarDate }) {
         <div className="dn-input">
           {activeSide === "duong" ? (
             <div className="difld">
-              <label htmlFor="di-duong">Nhập ngày dương lịch</label>
+              <label htmlFor="di-duong">Ngày dương lịch</label>
               <input
                 id="di-duong"
                 type="date"
@@ -150,33 +148,39 @@ export function DoiNgayConverter({ initial }: { initial: SolarDate }) {
             </div>
           ) : (
             <div className="difld">
-              <label htmlFor="di-am-ngay">Nhập ngày âm lịch (năm {lunar.year})</label>
+              <label htmlFor="di-am-ngay">Ngày âm lịch (năm {lunar.year})</label>
               <div className="dn-am">
-                <input
-                  id="di-am-ngay"
-                  type="number"
-                  inputMode="numeric"
-                  aria-label="Ngày âm lịch"
-                  min={1}
-                  max={30}
-                  value={amDraft.day}
-                  onChange={(e) => {
-                    setAmDraft((a) => ({ ...a, day: Number(e.target.value) }));
-                    setError(null);
-                  }}
-                />
-                <input
-                  type="number"
-                  inputMode="numeric"
-                  aria-label="Tháng âm lịch"
-                  min={1}
-                  max={12}
-                  value={amDraft.month}
-                  onChange={(e) => {
-                    setAmDraft((a) => ({ ...a, month: Number(e.target.value) }));
-                    setError(null);
-                  }}
-                />
+                <span className="dn-num">
+                  <span aria-hidden="true">Ngày</span>
+                  <input
+                    id="di-am-ngay"
+                    type="number"
+                    inputMode="numeric"
+                    aria-label="Ngày âm lịch"
+                    min={1}
+                    max={30}
+                    value={amDraft.day}
+                    onChange={(e) => {
+                      setAmDraft((a) => ({ ...a, day: Number(e.target.value) }));
+                      setError(null);
+                    }}
+                  />
+                </span>
+                <span className="dn-num">
+                  <span aria-hidden="true">Tháng</span>
+                  <input
+                    type="number"
+                    inputMode="numeric"
+                    aria-label="Tháng âm lịch"
+                    min={1}
+                    max={12}
+                    value={amDraft.month}
+                    onChange={(e) => {
+                      setAmDraft((a) => ({ ...a, month: Number(e.target.value) }));
+                      setError(null);
+                    }}
+                  />
+                </span>
                 <label className="dn-chk">
                   <input
                     type="checkbox"
@@ -253,10 +257,12 @@ export function DoiNgayConverter({ initial }: { initial: SolarDate }) {
           ))}
         </dl>
         {hasDetailPage && (
-          <Link className="ch-btn dn-detail" href={dayHref(duong)}>
-            Trang chi tiết ngày {pad2(duong.day)}/{pad2(duong.month)}/{duong.year}
-            <Icon name="arrow" size={16} />
-          </Link>
+          <div className="dn-detail-row">
+            <Link className="ch-btn dn-detail" href={dayHref(duong)}>
+              Trang chi tiết ngày {pad2(duong.day)}/{pad2(duong.month)}/{duong.year}
+              <Icon name="arrow" size={16} />
+            </Link>
+          </div>
         )}
       </section>
     </>

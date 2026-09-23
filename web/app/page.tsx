@@ -97,18 +97,23 @@ export default function HomePage() {
               <p className="ld-eyebrow">Âm lịch</p>
               <p className="hm-lunar">
                 <b>{l.day}</b> tháng {MONTH_WORD[l.month - 1]}
-                {l.isLeapMonth ? " nhuận" : ""} · năm {info.canChi.year.name}
+                {l.isLeapMonth ? " nhuận" : ""}
               </p>
-              <ul className="hm-marks">
-                <li className={info.thanSatNgay.isHoangDao ? "good" : "bad"}>{info.thanSatNgay.isHoangDao ? "Hoàng đạo" : "Hắc đạo"}</li>
-                <li>Trực {info.truc.name}</li>
-                <li>Tiết {info.solarTerm.name}</li>
-              </ul>
+              <p className="hm-canchi">
+                Ngày {info.canChi.day.name} · Năm {info.canChi.year.name}
+              </p>
+            </div>
+            <div className="hm-today-act">
               <Link className="ch-btn pri hm-today-go" href="/hom-nay/">
                 Xem chi tiết hôm nay
                 <Icon name="arrow" size={16} />
               </Link>
             </div>
+            <ul className="hm-marks">
+              <li className={info.thanSatNgay.isHoangDao ? "good" : "bad"}>{info.thanSatNgay.isHoangDao ? "Hoàng đạo" : "Hắc đạo"}</li>
+              <li>Trực {info.truc.name}</li>
+              <li>Tiết {info.solarTerm.name}</li>
+            </ul>
           </div>
         </div>
       </section>
