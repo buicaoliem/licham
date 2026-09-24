@@ -82,8 +82,18 @@ const LE_TRANH_CHUNG: Record<string, string> = {
   "ong-cong-ong-tao": "/heritage/van-khan/nhom/trong-nha.webp",
 };
 
-/** Lễ ngoài nhóm anh hùng có tranh riêng tái hiện sự kiện lịch sử — trang lễ ghi chú thích "Tranh minh họa". */
-export const LE_TRANH_LICH_SU: ReadonlySet<string> = new Set(["chien-thang-dien-bien-phu", "cach-mang-thang-tam", "ngay-giai-phong-mien-nam"]);
+/** Lễ có tranh riêng tái hiện sự kiện/địa danh lịch sử (hoặc cách điệu) — trang lễ ghi chú thích "Tranh minh họa". */
+export const LE_TRANH_LICH_SU: ReadonlySet<string> = new Set([
+  "chien-thang-dien-bien-phu",
+  "cach-mang-thang-tam",
+  "ngay-giai-phong-mien-nam",
+  // Phase 8B cuối: tranh cách điệu kiến trúc/cảnh quan (Đền Hùng, Ô Quan Chưởng, Hoa Lư, hồ Hoàn Kiếm, cờ Đoàn).
+  "gio-to-hung-vuong",
+  "thanh-lap-doan",
+  "giai-phong-thu-do",
+  "le-hoi-hoa-lu",
+  "gio-le-loi",
+]);
 
 export function leImagePath(slug: string): string {
   return `/heritage/le/${slug}.webp`;

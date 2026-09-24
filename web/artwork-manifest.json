@@ -12,9 +12,9 @@
         "le-gio-to-hung-vuong"
       ]
     },
-    "da_tich_hop_tong": 73,
-    "con_thieu_hoac_can_sua": 5,
-    "ghi_chu": "Batch A (9) + B (7) + D (8) + Review-33 (16) + Independent-12 (6) + Review-31 (22 + ảnh thật Hồ Chí Minh) + Redraw-9 (2) + Redraw-7 (2) = 73/78; còn 5 mục cần vẽ lại.",
+    "da_tich_hop_tong": 78,
+    "con_thieu_hoac_can_sua": 0,
+    "ghi_chu": "Batch A (9) + B (7) + D (8) + Review-33 (16) + Independent-12 (6) + Review-31 (22 + ảnh thật Hồ Chí Minh) + Redraw-9 (2) + Redraw-7 (2) + Final-5 (5, nới tiêu chí) = 78/78.",
     "batch_b": {
       "nhan": 7,
       "da_tich_hop": 7,
@@ -190,6 +190,20 @@
       ],
       "nguon": "artwork-inbox/licham-artwork-redraw7-final-review.zip (7 WebP + 7 PNG gốc 1448×1086, SHA-256 khớp)",
       "staging": "artwork-inbox/redraw7/, bản đạt: artwork-inbox/redraw7-approved/"
+    },
+    "final_5": {
+      "nhan": 5,
+      "da_tich_hop": 5,
+      "loai": 0,
+      "ids_tich_hop": [
+        "le-gio-to-hung-vuong",
+        "le-thanh-lap-doan",
+        "le-giai-phong-thu-do",
+        "le-le-hoi-hoa-lu",
+        "le-gio-le-loi"
+      ],
+      "quyet_dinh": "Chủ dự án nới tiêu chí: tranh minh họa nghệ thuật, không phải tư liệu/phục dựng; không mở thêm vòng QA kiến trúc và mùa hoa. Chỉ QA kỹ thuật + xóa chữ giả dễ thấy.",
+      "nguon": "artwork-inbox/redraw7/source-png (PNG gốc), mã hóa lại WebP ≤250 KB; bản chỉnh: artwork-inbox/redraw7/fixed/, bản cuối: artwork-inbox/redraw7/final/"
     }
   },
   "items": [
@@ -626,18 +640,19 @@
       "subject": "Đền Hùng: núi Nghĩa Lĩnh, bậc thang, cổng đền, mâm bánh chưng – bánh giầy",
       "target": "/heritage/le/gio-to-hung-vuong.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "cần vẽ lại (Redraw-7 không đạt, 2026-09-24); khối ảnh vẫn dùng tranh chung/ẩn",
-      "current": "/heritage/van-khan/nhom/di-le.webp 1600×1200",
+      "status": "đã tích hợp (Final-5 nới tiêu chí, 2026-09-24)",
+      "current": "/heritage/le/gio-to-hung-vuong.webp 1448×1086 247 KB",
       "priority": "P1",
-      "notes": "Tranh chung 'di-le' không phải Đền Hùng; cần đối chiếu ảnh Đền Hùng để dựng đúng kiến trúc — Bản Batch A nằm ở artwork-inbox/web/public/heritage/le/gio-to-hung-vuong.webp (staging, không nằm trong public). Khi dùng phải ghi là tranh minh họa, không phải ảnh tư liệu.",
-      "batch": "A (hold)",
+      "notes": "Chấp nhận theo quyết định chủ dự án (nới tiêu chí 5 tranh cuối, 2026-09-24): tranh minh họa nghệ thuật, chấp nhận cách điệu kiến trúc, màu mái, cảnh quan, hoa lá, tỷ lệ. Trang lễ có chú thích \"Tranh minh họa của licham.app\". Chỉnh sửa: chữ Hán giả trên bảng cổng đã xóa thành bảng đá trơn.",
+      "batch": "Final-5",
       "independent12": "REJECT: Cổng Đền Hùng vẽ thành cổng vòm sơn đỏ, khác cổng đá thật — vẫn giữ lại chờ đối chiếu kiến trúc như bản Batch A. Bản ứng viên ở artwork-inbox/indep12/ (staging).",
       "review31": "REJECT: Cổng Đền Hùng vẫn sai kiến trúc: vẽ BA tầng mái (12 mái) lợp ngói đỏ cam, có thêm một tầng lầu với ba cửa vòm giữa thân cổng và mái; không có phù điêu hai võ sĩ mặc giáp và hai voi. Cổng thật (1917): một vòm cuốn lớn, HAI tầng TÁM mái, toàn bộ màu đá/vữa xám (mái cũng xám), đề 'Cao sơn cảnh hành' (được bỏ chữ), phù điêu hai võ sĩ (một cầm giáo, một cầm đao) và hai voi, rồng ở các góc mái. Phần còn lại (hoa gạo, hoa ban, cờ ngũ sắc, bánh chưng – bánh giầy) đạt. Bản ứng viên ở artwork-inbox/r31/images/heritage/le/gio-to-hung-vuong.webp (staging).",
       "ve_lai_review31": "Giữ nguyên bố cục và tiền cảnh bản này; chỉ vẽ lại cổng: một vòm cuốn lớn duy nhất, trên vòm là bảng trơn (không chữ), tiếp ngay là 2 tầng mái chồng (mỗi tầng 4 mái, tổng 8 mái), toàn bộ cổng kể cả mái màu xám đá/vữa cũ, không ngói đỏ; hai bên vòm là phù điêu võ sĩ mặc giáp (trái cầm giáo, phải cầm đao), dưới chân có hình voi; rồng đắp ở đầu đao mái. Không có tầng lầu ba cửa vòm.",
       "redraw9": "REJECT: Cổng Đền Hùng vẫn sai: mái vẫn lợp ngói đỏ cam; trên vòm vẫn có một tầng lầu với cửa vòm và hai tháp phụ hai bên (cổng thật không có); phù điêu hai bên vòm là chim phượng, không có hai võ sĩ mặc giáp (giáo/đao) và hai voi. Tiền cảnh (hoa gạo, hoa ban, cờ ngũ sắc, bánh chưng – bánh giầy) vẫn đạt. Bản ứng viên ở artwork-inbox/redraw9/web/public/heritage/le/gio-to-hung-vuong.webp (staging).",
       "ve_lai_redraw9": "Chỉ sửa cổng: một vòm cuốn lớn, ngay trên vòm là bảng trơn rồi 2 tầng mái chồng (4+4 = 8 mái), TOÀN BỘ xám đá kể cả mái — không ngói đỏ/cam, không tầng lầu, không tháp phụ, không cửa sổ vòm; hai bên vòm là phù điêu võ sĩ mặc giáp (trái giáo, phải đao), dưới là voi. Nếu không vẽ đúng được: bỏ cổng, dùng bậc đá lên núi Nghĩa Lĩnh giữa rừng cổ thụ, không công trình nhận diện được.",
       "redraw7": "REJECT: Đã sửa đúng một vòm cuốn, hai võ sĩ mặc giáp và hai voi, nhưng: (1) bảng trên vòm có chữ Hán giả (yêu cầu bảng trơn); (2) các mái vẫn lợp ngói đỏ nâu, không phải toàn bộ xám đá; (3) hệ mái là hai mái cánh thấp + một mái chính + hai chòi nhỏ trên cùng, không phải 2 tầng 8 mái chồng; (4) hai võ sĩ cầm vũ khí gần giống nhau, không rõ trái giáo – phải đao. Bản ứng viên ở artwork-inbox/redraw7/web/public/heritage/le/gio-to-hung-vuong.webp, PNG gốc artwork-inbox/redraw7/source-png/gio-to-hung-vuong.png (staging).",
-      "ve_lai_redraw7": "Giữ bố cục, tiền cảnh, võ sĩ và voi bản này. Sửa: bảng trên vòm TRƠN không chữ; toàn bộ mái xám đá/vữa, không ngói đỏ/nâu; mái là 2 tầng chồng ngay trên thân cổng, mỗi tầng 4 mái (tổng 8), đầu đao có rồng đắp, bỏ hai chòi nhỏ trên đỉnh; võ sĩ trái cầm giáo dài, võ sĩ phải cầm đao."
+      "ve_lai_redraw7": "Giữ bố cục, tiền cảnh, võ sĩ và voi bản này. Sửa: bảng trên vòm TRƠN không chữ; toàn bộ mái xám đá/vữa, không ngói đỏ/nâu; mái là 2 tầng chồng ngay trên thân cổng, mỗi tầng 4 mái (tổng 8), đầu đao có rồng đắp, bỏ hai chòi nhỏ trên đỉnh; võ sĩ trái cầm giáo dài, võ sĩ phải cầm đao.",
+      "final5": "APPROVE (nới tiêu chí): Chấp nhận theo quyết định chủ dự án (nới tiêu chí 5 tranh cuối, 2026-09-24): tranh minh họa nghệ thuật, chấp nhận cách điệu kiến trúc, màu mái, cảnh quan, hoa lá, tỷ lệ. Trang lễ có chú thích \"Tranh minh họa của licham.app\". Chỉnh sửa: chữ Hán giả trên bảng cổng đã xóa thành bảng đá trơn."
     },
     {
       "id": "le-phat-dan",
@@ -930,16 +945,18 @@
       "subject": "26/3: cờ Đoàn, thanh niên tình nguyện, áo xanh",
       "target": "/heritage/le/thanh-lap-doan.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "cần vẽ lại (Redraw-7 không đạt, 2026-09-24); khối ảnh vẫn dùng tranh chung/ẩn",
-      "current": null,
+      "status": "đã tích hợp (Final-5 nới tiêu chí, 2026-09-24)",
+      "current": "/heritage/le/thanh-lap-doan.webp 1448×1086 250 KB",
       "priority": "P2",
-      "notes": "",
+      "notes": "Chấp nhận theo quyết định chủ dự án (nới tiêu chí 5 tranh cuối, 2026-09-24): tranh minh họa nghệ thuật, chấp nhận cách điệu kiến trúc, màu mái, cảnh quan, hoa lá, tỷ lệ. Trang lễ có chú thích \"Tranh minh họa của licham.app\". Chỉnh sửa: chữ giả quanh vành huy hiệu Đoàn trên cờ đã tô thành dải trơn màu kem.",
       "review31": "REJECT: Sai cờ Đoàn: vẽ cờ nền XANH DƯƠNG. Theo Điều lệ Đoàn, cờ Đoàn nền ĐỎ, ở giữa có Huy hiệu Đoàn (đường kính 2/5 chiều rộng cờ); huy hiệu hình tròn, nền sọc xanh lá – trắng, cánh tay nắm lá cờ đỏ sao vàng đi lên. Huy hiệu trên áo vẽ thành hình tam giác ngược — sai mẫu. Ngoài ra có thảm hoa mai vàng và cây đào (đạo cụ Tết) cho ngày 26/3. Bản ứng viên ở artwork-inbox/r31/images/heritage/le/thanh-lap-doan.webp (staging).",
       "ve_lai_review31": "Thanh niên tình nguyện áo xanh (áo Đoàn xanh dương là đúng) trồng cây, dọn vệ sinh; cờ Đoàn nền ĐỎ với huy hiệu Đoàn tròn ở giữa (cánh tay nắm cờ đỏ sao vàng, nền sọc xanh lá – trắng) — nếu không vẽ chính xác được huy hiệu thì chỉ dùng cờ đỏ sao vàng, không tự chế cờ. Huy hiệu trên áo là hình tròn nhỏ hoặc bỏ. Cuối tháng 3: hoa gạo đỏ, hoa ban trắng, lộc non; không mai, không đào.",
       "redraw9": "REJECT: Vẫn sai: (1) huy hiệu trên áo cả nhóm vẫn là tam giác ngược đỏ sao vàng — không phải huy hiệu Đoàn; (2) cành hoa đào hồng góc trái trên và hoa hồng phớt dạng đào ở tiền cảnh — đạo cụ Tết, không đúng 26/3; (3) huy hiệu trên cờ Đoàn có vành chữ giả không đọc được (chữ bịa). Cờ nền đỏ đã đúng. Bản ứng viên ở artwork-inbox/redraw9/web/public/heritage/le/thanh-lap-doan.webp (staging).",
       "ve_lai_redraw9": "Áo Đoàn xanh KHÔNG vẽ huy hiệu (hoặc huy hiệu tròn rất nhỏ, không tam giác). Cờ Đoàn nền đỏ; huy hiệu ở giữa đơn giản hóa, KHÔNG có chữ — hoặc chỉ dùng cờ đỏ sao vàng. Bỏ hết hoa đào/hoa hồng phớt; thay bằng hoa gạo đỏ, hoa ban trắng, lộc non.",
       "redraw7": "REJECT: Đã bỏ hoa đào, cờ nền đỏ đúng, huy hiệu trên áo là hình tròn nhỏ (đạt). Còn lỗi: vành huy hiệu Đoàn trên cờ có chữ giả ngoằn ngoèo quanh vòng (yêu cầu huy hiệu không chữ). Bản ứng viên ở artwork-inbox/redraw7/web/public/heritage/le/thanh-lap-doan.webp, PNG gốc artwork-inbox/redraw7/source-png/thanh-lap-doan.png (staging).",
-      "ve_lai_redraw7": "Giữ nguyên cảnh. Chỉ sửa huy hiệu trên cờ: vòng tròn trơn (sọc xanh lá – trắng, cánh tay nắm cờ đỏ sao vàng), vành ngoài KHÔNG có ký tự nào — hoặc thay bằng cờ đỏ sao vàng."
+      "ve_lai_redraw7": "Giữ nguyên cảnh. Chỉ sửa huy hiệu trên cờ: vòng tròn trơn (sọc xanh lá – trắng, cánh tay nắm cờ đỏ sao vàng), vành ngoài KHÔNG có ký tự nào — hoặc thay bằng cờ đỏ sao vàng.",
+      "batch": "Final-5",
+      "final5": "APPROVE (nới tiêu chí): Chấp nhận theo quyết định chủ dự án (nới tiêu chí 5 tranh cuối, 2026-09-24): tranh minh họa nghệ thuật, chấp nhận cách điệu kiến trúc, màu mái, cảnh quan, hoa lá, tỷ lệ. Trang lễ có chú thích \"Tranh minh họa của licham.app\". Chỉnh sửa: chữ giả quanh vành huy hiệu Đoàn trên cờ đã tô thành dải trơn màu kem."
     },
     {
       "id": "le-chien-thang-dien-bien-phu",
@@ -1044,17 +1061,19 @@
       "subject": "10/10: Cửa Ô/Hồ Gươm/Cột cờ Hà Nội, hoa cúc, cờ",
       "target": "/heritage/le/giai-phong-thu-do.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "cần vẽ lại (Redraw-7 không đạt, 2026-09-24); khối ảnh vẫn dùng tranh chung/ẩn",
-      "current": null,
+      "status": "đã tích hợp (Final-5 nới tiêu chí, 2026-09-24)",
+      "current": "/heritage/le/giai-phong-thu-do.webp 1448×1086 243 KB",
       "priority": "P2",
-      "notes": "",
+      "notes": "Chấp nhận theo quyết định chủ dự án (nới tiêu chí 5 tranh cuối, 2026-09-24): tranh minh họa nghệ thuật, chấp nhận cách điệu kiến trúc, màu mái, cảnh quan, hoa lá, tỷ lệ. Trang lễ có chú thích \"Tranh minh họa của licham.app\".",
       "independent12": "REJECT: Bịa địa lý: Cột cờ Hà Nội đặt trên cổng thành cạnh Hồ Gươm. Bản ứng viên ở artwork-inbox/indep12/ (staging).",
       "review31": "REJECT: Cổng thành vẽ như Ô Quan Chưởng nhưng sai kiến trúc: chỉ MỘT cửa vòm và tầng trên là tháp nhỏ mái cong. Ô Quan Chưởng thật có BA cửa vòm (cửa giữa cao/rộng ~3 m, hai cửa phụ 2,5 × 1,65 m), tầng trên là vọng lâu bốn mái, lan can hoa văn lục lăng/tứ giác/hoa thị, bảng 'Đông Hà Môn' (bỏ chữ). Phần bộ đội mũ lá ngụy trang, dân tặng hoa, lá vàng mùa thu, hoa cúc đạt. Bản ứng viên ở artwork-inbox/r31/images/heritage/le/giai-phong-thu-do.webp (staging).",
       "ve_lai_review31": "Giữ nguyên cảnh đoàn quân 10/10/1954 và người dân; vẽ lại cổng: Ô Quan Chưởng với ba cửa vòm cuốn (giữa lớn, hai bên nhỏ), tường gạch vồ, tầng trên vọng lâu bốn mái ngói cổ, lan can hoa văn, bảng trên cửa giữa để trơn (không chữ); đứng riêng giữa phố cổ, không Hồ Gươm/Cột cờ cạnh bên. Hoặc bỏ hẳn cổng, chỉ dùng phố cổ mái ngói và cây sấu/bàng.",
       "redraw9": "REJECT: Đã có ba cửa vòm nhưng kiến trúc vẫn sai Ô Quan Chưởng: hai cửa phụ gần cao bằng cửa giữa và nằm ở hai cánh tường dài có lan can chạy ngang phố (cổng thật là một khối gạch gọn, hai cửa phụ nhỏ 2,5 × 1,65 m sát cửa giữa); tầng trên vẫn là tháp hẹp một cửa vòm mái cong — lỗi đã nêu ở Review-31 — thay vì vọng lâu rộng bốn mái ngói cổ. Bản ứng viên ở artwork-inbox/redraw9/web/public/heritage/le/giai-phong-thu-do.webp (staging).",
       "ve_lai_redraw9": "Một khối cổng gạch vồ gọn: cửa giữa lớn, hai cửa phụ thấp nhỏ ngay sát hai bên, không có cánh tường dài; trên nóc là vọng lâu rộng gần bằng thân cổng, bốn mái ngói cổ thấp, lan can hoa văn; bảng trơn. Hoặc bỏ cổng, chỉ dùng phố cổ mái ngói, cây sấu/bàng lá vàng. Giữ nguyên đoàn quân, người dân, hoa cúc.",
       "redraw7": "REJECT: (1) Nhiều cành hoa đào hồng người dân cầm và cắm hai bên đường — đạo cụ Tết, sai mùa 10/10; góc trái trên có hoa đỏ kiểu phượng/gạo cũng không phải mùa thu. (2) Ô Quan Chưởng vẫn sai: tầng trên thành lầu hai tầng mái kiểu chùa tháp, hai cửa phụ vẫn lớn và nằm trên hai cánh tường dài có lan can chạy ngang phố. Bản ứng viên ở artwork-inbox/redraw7/web/public/heritage/le/giai-phong-thu-do.webp, PNG gốc artwork-inbox/redraw7/source-png/giai-phong-thu-do.png (staging).",
-      "ve_lai_redraw7": "Bỏ toàn bộ hoa đào và hoa đỏ; dùng hoa cúc vàng/trắng, lá vàng mùa thu (sấu, bàng) như bản Redraw-9. Cổng: một khối gạch gọn, cửa giữa lớn, hai cửa phụ thấp nhỏ sát hai bên, không cánh tường dài; vọng lâu MỘT tầng, bốn mái thấp, rộng gần bằng thân cổng. Hoặc bỏ cổng, chỉ dùng phố cổ."
+      "ve_lai_redraw7": "Bỏ toàn bộ hoa đào và hoa đỏ; dùng hoa cúc vàng/trắng, lá vàng mùa thu (sấu, bàng) như bản Redraw-9. Cổng: một khối gạch gọn, cửa giữa lớn, hai cửa phụ thấp nhỏ sát hai bên, không cánh tường dài; vọng lâu MỘT tầng, bốn mái thấp, rộng gần bằng thân cổng. Hoặc bỏ cổng, chỉ dùng phố cổ.",
+      "batch": "Final-5",
+      "final5": "APPROVE (nới tiêu chí): Chấp nhận theo quyết định chủ dự án (nới tiêu chí 5 tranh cuối, 2026-09-24): tranh minh họa nghệ thuật, chấp nhận cách điệu kiến trúc, màu mái, cảnh quan, hoa lá, tỷ lệ. Trang lễ có chú thích \"Tranh minh họa của licham.app\"."
     },
     {
       "id": "le-doanh-nhan-viet-nam",
@@ -1317,10 +1336,10 @@
       "subject": "Tranh minh họa biểu tượng/cảnh, không vẽ chân dung như ảnh thật: cố đô Hoa Lư, núi đá vôi, đền vua Đinh, cờ lau",
       "target": "/heritage/le/le-hoi-hoa-lu.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "cần vẽ lại (Redraw-7 không đạt, 2026-09-24); khối ảnh vẫn dùng tranh chung/ẩn",
-      "current": "SVG inline",
+      "status": "đã tích hợp (Final-5 nới tiêu chí, 2026-09-24)",
+      "current": "/heritage/le/le-hoi-hoa-lu.webp 1448×1086 243 KB",
       "priority": "P2",
-      "notes": "Chú thích bắt buộc: 'Tranh minh họa của licham.app' (không phải ảnh lịch sử)",
+      "notes": "Chấp nhận theo quyết định chủ dự án (nới tiêu chí 5 tranh cuối, 2026-09-24): tranh minh họa nghệ thuật, chấp nhận cách điệu kiến trúc, màu mái, cảnh quan, hoa lá, tỷ lệ. Trang lễ có chú thích \"Tranh minh họa của licham.app\".",
       "figure": "Vua Đinh Tiên Hoàng",
       "reference_to_verify": "Đại Việt sử ký toàn thư; kiến trúc/khảo cổ Hoa Lư",
       "portrait_policy": "Không tạo khuôn mặt cụ thể trình bày như xác thực; chỉ biểu tượng, cảnh, di tích",
@@ -1329,7 +1348,9 @@
       "redraw9": "REJECT: Vẫn vẽ nhà vua cận cảnh: nhân vật mặc long bào, đội mũ miện cưỡi ngựa chiếm trung tâm tranh — yêu cầu nêu rõ không vẽ vua cận cảnh (dễ đọc là chân dung vua Đinh). Câu đối/băng rôn đỏ ở nghi môn có chữ Hán giả. Mùa và thực vật (không đào/sen) đã đạt; bông lau trên cán cờ có. Bản ứng viên ở artwork-inbox/redraw9/web/public/heritage/le/le-hoi-hoa-lu.webp (staging).",
       "ve_lai_redraw9": "Không có nhân vật vua; đoàn rước kiệu và cờ lau nhìn từ xa/từ sau lưng, nhân vật nhỏ; trẻ em cầm bông lau trắng. Băng rôn, câu đối để trơn không chữ. Giữ núi đá vôi, nghi môn đền vua Đinh, trống hội, lúa xanh, hoa gạo.",
       "redraw7": "REJECT: Lặp lại lỗi Review-31: cành hoa đào hồng lớn góc trái trên và cây đào sau nghi môn cùng lúc với đầm sen nở rộ ở tiền cảnh — sai mùa tháng 3 âm. Trong kiệu có nhân vật ngồi mặc áo đỏ đội mũ (đọc như nhà vua). Lọng vàng có hoa văn dạng chữ giả. Không thấy cờ lau/bông lau. Bản ứng viên ở artwork-inbox/redraw7/web/public/heritage/le/le-hoi-hoa-lu.webp, PNG gốc artwork-inbox/redraw7/source-png/le-hoi-hoa-lu.png (staging).",
-      "ve_lai_redraw7": "Không hoa đào, không sen nở — dùng hoa gạo đỏ, lúa xanh, cỏ non. Kiệu rước để trống hoặc chỉ có bài vị/long ngai phủ khăn, không có người ngồi. Thêm trẻ em cầm bông lau trắng (tích cờ lau). Lọng, cờ không hoa văn dạng chữ."
+      "ve_lai_redraw7": "Không hoa đào, không sen nở — dùng hoa gạo đỏ, lúa xanh, cỏ non. Kiệu rước để trống hoặc chỉ có bài vị/long ngai phủ khăn, không có người ngồi. Thêm trẻ em cầm bông lau trắng (tích cờ lau). Lọng, cờ không hoa văn dạng chữ.",
+      "batch": "Final-5",
+      "final5": "APPROVE (nới tiêu chí): Chấp nhận theo quyết định chủ dự án (nới tiêu chí 5 tranh cuối, 2026-09-24): tranh minh họa nghệ thuật, chấp nhận cách điệu kiến trúc, màu mái, cảnh quan, hoa lá, tỷ lệ. Trang lễ có chú thích \"Tranh minh họa của licham.app\"."
     },
     {
       "id": "le-gio-le-dai-hanh",
@@ -1432,10 +1453,10 @@
       "subject": "Tranh minh họa biểu tượng/cảnh, không vẽ chân dung như ảnh thật: Lam Sơn, kiếm, hồ Hoàn Kiếm truyền thuyết, cờ nghĩa",
       "target": "/heritage/le/gio-le-loi.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "cần vẽ lại (Redraw-7 không đạt, 2026-09-24); khối ảnh vẫn dùng tranh chung/ẩn",
-      "current": "SVG inline",
+      "status": "đã tích hợp (Final-5 nới tiêu chí, 2026-09-24)",
+      "current": "/heritage/le/gio-le-loi.webp 1448×1086 245 KB",
       "priority": "P2",
-      "notes": "Chú thích bắt buộc: 'Tranh minh họa của licham.app' (không phải ảnh lịch sử)",
+      "notes": "Chấp nhận theo quyết định chủ dự án (nới tiêu chí 5 tranh cuối, 2026-09-24): tranh minh họa nghệ thuật, chấp nhận cách điệu kiến trúc, màu mái, cảnh quan, hoa lá, tỷ lệ. Trang lễ có chú thích \"Tranh minh họa của licham.app\".",
       "figure": "Vua Lê Thái Tổ (Lê Lợi)",
       "reference_to_verify": "Đại Việt sử ký toàn thư; Lam Sơn thực lục; di tích Lam Kinh",
       "portrait_policy": "Không tạo khuôn mặt cụ thể trình bày như xác thực; chỉ biểu tượng, cảnh, di tích",
@@ -1445,7 +1466,9 @@
       "redraw9": "REJECT: Sai niên đại và bối cảnh: bờ hồ xa có dãy nhà khối nhiều tầng hiện đại (thế kỷ 15 không có); lầu gác mái cong kiểu Trung Hoa; lá phong đỏ (không phải cây Việt Nam đồng bằng); gươm đặt trên án thờ bên bờ chứ không phải cảnh Rùa Vàng ngậm gươm, không có thuyền rồng. Rùa đầu rùa, không núi, không Tháp Rùa, không bánh chưng — đạt. Bản ứng viên ở artwork-inbox/redraw9/web/public/heritage/le/gio-le-loi.webp (staging).",
       "ve_lai_redraw9": "Cảnh trả gươm: vua trên thuyền rồng nhỏ giữa hồ (nhìn từ xa, không cận mặt), Rùa Vàng đầu rùa ngậm gươm nổi lên; bờ hồ phẳng chỉ có cây đa/liễu/gạo và mái đình thấp mái ngói Việt, KHÔNG nhà nhiều tầng, không lầu kiểu Trung Hoa; lá vàng mùa thu của cây Việt (bàng, sấu), không lá phong.",
       "redraw7": "REJECT: Đã đúng cảnh trả gươm (Rùa Vàng đầu rùa ngậm gươm, vua trên thuyền nhỏ, không công trình hiện đại). Còn lỗi: (1) hồ bao quanh bởi đồi núi đá dựng đứng — hồ Tả Vọng nằm giữa đồng bằng Thăng Long, lỗi đã nêu ở Review-31; (2) cây tiền cảnh vẫn là lá phong đỏ/cam. Bản ứng viên ở artwork-inbox/redraw7/web/public/heritage/le/gio-le-loi.webp, PNG gốc artwork-inbox/redraw7/source-png/gio-le-loi.png (staging).",
-      "ve_lai_redraw7": "Giữ nguyên thuyền, vua, Rùa Vàng ngậm gươm. Nền: bờ hồ phẳng, chỉ hàng cây và mái đình thấp mờ trong sương, KHÔNG đồi núi. Cây tiền cảnh đổi sang cây Việt (bàng lá đỏ, sấu, liễu, gạo), không lá phong."
+      "ve_lai_redraw7": "Giữ nguyên thuyền, vua, Rùa Vàng ngậm gươm. Nền: bờ hồ phẳng, chỉ hàng cây và mái đình thấp mờ trong sương, KHÔNG đồi núi. Cây tiền cảnh đổi sang cây Việt (bàng lá đỏ, sấu, liễu, gạo), không lá phong.",
+      "batch": "Final-5",
+      "final5": "APPROVE (nới tiêu chí): Chấp nhận theo quyết định chủ dự án (nới tiêu chí 5 tranh cuối, 2026-09-24): tranh minh họa nghệ thuật, chấp nhận cách điệu kiến trúc, màu mái, cảnh quan, hoa lá, tỷ lệ. Trang lễ có chú thích \"Tranh minh họa của licham.app\"."
     },
     {
       "id": "le-gio-nguyen-trung-truc",
