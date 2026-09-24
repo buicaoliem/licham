@@ -10,6 +10,7 @@
     "check:routes": "node scripts/check-routes.mjs",
     "generate:tu-vi": "node --experimental-strip-types --experimental-loader ../core/scripts/ts-extension-loader.mjs scripts/generate-tu-vi.ts",
     "tu-vi:e2e": "node --experimental-strip-types --experimental-loader ../core/scripts/ts-extension-loader.mjs scripts/tu-vi-e2e.ts",
+    "export:la-so-fixtures": "node --experimental-strip-types --experimental-loader ./scripts/ts-web-loader.mjs scripts/export-la-so-fixtures.ts",
     "generate:sitemap": "node --experimental-strip-types --experimental-loader ./scripts/ts-web-loader.mjs scripts/generate-sitemap.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
@@ -20,6 +21,7 @@
   },
   "dependencies": {
     "@licham/core": "workspace:*",
+    "astronomy-engine": "2.1.19",
     "next": "15.5.25",
     "react": "19.1.9",
     "react-dom": "19.1.9"
@@ -30,8 +32,10 @@
     "@types/node": "20.17.6",
     "@types/react": "^19.1.9",
     "@types/react-dom": "^19.1.9",
+    "circular-natal-horoscope-js": "1.1.0",
     "eslint": "^9.39.5",
     "eslint-config-next": "15.5.25",
+    "iztro": "2.6.1",
     "tailwindcss": "^4.3.3",
     "typescript": "^5.7.3",
     "vitest": "^5.0.0"
