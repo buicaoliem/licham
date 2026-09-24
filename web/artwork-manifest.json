@@ -1602,5 +1602,40 @@
       }
     },
     "tong_ket": "22/24 nhân vật có ảnh (16 tranh trang lễ + ảnh thật Hồ Chí Minh + 5 tranh mới); 2 dùng biểu tượng SVG: mai-hac-de (tranh gửi sai sự kiện), ly-thuong-kiet (gói không có tranh)."
+  },
+  "tiet_khi": {
+    "updated": "2026-09-24",
+    "nguon": "artwork-inbox/licham-24-tiet-khi-batch1-review.zip → artwork-inbox/tk1/ (10 PNG 1448×1086, SHA-256 khớp)",
+    "hien_thi": "Tab \"Tiết khí\" trên /le/: thẻ 4:3 có tranh; tiết chưa có tranh hiện ô màu theo mùa. Mapping: tietKhiSlug()/tietKhiImage() trong web/lib/heritage-assets.ts.",
+    "da_tich_hop": {
+      "lap-xuan": "/heritage/tiet-khi/lap-xuan.webp 238 KB",
+      "vu-thuy": "/heritage/tiet-khi/vu-thuy.webp 239 KB",
+      "kinh-trap": "/heritage/tiet-khi/kinh-trap.webp 239 KB",
+      "xuan-phan": "/heritage/tiet-khi/xuan-phan.webp 237 KB",
+      "thanh-minh": "/heritage/tiet-khi/thanh-minh.webp 237 KB",
+      "coc-vu": "/heritage/tiet-khi/coc-vu.webp 237 KB",
+      "lap-ha": "/heritage/tiet-khi/lap-ha.webp 236 KB",
+      "tieu-man": "/heritage/tiet-khi/tieu-man.webp 237 KB",
+      "mang-chung": "/heritage/tiet-khi/mang-chung.webp 234 KB",
+      "ha-chi": "/heritage/tiet-khi/ha-chi.webp 238 KB"
+    },
+    "loai": [],
+    "con_thieu": [
+      "tieu-thu",
+      "dai-thu",
+      "lap-thu",
+      "xu-thu",
+      "bach-lo",
+      "thu-phan",
+      "han-lo",
+      "suong-giang",
+      "lap-dong",
+      "tieu-tuyet",
+      "dai-tuyet",
+      "dong-chi",
+      "tieu-han",
+      "dai-han"
+    ],
+    "tong": "10/24"
   }
 }

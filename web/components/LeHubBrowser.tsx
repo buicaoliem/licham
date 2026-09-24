@@ -224,12 +224,17 @@ export function LeHubBrowser({ items, tietKhi, tietKhiYear, featured, featuredNo
             <ol className="le-tk-grid">
               {tietKhiLoc.map((t) => (
                 <li key={t.name} className={t.daysLeft < 0 ? "qua" : tietKhiKe && t.name === tietKhiKe.name ? "ke" : undefined}>
-                  <Link href={dayHref(t)}>
-                    <b>{t.name}</b>
-                    <span>
-                      {String(t.day).padStart(2, "0")}/{String(t.month).padStart(2, "0")}
+                  <Link href={dayHref(t)} className={`m-${t.mua}`}>
+                    <span className="le-tk-pic" aria-hidden="true">
+                      {t.img ? <img src={t.img} alt="" loading="lazy" decoding="async" width={1448} height={1086} /> : <Icon name="sun" size={22} />}
                     </span>
-                    <small>{t.longitude}°</small>
+                    <span className="le-tk-t">
+                      <b>{t.name}</b>
+                      <span>
+                        {String(t.day).padStart(2, "0")}/{String(t.month).padStart(2, "0")}
+                      </span>
+                      <small>{t.longitude}°</small>
+                    </span>
                   </Link>
                 </li>
               ))}
