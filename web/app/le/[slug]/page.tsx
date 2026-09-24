@@ -280,7 +280,7 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
               </div>
             </div>
 
-            <div className="le-hero-art" aria-hidden={art?.kind === "photo" || tranhLichSu ? undefined : true}>
+            <div className={tranhLichSu ? "le-hero-art has-note" : "le-hero-art"} aria-hidden={art?.kind === "photo" || tranhLichSu ? undefined : true}>
               {art?.kind === "img" && <HeritageImage src={art.src} alt="" />}
               {tranhLichSu && <span className="le-art-note">Tranh minh họa của licham.app, không phải chân dung hay tư liệu lịch sử</span>}
               {art?.kind === "photo" && (
