@@ -55,7 +55,7 @@ Theo hệ thống Thái Thứ Lang (*Tử Vi Đẩu Số Tân Biên*, 1956). Kh�
 
 | Hạng mục | Nguồn đối chiếu | Kết quả |
 | --- | --- | --- |
-| An sao Tử Vi (mọi sao cùng quy tắc) | iztro 2.6.1 (MIT) — đưa thẳng ngày âm vào `byLunar` để tách khỏi khác biệt lịch VN/TQ | 300 lá số ngẫu nhiên + quét 60 hoa giáp × 12 tháng + 200 năm xem hạn trong bộ test thường; bản đầy đủ `TUVI_FULL=1` (5.000 ngẫu nhiên, 25.920 lá số quét, 2.000 năm xem): xem báo cáo bàn giao |
+| An sao Tử Vi (mọi sao cùng quy tắc) | iztro 2.6.1 (MIT) — đưa thẳng ngày âm vào `byLunar` để tách khỏi khác biệt lịch VN/TQ | 300 lá số ngẫu nhiên + quét 60 hoa giáp × 12 tháng + 200 năm xem hạn trong bộ test thường; bản đầy đủ `TUVI_FULL=1` (5.000 ngẫu nhiên, 25.920 lá số quét 60 hoa giáp × 12 tháng × 12 giờ × ngày 1/15/29, 2.000 năm xem hạn) chạy 24/9/2026: 12/12 test đạt, 0 sai lệch (28,6 phút) |
 | Quy tắc Nam phái khác biệt | bảng tay trong `engine.test.ts` | khớp |
 | Mặt Trời, Mặt Trăng, Sao Kim, GAST | Meeus, *Astronomical Algorithms* ví dụ 25.b, 47.a, 33.a, 12.a | ≤ 0,001–0,005° |
 | 10 hành tinh, ASC, MC, Nút TB | circular-natal-horoscope-js 1.1.0 (Moshier) — 300 bản đồ 1900–2100 | ≤ 0,02° (Mặt Trăng sau 2050 ≤ 0,05° do ΔT; ASC/MC ≤ 0,05°) |
