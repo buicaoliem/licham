@@ -2,7 +2,9 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import type { CalendarDay } from "@/lib/calendar/calendar-day";
 import { ShareButton } from "@/components/ShareButton";
+import { HeritageImage } from "@/components/heritage/HeritageImage";
 import { Icon } from "@/components/heritage/Icon";
+import { HERITAGE_SLOTS, heritageSlot } from "@/lib/heritage-assets";
 import { dayHref, monthHref } from "@/lib/calendar/urls";
 import { pad2 } from "@/lib/format";
 import { buildShareUrl } from "@/lib/share";
@@ -30,9 +32,16 @@ export function CalendarDayHero({
   const t = day.solarTerm;
   return (
     <section className="ld-hero" aria-labelledby="ld-h1">
-      <h1 className="ch-h1 ld-h1" id="ld-h1">
-        {title}
-      </h1>
+      <div className={heritageSlot("heroLichNgay") ? "ld-head has-art" : "ld-head"}>
+        <h1 className="ch-h1 ld-h1" id="ld-h1">
+          {title}
+        </h1>
+        {heritageSlot("heroLichNgay") && (
+          <div className="ld-head-art" aria-hidden="true">
+            <HeritageImage src={HERITAGE_SLOTS.heroLichNgay.path} eager />
+          </div>
+        )}
+      </div>
       <div className="ld-hero-grid">
         <div className="ld-hero-card">
           <div className="ld-leaf">

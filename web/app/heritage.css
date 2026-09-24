@@ -1364,15 +1364,12 @@ a.ch-tile:hover {
   -webkit-mask-composite: source-in;
   mask-composite: intersect;
 }
-/* Asset hero/van-khan.webp (1200×560) còn viền mờ của bảng gốc: ~68px trên, ~68px dưới, ~10px trái.
-   Phóng khung ảnh cao hơn khung nhìn 1.32 lần (560/424), canh giữa theo chiều dọc để giấu đúng hai dải viền. */
+/* Asset hero/van-khan.webp (Review-31, 1200×460): mép sạch, nội dung (đình, tùng, sen) dồn sang phải — phủ kín khung, canh phải. */
 .vk-index-hero.has-art .ch-hero-art img {
   position: absolute;
-  top: 50%;
-  left: -1%;
-  width: 101%;
-  height: 132.1%;
-  transform: translateY(-50%);
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: 100% 50%;
   -webkit-mask-image: none;
@@ -2540,7 +2537,7 @@ a.ch-tile:hover {
   }
   .vk-index-hero.has-art .ch-hero-art img {
     border-radius: 0;
-    object-position: 50% 50%;
+    object-position: 88% 50%;
   }
   .vk-tabs {
     display: flex;
@@ -8503,6 +8500,41 @@ a.ly-cell:hover {
 .ch-lich .ld-h1 {
   margin-bottom: 16px;
   font-size: clamp(26px, 2.5vw, 34px);
+}
+/* Dải tiêu đề: tranh hero nhẹ bên phải (nội dung tranh dồn phải), không đẩy nội dung xuống nhiều. */
+.ld-head.has-art {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 520px);
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+.ld-head.has-art .ld-h1 {
+  margin-bottom: 0;
+}
+.ld-head-art img {
+  display: block;
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  object-position: 100% 12%;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 30%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 30%);
+}
+@media (max-width: 759px) {
+  .ld-head.has-art {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+  .ld-head-art {
+    order: -1;
+  }
+  .ld-head-art img {
+    height: 110px;
+    border-radius: 12px;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
 }
 .ld-hero-grid {
   display: grid;

@@ -15,6 +15,7 @@ export const HERITAGE_SLOTS = {
   heroLe: { path: "/heritage/hero/le.webp", spec: "Hero danh mục Ngày lễ & tiết khí (đèn lồng, sen, núi), ~1200×460, mờ dần sang trái" },
   heroLichThang: { path: "/heritage/hero/lich-thang.webp", spec: "Hero lịch tháng (trăng khuyết, hoa, ink-wash), dùng chung mọi tháng, ~1200×460, mờ dần sang trái" },
   heroLichNam: { path: "/heritage/hero/lich-nam.webp", spec: "Hero lịch năm (vòng thời gian, mặt trời đỏ, ink-wash), ~1200×460, mờ dần sang trái" },
+  heroLichNgay: { path: "/heritage/hero/lich-ngay.webp", spec: "Hero chi tiết ngày (tờ lịch bóc, mặt trời – trăng, ink-wash), dùng quanh năm, ~1200×460, nội dung dồn phải" },
   scriptureCorner: { path: "/heritage/decor/scripture-corner.svg", spec: "Họa tiết góc khung bài khấn, SVG" },
 } as const;
 
@@ -52,7 +53,7 @@ export function vanKhanImage(slug: string, nhom: string): string | null {
 
 /**
  * Tranh con giáp cần thay. Batch B (2026-09-24) đã thay sáu tranh riêng (Sửu, Dần, Mão, Thìn, Tỵ, Dậu, 1024×1024)
- * và bỏ clip-path che bleed; sáu tranh còn lại (Tý, Ngọ, Mùi, Thân, Tuất, Hợi) vẫn là bản tách 800×800, sạch mép, chưa cần thay gấp.
+ * và bỏ clip-path che bleed; Review-31 thay nốt sáu tranh còn lại (Tý, Ngọ, Mùi, Thân, Tuất, Hợi) cùng bộ 1024×1024.
  */
 export const CON_GIAP_CAN_THAY: readonly string[] = [];
 
@@ -61,7 +62,7 @@ export function conGiapImagePath(chiSlug: string): string {
 }
 
 /**
- * Tranh cho trang lễ: ưu tiên tranh riêng /heritage/le/<slug>.webp (Batch A: 9 lễ, Batch D: 8 lễ, Review-33: 13 lễ; Giỗ Tổ Hùng Vương đang giữ lại
+ * Tranh cho trang lễ: ưu tiên tranh riêng /heritage/le/<slug>.webp (Batch A: 9 lễ, Batch D: 8 lễ, Review-33: 13 lễ, Independent-12: 6 lễ, Review-31: 14 lễ; Giỗ Tổ Hùng Vương đang giữ lại
  * chờ đối chiếu kiến trúc Đền Hùng nên vẫn dùng tranh chung); nếu chưa có thì
  * dùng lại tranh heritage sẵn có khi cảnh trong tranh đúng với lễ (bàn thờ ngày Tết, sen, mâm cúng rằm,
  * đình chùa, bàn thờ trong nhà). Lễ không có tranh phù hợp thì trả null — không dùng tranh thay thế.
@@ -82,7 +83,7 @@ const LE_TRANH_CHUNG: Record<string, string> = {
 };
 
 /** Lễ ngoài nhóm anh hùng có tranh riêng tái hiện sự kiện lịch sử — trang lễ ghi chú thích "Tranh minh họa". */
-export const LE_TRANH_LICH_SU: ReadonlySet<string> = new Set(["chien-thang-dien-bien-phu"]);
+export const LE_TRANH_LICH_SU: ReadonlySet<string> = new Set(["chien-thang-dien-bien-phu", "cach-mang-thang-tam"]);
 
 export function leImagePath(slug: string): string {
   return `/heritage/le/${slug}.webp`;
