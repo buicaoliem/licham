@@ -157,7 +157,7 @@ export function Wheel({ chart, selected, onSelect }: { chart: Chart; selected: P
           >
             <line x1={m0x} y1={m0y} x2={m1x} y2={m1y} className="ct-mark" />
             <line x1={k0x} y1={k0y} x2={polar(R_SIGN, real)[0]} y2={polar(R_SIGN, real)[1]} className="ct-mark" />
-            <circle cx={gx} cy={gy} r={17} className="ct-pt-bg" />
+            <circle cx={gx} cy={gy} r={21} className="ct-pt-bg" />
             <text x={gx} y={gy} className="ct-pt-g" dominantBaseline="central" textAnchor="middle">
               {info.symbol}
             </text>

@@ -10,7 +10,7 @@ import { describe, expect, it } from "vitest";
 import { AstroTime, SiderealTime } from "astronomy-engine";
 import { PLACES } from "@/lib/birth/places";
 import { resolveBirthTime } from "@/lib/birth/time";
-import { angleDiff, ascendant, computeChart, eclipticOfDate, findAspects, houseOf, meanNodeLongitude, midheaven, PLANETS, placidusCusps } from "./engine";
+import { angleDiff, ascendant, computeChart, eclipticOfDate, findAspects, houseOf, meanNodeLongitude, midheaven, PLANETS, placidusCusps, signChangesBetween } from "./engine";
 
 const require = createRequire(import.meta.url);
 const { Origin, Horoscope } = require("circular-natal-horoscope-js");
@@ -218,5 +218,48 @@ describe("thời điểm sinh theo nơi sinh", () => {
     const c = computeChart({ utcMs: Date.UTC(2024, 2, 20, 3, 6), lat: 0, lon: 0, houseSystem: "equal", timeKnown: true });
     const sun = c.points.find((p) => p.id === "sun")!;
     expect(Math.abs(angleDiff(sun.lon, 0))).toBeLessThan(0.01);
+  });
+});
+
+describe("regression Phase 9 rà soát", () => {
+  const DEG = Math.PI / 180;
+  it("Ascendant luôn là giao điểm phía ĐÔNG (đang mọc), kể cả trong vòng cực", () => {
+    const bad: string[] = [];
+    for (const phi of [-89.9, -80, -70, -66.6, -45, 0, 45, 66.6, 70, 80, 89.9])
+      for (let ramc = 0; ramc < 360; ramc += 2.5) {
+        const eps = 23.44;
+        const a = ascendant(ramc, eps, phi);
+        const dec = Math.asin(Math.sin(eps * DEG) * Math.sin(a * DEG));
+        const ra = Math.atan2(Math.sin(a * DEG) * Math.cos(eps * DEG), Math.cos(a * DEG));
+        const H = ramc * DEG - ra;
+        const alt = Math.asin(Math.sin(phi * DEG) * Math.sin(dec) + Math.cos(phi * DEG) * Math.cos(dec) * Math.cos(H)) / DEG;
+        if (Math.abs(alt) > 1e-6 || Math.sin(H) >= 0) bad.push(`${phi} ${ramc}`);
+      }
+    expect(bad).toEqual([]);
+  });
+
+  it("vĩ độ sát cực (> 89,9°) báo lỗi khi có giờ sinh; vòng cực có cảnh báo", () => {
+    expect(() => computeChart({ utcMs: Date.UTC(2000, 5, 1, 12), lat: 90, lon: 0, houseSystem: "whole-sign", timeKnown: true })).toThrow(/sát cực/);
+    expect(() => computeChart({ utcMs: Date.UTC(2000, 5, 1, 12), lat: 90, lon: 0, houseSystem: "whole-sign", timeKnown: false })).not.toThrow();
+    const c = computeChart({ utcMs: Date.UTC(2000, 5, 1, 12), lat: 78.2, lon: 15.6, houseSystem: "whole-sign", timeKnown: true });
+    expect(c.polarNote).toMatch(/vòng cực/);
+    expect(computeChart({ utcMs: Date.UTC(2000, 5, 1, 12), lat: 60, lon: 0, houseSystem: "whole-sign", timeKnown: true }).polarNote).toBeUndefined();
+  });
+
+  it("xích đạo và Nam bán cầu: Placidus xác định, nhà 1 = ASC", () => {
+    for (const lat of [0, -33.87, -55]) {
+      const c = computeChart({ utcMs: Date.UTC(1999, 8, 9, 9, 9), lat, lon: 151.2, houseSystem: "placidus", timeKnown: true });
+      expect(c.houseSystemUsed).toBe("placidus");
+      expect(c.cusps![0]).toBeCloseTo(c.asc!, 9);
+    }
+  });
+
+  it("không rõ giờ sinh: báo Mặt Trời đổi cung trong ngày Xuân phân 20/3/2024 (giờ Hà Nội)", () => {
+    const start = Date.UTC(2024, 2, 19, 17, 0); // 00:00 20/3 giờ +7
+    const end = Date.UTC(2024, 2, 20, 16, 59);
+    const ch = signChangesBetween(start, end);
+    expect(ch.find((c) => c.id === "sun")).toEqual({ id: "sun", from: 11, to: 0 });
+    // Ngày bình thường giữa cung: Mặt Trời không đổi.
+    expect(signChangesBetween(Date.UTC(2024, 4, 9, 17), Date.UTC(2024, 4, 10, 16, 59)).find((c) => c.id === "sun")).toBeUndefined();
   });
 });

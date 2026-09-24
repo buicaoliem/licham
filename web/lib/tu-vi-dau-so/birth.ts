@@ -5,7 +5,8 @@
  *  1. Giờ đồng hồ tại nơi sinh được đổi ra UTC theo dữ liệu múi giờ IANA (xem lib/birth/time.ts).
  *  2. Sinh ở Việt Nam: quy về giờ chuẩn UTC+7 — múi giờ mà lịch âm Việt Nam dùng. Vì vậy người sinh ở miền Nam
  *     1960–13/6/1975 (đồng hồ UTC+8) được lùi 1 giờ; sinh ở miền Bắc cùng thời kỳ giữ nguyên.
- *     Sinh ở nước ngoài: dùng giờ chuẩn địa phương (bỏ giờ mùa hè), ngày âm lịch vẫn tra theo lịch Việt Nam.
+ *     Sinh ở nước ngoài: mặc định dùng giờ chuẩn địa phương (trừ giờ mùa hè, có báo), người dùng có thể chọn giữ
+ *     giờ đồng hồ; ngày âm lịch vẫn tra theo lịch Việt Nam. Người dùng cũng có thể tự chọn múi giờ lúc sinh.
  *  3. Canh giờ: Tý 23:00–00:59, Sửu 01:00–02:59 … Hợi 21:00–22:59.
  *     Sinh từ 23:00 trở đi thuộc giờ Tý của NGÀY HÔM SAU (ngày âm lịch cũng sang ngày mới).
  *  4. Năm tính từ Tết Nguyên đán (không lấy tiết Lập Xuân).
@@ -27,6 +28,10 @@ export interface TuViBirthInput {
   minute: number;
   place: BirthPlaceTz;
   gioiTinh: GioiTinh;
+  /** Sinh ở nước ngoài trong giờ mùa hè: "bo" = trừ về giờ chuẩn địa phương (mặc định), "giu" = giữ giờ đồng hồ. */
+  gioMuaHe?: "bo" | "giu";
+  /** Độ lệch múi giờ do người dùng chọn (phút) thay cho dữ liệu múi giờ tự động. */
+  overrideOffsetMinutes?: number;
 }
 
 export interface NgaySinhChuanHoa {
@@ -40,6 +45,8 @@ export interface NgaySinhChuanHoa {
   resolved: ResolvedBirthTime;
   /** Các điều chỉnh đã áp dụng, để hiển thị cho người dùng. */
   ghiChu: string[];
+  /** Quy ước đang áp dụng cho lá số này (hiển thị trên trang). */
+  quyUoc: { ten: string; giaTri: string }[];
 }
 
 function addDays(d: SolarDate, n: number): SolarDate {
@@ -79,18 +86,25 @@ export function chuanHoaNgaySinh(input: TuViBirthInput): NgaySinhChuanHoa {
     civil = { year: input.year, month: input.month, day: input.day };
   }
 
-  const resolved = resolveBirthTime({ ...civil, hour, minute }, input.place);
+  const resolved = resolveBirthTime({ ...civil, hour, minute }, input.place, { overrideOffsetMinutes: input.overrideOffsetMinutes });
   if (resolved.status === "gap") ghiChu.push("Giờ đã nhập không tồn tại ở nơi sinh (đúng lúc chuyển sang giờ mùa hè); đã tính theo độ lệch trước khi chuyển.");
   if (resolved.status === "ambiguous") ghiChu.push("Giờ đã nhập lặp hai lần ở nơi sinh (lúc lùi đồng hồ); đã chọn lần thứ nhất, còn giờ mùa hè.");
 
   const inVietnam = input.place.country === "VN";
-  const offset = inVietnam ? 420 : resolved.standardOffsetMinutes;
+  const giuDst = input.gioMuaHe === "giu";
+  const offset = inVietnam ? 420 : giuDst ? resolved.offsetMinutes : resolved.standardOffsetMinutes;
   if (inVietnam && Math.abs(resolved.offsetMinutes - 420) > 1 / 60) {
     ghiChu.push(`Đồng hồ ở nơi sinh khi đó theo UTC${formatOffset(resolved.offsetMinutes)}; đã quy về giờ chuẩn Việt Nam UTC+07:00 để an sao.`);
   }
   if (resolved.northVietnamAdjusted) ghiChu.push("Sinh ở miền Bắc giai đoạn 1960–1975: dùng UTC+07:00 (miền Nam khi đó dùng UTC+08:00).");
+  if (resolved.manualOffset) ghiChu.push(`Giờ đồng hồ được tính theo múi giờ bạn chọn: UTC${formatOffset(resolved.offsetMinutes)}.`);
+  if (resolved.historical && !resolved.manualOffset) ghiChu.push(resolved.historical.note);
   if (!inVietnam && resolved.dstMinutes !== 0) {
-    ghiChu.push(`Đã bỏ ${resolved.dstMinutes} phút giờ mùa hè, dùng giờ chuẩn địa phương UTC${formatOffset(offset)}.`);
+    ghiChu.push(
+      giuDst
+        ? `Nơi sinh đang dùng giờ mùa hè (+${resolved.dstMinutes} phút); theo lựa chọn của bạn, giữ nguyên giờ đồng hồ UTC${formatOffset(offset)}.`
+        : `Nơi sinh đang dùng giờ mùa hè: đã trừ ${resolved.dstMinutes} phút, an sao theo giờ chuẩn địa phương UTC${formatOffset(offset)}. Có thể chọn giữ nguyên giờ đồng hồ.`,
+    );
   }
 
   const t = utcToOffset(resolved.utcMs, offset);
@@ -108,7 +122,25 @@ export function chuanHoaNgaySinh(input: TuViBirthInput): NgaySinhChuanHoa {
   }
   if (l.isLeapMonth) ghiChu.push(`Sinh tháng ${l.month} nhuận: an sao như tháng ${l.month} (quy ước Nam phái phổ biến).`);
 
+  const quyUoc = [
+    { ten: "Trường phái", giaTri: "Nam phái (Thái Thứ Lang)" },
+    {
+      ten: "Giờ dùng để an sao",
+      giaTri: inVietnam
+        ? `Giờ chuẩn Việt Nam UTC+07:00${Math.abs(resolved.offsetMinutes - 420) > 1 / 60 ? ` (đồng hồ khi đó UTC${formatOffset(resolved.offsetMinutes)})` : ""}`
+        : giuDst
+          ? `Giờ đồng hồ tại nơi sinh UTC${formatOffset(offset)}`
+          : `Giờ chuẩn địa phương UTC${formatOffset(offset)}${resolved.dstMinutes ? " (đã trừ giờ mùa hè)" : ""}`,
+    },
+    { ten: "Múi giờ lúc sinh", giaTri: resolved.manualOffset ? `Tự chọn UTC${formatOffset(resolved.offsetMinutes)}` : `Tự động theo dữ liệu múi giờ (${input.place.tz})` },
+    { ten: "Giờ Tý", giaTri: "23:00–00:59; từ 23:00 tính sang ngày hôm sau" },
+    { ten: "Tháng nhuận", giaTri: "An như tháng chính" + (l.isLeapMonth ? ` (lá số này sinh tháng ${l.month} nhuận)` : "") },
+    { ten: "Năm", giaTri: "Tính từ Tết Nguyên đán (không từ Lập Xuân)" },
+    { ten: "Lịch âm", giaTri: inVietnam ? "Lịch Việt Nam (UTC+7)" : "Lịch Việt Nam (UTC+7), tra theo ngày giờ chuẩn tại nơi sinh" },
+  ];
+
   return {
+    quyUoc,
     lunar: { year: l.year, month: l.month, day: l.day, isLeapMonth: l.isLeapMonth, hourChi },
     solarCivil: civil,
     gioTuVi: { year: t.year, month: t.month, day: t.day, hour: t.hour, minute: t.minute, offsetMinutes: offset },

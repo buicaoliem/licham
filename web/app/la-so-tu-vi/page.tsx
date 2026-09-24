@@ -27,6 +27,10 @@ const FAQ = [
     a: "Có. Từ 1/1/1960 đến 13/6/1975 đồng hồ ở miền Nam chạy theo UTC+8, nhanh hơn giờ chuẩn Việt Nam 1 tiếng. Lá số tự quy về UTC+7 khi bạn chọn nơi sinh ở miền Nam; miền Bắc cùng thời kỳ giữ nguyên.",
   },
   {
+    q: "Sinh ở nước ngoài vào mùa hè thì tính giờ thế nào?",
+    a: "Mặc định trừ phần giờ mùa hè để an sao theo giờ chuẩn địa phương — cách thường dùng vì canh giờ gắn với vị trí Mặt Trời. Trang luôn ghi rõ đã trừ bao nhiêu phút, và bạn có thể chọn giữ nguyên giờ đồng hồ trong mục Múi giờ lúc sinh.",
+  },
+  {
     q: "Sinh tháng nhuận an sao thế nào?",
     a: "An như tháng chính (sinh tháng 4 nhuận an như tháng 4). Đây là cách phổ biến; một số sách chia đôi tháng nhuận ở ngày 15 — trang không trộn cách này.",
   },
@@ -65,7 +69,8 @@ export default function LaSoTuViPage() {
               <h3>Ngày giờ sinh</h3>
               <ul>
                 <li>Giờ đồng hồ tại nơi sinh được đổi theo dữ liệu múi giờ IANA (gồm lịch sử múi giờ Việt Nam 1906–1975 và giờ mùa hè ở nước ngoài).</li>
-                <li>Sinh ở Việt Nam: quy về giờ chuẩn UTC+7. Sinh ở nước ngoài: giờ chuẩn địa phương, bỏ giờ mùa hè.</li>
+                <li>Sinh ở Việt Nam: quy về giờ chuẩn UTC+7. Giai đoạn 1/4/1947–1/7/1955 có hai múi giờ (vùng Pháp UTC+8, vùng kháng chiến UTC+7): mặc định UTC+8, trang báo rõ và cho tính lại theo UTC+7.</li>
+                <li>Sinh ở nước ngoài: mặc định trừ giờ mùa hè về giờ chuẩn địa phương (có ghi chú); có thể chọn giữ nguyên giờ đồng hồ. Có thể tự chọn múi giờ lúc sinh.</li>
                 <li>Canh giờ: Tý 23:00–00:59 … Hợi 21:00–22:59. Từ 23:00 tính sang ngày hôm sau.</li>
                 <li>Ngày âm lịch theo lịch Việt Nam (thuật toán Hồ Ngọc Đức, UTC+7). Năm tính từ Tết, không từ Lập Xuân.</li>
                 <li>Tháng nhuận an như tháng chính. Không hiệu chỉnh giờ mặt trời thực.</li>

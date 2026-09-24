@@ -27,6 +27,7 @@ interface Result {
 }
 
 const pad = (n: number) => String(n).padStart(2, "0");
+const CHI_TEN = ["Tý", "Sửu", "Dần", "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi", "Thân", "Dậu", "Tuất", "Hợi"];
 
 export function LaSoApp({ namHienTai }: { namHienTai: number }) {
   const [form, setForm] = useState<FormState>({ ...DEFAULT_BIRTH, hoTen: "", gioiTinh: "nam", namXem: String(namHienTai) });
@@ -44,10 +45,9 @@ export function LaSoApp({ namHienTai }: { namHienTai: number }) {
     if (saved) setForm((f) => ({ ...f, ...saved, namXem: String(namHienTai), timeUnknown: false }));
   }, [namHienTai]);
 
-  async function submit(e: React.FormEvent) {
-    e.preventDefault();
-    const { value, errors: errs } = parseBirth({ ...form, timeUnknown: false });
-    const ny = Number(form.namXem);
+  async function compute(f: FormState) {
+    const { value, errors: errs } = parseBirth({ ...f, timeUnknown: false });
+    const ny = Number(f.namXem);
     if (!value) {
       setErrors(errs);
       return;
@@ -57,13 +57,13 @@ export function LaSoApp({ namHienTai }: { namHienTai: number }) {
     try {
       engine.current ??= await import("@/lib/tu-vi-dau-so/bundle");
       const { chuanHoaNgaySinh, lapLaSo } = engine.current;
-      const ns = chuanHoaNgaySinh({ ...value, gioiTinh: form.gioiTinh });
-      const laSo = lapLaSo(ns.lunar, form.gioiTinh);
+      const ns = chuanHoaNgaySinh({ ...value, gioiTinh: f.gioiTinh });
+      const laSo = lapLaSo(ns.lunar, f.gioiTinh);
       const y = Number.isInteger(ny) && ny >= laSo.birth.year && ny <= laSo.birth.year + 119 ? ny : Math.max(namHienTai, laSo.birth.year);
-      setResult({ laSo, ns, hoTen: form.hoTen.trim(), place: value.place.name });
+      setResult({ laSo, ns, hoTen: f.hoTen.trim(), place: value.place.name });
       setSelected(laSo.menhChi);
       setNamXem(y);
-      save(STORE_KEY, { ...form, timeUnknown: false });
+      save(STORE_KEY, { ...f, timeUnknown: false });
       requestAnimationFrame(() => resultRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }));
     } catch (err) {
       setErrors({ form: err instanceof Error && err.name === "LaSoInputError" ? err.message : "Không lập được lá số với dữ liệu này. Kiểm tra lại ngày, giờ và nơi sinh." });
@@ -71,6 +71,18 @@ export function LaSoApp({ namHienTai }: { namHienTai: number }) {
     } finally {
       setLoading(false);
     }
+  }
+
+  function submit(e: React.FormEvent) {
+    e.preventDefault();
+    void compute(form);
+  }
+
+  /** Lập lại lá số với múi giờ khác (khi thời kỳ lịch sử có hai cách tính giờ). */
+  function recomputeWithOffset(offsetMinutes: number | "auto") {
+    const next = { ...form, tzMode: String(offsetMinutes) };
+    setForm(next);
+    void compute(next);
   }
 
   const vanHan: VanHanNam | null = useMemo(() => {
@@ -119,6 +131,7 @@ export function LaSoApp({ namHienTai }: { namHienTai: number }) {
             allowLunar
             allowUnknownTime={false}
             showCanhGio
+            showDstChoice
           />
           <div className="bf-row bf-submit">
             <div className="difld bf-fld">
@@ -170,6 +183,7 @@ export function LaSoApp({ namHienTai }: { namHienTai: number }) {
             setShowLuu={setShowLuu}
             hanCung={hanCung}
             engine={engine.current}
+            onRecompute={recomputeWithOffset}
           />
         )}
       </div>
@@ -189,6 +203,7 @@ function LaSoResult({
   setShowLuu,
   hanCung,
   engine,
+  onRecompute,
 }: {
   r: Result;
   selected: number;
@@ -201,8 +216,11 @@ function LaSoResult({
   setShowLuu: (b: boolean) => void;
   hanCung: { daiHan?: number; tieuHan?: number };
   engine: Engine | null;
+  onRecompute: (offsetMinutes: number | "auto") => void;
 }) {
   const { laSo, ns } = r;
+  // Ghi chú thời kỳ hai múi giờ đã có khung cảnh báo riêng.
+  const ghiChu = ns.ghiChu.filter((g) => g !== ns.resolved.historical?.note);
   const b = laSo.birth;
   const s = ns.solarTuVi;
   const jd = jdFromDate(s.day, s.month, s.year);
@@ -278,8 +296,8 @@ function LaSoResult({
               {r.hoTen ? `Lá số của ${r.hoTen}` : "Lá số Tử Vi Đẩu Số"}
             </h2>
             <p className="ch-sub">
-              {laSo.gioiTinh === "nam" ? "Nam" : "Nữ"} · sinh tại {r.place} · giờ an sao {pad(ns.gioTuVi.hour)}:{pad(ns.gioTuVi.minute)} UTC{formatOffset(ns.gioTuVi.offsetMinutes)} (
-              giờ {["Tý", "Sửu", "Dần", "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi", "Thân", "Dậu", "Tuất", "Hợi"][b.hourChi]})
+              {laSo.gioiTinh === "nam" ? "Nam" : "Nữ"} · sinh tại {r.place} · giờ an sao {pad(ns.gioTuVi.hour)}:{pad(ns.gioTuVi.minute)} UTC{formatOffset(ns.gioTuVi.offsetMinutes)}
+              {` (giờ ${CHI_TEN[b.hourChi]})`}
             </p>
           </div>
           <button type="button" className="ch-btn ghost ls-print" onClick={() => window.print()}>
@@ -304,13 +322,42 @@ function LaSoResult({
             <div className="k">{laSo.thuan ? "Các vòng đi thuận" : "Các vòng đi nghịch"}</div>
           </div>
         </div>
-        {ns.ghiChu.length > 0 && (
+        {ns.resolved.historical && (
+          <div className="ls-warn" role="note">
+            <p>
+              <b>Giờ sinh thuộc thời kỳ có hai múi giờ.</b> {ns.resolved.historical.note}
+            </p>
+            <div className="ls-warn-btns">
+              {ns.resolved.historical.alternatives.map((a) => {
+                const on = Math.abs(ns.resolved.offsetMinutes - a.offsetMinutes) < 1 / 60;
+                return (
+                  <button key={a.offsetMinutes} type="button" className={on ? "ch-btn pri" : "ch-btn"} aria-pressed={on} onClick={() => onRecompute(a.offsetMinutes)}>
+                    {on ? "Đang dùng: " : "Tính lại theo "}
+                    {a.label}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
+        {ghiChu.length > 0 && (
           <ul className="ls-notes" aria-label="Điều chỉnh đã áp dụng">
-            {ns.ghiChu.map((g) => (
+            {ghiChu.map((g) => (
               <li key={g}>{g}</li>
             ))}
           </ul>
         )}
+        <details className="ls-quyuoc" open>
+          <summary>Quy ước đang áp dụng cho lá số này</summary>
+          <dl>
+            {ns.quyUoc.map((q) => (
+              <div key={q.ten}>
+                <dt>{q.ten}</dt>
+                <dd>{q.giaTri}</dd>
+              </div>
+            ))}
+          </dl>
+        </details>
       </section>
 
       <details className="ch-card ls-tb-mob">

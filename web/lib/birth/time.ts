@@ -7,6 +7,9 @@
  *   +07 (9/1945–4/1947), +08 (4/1947–7/1955), +07 (7/1955–12/1959), +08 (1/1960–13/6/1975), +07 từ đó.
  * tzdata theo đồng hồ Sài Gòn. Giai đoạn 31/12/1959–13/6/1975 miền Bắc (Việt Nam Dân chủ Cộng hòa)
  * vẫn dùng +07, nên nơi sinh ở vĩ độ ≥ 17° Bắc được hiệu chỉnh về +07 trong đúng giai đoạn này.
+ * Giai đoạn 1/4/1947–1/7/1955, theo chú thích tzdata (dẫn Trần Tiến Bình, "Lịch Việt Nam thế kỷ XX–XXI"),
+ * +08 chỉ áp dụng ở vùng Pháp kiểm soát; vùng kháng chiến giữ +07. Không suy ra được từ nơi sinh, nên kết quả
+ * mặc định theo tzdata (+08) nhưng luôn trả kèm `historical` để giao diện báo và cho chọn +07.
  */
 
 export interface BirthPlaceTz {
@@ -46,6 +49,29 @@ export interface ResolvedBirthTime {
   status: LocalTimeStatus;
   /** Có áp dụng hiệu chỉnh miền Bắc 1960–1975 hay không. */
   northVietnamAdjusted: boolean;
+  /** Người dùng tự chọn độ lệch (không dùng dữ liệu múi giờ). */
+  manualOffset: boolean;
+  /** Thời kỳ mà giờ đồng hồ phụ thuộc vùng kiểm soát, không xác định được từ tọa độ. */
+  historical?: { note: string; alternatives: { offsetMinutes: number; label: string }[] };
+}
+
+export interface ResolveOptions {
+  /** Độ lệch cố định (phút) do người dùng chọn — bỏ qua dữ liệu múi giờ. */
+  overrideOffsetMinutes?: number;
+}
+
+const VN_1947_FROM = Date.UTC(1947, 2, 31, 17, 0); // 00:00 1/4/1947 giờ +07
+const VN_1947_TO = Date.UTC(1955, 5, 30, 17, 0); // 01:00 1/7/1955 giờ +08
+
+function historicalNote(place: BirthPlaceTz, utcMs: number): ResolvedBirthTime["historical"] {
+  if (place.country !== "VN" || utcMs < VN_1947_FROM || utcMs >= VN_1947_TO) return undefined;
+  return {
+    note: "Từ 1/4/1947 đến 1/7/1955, vùng Pháp kiểm soát dùng giờ UTC+8, vùng kháng chiến vẫn dùng UTC+7. Mặc định tính theo UTC+8 (dữ liệu múi giờ chuẩn); nếu gia đình ghi giờ theo giờ kháng chiến, hãy chọn UTC+7.",
+    alternatives: [
+      { offsetMinutes: 480, label: "UTC+8 — vùng Pháp kiểm soát (mặc định)" },
+      { offsetMinutes: 420, label: "UTC+7 — vùng kháng chiến" },
+    ],
+  };
 }
 
 const MINUTE = 60_000;
@@ -134,8 +160,22 @@ function standardOffset(place: BirthPlaceTz, utcMs: number, current: number): nu
  * Giờ đồng hồ tại nơi sinh → thời điểm UTC.
  * Xử lý khoảng trống khi chuyển sang giờ mùa hè ("gap") và giờ lặp khi lùi đồng hồ ("ambiguous").
  */
-export function resolveBirthTime(local: LocalDateTime, place: BirthPlaceTz): ResolvedBirthTime {
+export function resolveBirthTime(local: LocalDateTime, place: BirthPlaceTz, opts: ResolveOptions = {}): ResolvedBirthTime {
   const wall = localAsUtcMs(local);
+  if (opts.overrideOffsetMinutes !== undefined) {
+    const off = opts.overrideOffsetMinutes;
+    const utc = wall - off * MINUTE;
+    return {
+      utcMs: utc,
+      offsetMinutes: off,
+      standardOffsetMinutes: off,
+      dstMinutes: 0,
+      status: "ok",
+      northVietnamAdjusted: false,
+      manualOffset: true,
+      historical: historicalNote(place, utc),
+    };
+  }
   // Thử các độ lệch xung quanh thời điểm đó (±1 ngày) để tìm mọi nghiệm.
   const candidates = new Set<number>();
   for (const probe of [wall - 86_400_000, wall, wall + 86_400_000]) {
@@ -167,6 +207,8 @@ export function resolveBirthTime(local: LocalDateTime, place: BirthPlaceTz): Res
     dstMinutes: chosen.offset - std,
     status,
     northVietnamAdjusted: chosen.north,
+    manualOffset: false,
+    historical: historicalNote(place, chosen.utc),
   };
 }
 
@@ -193,3 +235,9 @@ export function formatOffset(offsetMinutes: number): string {
   const base = `${sign}${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}`;
   return s ? `${base}:${String(s).padStart(2, "0")}` : base;
 }
+
+/** Các độ lệch cho ô chọn "múi giờ lúc sinh" (phút), từ UTC−12 đến UTC+14, gồm các múi lẻ 30/45 phút phổ biến. */
+export const OFFSET_CHOICES: readonly number[] = [
+  -720, -660, -600, -570, -540, -480, -420, -360, -300, -240, -210, -180, -120, -60, 0, 60, 120, 180, 210, 240, 270, 300, 330, 345, 360, 390, 420,
+  480, 525, 540, 570, 600, 630, 660, 720, 765, 780, 840,
+];

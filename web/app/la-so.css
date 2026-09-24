@@ -4,12 +4,15 @@
  * Mốc: ≤759px điện thoại (bố cục riêng), 760–1023px máy tính bảng, ≥1024px máy tính, ≥1180px sa bàn + bảng chi tiết cạnh nhau.
  */
 .ch-ls {
+  /* Tương phản ≥ 4,5:1 (WCAG AA) cho chữ nhỏ trên nền thẻ, nền vàng nhạt và nền tô chọn. */
+  --ink-3: #62645b;
   --h-kim: #5f6570;
   --h-moc: #4d6f2a;
   --h-thuy: #2c5a7c;
   --h-hoa: #b23a31;
-  --h-tho: #93642a;
-  --luu: #56708a;
+  --h-tho: #845a24;
+  --luu: #4a6278;
+  --gold-text: #7d5d22;
 }
 
 /* ---------- form ---------- */
@@ -209,6 +212,91 @@
   gap: 4px;
 }
 
+/* ---------- múi giờ nâng cao, cảnh báo, quy ước ---------- */
+.bf-adv {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 14px;
+  background: var(--bg);
+}
+.bf-adv summary {
+  font-family: var(--sans);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink-2);
+  cursor: pointer;
+  min-height: 28px;
+  display: list-item;
+}
+.bf-adv[open] summary {
+  margin-bottom: 12px;
+}
+.ls-warn {
+  margin: 16px 0 0;
+  padding: 14px 16px;
+  border: 1px solid color-mix(in srgb, var(--son) 35%, var(--line));
+  border-left: 4px solid var(--son);
+  border-radius: 10px;
+  background: var(--son-soft);
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--ink);
+}
+.ls-warn p {
+  margin: 0 0 10px;
+}
+.ls-warn-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.ls-warn-btns .ch-btn {
+  min-height: 44px;
+  font-size: 13.5px;
+  text-align: left;
+}
+.ls-quyuoc {
+  margin-top: 16px;
+  font-family: var(--sans);
+  font-size: 13.5px;
+}
+.ls-quyuoc summary {
+  font-weight: 700;
+  cursor: pointer;
+  min-height: 28px;
+}
+.ls-quyuoc dl {
+  margin: 8px 0 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px 20px;
+}
+.ls-quyuoc dl > div {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 8px;
+  padding: 5px 0;
+  border-bottom: 1px dotted var(--line);
+}
+.ls-quyuoc dt {
+  color: var(--ink-3);
+}
+.ls-quyuoc dd {
+  margin: 0;
+  font-weight: 600;
+}
+@media (max-width: 1023px) {
+  .ls-quyuoc dl {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 759px) {
+  .ls-quyuoc dl > div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+}
+
 /* ---------- sa bàn ---------- */
 .ls-main {
   display: grid;
@@ -341,7 +429,7 @@
   margin-left: 4px;
   padding: 0 4px;
   border-radius: 3px;
-  font-size: 9.5px;
+  font-size: 10px;
   font-weight: 700;
   line-height: 1.5;
   vertical-align: 1px;
@@ -382,7 +470,7 @@
   flex-wrap: wrap;
   gap: 0 6px;
   font-style: italic;
-  font-size: 10.5px;
+  font-size: 11px;
   color: var(--luu);
 }
 .ls-luu .t-sat {
@@ -395,7 +483,7 @@
   padding-top: 5px;
   border-top: 1px dashed var(--line);
   color: var(--ink-3);
-  font-size: 10.5px;
+  font-size: 11px;
 }
 .ls-canchi {
   font-weight: 700;
@@ -422,7 +510,7 @@
   border-radius: 3px;
   background: var(--ink-2);
   color: #fff;
-  font-size: 9.5px;
+  font-size: 10px;
   font-weight: 700;
 }
 .ls-han {
@@ -541,7 +629,7 @@
   cursor: pointer;
 }
 .ls-map-c .n {
-  font-size: 10.5px;
+  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   color: var(--ink-2);
@@ -559,7 +647,7 @@
 }
 .ls-map-c .z {
   margin-top: auto;
-  font-size: 10px;
+  font-size: 11px;
   color: var(--ink-3);
 }
 .ls-map-c.tp {
@@ -695,7 +783,7 @@
 }
 .ls-badge.trad {
   background: var(--gold-soft);
-  color: var(--gold-dp);
+  color: var(--gold-text);
 }
 .ls-sl {
   margin-bottom: 10px;
@@ -766,7 +854,7 @@
 .ls-star-kw {
   font-family: var(--sans);
   font-size: 12.5px;
-  color: var(--gold-dp);
+  color: var(--gold-text);
 }
 .ls-star-src {
   font-family: var(--sans);
@@ -1159,6 +1247,12 @@
   font-weight: 600;
   cursor: pointer;
 }
+.ct-tbl .ct-unsure {
+  display: block;
+  white-space: normal;
+  font-size: 12px;
+  color: var(--son-dp);
+}
 .ct-tbl tr.on {
   background: var(--son-soft);
 }
@@ -1297,7 +1391,7 @@
     grid-template-rows: repeat(4, minmax(150px, auto));
   }
   .ls-cell {
-    font-size: 10.5px;
+    font-size: 11px;
     padding: 6px 7px;
   }
   .ls-chinh {
@@ -1391,7 +1485,7 @@
 }
 @media (max-width: 380px) {
   .ls-map-c .s {
-    font-size: 10px;
+    font-size: 10.5px;
   }
   .ls-stats .v.sm {
     font-size: 17px;

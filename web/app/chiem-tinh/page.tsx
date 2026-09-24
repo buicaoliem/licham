@@ -65,9 +65,11 @@ export default function ChiemTinhPage() {
             <div>
               <h3>Thời gian, địa điểm</h3>
               <ul>
-                <li>Múi giờ và giờ mùa hè theo cơ sở dữ liệu IANA của trình duyệt, gồm lịch sử múi giờ Việt Nam; miền Bắc 1960–1975 dùng UTC+7.</li>
+                <li>Múi giờ và giờ mùa hè theo cơ sở dữ liệu IANA của trình duyệt, gồm lịch sử múi giờ Việt Nam; miền Bắc 1960–1975 dùng UTC+7. Giờ mùa hè được giữ vì bản đồ sao cần đúng thời điểm thực.</li>
+                <li>Giai đoạn 1947–1955 ở Việt Nam có hai múi giờ (UTC+8 vùng Pháp, UTC+7 vùng kháng chiến): trang báo rõ và cho tính lại; cũng có thể tự chọn múi giờ.</li>
+                <li>Không rõ giờ sinh: báo mọi thiên thể đổi cung trong ngày sinh.</li>
                 <li>Giờ không tồn tại hoặc lặp lại lúc đổi giờ mùa hè được báo rõ.</li>
-                <li>Hỗ trợ năm 1800–2200 khi nhập tọa độ; danh sách nơi sinh gồm 63 tỉnh thành Việt Nam và các thành phố có đông người Việt.</li>
+                <li>Danh sách nơi sinh gồm 63 tỉnh thành Việt Nam và các thành phố có đông người Việt; vùng cực có cảnh báo, sát cực (trên 89,9°) không lập được nhà.</li>
               </ul>
             </div>
             <div>

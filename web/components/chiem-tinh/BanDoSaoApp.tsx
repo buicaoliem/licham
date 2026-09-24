@@ -19,6 +19,8 @@ interface Result {
   resolved: ResolvedBirthTime;
   place: string;
   local: string;
+  /** Không rõ giờ sinh: thiên thể đổi cung trong ngày. */
+  doiCung: { id: PointId; from: number; to: number }[];
 }
 
 const pad = (n: number) => String(n).padStart(2, "0");
@@ -39,9 +41,8 @@ export function BanDoSaoApp() {
     if (saved) setForm((f) => ({ ...f, ...saved, lich: "duong" }));
   }, []);
 
-  async function submit(e: React.FormEvent) {
-    e.preventDefault();
-    const { value, errors: errs } = parseBirth({ ...form, lich: "duong" });
+  async function compute(f: FormState) {
+    const { value, errors: errs } = parseBirth({ ...f, lich: "duong" });
     if (!value) {
       setErrors(errs);
       return;
@@ -50,15 +51,21 @@ export function BanDoSaoApp() {
     setLoading(true);
     try {
       engine.current ??= await import("@/lib/chiem-tinh/bundle");
-      const { resolveBirthTime, computeChart } = engine.current;
+      const { resolveBirthTime, computeChart, signChangesBetween } = engine.current;
       // Không rõ giờ: dùng 12:00 trưa địa phương để sai số Mặt Trăng nhỏ nhất (±6–7°).
       const hour = value.timeUnknown ? 12 : value.hour;
       const minute = value.timeUnknown ? 0 : value.minute;
-      const resolved = resolveBirthTime({ year: value.year, month: value.month, day: value.day, hour, minute }, value.place);
-      const chart = computeChart({ utcMs: resolved.utcMs, lat: value.place.lat, lon: value.place.lon, houseSystem: form.houseSystem, timeKnown: !value.timeUnknown });
-      setResult({ chart, resolved, place: value.place.name, local: `${pad(value.day)}/${pad(value.month)}/${value.year} ${pad(hour)}:${pad(minute)}` });
+      const day = { year: value.year, month: value.month, day: value.day };
+      const opts = { overrideOffsetMinutes: value.overrideOffsetMinutes };
+      const resolved = resolveBirthTime({ ...day, hour, minute }, value.place, opts);
+      const chart = computeChart({ utcMs: resolved.utcMs, lat: value.place.lat, lon: value.place.lon, houseSystem: f.houseSystem, timeKnown: !value.timeUnknown });
+      // Không rõ giờ: thiên thể nào đổi cung trong cả ngày sinh (00:00–23:59 giờ địa phương) thì chưa chắc cung.
+      const doiCung = value.timeUnknown
+        ? signChangesBetween(resolveBirthTime({ ...day, hour: 0, minute: 0 }, value.place, opts).utcMs, resolveBirthTime({ ...day, hour: 23, minute: 59 }, value.place, opts).utcMs)
+        : [];
+      setResult({ chart, resolved, place: value.place.name, local: `${pad(value.day)}/${pad(value.month)}/${value.year} ${pad(hour)}:${pad(minute)}`, doiCung });
       setSelected("sun");
-      save(STORE_KEY, form);
+      save(STORE_KEY, f);
       requestAnimationFrame(() => resultRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }));
     } catch (err) {
       setErrors({ form: err instanceof Error && err.name === "ChartInputError" ? err.message : "Không lập được bản đồ sao với dữ liệu này." });
@@ -66,6 +73,17 @@ export function BanDoSaoApp() {
     } finally {
       setLoading(false);
     }
+  }
+
+  function submit(e: React.FormEvent) {
+    e.preventDefault();
+    void compute(form);
+  }
+
+  function recomputeWithOffset(offsetMinutes: number) {
+    const next = { ...form, tzMode: String(offsetMinutes) };
+    setForm(next);
+    void compute(next);
   }
 
   return (
@@ -114,13 +132,25 @@ export function BanDoSaoApp() {
             <span className="ls-spin" aria-hidden="true" /> Đang tính vị trí thiên thể…
           </div>
         )}
-        {result && engine.current && <ChartResult r={result} selected={selected} onSelect={setSelected} engine={engine.current} />}
+        {result && engine.current && <ChartResult r={result} selected={selected} onSelect={setSelected} engine={engine.current} onRecompute={recomputeWithOffset} />}
       </div>
     </>
   );
 }
 
-function ChartResult({ r, selected, onSelect, engine }: { r: Result; selected: PointId | null; onSelect: (id: PointId) => void; engine: Engine }) {
+function ChartResult({
+  r,
+  selected,
+  onSelect,
+  engine,
+  onRecompute,
+}: {
+  r: Result;
+  selected: PointId | null;
+  onSelect: (id: PointId) => void;
+  engine: Engine;
+  onRecompute: (offsetMinutes: number) => void;
+}) {
   const { chart, resolved } = r;
   const { POINTS, SIGNS, HOUSES, ASPECTS, ASPECT_MEANING, HOUSE_SYSTEMS, formatSignDegree, signOf, pointInSign, pointInHouse, balance, formatOffset } = engine;
   const sun = chart.points.find((p) => p.id === "sun")!;
@@ -133,11 +163,21 @@ function ChartResult({ r, selected, onSelect, engine }: { r: Result; selected: P
   const aspectDef = (t: string) => ASPECTS.find((a) => a.type === t)!;
   const hsName = HOUSE_SYSTEMS.find((h) => h.id === (chart.houseSystemUsed ?? chart.input.houseSystem))?.name;
 
+  /** Tên cung; thêm cung kế bên khi thiên thể đổi cung trong ngày mà không rõ giờ sinh. */
+  const signName = (id: PointId, lon: number) => {
+    const d = r.doiCung.find((x) => x.id === id);
+    return d ? `${SIGNS[d.from].name} hoặc ${SIGNS[d.to].name}` : signOf(lon).name;
+  };
+  const chuaChac = (id: PointId) => r.doiCung.some((x) => x.id === id);
   const notes: string[] = [];
-  if (!known) notes.push("Không rõ giờ sinh: tính theo 12:00 trưa địa phương; Mặt Trăng có thể lệch tới ±6–7° và có thể sang cung kế bên; không có Ascendant, MC, 12 nhà.");
+  if (!known) notes.push("Không rõ giờ sinh: tính theo 12:00 trưa địa phương; Mặt Trăng có thể lệch tới ±6–7°; không có Ascendant, MC, 12 nhà.");
+  for (const d of r.doiCung) notes.push(`${POINTS[d.id].name} đổi cung trong ngày sinh (${SIGNS[d.from].name} → ${SIGNS[d.to].name}): cần giờ sinh để biết chắc cung.`);
+  if (!known && r.doiCung.length === 0) notes.push("Trong cả ngày sinh không thiên thể nào đổi cung, nên cung của các hành tinh vẫn chắc chắn.");
+  if (resolved.manualOffset) notes.push(`Giờ đồng hồ được tính theo múi giờ bạn chọn: UTC${formatOffset(resolved.offsetMinutes)} (không áp dụng giờ mùa hè tự động).`);
+  if (chart.polarNote) notes.push(chart.polarNote);
   if (resolved.status === "gap") notes.push("Giờ đã nhập không tồn tại (đúng lúc chuyển sang giờ mùa hè); đã tính theo độ lệch trước khi chuyển.");
   if (resolved.status === "ambiguous") notes.push("Giờ đã nhập lặp hai lần (lúc lùi đồng hồ); đã chọn lần thứ nhất, còn giờ mùa hè.");
-  if (resolved.dstMinutes) notes.push(`Đang áp dụng giờ mùa hè (+${resolved.dstMinutes} phút).`);
+  if (resolved.dstMinutes) notes.push(`Giờ đồng hồ nơi sinh đang là giờ mùa hè (+${resolved.dstMinutes} phút so với giờ chuẩn); chiêm tinh dùng thời điểm thực nên đã tính đúng theo giờ mùa hè.`);
   if (resolved.northVietnamAdjusted) notes.push("Miền Bắc Việt Nam 1960–1975 dùng UTC+07:00 (tzdata ghi UTC+08:00 theo Sài Gòn).");
   if (chart.houseFallback) notes.push(chart.houseFallback);
   if (Math.abs(moon.lon % 30) < 1 || Math.abs(moon.lon % 30) > 29) notes.push("Mặt Trăng nằm sát ranh giới hai cung — nên kiểm tra kỹ giờ sinh.");
@@ -165,12 +205,16 @@ function ChartResult({ r, selected, onSelect, engine }: { r: Result; selected: P
         </div>
         <div className="ch-stats ls-stats">
           <button type="button" className="ch-stat ls-vh-btn" onClick={() => onSelect("sun")}>
-            <div className="v sm">{signOf(sun.lon).name}</div>
-            <div className="k">Mặt Trời · {formatSignDegree(sun.lon)}</div>
+            <div className="v sm">{signName("sun", sun.lon)}</div>
+            <div className="k">
+              Mặt Trời · {chuaChac("sun") ? "chưa chắc cung, cần giờ sinh" : formatSignDegree(sun.lon)}
+            </div>
           </button>
           <button type="button" className="ch-stat ls-vh-btn" onClick={() => onSelect("moon")}>
-            <div className="v sm">{signOf(moon.lon).name}</div>
-            <div className="k">Mặt Trăng · {formatSignDegree(moon.lon)}</div>
+            <div className="v sm">{signName("moon", moon.lon)}</div>
+            <div className="k">
+              Mặt Trăng · {chuaChac("moon") ? "chưa chắc cung, cần giờ sinh" : formatSignDegree(moon.lon)}
+            </div>
           </button>
           {chart.asc !== undefined ? (
             <button type="button" className="ch-stat ls-vh-btn" onClick={() => onSelect("asc")}>
@@ -190,6 +234,24 @@ function ChartResult({ r, selected, onSelect, engine }: { r: Result; selected: P
             </button>
           )}
         </div>
+        {resolved.historical && (
+          <div className="ls-warn" role="note">
+            <p>
+              <b>Giờ sinh thuộc thời kỳ có hai múi giờ.</b> {resolved.historical.note}
+            </p>
+            <div className="ls-warn-btns">
+              {resolved.historical.alternatives.map((a) => {
+                const on = Math.abs(resolved.offsetMinutes - a.offsetMinutes) < 1 / 60;
+                return (
+                  <button key={a.offsetMinutes} type="button" className={on ? "ch-btn pri" : "ch-btn"} aria-pressed={on} onClick={() => onRecompute(a.offsetMinutes)}>
+                    {on ? "Đang dùng: " : "Tính lại theo "}
+                    {a.label}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
         {notes.length > 0 && (
           <ul className="ls-notes">
             {notes.map((n) => (
@@ -349,7 +411,10 @@ function ChartResult({ r, selected, onSelect, engine }: { r: Result; selected: P
                         {POINTS[p.id].name}
                       </button>
                     </th>
-                    <td>{formatSignDegree(p.lon)}</td>
+                    <td>
+                      {formatSignDegree(p.lon)}
+                      {chuaChac(p.id) && <span className="ct-unsure"> · có thể {signName(p.id, p.lon)}</span>}
+                    </td>
                     {known && <td>{p.house}</td>}
                     <td>{p.retrograde && p.id !== "node" && p.id !== "southNode" ? "℞" : ""}</td>
                   </tr>

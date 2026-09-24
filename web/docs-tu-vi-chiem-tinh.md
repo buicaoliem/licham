@@ -18,13 +18,14 @@ Trước Phase 9 repo **không có** module Tử Vi Đẩu Số hay chiêm tinh 
 - Giờ đồng hồ → UTC theo cơ sở dữ liệu IANA của `Intl` (Node 22: tzdata 2026a).
 - Xử lý giờ không tồn tại (nhảy giờ mùa hè, `gap`) và giờ lặp (lùi giờ, `ambiguous` → chọn lần đầu).
 - Giờ chuẩn = độ lệch thấp nhất xuất hiện ở cả 12 tháng trước và 12 tháng sau (quy tắc theo mùa); việc đổi hẳn múi giờ (VN 13/6/1975) không bị coi là DST.
-- Việt Nam: tzdata `Asia/Ho_Chi_Minh` theo đồng hồ Sài Gòn (+8 giai đoạn 1943–3/1945, 4/1947–7/1955, 1/1960–13/6/1975). Nơi sinh ở vĩ độ ≥ 17° Bắc trong 1/1/1960–13/6/1975 được hiệu chỉnh về +7 (miền Bắc). Giai đoạn 1947–1955 giữ theo tzdata (+8) — vùng kiểm soát khác nhau, chưa hiệu chỉnh.
+- Việt Nam: tzdata `Asia/Ho_Chi_Minh` theo đồng hồ Sài Gòn (+8 giai đoạn 1943–3/1945, 4/1947–7/1955, 1/1960–13/6/1975). Nơi sinh ở vĩ độ ≥ 17° Bắc trong 1/1/1960–13/6/1975 được hiệu chỉnh về +7 (miền Bắc). Giai đoạn 1/4/1947–1/7/1955 (vùng Pháp +8, vùng kháng chiến +7 — theo chú thích tzdata dẫn Trần Tiến Bình): mặc định +8 nhưng luôn trả cờ `historical`, trang báo rõ và cho tính lại theo +7.
+- Người dùng có thể tự chọn múi giờ lúc sinh (độ lệch cố định, không DST).
 
 ## 2. Tử Vi Đẩu Số — Nam phái
 
 Theo hệ thống Thái Thứ Lang (*Tử Vi Đẩu Số Tân Biên*, 1956). Không trộn trường phái.
 
-**Chuẩn hóa ngày giờ** (`birth.ts`): sinh ở VN quy về UTC+7; nước ngoài dùng giờ chuẩn địa phương (bỏ DST). Tý 23:00–00:59; từ 23:00 là giờ Tý **ngày hôm sau** (cả ngày âm). Năm tính từ Tết. Tháng nhuận an như tháng chính. Không hiệu chỉnh giờ mặt trời thực.
+**Chuẩn hóa ngày giờ** (`birth.ts`): sinh ở VN quy về UTC+7; nước ngoài mặc định dùng giờ chuẩn địa phương (trừ DST, có ghi chú), có thể chọn giữ giờ đồng hồ. Mỗi lá số hiển thị khung "Quy ước đang áp dụng". Tý 23:00–00:59; từ 23:00 là giờ Tý **ngày hôm sau** (cả ngày âm). Năm tính từ Tết. Tháng nhuận an như tháng chính. Không hiệu chỉnh giờ mặt trời thực.
 
 **An sao** (`engine.ts`): Mệnh/Thân, can cung (Ngũ Hổ Độn), cục (nạp âm cung Mệnh), 14 chính tinh, Tả Hữu, Xương Khúc, Khôi Việt, Lộc Tồn, Kình Đà, Thiên Mã, Hỏa Linh, Không Kiếp, Tứ Hóa, Tuần, Triệt, vòng Tràng Sinh, Bác Sĩ, Thái Tuế (12 sao Nam phái), 35 phụ tinh khác, Mệnh chủ, Thân chủ, đại hạn, tiểu hạn.
 
@@ -46,9 +47,9 @@ Theo hệ thống Thái Thứ Lang (*Tử Vi Đẩu Số Tân Biên*, 1956). Kh�
 
 - `astronomy-engine` 2.1.19 (MIT): kinh độ hoàng đạo biểu kiến (quang sai, chương động) trên hoàng đạo thật của ngày, địa tâm, hoàng đạo nhiệt đới.
 - 10 thiên thể; Nút Bắc thực (quỹ đạo tức thời) trên bản đồ, Nút trung bình (Meeus 47.7) trong chi tiết.
-- ASC/MC từ GAST + độ nghiêng thật; hệ nhà Placidus (lặp tới 1e-9°), Whole Sign, Equal, Porphyry. Placidus không xác định ở vùng cực → chuyển Porphyry và báo lý do.
+- ASC/MC từ GAST + độ nghiêng thật; ASC luôn là giao điểm phía đông (sửa lỗi vùng cực trả về điểm đang lặn); vĩ độ > 89,9° không lập nhà; hệ nhà Placidus (lặp tới 1e-9°), Whole Sign, Equal, Porphyry. Placidus không xác định ở vùng cực → chuyển Porphyry và báo lý do.
 - Góc hợp: 5 góc chính; orb 8/5/7/7/8, +2° khi có Mặt Trời/Mặt Trăng, tối đa 5° với Nút/ASC/MC; tụ/tách theo tốc độ.
-- Không rõ giờ: tính theo 12:00 trưa địa phương, bỏ ASC/MC/nhà, cảnh báo sai số Mặt Trăng.
+- Không rõ giờ: tính theo 12:00 trưa địa phương, bỏ ASC/MC/nhà, báo mọi thiên thể đổi cung trong ngày sinh.
 - **Chưa làm**: Chiron, Lilith, tiểu hành tinh, Fortune; góc phụ; Koch, Regiomontanus; sidereal.
 
 ## 4. Kiểm chứng
@@ -64,7 +65,4 @@ Theo hệ thống Thái Thứ Lang (*Tử Vi Đẩu Số Tân Biên*, 1956). Kh�
 
 ## 5. Đồng bộ sang app Flutter
 
-- **Fixture oracle**: `web/fixtures/tu-vi-dau-so-oracle.json` (307 lá số, gồm 7 ca biên) và `chiem-tinh-oracle.json` (80 bản đồ). Sinh lại: `pnpm --filter @licham/web run export:la-so-fixtures`.
-- **Port thẳng sang Dart (thuần tính toán, không phụ thuộc)**: `lib/tu-vi-dau-so/engine.ts`, `stars.ts`, `van-han.ts`, `birth.ts` (dùng bộ đổi lịch âm sẵn có của app), `lib/chiem-tinh/engine.ts` phần hình học (ASC, MC, nhà, góc hợp).
-- **Dữ liệu dùng lại nguyên văn**: `lib/tu-vi-dau-so/giai-nghia.ts`, `lib/chiem-tinh/giai-nghia.ts` (nội dung tự biên soạn), `lib/birth/places.ts` (tọa độ + múi giờ IANA).
-- **Cần thay thế**: `Intl` → package `timezone` (tzdata) trong Dart; `astronomy-engine` không có bản Dart — port phần VSOP87/Mặt Trăng cần thiết sang Dart, hoặc gọi native qua FFI/kênh nền tảng (astronomy-engine có bản chính thức C, C#, Python, Kotlin).
+Xem [docs-flutter-tu-vi-chiem-tinh.md](docs-flutter-tu-vi-chiem-tinh.md): phần port thẳng, phần cần thư viện thiên văn, quy tắc múi giờ phải giữ, và cách chạy kiểm thử đối chiếu với 390 fixture trong `web/fixtures/` (phía web: `lib/fixtures.test.ts`).

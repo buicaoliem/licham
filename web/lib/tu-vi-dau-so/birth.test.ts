@@ -129,3 +129,47 @@ describe("chuẩn hóa ngày giờ sinh cho Tử Vi", () => {
     expect(lapLaSo(r.lunar, "nu").canChiNam.name).toBe("Giáp Tuất");
   });
 });
+
+describe("regression Phase 9 rà soát", () => {
+  it("sinh 1950 ở Hà Nội: mặc định UTC+8 có cảnh báo; chọn UTC+7 đổi canh giờ", () => {
+    const auto = chuanHoaNgaySinh(input({ year: 1950, month: 6, day: 1, hour: 9, minute: 30, place: HN }));
+    expect(auto.gioTuVi).toMatchObject({ hour: 8, minute: 30 });
+    expect(auto.lunar.hourChi).toBe(4); // Thìn
+    expect(auto.ghiChu.join(" ")).toMatch(/kháng chiến/);
+    const kc = chuanHoaNgaySinh(input({ year: 1950, month: 6, day: 1, hour: 9, minute: 30, place: HN, overrideOffsetMinutes: 420 }));
+    expect(kc.gioTuVi).toMatchObject({ hour: 9, minute: 30 });
+    expect(kc.lunar.hourChi).toBe(5); // Tỵ
+    expect(kc.quyUoc.find((q) => q.ten === "Múi giờ lúc sinh")?.giaTri).toMatch(/Tự chọn UTC\+07:00/);
+  });
+
+  it("nước ngoài trong giờ mùa hè: trừ DST có ghi chú; giữ DST là lựa chọn rõ ràng, đổi được cả ngày", () => {
+    // New York 01/07/2020 23:30 EDT: trừ DST → 22:30 EST (giờ Hợi cùng ngày); giữ → 23:30 (giờ Tý ngày hôm sau).
+    const bo = chuanHoaNgaySinh(input({ year: 2020, month: 7, day: 1, hour: 23, minute: 30, place: NY }));
+    expect(bo.gioTuVi).toMatchObject({ hour: 22, offsetMinutes: -300 });
+    expect(bo.lunar.hourChi).toBe(11);
+    expect(bo.solarTuVi).toEqual({ year: 2020, month: 7, day: 1 });
+    expect(bo.ghiChu.join(" ")).toMatch(/đã trừ 60 phút/);
+    const giu = chuanHoaNgaySinh(input({ year: 2020, month: 7, day: 1, hour: 23, minute: 30, place: NY, gioMuaHe: "giu" }));
+    expect(giu.gioTuVi).toMatchObject({ hour: 23, offsetMinutes: -240 });
+    expect(giu.lunar.hourChi).toBe(0);
+    expect(giu.solarTuVi).toEqual({ year: 2020, month: 7, day: 2 });
+    expect(giu.quyUoc.find((q) => q.ten === "Giờ dùng để an sao")?.giaTri).toMatch(/Giờ đồng hồ/);
+  });
+
+  it("giờ Tý muộn ngày cuối tháng nhuận chuyển sang mùng 1 tháng sau (không nhuận)", () => {
+    // Tháng 4 nhuận năm 2020: tìm ngày cuối.
+    let last = 30;
+    try {
+      chuanHoaNgaySinh(input({ lich: "am", year: 2020, month: 4, day: 30, isLeapMonth: true }));
+    } catch {
+      last = 29;
+    }
+    const r = chuanHoaNgaySinh(input({ lich: "am", year: 2020, month: 4, day: last, isLeapMonth: true, hour: 23, minute: 15 }));
+    expect(r.lunar).toMatchObject({ year: 2020, month: 5, day: 1, isLeapMonth: false, hourChi: 0 });
+  });
+
+  it("quy ước luôn được trả về đầy đủ để hiển thị", () => {
+    const r = chuanHoaNgaySinh(input({}));
+    expect(r.quyUoc.map((q) => q.ten)).toEqual(["Trường phái", "Giờ dùng để an sao", "Múi giờ lúc sinh", "Giờ Tý", "Tháng nhuận", "Năm", "Lịch âm"]);
+  });
+});

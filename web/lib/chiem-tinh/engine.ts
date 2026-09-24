@@ -114,6 +114,8 @@ export interface Chart {
   aspects: Aspect[];
   /** Nút Bắc trung bình (so sánh với nút thực hiển thị trên bản đồ). */
   meanNode: number;
+  /** Cảnh báo khi nơi sinh trong vòng cực. */
+  polarNote?: string;
 }
 
 export class ChartInputError extends Error {
@@ -152,13 +154,24 @@ export function trueNodeLongitude(time: AstroTime): number {
   return norm(Math.atan2(h[0], -h[1]) / DEG);
 }
 
-/** Ascendant từ RAMC, độ nghiêng ε và vĩ độ φ (độ). */
+/**
+ * Ascendant: giao điểm hoàng đạo với chân trời ở phía ĐÔNG (đang mọc), từ RAMC, độ nghiêng ε và vĩ độ φ (độ).
+ * Công thức atan2 quen dùng cho đúng điểm mọc ở vĩ độ thường; trong vòng cực nó có thể trả về giao điểm phía tây
+ * (đang lặn), nên kiểm tra góc giờ và lấy điểm đối diện khi cần — hai giao điểm luôn đối xứng qua tâm.
+ */
 export function ascendant(ramc: number, eps: number, phi: number): number {
   const r = ramc * DEG;
   const e = eps * DEG;
-  const asc = Math.atan2(Math.cos(r), -(Math.sin(r) * Math.cos(e) + Math.tan(phi * DEG) * Math.sin(e))) / DEG;
-  return norm(asc);
+  const asc = norm(Math.atan2(Math.cos(r), -(Math.sin(r) * Math.cos(e) + Math.tan(phi * DEG) * Math.sin(e))) / DEG);
+  const ra = Math.atan2(Math.sin(asc * DEG) * Math.cos(e), Math.cos(asc * DEG));
+  // Điểm mọc có góc giờ H = RAMC − RA trong (−180°, 0).
+  return Math.sin(r - ra) < 0 ? asc : norm(asc + 180);
 }
+
+/** Vĩ độ trong vòng cực: Placidus không dùng được, MC có thể nằm dưới chân trời. */
+export const POLAR_LATITUDE = 66.56;
+/** Sát cực, chân trời gần trùng xích đạo nên Ascendant không xác định ổn định. */
+export const MAX_LATITUDE = 89.9;
 
 export function midheaven(ramc: number, eps: number): number {
   const r = ramc * DEG;
@@ -255,6 +268,7 @@ export function computeChart(input: ChartInput): Chart {
   const { utcMs, lat, lon, houseSystem, timeKnown } = input;
   if (!Number.isFinite(utcMs)) throw new ChartInputError("Thời điểm sinh không hợp lệ.");
   if (!(lat >= -90 && lat <= 90) || !(lon >= -180 && lon <= 180)) throw new ChartInputError("Tọa độ không hợp lệ (vĩ độ −90…90, kinh độ −180…180).");
+  if (timeKnown && Math.abs(lat) > MAX_LATITUDE) throw new ChartInputError(`Vĩ độ sát cực (trên ${MAX_LATITUDE}°) không xác định được Ascendant và cung nhà.`);
   const year = new Date(utcMs).getUTCFullYear();
   if (year < 1800 || year > 2200) throw new ChartInputError("Hỗ trợ năm sinh từ 1800 đến 2200.");
 
@@ -314,6 +328,9 @@ export function computeChart(input: ChartInput): Chart {
       const start = Math.floor(asc / 30) * 30;
       cusps = Array.from({ length: 12 }, (_, i) => norm(start + 30 * i));
     }
+    if (Math.abs(lat) > POLAR_LATITUDE) {
+      chart.polarNote = `Nơi sinh trong vòng cực (vĩ độ ${Math.abs(lat).toFixed(2)}°): có lúc cả một cung hoàng đạo không mọc; MC có thể nằm dưới chân trời và các hệ nhà kém tin cậy.`;
+    }
     chart.cusps = cusps;
     chart.houseSystemUsed = used;
     for (const p of points) p.house = houseOf(p.lon, cusps);
@@ -321,4 +338,23 @@ export function computeChart(input: ChartInput): Chart {
   }
   chart.aspects = findAspects(aspectPoints);
   return chart;
+}
+
+/**
+ * Khi không rõ giờ sinh: những thiên thể đổi cung hoàng đạo trong khoảng [startMs, endMs] (cả ngày sinh theo giờ địa phương),
+ * để báo rằng cung của chúng chưa xác định được.
+ */
+export function signChangesBetween(startMs: number, endMs: number): { id: PointId; from: number; to: number }[] {
+  const t0 = new AstroTime(new Date(startMs));
+  const t1 = new AstroTime(new Date(endMs));
+  const out: { id: PointId; from: number; to: number }[] = [];
+  for (const id of PLANETS) {
+    const a = Math.floor(eclipticOfDate(id, t0).lon / 30);
+    const b = Math.floor(eclipticOfDate(id, t1).lon / 30);
+    if (a !== b) out.push({ id, from: a, to: b });
+  }
+  const na = Math.floor(trueNodeLongitude(t0) / 30);
+  const nb = Math.floor(trueNodeLongitude(t1) / 30);
+  if (na !== nb) out.push({ id: "node", from: na, to: nb });
+  return out;
 }

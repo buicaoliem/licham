@@ -7,11 +7,11 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { PLACES } from "../lib/birth/places.ts";
-import { computeChart } from "../lib/chiem-tinh/engine.ts";
-import { chuanHoaNgaySinh } from "../lib/tu-vi-dau-so/birth.ts";
-import { type GioiTinh, lapLaSo } from "../lib/tu-vi-dau-so/engine.ts";
-import { vanHanNam } from "../lib/tu-vi-dau-so/van-han.ts";
+import { PLACES } from "../lib/birth/places";
+import { computeChart } from "../lib/chiem-tinh/engine";
+import { chuanHoaNgaySinh } from "../lib/tu-vi-dau-so/birth";
+import { type GioiTinh, lapLaSo } from "../lib/tu-vi-dau-so/engine";
+import { vanHanNam } from "../lib/tu-vi-dau-so/van-han";
 
 const OUT = join(dirname(fileURLToPath(import.meta.url)), "..", "fixtures");
 mkdirSync(OUT, { recursive: true });
@@ -34,7 +34,20 @@ const round = (x: number, d = 6) => Math.round(x * 10 ** d) / 10 ** d;
 const NL = String.fromCharCode(10);
 const dump = (note: string, cases: unknown[]) => `{"note":${JSON.stringify(note)},"cases":[${NL}${cases.map((c) => JSON.stringify(c)).join("," + NL)}${NL}]}${NL}`;
 
-// ---- Tử Vi: 300 lá số ngẫu nhiên + các trường hợp biên cố định ----
+interface Case {
+  year: number;
+  month: number;
+  day: number;
+  hour: number;
+  minute: number;
+  place: string;
+  gioiTinh: string;
+  note: string;
+  overrideOffsetMinutes?: number;
+  gioMuaHe?: "bo" | "giu";
+}
+
+// ---- Tử Vi: 300 lá số ngẫu nhiên + 10 trường hợp biên cố định ----
 const edge = [
   { year: 2026, month: 2, day: 16, hour: 23, minute: 30, place: "ha-noi", gioiTinh: "nam", note: "giờ Tý muộn đêm giao thừa" },
   { year: 1970, month: 3, day: 10, hour: 9, minute: 30, place: "tp-hcm", gioiTinh: "nu", note: "miền Nam UTC+8" },
@@ -43,8 +56,11 @@ const edge = [
   { year: 2020, month: 6, day: 1, hour: 8, minute: 0, place: "ha-noi", gioiTinh: "nu", note: "tháng 4 nhuận" },
   { year: 2021, month: 11, day: 7, hour: 1, minute: 30, place: "new-york", gioiTinh: "nam", note: "giờ lặp khi lùi DST" },
   { year: 1995, month: 1, day: 15, hour: 10, minute: 0, place: "ha-noi", gioiTinh: "nu", note: "trước Tết — năm âm cũ" },
-];
-const tuViCases = [
+  { year: 1950, month: 6, day: 1, hour: 9, minute: 30, place: "ha-noi", gioiTinh: "nam", note: "1947–1955 mặc định UTC+8 (vùng Pháp)" },
+  { year: 1950, month: 6, day: 1, hour: 9, minute: 30, place: "ha-noi", gioiTinh: "nam", note: "1947–1955 tự chọn UTC+7 (vùng kháng chiến)", overrideOffsetMinutes: 420 },
+  { year: 2020, month: 7, day: 1, hour: 23, minute: 30, place: "new-york", gioiTinh: "nu", note: "giữ giờ mùa hè theo lựa chọn", gioMuaHe: "giu" },
+] as Case[];
+const tuViCases: Case[] = [
   ...edge,
   ...Array.from({ length: 300 }, () => {
     const place = vnPlaces[Math.floor(r() * vnPlaces.length)];
@@ -62,7 +78,18 @@ const tuViCases = [
 ];
 const tuVi = tuViCases.map((c) => {
   const place = PLACES.find((p) => p.id === c.place)!;
-  const ns = chuanHoaNgaySinh({ lich: "duong", year: c.year, month: c.month, day: c.day, hour: c.hour, minute: c.minute, place, gioiTinh: c.gioiTinh as GioiTinh });
+  const ns = chuanHoaNgaySinh({
+    lich: "duong",
+    year: c.year,
+    month: c.month,
+    day: c.day,
+    hour: c.hour,
+    minute: c.minute,
+    place,
+    gioiTinh: c.gioiTinh as GioiTinh,
+    overrideOffsetMinutes: c.overrideOffsetMinutes,
+    gioMuaHe: c.gioMuaHe,
+  });
   const ls = lapLaSo(ns.lunar, c.gioiTinh as GioiTinh);
   const namXem = Math.min(2100, ls.birth.year + 30);
   const vh = vanHanNam(ls, namXem);
