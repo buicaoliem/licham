@@ -1,0 +1,68 @@
+{
+  "date": "2026-09-24",
+  "generatedAt": "2026-09-24T01:17:42.750Z",
+  "model": "gemini-2.5-flash",
+  "canChiNgay": "Tân Sửu",
+  "tuoi": {
+    "ty": {
+      "luan": "Người tuổi Tý hôm nay có nhiều cơ hội để phát triển các mối quan hệ xã giao. Hãy chủ động kết nối, mở lòng với mọi người để tạo dựng nền tảng vững chắc cho tương lai. Các kế hoạch hợp tác có thể diễn ra thuận lợi.",
+      "diem": 4,
+      "gioTot": "9h–11h"
+    },
+    "suu": {
+      "luan": "Hôm nay là ngày bản mệnh của tuổi Sửu, mang đến sự ổn định và chắc chắn. Tuy nhiên, đừng quá cứng nhắc, hãy linh hoạt hơn trong cách giải quyết vấn đề. Dành thời gian suy nghĩ kỹ lưỡng trước khi đưa ra quyết định quan trọng.",
+      "diem": 3,
+      "gioTot": "5h–7h"
+    },
+    "dan": {
+      "luan": "Tuổi Dần hôm nay trải qua một ngày bình hòa, mọi việc diễn ra khá êm đềm. Đây là thời điểm tốt để bạn củng cố lại những gì đã đạt được và chuẩn bị cho các bước tiến mới. Tránh vội vàng, hãy làm việc một cách có kế hoạch.",
+      "diem": 3,
+      "gioTot": "15h–17h"
+    },
+    "mao": {
+      "luan": "Người tuổi Mão có một ngày khá ổn định, không có quá nhiều biến động. Bạn có thể tập trung vào những công việc còn dang dở và hoàn thành chúng một cách hiệu quả. Đừng ngại tìm kiếm sự giúp đỡ khi cần thiết.",
+      "diem": 3,
+      "gioTot": "21h–23h"
+    },
+    "thin": {
+      "luan": "Tuổi Thìn hôm nay duy trì sự cân bằng, không gặp phải khó khăn lớn. Hãy tận dụng thời gian này để sắp xếp lại công việc và đưa ra những ý tưởng mới mẻ. Sự kiên nhẫn sẽ giúp bạn đạt được kết quả mong muốn.",
+      "diem": 3,
+      "gioTot": "3h–5h"
+    },
+    "ty-ran": {
+      "luan": "Tuổi Tỵ có một ngày thuận lợi với nhiều tín hiệu tích cực. Các mối quan hệ tam hợp giúp bạn dễ dàng đạt được sự đồng thuận trong công việc. Hãy mạnh dạn thể hiện năng lực và nắm bắt cơ hội đến với mình.",
+      "diem": 4,
+      "gioTot": "9h–11h"
+    },
+    "ngo": {
+      "luan": "Người tuổi Ngọ có thể gặp chút rắc rối nhỏ do sự tương khắc trong ngày. Hãy giữ bình tĩnh và thận trọng trong mọi phát ngôn, hành động. Tránh tranh cãi không cần thiết và tập trung vào việc của mình.",
+      "diem": 2,
+      "gioTot": "19h–21h"
+    },
+    "mui": {
+      "luan": "Tuổi Mùi hôm nay có thể đối mặt với một số thử thách do xung khắc. Điều quan trọng là bạn cần giữ vững lập trường, không để cảm xúc chi phối. Hãy tìm cách hòa giải hoặc tạm gác lại những vấn đề gây tranh cãi.",
+      "diem": 2,
+      "gioTot": "5h–7h"
+    },
+    "than": {
+      "luan": "Tuổi Thân hôm nay có một ngày bình lặng, không có nhiều sự kiện nổi bật. Bạn nên tận dụng thời gian này để xem xét lại các kế hoạch cá nhân và điều chỉnh nếu cần. Cẩn trọng hơn trong giao tiếp để tránh hiểu lầm.",
+      "diem": 3,
+      "gioTot": "15h–17h"
+    },
+    "dau": {
+      "luan": "Người tuổi Dậu đón nhận một ngày tốt đẹp nhờ mối quan hệ tam hợp. Công việc suôn sẻ, các mối quan hệ cá nhân cũng hài hòa. Đây là thời điểm thích hợp để bạn thực hiện những dự định đã ấp ủ bấy lâu.",
+      "diem": 4,
+      "gioTot": "9h–11h"
+    },
+    "tuat": {
+      "luan": "Tuổi Tuất hôm nay có thể cảm thấy áp lực hoặc vướng mắc do yếu tố hình khắc. Hãy tập trung giải quyết từng vấn đề một cách cẩn trọng và không nóng vội. Tránh đưa ra quyết định quan trọng khi tâm trạng không ổn định.",
+      "diem": 2,
+      "gioTot": "21h–23h"
+    },
+    "hoi": {
+      "luan": "Người tuổi Hợi hôm nay có một ngày bình ổn, mọi việc tiến triển theo đúng quỹ đạo. Đây là thời điểm thích hợp để bạn dành thời gian cho bản thân hoặc những người thân yêu. Giữ tâm lý thoải mái để đón nhận năng lượng tích cực.",
+      "diem": 3,
+      "gioTot": "3h–5h"
+    }
+  }
+}
