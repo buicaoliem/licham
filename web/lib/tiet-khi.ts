@@ -118,7 +118,7 @@ const NOI_DUNG: Record<string, NoiDung> = {
     tenAnh: "Great Heat",
     nghia: "Đại là lớn, thử là nắng nóng.",
     dongA: "Nóng oi — theo lịch pháp là thời kỳ nóng nhất năm.",
-    vietNam: "Mùa hè cũng là mùa bão: trung bình mỗi mùa hè có khoảng 11 cơn bão và áp thấp nhiệt đới phát triển trên Biển Đông.",
+    vietNam: "Theo thống kê khí hậu, trung bình mỗi mùa hè có khoảng 11 cơn bão và áp thấp nhiệt đới phát triển trên Biển Đông.",
     nguonVn: true,
   },
   "Lập thu": {
