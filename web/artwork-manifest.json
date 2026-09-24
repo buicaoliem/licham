@@ -12,9 +12,9 @@
         "le-gio-to-hung-vuong"
       ]
     },
-    "da_tich_hop_tong": 40,
-    "con_thieu_hoac_can_sua": 38,
-    "ghi_chu": "Batch A (9) + Batch B (7) + Batch D (8) + Review-33 (16) = 40/78; còn 38 mục (21 chưa có ứng viên + 17 ứng viên Review-33 bị loại). Chưa hoàn thành toàn bộ manifest.",
+    "da_tich_hop_tong": 46,
+    "con_thieu_hoac_can_sua": 32,
+    "ghi_chu": "Batch A (9) + B (7) + D (8) + Review-33 (16) + Independent-12 (6) = 46/78; còn 32 mục. Chưa hoàn thành toàn bộ manifest.",
     "batch_b": {
       "nhan": 7,
       "da_tich_hop": 7,
@@ -88,6 +88,27 @@
         "le-quan-doi-nhan-dan",
         "le-gio-le-loi",
         "le-gio-vo-thi-sau"
+      ]
+    },
+    "independent_12": {
+      "nhan": 12,
+      "da_tich_hop": 6,
+      "loai": 6,
+      "ids_tich_hop": [
+        "le-nha-giao-viet-nam",
+        "le-quoc-te-thieu-nhi",
+        "le-ram-thang-chap",
+        "le-tet-ha-nguyen",
+        "le-thuong-binh-liet-si",
+        "le-via-quan-am"
+      ],
+      "ids_loai": [
+        "le-cach-mang-thang-tam",
+        "le-gia-dinh-viet-nam",
+        "le-giai-phong-thu-do",
+        "le-gio-phung-hung",
+        "le-gio-to-hung-vuong",
+        "site-hero-lich-ngay"
       ]
     }
   },
@@ -164,7 +185,8 @@
       "status": "thiếu slot",
       "current": null,
       "priority": "P1",
-      "notes": "Cần thêm slot vào code"
+      "notes": "Cần thêm slot vào code",
+      "independent12": "REJECT: Hero trang ngày dùng quanh năm nhưng là bàn thờ ngày Tết (bánh chưng, đào, mai, quất) — cùng lý do loại hero/van-khan; kích thước 2025×777. Bản ứng viên ở artwork-inbox/indep12/ (staging)."
     },
     {
       "id": "site-hero-van-khan",
@@ -472,10 +494,11 @@
       "subject": "Quan Thế Âm Bồ Tát: bàn thờ/tượng theo mẫu tượng thờ Việt, bình dương liễu, sen — không tự bịa tôn tượng",
       "target": "/heritage/le/via-quan-am.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "tạm: đang dùng tranh dùng chung /heritage/van-khan/nhom/cau-an.webp, chưa có tranh riêng",
-      "current": "/heritage/van-khan/nhom/cau-an.webp 1600×1200",
+      "status": "đã tích hợp (Independent-12, 2026-09-24)",
+      "current": "/heritage/le/via-quan-am.webp 1448×1086 243 KB",
       "priority": "P2",
-      "notes": "Tranh chung 'cau-an' (sen) chỉ đúng một phần"
+      "notes": "Quan Âm áo trắng cầm tịnh bình và cành dương liễu, đài sen, chùa bên hồ sen — đúng hình tượng. Kích thước gốc 1448×1086 (dưới spec 1600×1200, không phóng to); nén lại ≤ 250 KB. QA 1440/390.",
+      "batch": "I12"
     },
     {
       "id": "le-tet-han-thuc",
@@ -505,7 +528,8 @@
       "current": "/heritage/van-khan/nhom/di-le.webp 1600×1200",
       "priority": "P1",
       "notes": "Tranh chung 'di-le' không phải Đền Hùng; cần đối chiếu ảnh Đền Hùng để dựng đúng kiến trúc — Bản Batch A nằm ở artwork-inbox/web/public/heritage/le/gio-to-hung-vuong.webp (staging, không nằm trong public). Khi dùng phải ghi là tranh minh họa, không phải ảnh tư liệu.",
-      "batch": "A (hold)"
+      "batch": "A (hold)",
+      "independent12": "REJECT: Cổng Đền Hùng vẽ thành cổng vòm sơn đỏ, khác cổng đá thật — vẫn giữ lại chờ đối chiếu kiến trúc như bản Batch A. Bản ứng viên ở artwork-inbox/indep12/ (staging)."
     },
     {
       "id": "le-phat-dan",
@@ -591,10 +615,11 @@
       "subject": "Rằm tháng Mười: ruộng lúa sau gặt, mâm cơm mới, trăng, bàn thờ tạ mùa",
       "target": "/heritage/le/tet-ha-nguyen.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "tạm: đang dùng tranh dùng chung /heritage/van-khan/mung-mot-ngay-ram.webp, chưa có tranh riêng",
-      "current": "/heritage/van-khan/mung-mot-ngay-ram.webp 1600×1200",
+      "status": "đã tích hợp (Independent-12, 2026-09-24)",
+      "current": "/heritage/le/tet-ha-nguyen.webp 1448×1086 241 KB",
       "priority": "P2",
-      "notes": "Đang dùng tranh chung 'mùng một–ngày rằm'"
+      "notes": "Tết cơm mới: lúa chín, rơm, mâm cơm mới, bàn thờ. Trăng vẽ gần tròn (ngày 10 âm trăng chưa tròn hẳn) — chấp nhận. Kích thước gốc 1448×1086 (dưới spec 1600×1200, không phóng to); nén lại ≤ 250 KB. QA 1440/390.",
+      "batch": "I12"
     },
     {
       "id": "le-ram-thang-chap",
@@ -605,10 +630,11 @@
       "subject": "Rằm tháng Chạp: cuối năm, bàn thờ chuẩn bị Tết, hoa quả, trăng",
       "target": "/heritage/le/ram-thang-chap.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "tạm: đang dùng tranh dùng chung /heritage/van-khan/mung-mot-ngay-ram.webp, chưa có tranh riêng",
-      "current": "/heritage/van-khan/mung-mot-ngay-ram.webp 1600×1200",
+      "status": "đã tích hợp (Independent-12, 2026-09-24)",
+      "current": "/heritage/le/ram-thang-chap.webp 1448×1086 240 KB",
       "priority": "P2",
-      "notes": "Đang dùng tranh chung 'mùng một–ngày rằm'"
+      "notes": "Trăng tròn ngày rằm, mâm lễ cuối năm, bánh chưng, đào, cúc — hợp lễ rằm cuối năm trước Tết. Kích thước gốc 1448×1086 (dưới spec 1600×1200, không phóng to); nén lại ≤ 250 KB. QA 1440/390.",
+      "batch": "I12"
     },
     {
       "id": "le-ong-cong-ong-tao",
@@ -813,10 +839,11 @@
       "subject": "1/6: trẻ em, diều, bóng bay, đèn lồng",
       "target": "/heritage/le/quoc-te-thieu-nhi.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "chưa có tranh, khối ảnh đang ẩn",
-      "current": null,
+      "status": "đã tích hợp (Independent-12, 2026-09-24)",
+      "current": "/heritage/le/quoc-te-thieu-nhi.webp 1448×1086 241 KB",
       "priority": "P2",
-      "notes": ""
+      "notes": "Trẻ em chạy thả diều, bóng bay, chong chóng, áo dài trẻ em. Kích thước gốc 1448×1086 (dưới spec 1600×1200, không phóng to); nén lại ≤ 250 KB. QA 1440/390.",
+      "batch": "I12"
     },
     {
       "id": "le-bao-chi-cach-mang",
@@ -845,7 +872,8 @@
       "status": "chưa có tranh, khối ảnh đang ẩn",
       "current": null,
       "priority": "P2",
-      "notes": ""
+      "notes": "",
+      "independent12": "REJECT: Đạo cụ Tết (bánh chưng, quất, đào, mai) cho ngày 28/6. Bản ứng viên ở artwork-inbox/indep12/ (staging)."
     },
     {
       "id": "le-thuong-binh-liet-si",
@@ -856,10 +884,11 @@
       "subject": "27/7: nghĩa trang liệt sĩ, nén hương, hoa cúc trắng, cờ — trang nghiêm",
       "target": "/heritage/le/thuong-binh-liet-si.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "chưa có tranh, khối ảnh đang ẩn",
-      "current": null,
+      "status": "đã tích hợp (Independent-12, 2026-09-24)",
+      "current": "/heritage/le/thuong-binh-liet-si.webp 1448×1086 241 KB",
       "priority": "P2",
-      "notes": ""
+      "notes": "Nghĩa trang liệt sĩ: bia sao vàng, đài Tổ quốc ghi công, cờ, hoa cúc trắng, hương. Kích thước gốc 1448×1086 (dưới spec 1600×1200, không phóng to); nén lại ≤ 250 KB. QA 1440/390.",
+      "batch": "I12"
     },
     {
       "id": "le-cach-mang-thang-tam",
@@ -873,7 +902,8 @@
       "status": "chưa có tranh, khối ảnh đang ẩn",
       "current": null,
       "priority": "P2",
-      "notes": ""
+      "notes": "",
+      "independent12": "REJECT: Bịa địa lý: Tháp Rùa/Hồ Gươm ngay sau Nhà hát Lớn. Bản ứng viên ở artwork-inbox/indep12/ (staging)."
     },
     {
       "id": "le-giai-phong-thu-do",
@@ -887,7 +917,8 @@
       "status": "chưa có tranh, khối ảnh đang ẩn",
       "current": null,
       "priority": "P2",
-      "notes": ""
+      "notes": "",
+      "independent12": "REJECT: Bịa địa lý: Cột cờ Hà Nội đặt trên cổng thành cạnh Hồ Gươm. Bản ứng viên ở artwork-inbox/indep12/ (staging)."
     },
     {
       "id": "le-doanh-nhan-viet-nam",
@@ -927,10 +958,11 @@
       "subject": "20/11: bảng đen, hoa, sách, thầy trò — tranh biểu tượng",
       "target": "/heritage/le/nha-giao-viet-nam.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "chưa có tranh, khối ảnh đang ẩn",
-      "current": null,
+      "status": "đã tích hợp (Independent-12, 2026-09-24)",
+      "current": "/heritage/le/nha-giao-viet-nam.webp 1448×1086 243 KB",
       "priority": "P2",
-      "notes": ""
+      "notes": "Cô giáo áo dài, học sinh khăn quàng đỏ, hoa, sách. Có cành đào (lệch mùa nhẹ), không có đồ Tết khác. Kích thước gốc 1448×1086 (dưới spec 1600×1200, không phóng to); nén lại ≤ 250 KB. QA 1440/390.",
+      "batch": "I12"
     },
     {
       "id": "le-quan-doi-nhan-dan",
@@ -1121,7 +1153,8 @@
       "notes": "Chú thích bắt buộc: 'Tranh minh họa của licham.app' (không phải ảnh lịch sử)",
       "figure": "Phùng Hưng (Bố Cái Đại Vương)",
       "reference_to_verify": "Đại Việt sử ký toàn thư; tư liệu đền Đường Lâm",
-      "portrait_policy": "Không tạo khuôn mặt cụ thể trình bày như xác thực; chỉ biểu tượng, cảnh, di tích"
+      "portrait_policy": "Không tạo khuôn mặt cụ thể trình bày như xác thực; chỉ biểu tượng, cảnh, di tích",
+      "independent12": "REJECT: Giỗ 13/8 âm nhưng tiền cảnh đầy hoa đào, bánh chưng ngày Tết. Bản ứng viên ở artwork-inbox/indep12/ (staging)."
     },
     {
       "id": "le-le-hoi-hoa-lu",
