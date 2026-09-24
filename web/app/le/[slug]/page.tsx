@@ -23,6 +23,7 @@ import { buildShareUrl } from "@/lib/share";
 import { SITE_URL } from "@/lib/site";
 import { getVietnamToday } from "@/lib/today";
 import { vanKhanBySlug } from "@/lib/van-khan";
+import { anhHungByLeSlug, anhHungHref } from "@/lib/anh-hung";
 
 /** Bảng năm: 2 năm trước, năm sắp tới, 5 năm sau. */
 const YEARS_BEFORE = 2;
@@ -113,6 +114,8 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
   const vanKhanBai = page.vanKhan.map((s) => vanKhanBySlug(s)).filter((v): v is NonNullable<typeof v> => Boolean(v));
   const countdownSlug = countdownSlugForLe(page.slug);
   const heroesKhac = isHero ? leKhac(page, 4) : [];
+  // Trang tiểu sử trong chuyên mục Anh hùng dân tộc (nếu có) — liên kết từ mục "Đôi nét".
+  const hoSo = anhHungByLeSlug(page.slug);
   const chips = upcomingHolidayChips(todayJd, page.slug, 5, today);
 
   const faqDate = `${WEEKDAY_LONG[weekday]}, ngày ${pad2(solar.day)}/${pad2(solar.month)}/${solar.year} dương lịch (${lunarLabel} âm lịch, năm ${canChi})`;
@@ -410,6 +413,16 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
                   <p key={i}>{p}</p>
                 ))}
               </div>
+              {hoSo && (
+                <Link className="le-hoso" href={anhHungHref(hoSo.slug)}>
+                  <Icon name="temple" size={18} />
+                  <span>
+                    <b>Tiểu sử {hoSo.ten}</b>
+                    <small>Niên đại, bối cảnh lịch sử, công trạng và di tích — chuyên mục Anh hùng dân tộc</small>
+                  </span>
+                  <Icon name="arrow" size={18} />
+                </Link>
+              )}
             </Sec>
 
             {coBullets && (
