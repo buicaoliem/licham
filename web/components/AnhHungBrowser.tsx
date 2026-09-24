@@ -16,7 +16,7 @@ export interface AhBrowserItem {
 
 /** Bỏ dấu tiếng Việt để "tran hung dao" khớp "Trần Hưng Đạo". */
 function fold(s: string): string {
-  return s.normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/đ/g, "d").replace(/Đ/g, "D").toLowerCase().trim();
+  return s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d").replace(/Đ/g, "D").toLowerCase().trim();
 }
 
 interface Props {

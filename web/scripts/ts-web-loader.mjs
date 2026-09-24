@@ -14,7 +14,8 @@ export async function resolve(specifier, context, nextResolve) {
     const target = join(WEB_ROOT, specifier.slice(2));
     return nextResolve(pathToFileURL(existsSync(`${target}.ts`) ? `${target}.ts` : target).href, context);
   }
-  if (specifier.startsWith(".") && !/\.[a-zA-Z0-9]+$/.test(specifier)) {
+  // "./heritage-assets.generated" trông như có đuôi nhưng vẫn là file .ts — thử thêm ".ts" khi file đó tồn tại.
+  if (specifier.startsWith(".") && !/\.(ts|tsx|js|mjs|cjs|json)$/.test(specifier)) {
     const base = fileURLToPath(new URL(specifier, context.parentURL));
     if (existsSync(`${base}.ts`)) {
       return nextResolve(`${specifier}.ts`, context);

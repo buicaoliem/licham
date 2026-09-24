@@ -1,12 +1,8 @@
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { ANH_HUNG, THOI_KY, anhHungByLeSlug, anhHungBySlug, anhHungImagePath, anhHungKeCan, wikiUrl } from "./anh-hung";
 import { leImage } from "./heritage-assets";
 import { LE_LIST, leBySlug } from "./le";
-
-// components/LeIllustration.tsx là TSX (vitest không biên dịch JSX) — đọc khóa của HERO_ICON_DEFS từ mã nguồn.
-const ICON_SRC = readFileSync(new URL("../components/LeIllustration.tsx", import.meta.url), "utf8");
-const hasHeroIllustration = (key: string) => ICON_SRC.includes(`"${key}": {`);
 
 describe("anh-hung-dan-toc", () => {
   it("has unique slugs and complete profiles", () => {
@@ -55,13 +51,14 @@ describe("anh-hung-dan-toc", () => {
     );
   });
 
-  it("gives every hero an illustration (memorial painting, photo or SVG emblem) without reusing paintings", () => {
+  it("gives every hero a painting or photo without reusing paintings", () => {
     const used = new Map<string, string>();
     for (const a of ANH_HUNG) {
       const rieng = existsSync(new URL(`../public${anhHungImagePath(a.slug)}`, import.meta.url)) ? anhHungImagePath(a.slug) : null;
       const img = (a.leSlug ? leImage(a.leSlug) : null) ?? rieng;
       const photo = a.leSlug ? leBySlug(a.leSlug)?.coAnhThat : false;
-      expect(Boolean(img || photo || hasHeroIllustration(a.slug) || (a.leSlug && hasHeroIllustration(a.leSlug))), a.slug).toBe(true);
+      // 24/24 nhân vật có tranh hoặc ảnh thật — không còn biểu tượng SVG tạm.
+      expect(Boolean(img || photo), a.slug).toBe(true);
       if (img) {
         expect(used.get(img), `${a.slug} reuses ${img}`).toBeUndefined();
         used.set(img, a.slug);

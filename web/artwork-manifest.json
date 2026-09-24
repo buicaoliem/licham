@@ -1589,18 +1589,62 @@
       "hoang-hoa-tham": {
         "target": "/heritage/anh-hung/hoang-hoa-tham.webp",
         "qa": "APPROVE: Thủ lĩnh cưỡi ngựa dẫn nghĩa quân nông dân qua rừng núi, đồn lũy trên đồi — hợp khởi nghĩa Yên Thế."
+      },
+      "mai-hac-de": {
+        "target": "/heritage/anh-hung/mai-hac-de.webp",
+        "qa": "APPROVE (remaining16): thành lũy đất, vọng lâu, nghĩa quân nông dân khăn đỏ, núi và đồng bằng ven sông — khởi nghĩa Hoan Châu/thành Vạn An; không có bãi cọc Bạch Đằng."
+      },
+      "ly-thuong-kiet": {
+        "target": "/heritage/anh-hung/ly-thuong-kiet.webp",
+        "qa": "APPROVE (remaining16): phòng tuyến lũy gỗ, chông tre bên bờ sông, quân địch vượt sông bằng thuyền — phòng tuyến Như Nguyệt; không có chữ."
       }
     },
     "giu_lai": {
       "hung-vuong": {
         "staging": "artwork-inbox/ah8/assets/anh-hung-dan-toc/hung-vuong.webp",
         "ly_do": "Tranh vẽ tướng mặc giáp giơ gươm trước đám nông dân khởi nghĩa (khăn đỏ, giáo mác) — không hợp Quốc tổ Hùng Vương (vua truyền thuyết dựng nước). Nhân vật đã dùng tranh Giỗ Tổ Hùng Vương, không cần thay."
-      },
-      "mai-hac-de": {
-        "staging": "artwork-inbox/ah8/assets/anh-hung-dan-toc/mai-hac-de.webp",
-        "ly_do": "Tranh vẽ bãi cọc gỗ giữa sông và thuyền giặc bốc cháy — biểu tượng trận Bạch Đằng (Ngô Quyền 938 / Trần Hưng Đạo 1288), không phải khởi nghĩa Hoan Châu của Mai Hắc Đế. Dùng sẽ gán sai sự kiện."
       }
     },
-    "tong_ket": "22/24 nhân vật có ảnh (16 tranh trang lễ + ảnh thật Hồ Chí Minh + 5 tranh mới); 2 dùng biểu tượng SVG: mai-hac-de (tranh gửi sai sự kiện), ly-thuong-kiet (gói không có tranh)."
+    "tong_ket": "24/24 nhân vật có ảnh: 16 tranh trang lễ, ảnh thật Hồ Chí Minh, 7 tranh riêng /heritage/anh-hung/. Không còn SVG tạm.",
+    "ghi_chu_duong_dan": "Manifest gói đề xuất /heritage/anh-hung-dan-toc/; giữ quy ước repo /heritage/anh-hung/ (anhHungImagePath)."
+  },
+  "tiet_khi": {
+    "updated": "2026-09-24",
+    "nguon": "artwork-inbox/licham-24-tiet-khi-batch1-review.zip → artwork-inbox/tk1/ (10 PNG 1448×1086, SHA-256 khớp)",
+    "hien_thi": "Trang /tiet-khi/<slug>/ (24), lưới tranh trong /kien-thuc/tiet-khi/, tab Tiết khí trên /le/.",
+    "da_tich_hop": {
+      "bach-lo": "/heritage/tiet-khi/bach-lo.webp 237 KB",
+      "coc-vu": "/heritage/tiet-khi/coc-vu.webp 237 KB",
+      "dai-han": "/heritage/tiet-khi/dai-han.webp 236 KB",
+      "dai-thu": "/heritage/tiet-khi/dai-thu.webp 235 KB",
+      "dai-tuyet": "/heritage/tiet-khi/dai-tuyet.webp 235 KB",
+      "dong-chi": "/heritage/tiet-khi/dong-chi.webp 236 KB",
+      "ha-chi": "/heritage/tiet-khi/ha-chi.webp 238 KB",
+      "han-lo": "/heritage/tiet-khi/han-lo.webp 240 KB",
+      "kinh-trap": "/heritage/tiet-khi/kinh-trap.webp 239 KB",
+      "lap-dong": "/heritage/tiet-khi/lap-dong.webp 238 KB",
+      "lap-ha": "/heritage/tiet-khi/lap-ha.webp 236 KB",
+      "lap-thu": "/heritage/tiet-khi/lap-thu.webp 237 KB",
+      "lap-xuan": "/heritage/tiet-khi/lap-xuan.webp 238 KB",
+      "mang-chung": "/heritage/tiet-khi/mang-chung.webp 234 KB",
+      "suong-giang": "/heritage/tiet-khi/suong-giang.webp 239 KB",
+      "thanh-minh": "/heritage/tiet-khi/thanh-minh.webp 237 KB",
+      "thu-phan": "/heritage/tiet-khi/thu-phan.webp 236 KB",
+      "tieu-han": "/heritage/tiet-khi/tieu-han.webp 239 KB",
+      "tieu-man": "/heritage/tiet-khi/tieu-man.webp 237 KB",
+      "tieu-thu": "/heritage/tiet-khi/tieu-thu.webp 234 KB",
+      "tieu-tuyet": "/heritage/tiet-khi/tieu-tuyet.webp 234 KB",
+      "vu-thuy": "/heritage/tiet-khi/vu-thuy.webp 239 KB",
+      "xu-thu": "/heritage/tiet-khi/xu-thu.webp 239 KB",
+      "xuan-phan": "/heritage/tiet-khi/xuan-phan.webp 237 KB"
+    },
+    "loai": [],
+    "con_thieu": [],
+    "tong": "24/24",
+    "nguon_batch2": "artwork-inbox/licham-remaining16-review.zip → artwork-inbox/r16/ (14 tiết khí + 2 anh hùng, SHA-256 khớp 16/16)",
+    "doi_mapping": {
+      "han-lo.webp": "lấy từ suong-giang.png (lúa chín, cây hồng, trời thu trong — hợp đầu tháng 10)",
+      "suong-giang.webp": "lấy từ han-lo.png (ruộng đã gặt, sương, cành trơ — hợp cuối tháng 10)"
+    }
   }
 }

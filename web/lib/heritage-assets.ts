@@ -95,6 +95,28 @@ export const LE_TRANH_LICH_SU: ReadonlySet<string> = new Set([
   "gio-le-loi",
 ]);
 
+/** Slug tiết khí từ tên ("Kinh trập" → "kinh-trap", "Đông chí" → "dong-chi"). */
+export function tietKhiSlug(name: string): string {
+  return name
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/đ/g, "d")
+    .replace(/Đ/g, "D")
+    .toLowerCase()
+    .replace(/\s+/g, "-");
+}
+
+/** Tranh tiết khí (1448×1086, 4:3) nếu đã có trong public/heritage/tiet-khi/. */
+export function tietKhiImage(name: string): string | null {
+  return heritageFile(`/heritage/tiet-khi/${tietKhiSlug(name)}.webp`);
+}
+
+/** Mùa của tiết theo kinh độ Mặt Trời: Lập xuân 315° mở mùa xuân, mỗi mùa 6 tiết (90°). */
+export function tietKhiMua(longitude: number): "xuan" | "ha" | "thu" | "dong" {
+  const k = (((longitude - 315) % 360) + 360) % 360;
+  return (["xuan", "ha", "thu", "dong"] as const)[Math.floor(k / 90)]!;
+}
+
 export function leImagePath(slug: string): string {
   return `/heritage/le/${slug}.webp`;
 }
