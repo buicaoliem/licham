@@ -5,7 +5,7 @@
 import { type SolarDate, getSolarTermsOfYear, jdFromDate, vietnamDateOf } from "@licham/core";
 import { WEEKDAY_LONG, pad2 } from "@/lib/format";
 import { hasHeroIllustration } from "@/components/LeIllustration";
-import { leImage, tietKhiImage, tietKhiMua } from "@/lib/heritage-assets";
+import { leImage, tietKhiImage, tietKhiMua, tietKhiSlug } from "@/lib/heritage-assets";
 import { LE_LIST, LE_NHOM_LABEL, type LeNhom, type LePage } from "@/lib/le";
 import { daysUntil, nextOccurrence } from "@/lib/le-date-engine";
 
@@ -106,6 +106,8 @@ export function solarLabel(d: { day: number; month: number; year: number }): str
 
 export interface TietKhiItem {
   name: string;
+  /** Slug trang /tiet-khi/<slug>/. */
+  slug: string;
   /** Kinh độ Mặt Trời bắt đầu tiết (độ). */
   longitude: number;
   day: number;
@@ -123,7 +125,7 @@ export function tietKhiNam(year: number, today: SolarDate): TietKhiItem[] {
   return getSolarTermsOfYear(year)
     .map((t) => {
       const d = vietnamDateOf(t.start);
-      return { name: t.name, longitude: t.longitude, day: d.day, month: d.month, year: d.year, daysLeft: daysUntil(today, d), img: tietKhiImage(t.name), mua: tietKhiMua(t.longitude) };
+      return { name: t.name, slug: tietKhiSlug(t.name), longitude: t.longitude, day: d.day, month: d.month, year: d.year, daysLeft: daysUntil(today, d), img: tietKhiImage(t.name), mua: tietKhiMua(t.longitude) };
     })
     .sort((a, b) => jdFromDate(a.day, a.month, a.year) - jdFromDate(b.day, b.month, b.year));
 }

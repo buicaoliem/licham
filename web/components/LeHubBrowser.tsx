@@ -4,7 +4,6 @@ import Link from "next/link";
 import { Fragment, type ReactNode, useEffect, useMemo, useState } from "react";
 import { LeArtView, LeCard } from "@/components/heritage/LeParts";
 import { Icon, type IconName } from "@/components/heritage/Icon";
-import { dayHref } from "@/lib/calendar/urls";
 import type { LeItem, LeLichKind, TietKhiItem } from "@/lib/le-hub";
 
 // Lọc / tìm kiếm trên dữ liệu dựng sẵn ở server (60 lễ + 24 tiết khí năm nay). HTML ban đầu có đủ
@@ -219,12 +218,12 @@ export function LeHubBrowser({ items, tietKhi, tietKhiYear, featured, featuredNo
               <Icon name="arrow" size={14} />
             </Link>
           </div>
-          <p className="le-tk-sub">Ngày bắt đầu mỗi tiết theo giờ Việt Nam, tính từ kinh độ Mặt Trời. Bấm để xem lịch ngày đó.</p>
+          <p className="le-tk-sub">Ngày bắt đầu mỗi tiết theo giờ Việt Nam, tính từ kinh độ Mặt Trời. Bấm để xem ý nghĩa và ngày bắt đầu các năm.</p>
           {tietKhiLoc.length > 0 ? (
             <ol className="le-tk-grid">
               {tietKhiLoc.map((t) => (
                 <li key={t.name} className={t.daysLeft < 0 ? "qua" : tietKhiKe && t.name === tietKhiKe.name ? "ke" : undefined}>
-                  <Link href={dayHref(t)} className={`m-${t.mua}`}>
+                  <Link href={`/tiet-khi/${t.slug}/`} className={`m-${t.mua}`}>
                     <span className="le-tk-pic" aria-hidden="true">
                       {t.img ? <img src={t.img} alt="" loading="lazy" decoding="async" width={1448} height={1086} /> : <Icon name="sun" size={22} />}
                     </span>

@@ -28,6 +28,7 @@ import { sinhNamYears } from "../lib/sinh-nam";
 import { VIEC_LIST } from "../lib/xem-ngay-tot";
 import { KNOWLEDGE } from "../lib/knowledge";
 import { ANH_HUNG } from "../lib/anh-hung";
+import { TIET_KHI } from "../lib/tiet-khi";
 
 
 const PUBLIC_DIR = join(dirname(fileURLToPath(import.meta.url)), "..", "public");
@@ -113,6 +114,10 @@ function buildStaticEntries(): SitemapEntry[] {
   entries.push({ url: `${SITE_URL}/anh-hung-dan-toc/`, changefreq: "monthly", priority: 0.7 });
   for (const a of ANH_HUNG) {
     entries.push({ url: `${SITE_URL}/anh-hung-dan-toc/${a.slug}/`, changefreq: "monthly", priority: 0.6 });
+  }
+
+  for (const t of TIET_KHI) {
+    entries.push({ url: `${SITE_URL}/tiet-khi/${t.slug}/`, changefreq: "monthly", priority: 0.6 });
   }
 
   entries.push({ url: `${SITE_URL}/tinh-tuoi/`, changefreq: "daily", priority: 0.9 });
