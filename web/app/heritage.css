@@ -12359,3 +12359,36 @@ a.ly-cell:hover {
     grid-template-columns: 52px minmax(0, 1fr) auto;
   }
 }
+/* Trang tiết khí: chữ Hán + tên tiếng Anh, lưu ý khí hậu, nguồn */
+.tk-han {
+  margin: 6px 0 0;
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--ink-3);
+}
+.tk-caveat {
+  padding: 14px 18px;
+  border: 1px solid color-mix(in srgb, var(--gold) 50%, var(--line));
+  border-radius: 14px;
+  background: #fdf9f0;
+}
+.tk-caveat b {
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--gold-dp);
+}
+.tk-caveat p {
+  margin: 4px 0 0;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+.tk-src {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0 0 0 18px;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  overflow-wrap: anywhere;
+}

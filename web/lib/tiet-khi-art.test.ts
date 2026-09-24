@@ -21,9 +21,23 @@ describe("tranh 24 tiết khí", () => {
     expect(TIET_KHI[0]).toMatchObject({ ten: "Lập xuân", kinhDo: 315, loai: "tiet", mua: "xuan" });
     expect(tietKhiBySlug("xuan-phan")).toMatchObject({ kinhDo: 0, loai: "trung-khi" });
     expect(tietKhiBySlug("dong-chi")).toMatchObject({ kinhDo: 270, mua: "dong" });
-    for (const t of TIET_KHI) expect(t.nghia.length > 10 && t.moTa.length > 20, t.ten).toBe(true);
+    for (const t of TIET_KHI) expect(t.nghia.length > 10 && t.dongA.length > 5 && t.han.length === 2 && t.tenAnh.length > 3, t.ten).toBe(true);
     expect(tietKhiKeCan("dai-han").next.slug).toBe("lap-xuan");
     expect(tietKhiKeCan("lap-xuan").prev.slug).toBe("dai-han");
+  });
+
+  it("keeps East Asian calendar meaning separate from Vietnam climate, with sources", () => {
+    for (const t of TIET_KHI) {
+      expect(t.nguon, t.ten).toEqual(expect.arrayContaining(["hko", "wiki-tiet", "wiki-tiet-khi"]));
+      const all = `${t.nghia} ${t.dongA} ${t.vietNam ?? ""}`;
+      // Nội dung đã loại vì không có nguồn: sấm Kinh trập, tục cúng Đông chí, lịch vụ lúa cụ thể.
+      expect(all, t.ten).not.toMatch(/sấm|cúng Đông chí|chiêm xuân|lúa mùa|vụ đông|cấy/);
+      // Câu về Việt Nam luôn nêu rõ vùng hoặc phạm vi, không khái quát cả nước.
+      if (t.vietNam) expect(t.vietNam, t.ten).toMatch(/miền Bắc|miền Nam|Việt Nam|Biển Đông|núi cao/);
+    }
+    // Tiết mang tên tuyết/sương giá phải có lưu ý cho Việt Nam hoặc ghi rõ là khí hậu Trung Hoa cổ.
+    for (const slug of ["tieu-tuyet", "dai-tuyet"]) expect(tietKhiBySlug(slug)?.vietNam).toMatch(/không có tuyết/);
+    expect(tietKhiBySlug("suong-giang")?.dongA).toMatch(/Trung Hoa cổ đại/);
   });
 
   it("computes start dates from the calendar core", () => {

@@ -9,7 +9,7 @@ import { Icon } from "@/components/heritage/Icon";
 import { dayHref } from "@/lib/calendar/urls";
 import { WEEKDAY_LONG, pad2 } from "@/lib/format";
 import { SITE_URL } from "@/lib/site";
-import { MUA_LABEL, TIET_KHI, tietKhiArt, tietKhiBySlug, tietKhiHref, tietKhiKeCan, tietKhiNgay } from "@/lib/tiet-khi";
+import { MUA_LABEL, NGUON_TIET_KHI, TIET_KHI, tietKhiArt, tietKhiBySlug, tietKhiHref, tietKhiKeCan, tietKhiNgay, wikiTietUrl } from "@/lib/tiet-khi";
 import { getVietnamToday } from "@/lib/today";
 
 export const dynamicParams = false;
@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!t) return {};
   const year = getVietnamToday().year;
   const d = tietKhiNgay(t, year);
-  const full = `Tiết ${t.ten} năm ${year} bắt đầu ngày ${pad2(d.day)}/${pad2(d.month)}, kinh độ Mặt Trời ${t.kinhDo}°. ${t.nghia} ${t.moTa}`;
+  const full = `Tiết ${t.ten} năm ${year} bắt đầu ngày ${pad2(d.day)}/${pad2(d.month)}, kinh độ Mặt Trời ${t.kinhDo}°. ${t.nghia} ${t.dongA}`;
   const description = full.length > 160 ? `${full.slice(0, 157).replace(/\s+\S*$/, "")}…` : full;
   return {
     title: `Tiết ${t.ten} ${year}: ngày bắt đầu, ý nghĩa, thời tiết | Lịch Âm`,
@@ -59,7 +59,7 @@ export default async function TietKhiPage({ params }: { params: Promise<{ slug: 
     "@context": "https://schema.org",
     "@type": "Article",
     headline: `Tiết ${t.ten}`,
-    description: `${t.nghia} ${t.moTa}`,
+    description: `${t.nghia} ${t.dongA}`,
     inLanguage: "vi",
     mainEntityOfPage: `${SITE_URL}${tietKhiHref(t.slug)}`,
     ...(art ? { image: `${SITE_URL}${art}` } : {}),
@@ -86,6 +86,9 @@ export default async function TietKhiPage({ params }: { params: Promise<{ slug: 
               {MUA_LABEL[t.mua]} · {t.loai === "trung-khi" ? "Trung khí" : "Tiết"}
             </div>
             <h1 className="ch-h1">Tiết {t.ten}</h1>
+            <p className="tk-han">
+              <span lang="zh-Hant">{t.han}</span> · {t.tenAnh}
+            </p>
             <p className="ch-lead">{t.nghia}</p>
             <dl className="tk-facts">
               <div>
@@ -125,7 +128,14 @@ export default async function TietKhiPage({ params }: { params: Promise<{ slug: 
                 </div>
               </div>
               <div className="tk-prose">
-                <p>{t.moTa}</p>
+                <p>
+                  <b>Theo lịch pháp Đông Á:</b> {t.dongA}
+                </p>
+                {t.vietNam && (
+                  <p>
+                    <b>Ở Việt Nam:</b> {t.vietNam}
+                  </p>
+                )}
                 <p>
                   Tiết {t.ten} bắt đầu khi Mặt Trời ở kinh độ hoàng đạo {t.kinhDo}° và kéo dài khoảng 15 ngày, đến khi Mặt Trời tới {(t.kinhDo + 15) % 360}° (
                   <Link href={tietKhiHref(next.slug)}>tiết {next.ten}</Link>).
@@ -153,6 +163,45 @@ export default async function TietKhiPage({ params }: { params: Promise<{ slug: 
                     <span className="w">{weekday(d)}</span>
                   </li>
                 ))}
+              </ul>
+            </section>
+
+            <aside className="tk-caveat">
+              <b>Lưu ý về khí hậu</b>
+              <p>
+                Tên và ý nghĩa 24 tiết khí phản ánh khí hậu vùng trung nguyên Trung Quốc thời cổ. Ở Việt Nam, hệ tiết khí gần với thời tiết miền Bắc hơn; miền
+                Nam chỉ có mùa mưa và mùa khô, và các tiết mang tên tuyết, sương giá không mô tả thời tiết thực tế của phần lớn lãnh thổ.
+              </p>
+            </aside>
+
+            <section className="lc-card" aria-labelledby="tk-src-h">
+              <div className="lc-card-h">
+                <span className="lc-ic gold" aria-hidden="true">
+                  <Icon name="scroll" size={20} />
+                </span>
+                <div className="t">
+                  <h2 id="tk-src-h">Nguồn tham khảo</h2>
+                </div>
+              </div>
+              <ul className="tk-src">
+                {t.nguon.map((k) =>
+                  k === "wiki-tiet" ? (
+                    <li key={k}>
+                      <a href={wikiTietUrl(t.ten)} target="_blank" rel="noopener noreferrer">
+                        Wikipedia tiếng Việt, “{t.ten}”
+                      </a>
+                    </li>
+                  ) : (
+                    <li key={k}>
+                      <a href={NGUON_TIET_KHI[k].url} target="_blank" rel="noopener noreferrer">
+                        {NGUON_TIET_KHI[k].ten}
+                      </a>
+                    </li>
+                  ),
+                )}
+                <li>
+                  Ngày bắt đầu: tính từ vị trí Mặt Trời theo giờ Việt Nam (UTC+7), xem <Link href="/phuong-phap-tinh-lich/">phương pháp tính lịch</Link>.
+                </li>
               </ul>
             </section>
 
