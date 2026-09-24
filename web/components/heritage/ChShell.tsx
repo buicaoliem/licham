@@ -128,6 +128,7 @@ export function ChHero({
   lead,
   art,
   className,
+  extraFullWidth = false,
   children,
 }: {
   crumbs?: Crumb[];
@@ -140,6 +141,8 @@ export function ChHero({
   art?: { src: string; label?: string };
   /** Lớp bổ sung để trang tinh chỉnh tỷ lệ hero riêng. */
   className?: string;
+  /** true: khối children (hàng chip) nằm dưới cả chữ lẫn tranh, rộng hết khung — không bị cột chữ bóp hẹp khi có tranh. */
+  extraFullWidth?: boolean;
   children?: ReactNode;
 }) {
   const hasArt = art ? heritageVisible(art.src) : false;
@@ -153,7 +156,7 @@ export function ChHero({
             {eyebrow && <div className="ch-eyebrow">{eyebrow}</div>}
             <h1 className="ch-h1">{title}</h1>
             {lead && <p className="ch-lead">{lead}</p>}
-            {children && <div className="ch-hero-extra">{children}</div>}
+            {children && !extraFullWidth && <div className="ch-hero-extra">{children}</div>}
           </div>
           {art && hasArt && (
             <div className="ch-hero-art">
@@ -161,6 +164,7 @@ export function ChHero({
             </div>
           )}
         </div>
+        {children && extraFullWidth && <div className="ch-hero-extra">{children}</div>}
       </div>
     </section>
   );

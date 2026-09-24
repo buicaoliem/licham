@@ -48,6 +48,7 @@ export const FOOTER_LINKS: readonly { href: string; label: string }[] = [
   { href: "/gioi-thieu/", label: "Giới thiệu" },
   { href: "/lien-he/", label: "Liên hệ" },
   { href: "/le/", label: "Ngày lễ" },
+  { href: "/anh-hung-dan-toc/", label: "Anh hùng dân tộc" },
   { href: "/cong-cu/", label: "Công cụ ngày tháng" },
   { href: "/tinh-tuoi/", label: "Tính tuổi" },
   { href: "/countdown/tet/", label: "Đếm ngược Tết" },

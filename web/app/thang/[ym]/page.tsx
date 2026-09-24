@@ -5,6 +5,7 @@ import { MonthFaq } from "@/components/MonthFaq";
 import { MonthSummaryCards } from "@/components/MonthSummaryCards";
 import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
 import { ChHero, ChShell } from "@/components/heritage/ChShell";
+import { HERITAGE_SLOTS } from "@/lib/heritage-assets";
 import { Icon } from "@/components/heritage/Icon";
 import { LichMonthCalendar } from "@/components/lich/LichMonthCalendar";
 import { LcCard, LcDate, LcPager, LcRelated } from "@/components/lich/LichParts";
@@ -90,6 +91,8 @@ export default async function MonthPage({ params }: { params: Promise<{ ym: stri
     <ChShell activeMenu="Lịch tháng" className="ch-lich">
       <ChHero
         className="lc-hero"
+        art={{ src: HERITAGE_SLOTS.heroLichThang.path, label: HERITAGE_SLOTS.heroLichThang.spec }}
+        extraFullWidth
         crumbs={[
           { label: "Trang chủ", href: "/" },
           { label: "Lịch âm", href: yearHref(year) },

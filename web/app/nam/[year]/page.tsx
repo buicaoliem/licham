@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
 import { YearCalendar } from "@/components/calendar/YearCalendar";
 import { ChHero, ChShell } from "@/components/heritage/ChShell";
+import { HERITAGE_SLOTS } from "@/lib/heritage-assets";
 import { Icon } from "@/components/heritage/Icon";
 import { LcCard, LcDate, LcPager, LcRelated } from "@/components/lich/LichParts";
 import { LichPicker } from "@/components/lich/LichPicker";
@@ -49,6 +50,8 @@ export default async function YearPage({ params }: { params: Promise<{ year: str
     <ChShell activeMenu="Lịch tháng" className="ch-lich">
       <ChHero
         className="lc-hero"
+        art={{ src: HERITAGE_SLOTS.heroLichNam.path, label: HERITAGE_SLOTS.heroLichNam.spec }}
+        extraFullWidth
         crumbs={[{ label: "Trang chủ", href: "/" }, { label: `Lịch âm năm ${year}` }]}
         title={<>Lịch âm năm {year}</>}
         lead={

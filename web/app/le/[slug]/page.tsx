@@ -5,9 +5,10 @@ import { notFound } from "next/navigation";
 import { canChiOfYear, jdFromDate } from "@licham/core";
 import { Breadcrumb } from "@/components/calendar/Breadcrumb";
 import { ShareButton } from "@/components/ShareButton";
-import { LeFlagIllustration, LeHeroIllustration } from "@/components/LeIllustration";
+import { LeFlagIllustration, LeHeroIllustration, hasHeroIllustration } from "@/components/LeIllustration";
 import { ChShell } from "@/components/heritage/ChShell";
 import { HeritageImage } from "@/components/heritage/HeritageImage";
+import { LE_TRANH_LICH_SU } from "@/lib/heritage-assets";
 import { Icon, type IconName } from "@/components/heritage/Icon";
 import { LE_LICH_ICON, LeDateTile } from "@/components/heritage/LeParts";
 import { TocDetails } from "@/components/heritage/TocDetails";
@@ -22,6 +23,7 @@ import { buildShareUrl } from "@/lib/share";
 import { SITE_URL } from "@/lib/site";
 import { getVietnamToday } from "@/lib/today";
 import { vanKhanBySlug } from "@/lib/van-khan";
+import { anhHungByLeSlug, anhHungHref } from "@/lib/anh-hung";
 
 /** Bảng năm: 2 năm trước, năm sắp tới, 5 năm sau. */
 const YEARS_BEFORE = 2;
@@ -88,6 +90,8 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
   const calDetails = `${page.moTa} (${lunarLabel} âm lịch) — ${SITE_URL}/le/${page.slug}/`;
   const isHero = page.nhom === "anh-hung";
   const art = leArt(page);
+  // Tranh riêng về nhân vật/sự kiện lịch sử là tranh tưởng tượng: luôn ghi rõ, không để hiểu là chân dung hay tư liệu.
+  const tranhLichSu = art?.kind === "img" && art.src.startsWith("/heritage/le/") && (isHero || LE_TRANH_LICH_SU.has(page.slug));
   const lichKind = leLichKind(page);
 
   const badgeLich =
@@ -110,6 +114,8 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
   const vanKhanBai = page.vanKhan.map((s) => vanKhanBySlug(s)).filter((v): v is NonNullable<typeof v> => Boolean(v));
   const countdownSlug = countdownSlugForLe(page.slug);
   const heroesKhac = isHero ? leKhac(page, 4) : [];
+  // Trang tiểu sử trong chuyên mục Anh hùng dân tộc (nếu có) — liên kết từ mục "Đôi nét".
+  const hoSo = anhHungByLeSlug(page.slug);
   const chips = upcomingHolidayChips(todayJd, page.slug, 5, today);
 
   const faqDate = `${WEEKDAY_LONG[weekday]}, ngày ${pad2(solar.day)}/${pad2(solar.month)}/${solar.year} dương lịch (${lunarLabel} âm lịch, năm ${canChi})`;
@@ -277,8 +283,9 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
               </div>
             </div>
 
-            <div className="le-hero-art" aria-hidden={art?.kind === "photo" ? undefined : true}>
+            <div className={tranhLichSu ? "le-hero-art has-note" : "le-hero-art"} aria-hidden={art?.kind === "photo" || tranhLichSu ? undefined : true}>
               {art?.kind === "img" && <HeritageImage src={art.src} alt="" />}
+              {tranhLichSu && <span className="le-art-note">Tranh minh họa của licham.app, không phải chân dung hay tư liệu lịch sử</span>}
               {art?.kind === "photo" && (
                 <figure className="le-photo">
                   <img src="/le/ho-chi-minh-1946.jpg" alt="Chủ tịch Hồ Chí Minh năm 1946" />
@@ -406,6 +413,16 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
                   <p key={i}>{p}</p>
                 ))}
               </div>
+              {hoSo && (
+                <Link className="le-hoso" href={anhHungHref(hoSo.slug)}>
+                  <Icon name="temple" size={18} />
+                  <span>
+                    <b>Tiểu sử {hoSo.ten}</b>
+                    <small>Niên đại, bối cảnh lịch sử, công trạng và di tích — chuyên mục Anh hùng dân tộc</small>
+                  </span>
+                  <Icon name="arrow" size={18} />
+                </Link>
+              )}
             </Sec>
 
             {coBullets && (
@@ -497,7 +514,7 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
                       <span className="pic">
                         {h.coAnhThat ? (
                           <img src="/le/ho-chi-minh-1946.jpg" alt={h.ten} />
-                        ) : leArt(h)?.kind === "icon" ? (
+                        ) : hasHeroIllustration(h.slug) ? (
                           <LeHeroIllustration slug={h.slug} />
                         ) : (
                           <LeFlagIllustration />

@@ -90,6 +90,42 @@ const HERO_ICON_DEFS: Record<string, HeroIconDef> = {
     content:
       '<path d="M60 100V56"/><path d="M60 72c-12 0-20-6-22-16 12-3 20 1 22 10"/><path d="M60 62c10-8 20-8 30-2-7 9-19 11-30 4"/><circle cx="48" cy="38" r="12"/><circle cx="74" cy="32" r="10"/><circle cx="62" cy="50" r="8"/><path d="M44 100h32" stroke-width="2.6"/>',
   },
+  // Chuyên mục /anh-hung-dan-toc/: nhân vật chưa có trang ngày giỗ riêng (khóa = slug nhân vật).
+  "ly-nam-de": {
+    label: "Bảo tháp nhiều tầng (chùa Khai Quốc)",
+    content:
+      '<path d="M60 12v12"/><path d="M46 36h28l-5-12H51z"/><path d="M42 56h36l-6-14H48z"/><path d="M38 78h44l-6-16H44z"/><path d="M34 100h52l-6-16H40z"/><path d="M22 106h76"/><path d="M56 100V90a4 4 0 0 1 8 0v10" stroke-width="2.4"/>',
+  },
+  "mai-hac-de": {
+    label: "Thành Vạn An dưới chân núi",
+    content:
+      '<path d="M12 60l20-28 14 18 16-26 24 36"/><path d="M18 102V72h84v30"/><path d="M18 72v-8h10v8m10 0v-8h10v8m24 0v-8h10v8m10 0v-8h10v8"/><path d="M50 102V88a10 10 0 0 1 20 0v14"/>',
+  },
+  "ly-thai-to": {
+    label: "Rồng bay lên trên sông",
+    content:
+      '<path d="M22 84c12 0 16-12 28-12s14 9 25 4 13-22 4-28-20 2-18 13"/><path d="M61 61c-2-13 5-24 18-28"/><path d="M79 33l5-9 4 11-9-2"/><path d="M34 76l-4-7m20-3l-3-8m26 4l2-8" stroke-width="2.2"/><path d="M12 100q12-6 24 0t24 0 24 0 24 0"/>',
+  },
+  "ly-thuong-kiet": {
+    label: "Cuộn thư bên sông Như Nguyệt",
+    content:
+      '<path d="M34 20h52v52H34z"/><path d="M28 20h64M28 72h64" stroke-width="4"/><path d="M48 30v34M60 30v34M72 30v34" stroke-width="2.2" stroke-dasharray="4 4"/><path d="M12 88q12-7 24 0t24 0 24 0 24 0"/><path d="M12 102q12-7 24 0t24 0 24 0 24 0"/>',
+  },
+  "truong-dinh": {
+    label: "Cờ nghĩa trên đồng lác",
+    content:
+      '<path d="M40 104V16"/><path d="M42 18h46l-11 13 11 13H42"/><path d="M58 104c2-14 6-24 12-30M72 104c0-12 3-21 9-27M86 104c-1-10 1-18 7-23M28 104c0-12-3-20-9-26"/><path d="M14 104h92" stroke-width="2.4"/>',
+  },
+  "phan-dinh-phung": {
+    label: "Núi rừng Vụ Quang",
+    content:
+      '<path d="M8 98l26-42 16 22 20-38 42 58z"/><path d="M6 104h108"/><circle cx="90" cy="28" r="9"/><path d="M58 98l6-10 6 10M78 98l5-8 5 8" stroke-width="2.4"/>',
+  },
+  "hoang-hoa-tham": {
+    label: "Rừng Yên Thế",
+    content:
+      '<path d="M30 22l14 22h-8l12 20H12l12-20h-8z"/><path d="M60 14l16 26h-9l13 22H40l13-22h-9z"/><path d="M90 26l13 20h-7l11 18H73l11-18h-7z"/><path d="M30 64v36M60 62v38M90 64v36"/><path d="M8 104h104" stroke-width="2.4"/>',
+  },
 };
 
 /** Minh hoạ SVG riêng cho từng anh hùng dân tộc (khi có trong HERO_ICON_DEFS). */
