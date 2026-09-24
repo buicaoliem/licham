@@ -12,9 +12,9 @@
         "le-gio-to-hung-vuong"
       ]
     },
-    "da_tich_hop_tong": 69,
-    "con_thieu_hoac_can_sua": 9,
-    "ghi_chu": "Batch A (9) + B (7) + D (8) + Review-33 (16) + Independent-12 (6) + Review-31 (22 + ảnh thật Hồ Chí Minh) = 69/78; còn 9 mục cần vẽ lại.",
+    "da_tich_hop_tong": 71,
+    "con_thieu_hoac_can_sua": 7,
+    "ghi_chu": "Batch A (9) + B (7) + D (8) + Review-33 (16) + Independent-12 (6) + Review-31 (22 + ảnh thật Hồ Chí Minh) + Redraw-9 (2) = 71/78; còn 7 mục cần vẽ lại.",
     "batch_b": {
       "nhan": 7,
       "da_tich_hop": 7,
@@ -152,6 +152,26 @@
       ],
       "ngay_sinh_bac_ho": "ảnh thật thay bằng scan lớn hơn của cùng ảnh (600×815 từ 1918×2560), không AI",
       "staging": "artwork-inbox/r31/ (ZIP licham-artwork-31-review-only.zip), bản đạt: artwork-inbox/r31-approved/, bản bị thay: artwork-inbox/r31-replaced-originals/"
+    },
+    "redraw_9": {
+      "nhan": 9,
+      "da_tich_hop": 2,
+      "loai": 7,
+      "ids_tich_hop": [
+        "le-tet-duong-lich",
+        "le-ngay-giai-phong-mien-nam"
+      ],
+      "ids_loai": [
+        "le-gio-to-hung-vuong",
+        "le-thanh-lap-doan",
+        "le-giai-phong-thu-do",
+        "le-doanh-nhan-viet-nam",
+        "le-quan-doi-nhan-dan",
+        "le-le-hoi-hoa-lu",
+        "le-gio-le-loi"
+      ],
+      "nguon": "artwork-inbox/licham-artwork-redraw9-review-only.zip (9 WebP 1448×1086, SHA-256 khớp manifest gói)",
+      "staging": "artwork-inbox/redraw9/, bản đạt: artwork-inbox/redraw9-approved/"
     }
   },
   "items": [
@@ -588,14 +608,16 @@
       "subject": "Đền Hùng: núi Nghĩa Lĩnh, bậc thang, cổng đền, mâm bánh chưng – bánh giầy",
       "target": "/heritage/le/gio-to-hung-vuong.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "cần sửa: có tranh Batch A nhưng GIỮ LẠI chờ đối chiếu kiến trúc Đền Hùng; chưa đưa lên site, vẫn dùng tranh chung di-le",
+      "status": "cần vẽ lại (Redraw-9 không đạt, 2026-09-24); khối ảnh vẫn dùng tranh chung/ẩn",
       "current": "/heritage/van-khan/nhom/di-le.webp 1600×1200",
       "priority": "P1",
       "notes": "Tranh chung 'di-le' không phải Đền Hùng; cần đối chiếu ảnh Đền Hùng để dựng đúng kiến trúc — Bản Batch A nằm ở artwork-inbox/web/public/heritage/le/gio-to-hung-vuong.webp (staging, không nằm trong public). Khi dùng phải ghi là tranh minh họa, không phải ảnh tư liệu.",
       "batch": "A (hold)",
       "independent12": "REJECT: Cổng Đền Hùng vẽ thành cổng vòm sơn đỏ, khác cổng đá thật — vẫn giữ lại chờ đối chiếu kiến trúc như bản Batch A. Bản ứng viên ở artwork-inbox/indep12/ (staging).",
       "review31": "REJECT: Cổng Đền Hùng vẫn sai kiến trúc: vẽ BA tầng mái (12 mái) lợp ngói đỏ cam, có thêm một tầng lầu với ba cửa vòm giữa thân cổng và mái; không có phù điêu hai võ sĩ mặc giáp và hai voi. Cổng thật (1917): một vòm cuốn lớn, HAI tầng TÁM mái, toàn bộ màu đá/vữa xám (mái cũng xám), đề 'Cao sơn cảnh hành' (được bỏ chữ), phù điêu hai võ sĩ (một cầm giáo, một cầm đao) và hai voi, rồng ở các góc mái. Phần còn lại (hoa gạo, hoa ban, cờ ngũ sắc, bánh chưng – bánh giầy) đạt. Bản ứng viên ở artwork-inbox/r31/images/heritage/le/gio-to-hung-vuong.webp (staging).",
-      "ve_lai_review31": "Giữ nguyên bố cục và tiền cảnh bản này; chỉ vẽ lại cổng: một vòm cuốn lớn duy nhất, trên vòm là bảng trơn (không chữ), tiếp ngay là 2 tầng mái chồng (mỗi tầng 4 mái, tổng 8 mái), toàn bộ cổng kể cả mái màu xám đá/vữa cũ, không ngói đỏ; hai bên vòm là phù điêu võ sĩ mặc giáp (trái cầm giáo, phải cầm đao), dưới chân có hình voi; rồng đắp ở đầu đao mái. Không có tầng lầu ba cửa vòm."
+      "ve_lai_review31": "Giữ nguyên bố cục và tiền cảnh bản này; chỉ vẽ lại cổng: một vòm cuốn lớn duy nhất, trên vòm là bảng trơn (không chữ), tiếp ngay là 2 tầng mái chồng (mỗi tầng 4 mái, tổng 8 mái), toàn bộ cổng kể cả mái màu xám đá/vữa cũ, không ngói đỏ; hai bên vòm là phù điêu võ sĩ mặc giáp (trái cầm giáo, phải cầm đao), dưới chân có hình voi; rồng đắp ở đầu đao mái. Không có tầng lầu ba cửa vòm.",
+      "redraw9": "REJECT: Cổng Đền Hùng vẫn sai: mái vẫn lợp ngói đỏ cam; trên vòm vẫn có một tầng lầu với cửa vòm và hai tháp phụ hai bên (cổng thật không có); phù điêu hai bên vòm là chim phượng, không có hai võ sĩ mặc giáp (giáo/đao) và hai voi. Tiền cảnh (hoa gạo, hoa ban, cờ ngũ sắc, bánh chưng – bánh giầy) vẫn đạt. Bản ứng viên ở artwork-inbox/redraw9/web/public/heritage/le/gio-to-hung-vuong.webp (staging).",
+      "ve_lai_redraw9": "Chỉ sửa cổng: một vòm cuốn lớn, ngay trên vòm là bảng trơn rồi 2 tầng mái chồng (4+4 = 8 mái), TOÀN BỘ xám đá kể cả mái — không ngói đỏ/cam, không tầng lầu, không tháp phụ, không cửa sổ vòm; hai bên vòm là phù điêu võ sĩ mặc giáp (trái giáo, phải đao), dưới là voi. Nếu không vẽ đúng được: bỏ cổng, dùng bậc đá lên núi Nghĩa Lĩnh giữa rừng cổ thụ, không công trình nhận diện được."
     },
     {
       "id": "le-phat-dan",
@@ -741,13 +763,14 @@
       "subject": "Đầu năm dương lịch: pháo hoa nhẹ, lịch tờ, hoa, đô thị Việt Nam về đêm",
       "target": "/heritage/le/tet-duong-lich.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "cần sửa: có tranh Batch D nhưng GIỮ LẠI, chưa đưa lên site; khối ảnh vẫn ẩn",
-      "current": null,
+      "status": "đã tích hợp (Redraw-9, 2026-09-24)",
+      "current": "/heritage/le/tet-duong-lich.webp 1448×1086 246 KB",
       "priority": "P1",
-      "notes": "GIỮ LẠI: sai địa danh — tháp Bitexco (TP.HCM) đứng sau Hồ Gươm/Tháp Rùa (Hà Nội); bánh chưng, mâm quýt, hoa đào là đồ Tết Nguyên đán, không phải Tết Dương lịch. Bản Batch D nằm ở artwork-inbox/licham-artwork-batch-d/web/public/heritage/le/ (staging).",
-      "batch": "D (hold)",
+      "notes": "QA redraw-9 đạt: Hồ Gươm đêm giao thừa dương lịch, Tháp Rùa trên đảo giữa hồ, bờ bên kia chỉ hàng cây và nhà thấp 3–5 tầng; pháo hoa; gia đình áo len khăn đỏ; hoa cúc họa mi/cúc trắng đúng mùa Hà Nội tháng 12. Không cao ốc, không Bitexco/Landmark 81, không bánh chưng/đào/mai, không tờ lịch, không chữ/số.",
+      "batch": "Redraw-9",
       "review31": "REJECT: Bịa địa lý: dãy cao ốc 15–20 tầng và một tháp chóp nhọn mọc sát bờ Hồ Gươm ngay sau Tháp Rùa — khu hồ không có cao ốc như vậy. Tờ lịch có chữ số '1' (vi phạm quy tắc không chữ) và tranh nhỏ trên lịch vẽ tháp chọc trời. Bản ứng viên ở artwork-inbox/r31/images/heritage/le/tet-duong-lich.webp (staging).",
-      "ve_lai_review31": "Đêm 31/12 → 1/1 ở Hà Nội: gia đình mặc áo len, khăn đỏ ngồi ở ban công/quán nhìn ra Hồ Gươm, Tháp Rùa giữa hồ; bờ bên kia chỉ có hàng cây và phố thấp 3–5 tầng mái ngói/mái bằng kiểu Pháp; pháo hoa trên trời. Tờ lịch bóc/lịch để bàn KHÔNG có số hay chữ (tờ trơn hoặc chỉ hoa văn). Không cao ốc, không Bitexco/Landmark 81, không bánh chưng/đào/mai."
+      "ve_lai_review31": "Đêm 31/12 → 1/1 ở Hà Nội: gia đình mặc áo len, khăn đỏ ngồi ở ban công/quán nhìn ra Hồ Gươm, Tháp Rùa giữa hồ; bờ bên kia chỉ có hàng cây và phố thấp 3–5 tầng mái ngói/mái bằng kiểu Pháp; pháo hoa trên trời. Tờ lịch bóc/lịch để bàn KHÔNG có số hay chữ (tờ trơn hoặc chỉ hoa văn). Không cao ốc, không Bitexco/Landmark 81, không bánh chưng/đào/mai.",
+      "redraw9": "APPROVE: QA redraw-9 đạt: Hồ Gươm đêm giao thừa dương lịch, Tháp Rùa trên đảo giữa hồ, bờ bên kia chỉ hàng cây và nhà thấp 3–5 tầng; pháo hoa; gia đình áo len khăn đỏ; hoa cúc họa mi/cúc trắng đúng mùa Hà Nội tháng 12. Không cao ốc, không Bitexco/Landmark 81, không bánh chưng/đào/mai, không tờ lịch, không chữ/số."
     },
     {
       "id": "le-ngay-giai-phong-mien-nam",
@@ -758,13 +781,14 @@
       "subject": "30/4: biểu tượng hòa bình – thống nhất: cờ Tổ quốc, hoa, bản đồ chữ S; không dựng cảnh chiến sự như ảnh lịch sử",
       "target": "/heritage/le/ngay-giai-phong-mien-nam.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "cần sửa: có tranh Batch D nhưng GIỮ LẠI, chưa đưa lên site; khối ảnh vẫn ẩn",
-      "current": null,
+      "status": "đã tích hợp (Redraw-9, 2026-09-24)",
+      "current": "/heritage/le/ngay-giai-phong-mien-nam.webp 1448×1086 250 KB",
       "priority": "P1",
-      "notes": "GIỮ LẠI: bản đồ chữ S không có quần đảo Hoàng Sa và Trường Sa, đường viền bản đồ méo (miền Bắc, đồng bằng sông Cửu Long). Cần vẽ lại đủ lãnh thổ hoặc bỏ bản đồ. Bản Batch D nằm ở artwork-inbox/licham-artwork-batch-d/web/public/heritage/le/ (staging).",
-      "batch": "D (hold)",
+      "notes": "QA redraw-9 đạt: dùng Dinh Độc Lập (Hội trường Thống Nhất) thay cho UBND TP.HCM như yêu cầu — mặt tiền rèm hoa đá, tầng mái có mái đua, hồ phun nước trước bãi cỏ, đúng hình; phía sau chỉ trời, cây, cọ; không cao ốc. Cờ đỏ sao vàng, bồ câu, sen, hoa phượng (Sài Gòn nở từ tháng 4), bộ đội mũ cối quân hàm đỏ, thiếu nhi khăn quàng đỏ. Không đào/mai, không bản đồ, không chữ. Có chú thích \"Tranh minh họa\" (LE_TRANH_LICH_SU).",
+      "batch": "Redraw-9",
       "review31": "REJECT: Bịa địa lý: tháp Bitexco đặt ngay sau lưng Trụ sở UBND TP.HCM, nhưng hai công trình ở hai đầu phố đi bộ Nguyễn Huệ — nhìn chính diện UBND thì Bitexco nằm sau lưng người xem. Có cành hoa đào hồng (góc trái trên) và thảm hoa mai vàng (tiền cảnh) — đạo cụ Tết cho ngày 30/4. Bản ứng viên ở artwork-inbox/r31/images/heritage/le/ngay-giai-phong-mien-nam.webp (staging).",
-      "ve_lai_review31": "Giữ ý tưởng: nhiều thế hệ vẫy cờ đỏ sao vàng, chim bồ câu, hoa sen trước Trụ sở UBND TP.HCM (mặt tiền vàng kem, tháp đồng hồ giữa). Phía sau UBND chỉ có trời và cây, KHÔNG cao ốc (không Bitexco, không Landmark 81). Hoa mùa tháng 4 ở Sài Gòn: kèn hồng, bằng lăng tím, sen; không đào, không mai. Không bản đồ."
+      "ve_lai_review31": "Giữ ý tưởng: nhiều thế hệ vẫy cờ đỏ sao vàng, chim bồ câu, hoa sen trước Trụ sở UBND TP.HCM (mặt tiền vàng kem, tháp đồng hồ giữa). Phía sau UBND chỉ có trời và cây, KHÔNG cao ốc (không Bitexco, không Landmark 81). Hoa mùa tháng 4 ở Sài Gòn: kèn hồng, bằng lăng tím, sen; không đào, không mai. Không bản đồ.",
+      "redraw9": "APPROVE: QA redraw-9 đạt: dùng Dinh Độc Lập (Hội trường Thống Nhất) thay cho UBND TP.HCM như yêu cầu — mặt tiền rèm hoa đá, tầng mái có mái đua, hồ phun nước trước bãi cỏ, đúng hình; phía sau chỉ trời, cây, cọ; không cao ốc. Cờ đỏ sao vàng, bồ câu, sen, hoa phượng (Sài Gòn nở từ tháng 4), bộ đội mũ cối quân hàm đỏ, thiếu nhi khăn quàng đỏ. Không đào/mai, không bản đồ, không chữ. Có chú thích \"Tranh minh họa\" (LE_TRANH_LICH_SU)."
     },
     {
       "id": "le-quoc-te-lao-dong",
@@ -886,12 +910,14 @@
       "subject": "26/3: cờ Đoàn, thanh niên tình nguyện, áo xanh",
       "target": "/heritage/le/thanh-lap-doan.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "chưa có tranh, khối ảnh đang ẩn",
+      "status": "cần vẽ lại (Redraw-9 không đạt, 2026-09-24); khối ảnh vẫn dùng tranh chung/ẩn",
       "current": null,
       "priority": "P2",
       "notes": "",
       "review31": "REJECT: Sai cờ Đoàn: vẽ cờ nền XANH DƯƠNG. Theo Điều lệ Đoàn, cờ Đoàn nền ĐỎ, ở giữa có Huy hiệu Đoàn (đường kính 2/5 chiều rộng cờ); huy hiệu hình tròn, nền sọc xanh lá – trắng, cánh tay nắm lá cờ đỏ sao vàng đi lên. Huy hiệu trên áo vẽ thành hình tam giác ngược — sai mẫu. Ngoài ra có thảm hoa mai vàng và cây đào (đạo cụ Tết) cho ngày 26/3. Bản ứng viên ở artwork-inbox/r31/images/heritage/le/thanh-lap-doan.webp (staging).",
-      "ve_lai_review31": "Thanh niên tình nguyện áo xanh (áo Đoàn xanh dương là đúng) trồng cây, dọn vệ sinh; cờ Đoàn nền ĐỎ với huy hiệu Đoàn tròn ở giữa (cánh tay nắm cờ đỏ sao vàng, nền sọc xanh lá – trắng) — nếu không vẽ chính xác được huy hiệu thì chỉ dùng cờ đỏ sao vàng, không tự chế cờ. Huy hiệu trên áo là hình tròn nhỏ hoặc bỏ. Cuối tháng 3: hoa gạo đỏ, hoa ban trắng, lộc non; không mai, không đào."
+      "ve_lai_review31": "Thanh niên tình nguyện áo xanh (áo Đoàn xanh dương là đúng) trồng cây, dọn vệ sinh; cờ Đoàn nền ĐỎ với huy hiệu Đoàn tròn ở giữa (cánh tay nắm cờ đỏ sao vàng, nền sọc xanh lá – trắng) — nếu không vẽ chính xác được huy hiệu thì chỉ dùng cờ đỏ sao vàng, không tự chế cờ. Huy hiệu trên áo là hình tròn nhỏ hoặc bỏ. Cuối tháng 3: hoa gạo đỏ, hoa ban trắng, lộc non; không mai, không đào.",
+      "redraw9": "REJECT: Vẫn sai: (1) huy hiệu trên áo cả nhóm vẫn là tam giác ngược đỏ sao vàng — không phải huy hiệu Đoàn; (2) cành hoa đào hồng góc trái trên và hoa hồng phớt dạng đào ở tiền cảnh — đạo cụ Tết, không đúng 26/3; (3) huy hiệu trên cờ Đoàn có vành chữ giả không đọc được (chữ bịa). Cờ nền đỏ đã đúng. Bản ứng viên ở artwork-inbox/redraw9/web/public/heritage/le/thanh-lap-doan.webp (staging).",
+      "ve_lai_redraw9": "Áo Đoàn xanh KHÔNG vẽ huy hiệu (hoặc huy hiệu tròn rất nhỏ, không tam giác). Cờ Đoàn nền đỏ; huy hiệu ở giữa đơn giản hóa, KHÔNG có chữ — hoặc chỉ dùng cờ đỏ sao vàng. Bỏ hết hoa đào/hoa hồng phớt; thay bằng hoa gạo đỏ, hoa ban trắng, lộc non."
     },
     {
       "id": "le-chien-thang-dien-bien-phu",
@@ -996,13 +1022,15 @@
       "subject": "10/10: Cửa Ô/Hồ Gươm/Cột cờ Hà Nội, hoa cúc, cờ",
       "target": "/heritage/le/giai-phong-thu-do.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "chưa có tranh, khối ảnh đang ẩn",
+      "status": "cần vẽ lại (Redraw-9 không đạt, 2026-09-24); khối ảnh vẫn dùng tranh chung/ẩn",
       "current": null,
       "priority": "P2",
       "notes": "",
       "independent12": "REJECT: Bịa địa lý: Cột cờ Hà Nội đặt trên cổng thành cạnh Hồ Gươm. Bản ứng viên ở artwork-inbox/indep12/ (staging).",
       "review31": "REJECT: Cổng thành vẽ như Ô Quan Chưởng nhưng sai kiến trúc: chỉ MỘT cửa vòm và tầng trên là tháp nhỏ mái cong. Ô Quan Chưởng thật có BA cửa vòm (cửa giữa cao/rộng ~3 m, hai cửa phụ 2,5 × 1,65 m), tầng trên là vọng lâu bốn mái, lan can hoa văn lục lăng/tứ giác/hoa thị, bảng 'Đông Hà Môn' (bỏ chữ). Phần bộ đội mũ lá ngụy trang, dân tặng hoa, lá vàng mùa thu, hoa cúc đạt. Bản ứng viên ở artwork-inbox/r31/images/heritage/le/giai-phong-thu-do.webp (staging).",
-      "ve_lai_review31": "Giữ nguyên cảnh đoàn quân 10/10/1954 và người dân; vẽ lại cổng: Ô Quan Chưởng với ba cửa vòm cuốn (giữa lớn, hai bên nhỏ), tường gạch vồ, tầng trên vọng lâu bốn mái ngói cổ, lan can hoa văn, bảng trên cửa giữa để trơn (không chữ); đứng riêng giữa phố cổ, không Hồ Gươm/Cột cờ cạnh bên. Hoặc bỏ hẳn cổng, chỉ dùng phố cổ mái ngói và cây sấu/bàng."
+      "ve_lai_review31": "Giữ nguyên cảnh đoàn quân 10/10/1954 và người dân; vẽ lại cổng: Ô Quan Chưởng với ba cửa vòm cuốn (giữa lớn, hai bên nhỏ), tường gạch vồ, tầng trên vọng lâu bốn mái ngói cổ, lan can hoa văn, bảng trên cửa giữa để trơn (không chữ); đứng riêng giữa phố cổ, không Hồ Gươm/Cột cờ cạnh bên. Hoặc bỏ hẳn cổng, chỉ dùng phố cổ mái ngói và cây sấu/bàng.",
+      "redraw9": "REJECT: Đã có ba cửa vòm nhưng kiến trúc vẫn sai Ô Quan Chưởng: hai cửa phụ gần cao bằng cửa giữa và nằm ở hai cánh tường dài có lan can chạy ngang phố (cổng thật là một khối gạch gọn, hai cửa phụ nhỏ 2,5 × 1,65 m sát cửa giữa); tầng trên vẫn là tháp hẹp một cửa vòm mái cong — lỗi đã nêu ở Review-31 — thay vì vọng lâu rộng bốn mái ngói cổ. Bản ứng viên ở artwork-inbox/redraw9/web/public/heritage/le/giai-phong-thu-do.webp (staging).",
+      "ve_lai_redraw9": "Một khối cổng gạch vồ gọn: cửa giữa lớn, hai cửa phụ thấp nhỏ ngay sát hai bên, không có cánh tường dài; trên nóc là vọng lâu rộng gần bằng thân cổng, bốn mái ngói cổ thấp, lan can hoa văn; bảng trơn. Hoặc bỏ cổng, chỉ dùng phố cổ mái ngói, cây sấu/bàng lá vàng. Giữ nguyên đoàn quân, người dân, hoa cúc."
     },
     {
       "id": "le-doanh-nhan-viet-nam",
@@ -1013,13 +1041,15 @@
       "subject": "13/10: tòa nhà cách điệu, bản đồ, chiếc cặp — tranh biểu tượng",
       "target": "/heritage/le/doanh-nhan-viet-nam.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "chưa có tranh, khối ảnh đang ẩn",
+      "status": "cần vẽ lại (Redraw-9 không đạt, 2026-09-24); khối ảnh vẫn dùng tranh chung/ẩn",
       "current": null,
       "priority": "P2",
       "notes": "",
       "review33": "REJECT: Bản đồ Việt Nam (trên trời và trong sổ) không có Hoàng Sa, Trường Sa; tháp Bitexco ghép với núi đá kiểu Hạ Long. Bản ứng viên ở artwork-inbox/review33/review-only/web/public/heritage/le/doanh-nhan-viet-nam.webp (staging).",
       "review31": "REJECT: Bản đồ Việt Nam sai hình (miền Bắc thành khối tròn, đồng bằng sông Cửu Long méo) và Hoàng Sa, Trường Sa chỉ là cụm chấm vàng đặt tùy tiện gần bờ, không nhận ra quần đảo — không đạt quy tắc bản đồ. Có cành đào hồng và hoa mai vàng (đạo cụ Tết) cho ngày 13/10. Bản ứng viên ở artwork-inbox/r31/images/heritage/le/doanh-nhan-viet-nam.webp (staging).",
-      "ve_lai_review31": "Bỏ bản đồ (khuyến nghị) — dùng biểu tượng: doanh nhân áo vest/áo dài bắt tay, cặp da, sổ, laptop, cửa sổ nhìn ra đô thị Việt Nam (có thể là skyline TP.HCM đúng thực tế với Landmark 81 và cầu Ba Son, hoặc Hà Nội với Keangnam) — chọn MỘT thành phố, không trộn. Nếu vẫn vẽ bản đồ: đúng hình chữ S, có quần đảo Hoàng Sa và Trường Sa đúng vị trí, rõ ràng. Hoa mùa thu: cúc vàng, sen muộn; không đào, không mai."
+      "ve_lai_review31": "Bỏ bản đồ (khuyến nghị) — dùng biểu tượng: doanh nhân áo vest/áo dài bắt tay, cặp da, sổ, laptop, cửa sổ nhìn ra đô thị Việt Nam (có thể là skyline TP.HCM đúng thực tế với Landmark 81 và cầu Ba Son, hoặc Hà Nội với Keangnam) — chọn MỘT thành phố, không trộn. Nếu vẫn vẽ bản đồ: đúng hình chữ S, có quần đảo Hoàng Sa và Trường Sa đúng vị trí, rõ ràng. Hoa mùa thu: cúc vàng, sen muộn; không đào, không mai.",
+      "redraw9": "REJECT: Ghép địa danh không liền nhau: bên trái là đình/chùa mái cong bên hồ với núi đá vôi (kiểu Ninh Bình/miền Bắc), bên phải là skyline TP.HCM (Bitexco, cầu dây văng) — trộn hai miền trong cùng một khung cảnh. Giấy tờ trên bàn có chữ giả mờ. Bản ứng viên ở artwork-inbox/redraw9/web/public/heritage/le/doanh-nhan-viet-nam.webp (staging).",
+      "ve_lai_redraw9": "Chọn MỘT bối cảnh: văn phòng nhìn ra skyline TP.HCM đúng thực tế (Bitexco, Landmark 81, cầu Ba Son) KHÔNG có núi đá vôi/đình chùa, hoặc Hà Nội (Keangnam, hồ Tây) KHÔNG có Bitexco. Không bản đồ; giấy tờ trơn hoặc chỉ biểu đồ không chữ. Giữ sen/cúc mùa thu, không đào/mai."
     },
     {
       "id": "le-phu-nu-viet-nam",
@@ -1061,13 +1091,15 @@
       "subject": "22/12: mũ cối, ngôi sao, hoa, cờ — biểu tượng",
       "target": "/heritage/le/quan-doi-nhan-dan.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "chưa có tranh, khối ảnh đang ẩn",
+      "status": "cần vẽ lại (Redraw-9 không đạt, 2026-09-24); khối ảnh vẫn dùng tranh chung/ẩn",
       "current": null,
       "priority": "P2",
       "notes": "",
       "review33": "REJECT: Bản đồ Việt Nam không có Hoàng Sa, Trường Sa (cùng lý do đã loại ngay-giai-phong-mien-nam). Bản ứng viên ở artwork-inbox/review33/review-only/web/public/heritage/le/quan-doi-nhan-dan.webp (staging).",
       "review31": "REJECT: Ghép địa danh không liền nhau: Lăng Chủ tịch Hồ Chí Minh (Hà Nội) đặt cạnh vịnh Hạ Long (Quảng Ninh, cách ~160 km) và một tượng đài; bản đồ chữ S hình mây trắng méo, đảo chỉ là chấm rải rác — không đạt quy tắc Hoàng Sa, Trường Sa. Huy hiệu trên áo thanh niên là tam giác ngược, không phải huy hiệu Đoàn. Bản ứng viên ở artwork-inbox/r31/images/heritage/le/quan-doi-nhan-dan.webp (staging).",
-      "ve_lai_review31": "Chỉ một bối cảnh: chiến sĩ QĐND (quân phục xanh, mũ kêpi hoặc mũ cứng có sao) nhận hoa từ thiếu nhi khăn quàng đỏ và thanh niên, cờ đỏ sao vàng, hoa; nền là doanh trại/thao trường hoặc đồi núi biên giới mùa đông (22/12). Không bản đồ, không ghép Lăng Bác với Hạ Long. Không huy hiệu tự chế."
+      "ve_lai_review31": "Chỉ một bối cảnh: chiến sĩ QĐND (quân phục xanh, mũ kêpi hoặc mũ cứng có sao) nhận hoa từ thiếu nhi khăn quàng đỏ và thanh niên, cờ đỏ sao vàng, hoa; nền là doanh trại/thao trường hoặc đồi núi biên giới mùa đông (22/12). Không bản đồ, không ghép Lăng Bác với Hạ Long. Không huy hiệu tự chế.",
+      "redraw9": "REJECT: Sai mùa hoa: hoa phượng vĩ đỏ (lá kép lông chim) nở rộ ở tiền cảnh — phượng nở tháng 5–7, không có vào 22/12. Bố cục mũ cối + ngôi sao trên dải lụa trên đá đọc như cảnh tưởng niệm liệt sĩ (27/7) hơn là ngày thành lập QĐND. Không bản đồ, không ghép địa danh — đạt. Bản ứng viên ở artwork-inbox/redraw9/web/public/heritage/le/quan-doi-nhan-dan.webp (staging).",
+      "ve_lai_redraw9": "Giữ nền đồi núi biên giới sương mùa đông và đoàn chiến sĩ; thay phượng bằng hoa mùa đông (dã quỳ vàng Tây Nguyên hoặc hoa cải/hoa mận trắng vùng cao, cúc vàng); nên thêm cảnh chiến sĩ nhận hoa từ thiếu nhi khăn quàng đỏ như yêu cầu ban đầu thay vì mũ và sao đặt trên đá."
     },
     {
       "id": "le-valentine",
@@ -1257,7 +1289,7 @@
       "subject": "Tranh minh họa biểu tượng/cảnh, không vẽ chân dung như ảnh thật: cố đô Hoa Lư, núi đá vôi, đền vua Đinh, cờ lau",
       "target": "/heritage/le/le-hoi-hoa-lu.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "có minh họa SVG biểu tượng (components/LeIllustration.tsx), chưa có tranh",
+      "status": "cần vẽ lại (Redraw-9 không đạt, 2026-09-24); khối ảnh vẫn dùng tranh chung/ẩn",
       "current": "SVG inline",
       "priority": "P2",
       "notes": "Chú thích bắt buộc: 'Tranh minh họa của licham.app' (không phải ảnh lịch sử)",
@@ -1265,7 +1297,9 @@
       "reference_to_verify": "Đại Việt sử ký toàn thư; kiến trúc/khảo cổ Hoa Lư",
       "portrait_policy": "Không tạo khuôn mặt cụ thể trình bày như xác thực; chỉ biểu tượng, cảnh, di tích",
       "review31": "REJECT: Sai mùa: đào nở (góc trái) cùng lúc với đầm sen nở rộ — lễ hội Hoa Lư 6–10/3 âm lịch (khoảng tháng 4 dương), không có sen nở rộ, còn đào là hoa Tết; hai loài hoa này không nở cùng thời điểm. Nhân vật vua mặc long bào vàng cưỡi ngựa trắng ở tiền cảnh dễ đọc như chân dung vua Đinh. Bản ứng viên ở artwork-inbox/r31/images/heritage/le/le-hoi-hoa-lu.webp (staging).",
-      "ve_lai_review31": "Lễ hội cố đô Hoa Lư tháng 3 âm: núi đá vôi, đền vua Đinh (nghi môn, sân đá), đoàn rước kiệu và cờ lau (bông lau trắng) — trẻ em cầm cờ lau gợi tích tập trận cờ lau; nhân vật nhỏ, nhìn từ xa/sau lưng, không vẽ nhà vua cận cảnh. Hoa mùa xuân muộn: hoa gạo, lúa xanh; không đào, không sen nở rộ."
+      "ve_lai_review31": "Lễ hội cố đô Hoa Lư tháng 3 âm: núi đá vôi, đền vua Đinh (nghi môn, sân đá), đoàn rước kiệu và cờ lau (bông lau trắng) — trẻ em cầm cờ lau gợi tích tập trận cờ lau; nhân vật nhỏ, nhìn từ xa/sau lưng, không vẽ nhà vua cận cảnh. Hoa mùa xuân muộn: hoa gạo, lúa xanh; không đào, không sen nở rộ.",
+      "redraw9": "REJECT: Vẫn vẽ nhà vua cận cảnh: nhân vật mặc long bào, đội mũ miện cưỡi ngựa chiếm trung tâm tranh — yêu cầu nêu rõ không vẽ vua cận cảnh (dễ đọc là chân dung vua Đinh). Câu đối/băng rôn đỏ ở nghi môn có chữ Hán giả. Mùa và thực vật (không đào/sen) đã đạt; bông lau trên cán cờ có. Bản ứng viên ở artwork-inbox/redraw9/web/public/heritage/le/le-hoi-hoa-lu.webp (staging).",
+      "ve_lai_redraw9": "Không có nhân vật vua; đoàn rước kiệu và cờ lau nhìn từ xa/từ sau lưng, nhân vật nhỏ; trẻ em cầm bông lau trắng. Băng rôn, câu đối để trơn không chữ. Giữ núi đá vôi, nghi môn đền vua Đinh, trống hội, lúa xanh, hoa gạo."
     },
     {
       "id": "le-gio-le-dai-hanh",
@@ -1368,7 +1402,7 @@
       "subject": "Tranh minh họa biểu tượng/cảnh, không vẽ chân dung như ảnh thật: Lam Sơn, kiếm, hồ Hoàn Kiếm truyền thuyết, cờ nghĩa",
       "target": "/heritage/le/gio-le-loi.webp",
       "size": "1600×1200 (4:3), RGB, webp ≤ 250 KB",
-      "status": "có minh họa SVG biểu tượng (components/LeIllustration.tsx), chưa có tranh",
+      "status": "cần vẽ lại (Redraw-9 không đạt, 2026-09-24); khối ảnh vẫn dùng tranh chung/ẩn",
       "current": "SVG inline",
       "priority": "P2",
       "notes": "Chú thích bắt buộc: 'Tranh minh họa của licham.app' (không phải ảnh lịch sử)",
@@ -1377,7 +1411,9 @@
       "portrait_policy": "Không tạo khuôn mặt cụ thể trình bày như xác thực; chỉ biểu tượng, cảnh, di tích",
       "review33": "REJECT: Tháp Rùa (xây 1886) xuất hiện trong cảnh Lê Lợi thế kỷ XV — sai niên đại. Bản ứng viên ở artwork-inbox/review33/review-only/web/public/heritage/le/gio-le-loi.webp (staging).",
       "review31": "REJECT: Sai địa lý và biểu tượng: hồ Hoàn Kiếm (Thăng Long) bị bao quanh bởi núi đá vôi — hồ nằm giữa đồng bằng, không có núi; Rùa Vàng vẽ đầu rồng (long quy) thay vì rùa. Trên bàn thờ có bánh chưng (đạo cụ Tết) trong khi giỗ Lê Lợi 22/8 âm lịch (mùa thu). Bản ứng viên ở artwork-inbox/r31/images/heritage/le/gio-le-loi.webp (staging).",
-      "ve_lai_review31": "Truyền thuyết trả gươm: vua trên thuyền rồng nhỏ giữa hồ Tả Vọng, Rùa Vàng (rùa thật, đầu rùa) ngậm gươm nổi lên; bờ hồ bằng phẳng với cây cổ thụ, liễu, mái đình thấp xa xa — không núi, không Tháp Rùa (1886), không Đền Ngọc Sơn/cầu Thê Húc. Mùa thu: sương, lá vàng; mâm lễ hương hoa, trái cây, không bánh chưng. Nhân vật nhỏ, không cận mặt."
+      "ve_lai_review31": "Truyền thuyết trả gươm: vua trên thuyền rồng nhỏ giữa hồ Tả Vọng, Rùa Vàng (rùa thật, đầu rùa) ngậm gươm nổi lên; bờ hồ bằng phẳng với cây cổ thụ, liễu, mái đình thấp xa xa — không núi, không Tháp Rùa (1886), không Đền Ngọc Sơn/cầu Thê Húc. Mùa thu: sương, lá vàng; mâm lễ hương hoa, trái cây, không bánh chưng. Nhân vật nhỏ, không cận mặt.",
+      "redraw9": "REJECT: Sai niên đại và bối cảnh: bờ hồ xa có dãy nhà khối nhiều tầng hiện đại (thế kỷ 15 không có); lầu gác mái cong kiểu Trung Hoa; lá phong đỏ (không phải cây Việt Nam đồng bằng); gươm đặt trên án thờ bên bờ chứ không phải cảnh Rùa Vàng ngậm gươm, không có thuyền rồng. Rùa đầu rùa, không núi, không Tháp Rùa, không bánh chưng — đạt. Bản ứng viên ở artwork-inbox/redraw9/web/public/heritage/le/gio-le-loi.webp (staging).",
+      "ve_lai_redraw9": "Cảnh trả gươm: vua trên thuyền rồng nhỏ giữa hồ (nhìn từ xa, không cận mặt), Rùa Vàng đầu rùa ngậm gươm nổi lên; bờ hồ phẳng chỉ có cây đa/liễu/gạo và mái đình thấp mái ngói Việt, KHÔNG nhà nhiều tầng, không lầu kiểu Trung Hoa; lá vàng mùa thu của cây Việt (bàng, sấu), không lá phong."
     },
     {
       "id": "le-gio-nguyen-trung-truc",

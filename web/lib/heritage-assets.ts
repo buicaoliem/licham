@@ -83,7 +83,7 @@ const LE_TRANH_CHUNG: Record<string, string> = {
 };
 
 /** Lễ ngoài nhóm anh hùng có tranh riêng tái hiện sự kiện lịch sử — trang lễ ghi chú thích "Tranh minh họa". */
-export const LE_TRANH_LICH_SU: ReadonlySet<string> = new Set(["chien-thang-dien-bien-phu", "cach-mang-thang-tam"]);
+export const LE_TRANH_LICH_SU: ReadonlySet<string> = new Set(["chien-thang-dien-bien-phu", "cach-mang-thang-tam", "ngay-giai-phong-mien-nam"]);
 
 export function leImagePath(slug: string): string {
   return `/heritage/le/${slug}.webp`;
