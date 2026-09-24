@@ -121,6 +121,8 @@ function buildStaticEntries(): SitemapEntry[] {
   }
 
   entries.push({ url: `${SITE_URL}/tinh-tuoi/`, changefreq: "daily", priority: 0.9 });
+  entries.push({ url: `${SITE_URL}/la-so-tu-vi/`, changefreq: "monthly", priority: 0.8 });
+  entries.push({ url: `${SITE_URL}/chiem-tinh/`, changefreq: "monthly", priority: 0.8 });
   entries.push({ url: `${SITE_URL}/phong-thuy/xung-tuoi/`, changefreq: "yearly", priority: 0.7 });
   entries.push({ url: `${SITE_URL}/phong-thuy/xem-tuoi-xay-nha/`, changefreq: "yearly", priority: 0.7 });
   for (const c of COUNTDOWN_LIST) {

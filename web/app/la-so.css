@@ -1,0 +1,1531 @@
+/*
+ * Lá số Tử Vi (/la-so-tu-vi/) và Bản đồ sao (/chiem-tinh/) — dùng token Contemporary Heritage (heritage.css).
+ * Tiền tố: bf- (ô nhập ngày sinh dùng chung), ls- (lá số và khung chung), ct- (chiêm tinh).
+ * Mốc: ≤759px điện thoại (bố cục riêng), 760–1023px máy tính bảng, ≥1024px máy tính, ≥1180px sa bàn + bảng chi tiết cạnh nhau.
+ */
+.ch-ls {
+  /* Tương phản ≥ 4,5:1 (WCAG AA) cho chữ nhỏ trên nền thẻ, nền vàng nhạt và nền tô chọn. */
+  --ink-3: #62645b;
+  --h-kim: #5f6570;
+  --h-moc: #4d6f2a;
+  --h-thuy: #2c5a7c;
+  --h-hoa: #b23a31;
+  --h-tho: #845a24;
+  --luu: #4a6278;
+  --gold-text: #7d5d22;
+}
+
+/* ---------- form ---------- */
+.ls-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 24px;
+  align-items: start;
+}
+.bf {
+  display: grid;
+  gap: 16px;
+}
+.ls-form > .bf-row,
+.ls-form > .bf {
+  margin-bottom: 16px;
+}
+.bf-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-start;
+}
+.bf-fld {
+  flex: 1 1 200px;
+  min-width: 0;
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+.ch .bf .difld,
+.ch .bf-row .difld {
+  margin: 0;
+}
+.bf-wide {
+  flex: 2 1 280px;
+}
+.bf-lbl {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink-2);
+  margin-bottom: 7px;
+  padding: 0;
+}
+.bf-seg {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+}
+.ch .bf-fld input[type="time"],
+.ch .bf-fld input[type="text"],
+.ch .bf-row input.bf-text {
+  width: 100%;
+  height: 48px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 9px 11px;
+  font: inherit;
+  font-size: 14px;
+  background: var(--card);
+  color: var(--ink);
+}
+.ch .bf-fld input:disabled {
+  background: var(--line-2);
+  color: var(--ink-3);
+}
+.ch .bf-fld [aria-invalid="true"] {
+  border-color: var(--son);
+  box-shadow: 0 0 0 3px var(--son-soft);
+}
+.bf-am-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.4fr;
+  gap: 10px;
+}
+.bf-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  font-family: var(--sans);
+  font-size: 13.5px;
+  color: var(--ink-2);
+  cursor: pointer;
+}
+.bf-check input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--son);
+}
+.bf-custom .bf-fld {
+  flex: 1 1 150px;
+}
+.bf-submit {
+  align-items: flex-end;
+  margin-top: 4px;
+}
+.bf-submit .ch-btn {
+  flex: 0 0 auto;
+  min-width: 190px;
+}
+.ch-btn:disabled {
+  opacity: 0.65;
+  cursor: progress;
+}
+.ls-formerr {
+  margin-top: 12px;
+  font-size: 14px;
+}
+.ls-guide ol {
+  margin: 0 0 12px;
+  padding-left: 20px;
+  display: grid;
+  gap: 8px;
+  font-size: 15px;
+  color: var(--ink-2);
+}
+.ls-guide-note {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--gold-soft);
+  font-size: 13.5px;
+  color: var(--ink-2);
+}
+
+/* ---------- trạng thái tải ---------- */
+.ls-loading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--sans);
+  color: var(--ink-2);
+}
+.ls-spin {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 3px solid var(--son-soft);
+  border-top-color: var(--son);
+  animation: ls-spin 0.8s linear infinite;
+}
+@keyframes ls-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ls-spin {
+    animation: none;
+  }
+}
+
+/* ---------- kết quả: tóm tắt ---------- */
+.ls-result-anchor {
+  scroll-margin-top: 16px;
+}
+.ls-result {
+  display: grid;
+  gap: 24px;
+}
+.ls-sum-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.ls-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+.ls-vh-btn {
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  border: 1px solid var(--line);
+  transition: border-color 0.15s ease;
+}
+.ls-vh-btn:hover:not(:disabled) {
+  border-color: var(--son);
+}
+.ls-vh-btn:disabled {
+  cursor: default;
+}
+.ls-notes {
+  margin: 16px 0 0;
+  padding: 12px 14px 12px 32px;
+  border-radius: 10px;
+  background: var(--blue-soft);
+  font-family: var(--sans);
+  font-size: 13.5px;
+  color: var(--ink-2);
+  display: grid;
+  gap: 4px;
+}
+
+/* ---------- múi giờ nâng cao, cảnh báo, quy ước ---------- */
+.bf-adv {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 14px;
+  background: var(--bg);
+}
+.bf-adv summary {
+  font-family: var(--sans);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink-2);
+  cursor: pointer;
+  min-height: 28px;
+  display: list-item;
+}
+.bf-adv[open] summary {
+  margin-bottom: 12px;
+}
+.ls-warn {
+  margin: 16px 0 0;
+  padding: 14px 16px;
+  border: 1px solid color-mix(in srgb, var(--son) 35%, var(--line));
+  border-left: 4px solid var(--son);
+  border-radius: 10px;
+  background: var(--son-soft);
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--ink);
+}
+.ls-warn p {
+  margin: 0 0 10px;
+}
+.ls-warn-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.ls-warn-btns .ch-btn {
+  min-height: 44px;
+  font-size: 13.5px;
+  text-align: left;
+}
+.ls-quyuoc {
+  margin-top: 16px;
+  font-family: var(--sans);
+  font-size: 13.5px;
+}
+.ls-quyuoc summary {
+  font-weight: 700;
+  cursor: pointer;
+  min-height: 28px;
+}
+.ls-quyuoc dl {
+  margin: 8px 0 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px 20px;
+}
+.ls-quyuoc dl > div {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 8px;
+  padding: 5px 0;
+  border-bottom: 1px dotted var(--line);
+}
+.ls-quyuoc dt {
+  color: var(--ink-3);
+}
+.ls-quyuoc dd {
+  margin: 0;
+  font-weight: 600;
+}
+@media (max-width: 1023px) {
+  .ls-quyuoc dl {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 759px) {
+  .ls-quyuoc dl > div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+}
+
+/* ---------- sa bàn ---------- */
+.ls-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  gap: 24px;
+  align-items: start;
+}
+.ls-board-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.ls-board-bar .bf-check {
+  margin: 0;
+}
+.ls-board {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(4, minmax(168px, auto));
+  gap: 3px;
+  padding: 3px;
+  border-radius: 14px;
+  background: var(--line);
+  font-family: var(--sans);
+  box-shadow: var(--shadow);
+}
+.ls-cell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+  padding: 8px 9px 7px;
+  border: 0;
+  border-radius: 4px;
+  background: var(--card);
+  color: var(--ink);
+  font: inherit;
+  font-size: 11.5px;
+  line-height: 1.3;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    box-shadow 0.15s ease;
+}
+.ls-cell:hover {
+  background: #fffaf2;
+}
+.ls-cell.tp {
+  background: var(--gold-soft);
+}
+.ls-cell.on {
+  background: #fff;
+  box-shadow:
+    inset 0 0 0 2px var(--son),
+    0 6px 18px rgba(185, 64, 56, 0.16);
+  z-index: 1;
+}
+.ls-cell-top {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.ls-cname {
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+.ls-cell.menh .ls-cname {
+  color: var(--son);
+}
+.ls-than {
+  display: inline-block;
+  padding: 0 5px;
+  border-radius: 4px;
+  background: var(--jade);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  vertical-align: 2px;
+  margin-left: 6px;
+}
+.ls-cell .ls-than {
+  margin-left: 0;
+}
+.ls-dh {
+  margin-left: auto;
+  font-weight: 700;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+.ls-chinh {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+.h-kim {
+  color: var(--h-kim);
+}
+.h-moc {
+  color: var(--h-moc);
+}
+.h-thuy {
+  color: var(--h-thuy);
+}
+.h-hoa {
+  color: var(--h-hoa);
+}
+.h-tho {
+  color: var(--h-tho);
+}
+.ls-vcd {
+  color: var(--ink-3);
+  font-weight: 500;
+  font-style: italic;
+  font-size: 12px;
+}
+.ls-hoa {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 0 4px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.5;
+  vertical-align: 1px;
+}
+.ls-hoa.hoa-tot {
+  background: var(--jade);
+  color: #fff;
+}
+.ls-hoa.hoa-ky {
+  background: var(--ink);
+  color: #fff;
+}
+.ls-phu {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 6px;
+  flex: 1;
+}
+.ls-phu-col {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.ls-phu-col > span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ls-phu-col.cat {
+  color: var(--jade);
+}
+.ls-phu-col.sat {
+  color: var(--son);
+  text-align: right;
+}
+.ls-luu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 6px;
+  font-style: italic;
+  font-size: 11px;
+  color: var(--luu);
+}
+.ls-luu .t-sat {
+  color: #8b5a55;
+}
+.ls-cell-foot {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding-top: 5px;
+  border-top: 1px dashed var(--line);
+  color: var(--ink-3);
+  font-size: 11px;
+}
+.ls-canchi {
+  font-weight: 700;
+  color: var(--ink-2);
+}
+.ls-vong {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ls-canchi {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.ls-tt {
+  display: inline-flex;
+  gap: 3px;
+  margin-left: auto;
+}
+.ls-tt span,
+.ls-han span {
+  padding: 0 4px;
+  border-radius: 3px;
+  background: var(--ink-2);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+}
+.ls-han {
+  position: absolute;
+  right: 6px;
+  top: 24px;
+  display: flex;
+  gap: 3px;
+}
+.ls-han span {
+  background: var(--luu);
+}
+.ls-cell.dh-on,
+.ls-cell.th-on {
+  outline: 2px dashed color-mix(in srgb, var(--luu) 60%, transparent);
+  outline-offset: -5px;
+}
+.ls-center {
+  grid-row: 2 / span 2;
+  grid-column: 2 / span 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 18px;
+  border-radius: 4px;
+  background:
+    radial-gradient(circle at 50% 40%, rgba(216, 183, 123, 0.18), transparent 70%),
+    var(--card);
+}
+.ls-tb {
+  width: 100%;
+  max-width: 340px;
+}
+.ls-tb-name {
+  margin: 0 0 10px;
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--son);
+}
+.ls-tb-kv {
+  margin: 0;
+  display: grid;
+  gap: 3px;
+  font-size: 12.5px;
+}
+.ls-tb-kv > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 3px 0;
+  border-bottom: 1px dotted var(--line);
+}
+.ls-tb-kv dt {
+  color: var(--ink-3);
+}
+.ls-tb-kv dd {
+  margin: 0;
+  font-weight: 600;
+  text-align: right;
+}
+.ls-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin: 12px 0 0;
+  font-family: var(--sans);
+  font-size: 12.5px;
+  color: var(--ink-3);
+}
+.ls-legend > span {
+  font-weight: 600;
+}
+.ls-legend .sep {
+  color: var(--line);
+}
+.lg-cat,
+.lg-hop {
+  color: var(--jade);
+}
+.lg-sat,
+.lg-cang {
+  color: var(--son);
+}
+.lg-luu {
+  color: var(--luu);
+  font-style: italic;
+}
+
+/* ---------- điện thoại: bản đồ chọn cung + thẻ cung ---------- */
+.ls-mob,
+.ls-tb-mob {
+  display: none;
+}
+.ls-map {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(4, auto);
+  gap: 4px;
+  font-family: var(--sans);
+}
+.ls-map-c {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+  min-height: 64px;
+  padding: 6px 5px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.ls-map-c .n {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  line-height: 1.2;
+}
+.ls-map-c.menh .n {
+  color: var(--son);
+}
+.ls-map-c .s {
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--h-thuy);
+  overflow-wrap: anywhere;
+}
+.ls-map-c .z {
+  margin-top: auto;
+  font-size: 11px;
+  color: var(--ink-3);
+}
+.ls-map-c.tp {
+  background: var(--gold-soft);
+}
+.ls-map-c.on {
+  border-color: var(--son);
+  box-shadow: inset 0 0 0 1px var(--son);
+  background: #fff;
+}
+.ls-map-mid {
+  grid-row: 2 / span 2;
+  grid-column: 2 / span 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  border-radius: 8px;
+  background: var(--son-soft);
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--son-dp);
+  text-align: center;
+}
+.ls-tabs {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) 40px;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+}
+.ls-tabs-nav {
+  height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
+  color: var(--son);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+.ls-tabs-list {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  padding: 2px;
+}
+.ls-tabs-list::-webkit-scrollbar {
+  display: none;
+}
+.ls-tabs-list button {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--ink-2);
+  font-family: var(--sans);
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.ls-tabs-list button[aria-pressed="true"] {
+  border-color: var(--son);
+  background: var(--son);
+  color: #fff;
+}
+
+/* ---------- bảng chi tiết cung/sao ---------- */
+.ls-detail {
+  position: sticky;
+  top: 16px;
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.ls-detail .ch-h2 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.ls-detail-head {
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line-2);
+}
+.ls-tp {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  font-family: var(--sans);
+  font-size: 12.5px;
+  color: var(--ink-3);
+}
+.ls-tp .chip {
+  cursor: pointer;
+  font: inherit;
+  font-size: 12.5px;
+}
+.ls-block {
+  padding: 16px 0 4px;
+}
+.ls-block + .ls-block {
+  border-top: 1px solid var(--line-2);
+}
+.ls-block-h {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 12px;
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 700;
+}
+.ls-badge {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.ls-badge.calc {
+  background: var(--jade-soft);
+  color: var(--jade);
+}
+.ls-badge.trad {
+  background: var(--gold-soft);
+  color: var(--gold-text);
+}
+.ls-sl {
+  margin-bottom: 10px;
+}
+.ls-sl h4,
+.ls-doan h4 {
+  margin: 0 0 6px;
+  font-family: var(--sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink-3);
+}
+.ls-sl-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.ls-sl-items button {
+  min-height: 34px;
+  padding: 0 11px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--card);
+  font-family: var(--sans);
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.ls-sl-items.chinh button {
+  color: var(--ink);
+  font-size: 14.5px;
+}
+.ls-sl-items.cat button {
+  color: var(--jade);
+}
+.ls-sl-items.sat button {
+  color: var(--son);
+}
+.ls-sl-items button[aria-expanded="true"] {
+  border-color: currentColor;
+  background: var(--bg);
+}
+.ls-star-info {
+  margin: 4px 0 14px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--gold);
+  border-radius: 0 10px 10px 0;
+  background: var(--gold-soft);
+  font-size: 14.5px;
+}
+.ls-star-info p {
+  margin: 0 0 6px;
+}
+.ls-star-h {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  font-weight: 700;
+  font-size: 16px;
+}
+.ls-star-h span {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-3);
+}
+.ls-star-kw {
+  font-family: var(--sans);
+  font-size: 12.5px;
+  color: var(--gold-text);
+}
+.ls-star-src {
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--ink-3);
+}
+.ls-rings {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 10px 0;
+  font-family: var(--sans);
+  font-size: 13px;
+}
+.ls-rings > div {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: var(--bg);
+}
+.ls-rings dt {
+  color: var(--ink-3);
+  font-size: 11.5px;
+}
+.ls-rings dd {
+  margin: 0;
+  font-weight: 600;
+}
+.ls-muted {
+  margin: 8px 0 0;
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--ink-3);
+}
+.ls-doan {
+  margin-bottom: 12px;
+}
+.ls-doan h4 {
+  color: var(--ink-2);
+  font-size: 13.5px;
+}
+.ls-doan p {
+  margin: 0;
+  font-size: 15px;
+  color: var(--ink-2);
+}
+
+/* ---------- vận hạn ---------- */
+.ls-vh-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.ls-year {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ls-year .ch-btn {
+  min-width: 44px;
+  padding: 0;
+  font-size: 20px;
+}
+.ls-year-v {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 96px;
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+.ls-year-v small {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-3);
+}
+.ls-vh-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+.ls-vh-list {
+  grid-column: span 2;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--bg);
+}
+.ls-vh-list h3,
+.ls-dh-h {
+  margin: 0 0 6px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 700;
+}
+.ls-vh-list ul {
+  margin: 0;
+  padding-left: 18px;
+  font-family: var(--sans);
+  font-size: 13.5px;
+  display: grid;
+  gap: 2px;
+}
+.ls-vh-list .t-sat {
+  color: var(--son-dp);
+}
+.ls-vh-list .t-cat {
+  color: var(--jade);
+}
+.ls-dh-h {
+  margin-top: 20px;
+}
+.ls-dh-list {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 8px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.ls-dh-list button {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
+  font-family: var(--sans);
+  text-align: left;
+  cursor: pointer;
+}
+.ls-dh-list button.on {
+  border-color: var(--luu);
+  box-shadow: inset 0 0 0 1px var(--luu);
+  background: var(--blue-soft);
+}
+.ls-dh-list .a {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--ink);
+}
+.ls-dh-list .n {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--son);
+}
+.ls-dh-list .s {
+  font-size: 11.5px;
+  color: var(--ink-3);
+}
+
+/* ---------- phương pháp ---------- */
+.ls-method-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.ls-method-grid h3 {
+  margin: 0 0 8px;
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--son-dp);
+}
+.ls-method-grid ul {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 6px;
+  font-size: 14.5px;
+  color: var(--ink-2);
+}
+
+/* ================= CHIÊM TINH ================= */
+.ct-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 400px;
+  gap: 24px;
+  align-items: start;
+}
+.ct-wheel {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  margin: 12px auto 0;
+  font-family: var(--sans);
+}
+.ct-ring-out,
+.ct-ring,
+.ct-ring-in {
+  fill: none;
+  stroke: var(--ink-3);
+  stroke-width: 1;
+}
+.ct-ring-in {
+  fill: #fffdf8;
+}
+.ct-sign {
+  stroke: var(--card);
+  stroke-width: 1.5;
+}
+.el-fire .ct-sign {
+  fill: #f6dcd6;
+}
+.el-earth .ct-sign {
+  fill: #e9e2cc;
+}
+.el-air .ct-sign {
+  fill: #e1e9ef;
+}
+.el-water .ct-sign {
+  fill: #d8e8e2;
+}
+.ct-sign-g {
+  font-size: 22px;
+  fill: var(--ink-2);
+  font-family: "Segoe UI Symbol", "Noto Sans Symbols", "Apple Symbols", var(--sans);
+}
+.ct-tick {
+  stroke: var(--ink-3);
+  stroke-width: 0.7;
+}
+.ct-cusp {
+  stroke: var(--ink-3);
+  stroke-width: 0.8;
+}
+.ct-cusp.ang {
+  stroke: var(--ink);
+  stroke-width: 1.8;
+}
+.ct-house-n {
+  font-size: 13px;
+  fill: var(--ink-3);
+  font-weight: 600;
+}
+.ct-angle-l {
+  font-size: 13px;
+  font-weight: 800;
+  fill: var(--son-dp);
+  paint-order: stroke;
+  stroke: var(--bg);
+  stroke-width: 4px;
+}
+.ct-asp {
+  stroke-width: 1.2;
+  opacity: 0.75;
+  transition: opacity 0.15s ease;
+}
+.ct-asp.t-hop {
+  stroke: var(--jade);
+}
+.ct-asp.t-cang {
+  stroke: var(--son);
+}
+.ct-asp.dim {
+  opacity: 0.12;
+}
+.ct-asp.on {
+  opacity: 1;
+  stroke-width: 2;
+}
+.ct-pt {
+  cursor: pointer;
+  outline: none;
+}
+.ct-mark {
+  stroke: var(--ink-2);
+  stroke-width: 1.2;
+}
+.ct-pt-bg {
+  fill: transparent;
+  stroke: transparent;
+  stroke-width: 2;
+}
+.ct-pt:hover .ct-pt-bg,
+.ct-pt:focus-visible .ct-pt-bg {
+  fill: var(--gold-soft);
+  stroke: var(--gold);
+}
+.ct-pt.on .ct-pt-bg {
+  fill: var(--son-soft);
+  stroke: var(--son);
+}
+.ct-pt-g {
+  font-size: 24px;
+  fill: var(--ink);
+  font-family: "Segoe UI Symbol", "Noto Sans Symbols", "Apple Symbols", var(--sans);
+}
+.ct-pt.on .ct-pt-g {
+  fill: var(--son-dp);
+}
+.ct-pt-d {
+  font-size: 12px;
+  font-weight: 600;
+  fill: var(--ink-3);
+}
+.ct-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+}
+.ct-chips button {
+  min-height: 36px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--ink-2);
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.ct-chips button[aria-pressed="true"] {
+  border-color: var(--son);
+  background: var(--son);
+  color: #fff;
+}
+.ct-glyph {
+  font-family: "Segoe UI Symbol", "Noto Sans Symbols", "Apple Symbols", var(--sans);
+  font-weight: 400;
+}
+.ct-asp-list,
+.ct-asp-all {
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 4px;
+  font-family: var(--sans);
+  font-size: 13.5px;
+}
+.ct-asp-list button {
+  width: 100%;
+  padding: 7px 10px;
+  border: 0;
+  border-left: 3px solid var(--gold);
+  border-radius: 0 8px 8px 0;
+  background: var(--bg);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.ct-asp-list .t-hop button {
+  border-left-color: var(--jade);
+}
+.ct-asp-list .t-cang button {
+  border-left-color: var(--son);
+}
+.ct-tables {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+.ct-tbl-wrap {
+  overflow-x: auto;
+}
+.ct-tbl {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--sans);
+  font-size: 14px;
+}
+.ct-tbl th,
+.ct-tbl td {
+  padding: 7px 8px;
+  border-bottom: 1px solid var(--line-2);
+  text-align: left;
+  white-space: nowrap;
+}
+.ct-tbl thead th {
+  font-size: 12px;
+  color: var(--ink-3);
+  font-weight: 600;
+}
+.ct-tbl tbody th button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.ct-tbl .ct-unsure {
+  display: block;
+  white-space: normal;
+  font-size: 12px;
+  color: var(--son-dp);
+}
+.ct-tbl tr.on {
+  background: var(--son-soft);
+}
+.ct-houses {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 2px;
+  font-family: var(--sans);
+  font-size: 13.5px;
+}
+.ct-houses li {
+  display: grid;
+  grid-template-columns: 28px 130px minmax(0, 1fr);
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--line-2);
+}
+.ct-houses .n {
+  font-weight: 700;
+  color: var(--son);
+}
+.ct-houses .p {
+  font-weight: 600;
+}
+.ct-houses .m {
+  color: var(--ink-3);
+}
+.ct-asp-all li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 24px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--line-2);
+}
+.ct-asp-all button {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-weight: 600;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+}
+.ct-asp-all .sym {
+  text-align: center;
+  font-size: 16px;
+}
+.ct-asp-all .t-hop .sym {
+  color: var(--jade);
+}
+.ct-asp-all .t-cang .sym {
+  color: var(--son);
+}
+.ct-asp-all .t-trung .sym {
+  color: var(--gold-dp);
+}
+.ct-asp-all .orb {
+  font-size: 12px;
+  color: var(--ink-3);
+}
+.ct-bars {
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+  font-family: var(--sans);
+  font-size: 13.5px;
+}
+.ct-bars li {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr) 24px;
+  align-items: center;
+  gap: 10px;
+}
+.ct-bars .bar {
+  height: 10px;
+  border-radius: 999px;
+  background: var(--line-2);
+  overflow: hidden;
+}
+.ct-bars .bar span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+}
+.ct-bars .el-fire .bar span {
+  background: #c9685c;
+}
+.ct-bars .el-earth .bar span {
+  background: #a48a4c;
+}
+.ct-bars .el-air .bar span {
+  background: #6f8da6;
+}
+.ct-bars .el-water .bar span {
+  background: #4f8a78;
+}
+.ct-bars .v {
+  font-weight: 700;
+  text-align: right;
+}
+
+/* ---------- đáp ứng ---------- */
+@media (max-width: 1179px) {
+  .ls-main,
+  .ct-main {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ls-detail {
+    position: static;
+    max-height: none;
+    overflow: visible;
+  }
+}
+@media (max-width: 1023px) {
+  .ls-top {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ls-stats,
+  .ls-vh-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .ls-dh-list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .ls-method-grid,
+  .ct-tables {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ls-board {
+    grid-template-rows: repeat(4, minmax(150px, auto));
+  }
+  .ls-cell {
+    font-size: 11px;
+    padding: 6px 7px;
+  }
+  .ls-chinh {
+    font-size: 12.5px;
+  }
+  .ls-tb-name {
+    font-size: 18px;
+  }
+  .ls-tb-kv {
+    font-size: 11.5px;
+  }
+}
+@media (max-width: 759px) {
+  .ls-desk {
+    display: none;
+  }
+  .ls-mob,
+  .ls-tb-mob {
+    display: block;
+  }
+  .ls-tb-mob summary {
+    font-family: var(--sans);
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .ls-tb-mob .ls-tb {
+    max-width: none;
+    margin-top: 12px;
+  }
+  .ls-tb-mob .ls-tb-name {
+    display: none;
+  }
+  .ls-sum-head {
+    flex-direction: column;
+  }
+  .ls-print {
+    display: none;
+  }
+  .ls-stats {
+    gap: 8px;
+  }
+  .ls-vh-grid {
+    gap: 8px;
+  }
+  .ls-vh-list {
+    grid-column: 1 / -1;
+  }
+  .ls-dh-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .ls-rings {
+    grid-template-columns: 1fr 1fr;
+  }
+  .bf-am-grid {
+    grid-template-columns: 1fr 1fr 1.3fr;
+  }
+  .bf-submit .ch-btn {
+    flex: 1 1 100%;
+  }
+  .ls-year-v {
+    min-width: 80px;
+  }
+  .ct-houses li {
+    grid-template-columns: 24px 112px minmax(0, 1fr);
+  }
+  .ct-houses .m {
+    grid-column: 2 / -1;
+    margin-top: -4px;
+  }
+  .ct-asp-all li {
+    grid-template-columns: minmax(0, 1fr) 20px minmax(0, 1fr);
+  }
+  .ct-asp-all .orb {
+    grid-column: 1 / -1;
+  }
+  .ct-pt-g {
+    font-size: 30px;
+  }
+  .ct-pt-d {
+    font-size: 17px;
+  }
+  .ct-house-n {
+    font-size: 17px;
+  }
+  .ct-sign-g {
+    font-size: 26px;
+  }
+  .ct-angle-l {
+    font-size: 17px;
+  }
+}
+@media (max-width: 380px) {
+  .ls-map-c .s {
+    font-size: 10.5px;
+  }
+  .ls-stats .v.sm {
+    font-size: 17px;
+  }
+}
+
+/* ---------- in ---------- */
+@media print {
+  .ch-head,
+  .ch-foot,
+  .ch-side-art,
+  .ch-hero,
+  .ls-top,
+  .ls-print,
+  .ls-method,
+  .lc-faq,
+  .lc-related,
+  .ls-tabs,
+  .ct-chips,
+  .disclaimer {
+    display: none !important;
+  }
+  .ls-main,
+  .ct-main {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ls-desk {
+    display: block !important;
+  }
+  .ls-mob,
+  .ls-tb-mob {
+    display: none !important;
+  }
+  .ls-detail {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    break-before: page;
+  }
+  .ls-board {
+    box-shadow: none;
+  }
+}

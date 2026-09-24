@@ -27,6 +27,8 @@ if (years < 1) errors.push("Thiếu trang năm dựng sẵn");
 for (const rel of [
   "index.html",
   "tinh-tuoi.html",
+  "la-so-tu-vi.html",
+  "chiem-tinh.html",
   "xem-ngay-tot.html",
   "ten.html",
   "ten/minh.html",

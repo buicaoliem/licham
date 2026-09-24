@@ -55,6 +55,8 @@ export const FOOTER_LINKS: readonly { href: string; label: string }[] = [
   { href: "/tuoi/", label: "Xem tuổi" },
   { href: "/ten/", label: "Đặt tên" },
   { href: "/tu-vi/", label: "Tử vi" },
+  { href: "/la-so-tu-vi/", label: "Lá số Tử Vi" },
+  { href: "/chiem-tinh/", label: "Bản đồ sao" },
   { href: "/dieu-khoan/", label: "Điều khoản" },
   { href: "/chinh-sach-bao-mat/", label: "Chính sách bảo mật" },
 ];

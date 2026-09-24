@@ -94,6 +94,19 @@ export default function TuViIndexPage() {
             ))}
           </div>
         </section>
+        <section className="lc-related" aria-labelledby="tv-laso-h">
+          <h2 className="ch-h2" id="tv-laso-h">
+            Xem theo ngày giờ sinh riêng
+          </h2>
+          <div className="chips">
+            <Link className="chip" href="/la-so-tu-vi/">
+              Lập lá số Tử Vi
+            </Link>
+            <Link className="chip" href="/chiem-tinh/">
+              Bản đồ sao chiêm tinh
+            </Link>
+          </div>
+        </section>
         <TraditionalDisclaimer />
       </div>
     </ChShell>
