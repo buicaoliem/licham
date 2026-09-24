@@ -129,7 +129,7 @@ export default async function AnhHungPage({ params }: { params: Promise<{ slug: 
 
         <section className={`ah-profile tk-${a.thoiKy}`}>
           <div className="ah-profile-art">
-            <AhArtView a={a} art={art} eager />
+            <AhArtView a={a} art={art} eager alt />
             <span className="ah-art-note">
               {art?.kind === "photo" ? "Ảnh: Wikimedia Commons, phạm vi công cộng" : "Tranh minh họa của licham.app, không phải chân dung hay tư liệu lịch sử"}
             </span>

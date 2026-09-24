@@ -1564,5 +1564,43 @@
       "batch": "R31",
       "review31": "APPROVE: Côn Đảo: nghĩa trang Hàng Dương với cây hoa sứ trắng, bia mộ để trống (không chữ), cô gái áo dài trắng dâng hoa nhìn từ sau lưng, biển và thị trấn Côn Đảo. Không vẽ chân dung chị Võ Thị Sáu (sửa đúng lỗi bản Review-33)."
     }
-  ]
+  ],
+  "anh_hung_dan_toc": {
+    "updated": "2026-09-24",
+    "nguon": "artwork-inbox/licham-artwork-anh-hung-8-webp-handoff.zip → artwork-inbox/ah8/",
+    "hero": "/heritage/hero/anh-hung-dan-toc.webp 1200×460 90 KB — đạt",
+    "tich_hop": {
+      "ly-nam-de": {
+        "target": "/heritage/anh-hung/ly-nam-de.webp",
+        "qa": "APPROVE: Vua cưỡi ngựa dẫn quân, cờ rồng, thành lũy gỗ bên sông — hợp cảnh khởi nghĩa, lập nước Vạn Xuân."
+      },
+      "ly-thai-to": {
+        "target": "/heritage/anh-hung/ly-thai-to.webp",
+        "qa": "APPROVE: Vua trên thuyền rồng, rồng vàng bay trên mây, kinh thành bên sông — hợp tích dời đô Thăng Long 1010."
+      },
+      "truong-dinh": {
+        "target": "/heritage/anh-hung/truong-dinh.webp",
+        "qa": "APPROVE: Nghĩa quân Nam Bộ giữa dừa nước, súng hỏa mai, tàu Pháp bốc cháy trên sông — hợp nghĩa quân Gò Công."
+      },
+      "phan-dinh-phung": {
+        "target": "/heritage/anh-hung/phan-dinh-phung.webp",
+        "qa": "APPROVE: Sĩ phu áo dài khăn đóng dẫn nghĩa quân trên núi rừng — hợp khởi nghĩa Hương Khê."
+      },
+      "hoang-hoa-tham": {
+        "target": "/heritage/anh-hung/hoang-hoa-tham.webp",
+        "qa": "APPROVE: Thủ lĩnh cưỡi ngựa dẫn nghĩa quân nông dân qua rừng núi, đồn lũy trên đồi — hợp khởi nghĩa Yên Thế."
+      }
+    },
+    "giu_lai": {
+      "hung-vuong": {
+        "staging": "artwork-inbox/ah8/assets/anh-hung-dan-toc/hung-vuong.webp",
+        "ly_do": "Tranh vẽ tướng mặc giáp giơ gươm trước đám nông dân khởi nghĩa (khăn đỏ, giáo mác) — không hợp Quốc tổ Hùng Vương (vua truyền thuyết dựng nước). Nhân vật đã dùng tranh Giỗ Tổ Hùng Vương, không cần thay."
+      },
+      "mai-hac-de": {
+        "staging": "artwork-inbox/ah8/assets/anh-hung-dan-toc/mai-hac-de.webp",
+        "ly_do": "Tranh vẽ bãi cọc gỗ giữa sông và thuyền giặc bốc cháy — biểu tượng trận Bạch Đằng (Ngô Quyền 938 / Trần Hưng Đạo 1288), không phải khởi nghĩa Hoan Châu của Mai Hắc Đế. Dùng sẽ gán sai sự kiện."
+      }
+    },
+    "tong_ket": "22/24 nhân vật có ảnh (16 tranh trang lễ + ảnh thật Hồ Chí Minh + 5 tranh mới); 2 dùng biểu tượng SVG: mai-hac-de (tranh gửi sai sự kiện), ly-thuong-kiet (gói không có tranh)."
+  }
 }

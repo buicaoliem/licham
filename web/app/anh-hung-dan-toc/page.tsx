@@ -7,6 +7,7 @@ import { AhCard, AhTimeline, DrumPattern, anhHungArt } from "@/components/herita
 import { ChShell } from "@/components/heritage/ChShell";
 import { Icon } from "@/components/heritage/Icon";
 import { ANH_HUNG, THOI_KY, anhHungHref, trieuDaiList } from "@/lib/anh-hung";
+import { heritageFile } from "@/lib/heritage-assets";
 import { SITE_URL } from "@/lib/site";
 
 const TITLE = "Các anh hùng dân tộc Việt Nam";
@@ -27,6 +28,8 @@ export const metadata: Metadata = {
 
 export default function AnhHungHubPage() {
   const list = ANH_HUNG;
+  // Tranh hero chuyên mục (1200×460, nội dung dồn phải); chưa có file thì dùng hoa văn trống đồng SVG.
+  const heroArt = heritageFile("/heritage/hero/anh-hung-dan-toc.webp");
   const thoiKy = THOI_KY.filter((t) => list.some((a) => a.thoiKy === t.key));
   const soTieuBieu = list.filter((a) => a.tieuBieu2013).length;
   const cards = Object.fromEntries(list.map((a) => [a.slug, <AhCard a={a} art={anhHungArt(a)} key={a.slug} />]));
@@ -99,8 +102,8 @@ export default function AnhHungHubPage() {
                 </Link>
               </div>
             </div>
-            <div className="ah-hero-art" aria-hidden="true">
-              <DrumPattern className="ah-drum" />
+            <div className={heroArt ? "ah-hero-art img" : "ah-hero-art"} aria-hidden="true">
+              {heroArt ? <img src={heroArt} alt="" width={1200} height={460} fetchPriority="high" /> : <DrumPattern className="ah-drum" />}
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { ANH_HUNG, THOI_KY, anhHungByLeSlug, anhHungBySlug, anhHungKeCan, wikiUrl } from "./anh-hung";
+import { ANH_HUNG, THOI_KY, anhHungByLeSlug, anhHungBySlug, anhHungImagePath, anhHungKeCan, wikiUrl } from "./anh-hung";
 import { leImage } from "./heritage-assets";
 import { LE_LIST, leBySlug } from "./le";
 
@@ -58,7 +58,8 @@ describe("anh-hung-dan-toc", () => {
   it("gives every hero an illustration (memorial painting, photo or SVG emblem) without reusing paintings", () => {
     const used = new Map<string, string>();
     for (const a of ANH_HUNG) {
-      const img = a.leSlug ? leImage(a.leSlug) : null;
+      const rieng = existsSync(new URL(`../public${anhHungImagePath(a.slug)}`, import.meta.url)) ? anhHungImagePath(a.slug) : null;
+      const img = (a.leSlug ? leImage(a.leSlug) : null) ?? rieng;
       const photo = a.leSlug ? leBySlug(a.leSlug)?.coAnhThat : false;
       expect(Boolean(img || photo || hasHeroIllustration(a.slug) || (a.leSlug && hasHeroIllustration(a.leSlug))), a.slug).toBe(true);
       if (img) {

@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { LeHeroIllustration, hasHeroIllustration } from "@/components/LeIllustration";
-import { type AnhHung, THOI_KY, anhHungHref, thoiKyLabel } from "@/lib/anh-hung";
+import { type AnhHung, THOI_KY, anhHungHref, anhHungImagePath, thoiKyLabel } from "@/lib/anh-hung";
+import { heritageFile } from "@/lib/heritage-assets";
 import { leArt } from "@/lib/le-hub";
 import { leBySlug } from "@/lib/le";
 import { HeritageImage } from "./HeritageImage";
 
 export type AhArt = { kind: "img"; src: string } | { kind: "photo"; src: string; credit: string } | { kind: "icon"; key: string } | null;
 
-/** Tranh của nhân vật: tranh riêng của trang ngày giỗ, ảnh thật (Hồ Chí Minh), hoặc minh họa biểu tượng SVG. */
+/** Tranh của nhân vật: tranh trang ngày giỗ, ảnh thật (Hồ Chí Minh), tranh riêng của chuyên mục, hoặc minh họa biểu tượng SVG. */
 export function anhHungArt(a: AnhHung): AhArt {
   const le = a.leSlug ? leBySlug(a.leSlug) : undefined;
   const art = le ? leArt(le) : null;
@@ -18,18 +19,34 @@ export function anhHungArt(a: AnhHung): AhArt {
       src: "/le/ho-chi-minh-1946.jpg",
       credit: "Ảnh: Wikimedia Commons, phạm vi công cộng",
     };
+  // Tranh riêng của chuyên mục (nhân vật chưa có trang ngày giỗ có tranh): /heritage/anh-hung/<slug>.webp
+  const rieng = heritageFile(anhHungImagePath(a.slug));
+  if (rieng) return { kind: "img", src: rieng };
   if (art?.kind === "icon") return { kind: "icon", key: art.slug };
   if (hasHeroIllustration(a.slug)) return { kind: "icon", key: a.slug };
   return null;
 }
 
 /** Khung hình nhân vật; biểu tượng SVG đặt trên nền hoa văn trống đồng theo tông thời kỳ. */
-export function AhArtView({ a, art, className, eager = false }: { a: AnhHung; art: AhArt; className?: string; eager?: boolean }) {
+export function AhArtView({
+  a,
+  art,
+  className,
+  eager = false,
+  alt = false,
+}: {
+  a: AnhHung;
+  art: AhArt;
+  className?: string;
+  eager?: boolean;
+  /** true: ảnh mang alt mô tả (trang chi tiết); thẻ danh mục để alt rỗng vì tên đã có trong thẻ. */
+  alt?: boolean;
+}) {
   const cls = ["ah-art", `tk-${a.thoiKy}`, art ? art.kind : "none", className ?? ""].filter(Boolean).join(" ");
   if (art?.kind === "img") {
     return (
       <span className={cls}>
-        <HeritageImage src={art.src} alt="" eager={eager} />
+        <HeritageImage src={art.src} alt={alt ? `Tranh minh họa của licham.app về ${a.ten}` : ""} eager={eager} />
       </span>
     );
   }

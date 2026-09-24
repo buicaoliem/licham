@@ -61,6 +61,11 @@ function namXep(a: AnhHung): number {
 
 export const ANH_HUNG: AnhHung[] = [...ANH_HUNG_DATA].sort((a, b) => namXep(a) - namXep(b) || a.ten.localeCompare(b.ten, "vi"));
 
+/** Tranh riêng của nhân vật trong chuyên mục (khi trang ngày giỗ không có tranh). */
+export function anhHungImagePath(slug: string): string {
+  return `/heritage/anh-hung/${slug}.webp`;
+}
+
 export function anhHungHref(slug: string): string {
   return `/anh-hung-dan-toc/${slug}/`;
 }

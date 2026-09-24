@@ -1,5 +1,10 @@
 // File sinh tự động bởi scripts/scan-heritage-assets.mjs — không sửa tay.
 export const HERITAGE_FILES: readonly string[] = [
+  "/heritage/anh-hung/hoang-hoa-tham.webp",
+  "/heritage/anh-hung/ly-nam-de.webp",
+  "/heritage/anh-hung/ly-thai-to.webp",
+  "/heritage/anh-hung/phan-dinh-phung.webp",
+  "/heritage/anh-hung/truong-dinh.webp",
   "/heritage/brand/logo-seal.svg",
   "/heritage/con-giap/dan.webp",
   "/heritage/con-giap/dau.webp",
@@ -16,6 +21,7 @@ export const HERITAGE_FILES: readonly string[] = [
   "/heritage/decor/scripture-corner.svg",
   "/heritage/decor/side-left.webp",
   "/heritage/decor/side-right.webp",
+  "/heritage/hero/anh-hung-dan-toc.webp",
   "/heritage/hero/home.webp",
   "/heritage/hero/le.webp",
   "/heritage/hero/lich-nam.webp",
