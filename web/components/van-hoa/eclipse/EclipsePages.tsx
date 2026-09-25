@@ -2,6 +2,7 @@ import Link from "next/link";
 import { JsonLd } from "@/components/calendar/JsonLd";
 import { Icon } from "@/components/heritage/Icon";
 import { SITE_URL } from "@/lib/site";
+import { getVietnamToday } from "@/lib/today";
 import { articleJsonLd } from "@/lib/van-hoa/jsonld";
 import { CITY_NAMES, type LunarCity } from "@/lib/van-hoa/eclipse-types";
 import {
@@ -10,8 +11,10 @@ import {
   ECLIPSE_LIST_PATH,
   ECLIPSE_UPDATED,
   ECLIPSE_YEARS,
+  HYBRID_NOTE,
   type Eclipse,
   bestSolarCity,
+  daysUntil,
   dmy,
   eclipseNeighbours,
   eclipsePath,
@@ -35,6 +38,7 @@ const LIST_CRUMBS = [
 ];
 
 export function EclipseHub() {
+  const today = getVietnamToday();
   const cards: EclipseCard[] = ECLIPSES.map((e) => ({
     slug: e.slug,
     title: e.title,
@@ -43,6 +47,7 @@ export function EclipseHub() {
     dateText: dmy(e.peak),
     lunarText: lunarText(e),
     visibleVn: e.visibleVn,
+    days: daysUntil(e, today),
     href: eclipsePath(e),
     thumb: <EclipseThumb e={e} />,
   }));
@@ -252,6 +257,7 @@ export function EclipseDetail({ e }: { e: Eclipse }) {
       <section className={v.dHero}>
         <h1 className={s.h1}>{e.title}</h1>
         <p className={v.dSub}>{e.visibleVn ? "Thấy được ở Việt Nam" : "Không thấy ở Việt Nam"}</p>
+        {e.kind === "lai" && <p className={v.dNote}>{HYBRID_NOTE}</p>}
         <p className={v.dDates}>
           <span>
             <Icon name="calendar" size={18} /> Dương lịch: {dmy(e.peak)}

@@ -6,7 +6,7 @@ export const ECLIPSE_LIST_PATH = "/van-hoa/thien-van/nhat-nguyet-thuc/";
 export const ECLIPSE_UPDATED = ECLIPSES_UPDATED;
 
 const TITLES: Record<EclipseBody, Partial<Record<EclipseKind, string>>> = {
-  solar: { "toan-phan": "Nhật thực toàn phần", "hinh-khuyen": "Nhật thực hình khuyên", "mot-phan": "Nhật thực một phần" },
+  solar: { "toan-phan": "Nhật thực toàn phần", "hinh-khuyen": "Nhật thực hình khuyên", "mot-phan": "Nhật thực một phần", lai: "Nhật thực lai" },
   lunar: { "toan-phan": "Nguyệt thực toàn phần", "mot-phan": "Nguyệt thực một phần", "nua-toi": "Nguyệt thực nửa tối" },
 };
 
@@ -17,7 +17,19 @@ export type Eclipse = EclipseRaw & {
   date: { day: number; month: number; year: number };
 };
 
-function build(raw: EclipseRaw): Eclipse {
+/**
+ * Nhật thực lai: astronomy-engine chỉ báo toàn phần/hình khuyên tại điểm cực đại nên không nhận ra loại này.
+ * Khoá = ngày UTC của cực đại; nguồn: NASA Five Millennium Canon of Solar Eclipses.
+ */
+export const HYBRID_SOLAR: Readonly<Record<string, string>> = {
+  "2023-04-20": "NASA Five Millennium Canon of Solar Eclipses",
+  "2031-11-14": "NASA Five Millennium Canon of Solar Eclipses",
+};
+export const HYBRID_NOTE = "Nhật thực lai: dọc đường đi của bóng Mặt Trăng, có nơi thấy toàn phần, có nơi thấy hình khuyên. Phân loại theo NASA Five Millennium Canon.";
+const utcDay = (iso: string) => new Date(iso).toISOString().slice(0, 10);
+
+function build(input: EclipseRaw): Eclipse {
+  const raw: EclipseRaw = input.body === "solar" && utcDay(input.peak) in HYBRID_SOLAR ? { ...input, kind: "lai" } : input;
   const [y, m, d] = raw.peak.slice(0, 10).split("-").map(Number) as [number, number, number];
   const pad = (n: number) => String(n).padStart(2, "0");
   const title = TITLES[raw.body][raw.kind] ?? "Nhật/nguyệt thực";
@@ -80,7 +92,7 @@ export function safetyTips(e: Eclipse): string[] {
     "Chỉ dùng kính lọc chuyên dụng đạt chuẩn ISO 12312-2, hoặc quan sát gián tiếp bằng hộp lỗ kim, chiếu ảnh lên giấy.",
     "Không dùng kính râm thông thường, phim chụp ảnh cũ hay kính lọc tự chế.",
     "Không nhìn Mặt Trời qua ống nhòm, kính thiên văn hay máy ảnh khi chưa gắn kính lọc Mặt Trời phía trước ống kính.",
-    ...(e.kind === "toan-phan" ? ["Chỉ trong lúc toàn phần (nếu đứng trong dải toàn phần) mới được bỏ kính lọc; Mặt Trời vừa ló lại phải đeo kính ngay."] : []),
+    ...(e.kind === "toan-phan" || e.kind === "lai" ? ["Chỉ trong lúc toàn phần (nếu đứng trong dải toàn phần) mới được bỏ kính lọc; Mặt Trời vừa ló lại phải đeo kính ngay."] : []),
   ];
 }
 

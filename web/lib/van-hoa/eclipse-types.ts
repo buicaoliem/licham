@@ -1,7 +1,8 @@
 /** Kiểu dữ liệu nhật/nguyệt thực. Số liệu do scripts/generate-eclipses.ts tính bằng astronomy-engine, không gõ tay. */
 
 export type EclipseBody = "solar" | "lunar";
-export type EclipseKind = "toan-phan" | "hinh-khuyen" | "mot-phan" | "nua-toi";
+/** "lai" = nhật thực lai (toàn phần ở nơi này, hình khuyên ở nơi khác); chỉ đến từ danh sách ghi đè theo NASA. */
+export type EclipseKind = "toan-phan" | "hinh-khuyen" | "mot-phan" | "nua-toi" | "lai";
 
 export interface EclipseLunarDate {
   day: number;

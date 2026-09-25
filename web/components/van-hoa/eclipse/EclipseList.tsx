@@ -16,12 +16,13 @@ export interface EclipseCard {
   dateText: string;
   lunarText: string;
   visibleVn: boolean;
+  /** Số ngày còn lại tính lúc dựng trang (server): >0 sắp tới, 0 hôm nay, <0 đã qua. Quyết định cách chia nhóm, không đổi sau khi tải. */
+  days: number;
   href: string;
   thumb: ReactNode;
 }
 
 type Today = { day: number; month: number; year: number };
-type Sort = "gan-nhat" | "cu-moi" | "moi-cu";
 
 function dayDiff(dateIso: string, t: Today): number {
   const [y, m, d] = dateIso.split("-").map(Number) as [number, number, number];
@@ -45,10 +46,56 @@ function EyeGlyph({ off }: { off?: boolean }) {
   );
 }
 
+const byDateAsc = (a: EclipseCard, b: EclipseCard) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0);
+
+function Card({ c, today }: { c: EclipseCard; today: Today | null }) {
+  // Đếm ngược chính xác theo ngày của người xem, chỉ đổi chữ (không đổi thứ tự hay bố cục).
+  const diff = today ? dayDiff(c.date, today) : c.days;
+  return (
+    <li>
+      <Link href={c.href} className={v.card}>
+        <span className={v.cardTop}>
+          {c.thumb}
+          <span className={v.cardInfo}>
+            <b className={v.cardTitle}>{c.title}</b>
+            <span className={v.cardRow}>
+              <Icon name="calendar" size={18} />
+              Dương lịch: {c.dateText}
+            </span>
+            <span className={v.cardRow}>
+              <MoonGlyph />
+              Âm lịch: {c.lunarText}
+            </span>
+            <span className={`${v.vis} ${c.visibleVn ? v.visOn : v.visOff}`}>
+              <EyeGlyph off={!c.visibleVn} />
+              {c.visibleVn ? "Thấy được ở Việt Nam" : "Không thấy ở Việt Nam"}
+            </span>
+          </span>
+        </span>
+        <span className={v.cardFoot}>
+          <Icon name="clock" size={18} />
+          {diff > 0 ? `Còn ${diff} ngày` : diff === 0 ? "Hôm nay" : "Đã diễn ra"}
+          <span className={v.go} aria-hidden="true">
+            <Icon name="chevron" size={16} />
+          </span>
+        </span>
+      </Link>
+    </li>
+  );
+}
+
+function Grid({ items, today }: { items: EclipseCard[]; today: Today | null }) {
+  return (
+    <ul className={v.cards}>
+      {items.map((c) => (
+        <Card key={c.slug} c={c} today={today} />
+      ))}
+    </ul>
+  );
+}
+
 export function EclipseList({ cards, years }: { cards: EclipseCard[]; years: number[] }) {
   const [year, setYear] = useState<number | "all">("all");
-  const [sort, setSort] = useState<Sort>("gan-nhat");
-  // Ngày hôm nay của người xem (giờ VN), chỉ có sau khi tải xong để không lệch với bản dựng sẵn.
   const [today, setToday] = useState<Today | null>(null);
   useEffect(() => {
     const tick = () => setToday(vietnamDateOf(new Date()));
@@ -57,17 +104,15 @@ export function EclipseList({ cards, years }: { cards: EclipseCard[]; years: num
     return () => clearInterval(id);
   }, []);
 
-  const shown = useMemo(() => {
-    const list = cards.filter((c) => year === "all" || c.year === year);
-    const asc = [...list].sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
-    if (sort === "moi-cu") return asc.reverse();
-    if (sort === "gan-nhat" && today) {
-      const up = asc.filter((c) => dayDiff(c.date, today) >= 0);
-      const past = asc.filter((c) => dayDiff(c.date, today) < 0).reverse();
-      return [...up, ...past];
-    }
-    return asc;
-  }, [cards, year, sort, today]);
+  const { upcoming, pastByYear } = useMemo(() => {
+    const up = cards.filter((c) => c.days >= 0).sort(byDateAsc);
+    const past = cards.filter((c) => c.days < 0).sort((a, b) => byDateAsc(b, a));
+    const groups = new Map<number, EclipseCard[]>();
+    for (const c of past) groups.set(c.year, [...(groups.get(c.year) ?? []), c]);
+    return { upcoming: up, pastByYear: [...groups.entries()].sort((a, b) => b[0] - a[0]) };
+  }, [cards]);
+
+  const single = year === "all" ? null : cards.filter((c) => c.year === year).sort(byDateAsc);
 
   return (
     <>
@@ -81,53 +126,41 @@ export function EclipseList({ cards, years }: { cards: EclipseCard[]; years: num
         ))}
       </ul>
       <div className={v.bar}>
-        <p>Hiển thị: {shown.length} sự kiện</p>
-        <label>
-          Sắp xếp:{" "}
-          <select value={sort} onChange={(e) => setSort(e.target.value as Sort)}>
-            <option value="gan-nhat">Gần nhất</option>
-            <option value="cu-moi">Cũ đến mới</option>
-            <option value="moi-cu">Mới đến cũ</option>
-          </select>
-        </label>
+        <p>Hiển thị: {single ? single.length : cards.length} sự kiện</p>
       </div>
-      <ul className={v.cards}>
-        {shown.map((c) => {
-          const diff = today ? dayDiff(c.date, today) : null;
-          return (
-            <li key={c.slug}>
-              <Link href={c.href} className={v.card}>
-                <span className={v.cardTop}>
-                  {c.thumb}
-                  <span className={v.cardInfo}>
-                    <b className={v.cardTitle}>{c.title}</b>
-                    <span className={v.cardRow}>
-                      <Icon name="calendar" size={18} />
-                      Dương lịch: {c.dateText}
-                    </span>
-                    <span className={v.cardRow}>
-                      <MoonGlyph />
-                      Âm lịch: {c.lunarText}
-                    </span>
-                    <span className={`${v.vis} ${c.visibleVn ? v.visOn : v.visOff}`}>
-                      <EyeGlyph off={!c.visibleVn} />
-                      {c.visibleVn ? "Thấy được ở Việt Nam" : "Không thấy ở Việt Nam"}
-                    </span>
-                  </span>
-                </span>
-                <span className={v.cardFoot}>
-                  <Icon name="clock" size={18} />
-                  {diff === null ? "Xem chi tiết" : diff > 0 ? `Còn ${diff} ngày` : diff === 0 ? "Hôm nay" : "Đã diễn ra"}
-                  <span className={v.go} aria-hidden="true">
-                    <Icon name="chevron" size={16} />
-                  </span>
-                </span>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-      {shown.length === 0 && <p className={s.muted}>Không có sự kiện trong năm này.</p>}
+      {single ? (
+        <>
+          <Grid items={single} today={today} />
+          {single.length === 0 && <p className={s.muted}>Không có sự kiện trong năm này.</p>}
+        </>
+      ) : (
+        <>
+          {upcoming.length > 0 && (
+            <section aria-labelledby="sap-dien-ra">
+              <h2 className={v.secTitle} id="sap-dien-ra">
+                Sắp diễn ra
+              </h2>
+              <Grid items={upcoming} today={today} />
+            </section>
+          )}
+          {pastByYear.length > 0 && (
+            <section aria-labelledby="da-dien-ra">
+              <h2 className={v.secTitle} id="da-dien-ra">
+                Đã diễn ra
+              </h2>
+              {pastByYear.map(([y, items]) => (
+                <details key={y} className={v.yearBox}>
+                  <summary className={v.yearSum}>
+                    Năm {y} <small>({items.length} sự kiện)</small>
+                    <Icon name="chevron" size={18} className={v.yearChev} />
+                  </summary>
+                  <Grid items={items} today={today} />
+                </details>
+              ))}
+            </section>
+          )}
+        </>
+      )}
     </>
   );
 }
