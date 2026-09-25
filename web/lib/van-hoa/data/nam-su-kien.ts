@@ -1,7 +1,8 @@
 import { SHOW_FIXTURES, type NamSuKien } from "../types";
+import { NAM_SU_KIEN_IMPORTED } from "./nam-su-kien.generated";
 
-/** Mốc theo năm dương lịch của sự kiện; trang can chi tự gom theo can chi của năm. Dữ liệu thật: chưa có. */
-const REAL: readonly NamSuKien[] = [];
+/** Mốc lịch sử; trang can chi gom theo can chi của năm âm lịch (`lunarYear`). Dữ liệu thật sinh bởi scripts/import-van-hoa.ts. */
+const REAL: readonly NamSuKien[] = NAM_SU_KIEN_IMPORTED;
 
 /** Fixture gắn vào các năm Giáp Thìn (1664, 1724, 1784) để xem bố cục — chỉ dev. */
 const FIXTURE: readonly NamSuKien[] = [

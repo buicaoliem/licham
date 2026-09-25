@@ -30,7 +30,7 @@ import { KNOWLEDGE } from "../lib/knowledge";
 import { ANH_HUNG } from "../lib/anh-hung";
 import { TIET_KHI } from "../lib/tiet-khi";
 import { VAN_HOA_PUBLIC } from "../lib/van-hoa/config";
-import { vanHoaSubPaths } from "../lib/van-hoa/paths";
+import { vanHoaSubPathEntries } from "../lib/van-hoa/paths";
 
 
 const PUBLIC_DIR = join(dirname(fileURLToPath(import.meta.url)), "..", "public");
@@ -40,6 +40,8 @@ interface SitemapEntry {
   url: string;
   changefreq: string;
   priority: number;
+  /** Ngày cập nhật nội dung (ISO); thiếu thì dùng thời điểm build. */
+  lastmod?: string;
 }
 
 function xmlEscape(s: string): string {
@@ -51,7 +53,7 @@ function renderUrlset(entries: SitemapEntry[]): string {
   const body = entries
     .map(
       (e) =>
-        `  <url>\n    <loc>${xmlEscape(e.url)}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${e.changefreq}</changefreq>\n    <priority>${e.priority}</priority>\n  </url>`,
+        `  <url>\n    <loc>${xmlEscape(e.url)}</loc>\n    <lastmod>${e.lastmod ?? lastmod}</lastmod>\n    <changefreq>${e.changefreq}</changefreq>\n    <priority>${e.priority}</priority>\n  </url>`,
     )
     .join("\n");
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`;
@@ -78,7 +80,7 @@ function buildStaticEntries(): SitemapEntry[] {
   entries.push({ url: `${SITE_URL}/doi-ngay-am-duong/`, changefreq: "yearly", priority: 0.6 });
   if (VAN_HOA_PUBLIC) {
     entries.push({ url: `${SITE_URL}/van-hoa/`, changefreq: "weekly", priority: 0.7 });
-    for (const p of vanHoaSubPaths()) entries.push({ url: `${SITE_URL}${p}`, changefreq: "monthly", priority: 0.5 });
+    for (const p of vanHoaSubPathEntries()) entries.push({ url: `${SITE_URL}${p.path}`, changefreq: "monthly", priority: 0.5, ...(p.lastmod ? { lastmod: p.lastmod } : {}) });
   }
   entries.push({ url: `${SITE_URL}/gioi-thieu/`, changefreq: "yearly", priority: 0.4 });
   entries.push({ url: `${SITE_URL}/lien-he/`, changefreq: "yearly", priority: 0.4 });

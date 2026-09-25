@@ -1,0 +1,41 @@
+{
+  "events": {
+    "-2792-lac-long-quan-noi-ngoi": "Mốc năm huyền thoại; bỏ can chi sai (Mậu Thân)",
+    "-136-trieu-van-vuong-ke-vi-nam-viet": "Sửa can chi (nguồn ghi Giáp Dần)",
+    "906-duong-trieu-cong-nhan-khuc-thua-du": "Bỏ ngày dương 7/2/906 không rõ nguồn quy đổi",
+    "907-khuc-thua-du-mat": "Nguồn ghép 23/7 với \"Khúc Hạo cải cách\"; 23/7 là ngày Khúc Thừa Dụ mất — kiểm lại tóm tắt",
+    "1009-ly-cong-uan-len-ngoi-lap-vuong-trieu-ly": "Ngày dương nguồn 21/11/1009 lệch với âm lịch sử chép; để site tự quy đổi",
+    "1070-xay-dung-van-mieu-tai-thang-long": "Lấy tháng 8 theo ghi chú nguồn",
+    "1285-tran-tay-ket-chem-tuong-giac-toa-do": "Ngày dương nguồn 27/6/1285 lệch với âm lịch sử chép; để site tự quy đổi",
+    "1406-phong-tuyen-thanh-da-bang-that-thu": "Sửa can chi năm âm Đinh Hợi → Bính Tuất (tháng Chạp năm Bính Tuất = tháng 1/1407)",
+    "1408-dai-thang-bo-co-tieu-diet-tuong-minh": "Nguồn ghi can chi ngày không tồn tại (\"Mậu Đinh\")",
+    "1784-dai-thang-rach-gam-xoai-mut": "Sửa can chi năm âm Ất Tỵ → Giáp Thìn (tháng Chạp năm Giáp Thìn = tháng 1/1785)",
+    "1792-hoang-de-quang-trung-bang-ha": "Ngày dương nguồn 16/9/1792 lệch với âm lịch sử chép; để site tự quy đổi",
+    "1820-minh-mang-len-ngoi-hoang-de": "Sửa can chi năm âm Kỷ Mão → Canh Thìn",
+    "1847-tran-hai-chien-tourane-da-nang": "Âm lịch nguồn ghi 27/2, tính lại từ ngày dương = 1/3",
+    "1883-tran-cau-giay-lan-thu-hai": "Âm lịch nguồn ghi 14/4, tính lại từ ngày dương = 13/4",
+    "1885-binh-bien-phuc-kich-tai-kinh-thanh-hue": "Âm lịch nguồn ghi 22/5, tính lại từ ngày dương = 23/5",
+    "1895-thu-linh-phan-dinh-phung-hy-sinh": "Âm lịch nguồn ghi 28/11, tính lại từ ngày dương = 13/11",
+    "1908-bung-no-phong-trao-chong-suu-thue-trung-ky": "Kiểm lại ngày bắt đầu (nhiều nguồn ghi 11/3/1908)",
+    "1945-nhat-dao-chinh-phap-tai-dong-duong": "Âm lịch nguồn ghi 26/1, tính lại từ ngày dương = 25/1",
+    "1945-vua-bao-dai-thoai-vi": "Âm lịch nguồn ghi 24/7, tính lại từ ngày dương = 23/7",
+    "1945-tuyen-ngon-doc-lap-khai-sinh-nuoc-vndcch": "Âm lịch nguồn ghi 27/7, tính lại từ ngày dương = 26/7"
+  },
+  "figures": {
+    "tan-vien-son-thanh": "Đền Và là di tích quốc gia, bản gốc ghi nhầm \"đặc biệt\".",
+    "chu-dong-tu": "Năm di sản lễ hội là 2023, bản gốc ghi 2013.",
+    "tien-dung": "Năm di sản lễ hội là 2023, bản gốc ghi 2013.",
+    "kinh-duong-vuong": "Chưa xác nhận lễ hội có trong danh mục di sản phi vật thể quốc gia; đã bỏ.",
+    "lang-lieu": "Không có đền thờ riêng; bỏ thụy hiệu \"Hùng Chiêu Vương\" vì không tìm được nguồn.",
+    "mai-an-tiem": "Đền là di tích cấp tỉnh, bản gốc ghi nhầm cấp quốc gia.",
+    "thuy-tinh": "Bỏ \"Đền Bồng Bồng\" và \"Hội tế Thủy Thần làng Chăng\": không tìm thấy nguồn, nghi bịa.",
+    "an-duong-vuong": "Xã cũ của Đền Cuông: nguồn ghi Diễn An hoặc Diễn Trung.",
+    "tao-quan": "Bỏ \"Miếu Táo Thần Phù Lãng\": không tìm thấy nguồn.",
+    "tho-cong": "Bỏ \"Miếu Thổ Thần (Đình Kim Liên)\": đền Kim Liên thờ Cao Sơn Đại vương, không phải Thổ Công.",
+    "ba-chua-kho": "Ngày lễ hội \"12–15 tháng Giêng\" không có nguồn chính thức; đã sửa.",
+    "tu-dao-hanh": "Năm di sản lễ hội Chùa Thầy là 2024, bản gốc ghi 2017."
+  },
+  "places": {
+    "an-duong-vuong/Đền Cuông (núi Mộ Dạ)": "confidence: trung bình (xã cũ: Diễn An hoặc Diễn Trung)"
+  }
+}

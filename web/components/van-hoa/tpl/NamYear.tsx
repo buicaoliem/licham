@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { Icon } from "@/components/heritage/Icon";
 import { dynastyInfo } from "@/lib/van-hoa/dynasty";
-import { canChiYearHeader, eventsOfCanChi } from "@/lib/van-hoa/logic";
+import { canChiYearHeader, eventDateText, eventsOfCanChi } from "@/lib/van-hoa/logic";
 import { NAM_SU_KIEN } from "@/lib/van-hoa/data/nam-su-kien";
-import { ITEM_LABELS } from "@/lib/van-hoa/types";
+import { ITEM_LABELS, type NamSuKien } from "@/lib/van-hoa/types";
 import { ALL_CAN_CHI, CHI_LIST } from "@/lib/tuoi";
 import s from "../van-hoa.module.css";
 import t from "./tpl.module.css";
@@ -26,11 +26,15 @@ function ZodiacHero({ chiSlug, alt, title, lead }: { chiSlug: string; alt: strin
   );
 }
 
+/** Neo của một mốc trên dòng thời gian ("Ngày này năm xưa" và chip năm trỏ tới đây). */
+const anchor = (e: NamSuKien) => e.id ?? `nam-${e.year}`;
+
 export function NamYear({ slug }: { slug: string }) {
   const cc = ALL_CAN_CHI.find((c) => canChiYearHeader(c).slug === slug);
   if (!cc) return null;
   const h = canChiYearHeader(cc);
   const events = eventsOfCanChi(cc, NAM_SU_KIEN);
+  const firstOfYear = events.filter((e, i) => events.findIndex((x) => x.year === e.year) === i);
   const chiSlug = CHI_LIST[cc.chiIndex]!.slug;
   const heroBase = `/heritage/con-giap/ngang/${chiSlug}`;
   const hanhIcon = NGU_HANH_ICON[h.menhHanh];
@@ -83,10 +87,10 @@ export function NamYear({ slug }: { slug: string }) {
           <section aria-labelledby="cac-moc">
             <SectionTitle id="cac-moc">Xem nhanh các mốc</SectionTitle>
             <ul className={t.chips}>
-              {events.map((e) => (
-                <li key={`${e.year}-${e.title}`}>
-                  <a href={`#nam-${e.year}`} className={`${t.chip} ${t.chipYear}`}>
-                    <b>{e.year}</b>
+              {firstOfYear.map((e) => (
+                <li key={anchor(e)}>
+                  <a href={`#${anchor(e)}`} className={`${t.chip} ${t.chipYear}`}>
+                    <b>{e.yearText ?? e.year}</b>
                     <span>{cc.name}</span>
                   </a>
                 </li>
@@ -103,23 +107,31 @@ export function NamYear({ slug }: { slug: string }) {
             <ol className={t.timeline}>
               {events.map((e) => {
                 const d = dynastyInfo(e.dynasty);
+                const when = eventDateText(e);
                 const box = (
                   <>
                     <Pic src={d.image} className={t.tlImg} width={360} height={144} />
                     <div className={t.tlYear}>
-                      {e.year}
+                      {e.yearText ?? e.year}
                       <small>{cc.name}</small>
                     </div>
                     <div className={t.tlBody}>
                       <ItemBadge label={e.label} />
                       <h3>{e.title}</h3>
                       <p className={t.tlDyn}>{d.name}</p>
+                      {when && <p className={s.note}>{when}</p>}
                       <p>{e.summary}</p>
+                      {e.disputed && (
+                        <p className={s.note}>
+                          <b>Tư liệu còn khác nhau:</b> {e.disputed}
+                        </p>
+                      )}
+                      {e.sources && e.sources.length > 0 && <p className={s.note}>Nguồn: {e.sources.map((x) => x.text).join("; ")}</p>}
                     </div>
                   </>
                 );
                 return (
-                  <li key={`${e.year}-${e.title}`} className={t.tlRow} id={`nam-${e.year}`}>
+                  <li key={anchor(e)} className={t.tlRow} id={anchor(e)}>
                     <span className={t.tlNode} style={{ background: ITEM_LABELS[e.label].node }} aria-hidden="true" />
                     {e.href ? (
                       <Link href={e.href} className={t.tlBox} style={{ color: "inherit", textDecoration: "none" }}>

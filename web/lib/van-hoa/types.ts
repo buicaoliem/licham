@@ -21,6 +21,12 @@ export interface RelatedLink {
   label: string;
   href: string;
   summary?: string;
+  /** Ảnh thu nhỏ (thẻ "Bài liên quan"); thiếu thì dùng khung hoa văn. */
+  image?: string;
+  /** Nhãn chuyên mục kiểu trang tổng (vd. "Dân gian", "Thiên văn"). */
+  badge?: string;
+  /** Nhãn mục (Chính sử / Truyền thuyết / Tín ngưỡng) khi liên kết tới nhân vật, sự kiện. */
+  itemLabel?: ItemLabel;
 }
 
 /** Fixture chỉ có ở dev/test; build production không sinh trang fixture. */
@@ -34,6 +40,7 @@ export const NHAN_VAT_GROUPS = [
   { key: "than-nha-lang", title: "Thần trong nhà và làng" },
   { key: "nu-than-cac-mien", title: "Nữ thần các miền" },
   { key: "truyen-co-tich", title: "Truyện cổ tích" },
+  { key: "thien-su-hoa-thanh", title: "Thiền sư hóa thánh" },
 ] as const;
 export type NhanVatGroupKey = (typeof NHAN_VAT_GROUPS)[number]["key"];
 
@@ -58,15 +65,27 @@ export interface NhanVat {
   cardImage?: string;
   imageAlt?: string;
   variants?: string[];
-  /** Địa chỉ theo đơn vị hành chính mới, không ghi cấp huyện. */
-  places?: { name: string; address: string }[];
+  /** Địa chỉ theo đơn vị hành chính mới, không ghi cấp huyện; `oldAddress`: địa chỉ trước sáp nhập. */
+  places?: NhanVatPlace[];
+  /** Nơi thờ dạng chữ, chỉ hiện khi không có `places` (vd. thần trong nhà). */
+  worshipPlacesText?: string;
   festivals?: Festival[];
+  /** Lễ hội ghi nguyên văn theo nguồn; có thì hiện thay danh sách `festivals` (bảng 10 năm vẫn dùng `festivals`). */
+  festivalsText?: string[];
+  /** Di tích, di sản được công nhận. */
+  heritage?: string[];
   relatedVanKhan?: RelatedLink[];
   relatedNhanVat?: string[];
   /** Slug các trang /le/ mà lễ hội của nhân vật này gắn tới; dùng cho khối "Nhân vật & nơi thờ liên quan" ở trang ngày lễ. */
   relatedHolidays?: string[];
   updatedAt: UpdatedAt;
   sources: Source[];
+}
+
+export interface NhanVatPlace {
+  name: string;
+  address: string;
+  oldAddress?: string;
 }
 
 export interface SuKien {
@@ -96,7 +115,25 @@ export interface SuKien {
 }
 
 export interface NamSuKien {
+  /** Mã ổn định do script nhập sinh ra. */
+  id?: string;
+  /** Năm dương lịch (âm = TCN). Năm không rõ: chỉ để xếp thứ tự — hiển thị `yearText`. */
   year: number;
+  /** Năm âm lịch: gắn mốc vào trang năm can chi. Thiếu thì dùng `year`; null = không gắn năm nào. Không suy từ `year`. */
+  lunarYear?: number | null;
+  /** Năm hiển thị nguyên văn, vd. "2879 TCN", "Thời Hùng Vương". */
+  yearText?: string;
+  /** Ngày âm nguyên văn theo nguồn: "26/7", "tháng 8", "mùa xuân" hoặc rỗng. */
+  lunarDate?: string;
+  /** Chỉ có khi nguồn ghi ngày âm cụ thể — mới vào "Ngày này năm xưa". */
+  lunarDay?: number;
+  lunarMonth?: number;
+  solar?: { day: number; month: number; year: number };
+  solarDateSource?: "sources" | "computed";
+  /** Có nội dung thì hiện ghi chú "Tư liệu còn khác nhau". */
+  disputed?: string;
+  people?: string[];
+  sources?: Source[];
   dynasty: string;
   title: string;
   summary: string;
@@ -143,21 +180,31 @@ export interface BaiVietSection {
   heading: string;
   paras: string[];
   sub?: { heading: string; paras: string[] }[];
+  /** Đoạn, danh sách, bảng (chữ đậm **…**, nghiêng *…*); hiện sau `paras`. */
+  blocks?: BaiVietBlock[];
 }
+
+export type BaiVietBlock = { type: "p"; text: string } | { type: "ul"; items: string[] } | { type: "table"; head: string[]; rows: string[][] };
 
 export interface BaiViet {
   slug: string;
   title: string;
   /** Nhãn chuyên mục hiện trên đầu bài. */
   label: ItemLabel;
+  /** Chuyên mục kiểu trang tổng ("Dân gian", "Thiên văn"); có thì hiện thay `label`. */
+  category?: string;
   summary: string;
+  /** Đoạn mở bài, trước mục thứ nhất. */
+  intro?: string[];
+  /** Slug nhân vật liên quan — vào "Bài liên quan". */
+  relatedFigures?: string[];
   updatedAt: UpdatedAt;
   /** Tranh minh hoạ tỷ lệ 4:3; thiếu thì dùng khung hoa văn. */
   heroImage?: string;
   heroAlt?: string;
   sections: BaiVietSection[];
   /** Hộp "Ngày âm liên quan": ngày âm, năm nay tự quy đổi bằng lõi lịch. */
-  lunarDates?: { label: string; day: number; month: number }[];
+  lunarDates?: { label: string; day: number; month: number; /** Chữ hiển thị nguyên văn, vd. "26–29 tháng Chạp"; thiếu thì dựng từ day/month. */ text?: string }[];
   /** Hộp ca dao / câu đối. */
   quote?: { lines: string[]; source?: string };
   related?: RelatedLink[];

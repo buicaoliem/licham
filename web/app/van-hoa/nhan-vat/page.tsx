@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function NhanVatListPage() {
   return (
-    <ChShell activeMenu={null} className="ch-page">
+    <ChShell activeMenu="Văn hoá" className="ch-page">
       <div className={s.root}>
         <ListLd crumbs={[{ label: "Trang chủ", href: "/" }, { label: "Văn hoá", href: "/van-hoa/" }, { label: 'Nhân vật' }]} name='Nhân vật truyền thuyết & thần thánh' description={metadata.description!} path='/van-hoa/nhan-vat/' items={NHAN_VAT.map((x) => ({ name: x.name, href: `/van-hoa/nhan-vat/${x.slug}/` }))} />
         <Hero

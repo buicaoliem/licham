@@ -1,15 +1,20 @@
-/** Dữ liệu "Ngày này năm xưa" và "Đố vui lịch sử hôm nay". Nội dung sẽ được cung cấp sau — hiện để trống. */
+/** Dữ liệu "Ngày này năm xưa" và "Đố vui lịch sử hôm nay". Sự kiện sinh bởi scripts/import-van-hoa.ts; câu đố chưa có. */
+import { NGAY_NAY_NAM_XUA } from "./data/ngay-nay-nam-xua.generated";
 
-export type EventTag = "Chính sử" | "Truyền thuyết";
+export type EventTag = "Chính sử" | "Truyền thuyết" | "Tín ngưỡng";
 
 export interface HistoryEvent {
   lunarDay: number;
   lunarMonth: number;
   year: number;
+  /** Năm hiển thị, vd. "40", "938", "2879 TCN". */
+  yearText?: string;
   title: string;
   summary: string;
   tag: EventTag;
   sources: string[];
+  /** Trang năm can chi chứa sự kiện. */
+  href?: string;
 }
 
 export interface QuizItem {
@@ -20,7 +25,7 @@ export interface QuizItem {
   sources: string[];
 }
 
-export const EVENTS: readonly HistoryEvent[] = [];
+export const EVENTS: readonly HistoryEvent[] = NGAY_NAY_NAM_XUA;
 export const QUIZZES: readonly QuizItem[] = [];
 
 /** Sự kiện trùng ngày-tháng âm lịch của hôm nay. */

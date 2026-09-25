@@ -72,7 +72,7 @@ function EventBlock({ events }: { events: HistoryEvent[] }) {
         <li key={`${e.year}-${e.title}`}>
           <span className={s.badge}>{e.tag}</span>
           <b>
-            Năm {e.year}: {e.title}
+            Năm {e.yearText ?? e.year}: {e.href ? <Link href={e.href}>{e.title}</Link> : e.title}
           </b>
           <p>{e.summary}</p>
           {e.sources.length > 0 && <p className={s.note}>Nguồn: {e.sources.join("; ")}</p>}

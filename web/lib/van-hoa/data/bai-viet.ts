@@ -1,7 +1,8 @@
 import { FIXTURE_SLUG, SHOW_FIXTURES, type BaiViet } from "../types";
+import { BAI_VIET_IMPORTED } from "./bai-viet.generated";
 
-/** Dữ liệu thật: chưa có — sẽ được cung cấp sau. */
-const REAL: readonly BaiViet[] = [];
+/** Dữ liệu thật: sinh bởi scripts/import-van-hoa.ts. */
+const REAL: readonly BaiViet[] = BAI_VIET_IMPORTED;
 
 /** Fixture dùng tranh Tết cây nêu (chỉ dev); toàn bộ chữ là chỗ giữ chỗ. */
 const FIXTURE: BaiViet = {

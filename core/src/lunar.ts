@@ -5,11 +5,16 @@
  * 2004, public domain). Kept deliberately faithful to the original — including
  * its low-precision sun longitude and new-moon series — so that results match
  * the published Vietnamese calendar tables that were produced with it.
- * Time zone is fixed to UTC+7 (105° E).
+ * Time zone defaults to UTC+7 (105° E); pass `tz` for calendars computed for another meridian.
  */
 import { type SolarDate, isValidSolarDate, jdFromDate, jdToDate } from "./julian";
 
 export const VN_TIME_ZONE = 7;
+
+/** Time zone of the Vietnamese lunar calendar for a given year: UTC+8 before 1968, UTC+7 from 1968. */
+export function vnTimeZoneOfYear(year: number): number {
+  return year < 1968 ? 8 : VN_TIME_ZONE;
+}
 
 export const MIN_YEAR = 1900;
 export const MAX_YEAR = 2100;
@@ -107,12 +112,14 @@ function assertSolarInRange(jd: number): void {
   }
 }
 
-/** Convert a Gregorian date (Vietnam local) to the Vietnamese lunar date. */
-export function solarToLunar(day: number, month: number, year: number): LunarDate {
+/**
+ * Convert a Gregorian date (Vietnam local) to the Vietnamese lunar date.
+ * `tz`: time zone the calendar is computed for (default UTC+7); see {@link vnTimeZoneOfYear} for historical dates.
+ */
+export function solarToLunar(day: number, month: number, year: number, tz: number = VN_TIME_ZONE): LunarDate {
   if (!isValidSolarDate(day, month, year)) {
     throw new RangeError(`Invalid solar date ${day}/${month}/${year}`);
   }
-  const tz = VN_TIME_ZONE;
   const dayNumber = jdFromDate(day, month, year);
   assertSolarInRange(dayNumber);
 
@@ -169,11 +176,11 @@ export function lunarToSolar(
   month: number,
   year: number,
   isLeapMonth: boolean,
+  tz: number = VN_TIME_ZONE,
 ): SolarDate {
   if (![day, month, year].every(Number.isInteger) || month < 1 || month > 12 || day < 1 || day > 30) {
     throw new RangeError(`Invalid lunar date ${day}/${month}/${year}`);
   }
-  const tz = VN_TIME_ZONE;
   let a11: number;
   let b11: number;
   if (month < 11) {

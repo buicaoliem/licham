@@ -6,6 +6,7 @@ import { breadcrumbJsonLd } from "@/lib/calendar/jsonld";
 import { collectionJsonLd } from "@/lib/van-hoa/jsonld";
 import { Icon, type IconName } from "@/components/heritage/Icon";
 import { heritageFile } from "@/lib/heritage-assets";
+import { GREEN_BADGES } from "@/lib/van-hoa/config";
 import { ITEM_LABELS, type ItemLabel, type RelatedLink, type Source } from "@/lib/van-hoa/types";
 import s from "../van-hoa.module.css";
 import t from "./tpl.module.css";
@@ -17,6 +18,11 @@ export function ItemBadge({ label }: { label: ItemLabel }) {
       {l.text}
     </span>
   );
+}
+
+/** Nhãn chuyên mục kiểu trang tổng: xanh ngọc cho nhóm trong GREEN_BADGES (vd. Thiên văn), còn lại hồng đỏ (vd. Dân gian). */
+export function TopicBadge({ text }: { text: string }) {
+  return <span className={GREEN_BADGES.includes(text) ? `${s.badge} ${s.badgeGreen}` : s.badge}>{text}</span>;
 }
 
 export function SectionTitle({ id, children }: { id?: string; children: ReactNode }) {

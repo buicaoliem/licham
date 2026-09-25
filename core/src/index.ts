@@ -6,6 +6,7 @@ export {
   MAX_YEAR,
   solarToLunar,
   lunarToSolar,
+  vnTimeZoneOfYear,
 } from "./lunar";
 export {
   type CanName,

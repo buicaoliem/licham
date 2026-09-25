@@ -10,7 +10,12 @@ import t from "./tpl.module.css";
 import { Drafting, ItemBadge, Pic, SectionTitle } from "./Shared";
 
 export interface TopicItem {
-  href: string;
+  /** Khoá duy nhất; thiếu thì dùng `href`. */
+  id?: string;
+  /** Thiếu thì thẻ không có "Xem chi tiết". */
+  href?: string;
+  /** Dòng phụ nhỏ dưới tiêu đề (vd. năm, ngày âm). */
+  meta?: string;
   title: string;
   summary: string;
   group: string;
@@ -25,10 +30,10 @@ export interface TopicItem {
 export function TopicList({ items, groups, placeholder }: { items: readonly TopicItem[]; groups: readonly { key: string; title: string }[]; placeholder: string }) {
   const [q, setQ] = useState("");
   const [group, setGroup] = useState("all");
-  const haystack = useMemo(() => new Map(items.map((n) => [n.href, normalizeVi(`${n.title} ${n.summary} ${n.search ?? ""} ${groups.find((g) => g.key === n.group)?.title ?? ""}`)])), [items, groups]);
+  const haystack = useMemo(() => new Map(items.map((n) => [n.id ?? n.href, normalizeVi(`${n.title} ${n.summary} ${n.search ?? ""} ${groups.find((g) => g.key === n.group)?.title ?? ""}`)])), [items, groups]);
   if (items.length === 0) return <Drafting />;
   const needle = normalizeVi(q.trim());
-  const shown = items.filter((n) => (group === "all" || n.group === group) && (!needle || haystack.get(n.href)?.includes(needle)));
+  const shown = items.filter((n) => (group === "all" || n.group === group) && (!needle || haystack.get(n.id ?? n.href)?.includes(needle)));
   const present = groups.filter((g) => shown.some((n) => n.group === g.key));
   return (
     <>
@@ -54,17 +59,20 @@ export function TopicList({ items, groups, placeholder }: { items: readonly Topi
             {shown
               .filter((n) => n.group === g.key)
               .map((n) => (
-                <li key={n.href} className={t.cardItem}>
+                <li key={n.id ?? n.href} className={t.cardItem}>
                   <Pic src={n.image} alt={n.imageAlt} className={t.cardImg} width={112} height={160} />
                   <div className={t.cardBody}>
                     {n.label && <ItemBadge label={n.label} />}
                     <h3 className={t.cardName}>{n.title}</h3>
+                    {n.meta && <p className={s.note} style={{ margin: "0 0 4px" }}>{n.meta}</p>}
                     <p className={s.muted} style={{ color: "var(--vh-ink)" }}>
                       {n.summary}
                     </p>
-                    <p className={t.moreR}>
-                      <Link href={n.href}>Xem chi tiết</Link>
-                    </p>
+                    {n.href && (
+                      <p className={t.moreR}>
+                        <Link href={n.href}>Xem chi tiết</Link>
+                      </p>
+                    )}
                   </div>
                 </li>
               ))}

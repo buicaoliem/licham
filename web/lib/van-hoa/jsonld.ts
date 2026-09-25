@@ -19,7 +19,7 @@ export function collectionJsonLd(name: string, description: string, path: string
   };
 }
 
-export function articleJsonLd(a: { headline: string; description: string; path: string; image?: string | null; about?: object; updatedAt?: string }) {
+export function articleJsonLd(a: { headline: string; description: string; path: string; image?: string | null; about?: object | object[]; updatedAt?: string }) {
   return {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -33,4 +33,10 @@ export function articleJsonLd(a: { headline: string; description: string; path: 
     ...(a.updatedAt ? { dateModified: a.updatedAt } : {}),
     ...(a.about ? { about: a.about } : {}),
   };
+}
+
+/** Nơi thờ của nhân vật → Place (địa chỉ theo đơn vị hành chính mới); không có nơi thờ → undefined. */
+export function placeJsonLd(nv: { places?: readonly { name: string; address: string }[] }) {
+  if (!nv.places?.length) return undefined;
+  return nv.places.map((p) => ({ "@type": "Place", name: p.name, address: p.address }));
 }

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function VanHoaPage() {
   return (
-    <ChShell activeMenu={null} className="ch-page">
+    <ChShell activeMenu="Văn hoá" className="ch-page">
       <VanHoaHub />
     </ChShell>
   );
