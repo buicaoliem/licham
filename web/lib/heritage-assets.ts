@@ -64,6 +64,10 @@ const LE_TRANH_CHUNG: Record<string, string> = {
   "ong-cong-ong-tao": "/heritage/van-khan/nhom/trong-nha.webp",
 };
 
+/** Chú thích riêng cho tranh minh hoạ Chủ tịch Hồ Chí Minh (thay ảnh tư liệu cũ). */
+export const HCM_LE_SLUG = "ngay-sinh-bac-ho";
+export const HCM_TRANH_NOTE = "Tranh minh họa, không phải ảnh tư liệu lịch sử";
+
 /** Lễ có tranh riêng tái hiện sự kiện/địa danh lịch sử (hoặc cách điệu) — trang lễ ghi chú thích "Tranh minh họa". */
 export const LE_TRANH_LICH_SU: ReadonlySet<string> = new Set([
   "chien-thang-dien-bien-phu",

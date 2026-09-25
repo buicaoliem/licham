@@ -8,7 +8,7 @@ import { ShareButton } from "@/components/ShareButton";
 import { LeFlagIllustration, LeHeroIllustration, hasHeroIllustration } from "@/components/LeIllustration";
 import { ChShell } from "@/components/heritage/ChShell";
 import { HeritageImage } from "@/components/heritage/HeritageImage";
-import { LE_TRANH_LICH_SU } from "@/lib/heritage-assets";
+import { HCM_LE_SLUG, HCM_TRANH_NOTE, LE_TRANH_LICH_SU, leImage } from "@/lib/heritage-assets";
 import { Icon, type IconName } from "@/components/heritage/Icon";
 import { LE_LICH_ICON, LeDateTile } from "@/components/heritage/LeParts";
 import { TocDetails } from "@/components/heritage/TocDetails";
@@ -285,7 +285,7 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
 
             <div className={tranhLichSu ? "le-hero-art has-note" : "le-hero-art"} aria-hidden={art?.kind === "photo" || tranhLichSu ? undefined : true}>
               {art?.kind === "img" && <HeritageImage src={art.src} alt="" />}
-              {tranhLichSu && <span className="le-art-note">Tranh minh họa của licham.app, không phải chân dung hay tư liệu lịch sử</span>}
+              {tranhLichSu && <span className="le-art-note">{page.slug === HCM_LE_SLUG ? HCM_TRANH_NOTE : "Tranh minh họa của licham.app, không phải chân dung hay tư liệu lịch sử"}</span>}
               {art?.kind === "photo" && (
                 <figure className="le-photo">
                   <img src="/le/ho-chi-minh-1946.jpg" alt="Chủ tịch Hồ Chí Minh năm 1946" />
@@ -512,8 +512,8 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
                   {heroesKhac.map((h) => (
                     <Link className="le-hc" href={`/le/${h.slug}/`} key={h.slug}>
                       <span className="pic">
-                        {h.coAnhThat ? (
-                          <img src="/le/ho-chi-minh-1946.jpg" alt={h.ten} />
+                        {h.slug === HCM_LE_SLUG && leImage(h.slug) ? (
+                          <img src={leImage(h.slug)!} alt={h.ten} />
                         ) : hasHeroIllustration(h.slug) ? (
                           <LeHeroIllustration slug={h.slug} />
                         ) : (

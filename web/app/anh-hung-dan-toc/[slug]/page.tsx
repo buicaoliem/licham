@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { HCM_TRANH_NOTE } from "@/lib/heritage-assets";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
@@ -131,7 +132,7 @@ export default async function AnhHungPage({ params }: { params: Promise<{ slug: 
           <div className="ah-profile-art">
             <AhArtView a={a} art={art} eager alt />
             <span className="ah-art-note">
-              {art?.kind === "photo" ? "Ảnh: Wikimedia Commons, phạm vi công cộng" : "Tranh minh họa của licham.app, không phải chân dung hay tư liệu lịch sử"}
+              {a.slug === "ho-chi-minh" ? HCM_TRANH_NOTE : art?.kind === "photo" ? "Ảnh: Wikimedia Commons, phạm vi công cộng" : "Tranh minh họa của licham.app, không phải chân dung hay tư liệu lịch sử"}
             </span>
           </div>
           <div className="ah-profile-text">

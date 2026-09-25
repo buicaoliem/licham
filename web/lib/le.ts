@@ -337,7 +337,6 @@ const DOT_1: LePage[] = [
     ngayPhu: "Ngày mất 2/9/1969 — trùng ngày Quốc khánh",
     namSinh: 1890,
     vanKhan: [],
-    coAnhThat: true,
     moTa: "Kỷ niệm ngày sinh Chủ tịch Hồ Chí Minh (19/5/1890), người sáng lập nước Việt Nam Dân chủ Cộng hòa.",
     yNghia: [
       "Chủ tịch Hồ Chí Minh sinh ngày 19/5/1890 tại Nghệ An. Ngày 2/9/1945, Người đọc Tuyên ngôn Độc lập khai sinh nước Việt Nam Dân chủ Cộng hòa.",
