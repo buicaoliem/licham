@@ -29,7 +29,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   const x = danGianBySlug(slug);
   if (!x) notFound();
   return (
-    <ChShell activeMenu={null} className="ch-page">
+    <ChShell activeMenu="Văn hoá" className="ch-page">
       <DanGianDetail item={x} />
     </ChShell>
   );

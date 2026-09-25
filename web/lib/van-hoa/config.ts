@@ -1,8 +1,9 @@
 /**
- * Công tắc DUY NHẤT cho trang /van-hoa/: false = ẩn (noindex, nofollow, không vào sitemap).
- * Khi công bố: đổi thành true cùng lúc với việc thêm mục vào menu.
+ * Công tắc DUY NHẤT cho mảng /van-hoa/, đọc lúc build từ biến môi trường VAN_HOA_PUBLIC ("1" = bật).
+ * Tắt (mặc định): trang noindex/nofollow, không vào sitemap, menu giữ "Đổi ngày".
+ * Bật: trang được index và vào sitemap; menu chính bỏ "Đổi ngày", thêm "Văn hoá" ở cuối; chân trang có "Đổi ngày".
  */
-export const VAN_HOA_PUBLIC = false;
+export const VAN_HOA_PUBLIC = process.env.VAN_HOA_PUBLIC === "1";
 
 export interface TopicLink {
   label: string;
@@ -25,6 +26,12 @@ export interface Topic {
 }
 
 import { ECLIPSES, ECLIPSE_LIST_PATH } from "./eclipses";
+import { BAI_VIET } from "./data/bai-viet";
+import { FIXTURE_SLUG } from "./types";
+
+/** Bài viết thật (không gồm fixture), mới cập nhật trước. */
+const POSTS = BAI_VIET.filter((p) => p.slug !== FIXTURE_SLUG);
+const postLinks = (category: string): TopicLink[] => POSTS.filter((p) => p.category === category).map((p) => ({ label: p.title.split(":")[0]!, href: `/van-hoa/bai-viet/${p.slug}/` }));
 
 const IMG = "/heritage/van-hoa";
 
@@ -75,7 +82,7 @@ export const TOPICS: readonly Topic[] = [
     description: "Phong tục, trò chơi và nếp sống dân gian gắn với các dịp trong năm.",
     href: "/van-hoa/dan-gian/",
     live: true,
-    links: [],
+    links: postLinks("Dân gian"),
   },
   {
     slug: "thien-van-mua-mang",
@@ -87,7 +94,7 @@ export const TOPICS: readonly Topic[] = [
     description: "Trăng, tiết khí và nhịp mùa màng: vì sao người xưa làm lịch theo trời.",
     href: ECLIPSE_LIST_PATH,
     live: ECLIPSES.length > 0,
-    links: [],
+    links: postLinks("Thiên văn"),
   },
   {
     slug: "le-hoi-dong-ho",
@@ -120,7 +127,7 @@ export const HERO_IMAGE = `${IMG}/lich-su-theo-nam-hero.webp`;
 /** Nhãn màu xanh ngọc; các nhãn còn lại màu hồng đỏ. */
 export const GREEN_BADGES: readonly string[] = ["Khảo cổ", "Thiên văn", "Học tập"];
 
-/** Bài mới: rỗng thì ẩn cả mục. */
+/** Bài mới: lấy từ bài viết thật; rỗng thì ẩn cả mục. */
 export interface NewPost {
   image?: string;
   title: string;
@@ -128,7 +135,13 @@ export interface NewPost {
   badge: string;
   date: string;
 }
-export const NEW_POSTS: readonly NewPost[] = [];
+export const NEW_POSTS: readonly NewPost[] = POSTS.map((p) => ({
+  image: p.heroImage?.replace(/.webp$/, "-480.webp"),
+  title: p.title,
+  href: `/van-hoa/bai-viet/${p.slug}/`,
+  badge: p.category ?? "Dân gian",
+  date: `Cập nhật ${p.updatedAt.split("-").reverse().join("/")}`,
+}));
 
 /** Ảnh ngang con giáp: phía có con vật; chữ đặt ở phía trống còn lại. */
 export const CHI_HERO_ANIMAL_SIDE: Record<string, "left" | "right"> = {

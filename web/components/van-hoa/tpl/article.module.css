@@ -375,3 +375,25 @@
     font-size: 16px;
   }
 }
+
+/* ---------- nội dung nhập từ markdown: mở bài, danh sách, bảng; ảnh thẻ Bài liên quan ---------- */
+.intro {
+  font-size: 18px;
+}
+.list {
+  margin: 12px 0;
+}
+.tblScroll {
+  overflow-x: auto;
+  margin: 12px 0;
+}
+.relImg {
+  display: block;
+  width: calc(100% + 32px);
+  max-width: none;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  margin: -16px -16px 8px;
+  border-radius: 12px 12px 0 0;
+}

@@ -1,7 +1,8 @@
 import { FIXTURE_SLUG, SHOW_FIXTURES, type NhanVat } from "../types";
+import { NHAN_VAT_IMPORTED } from "./nhan-vat.generated";
 
-/** Dữ liệu thật: chưa có — sẽ được cung cấp sau. */
-const REAL: readonly NhanVat[] = [];
+/** Dữ liệu thật: sinh bởi scripts/import-van-hoa.ts. */
+const REAL: readonly NhanVat[] = NHAN_VAT_IMPORTED;
 
 const FIXTURE: NhanVat = {
   slug: FIXTURE_SLUG,

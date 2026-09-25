@@ -33,9 +33,34 @@ export function canChiYearHeader(canChi: CanChi): CanChiYearHeader {
 
 export const CAN_CHI_YEAR_SLUGS: readonly string[] = ALL_CAN_CHI.map((c) => canChiSlug(c));
 
-/** Sự kiện của các năm mang can chi này, xếp theo năm tăng dần. */
+/** Năm âm lịch dùng để gắn mốc vào trang năm can chi: `lunarYear` (thiếu thì `year`); null = không gắn. */
+export function canChiYearOfEvent(e: Pick<NamSuKien, "year" | "lunarYear">): number | null {
+  return e.lunarYear === undefined ? e.year : e.lunarYear;
+}
+
+/** Sự kiện của các năm âm lịch mang can chi này, xếp theo năm tăng dần. */
 export function eventsOfCanChi(canChi: CanChi, all: readonly NamSuKien[]): NamSuKien[] {
-  return all.filter((e) => canChiOfYear(e.year).index === canChi.index).sort((a, b) => a.year - b.year);
+  return all
+    .filter((e) => {
+      const y = canChiYearOfEvent(e);
+      return y !== null && canChiOfYear(y).index === canChi.index;
+    })
+    .sort((a, b) => (canChiYearOfEvent(a) ?? a.year) - (canChiYearOfEvent(b) ?? b.year) || a.year - b.year);
+}
+
+/** "Ngày 26/7 âm lịch", "Tháng 8 âm lịch", "Mùa xuân"; kèm ngày dương nếu có. */
+export function eventDateText(e: Pick<NamSuKien, "lunarDate" | "lunarDay" | "solar" | "solarDateSource">): string | null {
+  const t = e.lunarDate?.trim();
+  const lunar = !t ? "" : e.lunarDay ? `Ngày ${t} âm lịch` : /^tháng/i.test(t) ? `${t[0]!.toUpperCase()}${t.slice(1)} âm lịch` : `${t[0]!.toUpperCase()}${t.slice(1)}`;
+  const solar = e.solar ? `${e.solarDateSource === "computed" ? "khoảng " : ""}${pad2(e.solar.day)}/${pad2(e.solar.month)}/${e.solar.year}` : "";
+  if (lunar && solar) return `${lunar} · dương lịch ${solar}`;
+  if (solar) return `Ngày ${solar}`;
+  return lunar || null;
+}
+
+/** "mùng 7", "ngày 15" — cách gọi ngày âm trong tháng. */
+export function lunarDayWord(day: number): string {
+  return day <= 10 ? `mùng ${day}` : `ngày ${day}`;
 }
 
 export interface SolarLabel {

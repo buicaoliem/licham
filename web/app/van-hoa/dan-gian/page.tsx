@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function ListPage() {
   return (
-    <ChShell activeMenu={null} className="ch-page">
+    <ChShell activeMenu="Văn hoá" className="ch-page">
       <div className={s.root}>
         <ListLd crumbs={[{ label: "Trang chủ", href: "/" }, { label: "Văn hoá", href: "/van-hoa/" }, { label: 'Văn hoá dân gian' }]} name='Văn hoá dân gian' description={metadata.description!} path='/van-hoa/dan-gian/' items={DAN_GIAN.map((x) => ({ name: x.title, href: `/van-hoa/dan-gian/${x.slug}/` }))} />
         <Hero title="Văn hoá dân gian" lead="Trò chơi, tranh dân gian, đồ chơi, truyện cổ tích, tín ngưỡng và món ăn theo lễ — nếp sống gắn với các dịp trong năm." image={HERO_IMAGE} short center />

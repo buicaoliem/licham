@@ -29,7 +29,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   const x = baiVietBySlug(slug);
   if (!x) notFound();
   return (
-    <ChShell activeMenu={null} className="ch-page">
+    <ChShell activeMenu="Văn hoá" className="ch-page">
       <BaiVietDetail post={x} />
     </ChShell>
   );

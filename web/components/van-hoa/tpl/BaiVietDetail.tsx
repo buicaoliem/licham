@@ -4,11 +4,12 @@ import { ShareButton } from "@/components/ShareButton";
 import { Icon, type IconName } from "@/components/heritage/Icon";
 import { articleJsonLd } from "@/lib/van-hoa/jsonld";
 import { lunarToSolarSafe } from "@/lib/van-hoa/logic";
-import type { BaiViet } from "@/lib/van-hoa/types";
+import { relatedForBaiViet } from "@/lib/van-hoa/related";
+import type { BaiViet, BaiVietBlock } from "@/lib/van-hoa/types";
 import { buildShareUrl } from "@/lib/share";
 import { getVietnamToday } from "@/lib/today";
 import { heritageFile } from "@/lib/heritage-assets";
-import { ItemBadge, Page, Pic, Sources } from "./Shared";
+import { ItemBadge, Page, Pic, Sources, TopicBadge } from "./Shared";
 import s from "../van-hoa.module.css";
 import t from "./tpl.module.css";
 import a from "./article.module.css";
@@ -17,6 +18,62 @@ import a from "./article.module.css";
 function viDate(iso: string): string {
   const [y, m, d] = iso.split("-");
   return `${d}/${m}/${y}`;
+}
+
+/** Chữ đậm **…** và nghiêng *…* trong đoạn văn bài viết. */
+function Inline({ text }: { text: string }) {
+  return (
+    <>
+      {text.split(/(\*\*[^*]+\*\*|\*[^*]+\*)/).map((part, i) =>
+        part.startsWith("**") ? <b key={i}>{part.slice(2, -2)}</b> : part.startsWith("*") && part.length > 2 ? <i key={i}>{part.slice(1, -1)}</i> : part,
+      )}
+    </>
+  );
+}
+
+function Block({ b }: { b: BaiVietBlock }) {
+  if (b.type === "p")
+    return (
+      <p className={t.p}>
+        <Inline text={b.text} />
+      </p>
+    );
+  if (b.type === "ul")
+    return (
+      <ul className={`${t.bullets} ${a.list}`}>
+        {b.items.map((x) => (
+          <li key={x}>
+            <Inline text={x} />
+          </li>
+        ))}
+      </ul>
+    );
+  return (
+    <div className={a.tblScroll}>
+      <table className={t.tbl}>
+        <thead>
+          <tr>
+            {b.head.map((h) => (
+              <th scope="col" key={h}>
+                {h}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {b.rows.map((r) => (
+            <tr key={r.join("|")}>
+              {r.map((c, i) => (
+                <td key={i}>
+                  <Inline text={c} />
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
 }
 
 function BoxHead({ icon, children }: { icon: IconName; children: string }) {
@@ -34,6 +91,7 @@ export function BaiVietDetail({ post }: { post: BaiViet }) {
   const year = getVietnamToday().year;
   const path = `/van-hoa/bai-viet/${post.slug}/`;
   const hasHero = Boolean(post.heroImage && heritageFile(post.heroImage));
+  const related = relatedForBaiViet(post);
   // Điện thoại: hộp "Ngày âm liên quan" nằm sau mục 1, khung ca dao sau mục 2 (theo mock); màn rộng: cả hai ở cột phải.
   return (
     <Page
@@ -49,7 +107,7 @@ export function BaiVietDetail({ post }: { post: BaiViet }) {
         <div className={a.layout}>
           <header className={a.head}>
             <div className={a.labelRow}>
-              <ItemBadge label={post.label} />
+              {post.category ? <TopicBadge text={post.category} /> : <ItemBadge label={post.label} />}
               <ShareButton url={buildShareUrl(path)} title={post.title} text={post.summary} align="end" />
             </div>
             <h1 className={a.h1}>{post.title}</h1>
@@ -98,10 +156,12 @@ export function BaiVietDetail({ post }: { post: BaiViet }) {
                     return (
                       <li key={d.label}>
                         <b>{d.label}</b>
-                        <span>
-                          {d.day} tháng {d.month} âm lịch
-                        </span>
-                        {solar && <small>Năm nay: {solar.text}</small>}
+                        <span>{d.text ?? `${d.day} tháng ${d.month}`} âm lịch</span>
+                        {solar && (
+                          <small>
+                            {/–|-|rạng/.test(d.text ?? "") ? "Năm nay từ" : "Năm nay"}: {solar.text}
+                          </small>
+                        )}
                       </li>
                     );
                   })}
@@ -130,6 +190,15 @@ export function BaiVietDetail({ post }: { post: BaiViet }) {
           </div>
 
           <div className={a.body}>
+            {post.intro && post.intro.length > 0 && (
+              <div className={a.sec} style={{ order: 5 }}>
+                {post.intro.map((p, j) => (
+                  <p className={`${t.p} ${a.intro}`} key={j}>
+                    <Inline text={p} />
+                  </p>
+                ))}
+              </div>
+            )}
             {post.sections.map((sec, i) => (
               <section key={sec.id} id={sec.id} className={a.sec} style={{ order: 10 + i * 10 }} aria-labelledby={`${sec.id}-h`}>
                 <h2 className={`${a.h2} ${a.num}`} id={`${sec.id}-h`}>
@@ -139,6 +208,9 @@ export function BaiVietDetail({ post }: { post: BaiViet }) {
                   <p className={t.p} key={j}>
                     {p}
                   </p>
+                ))}
+                {sec.blocks?.map((b, j) => (
+                  <Block b={b} key={j} />
                 ))}
                 {sec.sub?.map((sb) => (
                   <div key={sb.heading}>
@@ -154,15 +226,17 @@ export function BaiVietDetail({ post }: { post: BaiViet }) {
             ))}
           </div>
 
-          {post.related && post.related.length > 0 && (
+          {related.length > 0 && (
             <section className={a.related} aria-labelledby="bai-lien-quan">
               <h2 className={a.h2} id="bai-lien-quan">
                 Bài liên quan
               </h2>
               <ul className={a.relGrid}>
-                {post.related.slice(0, 3).map((r) => (
+                {related.map((r) => (
                   <li key={r.href + r.label}>
                     <Link href={r.href} className={a.relCard}>
+                      <Pic src={r.image} alt="" className={a.relImg} width={480} height={360} />
+                      {r.itemLabel ? <ItemBadge label={r.itemLabel} /> : r.badge ? <TopicBadge text={r.badge} /> : null}
                       <b>{r.label}</b>
                       {r.summary && <span>{r.summary}</span>}
                       <em>

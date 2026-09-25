@@ -2,8 +2,9 @@ import Link from "next/link";
 import type { CanChi, SolarDate } from "@licham/core";
 import { Icon, type IconName } from "@/components/heritage/Icon";
 import { getVietnamToday } from "@/lib/today";
-import { namEventsOfCanChi, nhanVatOfHoliday, suKienOfLunarDay, vanHoaBlocksOn } from "@/lib/van-hoa/blocks";
-import { canChiYearHeader } from "@/lib/van-hoa/logic";
+import { namEventsOfCanChi, namEventsOfLunarDay, nhanVatOfHoliday, suKienOfLunarDay, vanHoaBlocksOn } from "@/lib/van-hoa/blocks";
+import { placeLine, yearPageHref } from "@/lib/van-hoa/import-logic";
+import { canChiYearHeader, canChiYearOfEvent } from "@/lib/van-hoa/logic";
 import { ECLIPSE_LIST_PATH } from "@/lib/van-hoa/eclipses";
 import { moonInfo } from "@/lib/van-hoa/moon";
 import { ITEM_LABELS, type ItemLabel } from "@/lib/van-hoa/types";
@@ -42,7 +43,7 @@ function Frame({ title, icon, more, children }: { title: string; icon: IconName 
 }
 
 /** Dòng thời gian: chấm màu theo nhãn, năm, tiêu đề, nhãn canh phải. */
-function Timeline({ rows }: { rows: { key: string; year: number; title: string; label: ItemLabel; href?: string }[] }) {
+function Timeline({ rows }: { rows: { key: string; year: number | string; title: string; label: ItemLabel; href?: string }[] }) {
   return (
     <ol className={b.tl}>
       {rows.map((r) => (
@@ -67,6 +68,11 @@ function Timeline({ rows }: { rows: { key: string; year: number; title: string; 
 export function LunarDayBlocks({ date, lunarDay, lunarMonth, leap = false }: { date: SolarDate; lunarDay: number; lunarMonth: number; leap?: boolean }) {
   if (!vanHoaBlocksOn()) return null;
   const events = leap ? [] : suKienOfLunarDay(lunarDay, lunarMonth);
+  const namEvents = leap ? [] : namEventsOfLunarDay(lunarDay, lunarMonth, Math.max(0, 3 - events.length));
+  const rows = [
+    ...events.map((e) => ({ key: e.slug, year: e.lunar.year, title: e.title, label: e.label, href: `/van-hoa/su-kien/${e.slug}/` })),
+    ...namEvents.map((e) => ({ key: e.id ?? `${e.year}-${e.title}`, year: e.yearText ?? e.year, title: e.title, label: e.label, href: `${yearPageHref(canChiYearOfEvent(e)!)}#${e.id ?? `nam-${e.year}`}` })),
+  ];
   const moon = moonInfo(date);
   const today = getVietnamToday();
   const isToday = today.day === date.day && today.month === date.month && today.year === date.year;
@@ -74,9 +80,9 @@ export function LunarDayBlocks({ date, lunarDay, lunarMonth, leap = false }: { d
   const t = (x: typeof moon.moonrise) => (x ? `${x.hhmm}${x.nextDay ? " (ngày sau)" : ""}` : "—");
   return (
     <div className={b.duo}>
-      {events.length > 0 && (
+      {rows.length > 0 && (
         <Frame title="Ngày này năm xưa" icon="calendar" more={{ href: "/van-hoa/su-kien/", label: "Xem thêm" }}>
-          <Timeline rows={events.map((e) => ({ key: e.slug, year: e.lunar.year, title: e.title, label: e.label, href: `/van-hoa/su-kien/${e.slug}/` }))} />
+          <Timeline rows={rows} />
         </Frame>
       )}
       <Frame title={`Trăng ${when}`} icon="moon">
@@ -112,7 +118,7 @@ export function NamTrongLichSu({ canChi }: { canChi: CanChi }) {
   const { slug } = canChiYearHeader(canChi);
   return (
     <Frame title={`Năm ${canChi.name} trong lịch sử`} icon="hourglass" more={{ href: `/van-hoa/nam/${slug}/`, label: "Xem đủ dòng thời gian" }}>
-      <Timeline rows={events.map((e) => ({ key: `${e.year}-${e.title}`, year: e.year, title: e.title, label: e.label }))} />
+      <Timeline rows={events.map((e) => ({ key: e.id ?? `${e.year}-${e.title}`, year: e.yearText ?? e.year, title: e.title, label: e.label, href: `/van-hoa/nam/${slug}/#${e.id ?? `nam-${e.year}`}` }))} />
     </Frame>
   );
 }
@@ -131,7 +137,7 @@ export function NhanVatLienQuan({ leSlug }: { leSlug: string }) {
               <Pic src={n.cardImage ?? n.image} alt={n.imageAlt} className={b.personImg} width={200} height={200} />
               <span className={b.personText}>
                 <b>{n.name}</b>
-                <span>{n.places?.[0] ? `Nơi thờ: ${n.places[0].name}` : n.summary}</span>
+                <span>{n.places?.[0] ? `Nơi thờ: ${placeLine(n.places[0])}` : n.summary}</span>
               </span>
             </Link>
           </li>

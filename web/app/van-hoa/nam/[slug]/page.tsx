@@ -28,7 +28,7 @@ export default async function NamPage({ params }: { params: Promise<{ slug: stri
   const { slug } = await params;
   if (!CAN_CHI_YEAR_SLUGS.includes(slug)) notFound();
   return (
-    <ChShell activeMenu={null} className="ch-page">
+    <ChShell activeMenu="Văn hoá" className="ch-page">
       <NamYear slug={slug} />
     </ChShell>
   );

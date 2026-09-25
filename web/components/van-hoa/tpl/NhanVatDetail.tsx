@@ -3,7 +3,9 @@ import { articleJsonLd } from "@/lib/van-hoa/jsonld";
 import Link from "next/link";
 import { Icon } from "@/components/heritage/Icon";
 import { canChiOfYear } from "@licham/core";
-import { festivalTable } from "@/lib/van-hoa/logic";
+import { festivalTable, lunarDayWord } from "@/lib/van-hoa/logic";
+import { placeAddress } from "@/lib/van-hoa/import-logic";
+import { placeJsonLd } from "@/lib/van-hoa/jsonld";
 import { NHAN_VAT } from "@/lib/van-hoa/data/nhan-vat";
 import type { NhanVat } from "@/lib/van-hoa/types";
 import { getVietnamToday } from "@/lib/today";
@@ -30,7 +32,7 @@ export function NhanVatDetail({ nv }: { nv: NhanVat }) {
         { label: nv.name },
       ]}
     >
-      <JsonLd data={articleJsonLd({ headline: nv.name, description: nv.summary, path: `/van-hoa/nhan-vat/${nv.slug}/`, image: nv.image, updatedAt: nv.updatedAt })} />
+      <JsonLd data={articleJsonLd({ headline: nv.name, description: nv.summary, path: `/van-hoa/nhan-vat/${nv.slug}/`, image: nv.image, updatedAt: nv.updatedAt, about: placeJsonLd(nv) })} />
       <Hero label={nv.label} title={nv.name} sub={nv.otherNames?.join(" · ")} lead={nv.summary} image={nv.image} alt={nv.imageAlt} center />
       <div className={s.wrap}>
         {nv.variants && nv.variants.length > 0 && (
@@ -45,33 +47,59 @@ export function NhanVatDetail({ nv }: { nv: NhanVat }) {
           </div>
         )}
         <div className={t.grid2}>
-          {nv.places && nv.places.length > 0 && (
+          {nv.places && nv.places.length > 0 ? (
             <Card id="noi-tho" icon="temple" title="Nơi thờ chính">
               <div className={t.stack} style={{ marginTop: 0, gap: 12 }}>
                 {nv.places.map((p) => (
                   <div key={p.name} className={t.placeItem}>
                     <Icon name="home" size={20} />
-                    <div>
-                      <h3 className={t.placeName}>{p.name}</h3>
-                      <p style={{ margin: 0 }}>{p.address}</p>
-                    </div>
+                    <p style={{ margin: 0 }}>
+                      <b className={t.placeName}>{p.name}</b> – {placeAddress(p)}
+                    </p>
                   </div>
                 ))}
               </div>
             </Card>
+          ) : (
+            nv.worshipPlacesText && (
+              <Card id="noi-tho" icon="temple" title="Nơi thờ">
+                <p style={{ margin: 0 }}>{nv.worshipPlacesText}</p>
+              </Card>
+            )
           )}
-          {fests.length > 0 && (
+          {nv.festivalsText && nv.festivalsText.length > 0 ? (
             <Card id="le-hoi" icon="flame" title="Lễ hội">
               <ul className={t.bullets}>
-                {fests.map((f) => (
-                  <li key={f.name}>
-                    <b>{f.name}</b> — mùng {f.lunarDay} tháng {f.lunarMonth} âm lịch{f.note ? `. ${f.note}` : ""}
-                  </li>
+                {nv.festivalsText.map((f) => (
+                  <li key={f}>{f}</li>
                 ))}
               </ul>
             </Card>
+          ) : (
+            fests.length > 0 && (
+              <Card id="le-hoi" icon="flame" title="Lễ hội">
+                <ul className={t.bullets}>
+                  {fests.map((f) => (
+                    <li key={f.name}>
+                      <b>{f.name}</b> — {lunarDayWord(f.lunarDay)} tháng {f.lunarMonth} âm lịch{f.note ? `. ${f.note}` : ""}
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+            )
           )}
         </div>
+        {nv.heritage && nv.heritage.length > 0 && (
+          <div className={t.stack}>
+            <Card id="di-san" icon="scroll" title="Di tích, di sản được công nhận">
+              <ul className={t.bullets}>
+                {nv.heritage.map((h) => (
+                  <li key={h}>{h}</li>
+                ))}
+              </ul>
+            </Card>
+          </div>
+        )}
 
         {rows.length > 0 && (
           <section aria-labelledby="bang-10-nam">
@@ -87,7 +115,7 @@ export function NhanVatDetail({ nv }: { nv: NhanVat }) {
                         {f.name}
                         <br />
                         <small style={{ fontWeight: 400 }}>
-                          (mùng {f.lunarDay} tháng {f.lunarMonth} âm lịch)
+                          ({lunarDayWord(f.lunarDay)} tháng {f.lunarMonth} âm lịch)
                         </small>
                       </th>
                     ))}
@@ -117,7 +145,7 @@ export function NhanVatDetail({ nv }: { nv: NhanVat }) {
                     <p key={f.name}>
                       <b>{f.name}</b>
                       <br />
-                      {r.cells[i]?.text ?? "—"} <span style={{ color: "var(--vh-muted)" }}>(mùng {f.lunarDay} tháng {f.lunarMonth} âm lịch)</span>
+                      {r.cells[i]?.text ?? "—"} <span style={{ color: "var(--vh-muted)" }}>({lunarDayWord(f.lunarDay)} tháng {f.lunarMonth} âm lịch)</span>
                     </p>
                   ))}
                 </article>
