@@ -11986,6 +11986,11 @@ a.ly-cell:hover {
   position: relative;
   z-index: 1;
 }
+/* Tiêu đề chuyên mục: trần 44px (thay 46px) để "Các anh hùng dân tộc Việt Nam" vừa một dòng ở màn hình rộng; mobile cân dòng, không mồ côi chữ cuối. */
+.ah-hero-body .ch-h1 {
+  font-size: clamp(30px, 3.4vw, 44px);
+  text-wrap: balance;
+}
 @media (max-width: 759px) {
   .ah-hero-art.img {
     position: relative;

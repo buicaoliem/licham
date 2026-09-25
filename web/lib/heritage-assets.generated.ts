@@ -60,6 +60,7 @@ export const HERITAGE_FILES: readonly string[] = [
   "/heritage/le/ngay-cua-me.webp",
   "/heritage/le/ngay-giai-phong-mien-nam.webp",
   "/heritage/le/ngay-hoc-sinh-sinh-vien.webp",
+  "/heritage/le/ngay-sinh-bac-ho.webp",
   "/heritage/le/ngay-sinh-dai-tuong-vo-nguyen-giap.webp",
   "/heritage/le/ngay-van-hoa-viet-nam.webp",
   "/heritage/le/nha-giao-viet-nam.webp",
