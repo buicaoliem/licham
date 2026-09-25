@@ -1,3 +1,5 @@
+import { JsonLd } from "@/components/calendar/JsonLd";
+import { articleJsonLd } from "@/lib/van-hoa/jsonld";
 import { Icon } from "@/components/heritage/Icon";
 import type { DanGian } from "@/lib/van-hoa/types";
 import s from "../van-hoa.module.css";
@@ -17,9 +19,11 @@ export function DanGianDetail({ item }: { item: DanGian }) {
       crumbs={[
         { label: "Trang chủ", href: "/" },
         { label: "Văn hoá", href: "/van-hoa/" },
+        { label: "Văn hoá dân gian", href: "/van-hoa/dan-gian/" },
         { label: item.title },
       ]}
     >
+      <JsonLd data={articleJsonLd({ headline: item.title, description: item.summary, path: `/van-hoa/dan-gian/${item.slug}/`, image: item.heroImage })} />
       <Hero title={item.title} lead={item.summary} image={item.heroImage} center />
       <div className={s.wrap}>
         <dl className={`${t.facts} ${t.card}`} aria-label="Thông tin nhanh">

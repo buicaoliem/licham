@@ -38,7 +38,7 @@ export function TopicList({ items, groups, placeholder }: { items: readonly Topi
         <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder={placeholder} enterKeyHint="search" />
       </label>
       <ul className={t.chips} aria-label="Lọc theo nhóm">
-        {[{ key: "all", title: "Tất cả" }, ...groups].map((g) => (
+        {[{ key: "all", title: "Tất cả" }, ...groups.filter((g) => items.some((n) => n.group === g.key))].map((g) => (
           <li key={g.key}>
             <button type="button" className={`${t.chip} ${group === g.key ? t.chipOn : ""}`} aria-pressed={group === g.key} onClick={() => setGroup(g.key)}>
               {g.title}

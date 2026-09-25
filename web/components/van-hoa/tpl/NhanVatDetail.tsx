@@ -1,3 +1,5 @@
+import { JsonLd } from "@/components/calendar/JsonLd";
+import { articleJsonLd } from "@/lib/van-hoa/jsonld";
 import Link from "next/link";
 import { Icon } from "@/components/heritage/Icon";
 import { canChiOfYear } from "@licham/core";
@@ -28,6 +30,7 @@ export function NhanVatDetail({ nv }: { nv: NhanVat }) {
         { label: nv.name },
       ]}
     >
+      <JsonLd data={articleJsonLd({ headline: nv.name, description: nv.summary, path: `/van-hoa/nhan-vat/${nv.slug}/`, image: nv.image })} />
       <Hero label={nv.label} title={nv.name} sub={nv.otherNames?.join(" · ")} lead={nv.summary} image={nv.image} alt={nv.imageAlt} center />
       <div className={s.wrap}>
         {nv.variants && nv.variants.length > 0 && (

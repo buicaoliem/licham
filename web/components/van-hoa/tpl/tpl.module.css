@@ -852,3 +852,55 @@
     height: 240px;
   }
 }
+
+/* ---------- hero năm can chi: ảnh ngang con giáp ---------- */
+.zHero {
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
+  background: var(--vh-alt);
+  overflow: hidden;
+}
+.zImg {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+.zText {
+  padding: 16px 16px 20px;
+  text-align: center;
+  background: var(--vh-bg);
+}
+@media (min-width: 768px) {
+  .zText {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px 40px;
+    text-align: left;
+  }
+  .zTextR {
+    right: 0;
+    background: linear-gradient(to left, rgba(250, 246, 237, 0.94) 60%, rgba(250, 246, 237, 0));
+    padding-left: 64px;
+  }
+  .zTextL {
+    left: 0;
+    background: linear-gradient(to right, rgba(250, 246, 237, 0.94) 60%, rgba(250, 246, 237, 0));
+    padding-right: 64px;
+  }
+}
+.hanhIcon {
+  float: right;
+  width: 48px;
+  height: 48px;
+  margin: 0 0 0 8px;
+  border-radius: 8px;
+  object-fit: cover;
+}

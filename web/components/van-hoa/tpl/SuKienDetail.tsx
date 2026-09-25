@@ -1,3 +1,5 @@
+import { JsonLd } from "@/components/calendar/JsonLd";
+import { articleJsonLd } from "@/lib/van-hoa/jsonld";
 import Link from "next/link";
 import { Icon } from "@/components/heritage/Icon";
 import { canChiOfYear } from "@licham/core";
@@ -25,9 +27,19 @@ export function SuKienDetail({ ev }: { ev: SuKien }) {
       crumbs={[
         { label: "Trang chủ", href: "/" },
         { label: "Văn hoá", href: "/van-hoa/" },
+        { label: "Sự kiện lịch sử", href: "/van-hoa/su-kien/" },
         { label: ev.title },
       ]}
     >
+      <JsonLd
+        data={articleJsonLd({
+          headline: ev.title,
+          description: ev.summary,
+          path: `/van-hoa/su-kien/${ev.slug}/`,
+          image: ev.heroImage,
+          about: fromSources ? { "@type": "Event", name: ev.title, startDate: `${ev.solar!.year}-${String(ev.solar!.month).padStart(2, "0")}-${String(ev.solar!.day).padStart(2, "0")}` } : undefined,
+        })}
+      />
       <Hero label={ev.label} title={ev.title} lead={ev.summary} image={ev.heroImage} center />
       <div className={s.wrap}>
         <div className={t.dates}>
