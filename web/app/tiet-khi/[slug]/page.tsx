@@ -78,7 +78,7 @@ export default async function TietKhiPage({ params }: { params: Promise<{ slug: 
         <section className={`tk-hero m-${t.mua}`}>
           <div className="tk-hero-art">
             {art && <img src={art} alt={`Tranh minh họa tiết ${t.ten} của licham.app`} width={1448} height={1086} fetchPriority="high" />}
-            {art && <span className="tk-art-note">Tranh minh họa của licham.app</span>}
+            {art && <span className="tk-art-note">Tranh minh họa, không phải chân dung hay tư liệu lịch sử</span>}
           </div>
           <div className="tk-hero-text">
             <div className="ch-eyebrow">
