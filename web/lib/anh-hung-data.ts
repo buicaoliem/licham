@@ -2767,4 +2767,1177 @@ export const ANH_HUNG_DATA: AnhHung[] = [
       "HĐND tỉnh Hải Dương, “Ấn tượng lễ khai bút ở đền thờ Chu Văn An”.",
     ],
   },
+  {
+    slug: "tran-nhat-duat",
+    ten: "Trần Nhật Duật",
+    tenThat: null,
+    tenKhac: ["Chiêu Văn vương", "Tá thánh Thái sư Chiêu Văn Đại vương"],
+    namSinh: "1255",
+    namMat: "1330",
+    nienDai: "1255 – 1330",
+    queQuan: "Người Tức Mặc, phủ Thiên Trường (nay phường Lộc Vượng, thành phố Nam Định); thái ấp ở chân núi Văn Trinh, xã Quảng Hợp, huyện Quảng Xương, Thanh Hóa",
+    thoiKy: "ly-tran",
+    trieuDai: "Nhà Trần",
+    namMoc: 1285,
+    tomTat: "Hoàng thân nhà Trần, chỉ huy trận Hàm Tử năm 1285 đánh tan cánh quân Toa Đô, làm đại thần qua nhiều triều vua và được truy tặng Tá thánh Thái sư.",
+    tieuSu: [
+      "Trần Nhật Duật được phong Chiêu Văn vương từ thời trẻ. Theo Đại Việt sử ký toàn thư, ông sinh tháng 4 năm Ất Mão (1255). Năm 1280, ông một mình vào doanh trại thu phục thủ lĩnh Trịnh Giác Mật ở đạo Đà Giang mà không tổn hao xương máu, nhờ am hiểu phong tục và ngôn ngữ của đồng bào nơi đây.",
+      "Tháng 5 năm 1285, ông làm chủ tướng trận thủy chiến Hàm Tử quan, đập tan cánh quân tinh nhuệ của Toa Đô, làm xoay chuyển cục diện cuộc kháng chiến chống Nguyên Mông lần thứ hai. Năm 1288, ông tiếp tục chặn các hướng tiến công ven biển và phong tỏa đường rút lui của địch.",
+      "Từ năm 1302 đến 1330, trên cương vị Thái úy Quốc công rồi Tá thánh Thái sư, ông giữ ổn định triều đình qua các đời Trần Anh Tông, Trần Minh Tông và phụ chính đầu triều Trần Hiến Tông. Ông mất tháng 8 năm Canh Ngọ (1330).",
+    ],
+    boiCanh: [
+      "Nhà Trần ở thời hưng thịnh phải ba lần đương đầu với quân Nguyên Mông; việc giữ yên các vùng biên viễn và miền núi có ý nghĩa sống còn với cuộc kháng chiến.",
+    ],
+    congTrang: [
+      "Thu phục thủ lĩnh Trịnh Giác Mật ở đạo Đà Giang năm 1280 mà không phải dùng binh.",
+      "Chỉ huy trận Hàm Tử năm 1285, đánh tan cánh quân Toa Đô.",
+      "Chặn các hướng tiến công ven biển và phong tỏa đường rút của địch năm 1288.",
+      "Khai hoang lập ấp vùng duyên hải Quảng Xương (Thanh Hóa); được coi là người bảo trợ lối Hát nhà trò (tiền thân ca trù).",
+    ],
+    suKien: [
+      {
+        nam: "1255",
+        text: "Sinh tháng 4 năm Ất Mão (theo Đại Việt sử ký toàn thư).",
+      },
+      {
+        nam: "1280",
+        text: "Thu phục thủ lĩnh Trịnh Giác Mật ở đạo Đà Giang.",
+      },
+      {
+        nam: "1285",
+        text: "Chỉ huy trận Hàm Tử quan, đánh tan cánh quân Toa Đô.",
+      },
+      {
+        nam: "1330",
+        text: "Mất tháng 8 năm Canh Ngọ.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Đền thờ Tá thánh Thái sư Chiêu Văn Đại vương Trần Nhật Duật, chân núi Văn Trinh (di tích cấp tỉnh, 2004)",
+        diaDiem: "Thôn Linh Hưng, xã Quảng Hợp, huyện Quảng Xương, Thanh Hóa",
+      },
+      {
+        ten: "Đền Cửa Ông (phối thờ)",
+        diaDiem: "Quảng Ninh",
+      },
+      {
+        ten: "Đền Sơn Hải (phối thờ)",
+        diaDiem: "Hà Nội",
+      },
+    ],
+    tuongNiem: [
+      "Lễ giỗ chính kỵ ngày mùng 8 tháng 8 âm lịch tại xã Quảng Hợp (Quảng Xương, Thanh Hóa).",
+      "Lễ hội đền thờ Trần Nhật Duật vào dịp giỗ và đầu xuân (tháng Giêng), có diễn xướng Hát nhà trò Văn Trinh.",
+    ],
+    ghiChuSuLieu:
+      "Năm sinh có hai ý kiến: chính sử ghi 1255, văn bia và truyền thống dòng họ ở Thanh Hóa ghi 1254 (Giáp Dần). Việc tôn ông là ông tổ Hát nhà trò xứ Thanh được xem là sự hòa quyện giữa nhạc cung đình và làn điệu bản địa hơn là sáng tạo riêng. Tương truyền, trên ngón tay ông khi sinh ra có đường chỉ hiện dấu chữ “Chiêu Văn hoàng tử”; dân gian Đà Giang kể ông ăn bốc, uống rượu bằng mũi để lấy lòng các tù trưởng.",
+    wikiTitle: "Trần Nhật Duật",
+    nguon: [
+      "Đại Việt sử ký toàn thư (Bản kỷ quyển 5, 6); Khâm định Việt sử thông giám cương mục (Chính biên quyển 7, 8).",
+      "Cổng thông tin điện tử huyện Quảng Xương, tỉnh Thanh Hóa.",
+      "Báo Thanh Hóa, chuyên trang Văn hóa – Đời sống.",
+    ],
+  },
+  {
+    slug: "tran-quoc-toan",
+    ten: "Trần Quốc Toản",
+    tenThat: null,
+    tenKhac: ["Hoài Văn hầu", "Hoài Văn vương"],
+    namSinh: "khoảng 1267",
+    namMat: "1285",
+    nienDai: "khoảng 1267 – 1285",
+    queQuan: "Người Tức Mặc, phủ Thiên Trường (nay phường Lộc Vượng, thành phố Nam Định)",
+    thoiKy: "ly-tran",
+    trieuDai: "Nhà Trần",
+    namMoc: 1282,
+    tomTat: "Thiếu niên hoàng tộc nhà Trần bóp nát quả cam khi không được dự bàn việc nước, tự chiêu mộ quân dưới lá cờ “Phá cường địch, báo hoàng ân” và hy sinh trong kháng chiến chống Nguyên Mông năm 1285.",
+    tieuSu: [
+      "Trần Quốc Toản được phong Hoài Văn hầu. Chính sử không ghi năm sinh; căn cứ việc ông “mới khoảng 15, 16 tuổi” khi diễn ra Hội nghị Bình Than (tháng 10 năm 1282), giới nghiên cứu cho là ông sinh khoảng năm 1267.",
+      "Vì còn nhỏ tuổi, ông không được dự bàn việc quân ở Bình Than, ôm hận bóp nát quả cam trong tay. Trở về, ông tự bỏ gia sản chiêu mộ hơn một nghìn tráng đinh và gia nô, đóng chiến thuyền, rèn vũ khí, thêu lá cờ sáu chữ vàng “Phá cường địch, báo hoàng ân”.",
+      "Năm 1285, đạo quân của ông chặn đánh quân Thoát Hoan ở vùng Lạng Sơn, rồi tham gia đánh tan cứ điểm Tây Kết, giải phóng Thăng Long. Tháng 6 năm 1285, khi truy kích tàn quân Nguyên, ông hy sinh giữa trận tiền; vua Trần Nhân Tông thương tiếc, truy phong Hoài Văn vương.",
+    ],
+    boiCanh: [
+      "Năm 1282, trước nguy cơ quân Nguyên Mông xâm lược lần thứ hai, nhà Trần họp vương hầu ở Bình Than bàn kế đánh giữ.",
+    ],
+    congTrang: [
+      "Tự chiêu mộ và trang bị hơn một nghìn quân, lập đạo quân cờ thêu sáu chữ vàng.",
+      "Chặn đánh quân Thoát Hoan ở vùng Lạng Sơn năm 1285.",
+      "Tham gia trận Tây Kết và giải phóng Thăng Long năm 1285.",
+      "Hy sinh khi truy kích quân Nguyên, trở thành biểu tượng lòng yêu nước của tuổi trẻ.",
+    ],
+    suKien: [
+      {
+        nam: "1282",
+        text: "Không được dự Hội nghị Bình Than, bóp nát quả cam; về chiêu mộ quân.",
+      },
+      {
+        nam: "1285",
+        text: "Chặn đánh quân Nguyên ở Lạng Sơn, tham gia trận Tây Kết và giải phóng Thăng Long.",
+      },
+      {
+        nam: "1285",
+        text: "Hy sinh khi truy kích quân Nguyên (khoảng tháng 5 – 6 âm lịch); được truy phong Hoài Văn vương.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Đền Án Triều",
+        diaDiem: "Xã Nam Triều, huyện Phú Xuyên, Hà Nội",
+      },
+      {
+        ten: "Đền Cửa Ông (phối thờ, di tích quốc gia đặc biệt)",
+        diaDiem: "Thành phố Cẩm Phả, Quảng Ninh",
+      },
+      {
+        ten: "Đền Trần (phối thờ)",
+        diaDiem: "Thành phố Nam Định, Nam Định",
+      },
+    ],
+    tuongNiem: [
+      "Ngày kỵ ngày 12 tháng 6 âm lịch, theo ghi nhận của các đền miếu và dòng họ Trần.",
+      "Không có lễ hội riêng mang tên ông; ông được phụng tế trong các kỳ đại lễ của triều Trần.",
+    ],
+    ghiChuSuLieu:
+      "Nơi và thời điểm hy sinh chưa thống nhất: Toàn thư chỉ chép vắn tắt việc ông tử trận và triều đình làm văn tế, còn An Nam chí lược của Lê Tắc chép Hoài Văn hầu bị quân Thoát Hoan vây giết ở bến sông Như Nguyệt. Chuyện bóp nát quả cam được lưu truyền như biểu tượng; chuyện ông liên kết với người Mán của Nguyễn Thế Lộc chỉ có trong truyện dã sử.",
+    wikiTitle: "Trần Quốc Toản",
+    nguon: [
+      "Đại Việt sử ký toàn thư (Bản kỷ quyển 5); Khâm định Việt sử thông giám cương mục (Chính biên quyển 7).",
+      "Lê Tắc, An Nam chí lược.",
+      "Cổng thông tin Di tích quốc gia đặc biệt Đền Cửa Ông.",
+    ],
+  },
+  {
+    slug: "tran-binh-trong",
+    ten: "Trần Bình Trọng",
+    tenThat: "Lê Bình Trọng",
+    tenKhac: ["Bảo Nghĩa hầu", "Bảo Nghĩa vương"],
+    namSinh: "1259",
+    namMat: "1285",
+    nienDai: "1259 – 1285",
+    queQuan: "Xã Bảo Thái, huyện Thanh Liêm; nay thuộc xã Liêm Cần, huyện Thanh Liêm, Hà Nam",
+    thoiKy: "ly-tran",
+    trieuDai: "Nhà Trần",
+    namMoc: 1285,
+    tomTat: "Danh tướng nhà Trần, chặn giặc ở bãi Đà Mạc năm 1285 để hai vua rút lui an toàn; bị bắt vẫn khẳng khái: “Ta thà làm ma nước Nam, chứ không thèm làm vương đất Bắc”.",
+    tieuSu: [
+      "Trần Bình Trọng vốn họ Lê, dòng dõi vua Lê Đại Hành; do cha có công phò tá nên được ban quốc tính họ Trần. Ông sinh năm Kỷ Mùi (1259), mang tước Bảo Nghĩa hầu, được giao thống lĩnh cấm quân Thánh Dực và được gả Công chúa Thụy Bảo, con gái vua Trần Thái Tông.",
+      "Tháng 1 năm 1285, trước thế tiến công mạnh của quân Nguyên, ông chỉ huy một đạo quân chặn giặc ở bãi Đà Mạc (vùng sông Thiên Mạc) để hai vua và triều đình rút về Thanh Hóa. Trận chiến không cân sức kéo dài nhiều ngày, cầm chân đại quân Thoát Hoan, bảo toàn đầu não kháng chiến.",
+      "Bị bắt, trước lời dụ phong vương, ông khẳng khái: “Ta thà làm ma nước Nam, chứ không thèm làm vương đất Bắc”, rồi hy sinh ngày 21 tháng Giêng năm Ất Dậu (1285). Vua Trần Nhân Tông truy phong ông Bảo Nghĩa vương.",
+    ],
+    boiCanh: [
+      "Đầu năm 1285, quân Nguyên Mông do Thoát Hoan chỉ huy tràn xuống, triều Trần phải tạm rời kinh đô để bảo toàn lực lượng.",
+    ],
+    congTrang: [
+      "Thống lĩnh cấm quân Thánh Dực.",
+      "Chỉ huy trận đánh chặn ở bãi Đà Mạc, bảo vệ hai vua và triều đình rút lui an toàn.",
+      "Nêu tấm gương trung dũng, không khuất phục trước kẻ thù.",
+    ],
+    suKien: [
+      {
+        nam: "1259",
+        text: "Sinh năm Kỷ Mùi.",
+      },
+      {
+        nam: "1285",
+        text: "Chỉ huy trận đánh chặn quân Nguyên ở bãi Đà Mạc.",
+      },
+      {
+        nam: "1285",
+        text: "Hy sinh ngày 21 tháng Giêng năm Ất Dậu; được truy phong Bảo Nghĩa vương.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Đền Lăng (di tích lịch sử cấp quốc gia, 1999)",
+        diaDiem: "Thôn Bảo Thái, xã Liêm Cần, huyện Thanh Liêm, Hà Nam",
+      },
+      {
+        ten: "Miếu thờ Bảo Nghĩa vương ở bãi Đà Mạc",
+        diaDiem: "Huyện Khoái Châu, Hưng Yên",
+      },
+      {
+        ten: "Đền Cửa Ông (phối thờ)",
+        diaDiem: "Quảng Ninh",
+      },
+    ],
+    tuongNiem: [
+      "Ngày giỗ chính ngày 21 tháng Giêng âm lịch.",
+      "Lễ hội đền Lăng (thờ vua Lê Đại Hành, phối tế Trần Bình Trọng) từ mùng 6 đến mùng 8 tháng 3 âm lịch tại huyện Thanh Liêm, Hà Nam.",
+    ],
+    ghiChuSuLieu:
+      "Đại Việt sử ký toàn thư chép tổng thuật việc này vào tháng 2 âm lịch. Chính sử nhà Trần và Hậu Lê chỉ ghi ông là dòng dõi Lê Đại Hành; thuyết cha ông là Lê Phụ Trần và mẹ là Lý Chiêu Hoàng (theo văn bia Cổ Mai bi ký) chưa có chứng cứ vững chắc ngoài bia ký dòng họ đời Hậu Lê và Nguyễn. Tương truyền, khi ông bị hành quyết, mắt vẫn mở trừng nhìn về phương Bắc.",
+    wikiTitle: "Trần Bình Trọng",
+    nguon: [
+      "Đại Việt sử ký toàn thư (Bản kỷ quyển 5); Khâm định Việt sử thông giám cương mục (Chính biên quyển 7).",
+      "Bảo tàng Lịch sử Quốc gia, thông tin danh nhân.",
+      "Báo Dân Việt.",
+    ],
+  },
+  {
+    slug: "tran-khanh-du",
+    ten: "Trần Khánh Dư",
+    tenThat: null,
+    tenKhac: ["Nhân Huệ vương", "Thượng vị hầu"],
+    namSinh: "khoảng 1240",
+    namMat: "1340",
+    nienDai: "khoảng 1240 – 1340",
+    queQuan: "Xã Chí Linh, huyện Nam Sách, phủ Tân Hưng; nay thuộc vùng thành phố Chí Linh và huyện Nam Sách, Hải Dương",
+    thoiKy: "ly-tran",
+    trieuDai: "Nhà Trần",
+    namMoc: 1288,
+    tomTat: "Danh tướng nhà Trần, chỉ huy trận phục kích Vân Đồn cuối năm 1287 đầu năm 1288, đánh đắm đoàn thuyền lương của Trương Văn Hổ, bẻ gãy hậu cần quân Nguyên Mông.",
+    tieuSu: [
+      "Trần Khánh Dư được phong Nhân Huệ vương, giữ chức Phiêu kỵ Đại tướng quân, Phó Đô tướng. Ông phụng sự năm đời vua Trần, từ Trần Thánh Tông đến Trần Hiến Tông.",
+      "Năm 1285, trên cương vị Phó Đô tướng, ông chỉ huy đánh lui các mũi tiến công của quân Nguyên ở phòng tuyến Lạng Sơn và vùng duyên hải. Cuối năm 1287 đầu năm 1288, ông tổ chức trận phục kích ở Vân Đồn, đánh đắm và thu toàn bộ đoàn thuyền chở 17 vạn thạch lương của Trương Văn Hổ. Tháng 4 năm 1288, ông chỉ huy cánh thủy quân phối hợp bắt sống tướng Ô Mã Nhi và Phàn Tiếp trên sông Bạch Đằng.",
+      "Năm 1312, ông theo vua Trần Anh Tông đánh Chiêm Thành. Ông còn viết bài tựa cho binh thư Vạn Kiếp tông bí truyền thư của Hưng Đạo vương. Theo Đại Việt sử ký toàn thư, ông mất tháng 3 năm Canh Thìn (1340).",
+    ],
+    boiCanh: [
+      "Trong cuộc kháng chiến chống Nguyên Mông lần thứ ba, quân Nguyên phụ thuộc lớn vào đoàn thuyền lương vượt biển; cắt đứt đường tiếp tế là then chốt để buộc địch rút lui.",
+    ],
+    congTrang: [
+      "Đánh lui quân Nguyên ở phòng tuyến Lạng Sơn và vùng duyên hải năm 1285.",
+      "Chỉ huy trận phục kích Vân Đồn, tiêu diệt đoàn thuyền lương của Trương Văn Hổ.",
+      "Phối hợp bắt sống Ô Mã Nhi, Phàn Tiếp trên sông Bạch Đằng năm 1288.",
+      "Theo vua Trần Anh Tông đánh Chiêm Thành năm 1312.",
+      "Viết bài tựa cho Vạn Kiếp tông bí truyền thư.",
+    ],
+    suKien: [
+      {
+        nam: "1285",
+        text: "Chỉ huy đánh lui quân Nguyên ở Lạng Sơn và vùng duyên hải.",
+      },
+      {
+        nam: "1287 – 1288",
+        text: "Phục kích ở Vân Đồn, đánh đắm đoàn thuyền lương của Trương Văn Hổ.",
+      },
+      {
+        nam: "1288",
+        text: "Phối hợp bắt sống Ô Mã Nhi và Phàn Tiếp trên sông Bạch Đằng.",
+      },
+      {
+        nam: "1312",
+        text: "Theo vua Trần Anh Tông đánh Chiêm Thành.",
+      },
+      {
+        nam: "1340",
+        text: "Mất tháng 3 năm Canh Thìn, dưới triều Trần Hiến Tông.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Nghè Quan Lạn, thuộc Cụm di tích Đình – Chùa – Miếu – Nghè Quan Lạn (di tích cấp quốc gia, 1990)",
+        diaDiem: "Thôn Thái Hòa, xã Quan Lạn, huyện Vân Đồn, Quảng Ninh",
+      },
+      {
+        ten: "Đền Cửa Ông (phối thờ)",
+        diaDiem: "Quảng Ninh",
+      },
+    ],
+    tuongNiem: [
+      "Ngày giỗ ngày 18 tháng 6 âm lịch.",
+      "Lễ hội Quan Lạn (hội bơi chèo) từ ngày 16 đến 20 tháng 6 âm lịch, chính hội ngày 18, tái hiện chiến thắng Vân Đồn; di sản văn hóa phi vật thể quốc gia (2019).",
+    ],
+    ghiChuSuLieu:
+      "Năm sinh chỉ là phỏng đoán. Sử cũ bình phẩm gay gắt về tính cách ông: Ngô Sĩ Liên trong Toàn thư chê tính hà khắc, tham tài và đời tư phóng túng, tương phản với tài thao lược. Tương truyền, thời trẻ vì phạm lỗi bị tịch thu gia sản, ông về bến Bình Than bán than, khi thuyền vua đi qua đã ứng đối việc nước khiến vua thán phục mà tha tội.",
+    wikiTitle: "Trần Khánh Dư",
+    nguon: [
+      "Đại Việt sử ký toàn thư (Bản kỷ quyển 5, 6); Khâm định Việt sử thông giám cương mục (Chính biên quyển 7, 8, 9).",
+      "Cổng thông tin điện tử Cục Di sản Văn hóa.",
+      "Báo Quảng Ninh.",
+    ],
+  },
+  {
+    slug: "pham-ngu-lao",
+    ten: "Phạm Ngũ Lão",
+    tenThat: null,
+    tenKhac: ["Điện súy Thượng tướng quân", "Quan nội hầu"],
+    namSinh: "1255",
+    namMat: "1320",
+    nienDai: "1255 – 1320",
+    queQuan: "Làng Phù Ủng, huyện Đường Hào, phủ Thượng Hồng; nay thuộc huyện Ân Thi, Hưng Yên",
+    thoiKy: "ly-tran",
+    trieuDai: "Nhà Trần",
+    namMoc: 1285,
+    tomTat: "Danh tướng nhà Trần, môn khách rồi con rể Hưng Đạo vương, lập công trong hai cuộc kháng chiến chống Nguyên Mông, dẹp yên biên giới Tây Bắc và là tác giả bài thơ Thuật hoài.",
+    tieuSu: [
+      "Phạm Ngũ Lão sinh năm Ất Mão (1255). Tương truyền, thời hàn vi ông ngồi đan sọt bên đường mải nghĩ binh thư, quân lính mở đường lấy giáo đâm vào đùi chảy máu mà không hay biết; Trần Hưng Đạo thấy người có chí lớn, thu nhận làm môn khách và gả con gái nuôi.",
+      "Năm 1285, ông chỉ huy quân Thánh Dực phục kích giặc ở ải Chi Lăng và chém tướng Lý Quán ở Tây Kết. Năm 1288, trong cuộc phản công Bạch Đằng, ông mai phục ở ải Nội Bàng, chặn đường tháo chạy của Thoát Hoan. Các năm 1294, 1297 và 1301, ông cầm quân dẹp yên biên giới Tây Bắc, chặn các cuộc xâm lấn của quân Ai Lao; năm 1312 dẫn quân tiên phong đánh Chiêm Thành.",
+      "Ông mất tháng 11 năm Canh Thân (1320); vua Trần Minh Tông bãi triều 5 ngày để tỏ lòng thương tiếc, truy tặng Kim tử Vinh lộc đại phu. Bài thơ Thuật hoài (Tỏ lòng) của ông tiêu biểu cho hào khí Đông A.",
+    ],
+    boiCanh: [
+      "Thời Trần, bên cạnh ba lần kháng chiến chống Nguyên Mông, triều đình còn phải giữ yên biên giới phía tây và phía nam trước các cuộc xâm lấn của Ai Lao và Chiêm Thành.",
+    ],
+    congTrang: [
+      "Phục kích quân Nguyên ở ải Chi Lăng, chém tướng Lý Quán năm 1285.",
+      "Mai phục ở ải Nội Bàng, chặn đường rút của Thoát Hoan năm 1288.",
+      "Dẹp yên biên giới Tây Bắc các năm 1294, 1297, 1301.",
+      "Dẫn quân tiên phong đánh Chiêm Thành năm 1312.",
+      "Tác giả bài thơ Thuật hoài.",
+    ],
+    suKien: [
+      {
+        nam: "1255",
+        text: "Sinh năm Ất Mão.",
+      },
+      {
+        nam: "1285",
+        text: "Phục kích ở ải Chi Lăng, chém tướng Lý Quán.",
+      },
+      {
+        nam: "1288",
+        text: "Mai phục ở ải Nội Bàng trong cuộc phản công Bạch Đằng.",
+      },
+      {
+        nam: "1294 – 1301",
+        text: "Nhiều lần cầm quân dẹp yên biên giới Tây Bắc.",
+      },
+      {
+        nam: "1320",
+        text: "Mất tháng 11 năm Canh Thân; vua bãi triều 5 ngày.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Đền Phù Ủng (di tích lịch sử – văn hóa cấp quốc gia, 1988)",
+        diaDiem: "Làng Phù Ủng, huyện Ân Thi, Hưng Yên",
+      },
+      {
+        ten: "Đền Phù Ủng (di tích lịch sử cấp quốc gia)",
+        diaDiem: "Số 25 phố Lý Quốc Sư, phường Hàng Trống, quận Hoàn Kiếm, Hà Nội",
+      },
+    ],
+    tuongNiem: [
+      "Ngày giỗ chính ngày mùng 1 tháng 11 âm lịch.",
+      "Lễ hội đền Phù Ủng (Ân Thi, Hưng Yên) từ ngày 11 đến 15 tháng Giêng âm lịch, kỷ niệm ngày xuất quân; di sản văn hóa phi vật thể quốc gia (2020).",
+    ],
+    ghiChuSuLieu:
+      "Có ý kiến cho rằng chuyện xuất thân nghèo ngồi đan sọt là huyền thoại hóa, thực tế ông có thể thuộc dòng hào trưởng có thế lực. Người con gái Hưng Đạo vương gả cho ông có nơi chép là Anh Nguyên quận chúa, có nơi ghi Tĩnh Huệ công chúa.",
+    wikiTitle: "Phạm Ngũ Lão",
+    nguon: [
+      "Đại Việt sử ký toàn thư (Bản kỷ quyển 5, 6); Khâm định Việt sử thông giám cương mục (Chính biên quyển 7, 8, 9).",
+      "Cổng thông tin Du lịch Hưng Yên.",
+      "Báo điện tử VOV; Di sản văn hóa Hà Nội.",
+    ],
+  },
+  {
+    slug: "yet-kieu",
+    ten: "Yết Kiêu",
+    tenThat: "Phạm Hữu Thế (theo thần tích)",
+    tenKhac: ["Hữu Bật Đại vương", "Trần triều Đệ nhất Đô soái Thủy quân"],
+    namSinh: "1242",
+    namMat: "1303",
+    nienDai: "1242 – 1303 (theo thần tích)",
+    queQuan: "Làng Hạ Bì, tổng Vạn Bằng, huyện Gia Lộc; nay là thôn Hạ Bì, xã Yết Kiêu, huyện Gia Lộc, Hải Dương",
+    thoiKy: "ly-tran",
+    trieuDai: "Nhà Trần",
+    namMoc: 1285,
+    tomTat: "Gia tướng thân tín của Trần Hưng Đạo, giữ thuyền cứu chủ tướng năm 1285 và chỉ huy đội thủy binh lặn đục thuyền giặc trong kháng chiến chống Nguyên Mông.",
+    tieuSu: [
+      "Chính sử chỉ ghi tên ông là Yết Kiêu; thần tích làng Hạ Bì chép tên thật là Phạm Hữu Thế, sinh năm Nhâm Tý (1242). Ông là gia tướng kiên trung bậc nhất dưới trướng Quốc công Tiết chế Trần Hưng Đạo.",
+      "Đầu năm 1285, khi thủy quân triều đình tan vỡ, ông một mực giữ thuyền đợi chủ tướng ở bãi Tân, giúp Trần Hưng Đạo thoát hiểm. Ông huấn luyện và chỉ huy đội thủy binh lặn đục thủng thuyền giặc, phá thế phối hợp thủy bộ của quân Nguyên; năm 1288 tham gia trận Bạch Đằng.",
+      "Cùng Dã Tượng, ông khuyên Hưng Đạo vương gác lại hiềm khích gia tộc để dốc lòng vì việc nước. Theo thần tích đền Quát, ông mất ngày 28 tháng Chạp năm Quý Mão (1303).",
+    ],
+    boiCanh: [
+      "Chiến tranh chống Nguyên Mông diễn ra nhiều trên sông nước; thủy binh thiện chiến là thế mạnh của quân đội Đại Việt.",
+    ],
+    congTrang: [
+      "Giữ thuyền ở bãi Tân, giúp Trần Hưng Đạo thoát hiểm năm 1285.",
+      "Huấn luyện và chỉ huy đội thủy binh lặn đục thuyền giặc.",
+      "Tham gia trận Bạch Đằng năm 1288.",
+    ],
+    suKien: [
+      {
+        nam: "1242",
+        text: "Sinh năm Nhâm Tý (theo thần tích đền Quát).",
+      },
+      {
+        nam: "1285",
+        text: "Giữ thuyền đợi và cứu Trần Hưng Đạo ở bãi Tân.",
+      },
+      {
+        nam: "1288",
+        text: "Tham gia trận Bạch Đằng.",
+      },
+      {
+        nam: "1303",
+        text: "Mất ngày 28 tháng Chạp năm Quý Mão (theo thần tích).",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Đền Quát (đền Hạ Bì), di tích lịch sử cấp quốc gia (1989)",
+        diaDiem: "Thôn Hạ Bì, xã Yết Kiêu, huyện Gia Lộc, Hải Dương",
+      },
+      {
+        ten: "Đền Kiếp Bạc (phối thờ)",
+        diaDiem: "Hải Dương",
+      },
+      {
+        ten: "Đền Cửa Ông (phối thờ)",
+        diaDiem: "Quảng Ninh",
+      },
+    ],
+    tuongNiem: [
+      "Lễ giỗ chính kỵ ngày 28 tháng Chạp âm lịch.",
+      "Lễ hội đền Quát mở hai kỳ: hội xuân từ 14 đến 16 tháng Giêng, hội thu từ 15 đến 18 tháng 8 âm lịch; di sản văn hóa phi vật thể quốc gia (2020).",
+    ],
+    ghiChuSuLieu:
+      "Các bộ chính sử không ghi năm sinh, năm mất; niên đại chỉ theo thần tích. Chính sử ghi ông xuất thân gia nô, tên Yết Kiêu vốn là tên một giống chó săn nhỏ; tư liệu Hán Nôm và thần phả đời sau nâng ông thành gia tướng, hào kiệt họ Phạm. Tương truyền, ông nuốt phải bọt của hai con trâu trắng thần nên bơi lặn tài tình, ở dưới nước nhiều ngày như trên cạn.",
+    wikiTitle: "Yết Kiêu",
+    nguon: [
+      "Đại Việt sử ký toàn thư (Bản kỷ quyển 5); Khâm định Việt sử thông giám cương mục (Chính biên quyển 7, 8).",
+      "Bảo tàng Lịch sử Quốc gia.",
+      "Báo Hải Phòng.",
+    ],
+  },
+  {
+    slug: "da-tuong",
+    ten: "Dã Tượng",
+    tenThat: null,
+    tenKhac: [],
+    namSinh: null,
+    namMat: null,
+    nienDai: "Thế kỷ XIII",
+    queQuan: "Không được sử sách ghi lại; dã sử cho là người vùng rừng núi Đông Bắc (khu vực Chí Linh hoặc Lục Nam)",
+    thoiKy: "ly-tran",
+    trieuDai: "Nhà Trần",
+    namMoc: 1285,
+    tomTat: "Gia tướng tâm phúc của Trần Hưng Đạo, người huấn luyện và chỉ huy đội tượng binh trong hai cuộc kháng chiến chống Nguyên Mông.",
+    tieuSu: [
+      "Dã Tượng (chữ Hán nghĩa là “voi rừng”) là gia tướng trung thành và tâm phúc của Quốc công Tiết chế Trần Hưng Đạo. Chính sử không ghi năm sinh, năm mất và quê quán của ông; thần tích một số nơi gắn ông với họ Trương hoặc họ Trần.",
+      "Ông có tài thuần dưỡng và huấn luyện voi chiến, tổ chức đội tượng binh thành lực lượng đột kích chống kỵ binh Mông Cổ. Năm 1285, ông chỉ huy tượng binh chặn đánh kỵ binh giặc ở Vạn Kiếp, hộ vệ Hưng Đạo vương, rồi tham gia các trận đánh cánh quân Toa Đô và Ô Mã Nhi.",
+      "Cùng Yết Kiêu, ông khuyên Hưng Đạo vương giữ trọn đạo bề tôi, không theo lời trăng trối tranh ngôi của thân phụ là Trần Liễu.",
+    ],
+    boiCanh: [
+      "Kỵ binh Mông Cổ là lực lượng mạnh nhất của quân Nguyên; Đại Việt dùng tượng binh và địa hình để khắc chế.",
+    ],
+    congTrang: [
+      "Huấn luyện và chỉ huy đội tượng binh Đại Việt.",
+      "Chặn đánh kỵ binh Nguyên ở Vạn Kiếp, hộ vệ Hưng Đạo vương năm 1285.",
+      "Tham gia các trận đánh cánh quân Toa Đô và Ô Mã Nhi.",
+    ],
+    suKien: [
+      {
+        nam: "1285",
+        text: "Chỉ huy tượng binh chặn kỵ binh Nguyên ở Vạn Kiếp.",
+      },
+      {
+        nam: "1285 – 1288",
+        text: "Tham gia hai cuộc kháng chiến chống Nguyên Mông dưới trướng Trần Hưng Đạo.",
+      },
+      {
+        nam: "thời kháng chiến",
+        text: "Cùng Yết Kiêu khuyên Hưng Đạo vương giữ trọn đạo bề tôi.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Đền Kiếp Bạc (phối thờ, di tích quốc gia đặc biệt)",
+        diaDiem: "Xã Hưng Đạo, thành phố Chí Linh, Hải Dương",
+      },
+      {
+        ten: "Đền Cửa Ông (phối thờ, di tích quốc gia đặc biệt)",
+        diaDiem: "Quảng Ninh",
+      },
+      {
+        ten: "Đền thờ Đức Thánh Trần (phối thờ)",
+        diaDiem: "Quận 1, TP Hồ Chí Minh",
+      },
+    ],
+    tuongNiem: [
+      "Không có ngày giỗ riêng được lưu truyền; ông được phụng tế cùng đại lễ kỵ nhật Đức Thánh Trần ngày 20 tháng 8 âm lịch tại đền Kiếp Bạc.",
+    ],
+    ghiChuSuLieu:
+      "Chưa rõ “Dã Tượng” là tên riêng hay danh xưng gắn với nghề chỉ huy voi chiến; thân thế ông là người miền núi phía Bắc hay người đồng bằng cũng chưa thống nhất. Tương truyền, ông một mình thu phục cả bầy voi rừng dữ để luyện thành voi trận.",
+    wikiTitle: "Dã Tượng",
+    nguon: [
+      "Đại Việt sử ký toàn thư (Bản kỷ quyển 5); Khâm định Việt sử thông giám cương mục (Chính biên quyển 7, 8).",
+      "Bảo tàng Lịch sử Quốc gia.",
+    ],
+  },
+  {
+    slug: "dang-dung",
+    ten: "Đặng Dung",
+    tenThat: null,
+    tenKhac: ["Dung Quốc công"],
+    namSinh: "khoảng 1373",
+    namMat: "1414",
+    nienDai: "khoảng 1373 – 1414",
+    queQuan: "Xã Mỹ Tho, huyện Thiên Lộc, trấn Nghệ An; nay thuộc xã Tùng Lộc, huyện Can Lộc, Hà Tĩnh",
+    thoiKy: "ly-tran",
+    trieuDai: "Nhà Hậu Trần",
+    namMoc: 1413,
+    tomTat: "Tể tướng, Tiết chế quân sự nhà Hậu Trần, tôn phò Trùng Quang Đế kháng chiến chống quân Minh, tác giả bài thơ Cảm hoài, tuẫn tiết năm 1414.",
+    tieuSu: [
+      "Đặng Dung là con của danh tướng Đặng Tất, theo gia phả sinh khoảng năm Quý Sửu (1373). Ông giúp cha giữ đất Hóa Châu chống quân Minh xâm lược.",
+      "Năm 1409, sau khi cha bị Giản Định Đế giết oan, ông cùng Nguyễn Cảnh Dị tôn Trần Quý Khoáng lên ngôi (Trùng Quang Đế) để tiếp tục kháng chiến. Giữ chức Đồng bình chương sự, Tiết chế quân sự, ông chỉ huy các trận đánh ở Thanh Hóa, Nghệ An, Hóa Châu từ năm 1409 đến 1413.",
+      "Tháng 9 năm 1413, ông chỉ huy trận tập kích đêm, xông lên thuyền chỉ huy của quân Minh khiến Trương Phụ phải nhảy sang thuyền nhỏ chạy thoát. Tháng 4 năm 1414, bị bắt giải sang Trung Quốc cùng vua, ông gieo mình xuống sông tuẫn tiết. Ông để lại bài thơ Cảm hoài bi tráng.",
+    ],
+    boiCanh: [
+      "Quân Minh xâm lược Đại Việt; các vua nhà Hậu Trần là Giản Định Đế rồi Trùng Quang Đế tiếp tục kháng chiến trong điều kiện thiếu thốn lương thảo.",
+    ],
+    congTrang: [
+      "Cùng cha giữ đất Hóa Châu chống quân Minh.",
+      "Tôn phò Trùng Quang Đế, duy trì cuộc kháng chiến sau khi Đặng Tất bị hại.",
+      "Chỉ huy quân Hậu Trần ở Thanh Hóa, Nghệ An, Hóa Châu (1409 – 1413).",
+      "Chỉ huy trận tập kích đêm năm 1413 suýt bắt được Trương Phụ.",
+      "Tác giả bài thơ Cảm hoài.",
+    ],
+    suKien: [
+      {
+        nam: "1409",
+        text: "Cùng Nguyễn Cảnh Dị tôn Trần Quý Khoáng lên ngôi.",
+      },
+      {
+        nam: "1409 – 1413",
+        text: "Chỉ huy kháng chiến ở Thanh Hóa, Nghệ An, Hóa Châu.",
+      },
+      {
+        nam: "1413",
+        text: "Tháng 9, tập kích đêm vào thuyền quân Minh, Trương Phụ phải chạy thoát.",
+      },
+      {
+        nam: "1414",
+        text: "Tháng 4, bị bắt giải sang Trung Quốc, gieo mình xuống sông tuẫn tiết.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Đền thờ Đặng Tất – Đặng Dung (di tích lịch sử cấp quốc gia, 1992)",
+        diaDiem: "Xã Tùng Lộc, huyện Can Lộc, Hà Tĩnh",
+      },
+      {
+        ten: "Đền Ngọc Chấn (phối thờ)",
+        diaDiem: "Xã Yên Đồng, huyện Ý Yên, Nam Định",
+      },
+    ],
+    tuongNiem: [
+      "Dòng họ và nhân dân địa phương cúng tế vào ngày Rằm tháng Giêng (lễ tế tổ mùa xuân) và ngày 12 tháng 4 âm lịch (ngày tuẫn tiết).",
+    ],
+    ghiChuSuLieu:
+      "Năm sinh chỉ dựa theo gia phả. Sử chép trong trận tập kích năm 1413, vì đêm tối không nhận ra mặt chủ tướng giặc nên để Trương Phụ trốn thoát, từ đó thế trận chuyển sang bất lợi. Tương truyền, ông đêm đêm mài gươm dưới trăng làm lõm cả phiến đá.",
+    wikiTitle: "Đặng Dung",
+    nguon: [
+      "Đại Việt sử ký toàn thư (Bản kỷ quyển 9); Khâm định Việt sử thông giám cương mục (Chính biên quyển 12).",
+      "Báo Hà Tĩnh.",
+      "Cổng thông tin điện tử huyện Can Lộc.",
+    ],
+  },
+  {
+    slug: "tran-quy-khoang",
+    ten: "Trần Quý Khoáng",
+    tenThat: null,
+    tenKhac: ["Trùng Quang Đế", "Trần Quý Khoách"],
+    namSinh: null,
+    namMat: "1414",
+    nienDai: "? – 1414 (ở ngôi 1409 – 1414)",
+    queQuan: "Hoàng tộc gốc Tức Mặc, phủ Thiên Trường (nay phường Lộc Vượng, thành phố Nam Định); dấy binh ở Chi La, nay là huyện Đức Thọ, Hà Tĩnh",
+    thoiKy: "ly-tran",
+    trieuDai: "Nhà Hậu Trần",
+    namMoc: 1409,
+    tomTat: "Hoàng đế nhà Hậu Trần với niên hiệu Trùng Quang, lãnh đạo năm năm kháng chiến chống quân Minh (1409 – 1414).",
+    tieuSu: [
+      "Trần Quý Khoáng là con Trang Định vương Trần Ngạc, cháu nội vua Trần Nghệ Tông; chính sử không ghi năm sinh. Ngày 17 tháng 3 âm lịch năm 1409, ông lên ngôi Hoàng đế ở Chi La (Hà Tĩnh), lấy niên hiệu Trùng Quang, giương cao ngọn cờ khôi phục Đại Việt.",
+      "Để hóa giải bất hòa trong hàng ngũ kháng chiến, ông đón Giản Định Đế về tôn làm Thái thượng hoàng. Ông lãnh đạo cuộc kháng chiến kéo dài năm năm trong cảnh thiếu thốn lương thảo trước đại quân Trương Phụ, và cử sứ thần Nguyễn Biểu sang trại giặc đàm phán.",
+      "Năm 1414, ông bị quân Minh bắt; sử Việt chép trên đường bị giải sang phương Bắc, ông nhảy xuống nước tuẫn tiết.",
+    ],
+    boiCanh: [
+      "Nhà Hậu Trần là lực lượng kháng chiến chống quân Minh xâm lược trước khi khởi nghĩa Lam Sơn nổ ra.",
+    ],
+    congTrang: [
+      "Lên ngôi ở Chi La, tiếp tục ngọn cờ kháng chiến chống quân Minh.",
+      "Đón Giản Định Đế về làm Thái thượng hoàng, hàn gắn nội bộ kháng chiến.",
+      "Lãnh đạo năm năm kháng chiến trước đại quân Trương Phụ.",
+    ],
+    suKien: [
+      {
+        nam: "1409",
+        text: "Lên ngôi Hoàng đế ở Chi La ngày 17 tháng 3 âm lịch, niên hiệu Trùng Quang.",
+      },
+      {
+        nam: "1409 – 1413",
+        text: "Lãnh đạo kháng chiến chống quân Minh; cử Nguyễn Biểu sang trại giặc đàm phán.",
+      },
+      {
+        nam: "1414",
+        text: "Bị quân Minh bắt; theo sử Việt, nhảy xuống nước tuẫn tiết trên đường bị giải đi.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Đền Hậu Trần (đền La), di tích lịch sử cấp quốc gia",
+        diaDiem: "Thôn La, xã Yên Thành, huyện Yên Mô, Ninh Bình",
+      },
+      {
+        ten: "Đền Trung và khu lăng mộ",
+        diaDiem: "Xóm Đức Thịnh, xã Hưng Lộc, thành phố Vinh, Nghệ An",
+      },
+    ],
+    tuongNiem: [
+      "Không có ngày giỗ riêng phổ biến; ông được phụng tế trong Lễ hội đền La từ ngày 12 đến 13 tháng 3 âm lịch tại huyện Yên Mô, Ninh Bình.",
+    ],
+    ghiChuSuLieu:
+      "Cách mất còn khác nhau: sử Việt chép ông nhảy xuống nước tuẫn tiết trên đường bị giải đi, còn Minh thực lục chép ông bị giải về kinh đô nhà Minh và bị xử trảm ngày 16 tháng 8 năm 1414. Đền Trung (Vinh) từng bị rút bằng công nhận di tích quốc gia năm 2010 do tranh chấp đất đai. Tương truyền, khi ông bị bắt ở bờ biển Thiên Cầm, núi đá nơi đây vang lên như tiếng đàn tiễn biệt.",
+    wikiTitle: "Trùng Quang Đế",
+    nguon: [
+      "Đại Việt sử ký toàn thư (Bản kỷ quyển 9); Khâm định Việt sử thông giám cương mục (Chính biên quyển 12).",
+      "Minh thực lục.",
+      "Báo Nghệ An.",
+    ],
+  },
+  {
+    slug: "le-thanh-tong",
+    ten: "Lê Thánh Tông",
+    tenThat: "Lê Tư Thành",
+    tenKhac: ["Lê Hạo", "Bình Nguyên vương"],
+    namSinh: "1442",
+    namMat: "1497",
+    nienDai: "1442 – 1497",
+    queQuan: "Gốc hương Lam Sơn (nay thị trấn Lam Sơn, huyện Thọ Xuân, Thanh Hóa); sinh ở chùa Huy Văn, Thăng Long (nay quận Đống Đa, Hà Nội)",
+    thoiKy: "le-so",
+    trieuDai: "Hậu Lê",
+    namMoc: 1442,
+    tomTat: "Hoàng đế nhà Lê sơ trị vì 38 năm (1460 – 1497), ban hành Luật Hồng Đức, cải cách hành chính và giáo dục, đưa Đại Việt đến thời cực thịnh.",
+    tieuSu: [
+      "Lê Thánh Tông tên thật là Lê Tư Thành, sinh ngày 20 tháng 7 năm Nhâm Tuất (1442), thời trẻ được phong Bình Nguyên vương. Năm 1460, ông được các đại thần đứng đầu là Nguyễn Xí đón lên ngôi, lần lượt đặt niên hiệu Quang Thuận (1460 – 1469) và Hồng Đức (1470 – 1497).",
+      "Ông ban hành Quốc triều hình luật (Luật Hồng Đức) với nhiều điều khoản tiến bộ, bảo vệ quyền lợi phụ nữ; chia đất nước thành 13 đạo thừa tuyên, cho vẽ bản đồ Hồng Đức. Ông chấn hưng khoa cử, khởi xướng dựng bia tiến sĩ ở Văn Miếu từ năm 1484. Năm 1464, ông minh oan và phục hồi danh dự cho Nguyễn Trãi.",
+      "Năm 1471, ông thân chinh đánh Chiêm Thành, mở cõi đến núi Thạch Bi. Ông lập Hội Tao Đàn, tự làm Đô nguyên súy, để lại nhiều thơ văn. Ông mất ngày 30 tháng Giêng năm Đinh Tỵ (1497).",
+    ],
+    boiCanh: [
+      "Sau những biến loạn trong cung đình nửa đầu thế kỷ XV, triều Lê sơ dưới thời Lê Thánh Tông đạt đỉnh cao về thể chế, luật pháp, giáo dục và văn hóa.",
+    ],
+    congTrang: [
+      "Ban hành Quốc triều hình luật (Luật Hồng Đức).",
+      "Cải cách hành chính, chia 13 đạo thừa tuyên, vẽ bản đồ Hồng Đức.",
+      "Chấn hưng giáo dục, khoa cử; dựng bia tiến sĩ ở Văn Miếu từ năm 1484.",
+      "Thân chinh đánh Chiêm Thành năm 1471, mở rộng lãnh thổ.",
+      "Minh oan cho Nguyễn Trãi (1464); lập Hội Tao Đàn.",
+    ],
+    suKien: [
+      {
+        nam: "1442",
+        text: "Sinh ngày 20 tháng 7 năm Nhâm Tuất.",
+      },
+      {
+        nam: "1460",
+        text: "Lên ngôi, niên hiệu Quang Thuận.",
+      },
+      {
+        nam: "1464",
+        text: "Ban chiếu minh oan cho Nguyễn Trãi.",
+      },
+      {
+        nam: "1470",
+        text: "Đổi niên hiệu Hồng Đức.",
+      },
+      {
+        nam: "1471",
+        text: "Thân chinh đánh Chiêm Thành.",
+      },
+      {
+        nam: "1484",
+        text: "Dựng bia tiến sĩ ở Văn Miếu.",
+      },
+      {
+        nam: "1497",
+        text: "Mất ngày 30 tháng Giêng năm Đinh Tỵ.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Chiêu Lăng và điện Lam Kinh, Khu di tích quốc gia đặc biệt Lam Kinh",
+        diaDiem: "Thị trấn Lam Sơn, huyện Thọ Xuân, Thanh Hóa",
+      },
+      {
+        ten: "Chùa Huy Văn và điện Dục Anh (di tích lịch sử cấp quốc gia)",
+        diaDiem: "Quận Đống Đa, Hà Nội",
+      },
+    ],
+    tuongNiem: [
+      "Lễ giỗ ngày 30 tháng Giêng âm lịch.",
+      "Phối tế trong Lễ hội Lam Kinh (di sản văn hóa phi vật thể quốc gia) ngày 22 tháng 8 âm lịch.",
+    ],
+    ghiChuSuLieu:
+      "Về cái chết năm 1497, sử cũ ghi vua mắc bệnh nặng, còn một số dã sử lưu truyền nghi án bị Trường Lạc Hoàng hậu đầu độc. Chuyện hào quang khi ông ra đời ở chùa Huy Văn và các giai thoại vua cải trang vi hành là truyền thuyết, giai thoại dân gian.",
+    wikiTitle: "Lê Thánh Tông",
+    nguon: [
+      "Đại Việt sử ký toàn thư (Bản kỷ thực lục quyển 12, 13).",
+      "Phan Huy Chú, Lịch triều hiến chương loại chí.",
+      "Ban Quản lý Di tích quốc gia đặc biệt Lam Kinh.",
+    ],
+  },
+  {
+    slug: "nguyen-chich",
+    ten: "Nguyễn Chích",
+    tenThat: null,
+    tenKhac: ["Lê Chích", "Đình thượng hầu", "Đông Hương hầu"],
+    namSinh: "1382",
+    namMat: "1448",
+    nienDai: "1382 – 1448",
+    queQuan: "Làng Vạn Lộc, huyện Đông Sơn, trấn Thanh Hóa; nay là thôn Vạn Lộc, xã Đông Ninh, huyện Đông Sơn, Thanh Hóa",
+    thoiKy: "le-so",
+    trieuDai: "Hậu Lê",
+    namMoc: 1424,
+    tomTat: "Khai quốc công thần nhà Lê sơ, người hiến kế tiến vào Nghệ An năm 1424, bước ngoặt chiến lược của khởi nghĩa Lam Sơn.",
+    tieuSu: [
+      "Nguyễn Chích sinh năm Nhâm Tuất (1382), sau được ban quốc tính nên còn gọi là Lê Chích. Ông tự dựng cờ khởi nghĩa, lập căn cứ Hoàng – Nghiêu hiểm trở đánh quân Minh trước khi hợp với Lam Sơn.",
+      "Cuối năm 1420, ông đem toàn bộ nghĩa binh về với Lê Lợi. Năm 1424, ông hiến kế tạm rời miền núi Thanh Hóa, bất ngờ tiến đánh giải phóng Nghệ An làm căn cứ rồi mới tiến ra Đông Đô. Ông trực tiếp chỉ huy các chiến dịch mở rộng vùng giải phóng vào Tân Bình, Thuận Hóa.",
+      "Ông phụng sự ba đời vua Lê Thái Tổ, Lê Thái Tông, Lê Nhân Tông, mất ngày 26 tháng 11 năm Mậu Thìn (1448), được truy tặng Thái phó.",
+    ],
+    boiCanh: [
+      "Những năm đầu, nghĩa quân Lam Sơn nhiều lần bị vây hãm ở miền núi Thanh Hóa; việc chuyển hướng vào Nghệ An đã mở ra thế chủ động cho cuộc khởi nghĩa.",
+    ],
+    congTrang: [
+      "Tự lập căn cứ Hoàng – Nghiêu đánh quân Minh.",
+      "Đưa nghĩa binh gia nhập Lam Sơn năm 1420.",
+      "Hiến kế tiến vào Nghệ An năm 1424.",
+      "Chỉ huy mở rộng vùng giải phóng vào Tân Bình, Thuận Hóa.",
+    ],
+    suKien: [
+      {
+        nam: "1382",
+        text: "Sinh năm Nhâm Tuất (theo văn bia).",
+      },
+      {
+        nam: "1420",
+        text: "Đem nghĩa binh gia nhập khởi nghĩa Lam Sơn.",
+      },
+      {
+        nam: "1424",
+        text: "Hiến kế tiến đánh, giải phóng Nghệ An.",
+      },
+      {
+        nam: "1448",
+        text: "Mất ngày 26 tháng 11 năm Mậu Thìn.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Quần thể lăng mộ, bia ký và đền thờ Nguyễn Chích (di tích lịch sử cấp quốc gia)",
+        diaDiem: "Làng Vạn Lộc, xã Đông Ninh, huyện Đông Sơn, Thanh Hóa",
+      },
+      {
+        ten: "Di tích Phủ Bà – đền thờ Nguyễn Chích",
+        diaDiem: "Thành phố Thanh Hóa, Thanh Hóa",
+      },
+    ],
+    tuongNiem: [
+      "Lễ giỗ chính ngày 26 tháng 11 âm lịch tại đền Vạn Lộc.",
+      "Lễ hội di tích Phủ Bà – đền thờ Nguyễn Chích ngày mùng 2 tháng 3 âm lịch.",
+    ],
+    ghiChuSuLieu:
+      "Việc ông từng bị thu hồi một phần binh quyền sau ngày thái bình được các nhà nghiên cứu giải thích do sự nghi kỵ giữa võ tướng địa phương và quan văn trong triều. Tương truyền, ông nuôi đàn bồ câu đưa thư mật giữa các đạo quân; dã sử còn kể chuyện ông kết duyên với một nữ tướng cải trang nam giới.",
+    wikiTitle: "Nguyễn Chích",
+    nguon: [
+      "Đại Việt sử ký toàn thư (Bản kỷ quyển 10); Lam Sơn thực lục; Đại Nam nhất thống chí.",
+      "Báo Thanh Hóa, chuyên đề Lịch sử.",
+      "Báo Bình Phước.",
+    ],
+  },
+  {
+    slug: "dinh-le",
+    ten: "Đinh Lễ",
+    tenThat: null,
+    tenKhac: ["Lê Lễ", "Bân Quốc công", "Hiển Khánh vương"],
+    namSinh: null,
+    namMat: "1427",
+    nienDai: "? – 1427",
+    queQuan: "Sách Thùy Cối, hương Lam Sơn, huyện Lôi Dương; nay thuộc vùng huyện Thọ Xuân – Ngọc Lặc, Thanh Hóa",
+    thoiKy: "le-so",
+    trieuDai: "Hậu Lê",
+    namMoc: 1426,
+    tomTat: "Danh tướng khởi nghĩa Lam Sơn, cháu gọi Lê Lợi bằng cậu, cùng Lý Triện lập đại thắng Tốt Động – Chúc Động năm 1426.",
+    tieuSu: [
+      "Đinh Lễ là cháu gọi Lê Lợi bằng cậu ruột, sau được ban quốc tính nên còn gọi là Lê Lễ; chính sử không ghi năm sinh. Ông làm cận vệ trung kiên cho Lê Lợi từ ngày dấy nghĩa, cùng chịu cảnh tuyệt lương trên núi Chí Linh.",
+      "Tháng Chạp năm 1424, ông đi đầu đánh tan quân Minh ở trận Bồ Ải. Tháng 10 năm 1426, ông phục kích phá tiền quân giặc ở Ninh Kiều, rồi cùng Lý Triện chỉ huy đại thắng Tốt Động – Chúc Động, làm sụp đổ thế phản công của Vương Thông.",
+      "Tháng 3 năm 1427, dẫn quân tiếp viện ở My Động, voi chiến sa lầy, ông bị bắt giải vào thành Đông Quan và hy sinh vì kiên quyết không đầu hàng. Năm 1484, ông được truy tặng Thái sư, tước Bân Quốc công.",
+    ],
+    boiCanh: [
+      "Cuối năm 1426, Vương Thông đem đại quân phản công hòng xoay chuyển cục diện; chiến thắng Tốt Động – Chúc Động làm sụp đổ thế phản công đó.",
+    ],
+    congTrang: [
+      "Làm cận vệ trung kiên của Lê Lợi từ ngày đầu khởi nghĩa.",
+      "Đi đầu đánh tan quân Minh ở trận Bồ Ải năm 1424.",
+      "Cùng Lý Triện chỉ huy đại thắng Tốt Động – Chúc Động năm 1426.",
+    ],
+    suKien: [
+      {
+        nam: "1424",
+        text: "Đánh tan quân Minh ở trận Bồ Ải.",
+      },
+      {
+        nam: "1426",
+        text: "Phục kích ở Ninh Kiều; cùng Lý Triện lập đại thắng Tốt Động – Chúc Động.",
+      },
+      {
+        nam: "1427",
+        text: "Bị bắt ở My Động, hy sinh vì không chịu đầu hàng.",
+      },
+      {
+        nam: "1484",
+        text: "Được truy tặng Thái sư, tước Bân Quốc công.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Đền thờ Đinh Lễ (di tích lịch sử cấp quốc gia, 1994)",
+        diaDiem: "Thị trấn Thiệu Hóa (trước là thị trấn Vạn Hà), huyện Thiệu Hóa, Thanh Hóa",
+      },
+      {
+        ten: "Đền Linh Cảm Đại Vương (di tích cấp quốc gia)",
+        diaDiem: "Tùng Ảnh, huyện Đức Thọ, Hà Tĩnh",
+      },
+      {
+        ten: "Đền Mỹ Lâm (di tích cấp tỉnh)",
+        diaDiem: "Thôn Phúc Long, xã Minh Tiến, huyện Ngọc Lặc, Thanh Hóa",
+      },
+    ],
+    tuongNiem: [
+      "Ngày kỵ trong tháng 3 âm lịch.",
+      "Hội tế tổ và dâng hương dòng họ Đinh vào trung tuần tháng Giêng.",
+    ],
+    ghiChuSuLieu:
+      "Năm sinh không được ghi lại; quê gốc theo lời truyền đan xen giữa sách Thùy Cối (Thọ Xuân) và trang Mỹ Lâm (Ngọc Lặc) do địa bàn tụ nghĩa thay đổi. Tương truyền, voi chiến của ông không rời xác chủ; dấu tích còn lại là “Đống Mồ Voi” và “Cầu Voi” ở Mai Động (Hoàng Mai, Hà Nội).",
+    wikiTitle: "Đinh Lễ",
+    nguon: [
+      "Đại Việt sử ký toàn thư (Bản kỷ quyển 10); Khâm định Việt sử thông giám cương mục (Chính biên quyển 13, 14).",
+      "Báo Người Hà Nội.",
+    ],
+  },
+  {
+    slug: "nguyen-xi",
+    ten: "Nguyễn Xí",
+    tenThat: null,
+    tenKhac: ["Lê Xí", "Cương Quốc công"],
+    namSinh: "1397",
+    namMat: "1465",
+    nienDai: "1397 – 1465",
+    queQuan: "Làng Thượng Xá, huyện Chân Phúc, trấn Nghệ An; nay thuộc xã Khánh Hợp (trước là xã Nghi Hợp), huyện Nghi Lộc, Nghệ An",
+    thoiKy: "le-so",
+    trieuDai: "Hậu Lê",
+    namMoc: 1426,
+    tomTat: "Khai quốc công thần nhà Lê sơ, theo khởi nghĩa Lam Sơn từ nhỏ, về sau đứng đầu cuộc chính biến năm 1460 đưa Lê Thánh Tông lên ngôi.",
+    tieuSu: [
+      "Nguyễn Xí sinh năm Đinh Sửu (1397), sau được ban quốc tính nên còn gọi là Lê Xí. Ông theo khởi nghĩa Lam Sơn từ thuở nhỏ, lập nhiều chiến công giải phóng Nghệ An và Tân Bình – Thuận Hóa.",
+      "Tháng 10 năm 1426, ông cùng Đinh Lễ chỉ huy quân mai phục đánh tan quân Minh ở Tốt Động – Chúc Động. Năm 1427, ông bị giặc bắt ở My Động nhưng khoét ngục trốn thoát, về chỉ huy vây thành Đông Quan.",
+      "Năm 1460, ông đứng đầu cuộc chính biến lật đổ Lê Nghi Dân, đón Lê Tư Thành lên ngôi (Lê Thánh Tông), rồi giữ chức Thái sư đầu triều. Ông phụng sự bốn đời vua, mất ngày 30 tháng 10 năm Ất Dậu (1465).",
+    ],
+    boiCanh: [
+      "Sau khởi nghĩa Lam Sơn, triều Lê sơ trải qua nhiều biến động cung đình, trong đó có việc Lê Nghi Dân thoán đoạt ngôi vua.",
+    ],
+    congTrang: [
+      "Tham gia giải phóng Nghệ An, Tân Bình – Thuận Hóa.",
+      "Cùng Đinh Lễ chỉ huy trận Tốt Động – Chúc Động năm 1426.",
+      "Trốn thoát khỏi ngục giặc, chỉ huy vây thành Đông Quan năm 1427.",
+      "Đứng đầu cuộc chính biến năm 1460, đón Lê Thánh Tông lên ngôi.",
+    ],
+    suKien: [
+      {
+        nam: "1397",
+        text: "Sinh năm Đinh Sửu (theo gia phả).",
+      },
+      {
+        nam: "1426",
+        text: "Cùng Đinh Lễ đánh tan quân Minh ở Tốt Động – Chúc Động.",
+      },
+      {
+        nam: "1427",
+        text: "Bị bắt ở My Động, trốn thoát, về chỉ huy vây thành Đông Quan.",
+      },
+      {
+        nam: "1460",
+        text: "Lật đổ Lê Nghi Dân, đón Lê Thánh Tông lên ngôi.",
+      },
+      {
+        nam: "1465",
+        text: "Mất ngày 30 tháng 10 năm Ất Dậu.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Khu di tích đền thờ và lăng mộ Nguyễn Xí (di tích quốc gia đặc biệt, 2020)",
+        diaDiem: "Xã Khánh Hợp, huyện Nghi Lộc, Nghệ An",
+      },
+    ],
+    tuongNiem: [
+      "Lễ giỗ chính ngày 30 tháng 10 âm lịch tại xã Khánh Hợp.",
+      "Lễ hội đền thờ Nguyễn Xí từ ngày 29 tháng 2 đến mùng 2 tháng 3 âm lịch; di sản văn hóa phi vật thể quốc gia (2020).",
+    ],
+    ghiChuSuLieu:
+      "Tương truyền, ông có đội quân khuyển hàng trăm con, luồn rừng đưa tin qua vòng vây giặc và quấy rối doanh trại quân Minh ban đêm; chưa rõ đây là hình ảnh dân gian hay một lực lượng có thật.",
+    wikiTitle: "Nguyễn Xí",
+    nguon: [
+      "Đại Việt sử ký toàn thư (Bản kỷ quyển 10, 11, 12); Khâm định Việt sử thông giám cương mục.",
+      "Cổng thông tin điện tử huyện Nghi Lộc.",
+      "Báo Nghệ An.",
+    ],
+  },
+  {
+    slug: "le-van-linh",
+    ten: "Lê Văn Linh",
+    tenThat: null,
+    tenKhac: ["Bảo Chính vương", "Trung Hiến"],
+    namSinh: "khoảng 1377",
+    namMat: "1448",
+    nienDai: "khoảng 1377 – 1448",
+    queQuan: "Thôn Hải Lịch, xã Bảo Đà, huyện Lôi Dương, trấn Thanh Hóa; nay là làng Hải Lịch, xã Thọ Hải, huyện Thọ Xuân, Thanh Hóa",
+    thoiKy: "le-so",
+    trieuDai: "Hậu Lê",
+    namMoc: 1416,
+    tomTat: "Khai quốc công thần nhà Lê sơ, một trong hai quan văn dự Hội thề Lũng Nhai, lo việc cơ mật và văn thư trong mười năm khởi nghĩa Lam Sơn.",
+    tieuSu: [
+      "Lê Văn Linh sinh khoảng năm 1376 – 1377, vốn gốc họ Trần. Năm 1416, ông là một trong hai quan văn (cùng Bùi Quốc Hưng) dự Hội thề Lũng Nhai.",
+      "Trong mười năm kháng chiến Lam Sơn, ông phụ trách việc cơ mật quân cơ, khởi thảo nhiều văn kiện quân sự, chính trị và ngoại giao. Năm 1429, dưới triều Lê Thái Tổ, ông được giao mang kim sách trong lễ sách lập.",
+      "Giữ chức Thái phó, ông dám can gián vua về việc chuyên quyền của Lê Sát. Ông phụng sự ba đời vua Lê Thái Tổ, Lê Thái Tông, Lê Nhân Tông và mất năm Mậu Thìn (1448).",
+    ],
+    boiCanh: [
+      "Bên cạnh các võ tướng, khởi nghĩa Lam Sơn cần những người lo việc văn thư, cơ mật và ngoại giao để tập hợp lực lượng và giao thiệp với đối phương.",
+    ],
+    congTrang: [
+      "Dự Hội thề Lũng Nhai năm 1416.",
+      "Phụ trách cơ mật, khởi thảo văn kiện trong khởi nghĩa Lam Sơn.",
+      "Can gián vua về việc chuyên quyền của Lê Sát.",
+    ],
+    suKien: [
+      {
+        nam: "1416",
+        text: "Dự Hội thề Lũng Nhai.",
+      },
+      {
+        nam: "thời khởi nghĩa Lam Sơn",
+        text: "Lo việc cơ mật, văn thư trong khởi nghĩa Lam Sơn.",
+      },
+      {
+        nam: "1429",
+        text: "Mang kim sách trong lễ sách lập dưới triều Lê Thái Tổ.",
+      },
+      {
+        nam: "1448",
+        text: "Mất năm Mậu Thìn.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Đền thờ Bảo Chính vương Lê Văn Linh (di tích lịch sử – văn hóa cấp tỉnh)",
+        diaDiem: "Làng Hải Lịch, xã Thọ Hải, huyện Thọ Xuân, Thanh Hóa",
+      },
+    ],
+    tuongNiem: [
+      "Ngày kỵ theo bi ký là ngày 16 tháng 10 âm lịch; lễ tế tổ mùa xuân tại quê nhà.",
+    ],
+    ghiChuSuLieu:
+      "Ngô Sĩ Liên trong Toàn thư khen ông thẳng thắn khi can gián nhưng cũng chê ông thích nhận quà biếu và lúc cuối đời chỉ chuyên lễ Phật. Tương truyền, vùng trang ấp của ông có hổ dữ, ông viết thư dán lên gốc cây quở trách, đàn hổ bỏ đi.",
+    wikiTitle: "Lê Văn Linh",
+    nguon: [
+      "Đại Việt sử ký toàn thư (Bản kỷ quyển 10, 11); Khâm định Việt sử thông giám cương mục.",
+      "Bia hộp thời Lê sơ phát hiện tại xã Thọ Hải, Thanh Hóa.",
+    ],
+  },
+  {
+    slug: "ngo-si-lien",
+    ten: "Ngô Sĩ Liên",
+    tenThat: null,
+    tenKhac: ["Quang Hiền", "Chúc Lý Cư Sĩ", "Lê Sĩ Liên"],
+    namSinh: "khoảng 1400",
+    namMat: "cuối thế kỷ XV",
+    nienDai: "khoảng 1400 – cuối thế kỷ XV",
+    queQuan: "Làng Chúc Lý, huyện Chương Đức, phủ Ứng Thiên; nay là thôn Chúc Lý, thị trấn Chúc Sơn, huyện Chương Mỹ, Hà Nội",
+    thoiKy: "le-so",
+    trieuDai: "Hậu Lê",
+    namMoc: 1479,
+    tomTat: "Sử gia thời Lê sơ, người biên soạn bộ quốc sử Đại Việt sử ký toàn thư (1479) theo lệnh vua Lê Thánh Tông.",
+    tieuSu: [
+      "Ngô Sĩ Liên, tự Quang Hiền, hiệu Chúc Lý Cư Sĩ, sinh khoảng năm 1400. Thời trẻ ông theo nghĩa quân Lam Sơn; năm 1442 đỗ Tiến sĩ, làm quan qua các triều Lê Thái Tông, Lê Nhân Tông, Lê Thánh Tông, giữ các chức Hàn lâm viện Thị độc kiêm Sử quán Tu soạn, Đô ngự sử.",
+      "Năm 1479, vâng lệnh vua Lê Thánh Tông, ông hoàn thành bộ Đại Việt sử ký toàn thư gồm 15 quyển. Ông đưa kỷ Hồng Bàng vào phần mở đầu quốc sử và viết nhiều lời bình đề cao đạo lý và lòng yêu nước.",
+      "Ông sống rất thọ (98 hoặc 99 tuổi theo các nguồn) và mất vào những năm cuối thế kỷ XV.",
+    ],
+    boiCanh: [
+      "Thời Lê Thánh Tông, nhà nước chú trọng biên soạn sử sách, luật pháp và địa chí để khẳng định nền văn hiến độc lập của Đại Việt.",
+    ],
+    congTrang: [
+      "Biên soạn Đại Việt sử ký toàn thư (1479).",
+      "Đưa kỷ Hồng Bàng vào mở đầu quốc sử.",
+      "Viết nhiều lời bình sử đề cao đạo lý và lòng yêu nước.",
+    ],
+    suKien: [
+      {
+        nam: "khoảng 1400",
+        text: "Sinh ở làng Chúc Lý.",
+      },
+      {
+        nam: "thời trẻ",
+        text: "Theo nghĩa quân Lam Sơn.",
+      },
+      {
+        nam: "1442",
+        text: "Đỗ Tiến sĩ khoa Nhâm Tuất.",
+      },
+      {
+        nam: "1479",
+        text: "Hoàn thành Đại Việt sử ký toàn thư.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Nhà thờ họ Ngô – đền thờ Ngô Sĩ Liên (di tích lịch sử cấp thành phố)",
+        diaDiem: "Thôn Chúc Lý, thị trấn Chúc Sơn, huyện Chương Mỹ, Hà Nội",
+      },
+    ],
+    tuongNiem: [
+      "Ngày kỵ được làng cúng tế ngày 20 tháng 8 âm lịch.",
+      "Lễ hội làng Chúc Lý ngày 12 tháng Hai âm lịch.",
+    ],
+    ghiChuSuLieu:
+      "Năm sinh, năm mất còn sai lệch vài năm giữa các nguồn (Đại Việt lịch triều đăng khoa lục ghi thọ 98 tuổi, văn bia đình Chúc Lý ghi thọ 99 tuổi). Tính huyền thoại và niên đại của kỷ Hồng Bàng do ông đưa vào quốc sử từng được giới sử học tranh luận nhiều.",
+    wikiTitle: "Ngô Sĩ Liên",
+    nguon: [
+      "Lời tựa Đại Việt sử ký toàn thư (năm Hồng Đức thứ 10 – 1479).",
+      "Đại Việt lịch triều đăng khoa lục.",
+      "Sở Văn hóa và Thể thao Hà Nội.",
+    ],
+  },
+  {
+    slug: "nguyen-nhac",
+    ten: "Nguyễn Nhạc",
+    tenThat: null,
+    tenKhac: ["Hồ Nhạc", "Biện Nhạc", "Hai Trầu", "Thái Đức Hoàng đế"],
+    namSinh: "1743",
+    namMat: "1793",
+    nienDai: "1743 – 1793",
+    queQuan: "Thôn Kiên Mỹ, ấp Kiên Thành, huyện Tuy Viễn, phủ Quy Nhơn (gốc Hưng Nguyên, Nghệ An); nay là làng Kiên Mỹ, thị trấn Phú Phong, huyện Tây Sơn, Bình Định",
+    thoiKy: "tay-son",
+    trieuDai: "Tây Sơn",
+    namMoc: 1771,
+    tomTat: "Người anh cả trong ba anh em Tây Sơn, dựng cờ khởi nghĩa năm 1771 và lên ngôi Hoàng đế năm 1778, mở đầu vương triều Tây Sơn.",
+    tieuSu: [
+      "Nguyễn Nhạc vốn gốc họ Hồ, tục gọi Biện Nhạc, anh Hai Trầu, sinh năm Quý Hợi (1743). Năm 1771, ông cùng hai em là Nguyễn Huệ, Nguyễn Lữ dựng cờ khởi nghĩa ở Tây Sơn thượng đạo, chống ách quyền thần Trương Phúc Loan.",
+      "Năm 1773, ông giả bị bắt, ngồi trong cũi trá hàng để đánh chiếm thành Quy Nhơn. Năm 1778, ông lên ngôi Hoàng đế, niên hiệu Thái Đức, xây thành Hoàng Đế, mở ra vương triều Tây Sơn; ông lãnh đạo các chiến dịch lật đổ cơ nghiệp chúa Nguyễn ở Đàng Trong.",
+      "Năm 1786, ông cùng Nguyễn Huệ đem quân ra Thăng Long lật đổ chúa Trịnh, mở đầu việc xóa bỏ ranh giới Đàng Trong – Đàng Ngoài. Ông mất năm Quý Dậu (1793).",
+    ],
+    boiCanh: [
+      "Giữa thế kỷ XVIII, đất nước chia cắt Đàng Trong – Đàng Ngoài; ở Đàng Trong, quyền thần Trương Phúc Loan lộng hành khiến đời sống nông dân cùng cực.",
+    ],
+    congTrang: [
+      "Khởi xướng và lãnh đạo phong trào Tây Sơn từ năm 1771.",
+      "Đánh chiếm thành Quy Nhơn năm 1773.",
+      "Lên ngôi Hoàng đế năm 1778, lập vương triều Tây Sơn.",
+      "Lật đổ chính quyền chúa Nguyễn ở Đàng Trong; cùng Nguyễn Huệ lật đổ chúa Trịnh năm 1786.",
+    ],
+    suKien: [
+      {
+        nam: "1743",
+        text: "Sinh năm Quý Hợi.",
+      },
+      {
+        nam: "1771",
+        text: "Dựng cờ khởi nghĩa ở Tây Sơn thượng đạo.",
+      },
+      {
+        nam: "1773",
+        text: "Trá hàng, đánh chiếm thành Quy Nhơn.",
+      },
+      {
+        nam: "1778",
+        text: "Lên ngôi Hoàng đế, niên hiệu Thái Đức.",
+      },
+      {
+        nam: "1786",
+        text: "Cùng Nguyễn Huệ ra Thăng Long lật đổ chúa Trịnh.",
+      },
+      {
+        nam: "1793",
+        text: "Mất năm Quý Dậu.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Điện thờ Tây Sơn Tam Kiệt, Bảo tàng Quang Trung (Quần thể di tích Khởi nghĩa Tây Sơn, di tích quốc gia đặc biệt)",
+        diaDiem: "Thị trấn Phú Phong, huyện Tây Sơn, Bình Định",
+      },
+      {
+        ten: "Quần thể di tích Tây Sơn thượng đạo (di tích quốc gia đặc biệt)",
+        diaDiem: "Thị xã An Khê, Gia Lai",
+      },
+    ],
+    tuongNiem: [
+      "Được phối tế trong Lễ giỗ Tây Sơn Tam Kiệt ngày 29 tháng 7 âm lịch tại Bảo tàng Quang Trung.",
+      "Lễ hội Đống Đa – Tây Sơn (di sản văn hóa phi vật thể quốc gia) ngày mùng 5 tháng Giêng âm lịch.",
+    ],
+    ghiChuSuLieu:
+      "Năm 1787, xung đột giữa ông và Nguyễn Huệ dẫn đến việc Nguyễn Huệ vây thành Quy Nhơn. Sử học còn đánh giá việc ông dừng ở miền Trung, không truy quét triệt để lực lượng Nguyễn Ánh ở Nam Hà. Khẩu hiệu “Tây khởi nghĩa, Bắc thu công” và chuyện ông được ngựa quý, bảo kiếm ở Tây Sơn thượng đạo là truyền thuyết.",
+    wikiTitle: "Nguyễn Nhạc",
+    nguon: [
+      "Đại Nam thực lục (Chính biên – Liệt truyện); Tây Sơn thuật lược; Khâm định Việt sử thông giám cương mục.",
+      "Bảo tàng Quang Trung (Bình Định).",
+    ],
+  },
+  {
+    slug: "nguyen-lu",
+    ten: "Nguyễn Lữ",
+    tenThat: null,
+    tenKhac: ["Thầy Tư Lữ", "Đông Định vương"],
+    namSinh: "khoảng 1754",
+    namMat: "khoảng 1787",
+    nienDai: "khoảng 1754 – 1787",
+    queQuan: "Thôn Kiên Mỹ, phủ Quy Nhơn (gốc Hưng Nguyên, Nghệ An); nay là làng Kiên Mỹ, thị trấn Phú Phong, huyện Tây Sơn, Bình Định",
+    thoiKy: "tay-son",
+    trieuDai: "Tây Sơn",
+    namMoc: 1776,
+    tomTat: "Người em út trong ba anh em Tây Sơn, chỉ huy thủy quân đánh chiếm Gia Định năm 1776 và được phong Đông Định vương trấn giữ đất Gia Định.",
+    tieuSu: [
+      "Nguyễn Lữ vốn gốc họ Hồ, tục gọi Thầy Tư Lữ, sinh khoảng năm Giáp Tuất (1754). Năm 1771, ông cùng hai anh Nguyễn Nhạc, Nguyễn Huệ khởi xướng phong trào Tây Sơn.",
+      "Năm 1776, ông chỉ huy thủy quân đánh chiếm thành Gia Định lần thứ nhất, thu kho tàng bổ sung quân lương. Năm 1783, ông cùng Nguyễn Huệ đánh tan lực lượng của Nguyễn Ánh ở Nam Bộ. Năm 1786, ông được phong Đông Định vương, trấn giữ vùng Gia Định.",
+      "Năm 1787, khi Nguyễn Ánh phản công, ông rút khỏi Gia Định về Quy Nhơn và mất không lâu sau đó (cuối năm 1787 hoặc đầu năm 1788).",
+    ],
+    boiCanh: [
+      "Trong những năm 1776 – 1787, vùng Gia Định nhiều lần đổi chủ giữa quân Tây Sơn và lực lượng Nguyễn Ánh.",
+    ],
+    congTrang: [
+      "Cùng hai anh khởi xướng phong trào Tây Sơn năm 1771.",
+      "Chỉ huy thủy quân đánh chiếm Gia Định năm 1776.",
+      "Cùng Nguyễn Huệ đánh tan lực lượng Nguyễn Ánh ở Nam Bộ năm 1783.",
+    ],
+    suKien: [
+      {
+        nam: "1771",
+        text: "Cùng hai anh khởi nghĩa Tây Sơn.",
+      },
+      {
+        nam: "1776",
+        text: "Chỉ huy thủy quân chiếm thành Gia Định lần thứ nhất.",
+      },
+      {
+        nam: "1783",
+        text: "Cùng Nguyễn Huệ đánh tan lực lượng Nguyễn Ánh ở Nam Bộ.",
+      },
+      {
+        nam: "1786",
+        text: "Được phong Đông Định vương, trấn giữ Gia Định.",
+      },
+      {
+        nam: "1787",
+        text: "Rút khỏi Gia Định về Quy Nhơn; mất cuối năm 1787 hoặc đầu năm 1788.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Điện thờ Tây Sơn Tam Kiệt, Bảo tàng Quang Trung (di tích quốc gia đặc biệt)",
+        diaDiem: "Thị trấn Phú Phong, huyện Tây Sơn, Bình Định",
+      },
+    ],
+    tuongNiem: [
+      "Không có ngày giỗ riêng; ông được phối tế trong Lễ giỗ Tây Sơn Tam Kiệt ngày 29 tháng 7 âm lịch tại Bảo tàng Quang Trung.",
+      "Phối hưởng tại Lễ hội Đống Đa – Tây Sơn ngày mùng 5 tháng Giêng âm lịch.",
+    ],
+    ghiChuSuLieu:
+      "Năm mất dao động giữa cuối 1787 và đầu 1788. Sử sách đánh giá ông yếu nhất về quân sự trong ba anh em, tính thiên về tu hành; việc bỏ Gia Định năm 1787 khiến ông chịu nhiều phê phán. Tương truyền, ông theo Minh giáo, dùng thảo dược chữa bệnh cho dân nghèo, và sáng tạo bài Hùng Kê Quyền của võ cổ truyền Bình Định sau khi xem gà chọi.",
+    wikiTitle: "Nguyễn Lữ",
+    nguon: [
+      "Đại Nam thực lục.",
+      "Nguyễn Khắc Thuần, Danh tướng Việt Nam.",
+      "Quách Tấn, Quách Giao, Tây Sơn tam kiệt.",
+      "Bảo tàng Quang Trung (Bình Định).",
+    ],
+  },
 ];

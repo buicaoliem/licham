@@ -40,7 +40,7 @@ export interface AnhHung {
 export const THOI_KY: { key: ThoiKy; label: string; khoang: string }[] = [
   {
     key: "hong-bang",
-    label: "Thời Hồng Bàng",
+    label: "Thời dựng nước (Văn Lang – Âu Lạc)",
     khoang: "Truyền thuyết dựng nước",
   },
   { key: "bac-thuoc", label: "Chống Bắc thuộc", khoang: "Thế kỷ I – IX" },
