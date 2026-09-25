@@ -194,9 +194,12 @@
   margin-bottom: 12px;
 }
 .moonSvg {
-  width: 84px;
-  height: 84px;
+  width: 45%;
+  max-width: 180px;
+  aspect-ratio: 4 / 3;
+  height: auto;
   flex: none;
+  border-radius: 8px;
 }
 .moonPhase {
   font-family: var(--serif, serif);
@@ -441,6 +444,14 @@
   }
   .root .cardHead .h3 {
     font-size: 20px;
+  }
+  .moonRow {
+    flex-direction: column;
+    text-align: center;
+  }
+  .moonSvg {
+    width: 100%;
+    max-width: none;
   }
   .moonPhase {
     font-size: 20px;

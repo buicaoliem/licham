@@ -43,7 +43,7 @@ export const TOPICS: readonly Topic[] = [
     slug: "cac-doi-vua",
     imagePosition: "50% 50%",
     title: "Các đời vua",
-    badge: "Chính sử",
+    badge: "Triều đại",
     image: `${IMG}/cac-doi-vua-480.webp`,
     imageAlt: "Vua ngự trên ngai vàng trong cung điện, quan lại đứng hầu hai bên",
     description: "Các triều đại và những vị vua qua từng thời kỳ của lịch sử dân tộc.",
@@ -55,7 +55,7 @@ export const TOPICS: readonly Topic[] = [
     slug: "nguoi-viet-co",
     imagePosition: "85% 75%",
     title: "Người Việt cổ",
-    badge: "Truyền thuyết",
+    badge: "Khảo cổ",
     image: `${IMG}/nguoi-viet-co-480.webp`,
     imageAlt: "Trống đồng bên nhà sàn và thuyền trên sông thời dựng nước",
     description: "Thời dựng nước: trống đồng, nhà sàn và những câu chuyện truyền thuyết về cội nguồn.",
@@ -91,7 +91,7 @@ export const TOPICS: readonly Topic[] = [
     slug: "le-hoi-dong-ho",
     imagePosition: "35% 50%",
     title: "Lễ hội & dòng họ",
-    badge: "Phong tục",
+    badge: "Lễ hội",
     image: `${IMG}/le-hoi-dong-ho-480.webp`,
     imageAlt: "Đoàn rước lễ hội qua cổng đình và cây gia phả",
     description: "Lễ hội làng, ngày giỗ và cách các dòng họ giữ nếp nhà.",
@@ -103,7 +103,7 @@ export const TOPICS: readonly Topic[] = [
     slug: "hoc-duong",
     imagePosition: "35% 70%",
     title: "Học đường",
-    badge: "Giáo dục",
+    badge: "Học tập",
     image: `${IMG}/hoc-duong-480.webp`,
     imageAlt: "Cuốn sách mở, bản đồ nước Việt và cuộn giấy bút mực",
     description: "Chuyện học hành, khoa cử và trường lớp qua các thời kỳ.",
@@ -116,7 +116,7 @@ export const TOPICS: readonly Topic[] = [
 export const HERO_IMAGE = `${IMG}/lich-su-theo-nam-hero.webp`;
 
 /** Nhãn màu xanh ngọc; các nhãn còn lại màu hồng đỏ. */
-export const GREEN_BADGES: readonly string[] = ["Thiên văn", "Giáo dục", "Truyền thuyết"];
+export const GREEN_BADGES: readonly string[] = ["Khảo cổ", "Thiên văn", "Học tập"];
 
 /** Bài mới: rỗng thì ẩn cả mục. */
 export interface NewPost {
