@@ -44,7 +44,7 @@ export function NamYear({ slug }: { slug: string }) {
         { label: `Năm ${cc.name}` },
       ]}
     >
-      <JsonLd data={articleJsonLd({ headline: `Năm ${cc.name} trong lịch sử`, description: `Các dấu mốc lịch sử của những năm ${cc.name}, xếp theo dòng thời gian.`, path: `/van-hoa/nam/${slug}/`, image: `${heroBase}-1600.webp` })} />
+      <JsonLd data={articleJsonLd({ headline: `Năm ${cc.name} trong lịch sử`, description: `Các dấu mốc lịch sử của những năm ${cc.name}, xếp theo dòng thời gian.`, path: `/van-hoa/nam/${slug}/`, image: `${heroBase}-1600.webp`, updatedAt: events.map((e) => e.updatedAt).sort().pop() })} />
       <ZodiacHero chiSlug={chiSlug} alt={`Con giáp ${h.conGiap}`} title={`Năm ${cc.name} trong lịch sử`} lead={`Những dấu mốc gắn với các năm ${cc.name} trong lịch sử dân tộc, xếp theo dòng thời gian.`} />
       <div className={s.wrap}>
         <dl className={t.headCards} aria-label={`Thông tin năm ${cc.name}`}>

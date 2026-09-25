@@ -22,6 +22,7 @@ const FIXTURE: DanGian = {
   dongDao: { lines: ["[Mẫu] Câu đồng dao thứ nhất", "[Mẫu] Câu đồng dao thứ hai"] },
   winRules: ["[Mẫu] Cách tính thắng thua thứ nhất.", "[Mẫu] Cách tính thắng thua thứ hai."],
   related: [{ label: "Bài liên quan mẫu", href: "/van-hoa/", summary: "Mô tả mẫu" }],
+  updatedAt: "2026-09-25",
   sources: [{ text: "[Nguồn mẫu — thay bằng nguồn thật]" }],
 };
 

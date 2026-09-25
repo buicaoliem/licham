@@ -1,0 +1,233 @@
+/* Ba khối Văn hoá gắn vào trang có sẵn (theo mock "Ba khối nội dung mở rộng"). Dùng biến --vh-* của .root. Mobile-first. */
+.block {
+  margin: 24px 0 0;
+  padding: 16px;
+  border: 1px solid var(--vh-line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.duo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+  margin: 24px 0 0;
+}
+.duo > .block {
+  margin: 0;
+}
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin: 0 0 12px;
+}
+.title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-family: var(--serif, serif);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--vh-red);
+  text-align: left;
+}
+.ico {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #fee2e2;
+}
+.moreLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+  padding: 6px 0 6px 8px;
+  color: var(--vh-red);
+  font-weight: 600;
+  text-decoration: none;
+}
+.moreLink:hover {
+  text-decoration: underline;
+}
+.tl {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 4px;
+}
+.tl::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 22px;
+  bottom: 22px;
+  width: 2px;
+  background: #e7c9c4;
+}
+.tlRow {
+  position: relative;
+  display: grid;
+  grid-template-columns: 12px auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px 12px;
+  min-height: 44px;
+  padding: 4px 0;
+}
+.tlDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  z-index: 1;
+}
+.tlYear {
+  font-family: var(--serif, serif);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--vh-ink);
+}
+.tlTitle {
+  min-width: 0;
+  color: var(--vh-ink);
+  text-decoration: none;
+}
+a.tlTitle:hover {
+  color: var(--vh-red);
+  text-decoration: underline;
+}
+@media (max-width: 420px) {
+  .tlRow {
+    grid-template-columns: 12px auto minmax(0, 1fr);
+  }
+  .tlRow > :last-child {
+    grid-column: 3;
+    justify-self: start;
+  }
+}
+.moonBig svg {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border-radius: 10px;
+}
+.moonPhase {
+  margin: 12px 0 0;
+  text-align: center;
+  font-family: var(--serif, serif);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+}
+.moonSub {
+  margin: 0;
+  text-align: center;
+  color: var(--vh-muted);
+}
+.moonTimes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 12px 0 0;
+  text-align: center;
+}
+.moonTimes div {
+  padding-top: 8px;
+  border-top: 1px solid var(--vh-line);
+}
+.moonTimes dt {
+  color: var(--vh-muted);
+  font-size: 15px;
+}
+.moonTimes dd {
+  margin: 0;
+  font-family: var(--serif, serif);
+  font-weight: 700;
+  font-size: 18px;
+}
+.people {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+}
+.person {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+  background: #fff;
+  border: 1px solid #eee8df;
+  border-radius: 12px;
+  color: var(--vh-ink);
+  text-decoration: none;
+}
+.person:hover {
+  border-color: var(--vh-red);
+}
+.personImg {
+  flex: none;
+  width: 72px;
+  height: 72px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.personText {
+  min-width: 0;
+}
+.personText b {
+  display: block;
+  font-family: var(--serif, serif);
+  font-size: 18px;
+  line-height: 26px;
+  color: var(--vh-red);
+}
+.personText span {
+  display: block;
+  color: var(--vh-muted);
+  font-size: 15px;
+  line-height: 22px;
+}
+@media (min-width: 640px) {
+  .people {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 16px;
+  }
+  .person {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+  .personImg {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+}
+@media (min-width: 900px) {
+  .block {
+    padding: 24px;
+  }
+  .duo {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    align-items: start;
+  }
+  .duo > :only-child {
+    grid-column: 1 / -1;
+  }
+}

@@ -5,6 +5,7 @@ import { canChiNamDuong, xungNgay } from "@licham/core";
 import { ShareButton } from "@/components/ShareButton";
 import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
 import { ChHero, ChShell } from "@/components/heritage/ChShell";
+import { NamTrongLichSu } from "@/components/van-hoa/blocks/Blocks";
 import { ConGiapArt } from "@/components/heritage/ConGiapArt";
 import { HkRow, TuSec, TuoiFact } from "@/components/heritage/TuParts";
 import { SINH_NAM_MAX, SINH_NAM_MIN } from "@/lib/sinh-nam";
@@ -373,6 +374,7 @@ function CanChiPage({ slug }: { slug: string }) {
             </Link>
           </div>
         </TuSec>
+        <NamTrongLichSu canChi={canChi} />
         <TraditionalDisclaimer />
       </div>
     </ChShell>

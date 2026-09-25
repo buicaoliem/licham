@@ -23,6 +23,8 @@ const FIXTURE: NhanVat = {
     { name: "Lễ hội mẫu B", lunarDay: 6, lunarMonth: 1 },
   ],
   relatedVanKhan: [{ label: "Văn khấn ngày mùng một", href: "/van-khan/" }],
+  relatedHolidays: ["tet-nguyen-dan"],
+  updatedAt: "2026-09-25",
   sources: [{ text: "[Nguồn mẫu — thay bằng nguồn thật]" }],
 };
 

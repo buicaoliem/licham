@@ -14,6 +14,9 @@ export interface Source {
   url?: string;
 }
 
+/** Ngày cập nhật nội dung (ISO yyyy-mm-dd), dùng cho "Cập nhật ngày …" và dateModified trong JSON-LD. */
+export type UpdatedAt = string;
+
 export interface RelatedLink {
   label: string;
   href: string;
@@ -60,6 +63,9 @@ export interface NhanVat {
   festivals?: Festival[];
   relatedVanKhan?: RelatedLink[];
   relatedNhanVat?: string[];
+  /** Slug các trang /le/ mà lễ hội của nhân vật này gắn tới; dùng cho khối "Nhân vật & nơi thờ liên quan" ở trang ngày lễ. */
+  relatedHolidays?: string[];
+  updatedAt: UpdatedAt;
   sources: Source[];
 }
 
@@ -85,6 +91,7 @@ export interface SuKien {
   /** Có nội dung thì hiện khung "Các nguồn chưa thống nhất". */
   disputed?: string;
   relatedNhanVat?: string[];
+  updatedAt: UpdatedAt;
   sources: Source[];
 }
 
@@ -95,6 +102,7 @@ export interface NamSuKien {
   summary: string;
   label: ItemLabel;
   href?: string;
+  updatedAt: UpdatedAt;
 }
 
 export interface DanGianStep {
@@ -125,5 +133,33 @@ export interface DanGian {
   dongDao?: { lines: string[] };
   winRules: string[];
   related?: RelatedLink[];
+  updatedAt: UpdatedAt;
   sources?: Source[];
+}
+
+/** Một mục của bài viết thường: tiêu đề mục (vào mục lục), đoạn văn và các tiểu mục. */
+export interface BaiVietSection {
+  id: string;
+  heading: string;
+  paras: string[];
+  sub?: { heading: string; paras: string[] }[];
+}
+
+export interface BaiViet {
+  slug: string;
+  title: string;
+  /** Nhãn chuyên mục hiện trên đầu bài. */
+  label: ItemLabel;
+  summary: string;
+  updatedAt: UpdatedAt;
+  /** Tranh minh hoạ tỷ lệ 4:3; thiếu thì dùng khung hoa văn. */
+  heroImage?: string;
+  heroAlt?: string;
+  sections: BaiVietSection[];
+  /** Hộp "Ngày âm liên quan": ngày âm, năm nay tự quy đổi bằng lõi lịch. */
+  lunarDates?: { label: string; day: number; month: number }[];
+  /** Hộp ca dao / câu đối. */
+  quote?: { lines: string[]; source?: string };
+  related?: RelatedLink[];
+  sources: Source[];
 }

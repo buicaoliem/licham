@@ -23,7 +23,7 @@ export function DanGianDetail({ item }: { item: DanGian }) {
         { label: item.title },
       ]}
     >
-      <JsonLd data={articleJsonLd({ headline: item.title, description: item.summary, path: `/van-hoa/dan-gian/${item.slug}/`, image: item.heroImage })} />
+      <JsonLd data={articleJsonLd({ headline: item.title, description: item.summary, path: `/van-hoa/dan-gian/${item.slug}/`, image: item.heroImage, updatedAt: item.updatedAt })} />
       <Hero title={item.title} lead={item.summary} image={item.heroImage} center />
       <div className={s.wrap}>
         <dl className={`${t.facts} ${t.card}`} aria-label="Thông tin nhanh">
