@@ -51,6 +51,8 @@ export interface NhanVat {
   summary: string;
   /** Ảnh hero; thiếu thì dùng khung hoa văn trung tính. */
   image?: string;
+  /** Ảnh vuông 1:1 cho thẻ ở trang danh sách; thiếu thì dùng `image`. */
+  cardImage?: string;
   imageAlt?: string;
   variants?: string[];
   /** Địa chỉ theo đơn vị hành chính mới, không ghi cấp huyện. */
@@ -70,6 +72,9 @@ export interface SuKien {
   lunar: { day: number; month: number; year: number; leap?: boolean };
   /** Chữ hiển thị nguyên văn theo sách, vd. "Ngày 12 tháng 8 năm Mậu Thân". Thiếu thì tự dựng từ `lunar`. */
   lunarText?: string;
+  /** "sources": ngày dương lấy từ sách (điền `solar`); "computed": tự quy đổi từ ngày âm — có thể lệch 1–2 ngày so với lịch xưa. */
+  solarDateSource: "sources" | "computed";
+  solar?: { day: number; month: number; year: number };
   dynasty?: string;
   heroImage?: string;
   boiCanh: string[];
@@ -99,8 +104,19 @@ export interface DanGianStep {
   imagePosition?: string;
 }
 
+export const DAN_GIAN_GROUPS = [
+  { key: "tro-choi", title: "Trò chơi" },
+  { key: "tranh-dan-gian", title: "Tranh dân gian" },
+  { key: "do-choi", title: "Đồ chơi" },
+  { key: "truyen-co-tich", title: "Truyện cổ tích" },
+  { key: "tin-nguong", title: "Tín ngưỡng" },
+  { key: "mon-an-theo-le", title: "Món ăn theo lễ" },
+] as const;
+export type DanGianGroupKey = (typeof DAN_GIAN_GROUPS)[number]["key"];
+
 export interface DanGian {
   slug: string;
+  group: DanGianGroupKey;
   title: string;
   summary: string;
   heroImage?: string;

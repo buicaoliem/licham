@@ -7,6 +7,8 @@ import { SU_KIEN } from "./data/su-kien";
 export function vanHoaSubPaths(): string[] {
   return [
     "/van-hoa/nhan-vat/",
+    "/van-hoa/su-kien/",
+    "/van-hoa/dan-gian/",
     ...NHAN_VAT.map((x) => `/van-hoa/nhan-vat/${x.slug}/`),
     ...SU_KIEN.map((x) => `/van-hoa/su-kien/${x.slug}/`),
     ...DAN_GIAN.map((x) => `/van-hoa/dan-gian/${x.slug}/`),

@@ -4,7 +4,7 @@ import { dynastyInfo } from "@/lib/van-hoa/dynasty";
 import { canChiYearHeader, eventsOfCanChi } from "@/lib/van-hoa/logic";
 import { NAM_SU_KIEN } from "@/lib/van-hoa/data/nam-su-kien";
 import { ITEM_LABELS } from "@/lib/van-hoa/types";
-import { ALL_CAN_CHI } from "@/lib/tuoi";
+import { ALL_CAN_CHI, CHI_LIST } from "@/lib/tuoi";
 import s from "../van-hoa.module.css";
 import t from "./tpl.module.css";
 import { Drafting, Hero, ItemBadge, LinkRow, Page, Pic, SectionTitle } from "./Shared";
@@ -23,7 +23,7 @@ export function NamYear({ slug }: { slug: string }) {
         { label: `Năm ${cc.name}` },
       ]}
     >
-      <Hero title={`Năm ${cc.name} trong lịch sử`} lead={`Những dấu mốc gắn với các năm ${cc.name} trong lịch sử dân tộc, xếp theo dòng thời gian.`} center />
+      <Hero image={`/heritage/con-giap/${CHI_LIST[cc.chiIndex]?.slug}.webp`} alt={`Con giáp ${h.conGiap}`} contain title={`Năm ${cc.name} trong lịch sử`} lead={`Những dấu mốc gắn với các năm ${cc.name} trong lịch sử dân tộc, xếp theo dòng thời gian.`} center />
       <div className={s.wrap}>
         <dl className={t.headCards} aria-label={`Thông tin năm ${cc.name}`}>
           <div className={t.headCard}>

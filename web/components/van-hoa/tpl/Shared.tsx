@@ -98,11 +98,12 @@ export function Related({ links }: { links: readonly RelatedLink[] }) {
   );
 }
 
-export function Hero({ label, title, sub, lead, image, alt, center = false }: { label?: ItemLabel; title: string; sub?: string; lead?: string; image?: string | null; alt?: string; center?: boolean }) {
+export function Hero({ label, title, sub, lead, image, alt, center = false, contain = false, short = false }: { label?: ItemLabel; title: string; sub?: string; lead?: string; image?: string | null; alt?: string; center?: boolean; contain?: boolean; short?: boolean }) {
   return (
     <header className={`${t.dHero} ${center ? t.dHeroCenter : ""}`}>
-      {image && heritageFile(image) && <Pic src={image} alt={alt} className={t.dHeroArt} width={1200} height={600} eager />}
-      <div className={`${t.dHeroText} ${image && heritageFile(image) ? t.dHeroOver : ""}`}>
+      {image && heritageFile(image) && <Pic src={image} alt={alt} className={contain ? `${t.dHeroArt} ${t.dHeroContain}` : short ? `${t.dHeroArt} ${t.dHeroShort}` : t.dHeroArt} width={1200} height={600} eager />}
+      {image && heritageFile(image) && <p className={t.caption}>Tranh minh họa, không phải ảnh tư liệu lịch sử</p>}
+      <div className={t.dHeroText}>
         <div className={t.dHeroTextIn}>
           {label && <ItemBadge label={label} />}
           <h1 className={s.h1} style={{ textAlign: "inherit" }}>

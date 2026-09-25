@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { Icon } from "@/components/heritage/Icon";
 import { canChiOfYear } from "@licham/core";
-import { lunarToSolarSafe } from "@/lib/van-hoa/logic";
+import { lunarToSolarSafe, solarLabel } from "@/lib/van-hoa/logic";
 import { NHAN_VAT } from "@/lib/van-hoa/data/nhan-vat";
 import type { NhanVat, SuKien } from "@/lib/van-hoa/types";
-import { Accordion } from "./Accordion";
+import { Acc } from "./Acc";
 import s from "../van-hoa.module.css";
 import t from "./tpl.module.css";
 import { Card, Hero, Page, Pic, Sources } from "./Shared";
@@ -12,7 +12,8 @@ import { Card, Hero, Page, Pic, Sources } from "./Shared";
 export function SuKienDetail({ ev }: { ev: SuKien }) {
   const { day, month, year, leap } = ev.lunar;
   const lunarText = ev.lunarText ?? `Ngày ${day} tháng ${month}${leap ? " nhuận" : ""} năm ${canChiOfYear(year).name}`;
-  const solar = lunarToSolarSafe(day, month, year, leap);
+  const fromSources = ev.solarDateSource === "sources" && ev.solar;
+  const solar = fromSources ? solarLabel(ev.solar!) : lunarToSolarSafe(day, month, year, leap);
   const chars = (ev.relatedNhanVat ?? []).map((sl) => NHAN_VAT.find((n) => n.slug === sl)).filter((n): n is NhanVat => Boolean(n));
   const blocks: { title: string; paras: string[] }[] = [
     { title: "Bối cảnh", paras: ev.boiCanh },
@@ -38,7 +39,7 @@ export function SuKienDetail({ ev }: { ev: SuKien }) {
             <div className={t.dateCard}>
               <small>Ngày quy đổi dương lịch</small>
               <b>{solar.text}</b>
-              <span>Quy đổi bằng thuật toán lịch âm hiện hành; lịch xưa có thể lệch một, hai ngày.</span>
+              {!fromSources && <span>Quy đổi bằng thuật toán lịch âm hiện hành; có thể lệch 1–2 ngày so với lịch xưa.</span>}
             </div>
           )}
         </div>
@@ -46,13 +47,13 @@ export function SuKienDetail({ ev }: { ev: SuKien }) {
         <div className={t.grid2}>
           <div className={t.stack} style={{ marginTop: 0 }}>
             {blocks.map((b, i) => (
-              <Accordion key={b.title} num={i + 1} title={b.title}>
+              <Acc key={b.title} id={`acc-${i + 1}`} num={i + 1} title={b.title}>
                 {b.paras.map((p) => (
                   <p className={t.p} key={p}>
                     {p}
                   </p>
                 ))}
-              </Accordion>
+              </Acc>
             ))}
           </div>
           <div className={t.stack} style={{ marginTop: 0 }}>

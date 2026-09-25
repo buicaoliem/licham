@@ -35,8 +35,8 @@ export const TOPICS: readonly Topic[] = [
     image: `${IMG}/lich-su-theo-nam-480.webp`,
     imageAlt: "Cổng thành cổ, bánh xe mười hai con giáp và cuộn sách sử bên bờ sông",
     description: "Các mốc lịch sử Việt Nam theo dòng thời gian, đối chiếu với năm âm lịch và can chi.",
-    href: "/van-hoa/lich-su-theo-nam/",
-    live: false,
+    href: "/van-hoa/su-kien/",
+    live: true,
     links: [],
   },
   {
@@ -71,8 +71,8 @@ export const TOPICS: readonly Topic[] = [
     image: `${IMG}/van-hoa-dan-gian-480.webp`,
     imageAlt: "Múa lân và trẻ em vui chơi ngày hội",
     description: "Phong tục, trò chơi và nếp sống dân gian gắn với các dịp trong năm.",
-    href: "/van-hoa/van-hoa-dan-gian/",
-    live: false,
+    href: "/van-hoa/dan-gian/",
+    live: true,
     links: [],
   },
   {

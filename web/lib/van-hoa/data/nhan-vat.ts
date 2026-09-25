@@ -5,8 +5,11 @@ const REAL: readonly NhanVat[] = [];
 
 const FIXTURE: NhanVat = {
   slug: FIXTURE_SLUG,
-  name: "Nhân vật mẫu (chỉ dev)",
-  otherNames: ["Tên gọi khác mẫu"],
+  name: "Thánh Gióng (bản mẫu, chỉ dev)",
+  otherNames: ["Phù Đổng Thiên Vương"],
+  image: "/heritage/van-hoa/nhan-vat/thanh-giong-hero.webp",
+  cardImage: "/heritage/van-hoa/nhan-vat/thanh-giong-the.webp",
+  imageAlt: "Thánh Gióng cưỡi ngựa sắt cầm giáo giữa mây và núi",
   label: "truyen-thuyet",
   group: "tu-bat-tu",
   summary: "[Dữ liệu mẫu để xem bố cục] Đoạn tóm tắt ngắn về nhân vật, hiển thị trên trang chi tiết và trong thẻ ở trang danh sách.",

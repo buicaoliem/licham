@@ -44,7 +44,7 @@ export interface SolarLabel {
   text: string;
 }
 
-function label(solar: SolarDate): SolarLabel {
+export function solarLabel(solar: SolarDate): SolarLabel {
   const wd = WEEKDAY_LONG[(jdFromDate(solar.day, solar.month, solar.year) + 1) % 7] ?? "";
   return { solar, weekday: wd, text: `${wd}, ${pad2(solar.day)}/${pad2(solar.month)}/${solar.year}` };
 }
@@ -55,7 +55,7 @@ export function lunarToSolarSafe(day: number, month: number, year: number, leap 
     try {
       const s = lunarToSolar(d, month, year, leap);
       const back = solarToLunar(s.day, s.month, s.year);
-      if (back.day === d && back.month === month) return label(s);
+      if (back.day === d && back.month === month) return solarLabel(s);
     } catch {
       /* thử ngày kế tiếp */
     }

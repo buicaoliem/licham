@@ -3,27 +3,32 @@ import { heritageFile } from "@/lib/heritage-assets";
 /**
  * Ảnh minh hoạ theo triều đại trên dòng thời gian của trang năm can chi.
  * Khoá `dynasty` trong dữ liệu sự kiện tra ở đây; thiếu khoá hoặc thiếu file thì dùng khung hoa văn trung tính.
- * Ánh xạ ảnh ↔ triều đại là tạm (chưa có nhãn gốc từ hoạ sĩ) — cần duyệt lại khi có dữ liệu thật.
  */
 const DIR = "/heritage/van-hoa/trieu-dai";
-export const DYNASTIES: Record<string, { name: string; file: string }> = {
-  "hung-vuong": { name: "Thời Hùng Vương", file: `${DIR}/hung-vuong.webp` },
-  "an-duong-vuong": { name: "Âu Lạc (An Dương Vương)", file: `${DIR}/an-duong-vuong.webp` },
-  "bac-thuoc": { name: "Thời Bắc thuộc", file: `${DIR}/bac-thuoc.webp` },
-  ngo: { name: "Triều Ngô", file: `${DIR}/ngo.webp` },
-  "dinh-le": { name: "Triều Đinh – Tiền Lê", file: `${DIR}/dinh-le.webp` },
-  ly: { name: "Triều Lý", file: `${DIR}/ly.webp` },
-  tran: { name: "Triều Trần", file: `${DIR}/tran.webp` },
-  ho: { name: "Triều Hồ", file: `${DIR}/ho.webp` },
-  "le-so": { name: "Triều Lê sơ", file: `${DIR}/le-so.webp` },
-  "le-trung-hung": { name: "Triều Lê Trung Hưng", file: `${DIR}/le-trung-hung.webp` },
-  mac: { name: "Triều Mạc", file: `${DIR}/mac.webp` },
-  "tay-son": { name: "Triều Tây Sơn", file: `${DIR}/tay-son.webp` },
-  nguyen: { name: "Triều Nguyễn", file: `${DIR}/nguyen.webp` },
-  "hien-dai": { name: "Việt Nam hiện đại", file: `${DIR}/hien-dai.webp` },
-};
+const D = (key: string, name: string) => ({ key, name, file: `${DIR}/trieu-dai-${key}.webp` });
+
+/** Thứ tự thời gian; cũng là thứ tự nhóm ở trang danh sách sự kiện. Tên file ảnh: trieu-dai-<khoá>.webp. */
+export const DYNASTY_LIST = [
+  D("van-lang", "Văn Lang"),
+  D("au-lac", "Âu Lạc"),
+  D("bac-thuoc", "Bắc thuộc"),
+  D("van-xuan", "Vạn Xuân"),
+  D("nha-ngo", "Nhà Ngô"),
+  D("nha-dinh", "Nhà Đinh"),
+  D("tien-le", "Tiền Lê"),
+  D("nha-ly", "Nhà Lý"),
+  D("nha-tran", "Nhà Trần"),
+  D("nha-ho", "Nhà Hồ"),
+  D("thuoc-minh", "Thuộc Minh"),
+  D("le-so", "Lê sơ"),
+  D("nha-mac", "Nhà Mạc"),
+  D("le-trung-hung", "Lê Trung Hưng"),
+  D("tay-son", "Tây Sơn"),
+  D("nha-nguyen", "Nhà Nguyễn"),
+  D("hien-dai", "Việt Nam hiện đại"),
+] as const;
 
 export function dynastyInfo(key: string): { name: string; image: string | null } {
-  const d = DYNASTIES[key];
+  const d = DYNASTY_LIST.find((x) => x.key === key);
   return { name: d?.name ?? key, image: d ? heritageFile(d.file) : null };
 }

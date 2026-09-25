@@ -9,6 +9,8 @@ const FIXTURE: SuKien = {
   label: "chinh-su",
   summary: "[Dữ liệu mẫu để xem bố cục] Một câu mô tả ngắn về sự kiện.",
   lunar: { day: 12, month: 8, year: 1428 },
+  solarDateSource: "computed",
+  dynasty: "le-so",
   boiCanh: ["[Mẫu] Đoạn bối cảnh thứ nhất.", "[Mẫu] Đoạn bối cảnh thứ hai."],
   dienBien: ["[Mẫu] Đoạn diễn biến."],
   yNghia: ["[Mẫu] Đoạn ý nghĩa."],

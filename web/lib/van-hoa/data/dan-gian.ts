@@ -8,6 +8,7 @@ const IMG = "/heritage/van-hoa/fixture/o-an-quan.webp";
 /** Fixture dùng tranh Ô ăn quan (chỉ dev); nội dung là chữ mẫu, không phải luật chơi chính thức. */
 const FIXTURE: DanGian = {
   slug: FIXTURE_SLUG,
+  group: "tro-choi",
   title: "Trò chơi mẫu (chỉ dev)",
   summary: "[Dữ liệu mẫu để xem bố cục] Đoạn giới thiệu ngắn về trò chơi dân gian.",
   heroImage: IMG,
