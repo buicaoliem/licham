@@ -86,7 +86,7 @@ export default function AnhHungHubPage() {
                   <dd>{thoiKy.length}</dd>
                 </div>
                 <div>
-                  <dt>Anh hùng tiêu biểu</dt>
+                  <dt>Tiêu biểu</dt>
                   <dd>{soTieuBieu}</dd>
                 </div>
               </dl>
@@ -133,7 +133,7 @@ export default function AnhHungHubPage() {
           </p>
           <p>
             Niên đại, quê quán và sự kiện được tóm lược từ các bài Wikipedia tiếng Việt ghi ở cuối mỗi trang; những điểm sử liệu còn khác nhau được nêu rõ.
-            Tranh là minh họa nghệ thuật của licham.app, không phải chân dung hay tư liệu lịch sử.
+            Tranh minh họa, không phải chân dung hay tư liệu lịch sử.
           </p>
         </section>
       </div>

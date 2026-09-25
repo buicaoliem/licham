@@ -105,7 +105,7 @@ export function Hero({ label, title, sub, lead, image, alt, center = false, cont
   return (
     <header className={`${t.dHero} ${center ? t.dHeroCenter : ""}`}>
       {image && heritageFile(image) && <Pic src={image} alt={alt} className={contain ? `${t.dHeroArt} ${t.dHeroContain}` : short ? `${t.dHeroArt} ${t.dHeroShort}` : t.dHeroArt} width={1200} height={600} eager />}
-      {image && heritageFile(image) && <p className={t.caption}>Tranh minh họa, không phải ảnh tư liệu lịch sử</p>}
+      {image && heritageFile(image) && <p className={t.caption}>Tranh minh họa, không phải chân dung hay tư liệu lịch sử</p>}
       <div className={t.dHeroText}>
         <div className={t.dHeroTextIn}>
           {label && <ItemBadge label={label} />}

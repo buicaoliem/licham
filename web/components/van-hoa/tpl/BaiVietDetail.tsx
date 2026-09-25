@@ -64,7 +64,7 @@ export function BaiVietDetail({ post }: { post: BaiViet }) {
             ) : (
               <div className={`${a.heroImg} ${t.pattern}`} role="presentation" />
             )}
-            <figcaption className={t.caption}>Tranh minh họa, không phải ảnh tư liệu lịch sử</figcaption>
+            <figcaption className={t.caption}>Tranh minh họa, không phải chân dung hay tư liệu lịch sử</figcaption>
           </figure>
 
           <div className={a.side}>

@@ -6416,10 +6416,12 @@ a.ch-tile:hover {
 /* Chú thích tranh nhân vật/sự kiện lịch sử: nằm trên tranh, góc dưới phải */
 .le-art-note {
   position: absolute;
-  right: 10px;
+  left: 50%;
   bottom: 10px;
   z-index: 1;
+  width: max-content;
   max-width: calc(100% - 20px);
+  transform: translateX(-50%);
   padding: 4px 9px;
   border-radius: 6px;
   background: rgba(255, 253, 248, 0.9);
@@ -6427,7 +6429,7 @@ a.ch-tile:hover {
   font-size: 11.5px;
   line-height: 1.35;
   color: var(--ink-2);
-  text-align: right;
+  text-align: center;
 }
 .le-photo,
 .le-emblem {
@@ -6460,6 +6462,7 @@ a.ch-tile:hover {
   font-family: var(--sans);
   font-size: 11.5px;
   color: var(--ink-3);
+  text-align: center;
 }
 .le-leaf {
   display: grid;
@@ -7207,7 +7210,9 @@ a.ch-tile:hover {
   }
   .le-hero-art.has-note .le-art-note {
     position: static;
+    width: auto;
     max-width: none;
+    transform: none;
     margin: 4px 0 0;
     padding: 0 18px;
     border-radius: 0;
@@ -7215,7 +7220,7 @@ a.ch-tile:hover {
     font-size: 11.5px;
     font-style: italic;
     color: var(--ink-2);
-    text-align: left;
+    text-align: center;
   }
   .art-photo .le-hero-art {
     padding: 16px 0 0;
@@ -11410,6 +11415,7 @@ a.ly-cell:hover {
   font-style: italic;
   line-height: 1.4;
   color: var(--ink-2);
+  text-align: center;
 }
 .ah-profile-text {
   padding: 30px 32px;
@@ -12114,8 +12120,12 @@ a.ly-cell:hover {
 }
 .tk-art-note {
   position: absolute;
-  right: 10px;
+  left: 50%;
   bottom: 10px;
+  width: max-content;
+  max-width: calc(100% - 20px);
+  transform: translateX(-50%);
+  text-align: center;
   padding: 3px 9px;
   border-radius: 6px;
   background: rgba(255, 253, 248, 0.88);

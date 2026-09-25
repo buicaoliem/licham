@@ -4271,7 +4271,7 @@ export const ANH_HUNG_DATA: AnhHung[] = [
     tieuSu: [
       "Tôn Thất Thuyết, tự Đàm Nhân, sinh ngày 12/5/1839 ở làng Phú Mộng (Huế). Trong thập niên 1870, ông dẹp các nhóm thổ phỉ tàn dư Thái Bình Thiên Quốc (giặc Cờ Vàng, Cờ Trắng) ở biên giới phía Bắc.",
       "Giữ chức Phụ chính đại thần, Binh bộ Thượng thư, ông đứng đầu phái chủ chiến trong triều đình Huế, chống lại các hòa ước với Pháp. Đêm 4 rạng sáng 5/7/1885, ông chỉ huy cuộc tập kích đồn Mang Cá và Tòa Khâm sứ Pháp ở kinh thành Huế.",
-      "Ngày 13/7/1885, ở căn cứ Tân Sở (Quảng Trị), ông nhân danh vua Hàm Nghi ban Chiếu Cần Vương, mở đầu phong trào Cần Vương trong cả nước. Năm 1886, ông sang Trung Quốc cầu viện và mất năm 1913 tại Thiều Châu (Quảng Đông).",
+      "Ngày 13/7/1885, ở căn cứ Tân Sở (Quảng Trị), ông nhân danh vua Hàm Nghi ban Chiếu Cần Vương, mở đầu phong trào Cần Vương trong cả nước. Năm 1886, ông sang Trung Quốc cầu viện và mất năm 1913 tại Long Châu (có thuyết ghi Thiều Châu), Trung Quốc.",
     ],
     boiCanh: ["Sau Hiệp ước Giáp Thân (1884), triều đình Huế chia thành phái chủ hòa và phái chủ chiến trước sức ép của thực dân Pháp."],
     congTrang: [
@@ -4299,7 +4299,7 @@ export const ANH_HUNG_DATA: AnhHung[] = [
       },
       {
         nam: "1913",
-        text: "Mất tại Thiều Châu (Quảng Đông).",
+        text: "Mất tại Long Châu (có thuyết ghi Thiều Châu), Trung Quốc.",
       },
     ],
     diTich: [
@@ -4697,7 +4697,7 @@ export const ANH_HUNG_DATA: AnhHung[] = [
     nienDai: "1867 – 1940",
     queQuan: "Làng Đan Nhiễm, xã Nam Hòa, huyện Nam Đàn, Nghệ An; nay thuộc xã Xuân Hòa, huyện Nam Đàn, Nghệ An",
     thoiKy: "chong-phap",
-    trieuDai: "Nhà Nguyễn",
+    trieuDai: "Thời Pháp thuộc",
     namMoc: 1905,
     tomTat: "Nhà yêu nước đầu thế kỷ XX, sáng lập Duy Tân Hội (1904), khởi xướng phong trào Đông Du (1905 – 1908) và lập Việt Nam Quang Phục Hội (1912).",
     tieuSu: [
@@ -4768,7 +4768,7 @@ export const ANH_HUNG_DATA: AnhHung[] = [
     nienDai: "1872 – 1926",
     queQuan: "Làng Tây Lộc, huyện Hà Đông, phủ Thăng Bình, Quảng Nam; nay thuộc xã Tam Phước, huyện Phú Ninh, Quảng Nam",
     thoiKy: "chong-phap",
-    trieuDai: "Nhà Nguyễn",
+    trieuDai: "Thời Pháp thuộc",
     namMoc: 1906,
     tomTat: "Nhà yêu nước đầu thế kỷ XX, khởi xướng phong trào Duy Tân (1906 – 1908) với tôn chỉ “Khai dân trí, chấn dân khí, hậu dân sinh”, chủ trương canh tân đất nước bằng con đường cải cách ôn hòa.",
     tieuSu: [
@@ -4843,7 +4843,7 @@ export const ANH_HUNG_DATA: AnhHung[] = [
     nienDai: "1854 – 1927",
     queQuan: "Làng Nhị Khê, huyện Thượng Phúc, phủ Thường Tín, tỉnh Hà Nội; nay thuộc xã Nhị Khê, huyện Thường Tín, Hà Nội",
     thoiKy: "chong-phap",
-    trieuDai: "Nhà Nguyễn",
+    trieuDai: "Thời Pháp thuộc",
     namMoc: 1907,
     tomTat: "Nhà nho, nhà giáo yêu nước, Thục trưởng trường Đông Kinh Nghĩa Thục (1907) ở Hà Nội, người đề xướng tư tưởng kinh doanh có đạo đức qua các sách “Kim cổ cách ngôn”, “Thương học phương châm”.",
     tieuSu: [
@@ -4909,7 +4909,7 @@ export const ANH_HUNG_DATA: AnhHung[] = [
     nienDai: "1902 – 1930",
     queQuan: "Làng Thổ Tang, tổng Lương Điền, phủ Vĩnh Tường, tỉnh Vĩnh Yên; nay thuộc thị trấn Thổ Tang, huyện Vĩnh Tường, Vĩnh Phúc",
     thoiKy: "chong-phap",
-    trieuDai: "Nhà Nguyễn",
+    trieuDai: "Thời Pháp thuộc",
     namMoc: 1927,
     tomTat: "Người sáng lập và Chủ tịch Việt Nam Quốc Dân Đảng (1927), lãnh đạo Khởi nghĩa Yên Bái năm 1930; bị Pháp xử chém ngày 17/6/1930 tại Yên Bái.",
     tieuSu: [
@@ -4952,5 +4952,864 @@ export const ANH_HUNG_DATA: AnhHung[] = [
       "Thời điểm phát động Khởi nghĩa Yên Bái, khi lực lượng chưa chuẩn bị chín muồi sau vụ ám sát Bazin (người chuyên mộ phu), là điểm còn tranh luận. Tương truyền khi bước lên máy chém, ông bình thản đọc hai câu thơ tiếng Pháp: “Mourir pour sa patrie / C'est le sort le plus beau, le plus digne d'envie” (Chết vì Tổ quốc là số phận đẹp nhất, đáng ghen tị nhất).",
     wikiTitle: "Nguyễn Thái Học",
     nguon: ["Hồ sơ lưu trữ Tòa án Đề hình Yên Bái 1930.", "Cổng thông tin điện tử tỉnh Yên Bái; Bảo tàng Lịch sử Quốc gia."],
+  },
+  {
+    slug: "co-giang",
+    ten: "Cô Giang",
+    tenThat: "Nguyễn Thị Giang",
+    tenKhac: [],
+    namSinh: "1906",
+    namMat: "1930",
+    nienDai: "1906 – 1930",
+    queQuan: "Làng Đạo Mỗ, huyện Võ Giàng, tỉnh Bắc Ninh; nay thuộc phường Đa Mai, thành phố Bắc Giang, Bắc Giang",
+    thoiKy: "chong-phap",
+    trieuDai: "Thời Pháp thuộc",
+    namMoc: 1930,
+    tomTat:
+      "Thành viên Việt Nam Quốc Dân Đảng từ năm 1927, phụ trách liên lạc, gây quỹ và tiếp tế vũ khí chuẩn bị Khởi nghĩa Yên Bái; bạn đời của Nguyễn Thái Học, mất ngày 18/6/1930.",
+    tieuSu: [
+      "Nguyễn Thị Giang, thường gọi là Cô Giang, sinh năm 1906; em gái bà là Nguyễn Thị Bắc (Cô Bắc). Năm 1927, bà gia nhập Việt Nam Quốc Dân Đảng, phụ trách công tác liên lạc, gây quỹ và tiếp tế vũ khí.",
+      "Bà là bạn đời và đồng chí của Chủ tịch Việt Nam Quốc Dân Đảng Nguyễn Thái Học, trực tiếp tham gia vận chuyển bom đạn và xây dựng cơ sở chuẩn bị cho Khởi nghĩa Yên Bái (tháng 2/1930).",
+      "Sau khi khởi nghĩa thất bại, bà theo dõi phiên tòa và có mặt ở Yên Bái sáng 17/6/1930, khi Nguyễn Thái Học cùng các đồng chí bị xử chém. Ngày hôm sau, 18/6/1930, bà tự sát bằng súng lục tại làng Đồng Vệ (Vĩnh Tường, Vĩnh Phúc), quê của Nguyễn Thái Học.",
+    ],
+    boiCanh: ["Việt Nam Quốc Dân Đảng chủ trương khởi nghĩa vũ trang chống chính quyền thực dân Pháp; Khởi nghĩa Yên Bái nổ ra tháng 2/1930 và thất bại."],
+    congTrang: [
+      "Gia nhập Việt Nam Quốc Dân Đảng năm 1927, phụ trách liên lạc, gây quỹ và tiếp tế vũ khí.",
+      "Tham gia vận chuyển bom đạn, xây dựng cơ sở chuẩn bị Khởi nghĩa Yên Bái (tháng 2/1930).",
+      "Là bạn đời và đồng chí của Nguyễn Thái Học trong Việt Nam Quốc Dân Đảng.",
+    ],
+    suKien: [
+      {
+        nam: "1906",
+        text: "Sinh năm 1906.",
+      },
+      {
+        nam: "1927",
+        text: "Gia nhập Việt Nam Quốc Dân Đảng.",
+      },
+      {
+        nam: "1930",
+        text: "Tháng 2 Khởi nghĩa Yên Bái nổ ra; sáng 17/6 bà có mặt ở Yên Bái khi Nguyễn Thái Học bị xử chém; ngày 18/6 bà tự sát tại làng Đồng Vệ.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Khu mộ Cô Giang",
+        diaDiem: "Thôn Đồng Vệ, xã Vĩnh Tân (gần thị trấn Thổ Tang), huyện Vĩnh Tường, Vĩnh Phúc",
+      },
+      {
+        ten: "Nhà tưởng niệm Cô Giang – Cô Bắc",
+        diaDiem: "Phường Đa Mai, thành phố Bắc Giang, Bắc Giang",
+      },
+    ],
+    tuongNiem: ["Tưởng niệm ngày 18 tháng 6 dương lịch (có nơi theo ngày 22 tháng 5 âm lịch) tại huyện Vĩnh Tường (Vĩnh Phúc) và thành phố Bắc Giang."],
+    ghiChuSuLieu:
+      "Quan hệ hôn nhân với Nguyễn Thái Học là lễ thành hôn chính thức hay hôn lễ kết nghĩa trước Đảng kỳ vẫn còn những cách hiểu khác nhau. Tương truyền bà để lại thư tuyệt mệnh viết: “Đời tôi không sống được thì xin lấy cái chết để đền nợ nước và trọn nghĩa với chàng”.",
+    wikiTitle: "Nguyễn Thị Giang",
+    nguon: ["Cổng thông tin điện tử tỉnh Vĩnh Phúc; Báo Bắc Giang.", "Bảo tàng Lịch sử Quốc gia."],
+  },
+  {
+    slug: "ly-tu-trong",
+    ten: "Lý Tự Trọng",
+    tenThat: "Lê Hữu Trọng",
+    tenKhac: ["Lê Văn Trọng", "Huy"],
+    namSinh: "1914",
+    namMat: "1931",
+    nienDai: "1914 – 1931",
+    queQuan:
+      "Làng Việt Xuyên, tổng Việt Yên, huyện Thạch Hà, tỉnh Hà Tĩnh; nay thuộc xã Việt Xuyên, huyện Thạch Hà, Hà Tĩnh (sinh tại Bản Mạy, tỉnh Nakhon Phanom, Thái Lan)",
+    thoiKy: "chong-phap",
+    trieuDai: "Thời Pháp thuộc",
+    namMoc: 1931,
+    tomTat:
+      "Được Nguyễn Ái Quốc chọn sang Quảng Châu đào tạo năm 1926, về nước làm giao liên cho Xứ ủy Nam Kỳ; bị bắt năm 1931 và bị xử tử tại Khám Lớn Sài Gòn ngày 21/11/1931, khi 17 tuổi.",
+    tieuSu: [
+      "Lý Tự Trọng tên thật là Lê Hữu Trọng (còn gọi Lê Văn Trọng), sinh ngày 20/10/1914 tại Bản Mạy, tỉnh Nakhon Phanom (Thái Lan), trong một gia đình Việt kiều quê làng Việt Xuyên, huyện Thạch Hà, Hà Tĩnh. Năm 1926, ông được Nguyễn Ái Quốc chọn vào nhóm thiếu niên sang Quảng Châu (Trung Quốc) đào tạo.",
+      "Năm 1929, ông về nước hoạt động ở Sài Gòn – Chợ Lớn, phụ trách đường dây giao liên của Xứ ủy Nam Kỳ và Trung ương Đảng.",
+      "Ngày 9/2/1931, tại một cuộc diễn thuyết ở Sài Gòn, ông bắn chết viên mật thám Legrand để bảo vệ người diễn thuyết là Phan Bôi, rồi bị bắt. Tòa án thực dân kết án tử hình; ông bị xử tử tại Khám Lớn Sài Gòn rạng sáng 21/11/1931, khi 17 tuổi.",
+    ],
+    boiCanh: ["Lý Tự Trọng hoạt động trong thời kỳ vận động thành lập Đảng và phong trào Xô viết Nghệ Tĩnh (1926–1931)."],
+    congTrang: [
+      "Làm giao liên cho Xứ ủy Nam Kỳ và Trung ương Đảng ở Sài Gòn – Chợ Lớn từ năm 1929.",
+      "Được Nguyễn Ái Quốc chọn vào nhóm thiếu niên sang Quảng Châu đào tạo (1926).",
+      "Ngày 9/2/1931, bắn viên mật thám Legrand để bảo vệ người diễn thuyết Phan Bôi.",
+    ],
+    suKien: [
+      {
+        nam: "1914",
+        text: "Sinh ngày 20/10 tại Bản Mạy (Thái Lan).",
+      },
+      {
+        nam: "1926",
+        text: "Sang Quảng Châu (Trung Quốc) học tập.",
+      },
+      {
+        nam: "1929",
+        text: "Về nước, làm giao liên ở Sài Gòn – Chợ Lớn.",
+      },
+      {
+        nam: "1931",
+        text: "Ngày 9/2 bắn mật thám Legrand và bị bắt; rạng sáng 21/11 bị xử tử tại Khám Lớn Sài Gòn.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Khu tưởng niệm Lý Tự Trọng (di tích lịch sử cấp quốc gia)",
+        diaDiem: "Xã Việt Xuyên, huyện Thạch Hà, Hà Tĩnh",
+      },
+    ],
+    tuongNiem: ["Tưởng niệm ngày 21 tháng 11 dương lịch (có nơi theo ngày 12 tháng 10 âm lịch)."],
+    ghiChuSuLieu:
+      "Nơi chôn cất sau khi ông bị xử tử từng thất lạc nhiều năm; theo hồ sơ khảo cứu, hài cốt được tìm thấy tại khu đất công viên Lê Thị Riêng (khu nghĩa địa Chí Hòa cũ, TP. Hồ Chí Minh) và được quy tập về an táng tại khu tưởng niệm ở Việt Xuyên năm 2011.",
+    wikiTitle: "Lý Tự Trọng",
+    nguon: ["Hồ sơ Trung ương Đoàn TNCS Hồ Chí Minh; Cổng thông tin điện tử tỉnh Hà Tĩnh.", "Bảo tàng Lịch sử Quốc gia."],
+  },
+  {
+    slug: "tran-phu",
+    ten: "Trần Phú",
+    tenThat: null,
+    tenKhac: ["Nam", "Hàn Phong", "Năm Tự"],
+    namSinh: "1904",
+    namMat: "1931",
+    nienDai: "1904 – 1931",
+    queQuan:
+      "Làng Tùng Ảnh, huyện Đức Thọ, phủ Đức Quang, tỉnh Hà Tĩnh; nay thuộc xã Tùng Ảnh, huyện Đức Thọ, Hà Tĩnh (sinh tại huyện Tuy An, tỉnh Phú Yên, nơi cha ông làm quan)",
+    thoiKy: "chong-phap",
+    trieuDai: "Thời Pháp thuộc",
+    namMoc: 1930,
+    tomTat:
+      "Tổng Bí thư đầu tiên của Đảng Cộng sản Đông Dương (tháng 10/1930), người khởi thảo Luận cương chính trị năm 1930; bị bắt ngày 18/4/1931 và mất ngày 6/9/1931 tại Nhà thương Chợ Quán, Sài Gòn.",
+    tieuSu: [
+      "Trần Phú sinh ngày 1/5/1904 tại huyện Tuy An, tỉnh Phú Yên, nơi cha ông làm quan; quê làng Tùng Ảnh, huyện Đức Thọ, Hà Tĩnh. Ông tham gia Hội Phục Việt (Tân Việt) và năm 1926 gia nhập Hội Việt Nam Cách mạng Thanh niên ở Quảng Châu.",
+      "Từ năm 1927 đến 1929, ông học tại Đại học Phương Đông (Moskva). Tháng 4/1930, ông về nước và được bổ sung vào Ban Chấp hành Trung ương lâm thời. Tháng 10/1930, ông khởi thảo Luận cương chính trị và tại Hội nghị Trung ương được bầu làm Tổng Bí thư đầu tiên của Đảng Cộng sản Đông Dương.",
+      "Ngày 18/4/1931, ông bị mật thám Pháp bắt ở Sài Gòn. Bị tra tấn trong thời gian giam giữ, ông mắc lao phổi nặng và mất ngày 6/9/1931 tại Nhà thương Chợ Quán, Sài Gòn.",
+    ],
+    boiCanh: ["Trần Phú hoạt động trong phong trào cách mạng giải phóng dân tộc giai đoạn 1925–1931, khi các tổ chức cộng sản trong nước được thống nhất (năm 1930)."],
+    congTrang: [
+      "Được bầu làm Tổng Bí thư đầu tiên của Đảng Cộng sản Đông Dương tại Hội nghị Trung ương tháng 10/1930.",
+      "Khởi thảo Luận cương chính trị (tháng 10/1930).",
+      "Gia nhập Hội Việt Nam Cách mạng Thanh niên (1926); học tại Đại học Phương Đông, Moskva (1927–1929).",
+    ],
+    suKien: [
+      {
+        nam: "1904",
+        text: "Sinh ngày 1/5 tại huyện Tuy An, Phú Yên.",
+      },
+      {
+        nam: "1926",
+        text: "Gia nhập Hội Việt Nam Cách mạng Thanh niên ở Quảng Châu.",
+      },
+      {
+        nam: "1930",
+        text: "Tháng 4 về nước; tháng 10 khởi thảo Luận cương chính trị và được bầu làm Tổng Bí thư.",
+      },
+      {
+        nam: "1931",
+        text: "Ngày 18/4 bị bắt ở Sài Gòn; ngày 6/9 mất tại Nhà thương Chợ Quán.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Khu mộ và Nhà lưu niệm Tổng Bí thư Trần Phú (di tích lịch sử – văn hóa cấp quốc gia)",
+        diaDiem: "Xã Tùng Ảnh, huyện Đức Thọ, Hà Tĩnh",
+      },
+    ],
+    tuongNiem: ["Tưởng niệm ngày 6 tháng 9 dương lịch hằng năm tại xã Tùng Ảnh, huyện Đức Thọ, Hà Tĩnh."],
+    ghiChuSuLieu:
+      "Các nghiên cứu lịch sử Đảng thường đối chiếu Luận cương chính trị tháng 10/1930 (nhấn mạnh đấu tranh giai cấp) với Chính cương vắn tắt tháng 2/1930 của Nguyễn Ái Quốc (đặt giải phóng dân tộc lên hàng đầu).",
+    wikiTitle: "Trần Phú",
+    nguon: ["Lịch sử Đảng Cộng sản Việt Nam, NXB Chính trị Quốc gia Sự thật.", "Cổng thông tin điện tử Tỉnh ủy Hà Tĩnh."],
+  },
+  {
+    slug: "le-hong-phong",
+    ten: "Lê Hồng Phong",
+    tenThat: "Lê Huy Doãn",
+    tenKhac: ["Hải An", "Litvinov"],
+    namSinh: "1902",
+    namMat: "1942",
+    nienDai: "1902 – 1942",
+    queQuan: "Làng Đông Thôn, tổng Thông Lãng, phủ Hưng Nguyên, tỉnh Nghệ An; nay thuộc xã Hưng Thông, huyện Hưng Nguyên, Nghệ An",
+    thoiKy: "chong-phap",
+    trieuDai: "Thời Pháp thuộc",
+    namMoc: 1935,
+    tomTat:
+      "Tổng Bí thư Đảng Cộng sản Đông Dương (1935–1936), chủ trì Đại hội lần thứ I của Đảng tại Ma Cao năm 1935; bị bắt năm 1939, bị đày ra Côn Đảo và mất tại đây ngày 6/9/1942.",
+    tieuSu: [
+      "Lê Hồng Phong tên thật là Lê Huy Doãn, sinh năm 1902 ở làng Đông Thôn, phủ Hưng Nguyên, Nghệ An. Ông được cử sang Liên Xô học tại Trường Không quân Leningrad và Đại học Phương Đông (Moskva).",
+      "Năm 1935, ông chủ trì Đại hội lần thứ I của Đảng tại Ma Cao và được bầu làm Tổng Bí thư Ban Chấp hành Trung ương Đảng Cộng sản Đông Dương. Cùng năm, ông dự Đại hội VII Quốc tế Cộng sản và được bầu làm Ủy viên Ban Chấp hành Quốc tế Cộng sản.",
+      "Năm 1939, ông bị mật thám bắt ở Sài Gòn, sau đó bị đày ra Côn Đảo và mất tại nhà tù Côn Đảo ngày 6/9/1942.",
+    ],
+    boiCanh: ["Sau giai đoạn thoái trào 1930–1931, Đảng Cộng sản Đông Dương khôi phục hệ thống tổ chức; Đại hội lần thứ I của Đảng họp tại Ma Cao năm 1935."],
+    congTrang: [
+      "Chủ trì Đại hội lần thứ I của Đảng tại Ma Cao (1935), được bầu làm Tổng Bí thư.",
+      "Dự Đại hội VII Quốc tế Cộng sản (1935), được bầu làm Ủy viên Ban Chấp hành Quốc tế Cộng sản.",
+      "Học tại Trường Không quân Leningrad và Đại học Phương Đông, Moskva.",
+    ],
+    suKien: [
+      {
+        nam: "1902",
+        text: "Sinh ở làng Đông Thôn, Hưng Nguyên, Nghệ An.",
+      },
+      {
+        nam: "1935",
+        text: "Chủ trì Đại hội lần thứ I ở Ma Cao; dự Đại hội VII Quốc tế Cộng sản.",
+      },
+      {
+        nam: "1939",
+        text: "Bị bắt ở Sài Gòn, sau đó bị đày ra Côn Đảo.",
+      },
+      {
+        nam: "1942",
+        text: "Ngày 6/9, mất tại nhà tù Côn Đảo.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Khu lưu niệm Tổng Bí thư Lê Hồng Phong (di tích lịch sử cấp quốc gia)",
+        diaDiem: "Xã Hưng Thông, huyện Hưng Nguyên, Nghệ An",
+      },
+      {
+        ten: "Phần mộ tại Nghĩa trang Hàng Dương (di tích quốc gia đặc biệt)",
+        diaDiem: "Côn Đảo, Bà Rịa – Vũng Tàu",
+      },
+    ],
+    tuongNiem: ["Ngày mất 6/9 (dương lịch) hằng năm.", "Được tưởng niệm tại Khu lưu niệm ở Hưng Nguyên (Nghệ An) và tại Nghĩa trang Hàng Dương (Côn Đảo)."],
+    ghiChuSuLieu:
+      "Một số tài liệu cũ ghi năm sinh là 1900; về sau Viện Lịch sử Đảng và gia phả dòng họ thống nhất năm sinh 1902. Ngày mất 6/9/1942 tại Côn Đảo.",
+    wikiTitle: "Lê Hồng Phong",
+    nguon: ["Tiểu sử Lê Hồng Phong, NXB Chính trị Quốc gia Sự thật.", "Ban Quản lý Di tích Côn Đảo."],
+  },
+  {
+    slug: "nguyen-thi-minh-khai",
+    ten: "Nguyễn Thị Minh Khai",
+    tenThat: "Nguyễn Thị Vịnh",
+    tenKhac: ["Cô Duyệt", "Kim Dung"],
+    namSinh: "1910",
+    namMat: "1941",
+    nienDai: "1910 – 1941",
+    queQuan: "Làng Vĩnh Yên, tổng Thông Lãng, huyện Hưng Nguyên, tỉnh Nghệ An; nay thuộc phường Quang Trung, thành phố Vinh, Nghệ An",
+    thoiKy: "chong-phap",
+    trieuDai: "Thời Pháp thuộc",
+    namMoc: 1935,
+    tomTat:
+      "Một trong những nữ đảng viên đầu tiên của Đảng Cộng sản Đông Dương, đại biểu dự Đại hội VII Quốc tế Cộng sản (1935), Bí thư Thành ủy Sài Gòn – Chợ Lớn; bị bắt ngày 30/7/1940 và bị xử bắn tại Hóc Môn ngày 28/8/1941.",
+    tieuSu: [
+      "Nguyễn Thị Minh Khai tên thật là Nguyễn Thị Vịnh, sinh ngày 1/11/1910 ở làng Vĩnh Yên, huyện Hưng Nguyên, Nghệ An. Năm 1927, bà gia nhập Tân Việt Cách mạng Đảng; năm 1930 trở thành một trong những nữ đảng viên đầu tiên của Đảng Cộng sản Đông Dương.",
+      "Năm 1935, bà là đại biểu của Đảng dự Đại hội VII Quốc tế Cộng sản tại Moskva và phát biểu về vấn đề phụ nữ ở các xứ thuộc địa. Từ năm 1937 đến 1940, bà giữ chức Bí thư Thành ủy Sài Gòn – Chợ Lớn, lãnh đạo phong trào đấu tranh chính trị và tham gia chuẩn bị khởi nghĩa vũ trang.",
+      "Ngày 30/7/1940, trước Khởi nghĩa Nam Kỳ, bà bị bắt. Sáng 28/8/1941, bà bị xử bắn tại Ngã Ba Giồng, Hóc Môn, cùng với Hà Huy Tập và Võ Văn Tần.",
+    ],
+    boiCanh: ["Bà hoạt động trong thời kỳ Mặt trận Dân chủ, khi Đảng hoạt động nửa công khai, và giai đoạn chuẩn bị Khởi nghĩa Nam Kỳ (1940)."],
+    congTrang: [
+      "Bí thư Thành ủy Sài Gòn – Chợ Lớn (1937–1940), lãnh đạo phong trào đấu tranh chính trị.",
+      "Đại biểu của Đảng dự Đại hội VII Quốc tế Cộng sản tại Moskva (1935).",
+      "Gia nhập Tân Việt Cách mạng Đảng (1927), là một trong những nữ đảng viên đầu tiên của Đảng Cộng sản Đông Dương (1930).",
+    ],
+    suKien: [
+      {
+        nam: "1910",
+        text: "Sinh ngày 1/11 ở làng Vĩnh Yên, Nghệ An.",
+      },
+      {
+        nam: "1935",
+        text: "Dự Đại hội VII Quốc tế Cộng sản tại Moskva.",
+      },
+      {
+        nam: "1937 – 1940",
+        text: "Bí thư Thành ủy Sài Gòn – Chợ Lớn.",
+      },
+      {
+        nam: "1940",
+        text: "Bị bắt ngày 30/7, trước Khởi nghĩa Nam Kỳ.",
+      },
+      {
+        nam: "1941",
+        text: "Bị xử bắn sáng 28/8 tại Ngã Ba Giồng, Hóc Môn.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Khu tưởng niệm Liệt sĩ Ngã Ba Giồng (di tích lịch sử cấp quốc gia)",
+        diaDiem: "Xã Xuân Thới Thượng, huyện Hóc Môn, TP. Hồ Chí Minh",
+      },
+      {
+        ten: "Nhà lưu niệm Nguyễn Thị Minh Khai",
+        diaDiem: "Thành phố Vinh, Nghệ An",
+      },
+    ],
+    tuongNiem: ["Tưởng niệm ngày 28 tháng 8 dương lịch (có nơi theo ngày 7 tháng 7 âm lịch) tại Hóc Môn (TP. Hồ Chí Minh) và thành phố Vinh (Nghệ An)."],
+    ghiChuSuLieu:
+      "Theo hồ sơ khảo cứu, hài cốt sau khi bà bị xử bắn bị vùi lấp tại bãi bắn Hóc Môn, sau được quy tập về Nghĩa trang Liệt sĩ Ngã Ba Giồng. Tương truyền trong thời gian bị giam, bà viết thơ lên tường nhà giam.",
+    wikiTitle: "Nguyễn Thị Minh Khai",
+    nguon: ["Hội Liên hiệp Phụ nữ Việt Nam; Cổng thông tin điện tử TP. Hồ Chí Minh.", "Bảo tàng Xô viết Nghệ Tĩnh."],
+  },
+  {
+    slug: "ha-huy-tap",
+    ten: "Hà Huy Tập",
+    tenThat: null,
+    tenKhac: ["Sinichkin", "Nhược Ái", "Ba"],
+    namSinh: "1906",
+    namMat: "1941",
+    nienDai: "1906 – 1941",
+    queQuan: "Làng Kim Nặc, tổng Lạc Thiện, huyện Cẩm Xuyên, tỉnh Hà Tĩnh; nay thuộc xã Cẩm Hưng, huyện Cẩm Xuyên, Hà Tĩnh",
+    thoiKy: "chong-phap",
+    trieuDai: "Thời Pháp thuộc",
+    namMoc: 1936,
+    tomTat:
+      "Tổng Bí thư Đảng Cộng sản Đông Dương (1936–1938), tác giả Sơ thảo lịch sử phong trào cộng sản ở Đông Dương (1933); bị bắt năm 1938 và bị xử bắn tại Hóc Môn ngày 28/8/1941.",
+    tieuSu: [
+      "Hà Huy Tập sinh ngày 24/4/1906 ở làng Kim Nặc, huyện Cẩm Xuyên, Hà Tĩnh. Năm 1932, ông tốt nghiệp Đại học Phương Đông (Moskva), rồi tham gia khôi phục cơ quan lãnh đạo của Đảng sau giai đoạn thoái trào 1930–1931.",
+      "Năm 1933, ông viết Sơ thảo lịch sử phong trào cộng sản ở Đông Dương, cuốn sách lịch sử Đảng đầu tiên. Từ năm 1936 đến 1938, ông giữ chức Tổng Bí thư Ban Chấp hành Trung ương, chỉ đạo chuyển hướng đưa Đảng ra hoạt động nửa công khai trong thời kỳ Mặt trận Dân chủ.",
+      "Năm 1938, ông bị Pháp bắt; sau Khởi nghĩa Nam Kỳ, ông bị kết án tử hình và bị xử bắn sáng 28/8/1941 tại Hóc Môn.",
+    ],
+    boiCanh: ["Sau giai đoạn thoái trào 1930–1931, hệ thống tổ chức của Đảng được khôi phục; trong thời kỳ Mặt trận Dân chủ, Đảng chuyển sang hoạt động nửa công khai."],
+    congTrang: [
+      "Tổng Bí thư Ban Chấp hành Trung ương Đảng Cộng sản Đông Dương (1936–1938).",
+      "Tác giả Sơ thảo lịch sử phong trào cộng sản ở Đông Dương (1933), cuốn sách lịch sử Đảng đầu tiên.",
+      "Tham gia khôi phục cơ quan lãnh đạo của Đảng sau giai đoạn 1930–1931.",
+    ],
+    suKien: [
+      {
+        nam: "1906",
+        text: "Sinh ngày 24/4 ở làng Kim Nặc, Hà Tĩnh.",
+      },
+      {
+        nam: "1932",
+        text: "Tốt nghiệp Đại học Phương Đông (Moskva).",
+      },
+      {
+        nam: "1936 – 1938",
+        text: "Giữ chức Tổng Bí thư.",
+      },
+      {
+        nam: "1938",
+        text: "Bị Pháp bắt.",
+      },
+      {
+        nam: "1941",
+        text: "Bị xử bắn sáng 28/8 tại Hóc Môn.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Khu lưu niệm và Mộ Tổng Bí thư Hà Huy Tập (di tích lịch sử cấp quốc gia)",
+        diaDiem: "Thôn Hưng Thắng, xã Cẩm Hưng, huyện Cẩm Xuyên, Hà Tĩnh",
+      },
+    ],
+    tuongNiem: ["Tưởng niệm ngày 28 tháng 8 dương lịch hằng năm tại huyện Cẩm Xuyên, Hà Tĩnh."],
+    ghiChuSuLieu:
+      "Theo hồ sơ khảo cứu, việc tìm kiếm di hài kéo dài gần 70 năm; đến cuối năm 2009, di hài được tìm thấy tại Hóc Môn và đưa về an táng tại quê hương Hà Tĩnh.",
+    wikiTitle: "Hà Huy Tập",
+    nguon: ["Hà Huy Tập – Tiểu sử, NXB Chính trị Quốc gia Sự thật.", "Cổng thông tin điện tử tỉnh Hà Tĩnh."],
+  },
+  {
+    slug: "nguyen-van-cu",
+    ten: "Nguyễn Văn Cừ",
+    tenThat: null,
+    tenKhac: ["Phùng", "Trí Con", "Thắng"],
+    namSinh: "1912",
+    namMat: "1941",
+    nienDai: "1912 – 1941",
+    queQuan: "Làng Phù Khê, tổng Nghĩa Lập, phủ Từ Sơn, tỉnh Bắc Ninh; nay thuộc phường Phù Khê, thành phố Từ Sơn, Bắc Ninh",
+    thoiKy: "chong-phap",
+    trieuDai: "Thời Pháp thuộc",
+    namMoc: 1938,
+    tomTat:
+      "Tổng Bí thư Đảng Cộng sản Đông Dương (1938–1940), tác giả Tự chỉ trích (1939), chủ trì Hội nghị Trung ương 6 (tháng 11/1939); bị bắt ngày 18/1/1940 và bị xử bắn tại Hóc Môn ngày 28/8/1941.",
+    tieuSu: [
+      "Nguyễn Văn Cừ sinh ngày 9/7/1912 ở làng Phù Khê, phủ Từ Sơn, Bắc Ninh. Năm 1928, ông tham gia phong trào “vô sản hóa”, làm việc ở mỏ than Mạo Khê, Vàng Danh (Quảng Ninh).",
+      "Tháng 3/1938, ông được bầu làm Tổng Bí thư Ban Chấp hành Trung ương khi 26 tuổi. Tháng 7/1939, ông viết tác phẩm Tự chỉ trích về phê bình và tự phê bình trong sinh hoạt Đảng. Tháng 11/1939, ông chủ trì Hội nghị Trung ương 6 tại Bà Điểm (Hóc Môn), quyết định đặt nhiệm vụ giải phóng dân tộc lên hàng đầu.",
+      "Ngày 18/1/1940, ông bị mật thám bắt ở Sài Gòn và bị xử bắn sáng 28/8/1941 tại Hóc Môn.",
+    ],
+    boiCanh: ["Cuối thập niên 1930, Đảng Cộng sản Đông Dương chuyển hướng chỉ đạo chiến lược, đặt nhiệm vụ giải phóng dân tộc lên trên hết (Hội nghị Trung ương 6, tháng 11/1939)."],
+    congTrang: [
+      "Được bầu làm Tổng Bí thư Ban Chấp hành Trung ương tháng 3/1938, khi 26 tuổi.",
+      "Chủ trì Hội nghị Trung ương 6 (tháng 11/1939) tại Bà Điểm, Hóc Môn.",
+      "Viết tác phẩm Tự chỉ trích (tháng 7/1939).",
+    ],
+    suKien: [
+      {
+        nam: "1912",
+        text: "Sinh ngày 9/7 ở làng Phù Khê, Bắc Ninh.",
+      },
+      {
+        nam: "1928",
+        text: "Tham gia phong trào “vô sản hóa” ở vùng mỏ Quảng Ninh.",
+      },
+      {
+        nam: "1938",
+        text: "Được bầu làm Tổng Bí thư (tháng 3).",
+      },
+      {
+        nam: "1939",
+        text: "Tháng 7 viết Tự chỉ trích; tháng 11 chủ trì Hội nghị Trung ương 6.",
+      },
+      {
+        nam: "1940 – 1941",
+        text: "Bị bắt ngày 18/1/1940 ở Sài Gòn; bị xử bắn sáng 28/8/1941 tại Hóc Môn.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Khu lưu niệm Tổng Bí thư Nguyễn Văn Cừ (di tích quốc gia đặc biệt)",
+        diaDiem: "Phường Phù Khê, thành phố Từ Sơn, Bắc Ninh",
+      },
+    ],
+    tuongNiem: ["Tưởng niệm ngày 28 tháng 8 dương lịch (có nơi theo ngày 7 tháng 7 âm lịch) tại Bắc Ninh và Hóc Môn (TP. Hồ Chí Minh)."],
+    ghiChuSuLieu: "Một số tài liệu trước đây ghi năm sinh 1913; ngày sinh chính thức hiện được thống nhất là 9/7/1912.",
+    wikiTitle: "Nguyễn Văn Cừ",
+    nguon: ["Viện Lịch sử Đảng; Báo Nhân Dân.", "Cổng thông tin điện tử tỉnh Bắc Ninh."],
+  },
+  {
+    slug: "kim-dong",
+    ten: "Kim Đồng",
+    tenThat: "Nông Văn Dền",
+    tenKhac: [],
+    namSinh: "1929",
+    namMat: "1943",
+    nienDai: "1929 – 1943",
+    queQuan: "Làng Nà Mạ, huyện Hà Quảng, tỉnh Cao Bằng; nay thuộc xã Trường Hà, huyện Hà Quảng, Cao Bằng",
+    thoiKy: "chong-phap",
+    trieuDai: "Thời Pháp thuộc",
+    namMoc: 1941,
+    tomTat:
+      "Người dân tộc Tày, đội trưởng đầu tiên của Đội Nhi đồng Cứu quốc (15/5/1941) ở Pác Bó, làm liên lạc cho cán bộ cách mạng; mất ngày 15/2/1943 khi 14 tuổi, được truy tặng Anh hùng Lực lượng vũ trang nhân dân năm 1997.",
+    tieuSu: [
+      "Kim Đồng tên thật là Nông Văn Dền, người dân tộc Tày, sinh năm 1929 ở làng Nà Mạ, huyện Hà Quảng, Cao Bằng. Ngày 15/5/1941, ông được bầu làm đội trưởng Đội Nhi đồng Cứu quốc (tiền thân của Đội Thiếu niên Tiền phong Hồ Chí Minh), gồm 5 đội viên đầu tiên, ở Pác Bó.",
+      "Ông làm nhiệm vụ liên lạc, dẫn đường và chuyển công văn bí mật cho cán bộ Trung ương Đảng.",
+      "Sáng 15/2/1943 (ngày 11 tháng Giêng năm Quý Mùi), phát hiện có quân phục kích gần nơi cán bộ họp, ông chạy tạo tiếng động để thu hút hỏa lực về phía mình, bị trúng đạn và mất bên bờ suối Lê-nin khi 14 tuổi. Năm 1997, ông được truy tặng danh hiệu Anh hùng Lực lượng vũ trang nhân dân.",
+    ],
+    boiCanh: ["Đầu năm 1941, Nguyễn Ái Quốc về nước và lập căn cứ ở Pác Bó (Cao Bằng); tại đây Đội Nhi đồng Cứu quốc được thành lập ngày 15/5/1941."],
+    congTrang: [
+      "Đội trưởng đầu tiên của Đội Nhi đồng Cứu quốc, thành lập ngày 15/5/1941 ở Pác Bó.",
+      "Làm liên lạc, dẫn đường, chuyển công văn bí mật cho cán bộ Trung ương Đảng.",
+      "Sáng 15/2/1943, đánh lạc hướng toán quân phục kích để bảo vệ cuộc họp của cán bộ.",
+    ],
+    suKien: [
+      {
+        nam: "1929",
+        text: "Sinh ở làng Nà Mạ, Hà Quảng, Cao Bằng.",
+      },
+      {
+        nam: "1941",
+        text: "Ngày 15/5 được bầu làm đội trưởng Đội Nhi đồng Cứu quốc.",
+      },
+      {
+        nam: "1943",
+        text: "Mất sáng 15/2 bên bờ suối Lê-nin.",
+      },
+      {
+        nam: "1997",
+        text: "Được truy tặng danh hiệu Anh hùng Lực lượng vũ trang nhân dân.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Khu di tích lịch sử Kim Đồng (thuộc quần thể di tích quốc gia đặc biệt Pác Bó)",
+        diaDiem: "Làng Nà Mạ, xã Trường Hà, huyện Hà Quảng, Cao Bằng",
+      },
+    ],
+    tuongNiem: ["Tưởng niệm ngày 15 tháng 2 dương lịch (có nơi theo ngày 11 tháng Giêng âm lịch) tại Hà Quảng, Cao Bằng."],
+    ghiChuSuLieu: "Tên khai sinh có tài liệu phiên âm là Nông Văn Thần; tên chính thức được xác nhận là Nông Văn Dền.",
+    wikiTitle: "Kim Đồng",
+    nguon: ["Hội đồng Đội Trung ương.", "Ban Quản lý Di tích quốc gia đặc biệt Pác Bó, tỉnh Cao Bằng."],
+  },
+  {
+    slug: "phan-dinh-giot",
+    ten: "Phan Đình Giót",
+    tenThat: null,
+    tenKhac: [],
+    namSinh: "1922",
+    namMat: "1954",
+    nienDai: "1922 – 1954",
+    queQuan: "Thôn Vĩnh Yên, xã Cẩm Quan, huyện Cẩm Xuyên, tỉnh Hà Tĩnh; nay thuộc xã Nam Phúc Thăng, huyện Cẩm Xuyên, Hà Tĩnh",
+    thoiKy: "hien-dai",
+    trieuDai: "Việt Nam Dân chủ Cộng hòa",
+    namMoc: 1954,
+    tomTat:
+      "Tiểu đội phó bộc phá thuộc Đại đoàn 312; tử trận ngày 13/3/1954 trong trận Him Lam mở màn Chiến dịch Điện Biên Phủ, khi dùng thân mình lấp lỗ châu mai; được truy tặng Anh hùng Lực lượng vũ trang nhân dân năm 1955.",
+    tieuSu: [
+      "Phan Đình Giót sinh năm 1922 ở thôn Vĩnh Yên, xã Cẩm Quan, huyện Cẩm Xuyên, Hà Tĩnh. Nhập ngũ năm 1950, ông tham gia các chiến dịch Trung Du, Hòa Bình, Tây Bắc và Thượng Lào.",
+      "Ông là tiểu đội phó bộc phá thuộc Đại đội 58, Tiểu đoàn 428, Trung đoàn 102, Đại đoàn 312.",
+      "Chiều tối 13/3/1954, trong trận tấn công cụm cứ điểm Him Lam mở màn Chiến dịch Điện Biên Phủ, một hỏa điểm của quân Pháp chặn đường tiến công. Dù đã bị thương, ông trườn lên dùng thân mình lấp lỗ châu mai, mở đường cho đơn vị xung phong, và tử trận tại chỗ. Ngày 31/3/1955, ông được truy tặng danh hiệu Anh hùng Lực lượng vũ trang nhân dân.",
+    ],
+    boiCanh: ["Trận tấn công cụm cứ điểm Him Lam ngày 13/3/1954 mở màn Chiến dịch Điện Biên Phủ trong kháng chiến chống thực dân Pháp."],
+    congTrang: [
+      "Ngày 13/3/1954, dùng thân mình lấp lỗ châu mai ở Him Lam, mở đường cho đơn vị xung phong.",
+      "Tham gia các chiến dịch Trung Du, Hòa Bình, Tây Bắc, Thượng Lào.",
+      "Được truy tặng danh hiệu Anh hùng Lực lượng vũ trang nhân dân ngày 31/3/1955.",
+    ],
+    suKien: [
+      {
+        nam: "1922",
+        text: "Sinh ở xã Cẩm Quan, huyện Cẩm Xuyên, Hà Tĩnh.",
+      },
+      {
+        nam: "1950",
+        text: "Nhập ngũ.",
+      },
+      {
+        nam: "1954",
+        text: "Tử trận chiều tối 13/3 trong trận Him Lam, Điện Biên Phủ.",
+      },
+      {
+        nam: "1955",
+        text: "Được truy tặng danh hiệu Anh hùng Lực lượng vũ trang nhân dân (31/3).",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Khu tưởng niệm Anh hùng Phan Đình Giót",
+        diaDiem: "Xã Nam Phúc Thăng, huyện Cẩm Xuyên, Hà Tĩnh",
+      },
+      {
+        ten: "Phần mộ tại Nghĩa trang Liệt sĩ A1 (di tích quốc gia đặc biệt)",
+        diaDiem: "Thành phố Điện Biên Phủ, Điện Biên",
+      },
+    ],
+    tuongNiem: ["Tưởng niệm ngày 13 tháng 3 dương lịch hằng năm tại huyện Cẩm Xuyên (Hà Tĩnh) và thành phố Điện Biên Phủ."],
+    ghiChuSuLieu: "Năm 2020, xã Cẩm Quan được sáp nhập với Cẩm Nam và Cẩm Thăng thành xã Nam Phúc Thăng.",
+    wikiTitle: "Phan Đình Giót",
+    nguon: ["Bảo tàng Lịch sử Quân sự Việt Nam; Báo Quân đội Nhân dân.", "Cổng thông tin điện tử tỉnh Hà Tĩnh."],
+  },
+  {
+    slug: "to-vinh-dien",
+    ten: "Tô Vĩnh Diện",
+    tenThat: null,
+    tenKhac: [],
+    namSinh: "1924",
+    namMat: "1954",
+    nienDai: "1924 – 1954",
+    queQuan: "Làng Nông Xương, tổng Lương Xá, huyện Nông Cống, tỉnh Thanh Hóa; nay thuộc xã Nông Trường, huyện Triệu Sơn, Thanh Hóa",
+    thoiKy: "hien-dai",
+    trieuDai: "Việt Nam Dân chủ Cộng hòa",
+    namMoc: 1954,
+    tomTat:
+      "Trung đội phó pháo cao xạ thuộc Trung đoàn 367; mất đêm 1/2/1954 trên đường kéo pháo ở Điện Biên Phủ khi lao vào chèn bánh một khẩu pháo bị tuột dốc; được truy tặng Anh hùng Lực lượng vũ trang nhân dân năm 1955.",
+    tieuSu: [
+      "Tô Vĩnh Diện sinh năm 1924 ở làng Nông Xương, huyện Nông Cống, Thanh Hóa. Nhập ngũ năm 1949, ông là trung đội phó pháo cao xạ thuộc Đại đội 827, Tiểu đoàn 394, Trung đoàn 367.",
+      "Tháng 1/1954, đơn vị ông kéo pháo cao xạ 37 mm nặng 2,4 tấn bằng tay qua các dãy núi vào lòng chảo Mường Thanh.",
+      "Đêm 1/2/1954, khi đơn vị thực hiện lệnh kéo pháo ra vị trí an toàn theo phương châm “đánh chắc, tiến chắc”, dây tời bị đứt và khẩu pháo trôi xuống dốc Bản Chuối. Ông lao vào chèn bánh pháo, giữ khẩu pháo dừng lại bên bờ vực, và mất tại đó. Ngày 7/5/1955, ông được truy tặng Huân chương Quân công hạng Nhì và danh hiệu Anh hùng Lực lượng vũ trang nhân dân.",
+    ],
+    boiCanh: ["Trong Chiến dịch Điện Biên Phủ, pháo được kéo bằng tay vào trận địa quanh lòng chảo Mường Thanh; sau khi phương châm tác chiến chuyển sang “đánh chắc, tiến chắc”, pháo được kéo ra vị trí an toàn."],
+    congTrang: [
+      "Đêm 1/2/1954, lao vào chèn bánh khẩu pháo bị đứt dây tời, giữ pháo dừng lại bên bờ vực.",
+      "Cùng đơn vị kéo pháo cao xạ 37 mm bằng tay vào lòng chảo Mường Thanh (tháng 1/1954).",
+      "Được truy tặng Huân chương Quân công hạng Nhì và danh hiệu Anh hùng Lực lượng vũ trang nhân dân (7/5/1955).",
+    ],
+    suKien: [
+      {
+        nam: "1924",
+        text: "Sinh ở làng Nông Xương, Thanh Hóa.",
+      },
+      {
+        nam: "1949",
+        text: "Nhập ngũ.",
+      },
+      {
+        nam: "1954",
+        text: "Tháng 1 kéo pháo vào Mường Thanh; đêm 1/2 mất khi chèn bánh pháo trên dốc Bản Chuối.",
+      },
+      {
+        nam: "1955",
+        text: "Được truy tặng danh hiệu Anh hùng Lực lượng vũ trang nhân dân (7/5).",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Đền thờ Anh hùng Tô Vĩnh Diện",
+        diaDiem: "Xã Nông Trường, huyện Triệu Sơn, Thanh Hóa",
+      },
+      {
+        ten: "Phần mộ tại Nghĩa trang Liệt sĩ A1 (di tích quốc gia đặc biệt)",
+        diaDiem: "Thành phố Điện Biên Phủ, Điện Biên",
+      },
+    ],
+    tuongNiem: ["Tưởng niệm ngày 1 tháng 2 dương lịch hằng năm tại huyện Triệu Sơn, Thanh Hóa."],
+    ghiChuSuLieu:
+      "Quê gốc thuộc huyện Nông Cống; năm 1964 huyện Triệu Sơn được tách lập nên nay thuộc địa giới Triệu Sơn. Tương truyền câu nói cuối cùng của ông là “Pháo có việc gì không các cậu?”.",
+    wikiTitle: "Tô Vĩnh Diện",
+    nguon: ["Bảo tàng Phòng không – Không quân; Báo Quân đội Nhân dân.", "Cổng thông tin điện tử tỉnh Thanh Hóa."],
+  },
+  {
+    slug: "be-van-dan",
+    ten: "Bế Văn Đàn",
+    tenThat: null,
+    tenKhac: [],
+    namSinh: "1931",
+    namMat: "1953",
+    nienDai: "1931 – 1953",
+    queQuan: "Bản Buổng, xã Triệu Ẩu, huyện Phục Hòa, tỉnh Cao Bằng; nay thuộc xã Bế Văn Đàn, huyện Quảng Hòa, Cao Bằng",
+    thoiKy: "hien-dai",
+    trieuDai: "Việt Nam Dân chủ Cộng hòa",
+    namMoc: 1953,
+    tomTat:
+      "Người dân tộc Tày, tiểu đội phó liên lạc thuộc Đại đoàn 316; tử trận ngày 12/12/1953 ở Mường Pồn khi dùng vai làm giá đỡ khẩu trung liên cho đồng đội bắn; được truy tặng Anh hùng Lực lượng vũ trang nhân dân năm 1955.",
+    tieuSu: [
+      "Bế Văn Đàn, người dân tộc Tày, sinh năm 1931 ở bản Buổng, xã Triệu Ẩu, huyện Phục Hòa, Cao Bằng. Nhập ngũ năm 1948, ông là đảng viên, tiểu đội phó liên lạc thuộc Đại đội 674, Tiểu đoàn 251, Trung đoàn 174, Đại đoàn 316.",
+      "Tháng 12/1953, đơn vị ông tham gia chiến dịch giải phóng Lai Châu, chặn đánh quân Pháp tại Mường Pồn. Ngày 12/12/1953, khi khẩu trung liên của đồng đội Chu Văn Pù không có chỗ tì trên địa hình trống trải, ông đặt hai càng súng lên vai mình để đồng đội bắn, rồi trúng đạn và tử trận.",
+      "Ngày 31/8/1955, ông được truy tặng danh hiệu Anh hùng Lực lượng vũ trang nhân dân.",
+    ],
+    boiCanh: ["Trong Chiến dịch Đông Xuân 1953–1954, bộ đội tiến công giải phóng Lai Châu; trận Mường Pồn diễn ra tháng 12/1953."],
+    congTrang: [
+      "Ngày 12/12/1953 ở Mường Pồn, dùng vai làm giá đỡ khẩu trung liên cho đồng đội bắn.",
+      "Tham gia chiến dịch giải phóng Lai Châu (tháng 12/1953).",
+      "Được truy tặng danh hiệu Anh hùng Lực lượng vũ trang nhân dân (31/8/1955).",
+    ],
+    suKien: [
+      {
+        nam: "1931",
+        text: "Sinh ở bản Buổng, Cao Bằng.",
+      },
+      {
+        nam: "1948",
+        text: "Nhập ngũ.",
+      },
+      {
+        nam: "1953",
+        text: "Tử trận ngày 12/12 trong trận Mường Pồn.",
+      },
+      {
+        nam: "1955",
+        text: "Được truy tặng danh hiệu Anh hùng Lực lượng vũ trang nhân dân (31/8).",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Khu di tích lịch sử Chiến thắng Mường Pồn (di tích quốc gia)",
+        diaDiem: "Xã Mường Pồn, huyện Điện Biên, Điện Biên",
+      },
+      {
+        ten: "Nhà lưu niệm Anh hùng Bế Văn Đàn",
+        diaDiem: "Xã Bế Văn Đàn, huyện Quảng Hòa, Cao Bằng",
+      },
+    ],
+    tuongNiem: ["Tưởng niệm ngày 12 tháng 12 dương lịch hằng năm tại huyện Điện Biên (Điện Biên) và huyện Quảng Hòa (Cao Bằng)."],
+    ghiChuSuLieu:
+      "Xã quê ông trước đây là Triệu Ẩu (huyện Phục Hòa), sau được đổi tên thành xã Bế Văn Đàn; năm 2020, huyện Phục Hòa và Quảng Uyên sáp nhập thành huyện Quảng Hòa. Hình ảnh “lấy thân mình làm giá súng” được đưa vào nhiều bài thơ, bài hát.",
+    wikiTitle: "Bế Văn Đàn",
+    nguon: ["Bảo tàng Lịch sử Quân sự Việt Nam; Báo Quân đội Nhân dân.", "Cổng thông tin điện tử tỉnh Cao Bằng."],
+  },
+  {
+    slug: "la-van-cau",
+    ten: "La Văn Cầu",
+    tenThat: "Sầm Phúc Hướng",
+    tenKhac: [],
+    namSinh: null,
+    namMat: "2026",
+    nienDai: "1931 – 2026",
+    queQuan: "Xã Phong Nặm, huyện Trùng Khánh, tỉnh Cao Bằng",
+    thoiKy: "hien-dai",
+    trieuDai: "Việt Nam Dân chủ Cộng hòa",
+    namMoc: 1950,
+    tomTat:
+      "Người dân tộc Tày, chiến sĩ Trung đoàn 174; trong trận Đông Khê đêm 16/9/1950 mở màn Chiến dịch Biên giới, bị thương mất cánh tay phải vẫn tiếp tục đánh bộc phá lô cốt; được phong Anh hùng Lực lượng vũ trang nhân dân năm 1952.",
+    tieuSu: [
+      "La Văn Cầu tên khai sinh là Sầm Phúc Hướng, người dân tộc Tày, quê xã Phong Nặm, huyện Trùng Khánh, Cao Bằng; khi nhập ngũ năm 1948, ông đổi tên là La Văn Cầu. Ông là chiến sĩ Trung đoàn 174, tham gia 16 trận đánh lớn.",
+      "Đêm 16/9/1950, trong trận đánh đồn Đông Khê mở màn Chiến dịch Biên giới Thu Đông 1950, ông được giao ôm bộc phá phá lô cốt. Cánh tay phải bị thương nặng, ông đề nghị đồng đội cắt bỏ phần tay bị thương rồi tiếp tục ôm khối bộc phá 12 kg lên đánh sập lô cốt số 3.",
+      "Năm 1952, tại Đại hội Chiến sĩ thi đua toàn quốc lần thứ nhất, ông được phong danh hiệu Anh hùng Lực lượng vũ trang nhân dân, là một trong 7 anh hùng đầu tiên của Quân đội. Ông từ trần ngày 24/6/2026, hưởng thọ 94 tuổi.",
+    ],
+    boiCanh: ["Chiến dịch Biên giới Thu Đông 1950 mở màn bằng trận tiến công cứ điểm Đông Khê (Cao Bằng) đêm 16/9/1950."],
+    congTrang: [
+      "Đêm 16/9/1950, đánh sập lô cốt số 3 ở đồn Đông Khê dù bị thương mất cánh tay phải.",
+      "Chiến sĩ Trung đoàn 174, tham gia 16 trận đánh lớn.",
+      "Được phong danh hiệu Anh hùng Lực lượng vũ trang nhân dân năm 1952, một trong 7 anh hùng đầu tiên của Quân đội.",
+    ],
+    suKien: [
+      {
+        nam: "1931",
+        text: "Sinh ở xã Phong Nặm, Cao Bằng (có nguồn ghi năm 1932).",
+      },
+      {
+        nam: "1948",
+        text: "Nhập ngũ, đổi tên là La Văn Cầu.",
+      },
+      {
+        nam: "1950",
+        text: "Đêm 16/9 đánh lô cốt ở đồn Đông Khê, mở màn Chiến dịch Biên giới.",
+      },
+      {
+        nam: "1952",
+        text: "Được phong danh hiệu Anh hùng Lực lượng vũ trang nhân dân.",
+      },
+      {
+        nam: "2026",
+        text: "Từ trần ngày 24/6/2026, hưởng thọ 94 tuổi.",
+      },
+    ],
+    diTich: [],
+    tuongNiem: [],
+    ghiChuSuLieu:
+      "Năm sinh được các nguồn ghi là 1931 hoặc 1932. Ông từ trần ngày 24/6/2026 (94 tuổi); hiện vật và tượng của ông được trưng bày tại Bảo tàng Lịch sử Quân sự Việt Nam và Bảo tàng Chiến thắng Đông Khê (Cao Bằng).",
+    wikiTitle: "La Văn Cầu",
+    nguon: ["Cổng thông tin điện tử Bộ Quốc phòng; Báo Nhân Dân.", "Bảo tàng Lịch sử Quân sự Việt Nam."],
+  },
+  {
+    slug: "nguyen-viet-xuan",
+    ten: "Nguyễn Viết Xuân",
+    tenThat: null,
+    tenKhac: [],
+    namSinh: "1933",
+    namMat: "1964",
+    nienDai: "1933 – 1964",
+    queQuan: "Làng Thượng Lãng, xã Ngũ Kiên, huyện Vĩnh Tường, tỉnh Vĩnh Phúc",
+    thoiKy: "hien-dai",
+    trieuDai: "Kháng chiến chống Mỹ",
+    namMoc: 1964,
+    tomTat:
+      "Thiếu úy, Chính trị viên Đại đội 3, Tiểu đoàn 14 pháo cao xạ; mất ngày 18/11/1964 khi chỉ huy đơn vị chiến đấu với máy bay Mỹ ở miền Tây Quảng Bình; được truy tặng Anh hùng Lực lượng vũ trang nhân dân năm 1967.",
+    tieuSu: [
+      "Nguyễn Viết Xuân sinh năm 1933 ở làng Thượng Lãng, xã Ngũ Kiên, huyện Vĩnh Tường, Vĩnh Phúc. Nhập ngũ năm 1952, ông phục vụ Chiến dịch Điện Biên Phủ trong lực lượng phòng không.",
+      "Năm 1964, ông là thiếu úy, Chính trị viên Đại đội 3, Tiểu đoàn 14 pháo cao xạ thuộc Sư đoàn 325, bảo vệ vùng trời miền Tây Quảng Bình.",
+      "Ngày 18/11/1964, trong trận đánh tốp máy bay F-100 và F-105 của Mỹ ở khu vực Cha Lo, ông bị thương nặng ở đùi phải nhưng tiếp tục chỉ huy đơn vị, và mất trong ngày. Ngày 1/1/1967, ông được truy tặng danh hiệu Anh hùng Lực lượng vũ trang nhân dân.",
+    ],
+    boiCanh: ["Nguyễn Viết Xuân chiến đấu trong giai đoạn đầu của cuộc kháng chiến chống Mỹ, khi không quân Mỹ đánh phá miền Bắc; đơn vị ông bảo vệ vùng trời miền Tây Quảng Bình."],
+    congTrang: [
+      "Ngày 18/11/1964, bị thương nặng vẫn tiếp tục chỉ huy đơn vị pháo cao xạ chiến đấu ở Cha Lo.",
+      "Phục vụ Chiến dịch Điện Biên Phủ trong lực lượng phòng không.",
+      "Được truy tặng danh hiệu Anh hùng Lực lượng vũ trang nhân dân (1/1/1967).",
+    ],
+    suKien: [
+      {
+        nam: "1933",
+        text: "Sinh ở làng Thượng Lãng, Vĩnh Phúc.",
+      },
+      {
+        nam: "1952",
+        text: "Nhập ngũ.",
+      },
+      {
+        nam: "1964",
+        text: "Mất ngày 18/11 trong trận đánh máy bay Mỹ ở Cha Lo, Quảng Bình.",
+      },
+      {
+        nam: "1967",
+        text: "Được truy tặng danh hiệu Anh hùng Lực lượng vũ trang nhân dân (1/1).",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Nhà tưởng niệm Anh hùng liệt sĩ Nguyễn Viết Xuân (di tích lịch sử cấp tỉnh)",
+        diaDiem: "Xã Ngũ Kiên, huyện Vĩnh Tường, Vĩnh Phúc",
+      },
+      {
+        ten: "Nghĩa trang Liệt sĩ huyện Minh Hóa",
+        diaDiem: "Huyện Minh Hóa, Quảng Bình",
+      },
+    ],
+    tuongNiem: ["Tưởng niệm ngày 18 tháng 11 dương lịch (có nơi theo ngày 15 tháng 10 âm lịch)."],
+    ghiChuSuLieu:
+      "Trận đánh ngày 18/11/1964 diễn ra ở đồi Cha Lo, xã Dân Hóa, huyện Minh Hóa, Quảng Bình. Khẩu lệnh “Nhằm thẳng quân thù, bắn!” gắn với tên ông.",
+    wikiTitle: "Nguyễn Viết Xuân",
+    nguon: ["Báo Quân đội Nhân dân; Bảo tàng Phòng không – Không quân.", "Cổng thông tin điện tử tỉnh Vĩnh Phúc."],
+  },
+  {
+    slug: "nguyen-van-troi",
+    ten: "Nguyễn Văn Trỗi",
+    tenThat: null,
+    tenKhac: [],
+    namSinh: "1940",
+    namMat: "1964",
+    nienDai: "1940 – 1964",
+    queQuan: "Làng Thanh Quýt, xã Điện Thắng, huyện Điện Bàn, tỉnh Quảng Nam; nay thuộc phường Điện Thắng Trung, thị xã Điện Bàn, Quảng Nam",
+    thoiKy: "hien-dai",
+    trieuDai: "Kháng chiến chống Mỹ",
+    namMoc: 1964,
+    tomTat:
+      "Thành viên lực lượng Biệt động Sài Gòn; bị bắt ngày 9/5/1964 khi đặt mìn ở cầu Công Lý nhằm vào phái đoàn của Bộ trưởng Quốc phòng Mỹ Robert McNamara, và bị xử bắn tại Khám Chí Hòa ngày 15/10/1964.",
+    tieuSu: [
+      "Nguyễn Văn Trỗi sinh ngày 1/2/1940 ở làng Thanh Quýt, huyện Điện Bàn, Quảng Nam. Ông tham gia lực lượng Biệt động Sài Gòn, thuộc Đại đội Quyết tử 65 cánh Tây Nam.",
+      "Tháng 5/1964, ông nhận nhiệm vụ đặt mìn tại cầu Công Lý (Sài Gòn) nhằm vào phái đoàn quân sự cấp cao của Mỹ do Bộ trưởng Quốc phòng Robert McNamara dẫn đầu. Kế hoạch bị lộ, ông bị bắt ngày 9/5/1964 và không khai báo cơ sở trong thời gian bị giam.",
+      "Rạng sáng 15/10/1964, ông bị xử bắn tại Khám Chí Hòa, Sài Gòn; vụ xử bắn được báo chí quốc tế ghi hình. Ngày 17/10/1964, Mặt trận Dân tộc Giải phóng miền Nam Việt Nam truy tặng ông Huân chương Thành đồng hạng Nhất và danh hiệu Anh hùng Lực lượng vũ trang nhân dân.",
+    ],
+    boiCanh: ["Năm 1964, trong thời kỳ Chiến tranh đặc biệt ở miền Nam, lực lượng Biệt động hoạt động trong đô thị Sài Gòn chống sự can thiệp quân sự của Mỹ."],
+    congTrang: [
+      "Tháng 5/1964, nhận nhiệm vụ đặt mìn ở cầu Công Lý nhằm vào phái đoàn quân sự cấp cao của Mỹ.",
+      "Thành viên Biệt động Sài Gòn, Đại đội Quyết tử 65 cánh Tây Nam.",
+      "Không khai báo cơ sở trong thời gian bị giam (tháng 5 – tháng 10/1964).",
+    ],
+    suKien: [
+      {
+        nam: "1940",
+        text: "Sinh ngày 1/2 ở làng Thanh Quýt, Quảng Nam.",
+      },
+      {
+        nam: "Tháng 5/1964",
+        text: "Đặt mìn ở cầu Công Lý; bị bắt ngày 9/5.",
+      },
+      {
+        nam: "Tháng 10/1964",
+        text: "Bị xử bắn rạng sáng 15/10 tại Khám Chí Hòa; ngày 17/10 được truy tặng danh hiệu Anh hùng.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Nhà lưu niệm Anh hùng liệt sĩ Nguyễn Văn Trỗi (di tích lịch sử cấp quốc gia)",
+        diaDiem: "Phường Điện Thắng Trung, thị xã Điện Bàn, Quảng Nam",
+      },
+      {
+        ten: "Phần mộ tại Nghĩa trang Liệt sĩ TP. Hồ Chí Minh",
+        diaDiem: "TP. Hồ Chí Minh",
+      },
+    ],
+    tuongNiem: ["Tưởng niệm ngày 15 tháng 10 dương lịch hằng năm tại Điện Bàn (Quảng Nam) và TP. Hồ Chí Minh."],
+    ghiChuSuLieu:
+      "Cuộc đời ông được kể lại trong bút ký Sống như Anh của nhà văn Trần Đình Vân. Theo hồ sơ khảo cứu, vụ việc gây chú ý quốc tế: du kích ở Venezuela đã bắt giữ Trung tá Mỹ Smolen để đòi trao đổi lấy ông.",
+    wikiTitle: "Nguyễn Văn Trỗi",
+    nguon: ["Cổng thông tin điện tử tỉnh Quảng Nam; Bảo tàng Chứng tích Chiến tranh.", "NXB Quân đội Nhân dân."],
+  },
+  {
+    slug: "mac-thi-buoi",
+    ten: "Mạc Thị Bưởi",
+    tenThat: null,
+    tenKhac: [],
+    namSinh: "1927",
+    namMat: "1951",
+    nienDai: "1927 – 1951",
+    queQuan: "Làng Long Động, xã Nam Tân, huyện Nam Sách, tỉnh Hải Dương",
+    thoiKy: "hien-dai",
+    trieuDai: "Việt Nam Dân chủ Cộng hòa",
+    namMoc: 1951,
+    tomTat:
+      "Du kích, liên lạc viên ở Nam Sách (Hải Dương) trong kháng chiến chống thực dân Pháp; bị bắt khi vận chuyển vũ khí và mất ngày 23/4/1951; được truy tặng Anh hùng Lực lượng vũ trang nhân dân năm 1955.",
+    tieuSu: [
+      "Mạc Thị Bưởi sinh năm 1927 ở làng Long Động, huyện Nam Sách, Hải Dương. Từ năm 1946, bà hoạt động du kích bí mật trong vùng quân Pháp kiểm soát ở Nam Sách, làm liên lạc viên.",
+      "Bà xây dựng cơ sở kháng chiến trong vùng địch hậu, tổ chức tiếp tế lương thực, thuốc men qua sông Kinh Thầy về căn cứ, và nhiều lần vào đồn Pháp nắm tình hình.",
+      "Tháng 4/1951, khi vận chuyển vũ khí phục vụ Chiến dịch Hoàng Hoa Thám, bà bị bắt, không khai báo và mất ngày 23/4/1951 (ngày 18 tháng 3 năm Tân Mão). Ngày 31/8/1955, Chủ tịch Hồ Chí Minh ký sắc lệnh truy tặng bà danh hiệu Anh hùng Lực lượng vũ trang nhân dân.",
+    ],
+    boiCanh: ["Trong kháng chiến chống thực dân Pháp, huyện Nam Sách (Hải Dương) nằm trong vùng quân Pháp kiểm soát; lực lượng du kích hoạt động bí mật tại đây."],
+    congTrang: [
+      "Hoạt động du kích, làm liên lạc viên trong vùng quân Pháp kiểm soát ở Nam Sách từ năm 1946.",
+      "Xây dựng cơ sở kháng chiến, tổ chức tiếp tế lương thực, thuốc men qua sông Kinh Thầy.",
+      "Vận chuyển vũ khí phục vụ Chiến dịch Hoàng Hoa Thám (tháng 4/1951).",
+    ],
+    suKien: [
+      {
+        nam: "1927",
+        text: "Sinh ở làng Long Động, Nam Sách, Hải Dương.",
+      },
+      {
+        nam: "1946",
+        text: "Bắt đầu hoạt động du kích bí mật ở Nam Sách.",
+      },
+      {
+        nam: "1951",
+        text: "Bị bắt khi vận chuyển vũ khí; mất ngày 23/4.",
+      },
+      {
+        nam: "1955",
+        text: "Được truy tặng danh hiệu Anh hùng Lực lượng vũ trang nhân dân (31/8).",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Đền thờ Anh hùng liệt sĩ Mạc Thị Bưởi (di tích lịch sử cấp quốc gia)",
+        diaDiem: "Thôn Long Động, xã Nam Tân, huyện Nam Sách, Hải Dương",
+      },
+    ],
+    tuongNiem: ["Tưởng niệm ngày 23 tháng 4 dương lịch (có nơi theo ngày 18 tháng 3 âm lịch) tại xã Nam Tân, huyện Nam Sách, Hải Dương."],
+    ghiChuSuLieu:
+      "Hồ sơ khảo cứu ghi bà là nữ Anh hùng Lực lượng vũ trang nhân dân đầu tiên của Quân đội nhân dân Việt Nam. Thôn Long Động, quê bà, cũng là đất phát tích của nhà Mạc.",
+    wikiTitle: "Mạc Thị Bưởi",
+    nguon: ["Cổng thông tin điện tử tỉnh Hải Dương; Bảo tàng Phụ nữ Việt Nam.", "Bảo tàng Lịch sử Quốc gia."],
   },
 ];
