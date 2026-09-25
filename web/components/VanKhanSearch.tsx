@@ -33,7 +33,7 @@ function Thumb({ item, className }: { item: VanKhanCardData; className: string }
   if (item.thumb) {
     return (
       <span className={className}>
-        <img src={item.thumb} alt="" loading="lazy" decoding="async" />
+        <img src={item.thumb} alt={`Minh họa ${item.ten.charAt(0).toLowerCase()}${item.ten.slice(1)}`} loading="lazy" decoding="async" />
       </span>
     );
   }
