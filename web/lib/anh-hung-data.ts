@@ -5596,7 +5596,7 @@ export const ANH_HUNG_DATA: AnhHung[] = [
     tenKhac: [],
     namSinh: null,
     namMat: "2026",
-    nienDai: "1931 – 2026",
+    nienDai: "1932 – 2026",
     queQuan: "Xã Phong Nặm, huyện Trùng Khánh, tỉnh Cao Bằng",
     thoiKy: "hien-dai",
     trieuDai: "Việt Nam Dân chủ Cộng hòa",
@@ -5616,8 +5616,8 @@ export const ANH_HUNG_DATA: AnhHung[] = [
     ],
     suKien: [
       {
-        nam: "1931",
-        text: "Sinh ở xã Phong Nặm, Cao Bằng (có nguồn ghi năm 1932).",
+        nam: "1932",
+        text: "Sinh ở xã Phong Nặm, Cao Bằng.",
       },
       {
         nam: "1948",
@@ -5639,7 +5639,7 @@ export const ANH_HUNG_DATA: AnhHung[] = [
     diTich: [],
     tuongNiem: [],
     ghiChuSuLieu:
-      "Năm sinh được các nguồn ghi là 1931 hoặc 1932. Ông từ trần ngày 24/6/2026 (94 tuổi); hiện vật và tượng của ông được trưng bày tại Bảo tàng Lịch sử Quân sự Việt Nam và Bảo tàng Chiến thắng Đông Khê (Cao Bằng).",
+      "Ông từ trần ngày 24/6/2026 (94 tuổi); hiện vật và tượng của ông được trưng bày tại Bảo tàng Lịch sử Quân sự Việt Nam và Bảo tàng Chiến thắng Đông Khê (Cao Bằng).",
     wikiTitle: "La Văn Cầu",
     nguon: ["Cổng thông tin điện tử Bộ Quốc phòng; Báo Nhân Dân.", "Bảo tàng Lịch sử Quân sự Việt Nam."],
   },
