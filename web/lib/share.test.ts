@@ -3,16 +3,16 @@ import { buildShareUrl, copyText, facebookShareUrl, reduceMenu, shareNative } fr
 import { toolBySlug } from "./tools/tools";
 import { toolShare } from "./tools/share";
 
-const data = { title: "t", text: "x", url: "https://www.licham.app/ngay/2026-09-21/" };
+const data = { title: "t", text: "x", url: "https://licham.app/ngay/2026-09-21/" };
 
 describe("buildShareUrl", () => {
   it("dùng host www, thêm / cuối, bỏ query và hash", () => {
-    expect(buildShareUrl("/ngay/2026-09-21?utm_source=x&debug=1#a")).toBe("https://www.licham.app/ngay/2026-09-21/");
-    expect(buildShareUrl("https://www.licham.app/le/tet")).toBe("https://www.licham.app/le/tet/");
+    expect(buildShareUrl("/ngay/2026-09-21?utm_source=x&debug=1#a")).toBe("https://licham.app/ngay/2026-09-21/");
+    expect(buildShareUrl("https://licham.app/le/tet")).toBe("https://licham.app/le/tet/");
   });
   it("chỉ giữ query được liệt kê, theo thứ tự khai báo", () => {
     const url = buildShareUrl("/cong-cu/dem-ngay/", { keep: ["tu", "den"], query: { den: "2026-12-31", utm_source: "z", tu: "2026-01-01", preview: "1" } });
-    expect(url).toBe("https://www.licham.app/cong-cu/dem-ngay/?tu=2026-01-01&den=2026-12-31");
+    expect(url).toBe("https://licham.app/cong-cu/dem-ngay/?tu=2026-01-01&den=2026-12-31");
   });
 });
 
@@ -20,7 +20,7 @@ describe("toolShare", () => {
   const tool = toolBySlug("dem-ngay");
   it("giữ đúng query cần thiết và bỏ query lạ", () => {
     const s = toolShare(tool, { tu: "2026-01-01", den: "2026-12-31", utm_campaign: "a" }, "kq");
-    expect(s?.url).toBe("https://www.licham.app/cong-cu/dem-ngay/?tu=2026-01-01&den=2026-12-31");
+    expect(s?.url).toBe("https://licham.app/cong-cu/dem-ngay/?tu=2026-01-01&den=2026-12-31");
   });
   it("trạng thái form trống không có gì để chia sẻ", () => {
     expect(toolShare(tool, {}, "kq")).toBeNull();
@@ -59,8 +59,8 @@ describe("copyText", () => {
 
 describe("facebookShareUrl", () => {
   it("mã hoá URL", () => {
-    expect(facebookShareUrl("https://www.licham.app/a/?x=1&y=2")).toBe(
-      "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.licham.app%2Fa%2F%3Fx%3D1%26y%3D2",
+    expect(facebookShareUrl("https://licham.app/a/?x=1&y=2")).toBe(
+      "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flicham.app%2Fa%2F%3Fx%3D1%26y%3D2",
     );
   });
 });

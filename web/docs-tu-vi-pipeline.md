@@ -66,6 +66,6 @@ Chạy thật đầu tiên (Actions → Run workflow trên main, `redeploy` đ�
 4. [ ] Deploy: vào Vercel xem có deployment tự sinh từ commit của bot không.
    - Có → đặt variable `VERCEL_DEPLOYS_ON_PUSH=true` để bỏ lần gọi hook thừa.
    - Không (ví dụ bị chặn do tác giả commit không phải thành viên Vercel) → giữ biến chưa đặt; workflow gọi Deploy Hook.
-5. [ ] `https://www.licham.app/tu-vi` hiện đúng ngày và nội dung, không ở trạng thái dự phòng.
+5. [ ] `https://licham.app/tu-vi` hiện đúng ngày và nội dung, không ở trạng thái dự phòng.
 6. [ ] Lượt chạy lại ngay: trạng thái `exists`, 0 request, không commit mới.
 7. [ ] Thử đường lỗi (sau cùng, chỉ khi cần): dispatch với khóa sai → job đỏ, trang vẫn dựng; lượt 00:05 vẫn gọi hook.

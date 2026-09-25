@@ -9,7 +9,7 @@
  */
 import { get, pool, withServer } from "./lib/server.mjs";
 
-const SITE_URL = "https://www.licham.app";
+const SITE_URL = "https://licham.app";
 const SAMPLE_DAYS = Number(process.env.SEO_AUDIT_SAMPLE_DAYS ?? 1);
 const CONCURRENCY = Number(process.env.SEO_AUDIT_CONCURRENCY ?? 16);
 /** Trang lịch do audit này chịu trách nhiệm: trùng title/thiếu description là lỗi critical. */
