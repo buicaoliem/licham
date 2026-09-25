@@ -9,7 +9,7 @@ export const NHAN_VAT_IMPORTED: readonly NhanVat[] = [
    "Đệ Nhất Phúc Thần",
    "Nguyễn Tuấn"
   ],
-  "label": "tin-nguong",
+  "label": "truyen-thuyet",
   "group": "tu-bat-tu",
   "summary": "Tản Viên Sơn Thánh tên thật là Nguyễn Tuấn, sinh sống tại núi Ba Vì hùng vĩ. Ngài được mẹ nuôi Ma Thị trao gậy thần chỉ sinh chỉ tử và sách ước trị quốc. Trong cuộc thi kén rể công chúa Ngọc Hoa của Hùng Vương thứ 18, ngài mang sính lễ đến trước cưới được người đẹp. Khi Thủy Tinh dâng nước sông trả thù, ngài nâng cao núi bấy nhiêu chặn đứng dòng lũ dữ cứu bách tính. Về sau ngài dạy nhân dân cách săn bắn, đắp đê trị thủy, trồng lúa nước và phò tá dẹp giặc ngoại xâm. Ngài được nhân dân suy tôn đứng đầu hàng Tứ bất tử của tín ngưỡng Việt Nam.",
   "variants": [
@@ -87,7 +87,7 @@ export const NHAN_VAT_IMPORTED: readonly NhanVat[] = [
    "Phù Đổng Thiên Vương",
    "Xung Thiên Thần Vương"
   ],
-  "label": "tin-nguong",
+  "label": "truyen-thuyet",
   "group": "tu-bat-tu",
   "summary": "Thời Hùng Vương thứ 6, người mẹ ướm chân vào vết chân khổng lồ rồi mang thai sinh ra cậu bé làng Gióng lên ba không biết nói cười. Khi giặc Ân tràn sang bờ cõi, nghe tiếng loa sứ giả, cậu bé cất tiếng đòi rèn ngựa sắt, áo giáp sắt, roi sắt đi dẹp giặc. Dân làng góp gạo nuôi chú bé lớn nhanh như thổi thành tráng sĩ phi thường. Ra trận, ngựa sắt phun lửa thiêu cháy quân thù, roi sắt gãy ngài nhổ tre đằng ngà quật tan giặc giã. Dẹp xong giặc, ngài đến chân núi Sóc cởi giáp sắt rồi cưỡi ngựa bay thẳng lên trời. Nhân dân đời đời ghi nhớ công ơn hộ quốc, tôn ngài làm bậc Thánh nhân cứu quốc.",
   "image": "/heritage/van-hoa/nhan-vat/thanh-giong-hero.webp",
@@ -158,7 +158,7 @@ export const NHAN_VAT_IMPORTED: readonly NhanVat[] = [
    "Chử Đạo Tổ",
    "Nhất Dạ Trạch Thần"
   ],
-  "label": "tin-nguong",
+  "label": "truyen-thuyet",
   "group": "tu-bat-tu",
   "summary": "Chử Đồng Tử mồ côi mẹ, sống nghèo khó cùng cha ở bến sông Hồng, hai cha con chỉ có chung một chiếc khố. Cha mất, chàng chôn cha cùng chiếc khố rồi chịu trần truồng ngâm mình dưới nước kiếm sống qua ngày. Công chúa Tiên Dung vãng cảnh du ngoạn, quây màn tắm trên cát vô tình làm lộ chàng dưới lớp cát tạo nên mối lương duyên kỳ ngộ. Hai người kết duyên vợ chồng, từ chối quyền quý để đi buôn bán và học đạo Phật từ tăng sĩ Phật Quang. Nhờ cây gậy và nón tiên thần diệu, họ chữa lành dịch bệnh cứu vớt bách tính nghèo khổ. Sau một đêm tạo dựng thành trì phố chợ nguy nga, cả gia đình ngài cùng bay về trời để lại đầm Nhất Dạ.",
   "variants": [
@@ -221,7 +221,7 @@ export const NHAN_VAT_IMPORTED: readonly NhanVat[] = [
   "otherNames": [
    "Tiên Dung công chúa"
   ],
-  "label": "tin-nguong",
+  "label": "truyen-thuyet",
   "group": "tu-bat-tu",
   "summary": "Tiên Dung là công chúa xinh đẹp tuyệt trần của Hùng Vương thứ 18, tính tình phóng khoáng thích ngao du sơn thủy. Nàng kiên quyết từ chối các cuộc hôn phối do cha sắp đặt để tìm kiếm tự do tâm hồn giữa thiên nhiên. Khi thuyền ghé bãi Tự Nhiên, cuộc gặp gỡ bất ngờ với Chử Đồng Tử giấu mình dưới cát được nàng thấu thị là duyên nợ trời định. Vượt qua mọi lễ giáo cung đình ngặt nghèo, nàng tự nguyện kết hôn cùng chàng trai nghèo dẫu bị vua cha phế tước. Nàng cùng chồng mở mang thương điếm ven sông, học phép cứu dân độ thế rồi cùng hóa tiên về trời. Nàng được muôn đời xưng tụng là biểu tượng của tình yêu tự do và lòng bác ái.",
   "variants": [
@@ -946,7 +946,7 @@ export const NHAN_VAT_IMPORTED: readonly NhanVat[] = [
    "Lý Thân",
    "Đức Thánh Chèm"
   ],
-  "label": "truyen-thuyet",
+  "label": "tin-nguong",
   "group": "thoi-dung-nuoc",
   "summary": "Lý Thân sinh tại làng Chèm thời Hùng Vương cuối, sở hữu thân hình khổng lồ cao hai trượng ba thước và sức mạnh bạt núi ngăn sông. Phò tá An Dương Vương dẹp yên bờ cõi, ngài được vua cử đi sứ nhà Tần theo yêu cầu cống nạp nhân tài của Tần Thủy Hoàng. Vua Tần phong ngài làm Tư Lệ hiệu úy, giao đem quân trấn giữ đất hiểm Lâm Thao đánh dẹp quân giặc Hung Nô. Uy danh ngài lẫy lừng khiến quân Hung Nô kinh hồn bạt vía không dám xâm lấn biên ải suốt hàng chục năm trời. Về già, ngài từ quan vinh quy hồi hương về làng Chèm sống thanh bạch cùng thôn xóm rồi thanh thản tạ thế bên dòng sông Hồng. Vua Tần tiếc thương cho đúc pho tượng đồng khổng lồ đặt trước cung A Phòng để răn đe giặc Hung Nô từ xa.",
   "variants": [
