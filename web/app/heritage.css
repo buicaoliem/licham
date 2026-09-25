@@ -12392,3 +12392,287 @@ a.ly-cell:hover {
   color: var(--ink-2);
   overflow-wrap: anywhere;
 }
+
+/* ==========================================================================
+   Hero chi tiết: ảnh gốc trọn vẹn, sắc nét ở cột phải + lớp nền cùng ảnh phóng to, làm mờ,
+   trải sang trái dưới cột chữ rồi tan vào nền kem (mờ dần bằng mask). Ảnh thật không bị phủ.
+   Biến --hero-art (url ảnh) đặt inline trên khối ảnh. Áp dụng: /le/*, /van-khan/*, /anh-hung-dan-toc/*.
+   ========================================================================== */
+.le-hero-art::before,
+.vk-hero-art::before,
+.ah-profile-art::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: -30px;
+  bottom: -30px;
+  right: -30px;
+  left: -85%;
+  background: var(--hero-art, none) center / cover no-repeat;
+  filter: blur(26px) saturate(1.1);
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, transparent 6%, rgba(0, 0, 0, 0.1) 24%, rgba(0, 0, 0, 0.22) 38%, rgba(0, 0, 0, 0.6) 47%, #000 56%);
+  mask-image: linear-gradient(90deg, transparent 0%, transparent 6%, rgba(0, 0, 0, 0.1) 24%, rgba(0, 0, 0, 0.22) 38%, rgba(0, 0, 0, 0.6) 47%, #000 56%);
+}
+/* Chú thích một dòng trên ảnh (co chữ theo bề rộng khung ảnh, không xuống dòng) */
+.le-art-note,
+.le-photo figcaption,
+.ah-art-note {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  z-index: 3;
+  max-width: none;
+  margin: 0;
+  padding: 3px 7px;
+  border: 0;
+  border-radius: 6px;
+  background: rgba(255, 253, 248, 0.9);
+  font-family: var(--sans);
+  font-size: min(11px, 2.9cqw);
+  font-style: normal;
+  line-height: 1.35;
+  white-space: nowrap;
+  color: var(--ink-2);
+  text-align: right;
+}
+.le-hero-art,
+.vk-hero-art,
+.ah-profile-art {
+  container-type: inline-size;
+}
+
+@media (min-width: 760px) {
+  .le-herocard.art-img,
+  .le-herocard.art-photo,
+  .vk-herocard.has-art {
+    background: var(--card);
+  }
+  .le-hero-text,
+  .vk-hero-text {
+    position: relative;
+    z-index: 2;
+  }
+  .le-herocard.art-img .le-hero-art,
+  .le-herocard.art-photo .le-hero-art,
+  .vk-herocard.has-art .vk-hero-art {
+    position: relative;
+    display: block;
+    min-height: 290px;
+    padding: 0;
+    border-left: 0;
+    background: none;
+  }
+  .le-herocard.art-img .le-hero-art img[src],
+  .vk-herocard.has-art .vk-hero-art img[src],
+  .le-herocard.art-photo .le-photo img {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    object-fit: contain;
+    object-position: center;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .le-herocard.art-photo .le-photo {
+    position: absolute;
+    inset: 0;
+    display: block;
+    margin: 0;
+  }
+  .le-herocard.art-photo .le-photo img {
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ah-profile {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.95fr);
+  }
+  .ah-profile-text {
+    position: relative;
+    z-index: 2;
+  }
+  .ah-profile-art {
+    order: 2;
+    position: relative;
+    justify-content: center;
+    border-right: 0;
+    background: none;
+  }
+  .ah-profile-art .ah-art,
+  .ah-profile-art .ah-art.photo {
+    position: relative;
+    z-index: 1;
+    flex: none;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    height: auto;
+    min-height: 0;
+    background: none;
+  }
+  .ah-profile-art .ah-art.photo {
+    aspect-ratio: auto;
+    flex: 1;
+    min-height: 380px;
+  }
+  .ah-profile-art .ah-art img,
+  .ah-profile-art .ah-art.photo img {
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    object-fit: contain;
+  }
+  /* Ảnh 4:3: chú thích đè lên góc dưới phải ảnh; ảnh chân dung: góc dưới phải khung */
+  .ah-profile-art .ah-art-note {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    align-self: flex-end;
+    width: max-content;
+    margin: -30px 8px 0 0;
+  }
+  .ah-profile-art .ah-art.photo img {
+    position: absolute;
+    inset: 0;
+  }
+  .ah-profile-art .ah-art.photo ~ .ah-art-note {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    margin: 0;
+  }
+}
+
+/* Mobile: ảnh trên cùng, đủ bề ngang, lớp mờ tan xuống dưới vào phần chữ */
+@media (max-width: 759px) {
+  .le-herocard.art-img,
+  .le-herocard.art-photo {
+    overflow: hidden;
+  }
+  .vk-herocard.has-art {
+    overflow: hidden;
+  }
+  .le-hero-text,
+  .vk-hero-text {
+    position: relative;
+    z-index: 2;
+  }
+  .le-herocard.art-img .le-hero-art,
+  .le-herocard.art-photo .le-hero-art,
+  .vk-herocard.has-art .vk-hero-art {
+    position: relative;
+    display: block;
+    order: -1;
+    height: auto;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+    background: none;
+  }
+  .le-hero-art::before,
+  .vk-hero-art::before {
+    left: -30px;
+    top: -30px;
+    bottom: -70px;
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 55%, rgba(0, 0, 0, 0.35) 80%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 0%, #000 55%, rgba(0, 0, 0, 0.35) 80%, transparent 100%);
+  }
+  .le-herocard.art-img .le-hero-art img[src],
+  .vk-herocard.has-art .vk-hero-art img[src] {
+    position: relative;
+    inset: auto;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    border-radius: 0;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .le-herocard.art-photo .le-photo {
+    position: relative;
+    z-index: 1;
+    display: block;
+    height: 250px;
+    margin: 0;
+  }
+  .le-herocard.art-photo .le-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .le-hero-art.has-note .le-art-note {
+    position: absolute;
+    right: 6px;
+    bottom: 6px;
+    margin: 0;
+    padding: 3px 7px;
+    border-radius: 6px;
+    background: rgba(255, 253, 248, 0.9);
+    font-size: min(11px, 2.9cqw);
+    font-style: normal;
+    text-align: right;
+  }
+  .le-herocard.art-img .le-hero-art.has-note {
+    display: block;
+    height: auto;
+  }
+}
+
+@media (max-width: 1023px) {
+  .ah-profile-art {
+    position: relative;
+    display: block;
+    border-bottom: 0;
+    background: none;
+  }
+  .ah-profile-text {
+    position: relative;
+    z-index: 2;
+  }
+  .ah-profile-art::before {
+    left: -30px;
+    top: -30px;
+    bottom: -70px;
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 55%, rgba(0, 0, 0, 0.35) 80%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 0%, #000 55%, rgba(0, 0, 0, 0.35) 80%, transparent 100%);
+  }
+  .ah-profile-art .ah-art,
+  .ah-profile-art .ah-art.photo {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    background: none;
+  }
+  .ah-profile-art .ah-art.photo {
+    aspect-ratio: auto;
+    height: 260px;
+  }
+  .ah-profile-art .ah-art img,
+  .ah-profile-art .ah-art.photo img {
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    object-fit: contain;
+  }
+  .ah-profile-art .ah-art-note {
+    position: absolute;
+    right: 6px;
+    bottom: 6px;
+  }
+}

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { heroArtStyle } from "@/lib/heritage-assets";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
@@ -128,10 +129,10 @@ export default async function AnhHungPage({ params }: { params: Promise<{ slug: 
         </div>
 
         <section className={`ah-profile tk-${a.thoiKy}`}>
-          <div className="ah-profile-art">
+          <div className="ah-profile-art" style={heroArtStyle(art?.kind === "img" || art?.kind === "photo" ? art.src : null)}>
             <AhArtView a={a} art={art} eager alt />
             <span className="ah-art-note">
-              {art?.kind === "photo" ? "Ảnh: Wikimedia Commons, phạm vi công cộng" : "Tranh minh họa của licham.app, không phải chân dung hay tư liệu lịch sử"}
+              {art?.kind === "photo" ? "Ảnh: Wikimedia Commons, phạm vi công cộng" : "Tranh minh họa, không phải chân dung hay tư liệu lịch sử"}
             </span>
           </div>
           <div className="ah-profile-text">

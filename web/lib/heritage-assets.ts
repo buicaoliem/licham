@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { HERITAGE_FILES } from "./heritage-assets.generated";
 
 /**
@@ -31,6 +32,12 @@ export function heritageFile(path: string): string | null {
 
 export function heritageSlot(slot: HeritageSlot): string | null {
   return heritageFile(HERITAGE_SLOTS[slot].path);
+}
+
+/** Biến CSS --hero-art cho lớp nền mờ (tranh phóng to, làm mờ) dưới chữ ở thẻ hero: dùng cùng file với ảnh chính. */
+export function heroArtStyle(path: string | null | undefined): CSSProperties | undefined {
+  const file = path ? (heritageFile(path) ?? (path.startsWith("/heritage/") ? null : path)) : null;
+  return file ? ({ "--hero-art": `url("${file}")` } as CSSProperties) : undefined;
 }
 
 /**
