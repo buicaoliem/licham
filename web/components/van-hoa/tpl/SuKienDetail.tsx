@@ -37,6 +37,7 @@ export function SuKienDetail({ ev }: { ev: SuKien }) {
           description: ev.summary,
           path: `/van-hoa/su-kien/${ev.slug}/`,
           image: ev.heroImage,
+          updatedAt: ev.updatedAt,
           about: fromSources ? { "@type": "Event", name: ev.title, startDate: `${ev.solar!.year}-${String(ev.solar!.month).padStart(2, "0")}-${String(ev.solar!.day).padStart(2, "0")}` } : undefined,
         })}
       />

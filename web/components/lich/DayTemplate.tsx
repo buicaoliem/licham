@@ -23,6 +23,7 @@ import { faqJsonLd } from "@/lib/calendar/jsonld";
 import { getRelatedLinksForDay } from "@/lib/calendar/related";
 import { dayHref } from "@/lib/calendar/urls";
 import { pad2 } from "@/lib/format";
+import { LunarDayBlocks } from "@/components/van-hoa/blocks/Blocks";
 import { LcCard, LcFaq, LcKv, LcRelated } from "./LichParts";
 
 const short = (d: SolarDate) => `${pad2(d.day)}/${pad2(d.month)}`;
@@ -138,6 +139,7 @@ export function DayTemplate({
           <JsonLd data={faqJsonLd(faqs)} />
         </div>
 
+        <LunarDayBlocks date={date} lunarDay={day.lunarDate.day} lunarMonth={day.lunarDate.month} leap={day.lunarDate.isLeapMonth} />
         {children}
         <DayNavigation date={date} prev={prev} next={next} />
         <LcRelated links={getRelatedLinksForDay(date, day)} />

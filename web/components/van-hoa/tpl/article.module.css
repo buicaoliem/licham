@@ -1,0 +1,251 @@
+/* Khuôn bài viết thường /van-hoa/bai-viet/. Tiêu đề canh trái như các bài dài khác của site (Văn khấn, Ngày lễ). Mobile-first. */
+.banner {
+  display: none;
+}
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  padding-top: 8px;
+}
+.head {
+  min-width: 0;
+}
+.h1 {
+  margin: 8px 0 0;
+  font-family: var(--serif, serif);
+  font-weight: 700;
+  font-size: 27px;
+  line-height: 1.2;
+  letter-spacing: -0.018em;
+  color: var(--ink, #2d2a26);
+  text-align: left;
+  text-wrap: balance;
+}
+.meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin: 12px 0 0;
+  color: var(--vh-muted);
+  font-size: 15px;
+  line-height: 22px;
+}
+.hero {
+  margin: 0;
+}
+.heroImg {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.toc {
+  background: #fff;
+  border: 1px solid #eee8df;
+  border-radius: 12px;
+  min-width: 0;
+}
+.tocToggle {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.tocHead {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 8px 16px;
+  font-family: var(--serif, serif);
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--vh-red);
+  cursor: pointer;
+}
+.tocChev {
+  margin-left: auto;
+  transition: transform 0.15s;
+}
+.tocToggle:checked + .tocHead .tocChev {
+  transform: rotate(90deg);
+}
+.tocToggle:focus-visible + .tocHead {
+  outline: 2px solid var(--vh-red);
+  outline-offset: -2px;
+  border-radius: 12px;
+}
+.tocList {
+  display: none;
+  margin: 0;
+  padding: 0 16px 12px 40px;
+}
+.tocToggle:checked ~ .tocList {
+  display: block;
+}
+.tocList li {
+  padding: 4px 0;
+}
+.tocList a {
+  color: var(--vh-ink);
+  text-decoration: none;
+}
+.tocList a:hover {
+  color: var(--vh-red);
+  text-decoration: underline;
+}
+.body {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.sec {
+  scroll-margin-top: 16px;
+}
+.h2 {
+  margin: 8px 0 8px;
+  font-family: var(--serif, serif);
+  font-weight: 700;
+  font-size: 21.5px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--ink, #2d2a26);
+  text-align: left;
+}
+.h3 {
+  margin: 12px 0 6px;
+  font-family: var(--serif, serif);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 26px;
+  text-align: left;
+}
+.dateRows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+.dateRows li {
+  display: grid;
+  gap: 2px;
+  padding-top: 12px;
+  border-top: 1px solid var(--vh-line);
+}
+.dateRows li:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+.dateRows small {
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--vh-muted);
+}
+.quote {
+  margin: 0;
+  padding: 16px 16px 16px 20px;
+  border-left: 4px solid var(--vh-red);
+  border-radius: 0 12px 12px 0;
+  background: var(--vh-alt);
+  font-family: var(--serif, serif);
+  font-size: 18px;
+  line-height: 28px;
+}
+.quote p {
+  margin: 0;
+}
+.quote footer {
+  margin-top: 8px;
+  font-family: var(--sans, inherit);
+  font-size: 15px;
+  color: var(--vh-muted);
+}
+.relGrid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+}
+.relCard {
+  display: block;
+  height: 100%;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #eee8df;
+  border-radius: 12px;
+  color: var(--vh-ink);
+  text-decoration: none;
+}
+.relCard b {
+  display: block;
+  font-family: var(--serif, serif);
+  font-size: 18px;
+  line-height: 26px;
+  color: var(--vh-red);
+}
+.relCard span {
+  display: block;
+  margin-top: 4px;
+}
+.relCard:hover {
+  background: #fee2e2;
+}
+
+@media (min-width: 640px) {
+  .relGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (min-width: 900px) {
+  .banner {
+    display: block;
+    height: 120px;
+    background: var(--vh-alt) url("/heritage/van-hoa/lich-su-theo-nam-hero.webp") 50% 60% / cover no-repeat;
+  }
+  .layout {
+    grid-template-columns: minmax(0, 1fr) 280px;
+    grid-template-areas:
+      "head toc"
+      "hero toc"
+      "body toc";
+    column-gap: 32px;
+    padding-top: 24px;
+  }
+  .head {
+    grid-area: head;
+  }
+  .hero {
+    grid-area: hero;
+  }
+  .body {
+    grid-area: body;
+    gap: 24px;
+  }
+  .toc {
+    grid-area: toc;
+    align-self: start;
+    position: sticky;
+    top: 96px;
+  }
+  .h1 {
+    font-size: 38px;
+  }
+  .h2 {
+    font-size: 23px;
+  }
+  .tocHead {
+    cursor: default;
+  }
+  .tocChev {
+    display: none;
+  }
+  .tocList {
+    display: block;
+  }
+}

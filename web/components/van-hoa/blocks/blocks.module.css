@@ -1,0 +1,149 @@
+/* Ba khối Văn hoá gắn vào trang có sẵn. Dùng biến --vh-* của .root (van-hoa.module.css) và lớp dùng chung của tpl.module.css. Mobile-first. */
+.block {
+  margin: 24px 0 0;
+  padding: 16px;
+  border: 1px solid var(--vh-line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 12px;
+  font-family: var(--serif, serif);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--vh-red);
+  text-align: left;
+}
+.duo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+  margin: 24px 0 0;
+}
+.duo > .block {
+  margin: 0;
+}
+.evList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+.evRow {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 12px;
+  padding: 12px;
+  background: #fff;
+  border: 1px solid #eee8df;
+  border-radius: 12px;
+  min-width: 0;
+}
+.evYear {
+  font-family: var(--serif, serif);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--vh-red);
+}
+.evTitle {
+  display: block;
+  margin: 6px 0 0;
+  color: var(--vh-ink);
+  font-weight: 600;
+  text-decoration: none;
+}
+.evTitle:hover {
+  color: var(--vh-red);
+}
+.moon {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px;
+  background: #fff;
+  border: 1px solid #eee8df;
+  border-radius: 12px;
+}
+.moon svg {
+  width: 132px;
+  max-width: 40%;
+  height: auto;
+  flex: none;
+}
+.moonText p {
+  margin: 0;
+}
+.moonPhase {
+  font-family: var(--serif, serif);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 26px;
+}
+.more {
+  margin: 12px 0 0;
+  text-align: right;
+}
+.more a {
+  display: inline-block;
+  padding: 8px 0 8px 12px;
+  color: var(--vh-red);
+  font-weight: 600;
+  text-decoration: none;
+}
+.more a:hover {
+  text-decoration: underline;
+}
+.tlBox {
+  padding: 12px;
+  background: #fff;
+  border: 1px solid #eee8df;
+  border-radius: 12px;
+  min-width: 0;
+}
+.tlBox b {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--serif, serif);
+  font-size: 18px;
+  line-height: 26px;
+}
+.tlBox p {
+  margin: 2px 0 0;
+}
+.tlY {
+  font-family: var(--serif, serif);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--vh-red);
+}
+.place {
+  margin: 4px 0 0;
+  color: var(--vh-muted);
+  font-size: 15px;
+  line-height: 22px;
+}
+@media (min-width: 900px) {
+  .block {
+    padding: 24px;
+  }
+  .duo {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    align-items: start;
+  }
+  .duo > :only-child {
+    grid-column: 1 / -1;
+  }
+}
+/* Ghi đè lưới thẻ dùng chung: cột chính trang ngày lễ hẹp nên không ép 3 cột. */
+ul.people {
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}

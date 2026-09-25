@@ -1,5 +1,4 @@
 import { SITE_URL } from "@/lib/site";
-import { VAN_HOA_UPDATED } from "./config";
 
 const ORG = { "@type": "Organization", name: "Lịch Âm – licham.app", url: SITE_URL };
 const abs = (p: string) => (p.startsWith("http") ? p : `${SITE_URL}${p}`);
@@ -20,7 +19,7 @@ export function collectionJsonLd(name: string, description: string, path: string
   };
 }
 
-export function articleJsonLd(a: { headline: string; description: string; path: string; image?: string | null; about?: object }) {
+export function articleJsonLd(a: { headline: string; description: string; path: string; image?: string | null; about?: object; updatedAt?: string }) {
   return {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -31,7 +30,7 @@ export function articleJsonLd(a: { headline: string; description: string; path: 
     ...(a.image ? { image: abs(a.image) } : {}),
     author: ORG,
     publisher: ORG,
-    dateModified: VAN_HOA_UPDATED,
+    ...(a.updatedAt ? { dateModified: a.updatedAt } : {}),
     ...(a.about ? { about: a.about } : {}),
   };
 }

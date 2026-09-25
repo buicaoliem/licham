@@ -128,9 +128,6 @@ export interface NewPost {
 }
 export const NEW_POSTS: readonly NewPost[] = [];
 
-/** Ngày cập nhật nội dung /van-hoa/ (ISO) cho dateModified trong JSON-LD; dữ liệu chưa có ngày riêng từng bài — đổi khi sửa nội dung. */
-export const VAN_HOA_UPDATED = "2026-09-25";
-
 /** Ảnh ngang con giáp: phía có con vật; chữ đặt ở phía trống còn lại. */
 export const CHI_HERO_ANIMAL_SIDE: Record<string, "left" | "right"> = {
   ty: "left", suu: "right", dan: "left", mao: "right", thin: "left", "ty-ran": "right",

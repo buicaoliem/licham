@@ -6,6 +6,7 @@ import { canChiOfYear, jdFromDate } from "@licham/core";
 import { Breadcrumb } from "@/components/calendar/Breadcrumb";
 import { ShareButton } from "@/components/ShareButton";
 import { LeFlagIllustration, LeHeroIllustration, hasHeroIllustration } from "@/components/LeIllustration";
+import { NhanVatLienQuan } from "@/components/van-hoa/blocks/Blocks";
 import { ChShell } from "@/components/heritage/ChShell";
 import { HeritageImage } from "@/components/heritage/HeritageImage";
 import { HCM_LE_SLUG, HCM_TRANH_NOTE, LE_TRANH_LICH_SU, leImage } from "@/lib/heritage-assets";
@@ -545,6 +546,8 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
                 ))}
               </div>
             </Sec>
+
+            <NhanVatLienQuan leSlug={page.slug} />
           </div>
 
           <aside className="ch-side le-d-side">

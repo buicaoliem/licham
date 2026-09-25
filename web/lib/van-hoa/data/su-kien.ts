@@ -16,6 +16,7 @@ const FIXTURE: SuKien = {
   yNghia: ["[Mẫu] Đoạn ý nghĩa."],
   disputed: "[Mẫu] Nguồn A ghi ngày khác với nguồn B; trang này theo nguồn A.",
   relatedNhanVat: [FIXTURE_SLUG],
+  updatedAt: "2026-09-25",
   sources: [{ text: "[Nguồn mẫu — thay bằng nguồn thật]" }],
 };
 
