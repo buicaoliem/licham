@@ -33,24 +33,6 @@ export function heritageSlot(slot: HeritageSlot): string | null {
   return heritageFile(HERITAGE_SLOTS[slot].path);
 }
 
-const NHOM_SLUG: Record<string, string> = {
-  "Trong nhà": "trong-nha",
-  "Lễ tết": "le-tet",
-  "Việc lớn": "viec-lon",
-  "Cầu an": "cau-an",
-  "Đi lễ": "di-le",
-};
-
-/** Ảnh riêng của bài (4:3) — nếu chưa có thì dùng ảnh chung của nhóm. */
-export function vanKhanImagePaths(slug: string, nhom: string): { own: string; nhom: string } {
-  return { own: `/heritage/van-khan/${slug}.webp`, nhom: `/heritage/van-khan/nhom/${NHOM_SLUG[nhom] ?? "khac"}.webp` };
-}
-
-export function vanKhanImage(slug: string, nhom: string): string | null {
-  const p = vanKhanImagePaths(slug, nhom);
-  return heritageFile(p.own) ?? heritageFile(p.nhom);
-}
-
 /**
  * Tranh con giáp cần thay. Batch B (2026-09-24) đã thay sáu tranh riêng (Sửu, Dần, Mão, Thìn, Tỵ, Dậu, 1024×1024)
  * và bỏ clip-path che bleed; Review-31 thay nốt sáu tranh còn lại (Tý, Ngọ, Mùi, Thân, Tuất, Hợi) cùng bộ 1024×1024.

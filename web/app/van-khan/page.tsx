@@ -5,7 +5,8 @@ import { type VanKhanCardData, VanKhanSearch } from "@/components/VanKhanSearch"
 import { ChHero, ChShell } from "@/components/heritage/ChShell";
 import { Icon, type IconName } from "@/components/heritage/Icon";
 import { NHOM_ICON, nhomAnchor } from "@/components/heritage/vanKhanUi";
-import { HERITAGE_SLOTS, vanKhanImage, vanKhanImagePaths } from "@/lib/heritage-assets";
+import { HERITAGE_SLOTS } from "@/lib/heritage-assets";
+import { vanKhanImage, vanKhanImagePaths } from "@/lib/van-khan-anh";
 import { getVietnamToday } from "@/lib/today";
 import { VAN_KHAN_NHOM_LIST, type VanKhanBai, vanKhanByNhom, vanKhanBySlug } from "@/lib/van-khan";
 

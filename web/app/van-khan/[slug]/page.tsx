@@ -9,7 +9,8 @@ import { Icon } from "@/components/heritage/Icon";
 import { HeritageImage, heritageVisible } from "@/components/heritage/HeritageImage";
 import { TocDetails } from "@/components/heritage/TocDetails";
 import { NHOM_ICON } from "@/components/heritage/vanKhanUi";
-import { heritageSlot, vanKhanImagePaths } from "@/lib/heritage-assets";
+import { heritageSlot } from "@/lib/heritage-assets";
+import { vanKhanImagePaths } from "@/lib/van-khan-anh";
 import { LE_LIST } from "@/lib/le";
 import { getVietnamToday } from "@/lib/today";
 import { VAN_KHAN_LIST, splitFillIns, vanKhanBySlug, vanKhanLienQuan } from "@/lib/van-khan";
@@ -133,7 +134,7 @@ export default async function VanKhanPage({ params }: { params: Promise<{ slug: 
             </div>
             {coAnh && (
               <div className="vk-hero-art">
-                <HeritageImage src={anh.own} fallback={anh.nhom} alt="" label="Ảnh chủ đạo bài (4:3); thiếu thì dùng ảnh nhóm" />
+                <HeritageImage src={anh.own} fallback={anh.nhom} alt={`Minh họa ${bai.ten.charAt(0).toLowerCase()}${bai.ten.slice(1)}`} eager label="Ảnh chủ đạo bài (4:3); thiếu thì dùng ảnh nhóm" />
               </div>
             )}
           </section>
