@@ -5133,11 +5133,11 @@ export const ANH_HUNG_DATA: AnhHung[] = [
     trieuDai: "Thời Pháp thuộc",
     namMoc: 1935,
     tomTat:
-      "Tổng Bí thư Đảng Cộng sản Đông Dương (1935–1936), chủ trì Đại hội lần thứ I của Đảng tại Ma Cao năm 1935; bị bắt năm 1939, bị đày ra Côn Đảo và mất tại đây năm 1942.",
+      "Tổng Bí thư Đảng Cộng sản Đông Dương (1935–1936), chủ trì Đại hội lần thứ I của Đảng tại Ma Cao năm 1935; bị bắt năm 1939, bị đày ra Côn Đảo và mất tại đây ngày 6/9/1942.",
     tieuSu: [
       "Lê Hồng Phong tên thật là Lê Huy Doãn, sinh năm 1902 ở làng Đông Thôn, phủ Hưng Nguyên, Nghệ An. Ông được cử sang Liên Xô học tại Trường Không quân Leningrad và Đại học Phương Đông (Moskva).",
       "Năm 1935, ông chủ trì Đại hội lần thứ I của Đảng tại Ma Cao và được bầu làm Tổng Bí thư Ban Chấp hành Trung ương Đảng Cộng sản Đông Dương. Cùng năm, ông dự Đại hội VII Quốc tế Cộng sản và được bầu làm Ủy viên Ban Chấp hành Quốc tế Cộng sản.",
-      "Năm 1939, ông bị mật thám bắt ở Sài Gòn, sau đó bị đày ra Côn Đảo và mất tại nhà tù Côn Đảo năm 1942.",
+      "Năm 1939, ông bị mật thám bắt ở Sài Gòn, sau đó bị đày ra Côn Đảo và mất tại nhà tù Côn Đảo ngày 6/9/1942.",
     ],
     boiCanh: ["Sau giai đoạn thoái trào 1930–1931, Đảng Cộng sản Đông Dương khôi phục hệ thống tổ chức; Đại hội lần thứ I của Đảng họp tại Ma Cao năm 1935."],
     congTrang: [
@@ -5160,7 +5160,7 @@ export const ANH_HUNG_DATA: AnhHung[] = [
       },
       {
         nam: "1942",
-        text: "Mất tại nhà tù Côn Đảo.",
+        text: "Ngày 6/9, mất tại nhà tù Côn Đảo.",
       },
     ],
     diTich: [
@@ -5173,9 +5173,9 @@ export const ANH_HUNG_DATA: AnhHung[] = [
         diaDiem: "Côn Đảo, Bà Rịa – Vũng Tàu",
       },
     ],
-    tuongNiem: ["Được tưởng niệm tại Khu lưu niệm ở Hưng Nguyên (Nghệ An) và tại Nghĩa trang Hàng Dương (Côn Đảo)."],
+    tuongNiem: ["Ngày mất 6/9 (dương lịch) hằng năm.", "Được tưởng niệm tại Khu lưu niệm ở Hưng Nguyên (Nghệ An) và tại Nghĩa trang Hàng Dương (Côn Đảo)."],
     ghiChuSuLieu:
-      "Một số tài liệu cũ ghi năm sinh là 1900; về sau Viện Lịch sử Đảng và gia phả dòng họ thống nhất năm sinh 1902. Ngày mất chưa được đối chiếu thống nhất nên trang này chỉ ghi năm 1942.",
+      "Một số tài liệu cũ ghi năm sinh là 1900; về sau Viện Lịch sử Đảng và gia phả dòng họ thống nhất năm sinh 1902. Ngày mất 6/9/1942 tại Côn Đảo.",
     wikiTitle: "Lê Hồng Phong",
     nguon: ["Tiểu sử Lê Hồng Phong, NXB Chính trị Quốc gia Sự thật.", "Ban Quản lý Di tích Côn Đảo."],
   },
@@ -5595,8 +5595,8 @@ export const ANH_HUNG_DATA: AnhHung[] = [
     tenThat: "Sầm Phúc Hướng",
     tenKhac: [],
     namSinh: null,
-    namMat: null,
-    nienDai: "Sinh năm 1931 (có nguồn ghi 1932)",
+    namMat: "2026",
+    nienDai: "1931 – 2026",
     queQuan: "Xã Phong Nặm, huyện Trùng Khánh, tỉnh Cao Bằng",
     thoiKy: "hien-dai",
     trieuDai: "Việt Nam Dân chủ Cộng hòa",
@@ -5606,7 +5606,7 @@ export const ANH_HUNG_DATA: AnhHung[] = [
     tieuSu: [
       "La Văn Cầu tên khai sinh là Sầm Phúc Hướng, người dân tộc Tày, quê xã Phong Nặm, huyện Trùng Khánh, Cao Bằng; khi nhập ngũ năm 1948, ông đổi tên là La Văn Cầu. Ông là chiến sĩ Trung đoàn 174, tham gia 16 trận đánh lớn.",
       "Đêm 16/9/1950, trong trận đánh đồn Đông Khê mở màn Chiến dịch Biên giới Thu Đông 1950, ông được giao ôm bộc phá phá lô cốt. Cánh tay phải bị thương nặng, ông đề nghị đồng đội cắt bỏ phần tay bị thương rồi tiếp tục ôm khối bộc phá 12 kg lên đánh sập lô cốt số 3.",
-      "Năm 1952, tại Đại hội Chiến sĩ thi đua toàn quốc lần thứ nhất, ông được phong danh hiệu Anh hùng Lực lượng vũ trang nhân dân, là một trong 7 anh hùng đầu tiên của Quân đội. Theo hồ sơ khảo cứu, ông hiện còn sống và sinh sống tại Hà Nội.",
+      "Năm 1952, tại Đại hội Chiến sĩ thi đua toàn quốc lần thứ nhất, ông được phong danh hiệu Anh hùng Lực lượng vũ trang nhân dân, là một trong 7 anh hùng đầu tiên của Quân đội. Ông từ trần ngày 24/6/2026, hưởng thọ 94 tuổi.",
     ],
     boiCanh: ["Chiến dịch Biên giới Thu Đông 1950 mở màn bằng trận tiến công cứ điểm Đông Khê (Cao Bằng) đêm 16/9/1950."],
     congTrang: [
@@ -5631,11 +5631,15 @@ export const ANH_HUNG_DATA: AnhHung[] = [
         nam: "1952",
         text: "Được phong danh hiệu Anh hùng Lực lượng vũ trang nhân dân.",
       },
+      {
+        nam: "2026",
+        text: "Từ trần ngày 24/6/2026, hưởng thọ 94 tuổi.",
+      },
     ],
     diTich: [],
     tuongNiem: [],
     ghiChuSuLieu:
-      "Năm sinh được các nguồn ghi là 1931 hoặc 1932. Theo hồ sơ khảo cứu, ông hiện còn sống nên không có ngày giỗ hay nơi thờ; hiện vật và tượng của ông được trưng bày tại Bảo tàng Lịch sử Quân sự Việt Nam và Bảo tàng Chiến thắng Đông Khê (Cao Bằng).",
+      "Năm sinh được các nguồn ghi là 1931 hoặc 1932. Ông từ trần ngày 24/6/2026 (94 tuổi); hiện vật và tượng của ông được trưng bày tại Bảo tàng Lịch sử Quân sự Việt Nam và Bảo tàng Chiến thắng Đông Khê (Cao Bằng).",
     wikiTitle: "La Văn Cầu",
     nguon: ["Cổng thông tin điện tử Bộ Quốc phòng; Báo Nhân Dân.", "Bảo tàng Lịch sử Quân sự Việt Nam."],
   },
@@ -5649,7 +5653,7 @@ export const ANH_HUNG_DATA: AnhHung[] = [
     nienDai: "1933 – 1964",
     queQuan: "Làng Thượng Lãng, xã Ngũ Kiên, huyện Vĩnh Tường, tỉnh Vĩnh Phúc",
     thoiKy: "hien-dai",
-    trieuDai: "Việt Nam Dân chủ Cộng hòa",
+    trieuDai: "Kháng chiến chống Mỹ",
     namMoc: 1964,
     tomTat:
       "Thiếu úy, Chính trị viên Đại đội 3, Tiểu đoàn 14 pháo cao xạ; mất ngày 18/11/1964 khi chỉ huy đơn vị chiến đấu với máy bay Mỹ ở miền Tây Quảng Bình; được truy tặng Anh hùng Lực lượng vũ trang nhân dân năm 1967.",
@@ -5708,7 +5712,7 @@ export const ANH_HUNG_DATA: AnhHung[] = [
     nienDai: "1940 – 1964",
     queQuan: "Làng Thanh Quýt, xã Điện Thắng, huyện Điện Bàn, tỉnh Quảng Nam; nay thuộc phường Điện Thắng Trung, thị xã Điện Bàn, Quảng Nam",
     thoiKy: "hien-dai",
-    trieuDai: "Việt Nam Dân chủ Cộng hòa",
+    trieuDai: "Kháng chiến chống Mỹ",
     namMoc: 1964,
     tomTat:
       "Thành viên lực lượng Biệt động Sài Gòn; bị bắt ngày 9/5/1964 khi đặt mìn ở cầu Công Lý nhằm vào phái đoàn của Bộ trưởng Quốc phòng Mỹ Robert McNamara, và bị xử bắn tại Khám Chí Hòa ngày 15/10/1964.",
