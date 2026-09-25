@@ -3940,4 +3940,1017 @@ export const ANH_HUNG_DATA: AnhHung[] = [
       "Bảo tàng Quang Trung (Bình Định).",
     ],
   },
+  {
+    slug: "bui-thi-xuan",
+    ten: "Bùi Thị Xuân",
+    tenThat: null,
+    tenKhac: ["Đô đốc Bùi Thị Xuân"],
+    namSinh: "khoảng 1752",
+    namMat: "1802",
+    nienDai: "khoảng 1752 – 1802",
+    queQuan: "Thôn Xuân Hòa, tổng An Nhơn, huyện Tuy Viễn, phủ Quy Nhơn; nay thuộc xã Tây Xuân, huyện Tây Sơn, Bình Định",
+    thoiKy: "tay-son",
+    trieuDai: "Tây Sơn",
+    namMoc: 1785,
+    tomTat: "Nữ tướng triều Tây Sơn, giữ chức Đô đốc, huấn luyện đội tượng binh và cùng chồng là Trần Quang Diệu chiến đấu chống quân Nguyễn Ánh đến khi bị bắt năm 1802.",
+    tieuSu: [
+      "Bùi Thị Xuân quê ở thôn Xuân Hòa, huyện Tuy Viễn, phủ Quy Nhơn; thuyết phổ biến ghi bà sinh khoảng năm 1752. Bà giữ chức Đô đốc dưới triều Tây Sơn và được dân gian suy tôn đứng đầu hàng “Tây Sơn ngũ phụng thư”.",
+      "Bà trực tiếp huấn luyện đội tượng binh của nghĩa quân Tây Sơn, tham gia chiến dịch Rạch Gầm – Xoài Mút năm 1785 và chỉ huy một cánh quân tượng binh trong trận đại phá quân Thanh ở Ngọc Hồi – Đống Đa năm 1789.",
+      "Những năm cuối triều Tây Sơn, bà tham gia chỉ huy trận Trấn Ninh (1801), rồi cùng chồng là Trần Quang Diệu chiến đấu chống quân Nguyễn Ánh ở Nghệ An. Năm 1802, bà bị bắt và bị Nguyễn Ánh xử voi giày vào tháng 11 năm ấy.",
+    ],
+    boiCanh: [
+      "Bà hoạt động trong phong trào Tây Sơn từ thời Thái Đức (Nguyễn Nhạc) đến thời Cảnh Thịnh (Nguyễn Quang Toản), giai đoạn quân Tây Sơn giao tranh với lực lượng Nguyễn Ánh.",
+    ],
+    congTrang: [
+      "Tham gia chiến dịch Rạch Gầm – Xoài Mút đánh tan liên quân Xiêm – Nguyễn Ánh năm 1785.",
+      "Trực tiếp huấn luyện đội tượng binh của nghĩa quân Tây Sơn.",
+      "Chỉ huy một cánh quân tượng binh trong trận Ngọc Hồi – Đống Đa năm 1789.",
+      "Tham gia chỉ huy trận Trấn Ninh năm 1801; cùng Trần Quang Diệu chiến đấu chống quân Nguyễn Ánh ở Nghệ An năm 1802.",
+    ],
+    suKien: [
+      {
+        nam: "khoảng 1752",
+        text: "Sinh ở thôn Xuân Hòa, phủ Quy Nhơn (theo thuyết phổ biến).",
+      },
+      {
+        nam: "1785",
+        text: "Tham gia chiến dịch Rạch Gầm – Xoài Mút.",
+      },
+      {
+        nam: "1789",
+        text: "Chỉ huy một cánh quân tượng binh ở Ngọc Hồi – Đống Đa.",
+      },
+      {
+        nam: "1801",
+        text: "Tham gia chỉ huy trận Trấn Ninh.",
+      },
+      {
+        nam: "1802",
+        text: "Chiến đấu ở Nghệ An, bị bắt và bị xử voi giày vào tháng 11.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Đền thờ Đô đốc Bùi Thị Xuân (di tích lịch sử cấp tỉnh)",
+        diaDiem: "Thôn Xuân Hòa, xã Tây Xuân, huyện Tây Sơn, Bình Định",
+      },
+      {
+        ten: "Bảo tàng Quang Trung (di tích quốc gia đặc biệt)",
+        diaDiem: "Thị trấn Phú Phong, huyện Tây Sơn, Bình Định",
+      },
+    ],
+    tuongNiem: [
+      "Giỗ dân gian ngày mùng 5 tháng 5 âm lịch.",
+      "Được phối thờ trong lễ kỷ niệm Chiến thắng Ngọc Hồi – Đống Đa mùng 4 – 5 tháng Giêng âm lịch tại huyện Tây Sơn, Bình Định (lễ hội cấp quốc gia).",
+    ],
+    ghiChuSuLieu:
+      "Năm sinh chưa có văn bản chính sử khẳng định; 1752 là thuyết phổ biến. Tương truyền bà có nhan sắc, võ nghệ cao cường, từng múa kiếm giết hổ dữ cứu tráng sĩ Trần Quang Diệu ở rừng An Khê rồi kết duyên vợ chồng; các chiến tích võ nghệ cá nhân và chuyện chém hổ phần nhiều xuất phát từ dã sử, văn nghệ dân gian.",
+    wikiTitle: "Bùi Thị Xuân",
+    nguon: ["Đại Nam thực lục; Đại Nam chính biên liệt truyện.", "Cổng thông tin điện tử Sở Văn hóa và Thể thao tỉnh Bình Định."],
+  },
+  {
+    slug: "tran-quang-dieu",
+    ten: "Trần Quang Diệu",
+    tenThat: null,
+    tenKhac: ["Thiếu phó Trần Quang Diệu"],
+    namSinh: "khoảng 1760",
+    namMat: "1802",
+    nienDai: "khoảng 1760 – 1802",
+    queQuan: "Làng Nam Lãng, huyện Mộ Hoa (sau là Mộ Đức), phủ Tư Nghĩa; nay thuộc xã Đức Hòa, huyện Mộ Đức, Quảng Ngãi",
+    thoiKy: "tay-son",
+    trieuDai: "Tây Sơn",
+    namMoc: 1789,
+    tomTat: "Danh tướng triều Tây Sơn, một trong “Tây Sơn thất hổ tướng”, thống lĩnh trung quân năm 1789, vây thành Quy Nhơn năm 1800 – 1801 và giữ khí tiết đến khi bị xử tử năm 1802.",
+    tieuSu: [
+      "Trần Quang Diệu quê làng Nam Lãng, huyện Mộ Hoa, phủ Tư Nghĩa (Quảng Ngãi), sinh khoảng năm 1760. Ông là một trong “Tây Sơn thất hổ tướng”, lần lượt giữ các chức Đô đốc, Đại đô đốc, Thiếu phó.",
+      "Năm 1789, với chức Đô đốc, ông thống lĩnh trung quân Tây Sơn trong chiến dịch thần tốc tiến ra Thăng Long. Từ năm 1792, dưới triều Cảnh Thịnh, ông giữ chức Thiếu phó, Phụ chính đại thần, tìm cách hòa giải mâu thuẫn giữa các phe phái trong triều.",
+      "Năm 1800 – 1801, ông cùng Võ Văn Dũng vây thành Quy Nhơn do Võ Tánh cố thủ suốt hơn một năm. Năm 1802, sau khi Quy Nhơn thất thủ, ông tìm đường hội quân cứu Thăng Long thì bị quân Nguyễn bắt; ông không khuất phục Gia Long và bị xử tử cùng năm.",
+    ],
+    boiCanh: [
+      "Dưới triều Cảnh Thịnh (từ năm 1792), nội bộ triều Tây Sơn có mâu thuẫn giữa các phe phái, trong khi lực lượng Nguyễn Ánh giao tranh với quân Tây Sơn ở Quy Nhơn.",
+    ],
+    congTrang: [
+      "Thống lĩnh trung quân Tây Sơn trong chiến dịch tiến ra Thăng Long năm 1789.",
+      "Làm Thiếu phó, Phụ chính đại thần triều Cảnh Thịnh, hòa giải mâu thuẫn nội bộ (1792 – 1800).",
+      "Cùng Võ Văn Dũng vây thành Quy Nhơn hơn một năm (1800 – 1801).",
+      "Bị bắt năm 1802, giữ khí tiết, không khuất phục Gia Long.",
+    ],
+    suKien: [
+      {
+        nam: "khoảng 1760",
+        text: "Sinh ở làng Nam Lãng, huyện Mộ Hoa.",
+      },
+      {
+        nam: "1789",
+        text: "Thống lĩnh trung quân trong chiến dịch tiến ra Thăng Long.",
+      },
+      {
+        nam: "1792",
+        text: "Làm Thiếu phó, Phụ chính đại thần triều Cảnh Thịnh.",
+      },
+      {
+        nam: "1800",
+        text: "Cùng Võ Văn Dũng vây thành Quy Nhơn do Võ Tánh cố thủ.",
+      },
+      {
+        nam: "1802",
+        text: "Bị quân Nguyễn bắt và bị xử tử.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Đền thờ Trần Quang Diệu (di tích lịch sử cấp quốc gia)",
+        diaDiem: "Xã Đức Hòa, huyện Mộ Đức, Quảng Ngãi",
+      },
+      {
+        ten: "Điện Tây Sơn (di tích quốc gia đặc biệt)",
+        diaDiem: "Huyện Tây Sơn, Bình Định",
+      },
+    ],
+    tuongNiem: ["Phối giỗ cùng Bùi Thị Xuân ngày mùng 5 tháng 5 âm lịch.", "Giỗ ngày mùng 10 tháng 8 âm lịch tại Quảng Ngãi."],
+    ghiChuSuLieu:
+      "Về quê quán, có thuyết cho rằng gốc ông ở làng An Lương, huyện Hoài Ân (Bình Định), sau mới di cư vào Quảng Ngãi. Tương truyền ông là kiếm khách giỏi song kiếm, khi bị thương nặng ở rừng Tuy Viễn được nữ tướng Bùi Thị Xuân cứu sống.",
+    wikiTitle: "Trần Quang Diệu",
+    nguon: ["Đại Nam liệt truyện tiền biên; Đại Nam thực lục.", "Cổng thông tin điện tử tỉnh Quảng Ngãi."],
+  },
+  {
+    slug: "ngo-thi-nham",
+    ten: "Ngô Thì Nhậm",
+    tenThat: null,
+    tenKhac: ["Ngô Thời Nhiệm", "Hy Doãn", "Đạt Hiên", "Tĩnh Phái hầu"],
+    namSinh: "1746",
+    namMat: "1803",
+    nienDai: "1746 – 1803",
+    queQuan: "Làng Tả Thanh Oai (làng Tó), huyện Thanh Oai, trấn Sơn Nam Thượng; nay thuộc xã Tả Thanh Oai, huyện Thanh Trì, Hà Nội",
+    thoiKy: "tay-son",
+    trieuDai: "Tây Sơn",
+    namMoc: 1788,
+    tomTat: "Nhà nho đỗ Tiến sĩ thời Lê – Trịnh, sau phò Tây Sơn, giữ chức Binh bộ Thượng thư, đề xuất việc lui quân về Tam Điệp – Biện Sơn năm 1788 và phụ trách bang giao với nhà Thanh.",
+    tieuSu: [
+      "Ngô Thì Nhậm (thường đọc là Ngô Thời Nhiệm), tự Hy Doãn, hiệu Đạt Hiên, sinh năm 1746 ở làng Tả Thanh Oai (làng Tó). Ông đỗ Tiến sĩ khoa Ất Mùi (1775) và từng làm Đốc đồng Thái Nguyên thời Lê – Trịnh.",
+      "Năm 1788, ông được Nguyễn Huệ trọng dụng, phong Lại bộ Tả thị lang, sau thăng Binh bộ Thượng thư, tước Tĩnh Phái hầu. Khi quân Thanh kéo sang, ông đề xuất rút quân về lập phòng tuyến Tam Điệp – Biện Sơn, bảo toàn lực lượng chờ đại quân Quang Trung ra phản công.",
+      "Từ năm 1789 đến 1792, ông phụ trách công việc bang giao với nhà Thanh, góp phần để vua Càn Long công nhận triều Tây Sơn. Năm 1803, sau khi bị Đặng Trần Thường cho đánh đòn tại Văn Miếu, ông mất ngày 15 tháng 2 năm Quý Hợi.",
+    ],
+    boiCanh: [
+      "Cuối thế kỷ XVIII, khi quân Thanh kéo sang (1788), quân Tây Sơn ở Bắc Hà lui về lập phòng tuyến Tam Điệp – Biện Sơn theo kế sách do ông đề xuất.",
+    ],
+    congTrang: [
+      "Được Nguyễn Huệ trọng dụng năm 1788, giữ chức Lại bộ Tả thị lang rồi Binh bộ Thượng thư.",
+      "Đề xuất lui quân về phòng tuyến Tam Điệp – Biện Sơn (1788 – 1789), bảo toàn lực lượng chờ đại quân phản công.",
+      "Phụ trách bang giao với nhà Thanh (1789 – 1792), góp phần để vua Càn Long công nhận triều Tây Sơn.",
+    ],
+    suKien: [
+      {
+        nam: "1746",
+        text: "Sinh ở làng Tả Thanh Oai.",
+      },
+      {
+        nam: "1775",
+        text: "Đỗ Tiến sĩ khoa Ất Mùi.",
+      },
+      {
+        nam: "1788",
+        text: "Được Nguyễn Huệ trọng dụng; đề xuất lui quân về Tam Điệp – Biện Sơn.",
+      },
+      {
+        nam: "1789",
+        text: "Bắt đầu phụ trách bang giao với nhà Thanh.",
+      },
+      {
+        nam: "1803",
+        text: "Mất ngày 15 tháng 2 năm Quý Hợi, sau trận đòn tại Văn Miếu.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Nhà thờ dòng họ Ngô Thì (di tích lịch sử – văn hóa cấp quốc gia)",
+        diaDiem: "Thôn Tả Thanh Oai, xã Tả Thanh Oai, huyện Thanh Trì, Hà Nội",
+      },
+    ],
+    tuongNiem: ["Giỗ ngày 15 tháng 2 âm lịch hằng năm tại nhà thờ dòng họ Ngô Thì (Tả Thanh Oai)."],
+    ghiChuSuLieu:
+      "Còn tranh luận về trách nhiệm thực sự của ông trong vụ án Đặng Thị Huệ – Trịnh Tông năm Canh Tý (1780), và về nguyên nhân ông mất: do đòn roi tẩm độc hay do bệnh lao phổi tái phát sau trận đòn. Tương truyền tại sân Văn Miếu, Đặng Trần Thường ra vế đối “Ai công hầu, ai khanh tướng, trong trần ai, ai dễ biết ai”, ông đối lại “Thế chiến quốc, thế Xuân Thu, gặp thời thế, thế nào phải thế”.",
+    wikiTitle: "Ngô Thì Nhậm",
+    nguon: ["Khâm định Việt sử thông giám cương mục; Đại Nam chính biên liệt truyện; Ngô gia văn phái lục.", "Cổng thông tin điện tử huyện Thanh Trì."],
+  },
+  {
+    slug: "nguyen-tri-phuong",
+    ten: "Nguyễn Tri Phương",
+    tenThat: "Nguyễn Văn Chương",
+    tenKhac: ["Hàm Trinh", "Đồng Xuyên", "Tráng Liệt Vũ công"],
+    namSinh: "1800",
+    namMat: "1873",
+    nienDai: "1800 – 1873",
+    queQuan: "Làng Đường Long, tổng Trung Lộc, huyện Phong Điền, phủ Thừa Thiên; nay thuộc xã Phong Hiền, huyện Phong Điền, Thừa Thiên Huế",
+    thoiKy: "chong-phap",
+    trieuDai: "Nhà Nguyễn",
+    namMoc: 1858,
+    tomTat: "Đại thần triều Nguyễn, chỉ huy chống liên quân Pháp – Tây Ban Nha ở Đà Nẵng (1858 – 1859), xây đại đồn Chí Hòa ở Gia Định và tuẫn tiết sau khi thành Hà Nội thất thủ năm 1873.",
+    tieuSu: [
+      "Nguyễn Tri Phương tên thật là Nguyễn Văn Chương, được vua Tự Đức đổi tên; tự Hàm Trinh, hiệu Đồng Xuyên. Ông sinh năm 1800, làm quan qua ba triều Minh Mạng, Thiệu Trị, Tự Đức, giữ các chức Hiệp biện Đại học sĩ, Kinh lược sứ.",
+      "Từ năm 1845 đến 1853, ông lo việc tiễu phỉ ở biên giới Tây Nam, mở mang đồn điền và ổn định hành chính Nam Kỳ. Năm 1858 – 1859, ông chỉ huy quân dân chống liên quân Pháp – Tây Ban Nha ở mặt trận Đà Nẵng bằng chiến thuật vây hãm, đẩy lùi chiến lược “đánh nhanh thắng nhanh” của đối phương; năm 1860 – 1861, ông xây dựng đại đồn Chí Hòa ở Gia Định.",
+      "Năm 1873, với chức Tổng đốc quân vụ Bắc Kỳ, ông chỉ huy phòng thủ thành Hà Nội trước cuộc tấn công của Francis Garnier ngày 20/11/1873. Ông bị trọng thương, tuyệt thực, không chịu chữa trị và mất ngày 20/12/1873 (mùng 1 tháng 11 năm Quý Dậu).",
+    ],
+    boiCanh: ["Từ năm 1858, liên quân Pháp – Tây Ban Nha nổ súng ở Đà Nẵng rồi đánh vào Gia Định; năm 1873, Francis Garnier đem quân đánh thành Hà Nội."],
+    congTrang: [
+      "Chỉ huy quân dân chống liên quân Pháp – Tây Ban Nha ở mặt trận Đà Nẵng (1858 – 1859).",
+      "Tiễu phỉ ở biên giới Tây Nam, mở mang đồn điền, ổn định hành chính Nam Kỳ (1845 – 1853).",
+      "Xây dựng đại đồn Chí Hòa ở Gia Định (1860 – 1861).",
+      "Chỉ huy phòng thủ thành Hà Nội năm 1873; bị thương, tuyệt thực và tuẫn tiết.",
+    ],
+    suKien: [
+      {
+        nam: "1800",
+        text: "Sinh ở làng Đường Long, huyện Phong Điền.",
+      },
+      {
+        nam: "1845",
+        text: "Tiễu phỉ, mở mang đồn điền ở Nam Kỳ (đến năm 1853).",
+      },
+      {
+        nam: "1858",
+        text: "Chỉ huy chống liên quân Pháp – Tây Ban Nha ở Đà Nẵng.",
+      },
+      {
+        nam: "1860",
+        text: "Xây dựng đại đồn Chí Hòa ở Gia Định.",
+      },
+      {
+        nam: "1873",
+        text: "Giữ thành Hà Nội trước cuộc tấn công của Garnier (20/11); bị thương, tuyệt thực và mất ngày 20/12.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Đền Trung Liệt",
+        diaDiem: "Gò Đống Đa, Hà Nội",
+      },
+      {
+        ten: "Nhà thờ họ Nguyễn Tri (di tích lịch sử cấp quốc gia)",
+        diaDiem: "Thôn Đường Long, xã Phong Hiền, huyện Phong Điền, Thừa Thiên Huế",
+      },
+    ],
+    tuongNiem: ["Giỗ ngày mùng 1 tháng 11 âm lịch hằng năm tại Huế và Hà Nội.", "Được thờ tại đền Trung Liệt (gò Đống Đa, Hà Nội)."],
+    ghiChuSuLieu:
+      "Một số nhận định cho rằng chiến thuật phòng thủ công sự ở đại đồn Chí Hòa còn thụ động, và việc bố phòng thành Hà Nội năm 1873 bị động. Tương truyền khi Garnier cho thầy thuốc đến chữa vết thương và ép ăn uống, ông gạt đi và nói: “Bây giờ nếu ta chỉ gắng gượng kéo dài hơi tàn, thì chẳng qua cũng như con chó sống mà thôi, sao bằng chết vì nước!”.",
+    wikiTitle: "Nguyễn Tri Phương",
+    nguon: ["Đại Nam thực lục; Đại Nam chính biên liệt truyện.", "Cổng thông tin điện tử tỉnh Thừa Thiên Huế."],
+  },
+  {
+    slug: "hoang-dieu",
+    ten: "Hoàng Diệu",
+    tenThat: "Hoàng Kim Tích",
+    tenKhac: ["Quang Viễn", "Tĩnh Trai"],
+    namSinh: "1829",
+    namMat: "1882",
+    nienDai: "1829 – 1882",
+    queQuan: "Làng Xuân Đài, tổng Hạ Nông, huyện Diên Phước, phủ Điện Bàn, Quảng Nam; nay thuộc xã Điện Quang, thị xã Điện Bàn, Quảng Nam",
+    thoiKy: "chong-phap",
+    trieuDai: "Nhà Nguyễn",
+    namMoc: 1882,
+    tomTat: "Tổng đốc Hà Ninh thời Tự Đức, chỉ huy giữ thành Hà Nội khi Henri Rivière tấn công ngày 25/4/1882 và tuẫn tiết khi thành thất thủ.",
+    tieuSu: [
+      "Hoàng Diệu tên cũ là Hoàng Kim Tích, tự Quang Viễn, hiệu Tĩnh Trai, sinh năm 1829. Ông đỗ Phó bảng năm Tự Đức thứ 6 (1853), làm quan thanh liêm, kinh qua nhiều chức vụ ở Nam Định, Bắc Ninh, Quảng Nam.",
+      "Từ năm 1880, giữ chức Tổng đốc Hà Ninh (Hà Nội – Ninh Bình), ông củng cố công sự, chỉnh đốn binh bị. Ngày 25/4/1882, khi Henri Rivière nổ súng đánh thành Hà Nội, ông lên mặt thành chỉ huy binh lính chiến đấu suốt buổi sáng.",
+      "Khi kho thuốc súng bị nội gián làm nổ và thành thất thủ, ông vào hành cung viết di biểu tạ tội gửi vua Tự Đức rồi thắt cổ tự vẫn trước Võ Miếu, ngày mùng 8 tháng 3 năm Nhâm Ngọ.",
+    ],
+    boiCanh: ["Đầu thập niên 1880, thực dân Pháp chuẩn bị đánh chiếm Bắc Kỳ; năm 1882, Henri Rivière đem quân tấn công thành Hà Nội."],
+    congTrang: [
+      "Chỉ huy giữ thành Hà Nội trước cuộc tấn công của Henri Rivière ngày 25/4/1882.",
+      "Củng cố công sự, chỉnh đốn binh bị ở Hà Ninh (1880 – 1882).",
+      "Làm quan thanh liêm ở Nam Định, Bắc Ninh, Quảng Nam.",
+      "Tuẫn tiết trước Võ Miếu khi thành thất thủ.",
+    ],
+    suKien: [
+      {
+        nam: "1829",
+        text: "Sinh ở làng Xuân Đài, huyện Diên Phước.",
+      },
+      {
+        nam: "1853",
+        text: "Đỗ Phó bảng năm Tự Đức thứ 6.",
+      },
+      {
+        nam: "1880",
+        text: "Giữ chức Tổng đốc Hà Ninh.",
+      },
+      {
+        nam: "1882",
+        text: "Chỉ huy giữ thành Hà Nội ngày 25/4; thành thất thủ, ông tuẫn tiết.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Cửa Bắc (Bắc Môn), thuộc Khu trung tâm Hoàng thành Thăng Long (di tích quốc gia đặc biệt)",
+        diaDiem: "Hà Nội",
+      },
+      {
+        ten: "Nhà lưu niệm Hoàng Diệu (di tích lịch sử cấp quốc gia)",
+        diaDiem: "Xã Điện Quang, thị xã Điện Bàn, Quảng Nam",
+      },
+    ],
+    tuongNiem: ["Giỗ ngày mùng 8 tháng 3 âm lịch hằng năm tại Cửa Bắc (Hà Nội) và Điện Bàn (Quảng Nam)."],
+    ghiChuSuLieu:
+      "Còn bàn luận về trách nhiệm của các võ quan dưới quyền bỏ trốn hoặc thông đồng với Pháp gây nổ kho đạn. Tương truyền ông cắn ngón tay lấy máu viết huyết thư tạ tội trước khi tuẫn tiết; thực tế bản di biểu được thảo bằng bút mực.",
+    wikiTitle: "Hoàng Diệu",
+    nguon: ["Đại Nam thực lục; Quốc triều chánh biên toát yếu.", "Ban Quản lý Di tích Hoàng thành Thăng Long."],
+  },
+  {
+    slug: "ton-that-thuyet",
+    ten: "Tôn Thất Thuyết",
+    tenThat: null,
+    tenKhac: ["Đàm Nhân"],
+    namSinh: "1839",
+    namMat: "1913",
+    nienDai: "1839 – 1913",
+    queQuan: "Làng Phú Mộng, huyện Hương Trà, phủ Thừa Thiên; nay thuộc phường Kim Long, thành phố Huế, Thừa Thiên Huế",
+    thoiKy: "chong-phap",
+    trieuDai: "Nhà Nguyễn",
+    namMoc: 1885,
+    tomTat: "Phụ chính đại thần, Binh bộ Thượng thư triều Nguyễn, đứng đầu phái chủ chiến, chỉ huy cuộc tấn công quân Pháp ở kinh thành Huế năm 1885 và nhân danh vua Hàm Nghi ban Chiếu Cần Vương.",
+    tieuSu: [
+      "Tôn Thất Thuyết, tự Đàm Nhân, sinh ngày 12/5/1839 ở làng Phú Mộng (Huế). Trong thập niên 1870, ông dẹp các nhóm thổ phỉ tàn dư Thái Bình Thiên Quốc (giặc Cờ Vàng, Cờ Trắng) ở biên giới phía Bắc.",
+      "Giữ chức Phụ chính đại thần, Binh bộ Thượng thư, ông đứng đầu phái chủ chiến trong triều đình Huế, chống lại các hòa ước với Pháp. Đêm 4 rạng sáng 5/7/1885, ông chỉ huy cuộc tập kích đồn Mang Cá và Tòa Khâm sứ Pháp ở kinh thành Huế.",
+      "Ngày 13/7/1885, ở căn cứ Tân Sở (Quảng Trị), ông nhân danh vua Hàm Nghi ban Chiếu Cần Vương, mở đầu phong trào Cần Vương trong cả nước. Năm 1886, ông sang Trung Quốc cầu viện và mất năm 1913 tại Thiều Châu (Quảng Đông).",
+    ],
+    boiCanh: ["Sau Hiệp ước Giáp Thân (1884), triều đình Huế chia thành phái chủ hòa và phái chủ chiến trước sức ép của thực dân Pháp."],
+    congTrang: [
+      "Chỉ huy cuộc tập kích đồn Mang Cá và Tòa Khâm sứ Pháp ở kinh thành Huế đêm 4 rạng sáng 5/7/1885.",
+      "Dẹp các nhóm thổ phỉ Cờ Vàng, Cờ Trắng ở biên giới phía Bắc (thập niên 1870).",
+      "Đứng đầu phái chủ chiến trong triều đình Huế.",
+      "Đưa vua Hàm Nghi ra Tân Sở, nhân danh nhà vua ban Chiếu Cần Vương ngày 13/7/1885.",
+    ],
+    suKien: [
+      {
+        nam: "1839",
+        text: "Sinh ngày 12/5 ở làng Phú Mộng.",
+      },
+      {
+        nam: "Thập niên 1870",
+        text: "Dẹp thổ phỉ Cờ Vàng, Cờ Trắng ở biên giới phía Bắc.",
+      },
+      {
+        nam: "1885",
+        text: "Đêm 4 rạng sáng 5/7 tập kích quân Pháp ở kinh thành Huế; ngày 13/7 ban Chiếu Cần Vương ở Tân Sở.",
+      },
+      {
+        nam: "1886",
+        text: "Sang Trung Quốc cầu viện.",
+      },
+      {
+        nam: "1913",
+        text: "Mất tại Thiều Châu (Quảng Đông).",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Nhà thờ phủ Tôn Thất Thuyết",
+        diaDiem: "Phường Kim Long, thành phố Huế, Thừa Thiên Huế",
+      },
+      {
+        ten: "Di tích Căn cứ Tân Sở (phối thờ)",
+        diaDiem: "Xã Cam Chính, huyện Cam Lộ, Quảng Trị",
+      },
+    ],
+    tuongNiem: ["Giỗ ngày 22 tháng 3 âm lịch (theo gia phả Tôn Thất tộc ở Huế).", "Được phối thờ tại di tích Căn cứ Tân Sở (Quảng Trị)."],
+    ghiChuSuLieu:
+      "Việc phế truất và bức tử liên tiếp ba vua Dục Đức, Hiệp Hòa, Kiến Phúc trong chưa đầy một năm, và việc ông sang Trung Quốc cầu viện năm 1886, để lại lực lượng kháng chiến trong nước, là những điểm còn nhiều tranh luận. Tương truyền ông tính khí dữ dằn, quyền uy phế lập khiến người đương thời khiếp sợ.",
+    wikiTitle: "Tôn Thất Thuyết",
+    nguon: ["Đại Nam thực lục; Đại Nam thực lục chính biên đệ lục kỷ phụ biên.", "Việt Nam sử lược."],
+  },
+  {
+    slug: "ham-nghi",
+    ten: "Hàm Nghi",
+    tenThat: "Nguyễn Phúc Ưng Lịch",
+    tenKhac: ["Nguyễn Phúc Minh", "Vua Hàm Nghi"],
+    namSinh: "1871",
+    namMat: "1944",
+    nienDai: "1871 – 1944",
+    queQuan: "Sinh tại phủ đệ ở làng Xuân Hòa, phủ Thừa Thiên; nay thuộc phường Hương Long, thành phố Huế, Thừa Thiên Huế",
+    thoiKy: "chong-phap",
+    trieuDai: "Nhà Nguyễn",
+    namMoc: 1885,
+    tomTat: "Hoàng đế thứ tám triều Nguyễn (1884 – 1885), rời kinh thành ban Chiếu Cần Vương năm 1885, bị bắt năm 1888 và sống lưu đày ở Algérie đến khi mất.",
+    tieuSu: [
+      "Hàm Nghi tên thật là Nguyễn Phúc Ưng Lịch, khi lên ngôi đổi là Nguyễn Phúc Minh, sinh năm 1871. Tháng 8/1884, ông được phái chủ chiến đưa lên ngôi, là hoàng đế thứ tám của triều Nguyễn, và giữ thái độ không thuần phục Tòa Khâm sứ Pháp.",
+      "Ngày 13/7/1885, ông rời kinh thành, xuống Chiếu Cần Vương kêu gọi văn thân, sĩ phu và nhân dân cả nước đứng lên kháng chiến. Hơn ba năm sau đó (1885 – 1888), ông cùng phong trào Cần Vương hoạt động ở vùng núi Quảng Trị, Quảng Bình, Hà Tĩnh.",
+      "Tháng 11/1888, ông bị Trương Quang Ngọc chỉ điểm và bị bắt. Ông từ chối hợp tác với Pháp, bị đày sang Algérie và sống lưu đày 56 năm, mất ngày 14/1/1944 tại Algiers.",
+    ],
+    boiCanh: ["Sau Hiệp ước Giáp Thân (1884), phái chủ chiến trong triều đình Huế do Tôn Thất Thuyết đứng đầu tìm cách kháng cự thực dân Pháp."],
+    congTrang: [
+      "Ban Chiếu Cần Vương ngày 13/7/1885, kêu gọi cả nước kháng chiến.",
+      "Không thuần phục Tòa Khâm sứ Pháp khi ở ngôi (1884 – 1885).",
+      "Cùng phong trào Cần Vương hoạt động ở vùng núi Quảng Trị, Quảng Bình, Hà Tĩnh (1885 – 1888).",
+      "Từ chối hợp tác với Pháp sau khi bị bắt, chịu lưu đày ở Algérie.",
+    ],
+    suKien: [
+      {
+        nam: "1871",
+        text: "Sinh ở Huế.",
+      },
+      {
+        nam: "1884",
+        text: "Được phái chủ chiến đưa lên ngôi (tháng 8).",
+      },
+      {
+        nam: "1885",
+        text: "Rời kinh thành, ban Chiếu Cần Vương ngày 13/7.",
+      },
+      {
+        nam: "1888",
+        text: "Bị bắt (tháng 11) và bị đày sang Algérie.",
+      },
+      {
+        nam: "1944",
+        text: "Mất ngày 14/1 tại Algiers.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Đền thờ vua Hàm Nghi và các tướng sĩ Cần Vương, Khu căn cứ Tân Sở (di tích lịch sử cấp quốc gia)",
+        diaDiem: "Xã Cam Chính, huyện Cam Lộ, Quảng Trị",
+      },
+      {
+        ten: "Thế Tổ Miếu (Đại Nội Huế)",
+        diaDiem: "Thành phố Huế, Thừa Thiên Huế",
+      },
+    ],
+    tuongNiem: ["Tưởng niệm ngày 14 tháng 1 dương lịch (ngày mất) hoặc ngày 28 tháng 11 âm lịch tại Căn cứ Tân Sở."],
+    ghiChuSuLieu:
+      "Còn bàn luận về mức độ tự quyết chính trị của vị vua trẻ so với ảnh hưởng của Tôn Thất Thuyết. Việc đưa di cốt ông từ làng Thonac (Dordogne, Pháp) về Việt Nam đến nay chưa thực hiện được. Tương truyền khi Trương Quang Ngọc xông vào bắt, ông nói: “Mày giết tao đi còn hơn là nộp tao cho Tây!”; khi viên quan Pháp chào “Tâu Hoàng thượng”, ông đáp: “Ta chỉ là một bề tôi trung thành của vua Hàm Nghi mà thôi”.",
+    wikiTitle: "Hàm Nghi",
+    nguon: ["Đại Nam thực lục chính biên đệ lục kỷ.", "Trung tâm Bảo tồn Di tích Cố đô Huế; Bảo tàng Lịch sử Quốc gia."],
+  },
+  {
+    slug: "duy-tan",
+    ten: "Duy Tân",
+    tenThat: "Nguyễn Phúc Vĩnh San",
+    tenKhac: ["Vua Duy Tân"],
+    namSinh: "1900",
+    namMat: "1945",
+    nienDai: "1900 – 1945",
+    queQuan: "Sinh tại Kinh thành Huế; nay thuộc thành phố Huế, Thừa Thiên Huế",
+    thoiKy: "chong-phap",
+    trieuDai: "Nhà Nguyễn",
+    namMoc: 1916,
+    tomTat: "Hoàng đế thứ mười một triều Nguyễn (1907 – 1916); năm 1916 cùng các lãnh tụ Việt Nam Quang Phục Hội chuẩn bị khởi nghĩa ở miền Trung, kế hoạch bại lộ, ông bị Pháp đày sang đảo Réunion.",
+    tieuSu: [
+      "Duy Tân tên thật là Nguyễn Phúc Vĩnh San, con thứ năm của vua Thành Thái, sinh năm 1900. Ông lên ngôi năm 1907 khi mới 7 tuổi, là hoàng đế thứ mười một của triều Nguyễn, và sớm tỏ ra không chịu sự giám sát chặt chẽ của Toàn quyền Pháp.",
+      "Năm 1916, ông bí mật liên hệ với các lãnh tụ Việt Nam Quang Phục Hội là Thái Phiên, Trần Cao Vân để chuẩn bị một cuộc khởi nghĩa vũ trang ở miền Trung. Đêm 3/5/1916, ông rời Tử Cấm Thành ra căn cứ ngoài kinh thành để phát lệnh khởi nghĩa.",
+      "Kế hoạch bại lộ, ông bị Pháp bắt. Ông từ chối trở lại ngai vàng và bị đày sang đảo Réunion (Ấn Độ Dương). Ông mất ngày 26/12/1945 trong một tai nạn máy bay ở Bangui (Cộng hòa Trung Phi); năm 1987, hài cốt ông được đưa từ Pháp về cải táng tại Huế.",
+    ],
+    boiCanh: ["Đầu thế kỷ XX, triều Nguyễn đặt dưới quyền bảo hộ của Pháp; ở miền Trung, Việt Nam Quang Phục Hội chuẩn bị khởi nghĩa vũ trang."],
+    congTrang: [
+      "Cùng Thái Phiên, Trần Cao Vân (Việt Nam Quang Phục Hội) chuẩn bị khởi nghĩa ở miền Trung năm 1916.",
+      "Rời Tử Cấm Thành đêm 3/5/1916 để phát lệnh khởi nghĩa.",
+      "Từ chối trở lại ngai vàng sau khi bị bắt, chịu lưu đày ở đảo Réunion.",
+    ],
+    suKien: [
+      {
+        nam: "1900",
+        text: "Sinh tại Kinh thành Huế.",
+      },
+      {
+        nam: "1907",
+        text: "Lên ngôi khi 7 tuổi.",
+      },
+      {
+        nam: "1916",
+        text: "Đêm 3/5 rời Tử Cấm Thành để phát lệnh khởi nghĩa; kế hoạch bại lộ, ông bị bắt và bị đày sang đảo Réunion.",
+      },
+      {
+        nam: "1945",
+        text: "Mất ngày 26/12 trong một tai nạn máy bay ở Bangui.",
+      },
+      {
+        nam: "1987",
+        text: "Hài cốt được đưa từ Pháp về cải táng tại An Lăng (Huế).",
+      },
+    ],
+    diTich: [
+      {
+        ten: "An Lăng (lăng Dục Đức), nơi cải táng hài cốt ông năm 1987 (thuộc Quần thể di tích Cố đô Huế, di tích quốc gia đặc biệt)",
+        diaDiem: "Phường An Cựu, thành phố Huế, Thừa Thiên Huế",
+      },
+    ],
+    tuongNiem: ["Giỗ ngày 23 tháng 11 âm lịch (hoặc 26/12 dương lịch) tại Huế."],
+    ghiChuSuLieu:
+      "Vụ tai nạn máy bay ngày 26/12/1945 là tai nạn hàng không thuần túy hay một vụ ám sát có chủ đích (khi tướng Charles de Gaulle có ý định đưa ông trở lại Việt Nam) đến nay vẫn còn tranh luận. Tương truyền lúc nhỏ, khi một viên quan Pháp hỏi “Nước bẩn thì lấy gì rửa?”, ông đáp: “Nước bẩn thì lấy máu mà rửa!”.",
+    wikiTitle: "Duy Tân",
+    nguon: ["Đại Nam thực lục chính biên đệ lục kỷ phụ biên.", "Tư liệu Hội đồng Hoàng tộc Nguyễn Phước tộc; Tạp chí Xưa & Nay."],
+  },
+  {
+    slug: "thu-khoa-huan",
+    ten: "Thủ Khoa Huân",
+    tenThat: "Nguyễn Hữu Huân",
+    tenKhac: ["Tảo Tư", "Trúc Khê"],
+    namSinh: "1830",
+    namMat: "1875",
+    nienDai: "1830 – 1875",
+    queQuan: "Làng Tịnh Hà, tổng Hưng Nhượng, huyện Kiến Hưng, phủ Kiến An, tỉnh Định Tường; nay thuộc xã Mỹ Tịnh An, huyện Chợ Gạo, Tiền Giang",
+    thoiKy: "chong-phap",
+    trieuDai: "Nhà Nguyễn",
+    namMoc: 1861,
+    tomTat: "Nhà nho đỗ Thủ khoa thi Hương năm 1852, ba lần dấy binh chống Pháp ở Định Tường; bị bắt và bị xử chém năm 1875.",
+    tieuSu: [
+      "Nguyễn Hữu Huân, tự Tảo Tư, hiệu Trúc Khê, sinh năm 1830 ở làng Tịnh Hà (Định Tường). Ông đỗ Thủ khoa kỳ thi Hương năm Nhâm Tý (1852) ở Gia Định nên thường được gọi tôn kính là Thủ Khoa Huân.",
+      "Năm 1861, khi Pháp đánh chiếm Định Tường, ông bỏ chức Giáo thụ, mộ nghĩa binh đánh Pháp. Năm 1864, ông bị bắt và bị đày sang Guyane (Nam Mỹ); được ân xá trở về năm 1869, ông tiếp tục liên lạc với văn thân yêu nước để dấy binh.",
+      "Từ năm 1872 đến 1875, ông lãnh đạo cuộc khởi nghĩa Bình Cách – Định Tường, đánh phá nhiều đồn bốt. Năm 1875, ông bị phản bội và bị bắt, không chịu quy hàng, bị xử chém ở ngã ba sông Chợ Gạo ngày 15 tháng 4 năm Ất Hợi (19/5/1875).",
+    ],
+    boiCanh: ["Từ năm 1861, thực dân Pháp đánh chiếm Định Tường; nhiều văn thân, sĩ phu Nam Kỳ đứng lên mộ quân kháng chiến."],
+    congTrang: [
+      "Bỏ chức Giáo thụ, mộ nghĩa binh đánh Pháp khi Định Tường bị chiếm (1861).",
+      "Ba lần dấy binh khởi nghĩa, kể cả sau khi bị đày sang Guyane và được ân xá trở về (1869).",
+      "Lãnh đạo khởi nghĩa Bình Cách – Định Tường (1872 – 1875), đánh phá nhiều đồn bốt.",
+      "Không chịu quy hàng khi bị bắt năm 1875.",
+    ],
+    suKien: [
+      {
+        nam: "1830",
+        text: "Sinh ở làng Tịnh Hà, tỉnh Định Tường.",
+      },
+      {
+        nam: "1852",
+        text: "Đỗ Thủ khoa kỳ thi Hương ở Gia Định.",
+      },
+      {
+        nam: "1861",
+        text: "Bỏ chức Giáo thụ, mộ nghĩa binh đánh Pháp.",
+      },
+      {
+        nam: "1864",
+        text: "Bị bắt, bị đày sang Guyane.",
+      },
+      {
+        nam: "1869",
+        text: "Được ân xá trở về, tiếp tục dấy binh.",
+      },
+      {
+        nam: "1872",
+        text: "Lãnh đạo khởi nghĩa Bình Cách – Định Tường.",
+      },
+      {
+        nam: "1875",
+        text: "Bị bắt, bị xử chém ngày 15 tháng 4 năm Ất Hợi.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Đền thờ và mộ Thủ Khoa Huân (di tích lịch sử cấp quốc gia, công nhận năm 1987)",
+        diaDiem: "Xã Hòa Tịnh, huyện Chợ Gạo, Tiền Giang",
+      },
+    ],
+    tuongNiem: ["Lễ giỗ ngày 14 – 15 tháng 4 âm lịch hằng năm tại huyện Chợ Gạo, Tiền Giang (lễ hội truyền thống cấp tỉnh)."],
+    ghiChuSuLieu:
+      "Thời gian ông bị giam lỏng tại nhà Đỗ Hữu Phương ở Chợ Lớn trước khi trốn ra lãnh đạo cuộc khởi nghĩa lần thứ ba từng khiến một số sĩ phu đương thời hoài nghi về lập trường của ông. Tương truyền trước khi chịu chém, ông ung dung uống rượu, ngâm bài thơ tuyệt mệnh chữ Hán rồi thọ hình, khiến những người chứng kiến phải kính phục.",
+    wikiTitle: "Nguyễn Hữu Huân",
+    nguon: ["Đại Nam thực lục.", "Hợp tuyển thơ văn yêu nước Nam Bộ.", "Cổng thông tin điện tử tỉnh Tiền Giang."],
+  },
+  {
+    slug: "thien-ho-duong",
+    ten: "Thiên Hộ Dương",
+    tenThat: "Võ Duy Dương",
+    tenKhac: [],
+    namSinh: "1827",
+    namMat: "1866",
+    nienDai: "1827 – 1866",
+    queQuan: "Thôn Cù Lâm Tây, huyện Tuy Phước, phủ Quy Nhơn; nay thuộc thôn Nam Tượng 1, xã Nhơn Tân, thị xã An Nhơn, Bình Định",
+    thoiKy: "chong-phap",
+    trieuDai: "Nhà Nguyễn",
+    namMoc: 1862,
+    tomTat: "Thủ lĩnh kháng Pháp ở Nam Kỳ, xây dựng căn cứ Đồng Tháp Mười với đại bản doanh Gò Tháp những năm 1862 – 1866.",
+    tieuSu: [
+      "Võ Duy Dương sinh năm 1827 ở thôn Cù Lâm Tây, huyện Tuy Phước (Bình Định); do giữ chức Thiên hộ nên thường được gọi là Thiên Hộ Dương. Năm 1859, hưởng ứng hịch chiêu mộ nghĩa dũng, ông đem quân vào Nam Kỳ sát cánh cùng Trương Định đánh Pháp ở Gia Định.",
+      "Từ năm 1862, ông xây dựng căn cứ Đồng Tháp Mười với đại bản doanh ở Gò Tháp, tổ chức quân ngũ kỷ luật nghiêm, đánh theo lối du kích đầm lầy và tự chế tạo súng. Ông nhận chiếu chỉ triều đình làm Khâm sai Tiết chế, Chánh Đề đốc, liên kết nghĩa hào ba tỉnh miền Tây Nam Kỳ.",
+      "Tháng 4/1866, nghĩa quân của ông chống trả nhiều cuộc tấn công lớn của quân viễn chinh Pháp vào Đồng Tháp Mười. Theo chính sử, ông mất năm 1866 khi thuyền gặp bão hoặc bị cướp biển sát hại ở mũi Cần Giờ.",
+    ],
+    boiCanh: ["Sau khi Pháp chiếm các tỉnh miền Đông Nam Kỳ, vùng đầm lầy Đồng Tháp Mười trở thành căn cứ của nghĩa quân kháng Pháp."],
+    congTrang: [
+      "Xây dựng căn cứ Đồng Tháp Mười, đại bản doanh Gò Tháp (1862 – 1866).",
+      "Đem quân vào Nam Kỳ cùng Trương Định đánh Pháp ở Gia Định (1859).",
+      "Đánh du kích đầm lầy, tự chế tạo súng, chống trả nhiều cuộc tấn công lớn của quân Pháp tháng 4/1866.",
+      "Làm Khâm sai Tiết chế, liên kết nghĩa hào ba tỉnh miền Tây Nam Kỳ.",
+    ],
+    suKien: [
+      {
+        nam: "1827",
+        text: "Sinh ở thôn Cù Lâm Tây, huyện Tuy Phước.",
+      },
+      {
+        nam: "1859",
+        text: "Đem quân vào Nam Kỳ cùng Trương Định đánh Pháp.",
+      },
+      {
+        nam: "1862",
+        text: "Xây dựng căn cứ Đồng Tháp Mười, đại bản doanh Gò Tháp.",
+      },
+      {
+        nam: "1866",
+        text: "Tháng 4 chống trả các cuộc tấn công lớn của quân Pháp; ông mất cùng năm ở mũi Cần Giờ (theo chính sử).",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Đền thờ Thiên Hộ Dương, Khu di tích Gò Tháp (di tích quốc gia đặc biệt)",
+        diaDiem: "Xã Tân Kiều, huyện Tháp Mười, Đồng Tháp",
+      },
+    ],
+    tuongNiem: ["Lễ giỗ ngày 14 – 16 tháng 11 âm lịch hằng năm tại Khu di tích Gò Tháp (di sản văn hóa phi vật thể cấp quốc gia)."],
+    ghiChuSuLieu:
+      "Hoàn cảnh ông mất năm 1866 chưa thống nhất: có tài liệu ghi ông bị cướp biển sát hại ngoài khơi Cần Giờ khi vượt biển ra kinh đô; có thuyết cho rằng ông thoát được rồi bệnh mất hoặc lui về ở ẩn vùng biên giới Campuchia. Tương truyền ông có sức khỏe nâng được cối đá ngàn cân, huấn luyện cả ong vò vẽ và cá sấu đầm lầy để đánh lính Pháp.",
+    wikiTitle: "Võ Duy Dương",
+    nguon: ["Đại Nam thực lục.", "Ban Quản lý Khu di tích Gò Tháp; Báo Đồng Tháp điện tử."],
+  },
+  {
+    slug: "dinh-cong-trang",
+    ten: "Đinh Công Tráng",
+    tenThat: null,
+    tenKhac: [],
+    namSinh: "1842",
+    namMat: "1887",
+    nienDai: "1842 – 1887",
+    queQuan: "Làng Trinh Xá, huyện Thanh Liêm, phủ Lý Nhân, tỉnh Hà Nội; nay thuộc xã Thanh Tân, huyện Thanh Liêm, Hà Nam",
+    thoiKy: "chong-phap",
+    trieuDai: "Nhà Nguyễn",
+    namMoc: 1886,
+    tomTat: "Lãnh tụ khởi nghĩa Ba Đình trong phong trào Cần Vương, chỉ huy nghĩa quân giữ chiến lũy Ba Đình (Nga Sơn, Thanh Hóa) trước các đợt tấn công lớn của quân Pháp năm 1886 – 1887.",
+    tieuSu: [
+      "Đinh Công Tráng sinh năm 1842 ở làng Trinh Xá, huyện Thanh Liêm. Những năm 1882 – 1883, ông tham gia đánh Pháp ở Hà Nội dưới quyền Hoàng Tá Viêm.",
+      "Hưởng ứng phong trào Cần Vương, năm 1886 – 1887 ông cùng Phạm Bành, Hoàng Bật Đạt xây dựng chiến lũy Ba Đình (Nga Sơn, Thanh Hóa), biến ba làng Thượng Thọ, Mậu Thịnh, Mỹ Khê thành cụm cứ điểm liên hoàn. Ông chỉ huy nghĩa quân đẩy lùi các đợt tấn công lớn của hơn 1.500 quân Pháp có đại bác vào tháng 12/1886 và tháng 1/1887.",
+      "Đêm 20/1/1887, ông chỉ huy mở đường máu phá vây, rút quân về Mã Cao; sau đó vào Nghệ An gây dựng cơ sở và chiến đấu đến khi hy sinh tháng 10/1887.",
+    ],
+    boiCanh: ["Sau Chiếu Cần Vương (1885), văn thân, sĩ phu nhiều nơi dựng căn cứ kháng Pháp, trong đó có chiến lũy Ba Đình ở Nga Sơn, Thanh Hóa."],
+    congTrang: [
+      "Cùng Phạm Bành, Hoàng Bật Đạt xây dựng chiến lũy Ba Đình (1886 – 1887).",
+      "Tham gia đánh Pháp ở Hà Nội dưới quyền Hoàng Tá Viêm (1882 – 1883).",
+      "Chỉ huy nghĩa quân đẩy lùi các đợt tấn công lớn của quân Pháp vào Ba Đình (12/1886, 1/1887).",
+      "Mở đường máu phá vây đêm 20/1/1887, tiếp tục chiến đấu ở Nghệ An.",
+    ],
+    suKien: [
+      {
+        nam: "1842",
+        text: "Sinh ở làng Trinh Xá, huyện Thanh Liêm.",
+      },
+      {
+        nam: "1882",
+        text: "Tham gia đánh Pháp ở Hà Nội dưới quyền Hoàng Tá Viêm.",
+      },
+      {
+        nam: "1886",
+        text: "Xây dựng chiến lũy Ba Đình; đẩy lùi đợt tấn công lớn của quân Pháp tháng 12.",
+      },
+      {
+        nam: "1887",
+        text: "Đêm 20/1 phá vây rút về Mã Cao; hy sinh ở Nghệ An tháng 10.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Đền thờ Đinh Công Tráng (di tích lịch sử cấp quốc gia)",
+        diaDiem: "Xã Thanh Tân, huyện Thanh Liêm, Hà Nam",
+      },
+      {
+        ten: "Khu di tích Chiến khu Ba Đình (di tích lịch sử cấp quốc gia)",
+        diaDiem: "Huyện Nga Sơn, Thanh Hóa",
+      },
+    ],
+    tuongNiem: ["Giỗ ngày 19 tháng 8 âm lịch hằng năm tại huyện Thanh Liêm (Hà Nam) và huyện Nga Sơn (Thanh Hóa)."],
+    ghiChuSuLieu:
+      "Ngày và nơi hy sinh chưa thống nhất: tài liệu Pháp ghi ngày 5/10/1887 tại làng Trung Tân (Nghệ An), có tài liệu ghi ở Đô Lương (Nghệ An), gia phả dòng họ Đinh ở Hà Nam ghi khác. Tương truyền chiến lũy Ba Đình được đắp bằng lũy tre dày chèn rơm trộn bùn, đạn đại bác bắn vào chỉ lún chứ không nổ.",
+    wikiTitle: "Đinh Công Tráng",
+    nguon: ["Lịch sử cận đại Việt Nam.", "Cổng thông tin điện tử tỉnh Thanh Hóa và tỉnh Hà Nam."],
+  },
+  {
+    slug: "nguyen-thien-thuat",
+    ten: "Nguyễn Thiện Thuật",
+    tenThat: null,
+    tenKhac: ["Tán Thuật"],
+    namSinh: "1844",
+    namMat: "1926",
+    nienDai: "1844 – 1926",
+    queQuan: "Làng Xuân Dục, tổng Bạch Sam, huyện Đường Hào, phủ Thượng Hồng, tỉnh Hải Dương; nay thuộc xã Xuân Dục, thị xã Mỹ Hào, Hưng Yên",
+    thoiKy: "chong-phap",
+    trieuDai: "Nhà Nguyễn",
+    namMoc: 1885,
+    tomTat: "Thủ lĩnh khởi nghĩa Bãi Sậy (1885 – 1889) trong phong trào Cần Vương, được vua Hàm Nghi phong Bắc Kỳ Hiệp thống Quân vụ đại thần.",
+    tieuSu: [
+      "Nguyễn Thiện Thuật, thường gọi là Tán Thuật, sinh năm 1844 ở làng Xuân Dục (tỉnh Hải Dương thời Nguyễn). Ông đỗ Cử nhân năm 1876, từng làm Tuần phủ Hải Dương, và từ quan, không chấp nhận đầu hàng sau Hiệp ước Giáp Thân (1884).",
+      "Năm 1885, hưởng ứng Chiếu Cần Vương, ông được phong Bắc Kỳ Hiệp thống Quân vụ đại thần, lãnh đạo kháng chiến ở vùng đồng bằng Bắc Bộ. Từ năm 1885 đến 1889, ông chỉ huy khởi nghĩa Bãi Sậy, đánh du kích trong vùng lau sậy đầm lầy, gây nhiều tổn thất cho quân Pháp.",
+      "Năm 1889, ông sang Trung Quốc và sống ở đó đến khi mất ngày 25/5/1926 tại Nam Ninh (Quảng Tây). Năm 2005, di hài ông được đưa về an táng tại quê nhà Xuân Dục.",
+    ],
+    boiCanh: ["Sau Chiếu Cần Vương (1885), nhiều cuộc khởi nghĩa nổ ra ở đồng bằng Bắc Bộ; vùng lau sậy, đầm lầy Bãi Sậy thuận lợi cho lối đánh du kích."],
+    congTrang: [
+      "Lãnh đạo khởi nghĩa Bãi Sậy (1885 – 1889).",
+      "Từ quan, không chấp nhận đầu hàng sau Hiệp ước Giáp Thân (1884).",
+      "Được phong Bắc Kỳ Hiệp thống Quân vụ đại thần, lãnh đạo kháng chiến vùng đồng bằng Bắc Bộ.",
+      "Phát triển lối đánh du kích trong vùng lau sậy, đầm lầy.",
+    ],
+    suKien: [
+      {
+        nam: "1844",
+        text: "Sinh ở làng Xuân Dục.",
+      },
+      {
+        nam: "1876",
+        text: "Đỗ Cử nhân.",
+      },
+      {
+        nam: "1884",
+        text: "Từ quan sau Hiệp ước Giáp Thân.",
+      },
+      {
+        nam: "1885",
+        text: "Hưởng ứng Chiếu Cần Vương, lãnh đạo khởi nghĩa Bãi Sậy.",
+      },
+      {
+        nam: "1889",
+        text: "Sang Trung Quốc.",
+      },
+      {
+        nam: "1926",
+        text: "Mất ngày 25/5 tại Nam Ninh (Quảng Tây).",
+      },
+      {
+        nam: "2005",
+        text: "Di hài được đưa về an táng tại Xuân Dục.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Khu lăng mộ và đền thờ Nguyễn Thiện Thuật (di tích lịch sử cấp quốc gia)",
+        diaDiem: "Xã Xuân Dục, thị xã Mỹ Hào, Hưng Yên",
+      },
+    ],
+    tuongNiem: ["Giỗ ngày 14 tháng 4 âm lịch hằng năm tại thị xã Mỹ Hào, Hưng Yên."],
+    ghiChuSuLieu:
+      "Còn bàn luận về nguyên nhân ông sang Trung Quốc năm 1889: là kế rút lui để bảo toàn lực lượng hay do phong trào Bãi Sậy đã bị bao vây, cô lập. Dân gian coi ông như “thần đầm lầy”; tương truyền ông thoắt ẩn thoắt hiện trên thuyền nan giữa lau sậy để phục kích đồn giặc.",
+    wikiTitle: "Nguyễn Thiện Thuật",
+    nguon: ["Kỷ yếu Hội thảo khoa học Tán lý Nguyễn Thiện Thuật.", "Cổng thông tin điện tử tỉnh Hưng Yên; Báo Quân đội Nhân dân."],
+  },
+  {
+    slug: "phan-boi-chau",
+    ten: "Phan Bội Châu",
+    tenThat: "Phan Văn San",
+    tenKhac: ["Sào Nam", "Thị Hán", "Ông già Bến Ngự"],
+    namSinh: "1867",
+    namMat: "1940",
+    nienDai: "1867 – 1940",
+    queQuan: "Làng Đan Nhiễm, xã Nam Hòa, huyện Nam Đàn, Nghệ An; nay thuộc xã Xuân Hòa, huyện Nam Đàn, Nghệ An",
+    thoiKy: "chong-phap",
+    trieuDai: "Nhà Nguyễn",
+    namMoc: 1905,
+    tomTat: "Nhà yêu nước đầu thế kỷ XX, sáng lập Duy Tân Hội (1904), khởi xướng phong trào Đông Du (1905 – 1908) và lập Việt Nam Quang Phục Hội (1912).",
+    tieuSu: [
+      "Phan Bội Châu tên thật là Phan Văn San, vì kỵ húy vua Duy Tân (Vĩnh San) nên đổi là Bội Châu; hiệu Sào Nam, Thị Hán. Ông sinh ngày 26/12/1867 ở làng Đan Nhiễm, huyện Nam Đàn, đỗ Giải nguyên năm 1900.",
+      "Năm 1904, ông sáng lập Duy Tân Hội, chủ trương dùng vũ trang giành độc lập. Từ năm 1905 đến 1908, ông khởi xướng và tổ chức phong trào Đông Du, đưa hàng trăm thanh niên sang Nhật Bản học chính trị, quân sự. Năm 1912, ông lập Việt Nam Quang Phục Hội ở Quảng Châu (Trung Quốc), hướng tới xây dựng một nhà nước cộng hòa.",
+      "Năm 1925, ông bị Pháp bắt ở Thượng Hải. Trước phong trào đòi ân xá của nhân dân cả nước, Pháp phải giảm án và đưa ông về giam lỏng ở Huế; ông sống ở Bến Ngự, được gọi là “Ông già Bến Ngự”, và mất ngày 29/10/1940 (29 tháng 9 năm Canh Thìn).",
+    ],
+    boiCanh: ["Đầu thế kỷ XX, một lớp sĩ phu yêu nước tìm con đường giành độc lập mới, hướng ra nước ngoài để học hỏi, tiêu biểu là phong trào Đông Du sang Nhật Bản."],
+    congTrang: [
+      "Khởi xướng và tổ chức phong trào Đông Du (1905 – 1908), đưa hàng trăm thanh niên sang Nhật Bản học tập.",
+      "Sáng lập Duy Tân Hội năm 1904.",
+      "Thành lập Việt Nam Quang Phục Hội ở Quảng Châu năm 1912.",
+      "Tác giả “Hải ngoại huyết thư”, “Phan Bội Châu niên biểu”, “Tự phán”.",
+    ],
+    suKien: [
+      {
+        nam: "1867",
+        text: "Sinh ngày 26/12 ở làng Đan Nhiễm, huyện Nam Đàn.",
+      },
+      {
+        nam: "1900",
+        text: "Đỗ Giải nguyên.",
+      },
+      {
+        nam: "1904",
+        text: "Sáng lập Duy Tân Hội.",
+      },
+      {
+        nam: "1905",
+        text: "Khởi xướng phong trào Đông Du (đến năm 1908).",
+      },
+      {
+        nam: "1912",
+        text: "Lập Việt Nam Quang Phục Hội ở Quảng Châu.",
+      },
+      {
+        nam: "1925",
+        text: "Bị Pháp bắt ở Thượng Hải, sau bị giam lỏng ở Huế.",
+      },
+      {
+        nam: "1940",
+        text: "Mất ngày 29/10 tại Huế.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Khu lưu niệm Phan Bội Châu tại Bến Ngự",
+        diaDiem: "Phường Trường An, thành phố Huế, Thừa Thiên Huế",
+      },
+      {
+        ten: "Khu lưu niệm Phan Bội Châu",
+        diaDiem: "Huyện Nam Đàn, Nghệ An",
+      },
+    ],
+    tuongNiem: ["Giỗ ngày 29 tháng 9 âm lịch hằng năm tại Huế và Nghệ An."],
+    ghiChuSuLieu:
+      "Chủ trương dựa vào Nhật Bản thời Đông Du về sau bị nhìn nhận là có hạn chế — Nguyễn Ái Quốc ví là “đuổi hổ cửa trước, rước beo cửa sau”; các vụ ném bom, ám sát cá nhân do Việt Nam Quang Phục Hội tiến hành cũng còn nhiều tranh luận. Tương truyền thuở nhỏ ông có trí nhớ hơn người, đọc sách một lượt là thuộc.",
+    wikiTitle: "Phan Bội Châu",
+    nguon: ["Phan Bội Châu niên biểu; Tự phán.", "Bảo tàng Lịch sử Quốc gia; Cổng thông tin điện tử tỉnh Thừa Thiên Huế."],
+  },
+  {
+    slug: "phan-chau-trinh",
+    ten: "Phan Châu Trinh",
+    tenThat: null,
+    tenKhac: ["Phan Chu Trinh", "Tử Cán", "Tây Hồ", "Hy Mã"],
+    namSinh: "1872",
+    namMat: "1926",
+    nienDai: "1872 – 1926",
+    queQuan: "Làng Tây Lộc, huyện Hà Đông, phủ Thăng Bình, Quảng Nam; nay thuộc xã Tam Phước, huyện Phú Ninh, Quảng Nam",
+    thoiKy: "chong-phap",
+    trieuDai: "Nhà Nguyễn",
+    namMoc: 1906,
+    tomTat: "Nhà yêu nước đầu thế kỷ XX, khởi xướng phong trào Duy Tân (1906 – 1908) với tôn chỉ “Khai dân trí, chấn dân khí, hậu dân sinh”, chủ trương canh tân đất nước bằng con đường cải cách ôn hòa.",
+    tieuSu: [
+      "Phan Châu Trinh (còn viết Phan Chu Trinh), tự Tử Cán, hiệu Tây Hồ, biệt hiệu Hy Mã, sinh ngày 9/9/1872 ở làng Tây Lộc (Quảng Nam). Ông đỗ Phó bảng năm 1901, rồi từ quan để theo con đường canh tân đất nước.",
+      "Từ năm 1906 đến 1908, ông khởi xướng phong trào Duy Tân với tôn chỉ “Khai dân trí, chấn dân khí, hậu dân sinh”: mở trường dạy chữ Quốc ngữ, bài trừ hủ tục, chấn hưng kinh tế thực nghiệp. Năm 1908, sau phong trào chống sưu thuế ở Trung Kỳ, ông bị Pháp bắt đày ra Côn Đảo; năm 1910, ông được trả tự do nhờ Hội Nhân quyền Pháp can thiệp. Bài thơ “Đập đá ở Côn Lôn” tương truyền được ông làm trong thời gian này.",
+      "Từ năm 1911, ông sang Pháp hoạt động chính trị, viết “Thất điều thư” phê phán vua Khải Định. Năm 1925, ông về nước diễn thuyết, cổ vũ tinh thần độc lập dân tộc; ông mất ngày 24/3/1926 (11 tháng 2 năm Bính Dần), và đám tang của ông trở thành một sự kiện chính trị có quy mô cả nước.",
+    ],
+    boiCanh: ["Đầu thế kỷ XX, các sĩ phu yêu nước theo hai khuynh hướng chính: bạo động vũ trang (Phan Bội Châu) và cải cách ôn hòa (Phan Châu Trinh)."],
+    congTrang: [
+      "Khởi xướng phong trào Duy Tân (1906 – 1908) với tôn chỉ “Khai dân trí, chấn dân khí, hậu dân sinh”.",
+      "Mở trường dạy chữ Quốc ngữ, bài trừ hủ tục, chấn hưng kinh tế thực nghiệp.",
+      "Hoạt động ở Pháp (1911 – 1925), viết “Thất điều thư” gửi vua Khải Định.",
+      "Về nước năm 1925 diễn thuyết, cổ vũ tinh thần độc lập dân tộc.",
+    ],
+    suKien: [
+      {
+        nam: "1872",
+        text: "Sinh ngày 9/9 ở làng Tây Lộc, Quảng Nam.",
+      },
+      {
+        nam: "1901",
+        text: "Đỗ Phó bảng.",
+      },
+      {
+        nam: "1906",
+        text: "Khởi xướng phong trào Duy Tân.",
+      },
+      {
+        nam: "1908",
+        text: "Bị bắt đày ra Côn Đảo sau phong trào chống sưu thuế Trung Kỳ.",
+      },
+      {
+        nam: "1910",
+        text: "Được trả tự do nhờ Hội Nhân quyền Pháp can thiệp.",
+      },
+      {
+        nam: "1911",
+        text: "Sang Pháp hoạt động.",
+      },
+      {
+        nam: "1925",
+        text: "Về nước diễn thuyết.",
+      },
+      {
+        nam: "1926",
+        text: "Mất ngày 24/3.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Khu mộ và đền thờ Phan Châu Trinh (di tích lịch sử cấp quốc gia)",
+        diaDiem: "Số 9 Phan Thúc Duyện, phường 4, quận Tân Bình, TP. Hồ Chí Minh",
+      },
+      {
+        ten: "Nhà lưu niệm Phan Châu Trinh (di tích quốc gia)",
+        diaDiem: "Xã Tam Phước, huyện Phú Ninh, Quảng Nam",
+      },
+    ],
+    tuongNiem: ["Tưởng niệm ngày 24 tháng 3 dương lịch (hoặc 11 tháng 2 âm lịch) tại TP. Hồ Chí Minh và Quảng Nam."],
+    ghiChuSuLieu:
+      "Con đường cải cách bất bạo động, dựa vào Pháp để khai hóa dân trí của Phan Châu Trinh khác với đường lối bạo động vũ trang của Phan Bội Châu; sự khác biệt về phương pháp đấu tranh này vẫn là chủ đề được bàn luận.",
+    wikiTitle: "Phan Châu Trinh",
+    nguon: ["Phan Châu Trinh toàn tập.", "Cổng thông tin Sở Văn hóa và Thể thao TP. Hồ Chí Minh; Báo Quảng Nam."],
+  },
+  {
+    slug: "luong-van-can",
+    ten: "Lương Văn Can",
+    tenThat: null,
+    tenKhac: ["Ôn Như", "Sơn Lão"],
+    namSinh: "1854",
+    namMat: "1927",
+    nienDai: "1854 – 1927",
+    queQuan: "Làng Nhị Khê, huyện Thượng Phúc, phủ Thường Tín, tỉnh Hà Nội; nay thuộc xã Nhị Khê, huyện Thường Tín, Hà Nội",
+    thoiKy: "chong-phap",
+    trieuDai: "Nhà Nguyễn",
+    namMoc: 1907,
+    tomTat: "Nhà nho, nhà giáo yêu nước, Thục trưởng trường Đông Kinh Nghĩa Thục (1907) ở Hà Nội, người đề xướng tư tưởng kinh doanh có đạo đức qua các sách “Kim cổ cách ngôn”, “Thương học phương châm”.",
+    tieuSu: [
+      "Lương Văn Can, tự Ôn Như, hiệu Sơn Lão, sinh năm 1854 ở làng Nhị Khê (Thường Tín). Ông đỗ Cử nhân khoa Giáp Tuất (1874) nhưng không ra làm quan, ở lại Hà Nội mở trường dạy học.",
+      "Tháng 3/1907, ông cùng các sĩ phu sáng lập trường Đông Kinh Nghĩa Thục ở phố Hàng Đào (Hà Nội) và giữ cương vị Thục trưởng. Trường biên soạn sách giáo khoa Quốc ngữ mới, truyền bá kiến thức khoa học thường thức và dạy học không lấy tiền.",
+      "Qua các sách “Kim cổ cách ngôn”, “Thương học phương châm”, ông đề xướng tư tưởng kinh doanh có đạo đức. Năm 1914, ông bị Pháp bắt đày sang Phnôm Pênh (Campuchia); năm 1921, ông trở về Hà Nội tiếp tục dạy học, viết sách, và mất ngày 13/6/1927 (14 tháng 5 năm Đinh Mão).",
+    ],
+    boiCanh: ["Đầu thế kỷ XX, cuộc vận động Duy Tân lan ra Bắc Kỳ; ở Hà Nội, các sĩ phu mở trường Đông Kinh Nghĩa Thục để truyền bá tư tưởng mới."],
+    congTrang: [
+      "Cùng các sĩ phu sáng lập trường Đông Kinh Nghĩa Thục (3/1907), giữ cương vị Thục trưởng.",
+      "Mở trường dạy học ở Hà Nội sau khi đỗ Cử nhân (1874), không ra làm quan.",
+      "Biên soạn sách giáo khoa Quốc ngữ mới, truyền bá kiến thức khoa học thường thức, dạy học không lấy tiền.",
+      "Đề xướng tư tưởng kinh doanh có đạo đức qua “Kim cổ cách ngôn”, “Thương học phương châm”.",
+    ],
+    suKien: [
+      {
+        nam: "1854",
+        text: "Sinh ở làng Nhị Khê.",
+      },
+      {
+        nam: "1874",
+        text: "Đỗ Cử nhân khoa Giáp Tuất.",
+      },
+      {
+        nam: "1907",
+        text: "Cùng các sĩ phu sáng lập Đông Kinh Nghĩa Thục (tháng 3).",
+      },
+      {
+        nam: "1914",
+        text: "Bị Pháp bắt đày sang Phnôm Pênh.",
+      },
+      {
+        nam: "1921",
+        text: "Trở về Hà Nội.",
+      },
+      {
+        nam: "1927",
+        text: "Mất ngày 13/6.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Nhà lưu niệm danh nhân Lương Văn Can (di tích lịch sử – văn hóa cấp quốc gia)",
+        diaDiem: "Thôn Nhị Khê, xã Nhị Khê, huyện Thường Tín, Hà Nội",
+      },
+    ],
+    tuongNiem: [
+      "Giỗ ngày 14 tháng 5 âm lịch hằng năm tại xã Nhị Khê (huyện Thường Tín) và phố Hàng Đào (quận Hoàn Kiếm, Hà Nội).",
+      "Giới thương nhân phố cổ Hà Nội tôn kính gọi ông là “người thầy của đạo làm giàu chân chính”.",
+    ],
+    ghiChuSuLieu:
+      "Mức độ liên quan thực tế của ông với vụ Hà Thành đầu độc năm 1908, mà chính quyền thực dân viện dẫn để kết án lưu đày ông, vẫn còn bàn luận.",
+    wikiTitle: "Lương Văn Can",
+    nguon: ["Kỷ yếu Hội thảo 100 năm phong trào Đông Kinh Nghĩa Thục.", "Báo Hà Nội Mới; Cổng thông tin điện tử huyện Thường Tín."],
+  },
+  {
+    slug: "nguyen-thai-hoc",
+    ten: "Nguyễn Thái Học",
+    tenThat: null,
+    tenKhac: [],
+    namSinh: "1902",
+    namMat: "1930",
+    nienDai: "1902 – 1930",
+    queQuan: "Làng Thổ Tang, tổng Lương Điền, phủ Vĩnh Tường, tỉnh Vĩnh Yên; nay thuộc thị trấn Thổ Tang, huyện Vĩnh Tường, Vĩnh Phúc",
+    thoiKy: "chong-phap",
+    trieuDai: "Nhà Nguyễn",
+    namMoc: 1927,
+    tomTat: "Người sáng lập và Chủ tịch Việt Nam Quốc Dân Đảng (1927), lãnh đạo Khởi nghĩa Yên Bái năm 1930; bị Pháp xử chém ngày 17/6/1930 tại Yên Bái.",
+    tieuSu: [
+      "Nguyễn Thái Học sinh ngày 1/12/1902 ở làng Thổ Tang, phủ Vĩnh Tường (tỉnh Vĩnh Yên). Ông từng học trường Cao đẳng Thương mại Hà Nội và gửi nhiều bản kiến nghị cải cách lên Toàn quyền Pháp nhưng đều bị bác bỏ.",
+      "Ngày 25/12/1927, ông thành lập Việt Nam Quốc Dân Đảng ở Hà Nội và được bầu làm Chủ tịch Tổng bộ, chuẩn bị khởi nghĩa vũ trang nhằm lật đổ chính quyền thực dân, lập nên một nhà nước cộng hòa. Đêm 9/2/1930, Khởi nghĩa Yên Bái nổ ra ở Yên Bái, Phú Thọ, Hải Dương, Thái Bình với phương châm “Không thành công cũng thành nhân”.",
+      "Ngày 20/2/1930, ông bị mật thám Pháp bắt ở ấp Cổ Vịt (Hải Dương). Ngày 17/6/1930, ông cùng 12 đồng chí bị đưa lên máy chém ở Yên Bái; trước khi hy sinh, các ông hô “Việt Nam vạn tuế”.",
+    ],
+    boiCanh: ["Cuối thập niên 1920, nhiều tổ chức yêu nước mới ra đời; Việt Nam Quốc Dân Đảng chủ trương khởi nghĩa vũ trang chống chính quyền thực dân Pháp."],
+    congTrang: [
+      "Thành lập Việt Nam Quốc Dân Đảng ngày 25/12/1927, làm Chủ tịch Tổng bộ.",
+      "Lãnh đạo việc chuẩn bị khởi nghĩa vũ trang chống chính quyền thực dân.",
+      "Phát động Khởi nghĩa Yên Bái đêm 9/2/1930 ở Yên Bái, Phú Thọ, Hải Dương, Thái Bình.",
+    ],
+    suKien: [
+      {
+        nam: "1902",
+        text: "Sinh ngày 1/12 ở làng Thổ Tang.",
+      },
+      {
+        nam: "1927",
+        text: "Thành lập Việt Nam Quốc Dân Đảng ngày 25/12.",
+      },
+      {
+        nam: "1930",
+        text: "Đêm 9/2 Khởi nghĩa Yên Bái nổ ra; ngày 20/2 ông bị bắt ở ấp Cổ Vịt; ngày 17/6 bị xử chém ở Yên Bái.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Khu lăng mộ và tượng đài Nguyễn Thái Học, Công viên Yên Hòa (di tích lịch sử cấp quốc gia)",
+        diaDiem: "Thành phố Yên Bái, Yên Bái",
+      },
+      {
+        ten: "Đền thờ Nguyễn Thái Học",
+        diaDiem: "Thị trấn Thổ Tang, huyện Vĩnh Tường, Vĩnh Phúc",
+      },
+    ],
+    tuongNiem: ["Tưởng niệm ngày 17 tháng 6 dương lịch hằng năm tại Khu di tích lịch sử Nguyễn Thái Học (thành phố Yên Bái)."],
+    ghiChuSuLieu:
+      "Thời điểm phát động Khởi nghĩa Yên Bái, khi lực lượng chưa chuẩn bị chín muồi sau vụ ám sát Bazin (người chuyên mộ phu), là điểm còn tranh luận. Tương truyền khi bước lên máy chém, ông bình thản đọc hai câu thơ tiếng Pháp: “Mourir pour sa patrie / C'est le sort le plus beau, le plus digne d'envie” (Chết vì Tổ quốc là số phận đẹp nhất, đáng ghen tị nhất).",
+    wikiTitle: "Nguyễn Thái Học",
+    nguon: ["Hồ sơ lưu trữ Tòa án Đề hình Yên Bái 1930.", "Cổng thông tin điện tử tỉnh Yên Bái; Bảo tàng Lịch sử Quốc gia."],
+  },
 ];
