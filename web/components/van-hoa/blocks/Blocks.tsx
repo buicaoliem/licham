@@ -1,23 +1,64 @@
 import Link from "next/link";
 import type { CanChi, SolarDate } from "@licham/core";
+import { Icon, type IconName } from "@/components/heritage/Icon";
 import { getVietnamToday } from "@/lib/today";
 import { namEventsOfCanChi, nhanVatOfHoliday, suKienOfLunarDay, vanHoaBlocksOn } from "@/lib/van-hoa/blocks";
 import { canChiYearHeader } from "@/lib/van-hoa/logic";
 import { moonInfo } from "@/lib/van-hoa/moon";
-import { ITEM_LABELS } from "@/lib/van-hoa/types";
+import { ITEM_LABELS, type ItemLabel } from "@/lib/van-hoa/types";
 import { MoonDisc } from "../MoonDisc";
 import s from "../van-hoa.module.css";
 import { ItemBadge, Pic } from "../tpl/Shared";
-import t from "../tpl/tpl.module.css";
 import b from "./blocks.module.css";
 
-/** Khung chung: mang biến --vh-* của mảng Văn hoá vào trang có sẵn. */
-function Frame({ label, title, children }: { label: string; title: string; children: React.ReactNode }) {
+function MoonIcon() {
   return (
-    <section className={`${s.root} ${b.block}`} aria-label={label}>
-      <h2 className={b.title}>{title}</h2>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z" />
+    </svg>
+  );
+}
+
+/** Khung chung: mang biến --vh-* của mảng Văn hoá vào trang có sẵn; tiêu đề có biểu tượng, liên kết hành động canh phải. */
+function Frame({ title, icon, more, children }: { title: string; icon: IconName | "moon"; more?: { href: string; label: string }; children: React.ReactNode }) {
+  return (
+    <section className={`${s.root} ${b.block}`} aria-label={title}>
+      <div className={b.head}>
+        <h2 className={b.title}>
+          <span className={b.ico}>{icon === "moon" ? <MoonIcon /> : <Icon name={icon} size={22} stroke={1.7} />}</span>
+          {title}
+        </h2>
+        {more && (
+          <Link href={more.href} className={b.moreLink}>
+            {more.label}
+            <Icon name="arrow" size={16} />
+          </Link>
+        )}
+      </div>
       {children}
     </section>
+  );
+}
+
+/** Dòng thời gian: chấm màu theo nhãn, năm, tiêu đề, nhãn canh phải. */
+function Timeline({ rows }: { rows: { key: string; year: number; title: string; label: ItemLabel; href?: string }[] }) {
+  return (
+    <ol className={b.tl}>
+      {rows.map((r) => (
+        <li key={r.key} className={b.tlRow}>
+          <span className={b.tlDot} style={{ background: ITEM_LABELS[r.label].node }} aria-hidden="true" />
+          <span className={b.tlYear}>{r.year}</span>
+          {r.href ? (
+            <Link href={r.href} className={b.tlTitle}>
+              {r.title}
+            </Link>
+          ) : (
+            <span className={b.tlTitle}>{r.title}</span>
+          )}
+          <ItemBadge label={r.label} />
+        </li>
+      ))}
+    </ol>
   );
 }
 
@@ -29,36 +70,30 @@ export function LunarDayBlocks({ date, lunarDay, lunarMonth, leap = false }: { d
   const today = getVietnamToday();
   const isToday = today.day === date.day && today.month === date.month && today.year === date.year;
   const when = isToday ? "hôm nay" : "ngày này";
+  const t = (x: typeof moon.moonrise) => (x ? `${x.hhmm}${x.nextDay ? " (ngày sau)" : ""}` : "—");
   return (
     <div className={b.duo}>
       {events.length > 0 && (
-        <Frame label="Ngày này năm xưa" title="Ngày này năm xưa">
-          <ul className={b.evList}>
-            {events.map((e) => (
-              <li key={e.slug} className={b.evRow}>
-                <span className={b.evYear}>{e.lunar.year}</span>
-                <div>
-                  <ItemBadge label={e.label} />
-                  <Link href={`/van-hoa/su-kien/${e.slug}/`} className={b.evTitle}>
-                    {e.title}
-                  </Link>
-                </div>
-              </li>
-            ))}
-          </ul>
-          <p className={b.more}>
-            <Link href="/van-hoa/su-kien/">Xem thêm</Link>
-          </p>
+        <Frame title="Ngày này năm xưa" icon="calendar" more={{ href: "/van-hoa/su-kien/", label: "Xem thêm" }}>
+          <Timeline rows={events.map((e) => ({ key: e.slug, year: e.lunar.year, title: e.title, label: e.label, href: `/van-hoa/su-kien/${e.slug}/` }))} />
         </Frame>
       )}
-      <Frame label={`Trăng ${when}`} title={`Trăng ${when}`}>
-        <div className={b.moon}>
+      <Frame title={`Trăng ${when}`} icon="moon">
+        <div className={b.moonBig}>
           <MoonDisc elongation={moon.elongation} percent={moon.illuminatedPercent} label={`Hình dạng mặt trăng ${when}`} />
-          <div className={b.moonText}>
-            <p className={b.moonPhase}>{moon.phase}</p>
-            <p className={s.muted}>Độ sáng {moon.illuminatedPercent}%</p>
-          </div>
         </div>
+        <p className={b.moonPhase}>{moon.phase}</p>
+        <p className={b.moonSub}>Độ sáng {moon.illuminatedPercent}%</p>
+        <dl className={b.moonTimes}>
+          <div>
+            <dt>Trăng mọc</dt>
+            <dd>{t(moon.moonrise)}</dd>
+          </div>
+          <div>
+            <dt>Trăng lặn</dt>
+            <dd>{t(moon.moonset)}</dd>
+          </div>
+        </dl>
         <p className={s.note}>Tính cho Hà Nội, giờ Việt Nam.</p>
       </Frame>
     </div>
@@ -71,24 +106,9 @@ export function NamTrongLichSu({ canChi }: { canChi: CanChi }) {
   const events = namEventsOfCanChi(canChi);
   if (events.length === 0) return null;
   const { slug } = canChiYearHeader(canChi);
-  const title = `Năm ${canChi.name} trong lịch sử`;
   return (
-    <Frame label={title} title={title}>
-      <ol className={t.timeline}>
-        {events.map((e) => (
-          <li key={`${e.year}-${e.title}`} className={t.tlRow}>
-            <span className={t.tlNode} style={{ background: ITEM_LABELS[e.label].node }} aria-hidden="true" />
-            <div className={b.tlBox}>
-              <span className={b.tlY}>{e.year}</span> <ItemBadge label={e.label} />
-              <b>{e.title}</b>
-              <p>{e.summary}</p>
-            </div>
-          </li>
-        ))}
-      </ol>
-      <p className={b.more}>
-        <Link href={`/van-hoa/nam/${slug}/`}>Xem đủ dòng thời gian</Link>
-      </p>
+    <Frame title={`Năm ${canChi.name} trong lịch sử`} icon="hourglass" more={{ href: `/van-hoa/nam/${slug}/`, label: "Xem đủ dòng thời gian" }}>
+      <Timeline rows={events.map((e) => ({ key: `${e.year}-${e.title}`, year: e.year, title: e.title, label: e.label }))} />
     </Frame>
   );
 }
@@ -99,19 +119,17 @@ export function NhanVatLienQuan({ leSlug }: { leSlug: string }) {
   const people = nhanVatOfHoliday(leSlug);
   if (people.length === 0) return null;
   return (
-    <Frame label="Nhân vật và nơi thờ liên quan" title="Nhân vật & nơi thờ liên quan">
-      <ul className={`${t.plain} ${t.cards} ${b.people}`}>
+    <Frame title="Nhân vật & nơi thờ liên quan" icon="user">
+      <ul className={b.people}>
         {people.map((n) => (
-          <li key={n.slug} className={t.cardItem}>
-            <Pic src={n.cardImage ?? n.image} alt={n.imageAlt} className={t.cardImg} width={112} height={160} />
-            <div className={t.cardBody}>
-              <ItemBadge label={n.label} />
-              <h3 className={t.cardName}>{n.name}</h3>
-              {n.places?.[0] && <p className={b.place}>Nơi thờ: {n.places[0].name}</p>}
-              <p className={t.moreR}>
-                <Link href={`/van-hoa/nhan-vat/${n.slug}/`}>Xem chi tiết</Link>
-              </p>
-            </div>
+          <li key={n.slug}>
+            <Link href={`/van-hoa/nhan-vat/${n.slug}/`} className={b.person}>
+              <Pic src={n.cardImage ?? n.image} alt={n.imageAlt} className={b.personImg} width={200} height={200} />
+              <span className={b.personText}>
+                <b>{n.name}</b>
+                <span>{n.places?.[0] ? `Nơi thờ: ${n.places[0].name}` : n.summary}</span>
+              </span>
+            </Link>
           </li>
         ))}
       </ul>
