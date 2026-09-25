@@ -46,6 +46,9 @@ function EyeGlyph({ off }: { off?: boolean }) {
   );
 }
 
+/** 24 tháng ≈ 730 ngày, tính từ ngày dựng trang (server, giờ VN). */
+const NEAR_DAYS = 730;
+
 const byDateAsc = (a: EclipseCard, b: EclipseCard) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0);
 
 function Card({ c, today }: { c: EclipseCard; today: Today | null }) {
@@ -140,7 +143,16 @@ export function EclipseList({ cards, years }: { cards: EclipseCard[]; years: num
               <h2 className={v.secTitle} id="sap-dien-ra">
                 Sắp diễn ra
               </h2>
-              <Grid items={upcoming} today={today} />
+              <Grid items={upcoming.filter((c) => c.days <= NEAR_DAYS)} today={today} />
+              {upcoming.some((c) => c.days > NEAR_DAYS) && (
+                <details className={v.moreBox}>
+                  <summary className={v.moreSum}>
+                    Xem thêm {upcoming.filter((c) => c.days > NEAR_DAYS).length} lần nhật, nguyệt thực đến {upcoming[upcoming.length - 1]!.year}
+                    <Icon name="chevron" size={18} className={v.yearChev} />
+                  </summary>
+                  <Grid items={upcoming.filter((c) => c.days > NEAR_DAYS)} today={today} />
+                </details>
+              )}
             </section>
           )}
           {pastByYear.length > 0 && (

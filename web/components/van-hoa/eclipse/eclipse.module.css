@@ -578,3 +578,28 @@ h2.cardTitle {
 .yearBox[open] .yearChev {
   transform: rotate(90deg);
 }
+
+.moreBox {
+  margin: 12px 0 0;
+}
+.moreBox[open] > ul {
+  margin-top: 12px;
+}
+.moreSum {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  min-height: 44px;
+  cursor: pointer;
+  list-style: none;
+  font-weight: 600;
+  color: var(--vh-muted);
+  text-align: right;
+}
+.moreSum::-webkit-details-marker {
+  display: none;
+}
+.moreBox[open] .yearChev {
+  transform: rotate(90deg);
+}
