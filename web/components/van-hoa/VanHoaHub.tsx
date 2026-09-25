@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ListLd } from "./tpl/Shared";
 import { GREEN_BADGES, HERO_IMAGE, NEW_POSTS, TOPICS, type Topic } from "@/lib/van-hoa/config";
 import { HomNay } from "./HomNay";
 import s from "./van-hoa.module.css";
@@ -46,6 +47,13 @@ function TopicCard({ t }: { t: Topic }) {
 export function VanHoaHub() {
   return (
     <div className={s.root}>
+      <ListLd
+        crumbs={[{ label: "Trang chủ", href: "/" }, { label: "Văn hoá" }]}
+        name="Lịch sử & Văn hoá Việt"
+        description="Các chủ đề văn hoá Việt: lịch sử theo năm, văn hoá dân gian, nhân vật và lễ hội."
+        path="/van-hoa/"
+        items={TOPICS.filter((x) => x.live).map((x) => ({ name: x.title, href: x.href }))}
+      />
       <section className={s.hero}>
         <img src={HERO_IMAGE} alt="" aria-hidden="true" className={`${s.heroArt} ${s.heroL}`} width={1200} height={600} fetchPriority="high" />
         <img src={HERO_IMAGE} alt="" aria-hidden="true" className={`${s.heroArt} ${s.heroR}`} width={1200} height={600} />

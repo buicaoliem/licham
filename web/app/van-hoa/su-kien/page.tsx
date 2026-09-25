@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ChShell } from "@/components/heritage/ChShell";
 import { TopicList } from "@/components/van-hoa/tpl/TopicList";
-import { Hero } from "@/components/van-hoa/tpl/Shared";
+import { Hero, ListLd } from "@/components/van-hoa/tpl/Shared";
 import s from "@/components/van-hoa/van-hoa.module.css";
 import { HERO_IMAGE, VAN_HOA_PUBLIC } from "@/lib/van-hoa/config";
 import { SU_KIEN } from "@/lib/van-hoa/data/su-kien";
@@ -18,6 +18,7 @@ export default function ListPage() {
   return (
     <ChShell activeMenu={null} className="ch-page">
       <div className={s.root}>
+        <ListLd crumbs={[{ label: "Trang chủ", href: "/" }, { label: "Văn hoá", href: "/van-hoa/" }, { label: 'Sự kiện lịch sử' }]} name='Sự kiện lịch sử' description={metadata.description!} path='/van-hoa/su-kien/' items={SU_KIEN.map((x) => ({ name: x.title, href: `/van-hoa/su-kien/${x.slug}/` }))} />
         <Hero title="Sự kiện lịch sử" lead="Các sự kiện tiêu biểu của lịch sử dân tộc, xếp theo triều đại và thời kỳ, kèm ngày âm lịch và ngày dương lịch quy đổi." image={HERO_IMAGE} short center />
         <div className={s.wrap}>
           <TopicList

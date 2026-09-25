@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ChShell } from "@/components/heritage/ChShell";
 import { TopicList } from "@/components/van-hoa/tpl/TopicList";
-import { Hero } from "@/components/van-hoa/tpl/Shared";
+import { Hero, ListLd } from "@/components/van-hoa/tpl/Shared";
 import s from "@/components/van-hoa/van-hoa.module.css";
 import { NHAN_VAT } from "@/lib/van-hoa/data/nhan-vat";
 import { NHAN_VAT_GROUPS } from "@/lib/van-hoa/types";
@@ -18,6 +18,7 @@ export default function NhanVatListPage() {
   return (
     <ChShell activeMenu={null} className="ch-page">
       <div className={s.root}>
+        <ListLd crumbs={[{ label: "Trang chủ", href: "/" }, { label: "Văn hoá", href: "/van-hoa/" }, { label: 'Nhân vật' }]} name='Nhân vật truyền thuyết & thần thánh' description={metadata.description!} path='/van-hoa/nhan-vat/' items={NHAN_VAT.map((x) => ({ name: x.name, href: `/van-hoa/nhan-vat/${x.slug}/` }))} />
         <Hero
           title="Nhân vật truyền thuyết & thần thánh"
           lead="Những nhân vật huyền thoại, các vị thần linh và bậc tiên nhân đã góp phần làm nên bản sắc tâm linh, văn hoá Việt Nam."

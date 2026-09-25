@@ -1,6 +1,9 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Breadcrumb, type Crumb } from "@/components/calendar/Breadcrumb";
+import { JsonLd } from "@/components/calendar/JsonLd";
+import { breadcrumbJsonLd } from "@/lib/calendar/jsonld";
+import { collectionJsonLd } from "@/lib/van-hoa/jsonld";
 import { Icon, type IconName } from "@/components/heritage/Icon";
 import { heritageFile } from "@/lib/heritage-assets";
 import { ITEM_LABELS, type ItemLabel, type RelatedLink, type Source } from "@/lib/van-hoa/types";
@@ -120,4 +123,14 @@ export function Hero({ label, title, sub, lead, image, alt, center = false, cont
 /** Trạng thái chưa có nội dung. */
 export function Drafting() {
   return <p className={t.empty}>Nội dung đang được biên soạn.</p>;
+}
+
+/** JSON-LD cho trang danh sách/tổng: BreadcrumbList + CollectionPage/ItemList (không hiển thị gì). */
+export function ListLd({ crumbs, name, description, path, items }: { crumbs: Crumb[]; name: string; description: string; path: string; items: readonly { name: string; href: string }[] }) {
+  return (
+    <>
+      <JsonLd data={breadcrumbJsonLd(crumbs)} />
+      <JsonLd data={collectionJsonLd(name, description, path, items)} />
+    </>
+  );
 }
