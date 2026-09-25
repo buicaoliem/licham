@@ -26,11 +26,28 @@ function nhomBienThe(nhom: string): string[] {
   return out;
 }
 
+/** Bài có ảnh vẽ riêng trong bộ ảnh nhóm — luôn dùng đúng ảnh này, không xoay vòng. */
+const ANH_GHIM: Record<string, string> = {
+  "cung-xe": "viec-lon-3",
+  "khai-truong": "viec-lon-2",
+  "dong-tho": "viec-lon",
+  "nhap-trach": "viec-lon",
+  "ong-cong-ong-tao": "le-tet-2",
+  "giao-thua-trong-nha": "le-tet-3",
+  "giao-thua-ngoai-troi": "le-tet-3",
+  "ram-thang-bay": "le-tet-4",
+  "than-tai-tho-dia": "trong-nha-2",
+  "cung-day-thang": "trong-nha-3",
+  "cung-thoi-noi": "trong-nha-3",
+  "giai-han-dau-nam": "cau-an-2",
+  "cau-duyen": "cau-an-3",
+};
+
 let anhNhomTheoBai: Map<string, string> | null = null;
 
 /**
  * Chia ảnh nhóm cho từng bài theo thứ tự bài trong nhóm (cùng thứ tự lưới ở /van-khan/):
- * xoay vòng các biến thể, bỏ qua biến thể trùng với thẻ liền trước hoặc thẻ phía trên.
+ * xoay vòng các biến thể, bỏ qua biến thể trùng với thẻ liền trước hoặc thẻ phía trên (thẻ ghim cũng tính là hàng xóm).
  * Bài đã có ảnh riêng giữ ảnh riêng. Kết quả cố định nên trang chi tiết dùng cùng ảnh với thẻ.
  */
 function anhNhomCuaBai(slug: string): string | null {
@@ -40,14 +57,21 @@ function anhNhomCuaBai(slug: string): string | null {
       const bienThe = nhomBienThe(ten);
       if (bienThe.length === 0) continue;
       const hienThi: string[] = [];
-      VAN_KHAN_LIST.filter((v) => v.nhom === ten).forEach((v, i) => {
+      const bai = VAN_KHAN_LIST.filter((v) => v.nhom === ten);
+      const duongGhim = (slug: string | undefined) =>
+        slug && ANH_GHIM[slug] ? `/heritage/van-khan/nhom/${ANH_GHIM[slug]}.webp` : undefined;
+      bai.forEach((v, i) => {
         const own = heritageFile(`/heritage/van-khan/${v.slug}.webp`);
         const trai = hienThi[i - 1]; // thẻ liền trước (thẻ bên trái trên desktop, thẻ phía trên trên mobile 1 cột)
         const tren = hienThi[i - VK_LUOI_COT];
-        let chon = bienThe[i % bienThe.length]!;
-        for (let k = 0; k < bienThe.length; k++) {
+        // Thẻ ghim phía sau (kế tiếp, phía dưới) đã biết trước nên cũng tránh trùng.
+        const phai = duongGhim(bai[i + 1]?.slug);
+        const duoi = duongGhim(bai[i + VK_LUOI_COT]?.slug);
+        const ghim = duongGhim(v.slug) ?? null;
+        let chon = ghim ?? bienThe[i % bienThe.length]!;
+        for (let k = 0; !ghim && k < bienThe.length; k++) {
           const c = bienThe[(i + k) % bienThe.length]!;
-          if (c !== trai && c !== tren) {
+          if (c !== trai && c !== tren && c !== phai && c !== duoi) {
             chon = c;
             break;
           }
