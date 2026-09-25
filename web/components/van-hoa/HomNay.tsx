@@ -103,7 +103,9 @@ function QuizBlock({ quiz, dayKey }: { quiz: QuizItem | null; dayKey: string }) 
           const state = !answered ? "" : i === quiz.answerIndex ? s.right : i === picked ? s.wrong : "";
           return (
             <button key={o} type="button" className={`${s.option} ${state}`} disabled={answered} onClick={() => setPicked(i)}>
-              {o}
+              <span className={s.optKey}>{"ABCD"[i]}</span>
+              <span className={s.optText}>{o}</span>
+              {answered && i === quiz.answerIndex && <span aria-hidden="true">✓</span>}
             </button>
           );
         })}
@@ -118,10 +120,21 @@ function QuizBlock({ quiz, dayKey }: { quiz: QuizItem | null; dayKey: string }) 
   );
 }
 
-function Card({ title, children }: { title: string; children: React.ReactNode }) {
+const ICONS: Record<string, React.ReactNode> = {
+  event: <path d="M7 2v3M17 2v3M4 8h16M5 4h14a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z" />,
+  moon: <path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z" />,
+  quiz: <path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z" />,
+};
+
+function Card({ title, icon, children }: { title: string; icon: keyof typeof ICONS; children: React.ReactNode }) {
   return (
     <section className={s.todayCard}>
-      <h3 className={s.h3}>{title}</h3>
+      <div className={s.cardHead}>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          {ICONS[icon]}
+        </svg>
+        <h3 className={s.h3}>{title}</h3>
+      </div>
       {children}
     </section>
   );
@@ -132,13 +145,13 @@ export function HomNay() {
   if (!v) {
     return (
       <div className={s.todayGrid} aria-busy="true">
-        <Card title="Trăng tối nay">
-          <p className={s.muted}>Đang tính…</p>
-        </Card>
-        <Card title="Ngày này năm xưa">
+        <Card title="Ngày này năm xưa" icon="event">
           <p className={s.muted}>Đang tải…</p>
         </Card>
-        <Card title="Đố vui lịch sử hôm nay">
+        <Card title="Trăng tối nay" icon="moon">
+          <p className={s.muted}>Đang tính…</p>
+        </Card>
+        <Card title="Đố vui lịch sử hôm nay" icon="quiz">
           <p className={s.muted}>Đang tải…</p>
         </Card>
       </div>
@@ -151,13 +164,13 @@ export function HomNay() {
   const dayKey = `${day.year}-${day.month}-${day.day}`;
   return (
     <div className={s.todayGrid}>
-      <Card title="Trăng tối nay">
-        <MoonBlock moon={moonInfo(day, now)} lunar={lunar} />
-      </Card>
-      <Card title="Ngày này năm xưa">
+      <Card title="Ngày này năm xưa" icon="event">
         <EventBlock events={eventsForLunar(l.day, l.month, EVENTS)} />
       </Card>
-      <Card title="Đố vui lịch sử hôm nay">
+      <Card title="Trăng tối nay" icon="moon">
+        <MoonBlock moon={moonInfo(day, now)} lunar={lunar} />
+      </Card>
+      <Card title="Đố vui lịch sử hôm nay" icon="quiz">
         <QuizBlock quiz={quizForDay(dayNumber, QUIZZES)} dayKey={dayKey} />
       </Card>
     </div>

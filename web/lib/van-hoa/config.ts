@@ -17,6 +17,8 @@ export interface Topic {
   imageAlt: string;
   description: string;
   href: string;
+  /** Điểm lấy nét khi cắt ảnh dọc trong thẻ (CSS object-position). */
+  imagePosition?: string;
   /** false: trang đích chưa có → thẻ chỉ hiện mô tả, ẩn "Xem tất cả". */
   live: boolean;
   links: TopicLink[];
@@ -27,6 +29,7 @@ const IMG = "/heritage/van-hoa";
 export const TOPICS: readonly Topic[] = [
   {
     slug: "lich-su-theo-nam",
+    imagePosition: "25% 50%",
     title: "Lịch sử theo năm",
     badge: "Chính sử",
     image: `${IMG}/lich-su-theo-nam-480.webp`,
@@ -38,6 +41,7 @@ export const TOPICS: readonly Topic[] = [
   },
   {
     slug: "cac-doi-vua",
+    imagePosition: "50% 50%",
     title: "Các đời vua",
     badge: "Chính sử",
     image: `${IMG}/cac-doi-vua-480.webp`,
@@ -49,6 +53,7 @@ export const TOPICS: readonly Topic[] = [
   },
   {
     slug: "nguoi-viet-co",
+    imagePosition: "85% 75%",
     title: "Người Việt cổ",
     badge: "Truyền thuyết",
     image: `${IMG}/nguoi-viet-co-480.webp`,
@@ -60,6 +65,7 @@ export const TOPICS: readonly Topic[] = [
   },
   {
     slug: "van-hoa-dan-gian",
+    imagePosition: "30% 50%",
     title: "Văn hoá dân gian",
     badge: "Dân gian",
     image: `${IMG}/van-hoa-dan-gian-480.webp`,
@@ -71,6 +77,7 @@ export const TOPICS: readonly Topic[] = [
   },
   {
     slug: "thien-van-mua-mang",
+    imagePosition: "50% 50%",
     title: "Thiên văn & mùa màng",
     badge: "Thiên văn",
     image: `${IMG}/thien-van-mua-mang-480.webp`,
@@ -82,6 +89,7 @@ export const TOPICS: readonly Topic[] = [
   },
   {
     slug: "le-hoi-dong-ho",
+    imagePosition: "35% 50%",
     title: "Lễ hội & dòng họ",
     badge: "Phong tục",
     image: `${IMG}/le-hoi-dong-ho-480.webp`,
@@ -93,6 +101,7 @@ export const TOPICS: readonly Topic[] = [
   },
   {
     slug: "hoc-duong",
+    imagePosition: "35% 70%",
     title: "Học đường",
     badge: "Giáo dục",
     image: `${IMG}/hoc-duong-480.webp`,
@@ -106,8 +115,12 @@ export const TOPICS: readonly Topic[] = [
 
 export const HERO_IMAGE = `${IMG}/lich-su-theo-nam-hero.webp`;
 
+/** Nhãn màu xanh ngọc; các nhãn còn lại màu hồng đỏ. */
+export const GREEN_BADGES: readonly string[] = ["Thiên văn", "Giáo dục", "Truyền thuyết"];
+
 /** Bài mới: rỗng thì ẩn cả mục. */
 export interface NewPost {
+  image?: string;
   title: string;
   href: string;
   badge: string;
