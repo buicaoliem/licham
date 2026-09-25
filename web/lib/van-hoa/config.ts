@@ -24,6 +24,8 @@ export interface Topic {
   links: TopicLink[];
 }
 
+import { ECLIPSES, ECLIPSE_LIST_PATH } from "./eclipses";
+
 const IMG = "/heritage/van-hoa";
 
 export const TOPICS: readonly Topic[] = [
@@ -83,8 +85,8 @@ export const TOPICS: readonly Topic[] = [
     image: `${IMG}/thien-van-mua-mang-480.webp`,
     imageAlt: "Các pha của mặt trăng trên cánh đồng lúa lúc hoàng hôn",
     description: "Trăng, tiết khí và nhịp mùa màng: vì sao người xưa làm lịch theo trời.",
-    href: "/van-hoa/thien-van-mua-mang/",
-    live: false,
+    href: ECLIPSE_LIST_PATH,
+    live: ECLIPSES.length > 0,
     links: [],
   },
   {

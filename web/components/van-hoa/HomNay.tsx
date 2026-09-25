@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { jdFromDate, solarToLunar, vietnamDateOf, type SolarDate } from "@licham/core";
 import { EVENTS, QUIZZES, eventsForLunar, quizForDay, type HistoryEvent, type QuizItem } from "@/lib/van-hoa/content";
 import { moonInfo, type MoonInfo } from "@/lib/van-hoa/moon";
+import Link from "next/link";
+import { ECLIPSE_LIST_PATH } from "@/lib/van-hoa/eclipses";
 import { MoonDisc } from "./MoonDisc";
 import s from "./van-hoa.module.css";
 
@@ -53,6 +55,9 @@ function MoonBlock({ moon, lunar }: { moon: MoonInfo; lunar: string }) {
         </div>
       </dl>
       <p className={s.note}>Tính cho Hà Nội, giờ Việt Nam.</p>
+      <p className={s.more}>
+        <Link href={ECLIPSE_LIST_PATH}>Lịch nhật thực, nguyệt thực</Link>
+      </p>
     </>
   );
 }

@@ -11,6 +11,7 @@
     "generate:tu-vi": "node --experimental-strip-types --experimental-loader ../core/scripts/ts-extension-loader.mjs scripts/generate-tu-vi.ts",
     "tu-vi:e2e": "node --experimental-strip-types --experimental-loader ../core/scripts/ts-extension-loader.mjs scripts/tu-vi-e2e.ts",
     "export:la-so-fixtures": "node --experimental-strip-types --experimental-loader ./scripts/ts-web-loader.mjs scripts/export-la-so-fixtures.ts",
+    "generate:eclipses": "node --experimental-strip-types --experimental-loader ./scripts/ts-web-loader.mjs scripts/generate-eclipses.ts",
     "generate:sitemap": "node --experimental-strip-types --experimental-loader ./scripts/ts-web-loader.mjs scripts/generate-sitemap.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",

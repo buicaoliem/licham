@@ -4,6 +4,7 @@ import { Icon, type IconName } from "@/components/heritage/Icon";
 import { getVietnamToday } from "@/lib/today";
 import { namEventsOfCanChi, nhanVatOfHoliday, suKienOfLunarDay, vanHoaBlocksOn } from "@/lib/van-hoa/blocks";
 import { canChiYearHeader } from "@/lib/van-hoa/logic";
+import { ECLIPSE_LIST_PATH } from "@/lib/van-hoa/eclipses";
 import { moonInfo } from "@/lib/van-hoa/moon";
 import { ITEM_LABELS, type ItemLabel } from "@/lib/van-hoa/types";
 import { MoonDisc } from "../MoonDisc";
@@ -95,6 +96,9 @@ export function LunarDayBlocks({ date, lunarDay, lunarMonth, leap = false }: { d
           </div>
         </dl>
         <p className={s.note}>Tính cho Hà Nội, giờ Việt Nam.</p>
+        <p className={b.foot}>
+          <Link href={ECLIPSE_LIST_PATH}>Lịch nhật thực, nguyệt thực</Link>
+        </p>
       </Frame>
     </div>
   );
