@@ -1,0 +1,491 @@
+/* Chỉ áp dụng cho trang /van-hoa/ (CSS module) — không đổi token toàn site. Theo "Thông số UI — Trang Văn hoá". */
+.root {
+  --vh-red: #b91c1c;
+  --vh-bg: #faf6ed;
+  --vh-jade: #dcead6;
+  --vh-jade-ink: #24522a;
+  --vh-ink: #2d2a26;
+  --vh-muted: #6f6a62; /* đậm hơn #8B867E để đủ tương phản */
+  --vh-alt: #f5e1d3;
+  --vh-line: #e8dfd3;
+  --vh-line-h: #e0d5c6;
+  --vh-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --vh-shadow-h: 0 4px 16px rgba(0, 0, 0, 0.08);
+  background: var(--vh-bg);
+  color: var(--vh-ink);
+  font-family: var(--sans, inherit);
+  font-size: 16px;
+  line-height: 24px;
+  overflow-x: hidden;
+}
+.wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 8px 16px 48px;
+}
+
+/* ---------- hero: tranh hai bên, chữ ở giữa ---------- */
+.hero {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+.heroArt {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 34%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.35;
+  pointer-events: none;
+}
+.heroL {
+  left: 0;
+  object-position: left center;
+  -webkit-mask-image: linear-gradient(90deg, #000 45%, transparent);
+  mask-image: linear-gradient(90deg, #000 45%, transparent);
+}
+.heroR {
+  right: 0;
+  object-position: right center;
+  transform: scaleX(-1);
+  -webkit-mask-image: linear-gradient(90deg, #000 45%, transparent);
+  mask-image: linear-gradient(90deg, #000 45%, transparent);
+}
+.heroIn {
+  position: relative;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 32px 16px 32px;
+}
+.root .h1 {
+  font-family: var(--serif, serif);
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 36px;
+  color: var(--vh-red);
+  text-align: center !important;
+  margin: 0;
+}
+.lead {
+  margin: 12px auto 0;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* ---------- tiêu đề mục: chữ đỏ + đường trang trí hai bên ---------- */
+.root .h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-family: var(--serif, serif);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--vh-red);
+  text-align: center !important;
+  margin: 40px 0 16px;
+}
+.orn {
+  flex: 1 1 0;
+  max-width: 140px;
+  min-width: 16px;
+  height: 9px;
+  position: relative;
+  background: linear-gradient(var(--vh-red), var(--vh-red)) center / 100% 1px no-repeat;
+  opacity: 0.6;
+}
+.orn::after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  right: 0;
+  width: 6px;
+  height: 6px;
+  border: 1px solid var(--vh-red);
+  background: var(--vh-bg);
+  transform: rotate(45deg);
+}
+.ornR {
+  transform: scaleX(-1);
+}
+.root .h3 {
+  font-family: var(--serif, serif);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0 0 8px;
+}
+.muted {
+  color: var(--vh-muted);
+  margin: 0;
+}
+.note {
+  color: var(--vh-muted);
+  font-size: 13px;
+  line-height: 18px;
+  margin: 8px 0 0;
+}
+.badge {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 0 12px;
+  border-radius: 16px;
+  background: #f6c9c4;
+  color: #8f1a14;
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.badgeGreen {
+  background: var(--vh-jade);
+  color: var(--vh-jade-ink);
+}
+
+/* ---------- Hôm nay ---------- */
+.todayGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+.todayCard,
+.topic,
+.newItem {
+  background: #fff;
+  border: 1px solid var(--vh-line);
+  border-radius: 12px;
+  box-shadow: var(--vh-shadow);
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.todayCard:hover,
+.topic:hover,
+.newItem:hover {
+  box-shadow: var(--vh-shadow-h);
+  border-color: var(--vh-line-h);
+}
+.todayCard {
+  padding: 16px;
+  min-width: 0;
+}
+.cardHead {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  color: var(--vh-red);
+}
+.cardHead svg {
+  flex: none;
+}
+.root .cardHead .h3 {
+  margin: 0;
+  color: var(--vh-red);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 28px;
+}
+.moonRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+.moonSvg {
+  width: 45%;
+  max-width: 180px;
+  aspect-ratio: 4 / 3;
+  height: auto;
+  flex: none;
+  border-radius: 8px;
+}
+.moonPhase {
+  font-family: var(--serif, serif);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0;
+}
+.facts {
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+.facts div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid var(--vh-line);
+  padding-top: 8px;
+}
+.facts dt {
+  color: var(--vh-muted);
+}
+.facts dd {
+  margin: 0;
+  font-weight: 600;
+  text-align: right;
+}
+.eventList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+.eventList p {
+  margin: 4px 0 0;
+}
+.question {
+  font-weight: 600;
+  margin: 0 0 12px;
+}
+.options {
+  display: grid;
+  gap: 8px;
+}
+.option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  font: inherit;
+  padding: 8px 12px;
+  min-height: 44px;
+  border: 1px solid var(--vh-line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--vh-ink);
+  cursor: pointer;
+}
+.optKey {
+  font-family: var(--serif, serif);
+  font-weight: 700;
+  width: 16px;
+  flex: none;
+}
+.optText {
+  flex: 1;
+}
+.option:hover:not(:disabled) {
+  border-color: var(--vh-red);
+}
+.option:disabled {
+  cursor: default;
+}
+.right {
+  background: var(--vh-jade);
+  border-color: #8fb794;
+}
+.wrong {
+  background: #fbe1df;
+  border-color: var(--vh-red);
+}
+.answer {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--vh-jade);
+}
+.answer p {
+  margin: 4px 0 0;
+}
+
+/* ---------- Chủ đề: thẻ ngang, ảnh dọc bên trái ---------- */
+.topics {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+.topic {
+  display: flex;
+  gap: 12px;
+  padding: 8px;
+  min-width: 0;
+}
+.topicImg {
+  flex: none;
+  width: 96px;
+  height: auto;
+  min-height: 136px;
+  align-self: stretch;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.topicBody {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  padding: 4px 8px 4px 0;
+}
+.root .topic .h3 {
+  color: var(--vh-red);
+  margin: 0 0 8px;
+}
+.topicDesc {
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+}
+.topicLinks {
+  margin: 0;
+  padding-left: 18px;
+}
+.topicLinks li::marker {
+  color: var(--vh-red);
+}
+.topicLinks a {
+  color: var(--vh-ink);
+  text-decoration: none;
+}
+.topicLinks a:hover {
+  color: var(--vh-red);
+}
+/* Liên kết hành động: luôn ở cuối thẻ, canh phải */
+.more {
+  margin: auto 0 0;
+  padding-top: 8px;
+  text-align: right;
+}
+.more a {
+  color: var(--vh-red);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 8px 0 8px 12px;
+  display: inline-block;
+}
+.more a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Bài mới ---------- */
+.newList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: minmax(0, 1fr);
+}
+.newItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+}
+.newImg {
+  flex: none;
+  width: 88px;
+  height: 64px !important;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.newBody {
+  flex: 1;
+  min-width: 0;
+}
+.newBody .h3 {
+  margin: 0;
+}
+.newBody .badge {
+  margin-bottom: 4px;
+}
+.newBody .note {
+  margin: 4px 0 0;
+}
+.newBody .more {
+  padding-top: 0;
+}
+
+@media (min-width: 640px) {
+  .topics,
+  .newList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .topics > li:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: calc(50% - 8px);
+    justify-self: center;
+  }
+}
+@media (min-width: 900px) {
+  .root {
+    line-height: 26px;
+  }
+  .lead {
+    line-height: 26px;
+  }
+  .heroArt {
+    width: 30%;
+    opacity: 0.9;
+  }
+  .heroIn {
+    padding: 48px 24px;
+  }
+  .root .h1 {
+    font-size: 48px;
+    line-height: 60px;
+  }
+  .root .h2 {
+    font-size: 32px;
+    line-height: 40px;
+    gap: 16px;
+    margin: 48px 0 24px;
+  }
+  .root .h3 {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  .root .cardHead .h3 {
+    font-size: 20px;
+  }
+  .moonRow {
+    flex-direction: column;
+    text-align: center;
+  }
+  .moonSvg {
+    width: 100%;
+    max-width: none;
+  }
+  .moonPhase {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  .badge {
+    font-size: 14px;
+  }
+  .note {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .todayGrid,
+  .topics,
+  .newList {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+  .todayCard {
+    padding: 24px;
+  }
+  .topics > li:last-child:nth-child(odd) {
+    width: auto;
+    justify-self: stretch;
+    grid-column: auto;
+  }
+  .topics > li:last-child:nth-child(3n + 1) {
+    grid-column: 2;
+  }
+  .topicImg {
+    width: 112px;
+    min-height: 160px;
+  }
+  .newList {
+    gap: 16px;
+  }
+}
