@@ -30,6 +30,7 @@ import { KNOWLEDGE } from "../lib/knowledge";
 import { ANH_HUNG } from "../lib/anh-hung";
 import { TIET_KHI } from "../lib/tiet-khi";
 import { VAN_HOA_PUBLIC } from "../lib/van-hoa/config";
+import { vanHoaSubPaths } from "../lib/van-hoa/paths";
 
 
 const PUBLIC_DIR = join(dirname(fileURLToPath(import.meta.url)), "..", "public");
@@ -75,7 +76,10 @@ function buildStaticEntries(): SitemapEntry[] {
     entries.push({ url: `${SITE_URL}/kien-thuc/${k.slug}/`, changefreq: "yearly", priority: 0.6 });
   }
   entries.push({ url: `${SITE_URL}/doi-ngay-am-duong/`, changefreq: "yearly", priority: 0.6 });
-  if (VAN_HOA_PUBLIC) entries.push({ url: `${SITE_URL}/van-hoa/`, changefreq: "weekly", priority: 0.7 });
+  if (VAN_HOA_PUBLIC) {
+    entries.push({ url: `${SITE_URL}/van-hoa/`, changefreq: "weekly", priority: 0.7 });
+    for (const p of vanHoaSubPaths()) entries.push({ url: `${SITE_URL}${p}`, changefreq: "monthly", priority: 0.5 });
+  }
   entries.push({ url: `${SITE_URL}/gioi-thieu/`, changefreq: "yearly", priority: 0.4 });
   entries.push({ url: `${SITE_URL}/lien-he/`, changefreq: "yearly", priority: 0.4 });
   entries.push({ url: `${SITE_URL}/dieu-khoan/`, changefreq: "yearly", priority: 0.3 });
