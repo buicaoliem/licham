@@ -252,12 +252,15 @@ export default async function AnhHungPage({ params }: { params: Promise<{ slug: 
 
             <Sec id="nguon" icon="scroll" title="Nguồn tư liệu" tone="gold">
               <ul className="ah-sources">
+                {a.nguon?.map((n) => (
+                  <li key={n}>{n}</li>
+                ))}
                 <li>
                   Wikipedia tiếng Việt,{" "}
                   <a href={wikiUrl(a.wikiTitle)} target="_blank" rel="noopener noreferrer">
                     “{a.wikiTitle}”
                   </a>{" "}
-                  — nguồn tóm lược niên đại, quê quán và sự kiện; truy cập 24/9/2026.
+                  — {a.nguon ? "bài tổng quan để đối chiếu." : "nguồn tóm lược niên đại, quê quán và sự kiện; truy cập 24/9/2026."}
                 </li>
                 {a.tieuBieu2013 && <li>Bộ Văn hóa, Thể thao và Du lịch, văn bản số 2296/BVHTTDL-MTNATL (21/6/2013) về 14 vị anh hùng dân tộc tiêu biểu.</li>}
                 {le && (

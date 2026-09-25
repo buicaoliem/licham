@@ -1,7 +1,7 @@
 /**
  * Dữ liệu chuyên mục Các anh hùng dân tộc — trích từ các bài Wikipedia tiếng Việt (trường wikiTitle,
  * truy cập 24/9/2026) và dữ liệu trang lễ lib/le.ts. Không thêm niên đại/công trạng ngoài nguồn;
- * điểm sử liệu chưa thống nhất ghi ở ghiChuSuLieu. Công trạng đầu tiên là mốc hiển thị trên dòng thời gian.
+ * điểm sử liệu chưa thống nhất ghi ở ghiChuSuLieu. 17 nhân vật lượt 1 (cuối mảng) trích từ hồ sơ khảo cứu, nguồn ở trường nguon. Công trạng đầu tiên là mốc hiển thị trên dòng thời gian.
  */
 import type { AnhHung } from "./anh-hung";
 
@@ -1729,5 +1729,1042 @@ export const ANH_HUNG_DATA: AnhHung[] = [
       "Nguyên quán được ghi là làng Phước Thọ hoặc làng Long Mỹ. Thời điểm bị bắt được ghi là tháng 12/1949 hoặc tháng 2/1950. Nhiều câu nói và giai thoại về chị được lưu truyền rộng rãi nhưng chưa được kiểm chứng đầy đủ.",
     wikiTitle: "Võ Thị Sáu",
     leSlug: "gio-vo-thi-sau",
+  },
+  // Lượt 1 (26/9/2026): 17 nhân vật trích từ hồ sơ khảo cứu artwork-inbox/vanhoa/research/luot-1.docx; nguồn ghi ở trường nguon.
+  {
+    slug: "an-duong-vuong",
+    ten: "An Dương Vương",
+    tenThat: "Thục Phán",
+    tenKhac: ["Thục An Dương Vương"],
+    namSinh: null,
+    namMat: null,
+    nienDai: "Thế kỷ III – II TCN",
+    queQuan: "Sử cũ chép gốc nước Thục; sử học hiện đại cho là thủ lĩnh người Âu Việt vùng Nam Cương (vùng Cao Bằng và giáp ranh Quảng Tây)",
+    thoiKy: "hong-bang",
+    trieuDai: "Nhà Thục (Âu Lạc)",
+    namMoc: -257,
+    tomTat: "Thục Phán thống nhất người Âu Việt và Lạc Việt, lập nước Âu Lạc, chống quân Tần và xây thành Cổ Loa.",
+    tieuSu: [
+      "An Dương Vương, tên thật là Thục Phán, là vị vua lập nước Âu Lạc. Sử cũ quy nguồn gốc ông về nước Thục (vùng Tứ Xuyên, Trung Quốc), nhưng các học giả hiện đại bác bỏ thuyết này vì khoảng cách địa lý quá xa, và xác định ông là thủ lĩnh người Âu Việt thuộc liên minh bộ lạc Nam Cương.",
+      "Ông thống nhất hai khối cư dân Âu Việt và Lạc Việt, lập nên nước Âu Lạc. Khi quân Tần tiến xuống phương Nam, quân dân Âu Lạc rút vào rừng núi, tiêu hao sinh lực địch rồi phản công, giết chủ tướng Đồ Thư. Sau đó ông dời đô xuống vùng đồng bằng Phong Khê, xây thành Cổ Loa hình xoắn ốc, chế tạo nỏ liên châu bắn nhiều mũi tên một lúc và xây dựng thủy binh.",
+      "Tương truyền, thần Kim Quy giúp vua trừ yêu để xây xong thành Cổ Loa và cho một chiếc móng làm lẫy nỏ thần. Cũng tương truyền, con gái vua là Mỵ Châu bị Trọng Thủy lừa lấy lẫy nỏ, thành Cổ Loa thất thủ; An Dương Vương chém Mỵ Châu rồi cầm sừng tê bảy tấc rẽ nước xuống biển.",
+    ],
+    boiCanh: [
+      "Cuối thế kỷ III TCN, đế chế Tần mở cuộc nam tiến xuống vùng đất của người Việt cổ. Việc hợp nhất Âu Việt và Lạc Việt tạo ra nhà nước Âu Lạc, nhà nước thứ hai trong lịch sử Việt Nam, đủ sức đương đầu với quân Tần.",
+    ],
+    congTrang: [
+      "Thống nhất cư dân Âu Việt và Lạc Việt, lập nước Âu Lạc.",
+      "Lãnh đạo quân dân đánh quân Tần, giết chủ tướng Đồ Thư.",
+      "Dời đô về Phong Khê, xây thành Cổ Loa với cấu trúc phòng ngự hình xoắn ốc.",
+      "Phát triển nỏ liên châu và lực lượng thủy binh.",
+    ],
+    suKien: [
+      {
+        nam: "257 TCN",
+        text: "Theo Đại Việt sử ký toàn thư và Khâm định Việt sử thông giám cương mục, bắt đầu trị vì nước Âu Lạc.",
+      },
+      {
+        nam: "208 TCN",
+        text: "Theo các bộ sử cũ, nước Âu Lạc mất; theo nhiều nhà sử học hiện đại, đây là năm Âu Lạc mới được thành lập.",
+      },
+      {
+        nam: "179 TCN",
+        text: "Theo cách đối chiếu với Sử ký của Tư Mã Thiên, Âu Lạc kết thúc sau khoảng 30 năm tồn tại.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Đền An Dương Vương (Đền Thượng), Khu di tích quốc gia đặc biệt Cổ Loa",
+        diaDiem: "Xã Cổ Loa, huyện Đông Anh, Hà Nội",
+      },
+    ],
+    tuongNiem: [
+      "Lễ hội đền Cổ Loa (di sản văn hóa phi vật thể quốc gia) ngày mùng 6 tháng Giêng âm lịch, kỷ niệm ngày vua lên ngôi.",
+      "Lễ cầu phúc ngày mùng 7 tháng 3 âm lịch tại đền Cổ Loa.",
+    ],
+    ghiChuSuLieu:
+      "Niên đại còn tranh luận: sử cũ chép An Dương Vương trị vì khoảng 50 năm (257 – 208 TCN), trong khi sử học hiện đại đối chiếu với Sử ký cho rằng Âu Lạc chỉ tồn tại khoảng 30 năm (208 – 179 TCN). Các sử gia triều Nguyễn trong Cương mục từng nghi ngờ gốc gác “nhà Thục”. Chuyện nỏ thần, Mỵ Châu – Trọng Thủy thuộc truyền thuyết.",
+    wikiTitle: "An Dương Vương",
+    nguon: [
+      "Đại Việt sử ký toàn thư; Khâm định Việt sử thông giám cương mục.",
+      "Ban quản lý Khu di tích Cổ Loa, “Nguồn gốc Thục Phán và sự thành lập nước Âu Lạc” (thanhcoloa.vn).",
+      "Báo Đại biểu Nhân dân, “Lễ dâng hương tưởng niệm Đức Vua An Dương Vương”.",
+    ],
+  },
+  {
+    slug: "trieu-quang-phuc",
+    ten: "Triệu Quang Phục",
+    tenThat: null,
+    tenKhac: ["Triệu Việt Vương", "Dạ Trạch Vương"],
+    namSinh: "524",
+    namMat: "571",
+    nienDai: "524 – 571",
+    queQuan: "Huyện Chu Diên, Giao Châu theo Đại Việt sử ký toàn thư; tương ứng vùng huyện Khoái Châu, Hưng Yên",
+    thoiKy: "bac-thuoc",
+    trieuDai: "Tiền Lý",
+    namMoc: 550,
+    tomTat: "Tướng của Lý Nam Đế, lập căn cứ ở đầm Dạ Trạch đánh quân Lương, năm 550 giành lại nước Vạn Xuân và xưng Triệu Việt Vương.",
+    tieuSu: [
+      "Triệu Quang Phục sinh năm 524. Năm 541, ông cùng cha là Triệu Túc theo Lý Nam Đế khởi nghĩa chống nhà Lương, được phong Tả tướng quân.",
+      "Năm 548, Lý Nam Đế bệnh nặng, giao binh quyền cho ông. Trước quân Lương do Trần Bá Tiên chỉ huy, ông rút về đầm Dạ Trạch, ngày ẩn trong lau sậy, đêm dùng thuyền độc mộc tập kích doanh trại địch. Năm 550, nhân nhà Lương có biến loạn, ông phản công đuổi quân Lương, lên ngôi xưng Triệu Việt Vương.",
+      "Ông chia đất cho Lý Phật Tử cai quản miền Tây. Tương truyền, con gái ông là Cảo Nương lấy Nhã Lang (con Lý Phật Tử); Nhã Lang đánh tráo mũ đâu mâu cắm móng rồng, khiến Triệu Việt Vương thất thế trước quân Lý Phật Tử. Năm 571, ông tự vẫn ở cửa biển Đại Nha.",
+    ],
+    boiCanh: [
+      "Nước Vạn Xuân do Lý Nam Đế lập năm 544 bị nhà Lương phản công ngay sau đó. Cuộc kháng chiến ở Dạ Trạch giữ được nền độc lập, nhưng việc chia quyền với Lý Phật Tử dẫn tới nội chiến và làm suy yếu nhà nước Vạn Xuân.",
+    ],
+    congTrang: [
+      "Cùng cha là Triệu Túc hưởng ứng khởi nghĩa Lý Nam Đế năm 541, được phong Tả tướng quân.",
+      "Lập căn cứ đầm Dạ Trạch, đánh du kích làm thất bại kế hoạch đánh nhanh của quân Lương.",
+      "Năm 550 phản công đuổi quân Lương, khôi phục nước Vạn Xuân.",
+    ],
+    suKien: [
+      {
+        nam: "541",
+        text: "Cùng cha là Triệu Túc theo Lý Nam Đế khởi nghĩa chống nhà Lương.",
+      },
+      {
+        nam: "548",
+        text: "Được Lý Nam Đế giao binh quyền, rút quân về đầm Dạ Trạch.",
+      },
+      {
+        nam: "550",
+        text: "Phản công đuổi quân Lương, lên ngôi xưng Triệu Việt Vương.",
+      },
+      {
+        nam: "571",
+        text: "Thất thế trước Lý Phật Tử, tự vẫn ở cửa biển Đại Nha.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Đền Hóa Dạ Trạch (di tích lịch sử cấp quốc gia)",
+        diaDiem: "Xã Dạ Trạch, huyện Khoái Châu, Hưng Yên",
+      },
+    ],
+    tuongNiem: ["Lễ hội đền Hóa Dạ Trạch (di sản văn hóa phi vật thể quốc gia) từ ngày 10 đến 12 tháng 8 âm lịch."],
+    ghiChuSuLieu:
+      "Chuyện thần Chử Đồng Tử trao móng rồng và chuyện Nhã Lang đánh tráo mũ đâu mâu thuộc truyền thuyết. Việc chia đất cho Lý Phật Tử được nhiều sử gia đánh giá là nhượng bộ thiếu tính toán, dẫn đến nội chiến.",
+    wikiTitle: "Triệu Việt Vương",
+    nguon: [
+      "Đại Việt sử ký toàn thư.",
+      "Vietnamdefence, “Triệu Quang Phục (? – 571) – người kế thừa xuất sắc sự nghiệp của Lý Bôn”.",
+      "Báo Dân Việt, “Triệu Việt Vương lên ngôi vua nước Vạn Xuân năm bao nhiêu”.",
+    ],
+  },
+  {
+    slug: "khuc-thua-du",
+    ten: "Khúc Thừa Dụ",
+    tenThat: null,
+    tenKhac: ["Khúc Tiên Chúa"],
+    namSinh: null,
+    namMat: "907",
+    nienDai: "? – 907",
+    queQuan: "Xứ Cúc Bồ, Hồng Châu; nay thuộc xã Kiến Quốc, huyện Ninh Giang, Hải Dương",
+    thoiKy: "the-ky-x",
+    trieuDai: "Thời tự chủ",
+    namMoc: 905,
+    tomTat: "Hào trưởng họ Khúc nổi dậy chiếm thành Tống Bình năm 905, tự xưng Tiết độ sứ, mở đầu thời kỳ tự chủ của người Việt.",
+    tieuSu: [
+      "Khúc Thừa Dụ xuất thân từ một hào tộc lớn lâu đời ở Cúc Bồ, Hồng Châu. Sử sách không ghi năm sinh của ông. Tương truyền ông tính khoan hòa, thương người nên được nhân dân suy tôn làm thủ lĩnh trong thời loạn.",
+      "Năm 905, nhân lúc nhà Đường suy yếu, ông lãnh đạo nhân dân nổi dậy, đánh chiếm phủ thành Tống Bình (Đại La). Năm 906, ông tự xưng Tiết độ sứ; nhà Đường buộc phải công nhận chính quyền tự chủ của người Việt. Ông mất năm 907, con là Khúc Hạo nối nghiệp.",
+    ],
+    boiCanh: [
+      "Cuối thế kỷ IX, nhà Đường suy yếu và hỗn loạn. Bằng cách giữ danh xưng Tiết độ sứ của phương Bắc thay vì xưng vương, xưng đế, họ Khúc tránh được sự trả đũa trong khi thực chất tự quyết việc cai trị.",
+    ],
+    congTrang: [
+      "Năm 905 lãnh đạo nhân dân nổi dậy, chiếm thành Tống Bình, đuổi chính quyền đô hộ nhà Đường.",
+      "Tự xưng Tiết độ sứ năm 906, buộc nhà Đường công nhận chính quyền tự chủ.",
+      "Đặt cơ sở cho nền độc lập mà không phải đổ nhiều xương máu.",
+    ],
+    suKien: [
+      {
+        nam: "905",
+        text: "Nổi dậy, chiếm phủ thành Tống Bình (Đại La).",
+      },
+      {
+        nam: "906",
+        text: "Tự xưng Tiết độ sứ; nhà Đường phải công nhận.",
+      },
+      {
+        nam: "907",
+        text: "Mất ngày 23 tháng 7 năm Đinh Mão; con là Khúc Hạo nối nghiệp.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Đền thờ Khúc Thừa Dụ (di tích lịch sử cấp quốc gia)",
+        diaDiem: "Xã Kiến Quốc, huyện Ninh Giang, Hải Dương",
+      },
+    ],
+    tuongNiem: ["Lễ giỗ ngày 23 tháng 7 âm lịch tại đền thờ Khúc Thừa Dụ ở quê nhà."],
+    ghiChuSuLieu:
+      "Việt giám thông khảo tổng luận và Khâm định Việt sử thông giám cương mục cho rằng dù mang danh xưng quan lại Trung Hoa, chính quyền do Khúc Thừa Dụ lập ra thực chất mang dáng dấp một vương triều độc lập. Năm sinh của ông không được ghi lại.",
+    wikiTitle: "Khúc Thừa Dụ",
+    nguon: [
+      "Khâm định Việt sử thông giám cương mục.",
+      "Ban quản lý di tích, “Lý lịch di tích đền thờ Khúc Thừa Dụ”.",
+      "Báo Mới, “Tưởng niệm 1.117 năm ngày mất anh hùng dân tộc Khúc Thừa Dụ”.",
+    ],
+  },
+  {
+    slug: "khuc-hao",
+    ten: "Khúc Hạo",
+    tenThat: null,
+    tenKhac: ["Khúc Trung Chúa"],
+    namSinh: null,
+    namMat: "917",
+    nienDai: "? – 917",
+    queQuan: "Xứ Cúc Bồ, Hồng Châu; nay thuộc xã Kiến Quốc, huyện Ninh Giang, Hải Dương",
+    thoiKy: "the-ky-x",
+    trieuDai: "Thời tự chủ",
+    namMoc: 907,
+    tomTat: "Con Khúc Thừa Dụ, kế vị Tiết độ sứ năm 907, cải cách hành chính và thuế khóa, củng cố nền tự chủ.",
+    tieuSu: [
+      "Khúc Hạo là con Khúc Thừa Dụ, quê ở Cúc Bồ, Hồng Châu. Năm 907, ông kế vị chức Tiết độ sứ và đảm đương việc nước trong khoảng mười năm, đến khi mất năm 917.",
+      "Ông chia đất nước thành các cấp lộ, phủ, châu, giáp, xã; bãi bỏ các thứ lao dịch nặng nề thời Đường, lập lại sổ hộ khẩu và sửa đổi chế độ điền tô. Phương châm trị nước của ông được sử chép là “chính sự cốt chuộng khoan dung giản dị, nhân dân đều được yên vui”.",
+    ],
+    boiCanh: [
+      "Trong khi phương Bắc rơi vào loạn Ngũ Đại Thập Quốc, họ Khúc tranh thủ xây dựng bộ máy cai trị riêng, biến Giao Châu từ vùng bị đô hộ thành một thực thể có tổ chức nhà nước.",
+    ],
+    congTrang: [
+      "Kế vị Tiết độ sứ năm 907, tiếp tục giữ vững nền tự chủ.",
+      "Cải cách hành chính, chia đất nước thành các cấp lộ, phủ, châu, giáp, xã.",
+      "Bãi bỏ lao dịch thời Đường, lập lại sổ hộ khẩu, sửa đổi chế độ điền tô thuế khóa.",
+    ],
+    suKien: [
+      {
+        nam: "907",
+        text: "Kế vị Khúc Thừa Dụ làm Tiết độ sứ.",
+      },
+      {
+        nam: "907 – 917",
+        text: "Tiến hành cải cách hành chính, hộ khẩu và thuế khóa.",
+      },
+      {
+        nam: "917",
+        text: "Mất; được tưởng nhớ cùng dòng họ Khúc tại đền thờ Khúc Thừa Dụ.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Đền thờ Khúc Thừa Dụ (phối thờ Khúc Hạo)",
+        diaDiem: "Xã Kiến Quốc, huyện Ninh Giang, Hải Dương",
+      },
+    ],
+    tuongNiem: ["Được tưởng nhớ cùng dòng họ Khúc trong lễ hội đền Khúc Thừa Dụ ngày 23 tháng 7 âm lịch."],
+    ghiChuSuLieu:
+      "Năm sinh của Khúc Hạo không được ghi lại. Giới nghiên cứu hiện nay thường đánh giá ông là nhà cải cách đầu tiên của thời quân chủ Việt Nam; sử sách về ông không có yếu tố truyền thuyết.",
+    wikiTitle: "Khúc Hạo",
+    nguon: [
+      "Người Kể Sử, “Khúc Thừa Dụ”.",
+      "Ban quản lý di tích, “Lý lịch di tích đền thờ Khúc Thừa Dụ”.",
+    ],
+  },
+  {
+    slug: "duong-dinh-nghe",
+    ten: "Dương Đình Nghệ",
+    tenThat: null,
+    tenKhac: ["Dương Diên Nghệ"],
+    namSinh: "874",
+    namMat: "937",
+    nienDai: "874 – 937",
+    queQuan: "Làng Giàng, Ái Châu; nay thuộc phường Thiệu Dương, thành phố Thanh Hóa",
+    thoiKy: "the-ky-x",
+    trieuDai: "Thời tự chủ",
+    namMoc: 931,
+    tomTat: "Hào trưởng Ái Châu đánh đuổi quân Nam Hán khỏi thành Đại La năm 931, tự xưng Tiết độ sứ, nối tiếp nền tự chủ của họ Khúc.",
+    tieuSu: [
+      "Dương Đình Nghệ sinh ngày 22 tháng 11 năm 874 ở làng Giàng, Ái Châu, là một hào trưởng có thế lực. Khi nhà Nam Hán đánh bại Khúc Thừa Mỹ và chiếm Đại La, ông xây dựng lực lượng ở Ái Châu, nuôi 3.000 “giả tử” (con nuôi), trong đó có Ngô Quyền.",
+      "Năm 931, ông đem quân từ Ái Châu ra Bắc, vây thành Đại La, đuổi Thứ sử Nam Hán là Lý Tiến, rồi đánh bại viện binh Nam Hán, chém tướng Trần Bảo. Ông tự xưng Tiết độ sứ, cai quản đất nước sáu năm.",
+      "Tháng 3 năm 937, ông bị nha tướng Kiều Công Tiễn ám sát để đoạt quyền.",
+    ],
+    boiCanh: [
+      "Sau họ Khúc, nhà Nam Hán ở phương Bắc tìm cách đặt lại ách đô hộ. Cuộc khởi binh của Dương Đình Nghệ khôi phục quyền tự chủ và chuẩn bị lực lượng cho chiến thắng Bạch Đằng của Ngô Quyền năm 938.",
+    ],
+    congTrang: [
+      "Năm 931 đánh chiếm thành Đại La, đuổi Thứ sử Nam Hán Lý Tiến.",
+      "Đánh bại viện binh Nam Hán, chém tướng Trần Bảo.",
+      "Tự xưng Tiết độ sứ, khôi phục quyền tự chủ; nuôi dưỡng lớp tướng lĩnh như Ngô Quyền.",
+    ],
+    suKien: [
+      {
+        nam: "874",
+        text: "Sinh ngày 22 tháng 11 ở làng Giàng, Ái Châu.",
+      },
+      {
+        nam: "931",
+        text: "Đánh chiếm Đại La, đánh bại viện binh Nam Hán, tự xưng Tiết độ sứ.",
+      },
+      {
+        nam: "937",
+        text: "Tháng 3, bị Kiều Công Tiễn ám sát.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Đền thờ Dương Đình Nghệ (di tích lịch sử cấp tỉnh)",
+        diaDiem: "Làng Giàng, phường Thiệu Dương, thành phố Thanh Hóa",
+      },
+    ],
+    tuongNiem: ["Không có ngày giỗ quốc gia được ấn định; lễ hội tưởng nhớ ông thường tổ chức vào tháng 3 âm lịch tại quê hương Thanh Hóa."],
+    ghiChuSuLieu:
+      "Một số thư tịch chép tên ông là Dương Diên Nghệ. Tương truyền đội quân 3.000 giả tử trung thành tuyệt đối với chủ tướng. Giới nghiên cứu cho rằng vụ ám sát của Kiều Công Tiễn còn phản ánh xung đột giữa các thế lực hào trưởng châu Phong và châu Ái.",
+    wikiTitle: "Dương Đình Nghệ",
+    nguon: [
+      "Đại Việt sử ký toàn thư; Ngô Thì Sĩ, Việt sử tiêu án.",
+      "Bảo tàng Lịch sử Quốc gia, “Võ tướng Dương Đình Nghệ – người khởi binh đánh đuổi quân Nam Hán”.",
+      "Báo Dân Việt, “Dương Đình Nghệ, thủ lĩnh tài năng và cái chết oan nghiệt”.",
+    ],
+  },
+  {
+    slug: "duong-van-nga",
+    ten: "Dương Vân Nga",
+    tenThat: null,
+    tenKhac: ["Đại Thắng Minh Hoàng hậu", "Thái hậu Dương Vân Nga"],
+    namSinh: "khoảng 952",
+    namMat: "1000",
+    nienDai: "khoảng 952 – 1000",
+    queQuan: "Chưa thống nhất: dã sử liên hệ với vùng Nho Quan, Ninh Bình; có giả thuyết cho là dòng họ Dương ở Ái Châu (Thanh Hóa)",
+    thoiKy: "the-ky-x",
+    trieuDai: "Nhà Đinh",
+    namMoc: 980,
+    tomTat: "Hoàng hậu nhà Đinh, năm 980 trao áo long cổn cho Lê Hoàn trước nguy cơ quân Tống xâm lược, tạo tiền đề cho chiến thắng năm 981.",
+    tieuSu: [
+      "Chính sử chỉ chép tước hiệu của bà là Đại Thắng Minh Hoàng hậu, sau là Hoàng thái hậu; tên Dương Vân Nga do dân gian và dã sử lưu truyền. Bà là hoàng hậu của Đinh Tiên Hoàng.",
+      "Năm 979, Đinh Tiên Hoàng và Đinh Liễn bị ám sát; bà nhiếp chính, phò Đinh Toàn mới 6 tuổi lên ngôi giữa lúc triều đình rối ren. Khi quân Tống chuẩn bị sang xâm lược, năm 980 bà trao áo long cổn, nhường ngôi cho Thập đạo tướng quân Lê Hoàn, quy tụ sức mạnh cho cuộc kháng chiến chống Tống năm 981.",
+      "Bà sau đó là hoàng hậu của Lê Đại Hành và mất năm 1000.",
+    ],
+    boiCanh: [
+      "Cái chết đột ngột của Đinh Tiên Hoàng năm 979 để lại một ấu chúa và một triều đình chia rẽ, trong khi nhà Tống ở phương Bắc lăm le xâm lược Đại Cồ Việt.",
+    ],
+    congTrang: [
+      "Nhiếp chính sau biến cố năm 979, giữ ổn định triều đình nhà Đinh.",
+      "Năm 980 trao ngôi cho Lê Hoàn, dập tắt mưu đồ chia rẽ nội bộ trước nguy cơ ngoại xâm.",
+      "Tạo tiền đề cho chiến thắng chống Tống năm 981.",
+    ],
+    suKien: [
+      {
+        nam: "979",
+        text: "Đinh Tiên Hoàng và Đinh Liễn bị ám sát; bà nhiếp chính, phò Đinh Toàn lên ngôi.",
+      },
+      {
+        nam: "980",
+        text: "Trao áo long cổn, nhường ngôi cho Lê Hoàn.",
+      },
+      {
+        nam: "981",
+        text: "Đại Cồ Việt đánh thắng quân Tống xâm lược.",
+      },
+      {
+        nam: "1000",
+        text: "Bà mất.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Đền Vua Lê Đại Hành (phối thờ Dương Vân Nga), khu di tích quốc gia đặc biệt Cố đô Hoa Lư",
+        diaDiem: "Xã Trường Yên, huyện Hoa Lư, Ninh Bình",
+      },
+    ],
+    tuongNiem: ["Được tôn vinh trong Lễ hội Hoa Lư (di sản văn hóa phi vật thể quốc gia) từ ngày 8 đến 10 tháng 3 âm lịch."],
+    ghiChuSuLieu:
+      "Tên thật của bà chưa thống nhất: có nguồn gọi là Lê Khiết Nương hoặc Dương Ngọc Vân; năm sinh 952 chỉ là ước tính. Ngô Sĩ Liên trong Đại Việt sử ký toàn thư chỉ trích việc Lê Hoàn lấy bà là trái đạo quân thần, còn giới sử học đương đại đề cao đức hy sinh của bà. Tương truyền tượng thờ bà được sơn mặt hồng; các chuyện về nhan sắc và hoa quỳnh Cúc Phương thuộc truyền thuyết.",
+    wikiTitle: "Dương Vân Nga",
+    nguon: [
+      "Đại Việt sử ký toàn thư.",
+      "Người Kể Sử, “Dương Vân Nga”.",
+      "Câu chuyện lịch sử, “Dương Vân Nga và mối tình hai triều đại Đinh – Lê”.",
+    ],
+  },
+  {
+    slug: "dinh-lien",
+    ten: "Đinh Liễn",
+    tenThat: null,
+    tenKhac: ["Đinh Khuông Liễn", "Nam Việt Vương"],
+    namSinh: null,
+    namMat: "979",
+    nienDai: "? – 979",
+    queQuan: "Động Hoa Lư, châu Đại Hoàng; nay thuộc huyện Gia Viễn, Ninh Bình",
+    thoiKy: "the-ky-x",
+    trieuDai: "Nhà Đinh",
+    namMoc: 973,
+    tomTat: "Con trưởng Đinh Tiên Hoàng, cùng cha dẹp 12 sứ quân, đi sứ nhà Tống năm 973 và cho dựng các cột kinh Phật bằng đá ở Hoa Lư.",
+    tieuSu: [
+      "Đinh Liễn là con trưởng của Đinh Bộ Lĩnh, được phong Nam Việt Vương. Ông theo cha nhiều năm trong cuộc dẹp loạn 12 sứ quân, góp phần thống nhất đất nước.",
+      "Năm 973, ông đi sứ nhà Tống, lập quan hệ bang giao và được vua Tống phong Tĩnh Hải quân Tiết độ sứ, Đặc tiến Kiểm hiệu Thái sư. Ông cho dựng 100 cột kinh Phật bằng đá ở Hoa Lư, khắc kinh Phật đỉnh Tôn thắng Đà la ni.",
+      "Tháng 11 năm 979, ông cùng vua cha Đinh Tiên Hoàng bị Đỗ Thích ám sát.",
+    ],
+    boiCanh: [
+      "Sau khi dẹp xong 12 sứ quân, nhà Đinh lập nước Đại Cồ Việt và cần giữ quan hệ hòa hiếu với nhà Tống để bảo vệ nền độc lập non trẻ.",
+    ],
+    congTrang: [
+      "Đi sứ nhà Tống năm 973, thiết lập quan hệ bang giao, được nhà Tống sắc phong.",
+      "Cùng Đinh Tiên Hoàng dẹp loạn 12 sứ quân, thống nhất đất nước.",
+      "Cho dựng các cột kinh Phật bằng đá ở Hoa Lư, được xem là bộ bi ký sớm nhất thời tự chủ.",
+    ],
+    suKien: [
+      {
+        nam: "thế kỷ X",
+        text: "Theo cha đánh dẹp 12 sứ quân.",
+      },
+      {
+        nam: "973",
+        text: "Đi sứ nhà Tống, được phong Tĩnh Hải quân Tiết độ sứ.",
+      },
+      {
+        nam: "979",
+        text: "Tháng 11, bị Đỗ Thích ám sát cùng Đinh Tiên Hoàng.",
+      },
+      {
+        nam: "2024",
+        text: "Sưu tập cột kinh Phật thời Đinh được công nhận là Bảo vật quốc gia.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Đền Vua Đinh Tiên Hoàng (tượng Đinh Liễn đặt ở gian bên trái Bái đường)",
+        diaDiem: "Xã Trường Yên, huyện Hoa Lư, Ninh Bình",
+      },
+    ],
+    tuongNiem: ["Được tưởng nhớ trong Lễ hội Hoa Lư vào tháng 3 âm lịch hằng năm."],
+    ghiChuSuLieu:
+      "Năm sinh chưa được xác định. Tương truyền thuở nhỏ ông bị sứ quân họ Ngô bắt làm con tin; cũng tương truyền ông sai giết em là Hạng Lang khi Hạng Lang được lập làm Thái tử, rồi dựng cột kinh để sám hối. Giới nghiên cứu cho rằng việc dựng kinh tràng còn nhằm củng cố tính chính danh của ông.",
+    wikiTitle: "Đinh Liễn",
+    nguon: [
+      "Đại Việt sử ký toàn thư.",
+      "Sở Văn hóa Ninh Bình, “Những giá trị nổi bật của Bảo vật quốc gia sưu tập cột kinh Phật thời Đinh”.",
+      "Tư liệu Phật giáo, “Cột kinh Phật năm 973 phát hiện ở Hoa Lư”.",
+    ],
+  },
+  {
+    slug: "ly-thanh-tong",
+    ten: "Lý Thánh Tông",
+    tenThat: "Lý Nhật Tôn",
+    tenKhac: [],
+    namSinh: "1023",
+    namMat: "1072",
+    nienDai: "1023 – 1072",
+    queQuan: "Hương Cổ Pháp (quê nhà Lý); nay thuộc phường Đình Bảng, thành phố Từ Sơn, Bắc Ninh",
+    thoiKy: "ly-tran",
+    trieuDai: "Nhà Lý",
+    namMoc: 1054,
+    tomTat: "Vua thứ ba nhà Lý, đổi quốc hiệu thành Đại Việt năm 1054, lập Văn Miếu năm 1070 và đánh Chiêm Thành năm 1069.",
+    tieuSu: [
+      "Lý Thánh Tông tên thật là Lý Nhật Tôn, sinh ngày 30 tháng 3 năm 1023. Năm 1054 lên ngôi, ông đổi quốc hiệu từ Đại Cồ Việt thành Đại Việt.",
+      "Năm 1069, ông thân chinh đánh Chiêm Thành, bắt vua Chế Củ; Chiêm Thành phải dâng ba châu Địa Lý, Ma Linh, Bố Chính. Năm 1070, ông cho dựng Văn Miếu ở Thăng Long thờ Khổng Tử và Chu Công. Ông sùng Phật giáo, cho đúc chuông Quy Điền, xây tháp Báo Thiên, và được xem là tổ thứ hai của Thiền phái Thảo Đường.",
+      "Ông nổi tiếng nhân từ: sử chép ông ban chăn chiếu và hai bữa ăn mỗi ngày cho tù nhân trong những đợt rét đậm. Ông mất ngày 1 tháng 2 năm 1072.",
+    ],
+    boiCanh: [
+      "Giữa thế kỷ XI, nhà Lý đã ổn định việc trị nước; phía bắc nhà Tống thường khiêu khích ở biên giới, phía nam Chiêm Thành nhiều lần quấy nhiễu.",
+    ],
+    congTrang: [
+      "Đổi quốc hiệu thành Đại Việt năm 1054.",
+      "Thân chinh đánh Chiêm Thành năm 1069, mở thêm ba châu Địa Lý, Ma Linh, Bố Chính.",
+      "Cho dựng Văn Miếu ở Thăng Long năm 1070.",
+      "Ban chăn chiếu và cơm ăn cho tù nhân trong mùa rét.",
+    ],
+    suKien: [
+      {
+        nam: "1023",
+        text: "Sinh ngày 30 tháng 3.",
+      },
+      {
+        nam: "1054",
+        text: "Lên ngôi, đổi quốc hiệu thành Đại Việt.",
+      },
+      {
+        nam: "1059",
+        text: "Cho quân đánh Khâm Châu (đất Tống) để răn đe.",
+      },
+      {
+        nam: "1069",
+        text: "Đánh Chiêm Thành, bắt vua Chế Củ.",
+      },
+      {
+        nam: "1070",
+        text: "Dựng Văn Miếu ở Thăng Long.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Đền Đô (Thái miếu nhà Lý), di tích quốc gia đặc biệt",
+        diaDiem: "Phường Đình Bảng, thành phố Từ Sơn, Bắc Ninh",
+      },
+    ],
+    tuongNiem: ["Lễ hội Đền Đô (di sản văn hóa phi vật thể quốc gia) từ ngày 14 đến 16 tháng 3 âm lịch."],
+    ghiChuSuLieu:
+      "Tương truyền ông nói lời thương xót tù nhân khi trời rét, và gặp Ỷ Lan khi bà đứng tựa gốc cây lan lúc vua đi cầu tự. Việc đánh Khâm Châu năm 1059 được các sử gia xem là bước chuyển từ phòng thủ sang răn đe.",
+    wikiTitle: "Lý Thánh Tông",
+    nguon: [
+      "Đại Việt sử ký toàn thư; Khâm định Việt sử thông giám cương mục.",
+      "Người Kể Sử, “Lý Thánh Tông”.",
+      "Tạp chí Nghiên cứu Phật học, “Vua Lý Thánh Tông: anh hùng cứu nước, nhân từ, thương dân”.",
+    ],
+  },
+  {
+    slug: "y-lan",
+    ten: "Ỷ Lan",
+    tenThat: "Lê Thị Yến",
+    tenKhac: ["Nguyên phi Ỷ Lan", "Linh Nhân Hoàng thái hậu"],
+    namSinh: "1044",
+    namMat: "1117",
+    nienDai: "1044 – 1117",
+    queQuan: "Hương Thổ Lỗi (làng Sủi), sau đổi là Siêu Loại; nay thuộc xã Dương Xá, huyện Gia Lâm, Hà Nội",
+    thoiKy: "ly-tran",
+    trieuDai: "Nhà Lý",
+    namMoc: 1069,
+    tomTat: "Nguyên phi của Lý Thánh Tông, hai lần nhiếp chính, lo hậu phương cho cuộc kháng chiến chống Tống và ban nhiều chính sách thương dân.",
+    tieuSu: [
+      "Ỷ Lan tên thật là Lê Thị Yến (dã sử chép là Lê Thị Khiết), sinh ngày 7 tháng 4 năm 1044, xuất thân là cô gái hái dâu ở hương Thổ Lỗi. Bà được Lý Thánh Tông đưa vào cung, phong Ỷ Lan phu nhân, sau là Nguyên phi.",
+      "Năm 1069, khi vua thân chinh đánh Chiêm Thành, bà ở lại Thăng Long lo việc nội trị, giữ yên lòng dân. Từ năm 1072, khi Lý Nhân Tông còn nhỏ, bà nhiếp chính lần thứ hai, lo quân lương giúp Lý Thường Kiệt đánh quân Tống.",
+      "Bà ban luật trị tội trộm cắp trâu bò, xuất tiền kho để chuộc người và gả cho những người đàn ông góa vợ, nghèo khó không có tiền cưới. Là Phật tử, bà cho xây nhiều chùa tháp và để lại bài kệ Sắc không. Bà mất ngày 25 tháng 7 năm 1117.",
+    ],
+    boiCanh: [
+      "Nửa sau thế kỷ XI, Đại Việt phải lo cả mặt trận phía nam với Chiêm Thành lẫn cuộc kháng chiến chống Tống (1075 – 1077) khi vua còn nhỏ tuổi.",
+    ],
+    congTrang: [
+      "Lo việc nội trị năm 1069 khi Lý Thánh Tông đánh Chiêm Thành.",
+      "Nhiếp chính từ năm 1072, lo hậu phương và quân lương cho cuộc kháng chiến chống Tống.",
+      "Ban luật bảo vệ trâu bò, chuộc người nghèo khổ, dựng nhiều chùa tháp.",
+    ],
+    suKien: [
+      {
+        nam: "1044",
+        text: "Sinh ngày 7 tháng 4 ở hương Thổ Lỗi.",
+      },
+      {
+        nam: "1069",
+        text: "Lo việc nội trị khi vua thân chinh đánh Chiêm Thành.",
+      },
+      {
+        nam: "1072",
+        text: "Lý Nhân Tông lên ngôi; bà nhiếp chính lần thứ hai.",
+      },
+      {
+        nam: "1117",
+        text: "Mất ngày 25 tháng 7.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Đền Nguyên phi Ỷ Lan (đền Bà Tấm), di tích quốc gia đặc biệt",
+        diaDiem: "Xã Dương Xá, huyện Gia Lâm, Hà Nội",
+      },
+    ],
+    tuongNiem: [
+      "Lễ hội đền Bà Tấm (di sản văn hóa phi vật thể quốc gia) từ ngày 19 đến 21 tháng 2 âm lịch.",
+      "Lễ giỗ ngày 25 tháng 7 âm lịch.",
+    ],
+    ghiChuSuLieu:
+      "Đại Việt sử ký toàn thư chép việc bà bức tử Thượng Dương Hoàng hậu và các cung nữ; các sử thần Nho giáo phê phán gay gắt việc này. Tương truyền về cuối đời bà xây nhiều chùa để sám hối; chuyện bà đứng tựa gốc lan khi gặp vua và chuyện thái giám Nguyễn Bông thuộc truyền thuyết.",
+    wikiTitle: "Ỷ Lan",
+    nguon: [
+      "Đại Việt sử ký toàn thư.",
+      "Bảo tàng Lịch sử Quốc gia, “Nguyên phi Ỷ Lan: từ chính sử đến thần tích, cổ tích”.",
+      "Báo Quân đội nhân dân, “Nguyên phi Ỷ Lan, người phụ nữ có tài kinh bang tế thế”.",
+    ],
+  },
+  {
+    slug: "ly-nhan-tong",
+    ten: "Lý Nhân Tông",
+    tenThat: "Lý Càn Đức",
+    tenKhac: [],
+    namSinh: "1066",
+    namMat: "1128",
+    nienDai: "1066 – 1128",
+    queQuan: "Dòng dõi hương Cổ Pháp (Bắc Ninh), sinh ở kinh thành Thăng Long",
+    thoiKy: "ly-tran",
+    trieuDai: "Nhà Lý",
+    namMoc: 1075,
+    tomTat: "Vua trị vì lâu nhất lịch sử Việt Nam (56 năm), thời kỳ đánh thắng quân Tống, mở khoa thi đầu tiên và lập Quốc Tử Giám.",
+    tieuSu: [
+      "Lý Nhân Tông tên thật là Lý Càn Đức, sinh ngày 22 tháng 2 năm 1066 ở kinh thành Thăng Long, con của Lý Thánh Tông và Ỷ Lan. Ông lên ngôi năm 1072 khi còn nhỏ, có Thái hậu Ỷ Lan nhiếp chính và Thái úy Lý Thường Kiệt phò tá.",
+      "Dưới triều ông, Đại Việt đánh thắng cuộc xâm lược của nhà Tống (1075 – 1077) trên phòng tuyến sông Như Nguyệt. Năm 1075, triều đình mở khoa thi Nho học đầu tiên (khoa Minh kinh bác học); năm 1076 lập Quốc Tử Giám.",
+      "Ông hai lần xuống chiếu cấm giết mổ trâu bò bừa bãi để bảo vệ sức kéo nông nghiệp. Ông mất ngày 15 tháng 1 năm 1128, sau 56 năm trị vì.",
+    ],
+    boiCanh: [
+      "Cuối thế kỷ XI, nhà Tống chuẩn bị xâm lược Đại Việt. Triều Lý chủ động đánh phủ đầu sang đất Tống rồi lập phòng tuyến Như Nguyệt, đồng thời đẩy mạnh giáo dục và pháp luật trong nước.",
+    ],
+    congTrang: [
+      "Lãnh đạo triều đình trong cuộc kháng chiến chống Tống (1075 – 1077).",
+      "Mở khoa thi Nho học đầu tiên năm 1075 và lập Quốc Tử Giám năm 1076.",
+      "Ban chiếu cấm giết mổ trâu bò, bảo vệ sản xuất nông nghiệp.",
+    ],
+    suKien: [
+      {
+        nam: "1066",
+        text: "Sinh ngày 22 tháng 2 ở Thăng Long.",
+      },
+      {
+        nam: "1072",
+        text: "Lên ngôi.",
+      },
+      {
+        nam: "1075",
+        text: "Mở khoa thi Minh kinh bác học, khoa thi Nho học đầu tiên.",
+      },
+      {
+        nam: "1076",
+        text: "Lập Quốc Tử Giám.",
+      },
+      {
+        nam: "1077",
+        text: "Quân Tống thất bại trên phòng tuyến sông Như Nguyệt.",
+      },
+      {
+        nam: "1128",
+        text: "Mất ngày 15 tháng 1, sau 56 năm trị vì.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Đền Đô (Thái miếu nhà Lý), di tích quốc gia đặc biệt",
+        diaDiem: "Phường Đình Bảng, thành phố Từ Sơn, Bắc Ninh",
+      },
+    ],
+    tuongNiem: ["Được tưởng nhớ cùng các vua nhà Lý trong Lễ hội Đền Đô vào giữa tháng 3 âm lịch."],
+    ghiChuSuLieu:
+      "Tương truyền bài thơ Nam quốc sơn hà được đọc vang lên từ đền thờ Trương Hống, Trương Hát trong trận Như Nguyệt. Vụ bức tử Thượng Dương Hoàng hậu và các cung nữ xảy ra khi ông mới 7 tuổi, do Ỷ Lan chủ mưu; sử gia Nho giáo về sau vẫn đặt câu hỏi về trách nhiệm của nhà vua.",
+    wikiTitle: "Lý Nhân Tông",
+    nguon: [
+      "Đại Việt sử ký toàn thư.",
+      "Bảo tàng Lịch sử Quốc gia, “Lý Nhân Tông – ông vua có nhiều kỷ lục”.",
+      "Người Kể Sử, “Lý Nhân Tông”.",
+    ],
+  },
+  {
+    slug: "tong-dan",
+    ten: "Tông Đản",
+    tenThat: null,
+    tenKhac: ["Tôn Đản"],
+    namSinh: null,
+    namMat: null,
+    nienDai: "Thế kỷ XI",
+    queQuan: "Vùng biên giới phía Bắc, nay tương ứng địa bàn Cao Bằng, Lạng Sơn",
+    thoiKy: "ly-tran",
+    trieuDai: "Nhà Lý",
+    namMoc: 1075,
+    tomTat: "Danh tướng người Nùng thời Lý, chỉ huy cánh quân bộ đánh sang đất Tống năm 1075 – 1076, hạ thành Ung Châu.",
+    tieuSu: [
+      "Tông Đản là danh tướng người Nùng thời Lý, hậu thế thường gọi chệch là Tôn Đản. Năm sinh, năm mất của ông không được ghi chép đầy đủ.",
+      "Trong kế hoạch “tiên phát chế nhân” (đánh phủ đầu) của Thái úy Lý Thường Kiệt năm 1075 – 1076, ông chỉ huy cánh quân bộ tiến từ Vĩnh Bình sang đất Tống. Cánh quân của ông vây thành Ung Châu hơn 40 ngày; trước sự chống trả của Tri châu Tô Giám, quân Đại Việt chất bao đất sát chân thành làm bậc leo lên. Thành bị hạ, kho lương bị đốt, Tô Giám tự thiêu.",
+    ],
+    boiCanh: [
+      "Nhà Tống ráo riết lập căn cứ hậu cần ở các châu biên giới để chuẩn bị đánh Đại Việt. Cuộc tấn công phủ đầu phá hủy các căn cứ này, tạo lợi thế cho Đại Việt trong cuộc kháng chiến 1075 – 1077.",
+    ],
+    congTrang: [
+      "Chỉ huy cánh quân bộ tiến sang đất Tống trong kế hoạch đánh phủ đầu của Lý Thường Kiệt.",
+      "Vây và hạ thành Ung Châu sau hơn 40 ngày, đốt phá kho lương của quân Tống.",
+      "Góp phần triệt khả năng hậu cần của quân Tống trước cuộc xâm lược Đại Việt.",
+    ],
+    suKien: [
+      {
+        nam: "1075",
+        text: "Chỉ huy cánh quân bộ tiến từ Vĩnh Bình sang đất Tống.",
+      },
+      {
+        nam: "1075 – 1076",
+        text: "Vây thành Ung Châu hơn 40 ngày; thành bị hạ, Tri châu Tô Giám tự thiêu.",
+      },
+      {
+        nam: "1077",
+        text: "Đại Việt đánh thắng quân Tống xâm lược trên phòng tuyến sông Như Nguyệt.",
+      },
+    ],
+    diTich: [],
+    tuongNiem: ["Không có ngày giỗ, lễ hội hay đền thờ quy mô quốc gia; tên ông được đặt cho nhiều đường phố (phố Tôn Đản) ở các thành phố lớn."],
+    ghiChuSuLieu:
+      "Tên ông thường bị gọi chệch là Tôn Đản. Việc quân Đại Việt tàn sát nhiều quân lính và dân chúng khi hạ thành Ung Châu được giới sử học nhìn nhận là tàn khốc nhưng mang tính sống còn trong chiến tranh thời trung đại. Năm sinh, năm mất không rõ.",
+    wikiTitle: "Tông Đản",
+    nguon: [
+      "Đại Việt sử ký toàn thư; Việt sử lược.",
+      "Vietnamdefence, “Tông Đản (? – ?)”.",
+      "Báo Dân Việt, “Danh tướng giúp Lý Thường Kiệt đánh 3 châu của nhà Tống là Tông Đản”.",
+    ],
+  },
+  {
+    slug: "to-hien-thanh",
+    ten: "Tô Hiến Thành",
+    tenThat: null,
+    tenKhac: ["Thái úy Tô Hiến Thành"],
+    namSinh: "1102",
+    namMat: "1179",
+    nienDai: "1102 – 1179",
+    queQuan: "Làng Hạ Mỗ; nay thuộc xã Hạ Mỗ, huyện Đan Phượng, Hà Nội",
+    thoiKy: "ly-tran",
+    trieuDai: "Nhà Lý",
+    namMoc: 1141,
+    tomTat: "Thái úy thời Lý Anh Tông và Lý Cao Tông, dẹp loạn, giữ yên biên giới và nổi tiếng trung thực, liêm chính.",
+    tieuSu: [
+      "Tô Hiến Thành sinh năm 1102 ở làng Hạ Mỗ. Năm 1141, ông dẹp cuộc nổi loạn lớn của Thân Lợi ở vùng Thái Nguyên. Ông chấn chỉnh quân đội, đi dẹp quân Ngưu Hống, tuần tra biên giới tây nam (1161) và đánh Chiêm Thành (1167); thời bình, ông cho khẩn hoang vùng ven biển.",
+      "Ông giữ chức Thái úy, được phong tước Vương dù không mang họ Lý. Khi Lý Anh Tông mất, Chiêu Linh Thái hậu đút lót vàng bạc để ép ông phế ấu chúa Lý Cao Tông, lập Long Xưởng; ông cự tuyệt: “Làm việc bất nghĩa mà được giàu sang, kẻ trung thần nghĩa sĩ há chịu làm?”. Ông mất năm 1179.",
+    ],
+    boiCanh: [
+      "Giữa thế kỷ XII, triều Lý bắt đầu có dấu hiệu suy yếu với các cuộc nổi loạn trong nước và tranh giành ngôi vua trong hoàng tộc.",
+    ],
+    congTrang: [
+      "Dẹp cuộc nổi loạn của Thân Lợi năm 1141.",
+      "Chấn chỉnh quân đội, tuần tra biên giới năm 1161 và đánh Chiêm Thành năm 1167.",
+      "Giữ đúng di chiếu, bảo vệ ngôi vua của Lý Cao Tông trước sức ép của Chiêu Linh Thái hậu.",
+    ],
+    suKien: [
+      {
+        nam: "1102",
+        text: "Sinh ở làng Hạ Mỗ.",
+      },
+      {
+        nam: "1141",
+        text: "Dẹp cuộc nổi loạn của Thân Lợi.",
+      },
+      {
+        nam: "1161",
+        text: "Tuần tra biên giới tây nam.",
+      },
+      {
+        nam: "1167",
+        text: "Đem quân đánh Chiêm Thành.",
+      },
+      {
+        nam: "1179",
+        text: "Mất; trước khi mất tiến cử Trần Trung Tá thay mình.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Đền Văn Hiến (di tích lịch sử cấp quốc gia)",
+        diaDiem: "Xã Hạ Mỗ, huyện Đan Phượng, Hà Nội",
+      },
+    ],
+    tuongNiem: ["Lễ giỗ ngày 12 tháng 6 âm lịch trong Lễ hội đền Văn Hiến (Đan Phượng, Hà Nội)."],
+    ghiChuSuLieu:
+      "Tương truyền khi ông ốm nặng, Đỗ Thái hậu hỏi người thay thế, ông tiến cử Trần Trung Tá thay vì Vũ Tán Đường, người hầu hạ ông: “hỏi người hầu dưỡng thì phi Tán Đường còn ai nữa, còn hỏi người trị nước thì phải là Trung Tá”. Có giả thuyết cho rằng ông thăng tiến nhờ quan hệ họ hàng với Tô Thị (vợ Đỗ Anh Vũ), nhưng Đại Việt sử ký toàn thư ghi nhận năng lực và sự liêm chính của ông.",
+    wikiTitle: "Tô Hiến Thành",
+    nguon: [
+      "Đại Việt sử ký toàn thư.",
+      "Tạp chí Người Hà Nội, “Tô Hiến Thành – nhà chính trị tài năng”.",
+      "Báo Đại Đoàn Kết, “Tô Hiến Thành: liêm chính công tâm”.",
+    ],
+  },
+  {
+    slug: "tran-thu-do",
+    ten: "Trần Thủ Độ",
+    tenThat: null,
+    tenKhac: ["Quốc thượng phụ", "Thái sư Trung Vũ Đại vương"],
+    namSinh: "1194",
+    namMat: "1264",
+    nienDai: "1194 – 1264",
+    queQuan: "Làng Lưu Xá, phủ Ngự Thiên; nay thuộc huyện Hưng Hà, Thái Bình",
+    thoiKy: "ly-tran",
+    trieuDai: "Nhà Trần",
+    namMoc: 1225,
+    tomTat: "Người sắp đặt cuộc chuyển giao ngôi vua từ nhà Lý sang nhà Trần năm 1225, Thái sư nắm quyền điều hành và giữ vững ý chí kháng chiến chống Mông Cổ năm 1258.",
+    tieuSu: [
+      "Trần Thủ Độ sinh năm 1194 ở làng Lưu Xá. Năm 1225, ông sắp đặt cuộc chuyển giao ngôi vua từ Lý Chiêu Hoàng sang Trần Cảnh (Trần Thái Tông), mở ra nhà Trần. Ông nắm quyền điều hành, dẹp các thế lực cát cứ, thanh trừng những mối đe dọa với ngôi vua non trẻ và xây dựng nền tảng quân sự, pháp luật.",
+      "Năm 1258, khi quân Mông Cổ áp sát Thăng Long, vua Trần Thái Tông hỏi ý ông; ông trả lời: “Đầu thần chưa rơi xuống đất, xin bệ hạ chớ có lo”. Ông được tôn là Quốc thượng phụ, mất năm 1264, được truy tặng Thượng phụ Thống quốc Thái sư Trung Vũ Đại vương.",
+    ],
+    boiCanh: [
+      "Cuối triều Lý, triều chính suy yếu, các thế lực cát cứ nổi lên. Việc họ Trần thay họ Lý và củng cố quyền lực trung ương giúp Đại Việt đủ sức chống cuộc xâm lược của Mông Cổ năm 1258.",
+    ],
+    congTrang: [
+      "Sắp đặt cuộc chuyển giao ngôi vua từ nhà Lý sang nhà Trần năm 1225.",
+      "Dẹp các thế lực cát cứ, xây dựng nền tảng quân sự và pháp luật cho triều Trần.",
+      "Giữ vững ý chí kháng chiến trong cuộc chống Mông Cổ lần thứ nhất năm 1258.",
+    ],
+    suKien: [
+      {
+        nam: "1194",
+        text: "Sinh ở làng Lưu Xá, phủ Ngự Thiên.",
+      },
+      {
+        nam: "1225",
+        text: "Sắp đặt việc Lý Chiêu Hoàng nhường ngôi cho Trần Cảnh.",
+      },
+      {
+        nam: "1258",
+        text: "Kháng chiến chống Mông Cổ lần thứ nhất; nói câu “Đầu thần chưa rơi xuống đất”.",
+      },
+      {
+        nam: "1264",
+        text: "Mất.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Khu lăng mộ và đền thờ Thái sư Trần Thủ Độ (di tích quốc gia)",
+        diaDiem: "Xã Liên Hiệp, huyện Hưng Hà, Thái Bình",
+      },
+    ],
+    tuongNiem: ["Lễ dâng hương tưởng nhớ ông ngày 7 tháng 7 âm lịch tại Thái Bình."],
+    ghiChuSuLieu:
+      "Trần Thủ Độ là nhân vật gây tranh cãi: các nhà Nho lên án việc bức tử Lý Huệ Tông, ép Trần Cảnh lấy chị dâu và thanh trừng tàn bạo, trong khi sử gia hiện đại xem ông là đại công thần. Tương truyền ông nói “nhổ cỏ thì phải nhổ cả rễ” khi gặp Lý Huệ Tông, và thưởng cho người lính dám bắt vợ ông xuống kiệu ở thềm cấm.",
+    wikiTitle: "Trần Thủ Độ",
+    nguon: [
+      "Đại Việt sử ký toàn thư.",
+      "Vietnamdefence, “Trần Thủ Độ (1194 – 1264)”.",
+      "Tạp chí Người Hà Nội, “Thái sư Trần Thủ Độ – nhà chính trị kiệt xuất, người kiến lập triều Trần”.",
+    ],
+  },
+  {
+    slug: "tran-thai-tong",
+    ten: "Trần Thái Tông",
+    tenThat: "Trần Cảnh",
+    tenKhac: [],
+    namSinh: "1218",
+    namMat: "1277",
+    nienDai: "1218 – 1277",
+    queQuan: "Làng Tức Mặc, phủ Thiên Trường; nay thuộc phường Lộc Vượng, thành phố Nam Định",
+    thoiKy: "ly-tran",
+    trieuDai: "Nhà Trần",
+    namMoc: 1225,
+    tomTat: "Vua đầu tiên nhà Trần, trực tiếp cầm quân đánh thắng quân Mông Cổ năm 1258, lập lệ Thái thượng hoàng và là tác giả Khóa hư lục.",
+    tieuSu: [
+      "Trần Thái Tông tên thật là Trần Cảnh, sinh ngày 16 tháng 6 năm Mậu Dần (1218). Năm 1225, ông lên ngôi sau khi Lý Chiêu Hoàng nhường ngôi, mở ra nhà Trần. Ông tổ chức lại bộ máy nhà nước, phát triển kinh tế điền trang thái ấp và mở lại các khoa thi Nho học.",
+      "Năm 1258, ông trực tiếp cầm quân cùng các tướng đánh bại cuộc xâm lược của quân Mông Cổ lần thứ nhất, qua các trận Bình Lệ Nguyên và Đông Bộ Đầu. Ông lập lệ nhường ngôi sớm cho con để làm Thái thượng hoàng cùng điều hành việc nước.",
+      "Ông là một thiền sư, tác giả Khóa hư lục, đặt nền tảng cho Phật giáo thời Trần. Ông mất ngày 1 tháng 4 năm Đinh Sửu (1277).",
+    ],
+    boiCanh: [
+      "Nhà Trần ra đời trong lúc đế chế Mông Cổ bành trướng khắp lục địa Á – Âu. Cuộc xâm lược năm 1258 là thử thách đầu tiên của triều đại mới.",
+    ],
+    congTrang: [
+      "Lập nhà Trần, tổ chức lại bộ máy nhà nước và mở lại khoa thi Nho học.",
+      "Trực tiếp cầm quân đánh thắng quân Mông Cổ năm 1258.",
+      "Lập lệ Thái thượng hoàng, giúp chuyển giao ngôi vua êm thấm.",
+      "Tác giả Khóa hư lục, đặt nền tảng cho Thiền học thời Trần.",
+    ],
+    suKien: [
+      {
+        nam: "1218",
+        text: "Sinh ngày 16 tháng 6 năm Mậu Dần.",
+      },
+      {
+        nam: "1225",
+        text: "Lên ngôi, mở ra nhà Trần.",
+      },
+      {
+        nam: "1236",
+        text: "Tương truyền bỏ lên núi Yên Tử xin đi tu, rồi được Trần Thủ Độ đón về.",
+      },
+      {
+        nam: "1258",
+        text: "Đánh thắng quân Mông Cổ ở Bình Lệ Nguyên, Đông Bộ Đầu.",
+      },
+      {
+        nam: "1277",
+        text: "Mất ngày 1 tháng 4 năm Đinh Sửu.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Đền Thiên Trường (Đền Thượng), Khu di tích quốc gia đặc biệt Đền Trần",
+        diaDiem: "Phường Lộc Vượng, thành phố Nam Định",
+      },
+    ],
+    tuongNiem: [
+      "Lễ Khai ấn đền Trần ngày 14 – 15 tháng Giêng âm lịch và Hội đền Trần từ ngày 15 đến 20 tháng 8 âm lịch (di sản văn hóa phi vật thể quốc gia).",
+    ],
+    ghiChuSuLieu:
+      "Đại Việt sử ký toàn thư chép việc Trần Thủ Độ ép vua bỏ Lý Chiêu Hoàng để lấy chị dâu là Thuận Thiên; giới Nho học chỉ trích gay gắt, còn các nhà nghiên cứu hiện đại xem đó là bi kịch cá nhân của nhà vua. Chuyện vua lên Yên Tử và câu “xa giá ở đâu tức là triều đình ở đó” của Trần Thủ Độ được lưu truyền qua giai thoại.",
+    wikiTitle: "Trần Thái Tông",
+    nguon: [
+      "Đại Việt sử ký toàn thư.",
+      "Đại học Văn Hiến, “Thiền sư – thi sĩ Trần Thái Tông (1218 – 1277)”.",
+      "Ban quản lý di tích, “Từ phủ Thiên Trường xưa đến Nam Định ngày nay”.",
+    ],
+  },
+  {
+    slug: "tran-thanh-tong",
+    ten: "Trần Thánh Tông",
+    tenThat: "Trần Hoảng",
+    tenKhac: ["Trần Uy Hoảng"],
+    namSinh: "1240",
+    namMat: "1290",
+    nienDai: "1240 – 1290",
+    queQuan: "Người Tức Mặc, phủ Thiên Trường (Nam Định); sinh và lớn lên ở kinh thành Thăng Long",
+    thoiKy: "ly-tran",
+    trieuDai: "Nhà Trần",
+    namMoc: 1258,
+    tomTat: "Vua thứ hai nhà Trần, khuyến khích khai hoang, sau làm Thái thượng hoàng cùng Trần Nhân Tông lãnh đạo hai cuộc kháng chiến chống Nguyên Mông.",
+    tieuSu: [
+      "Trần Thánh Tông tên thật là Trần Hoảng, sinh ngày 12 tháng 10 năm 1240, con của Trần Thái Tông. Ông làm vua 20 năm và làm Thái thượng hoàng 12 năm.",
+      "Ông khuyến khích vương hầu, quý tộc khai khẩn đất hoang, mở rộng điền trang thái ấp. Khi làm Thái thượng hoàng, ông cùng con là Trần Nhân Tông lãnh đạo hai cuộc kháng chiến chống Nguyên Mông năm 1285 và 1288, tổ chức Hội nghị Bình Than với vương hầu và Hội nghị Diên Hồng với các bô lão.",
+      "Ông cũng là thiền sư, tác giả các sách Di hậu lục, Cơ cừu lục. Ông mất ngày 25 tháng 5 năm Canh Dần (3/7/1290).",
+    ],
+    boiCanh: [
+      "Nửa sau thế kỷ XIII, nhà Nguyên liên tiếp đem quân xâm lược Đại Việt. Việc tập hợp vương hầu và dân chúng là yếu tố then chốt để nhà Trần chiến thắng.",
+    ],
+    congTrang: [
+      "Khuyến khích khai hoang, mở rộng điền trang thái ấp, tạo tiềm lực cho đất nước.",
+      "Cùng Trần Nhân Tông lãnh đạo hai cuộc kháng chiến chống Nguyên Mông (1285, 1288).",
+      "Tổ chức Hội nghị Bình Than và Hội nghị Diên Hồng.",
+    ],
+    suKien: [
+      {
+        nam: "1240",
+        text: "Sinh ngày 12 tháng 10.",
+      },
+      {
+        nam: "1258",
+        text: "Lên ngôi vua.",
+      },
+      {
+        nam: "1285",
+        text: "Cùng Trần Nhân Tông đánh thắng quân Nguyên Mông lần thứ hai.",
+      },
+      {
+        nam: "1288",
+        text: "Đánh thắng quân Nguyên Mông lần thứ ba.",
+      },
+      {
+        nam: "1290",
+        text: "Mất ngày 25 tháng 5 năm Canh Dần.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Đền Thiên Trường, Khu di tích quốc gia đặc biệt Đền Trần",
+        diaDiem: "Phường Lộc Vượng, thành phố Nam Định",
+      },
+    ],
+    tuongNiem: ["Được tôn vinh trong Lễ Khai ấn đền Trần tháng Giêng và Hội đền Trần tháng 8 âm lịch."],
+    ghiChuSuLieu:
+      "Tương truyền sau kháng chiến, Thượng hoàng cho đốt tráp biểu xin hàng của các quan lại để giữ đoàn kết. Dựa vào Đại Việt sử ký toàn thư, các sử gia nhận định quyền quyết định chiến lược trong kháng chiến phần lớn thuộc về Thượng hoàng Trần Thánh Tông, dù Trần Nhân Tông là vua và trực tiếp chỉ huy.",
+    wikiTitle: "Trần Thánh Tông",
+    nguon: [
+      "Đại Việt sử ký toàn thư.",
+      "Tạp chí Người Hà Nội, “Trần Thánh Tông – hoàng đế đánh giặc và tu thiền”.",
+      "Thư viện Hoa Sen, “Trần Thánh Tông – một ngôi sao sáng của thiền học đời Trần”.",
+    ],
+  },
+  {
+    slug: "tran-quang-khai",
+    ten: "Trần Quang Khải",
+    tenThat: null,
+    tenKhac: ["Chiêu Minh Đại vương", "Thượng tướng Thái sư"],
+    namSinh: "1241",
+    namMat: "1294",
+    nienDai: "1241 – 1294",
+    queQuan: "Người Tức Mặc, phủ Thiên Trường (Nam Định); lớn lên ở kinh thành Thăng Long",
+    thoiKy: "ly-tran",
+    trieuDai: "Nhà Trần",
+    namMoc: 1285,
+    tomTat: "Thượng tướng Thái sư nhà Trần, chỉ huy trận Chương Dương năm 1285 giải phóng Thăng Long, tác giả bài thơ Tụng giá hoàn kinh sư.",
+    tieuSu: [
+      "Trần Quang Khải sinh tháng 10 năm Tân Sửu (1241), con của Trần Thái Tông, được phong Chiêu Minh Đại vương. Dưới triều Trần Nhân Tông, ông giữ chức Thượng tướng Thái sư, điều hành việc quân, việc nước.",
+      "Trong kháng chiến chống Nguyên Mông năm 1285, ông chỉ huy trận tập kích ở bến Chương Dương, đánh tan thủy quân địch, giải phóng kinh thành Thăng Long. Ông để lại bài thơ Tụng giá hoàn kinh sư (“Đoạt sáo Chương Dương độ…”).",
+      "Ông mất ngày mùng 3 tháng 7 năm Giáp Ngọ (1294).",
+    ],
+    boiCanh: [
+      "Hai cuộc kháng chiến chống Nguyên Mông năm 1285 và 1288 huy động toàn bộ vương hầu nhà Trần; Trần Quang Khải phụ trách triều chính bên cạnh Tiết chế Trần Hưng Đạo.",
+    ],
+    congTrang: [
+      "Giữ chức Thượng tướng Thái sư, điều hành việc quân quốc dưới triều Trần Nhân Tông.",
+      "Chỉ huy trận Chương Dương năm 1285, góp phần giải phóng Thăng Long.",
+      "Tham gia hai cuộc kháng chiến chống Nguyên Mông (1285, 1288).",
+      "Tác giả bài thơ Tụng giá hoàn kinh sư.",
+    ],
+    suKien: [
+      {
+        nam: "1241",
+        text: "Sinh tháng 10 năm Tân Sửu.",
+      },
+      {
+        nam: "1285",
+        text: "Chỉ huy trận Chương Dương, giải phóng Thăng Long.",
+      },
+      {
+        nam: "1288",
+        text: "Tham gia kháng chiến chống Nguyên Mông lần thứ ba.",
+      },
+      {
+        nam: "1294",
+        text: "Mất ngày mùng 3 tháng 7 năm Giáp Ngọ.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Đền Cao Đài",
+        diaDiem: "Xã Mỹ Thành, Nam Định",
+      },
+    ],
+    tuongNiem: ["Lễ tưởng niệm Chiêu Minh Đại vương ngày 3 tháng 7 âm lịch tại đền Cao Đài (Nam Định)."],
+    ghiChuSuLieu:
+      "Tương truyền, do hiềm khích từ đời cha (Trần Thái Tông và Trần Liễu), quan hệ giữa Trần Quang Khải và Trần Hưng Đạo từng có rạn nứt; Trần Hưng Đạo đã tự tay tắm cho Trần Quang Khải để hàn gắn. Phần giai thoại này trong hồ sơ khảo cứu bị lỗi văn bản, chỉ giữ ý chính.",
+    wikiTitle: "Trần Quang Khải",
+    nguon: [
+      "Đại Việt sử ký toàn thư.",
+      "Báo Đại Đoàn Kết, “Thượng tướng Thái sư Trần Quang Khải: danh tiếng muôn đời”.",
+      "Hội đồng Lý luận Trung ương (scov.gov.vn), “Thái sư Trần Quang Khải”.",
+    ],
+  },
+  {
+    slug: "chu-van-an",
+    ten: "Chu Văn An",
+    tenThat: "Chu An",
+    tenKhac: ["Tiều Ẩn", "Văn Trinh Công", "Vạn thế sư biểu"],
+    namSinh: "1292",
+    namMat: "1370",
+    nienDai: "1292 – 1370",
+    queQuan: "Làng Văn Thôn, xã Quang Liệt, huyện Thanh Đàm; nay thuộc xã Thanh Liệt, huyện Thanh Trì, Hà Nội",
+    thoiKy: "ly-tran",
+    trieuDai: "Nhà Trần",
+    namMoc: 1292,
+    tomTat: "Nhà giáo thời Trần, Tư nghiệp Quốc Tử Giám, dâng Thất trảm sớ xin chém bảy nịnh thần rồi cáo quan về ở ẩn, được tôn là “Vạn thế sư biểu”.",
+    tieuSu: [
+      "Chu Văn An tên là Chu An, tên chữ Linh Triệt, hiệu Tiều Ẩn, sinh ngày 25 tháng 8 năm Nhâm Thìn (1292). Đỗ đạt nhưng không ra làm quan, ông mở trường dạy học ở làng Huỳnh Cung, đào tạo nhiều học trò nổi tiếng như Phạm Sư Mạnh, Lê Quát.",
+      "Vua Trần Minh Tông mời ông làm Tư nghiệp Quốc Tử Giám, dạy Thái tử Trần Vượng. Dưới triều Trần Dụ Tông, thấy quyền thần lộng hành, ông dâng Thất trảm sớ xin chém bảy tên nịnh thần. Vua không nghe, ông treo mũ ở cửa Huyền Vũ, cáo quan về ở ẩn tại núi Phượng Hoàng (Chí Linh, Hải Dương).",
+      "Ông mất ngày 26 tháng 11 năm Canh Tuất (1370), được ban thụy Văn Trinh Công và được thờ ở Văn Miếu – Quốc Tử Giám.",
+    ],
+    boiCanh: [
+      "Giữa thế kỷ XIV, nhà Trần bắt đầu suy thoái, triều chính rối ren dưới thời Trần Dụ Tông, quyền thần lộng hành.",
+    ],
+    congTrang: [
+      "Mở trường dạy học ở Huỳnh Cung, đào tạo nhiều nhân tài cho đất nước.",
+      "Làm Tư nghiệp Quốc Tử Giám, dạy Thái tử.",
+      "Dâng Thất trảm sớ, nêu tấm gương cương trực của kẻ sĩ.",
+    ],
+    suKien: [
+      {
+        nam: "1292",
+        text: "Sinh ngày 25 tháng 8 năm Nhâm Thìn.",
+      },
+      {
+        nam: "thời Trần Minh Tông",
+        text: "Được mời làm Tư nghiệp Quốc Tử Giám, dạy Thái tử Trần Vượng.",
+      },
+      {
+        nam: "thời Trần Dụ Tông",
+        text: "Dâng Thất trảm sớ; không được chấp thuận, cáo quan về núi Phượng Hoàng.",
+      },
+      {
+        nam: "1370",
+        text: "Mất ngày 26 tháng 11 năm Canh Tuất.",
+      },
+    ],
+    diTich: [
+      {
+        ten: "Đền thờ Chu Văn An trên núi Phượng Hoàng (di tích quốc gia đặc biệt)",
+        diaDiem: "Phường Văn An, thành phố Chí Linh, Hải Dương",
+      },
+      {
+        ten: "Văn Miếu – Quốc Tử Giám (phối thờ)",
+        diaDiem: "Quận Đống Đa, Hà Nội",
+      },
+      {
+        ten: "Đình Thanh Liệt",
+        diaDiem: "Xã Thanh Liệt, huyện Thanh Trì, Hà Nội",
+      },
+    ],
+    tuongNiem: [
+      "Lễ tưởng niệm ngày mất 26 tháng 11 âm lịch.",
+      "Lễ hội Khai bút đầu xuân tại đền Chu Văn An (Chí Linh) từ mùng 1 đến mùng 9 tháng Giêng.",
+    ],
+    ghiChuSuLieu:
+      "Đại Việt sử ký toàn thư không ghi tên bảy nịnh thần trong Thất trảm sớ. Chuyện học trò là Thủy thần làm mưa rồi bị trời phạt, tạo nên Đầm Mực, là truyền thuyết.",
+    wikiTitle: "Chu Văn An",
+    nguon: [
+      "Đại Việt sử ký toàn thư.",
+      "Báo VietNamNet, “Chu Văn An: thầy giáo có đức nghiệp mẫu mực của muôn đời”.",
+      "HĐND tỉnh Hải Dương, “Ấn tượng lễ khai bút ở đền thờ Chu Văn An”.",
+    ],
   },
 ];

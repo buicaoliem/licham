@@ -29,6 +29,8 @@ export interface AnhHung {
   tuongNiem: string[];
   ghiChuSuLieu: string | null;
   wikiTitle: string;
+  /** Nguồn của hồ sơ khảo cứu (nhân vật thêm từ lượt 1); khi có, bài Wikipedia chỉ là bài đối chiếu. */
+  nguon?: string[];
   /** Trang ngày giỗ / tưởng niệm tương ứng trong mục Ngày lễ. */
   leSlug?: string;
   /** Có trong danh sách 14 anh hùng dân tộc tiêu biểu (Bộ VHTTDL, văn bản 2296/BVHTTDL-MTNATL, 2013). */
