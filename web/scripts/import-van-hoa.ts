@@ -203,8 +203,14 @@ function groupKey(text: string): NhanVatGroupKey {
   return g.key;
 }
 
-/** Nhân vật thời dựng nước là truyền thuyết; thần được thờ (Tứ bất tử, thần trong nhà, nữ thần, thiền sư) là tín ngưỡng. */
-const figureLabel = (g: NhanVatGroupKey): ItemLabel => (g === "thoi-dung-nuoc" ? "truyen-thuyet" : "tin-nguong");
+/** Nhãn nhân vật theo câu chuyện, gán tường minh theo slug: truyền thuyết (chuyện dựng nước, cổ tích) hay tín ngưỡng (thần được thờ). Slug ngoài bảng → Truyền thuyết và báo trong warnings. */
+const TIN_NGUONG_SLUGS = new Set(["mau-lieu-hanh", "tao-quan", "tho-cong", "ba-chua-kho", "tu-dao-hanh", "ly-ong-trong"]);
+const TRUYEN_THUYET_SLUGS = new Set(["tan-vien-son-thanh", "thanh-giong", "chu-dong-tu", "tien-dung", "thuy-tinh", "kinh-duong-vuong", "lac-long-quan", "au-co", "hung-vuong", "lang-lieu", "mai-an-tiem", "an-duong-vuong", "cao-lo", "my-chau"]);
+const figureLabel = (slug: string): ItemLabel => {
+  if (TIN_NGUONG_SLUGS.has(slug)) return "tin-nguong";
+  if (!TRUYEN_THUYET_SLUGS.has(slug)) warnings.push(`Nhân vật "${slug}" chưa có trong bảng nhãn → mặc định Truyền thuyết.`);
+  return "truyen-thuyet";
+};
 
 function importFigures(): NhanVat[] {
   const rows = parseCsv(join(IN, "nhan-vat-truyen-thuyet.csv"));
@@ -229,7 +235,7 @@ function importFigures(): NhanVat[] {
       slug,
       name: r.name!,
       ...(r.aliases ? { otherNames: r.aliases.split(",").map((x) => x.trim()).filter(Boolean) } : {}),
-      label: figureLabel(group),
+      label: figureLabel(slug),
       group,
       summary: r.summary!,
       ...FIGURE_IMAGES[slug],
