@@ -60,6 +60,7 @@ export const HERITAGE_FILES: readonly string[] = [
   "/heritage/anh-hung/tran-binh-trong.webp",
   "/heritage/anh-hung/tran-khanh-du.webp",
   "/heritage/anh-hung/tran-nhat-duat.webp",
+  "/heritage/anh-hung/tran-phu.webp",
   "/heritage/anh-hung/tran-quang-dieu.webp",
   "/heritage/anh-hung/tran-quang-khai.webp",
   "/heritage/anh-hung/tran-quoc-toan.webp",
