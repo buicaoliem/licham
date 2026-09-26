@@ -75,7 +75,7 @@ export const TOPICS: readonly Topic[] = [
     description: "Thời dựng nước: trống đồng, nhà sàn và những câu chuyện truyền thuyết về cội nguồn.",
     href: "/van-hoa/nguoi-viet-co/",
     live: false,
-    links: [],
+    links: postLinks("Khảo cổ"),
   },
   {
     slug: "van-hoa-dan-gian",

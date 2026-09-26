@@ -2686,5 +2686,586 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
     "text": "Nguyễn Xuân Kính"
    }
   ]
+ },
+ {
+  "slug": "van-hoa-phung-nguyen",
+  "title": "Văn hoá Phùng Nguyên",
+  "label": "chinh-su",
+  "category": "Khảo cổ",
+  "summary": "Văn hoá Phùng Nguyên thuộc sơ kỳ Đồng thau, khoảng 2000–1500 TCN (xác định qua C-14). Đây là nền tảng vật chất của thời kỳ tiền Hùng Vương, khi người Việt cổ khai phá đồng bằng sông Hồng.",
+  "intro": [
+   "Văn hoá Phùng Nguyên thuộc sơ kỳ Đồng thau, khoảng 2000–1500 TCN (xác định qua C-14). Đây là nền tảng vật chất của thời kỳ tiền Hùng Vương, khi người Việt cổ khai phá đồng bằng sông Hồng."
+  ],
+  "relatedFigures": [],
+  "updatedAt": "2026-09-26",
+  "heroImage": "/heritage/van-hoa/khao-co/van-hoa-phung-nguyen-hero.webp",
+  "heroAlt": "Tranh minh hoạ: Văn hoá Phùng Nguyên",
+  "sections": [
+   {
+    "id": "dia-ban",
+    "heading": "Địa bàn",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Trung du và bãi bồi ven sông Thao, Lô, Hồng. Các di chỉ tiêu biểu:"
+     },
+     {
+      "type": "ul",
+      "items": [
+       "**Phùng Nguyên (Phú Thọ):** di chỉ phát hiện đầu tiên năm 1959, định danh cho cả nền văn hoá.",
+       "**Xóm Rền (Phú Thọ):** sưu tập nha chương ngọc lớn nhất Việt Nam.",
+       "**Vườn Chuối (Hà Nội):** di chỉ đa tầng liên tục từ Phùng Nguyên tới Đông Sơn.",
+       "**Gò Bông (Vĩnh Phúc).**"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "dac-trung-vat-chat",
+    "heading": "Đặc trưng vật chất",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Kỹ nghệ đá đạt đỉnh cao: cưa, mài bóng, khoan tách lõi. Trang sức đá ngọc gồm vòng tay, khuyên tai và nha chương — lễ khí mỏng dẹt, đầu lõm chữ V. Gốm mịn nung 600–800°C, tạo dáng bàn xoay, hoa văn khắc vạch và in chấm dải hình chữ S, xoắn ốc. Dấu vết xỉ đồng và dây đồng mảnh cho thấy đã biết luyện đồng thau sơ kỳ."
+     }
+    ]
+   },
+   {
+    "id": "tang-thuc",
+    "heading": "Táng thức",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Mộ huyệt đất, người nằm ngửa duỗi thẳng. Đồ tùy táng không chênh lệch nhiều giữa các mộ — xã hội tương đối bình đẳng."
+     }
+    ]
+   },
+   {
+    "id": "kinh-te-va-xa-hoi",
+    "heading": "Kinh tế và xã hội",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Nông nghiệp lúa nước định cư là chính (dấu tích vỏ trấu, hạt lúa), kết hợp chăn nuôi, đánh cá, săn bắt. Công xã thị tộc đang chuyển từ mẫu hệ sang phụ hệ."
+     }
+    ]
+   },
+   {
+    "id": "ke-thua",
+    "heading": "Kế thừa",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Phùng Nguyên → Đồng Đậu → Gò Mun → Đông Sơn: chuỗi phát triển liên tục, không đứt đoạn."
+     }
+    ]
+   },
+   {
+    "id": "noi-trung-bay",
+    "heading": "Nơi trưng bày",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Bảo tàng Lịch sử Quốc gia (Hà Nội), Bảo tàng Hùng Vương (Việt Trì), Viện Khảo cổ học, Bảo tàng Hà Nội."
+     }
+    ]
+   },
+   {
+    "id": "chu-thich-dia-danh",
+    "heading": "Chú thích địa danh",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Tên đơn vị hành chính cấp huyện/xã tại các di chỉ có thể đã thay đổi sau đợt sáp nhập hành chính 2025."
+     }
+    ]
+   }
+  ],
+  "lunarDates": [],
+  "sources": [
+   {
+    "text": "Viện Khảo cổ học"
+   },
+   {
+    "text": "Bảo tàng Lịch sử Quốc gia"
+   },
+   {
+    "text": "Bảo tàng Hùng Vương"
+   }
+  ]
+ },
+ {
+  "slug": "van-hoa-dong-son",
+  "title": "Văn hoá Đông Sơn",
+  "label": "chinh-su",
+  "category": "Khảo cổ",
+  "summary": "Văn hoá Đông Sơn thuộc sơ kỳ Đồ sắt, khoảng thế kỷ VII–VI TCN đến thế kỷ I–II SCN. Phát hiện năm 1924 (Louis Pajot, làng Đông Sơn ven sông Mã, Thanh Hoá). Tên \"văn hoá Đông Sơn\" do nhà khảo cổ Áo Robert von Heine-Geldern đặt năm 1934. Đây là bằng chứng khảo cổ cho nhà nước Văn Lang – Âu Lạc.",
+  "intro": [
+   "Văn hoá Đông Sơn thuộc sơ kỳ Đồ sắt, khoảng thế kỷ VII–VI TCN đến thế kỷ I–II SCN. Phát hiện năm 1924 (Louis Pajot, làng Đông Sơn ven sông Mã, Thanh Hoá). Tên \"văn hoá Đông Sơn\" do nhà khảo cổ Áo Robert von Heine-Geldern đặt năm 1934. Đây là bằng chứng khảo cổ cho nhà nước Văn Lang – Âu Lạc."
+  ],
+  "relatedFigures": [],
+  "updatedAt": "2026-09-26",
+  "heroImage": "/heritage/van-hoa/khao-co/van-hoa-dong-son-hero.webp",
+  "heroAlt": "Tranh minh hoạ: Văn hoá Đông Sơn",
+  "sections": [
+   {
+    "id": "ba-giai-doan",
+    "heading": "Ba giai đoạn",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "ul",
+      "items": [
+       "**Sớm** (thế kỷ VII–VI TCN): chuyển tiếp từ Gò Mun.",
+       "**Rực rỡ** (thế kỷ V–II TCN): ứng với thời Văn Lang – Âu Lạc; trống đồng lớn xuất hiện.",
+       "**Muộn** (thế kỷ I TCN – I/II SCN): giao lưu với Hán, đồ sắt phát triển."
+      ]
+     }
+    ]
+   },
+   {
+    "id": "dia-ban",
+    "heading": "Địa bàn",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Châu thổ sông Hồng, sông Mã, sông Cả. Các di chỉ tiêu biểu:"
+     },
+     {
+      "type": "ul",
+      "items": [
+       "**Đông Sơn (Thanh Hoá):** nghĩa địa mộ táng đồ sộ.",
+       "**Việt Khê (Hải Phòng):** mộ thuyền M1 với 107 hiện vật đồng, Bảo vật Quốc gia.",
+       "**Làng Vạc (Nghệ An):** 347 ngôi mộ, tượng voi đồng.",
+       "**Cổ Loa (Hà Nội):** kho mũi tên đồng hàng vạn chiếc, trung tâm nhà nước Âu Lạc."
+      ]
+     }
+    ]
+   },
+   {
+    "id": "dac-trung-vat-chat",
+    "heading": "Đặc trưng vật chất",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Đúc đồng thau đạt đỉnh cao: lưỡi cày hình cánh bướm, rìu xéo, dao găm cán hình người, trống đồng, thạp đồng (Thạp Đào Thịnh có tượng phồn thực). Vũ khí đồng gồm mũi tên ba cạnh, giáo lá mía. Đồ sắt xuất hiện dần (rìu, kiếm sắt chuôi đồng). Gốm nung cứng 800–900°C."
+     }
+    ]
+   },
+   {
+    "id": "tang-thuc",
+    "heading": "Táng thức",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Mộ thuyền (thân cây khoét rỗng, vùng trũng ven biển), mộ huyệt đất (vùng cao), mộ chum trẻ em."
+     }
+    ]
+   },
+   {
+    "id": "kinh-te-va-xa-hoi",
+    "heading": "Kinh tế và xã hội",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Nông nghiệp lúa nước thâm canh nhờ cày đồng và trâu bò. Phân hoá giai cấp rõ: mộ thuyền quý tộc khác mộ đất thường dân. Tầng lớp Lạc vương – Lạc hầu – Lạc tướng."
+     }
+    ]
+   },
+   {
+    "id": "giao-luu",
+    "heading": "Giao lưu",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Giao lưu với văn hoá Điền (Vân Nam), văn hoá Sa Huỳnh (qua di chỉ Bãi Cọi), và lan trống đồng tới Indonesia, Malaysia, Thái Lan."
+     }
+    ]
+   },
+   {
+    "id": "noi-trung-bay",
+    "heading": "Nơi trưng bày",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Bảo tàng Lịch sử Quốc gia, Bảo tàng Hà Nội, Bảo tàng tỉnh Thanh Hoá, Bảo tàng Nghệ An; một số bảo vật ở Bảo tàng Guimet (Pháp)."
+     }
+    ]
+   },
+   {
+    "id": "chu-thich-dia-danh",
+    "heading": "Chú thích địa danh",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Tên đơn vị hành chính cấp huyện/xã tại các di chỉ có thể đã thay đổi sau đợt sáp nhập hành chính 2025."
+     }
+    ]
+   }
+  ],
+  "lunarDates": [],
+  "sources": [
+   {
+    "text": "Viện Khảo cổ học"
+   },
+   {
+    "text": "Bảo tàng Lịch sử Quốc gia"
+   },
+   {
+    "text": "Robert von Heine-Geldern (1934)"
+   }
+  ]
+ },
+ {
+  "slug": "van-hoa-sa-huynh",
+  "title": "Văn hoá Sa Huỳnh",
+  "label": "chinh-su",
+  "category": "Khảo cổ",
+  "summary": "Văn hoá Sa Huỳnh khoảng 1500 TCN đến thế kỷ I–II SCN; giai đoạn điển hình thế kỷ V TCN – đầu Công nguyên. Phát hiện năm 1909 (M. Vinet, đầm An Khê, Quảng Ngãi); định danh bởi nữ khảo cổ Pháp Madeleine Colani năm 1934. Đây là cội nguồn bản địa của vương quốc Lâm Ấp – Champa (thành lập năm 192 SCN).",
+  "intro": [
+   "Văn hoá Sa Huỳnh khoảng 1500 TCN đến thế kỷ I–II SCN; giai đoạn điển hình thế kỷ V TCN – đầu Công nguyên. Phát hiện năm 1909 (M. Vinet, đầm An Khê, Quảng Ngãi); định danh bởi nữ khảo cổ Pháp Madeleine Colani năm 1934. Đây là cội nguồn bản địa của vương quốc Lâm Ấp – Champa (thành lập năm 192 SCN)."
+  ],
+  "relatedFigures": [],
+  "updatedAt": "2026-09-26",
+  "heroImage": "/heritage/van-hoa/khao-co/van-hoa-sa-huynh-hero.webp",
+  "heroAlt": "Tranh minh hoạ: Văn hoá Sa Huỳnh",
+  "sections": [
+   {
+    "id": "dia-ban",
+    "heading": "Địa bàn",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Dải ven biển miền Trung từ Quảng Bình tới Bình Thuận, lan lên Tây Nguyên. Các di chỉ tiêu biểu:"
+     },
+     {
+      "type": "ul",
+      "items": [
+       "**Sa Huỳnh (Quảng Ngãi):** trung tâm định danh.",
+       "**Long Thạnh (Quảng Ngãi):** giai đoạn Tiền Sa Huỳnh, có Bảo vật Quốc gia \"bộ sưu tập bình gốm Long Thạnh\".",
+       "**Hậu Xá – Tam Thai (Quảng Nam):** tiền cảng thị, tìm thấy tiền đồng Tây Hán.",
+       "**Gò Mả Vôi (Quảng Nam).**",
+       "**Bãi Cọi (Hà Tĩnh):** giao thoa Sa Huỳnh / Đông Sơn."
+      ]
+     }
+    ]
+   },
+   {
+    "id": "dac-trung-vat-chat",
+    "heading": "Đặc trưng vật chất",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Rèn sắt là trung tâm: rìu, cuốc, dao, giáo, kiếm sắt. Trang sức đặc trưng gồm khuyên tai hai đầu thú (đá ngọc/thuỷ tinh, biểu tượng độc bản), khuyên tai ba–bốn mấu, hạt chuỗi đá bán quý. Tự chế thuỷ tinh (pha silicat với chì, kéo sợi làm hạt chuỗi). Gốm miết bóng tô thổ hoàng, ánh xám chì."
+     }
+    ]
+   },
+   {
+    "id": "tang-thuc",
+    "heading": "Táng thức",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Mộ chum gốm chôn đứng (cao 0,6–1,5 m), ba hình thức: hoả táng, cải táng, táng tượng trưng (cho người mất tích trên biển)."
+     }
+    ]
+   },
+   {
+    "id": "kinh-te-va-xa-hoi",
+    "heading": "Kinh tế và xã hội",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Nông–lâm–ngư kết hợp. Cư dân Tiền Mã Lai–Đa Đảo (Nam Đảo); liên minh bộ lạc do thủ lĩnh quân sự/hàng hải đứng đầu. Khuyên tai Sa Huỳnh tìm thấy tới vịnh Thái Lan, Mã Lai, Philippines — mạng lưới mậu dịch biển 2000 năm trước."
+     }
+    ]
+   },
+   {
+    "id": "noi-trung-bay",
+    "heading": "Nơi trưng bày",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Bảo tàng Lịch sử Quốc gia, Bảo tàng Điêu khắc Chăm (Đà Nẵng), Bảo tàng Quảng Ngãi, Nhà trưng bày Văn hoá Sa Huỳnh (Quảng Ngãi), Bảo tàng Sa Huỳnh–Champa (Quảng Nam)."
+     }
+    ]
+   },
+   {
+    "id": "chu-thich-dia-danh",
+    "heading": "Chú thích địa danh",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Tên đơn vị hành chính cấp huyện/xã tại các di chỉ có thể đã thay đổi sau đợt sáp nhập hành chính 2025."
+     }
+    ]
+   }
+  ],
+  "lunarDates": [],
+  "sources": [
+   {
+    "text": "Viện Khảo cổ học"
+   },
+   {
+    "text": "Madeleine Colani (1934)"
+   },
+   {
+    "text": "Bảo tàng Lịch sử Quốc gia"
+   }
+  ]
+ },
+ {
+  "slug": "van-hoa-oc-eo",
+  "title": "Văn hoá Óc Eo",
+  "label": "chinh-su",
+  "category": "Khảo cổ",
+  "summary": "Văn hoá Óc Eo thuộc thế kỷ I đến thế kỷ VII–VIII SCN. Phát hiện qua ảnh hàng không cuối thập niên 1930 (Viện Viễn Đông Bác Cổ); khai quật khoa học đầu tiên bởi Louis Malleret (Pháp) năm 1944, tại Óc Eo chân núi Ba Thê, An Giang. Đây là cơ sở kinh tế–đô thị của vương quốc Phù Nam, suy tàn từ thế kỷ VII khi hải trình chuyển qua eo Malacca.",
+  "intro": [
+   "Văn hoá Óc Eo thuộc thế kỷ I đến thế kỷ VII–VIII SCN. Phát hiện qua ảnh hàng không cuối thập niên 1930 (Viện Viễn Đông Bác Cổ); khai quật khoa học đầu tiên bởi Louis Malleret (Pháp) năm 1944, tại Óc Eo chân núi Ba Thê, An Giang. Đây là cơ sở kinh tế–đô thị của vương quốc Phù Nam, suy tàn từ thế kỷ VII khi hải trình chuyển qua eo Malacca."
+  ],
+  "relatedFigures": [],
+  "updatedAt": "2026-09-26",
+  "heroImage": "/heritage/van-hoa/khao-co/van-hoa-oc-eo-hero.webp",
+  "heroAlt": "Tranh minh hoạ: Văn hoá Óc Eo",
+  "sections": [
+   {
+    "id": "dia-ban",
+    "heading": "Địa bàn",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Đồng bằng sông Cửu Long. Các di chỉ tiêu biểu:"
+     },
+     {
+      "type": "ul",
+      "items": [
+       "**Óc Eo – Ba Thê (An Giang):** trung tâm kinh tế/tôn giáo, xưởng kim hoàn, nền móng kiến trúc gạch đá.",
+       "**Nền Chùa (Kiên Giang):** cảng cửa ngõ vịnh Thái Lan.",
+       "**Gò Tháp (Đồng Tháp):** tượng thần Vishnu sa thạch, tượng Phật gỗ.",
+       "**Bình Tả (Long An):** cụm đền tháp Bà La Môn."
+      ]
+     }
+    ]
+   },
+   {
+    "id": "dac-trung-vat-chat",
+    "heading": "Đặc trưng vật chất",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Kim hoàn vàng đạt đỉnh cao: lá vàng chạm hình thần Bà La Môn giáo (Shiva, Vishnu, Brahma); nhẫn vàng khắc chữ Phạn. Tượng thờ gồm Vishnu đá sa thạch/đồng, tượng Phật gỗ dáng tribhanga, Linga–Yoni. Gốm bản địa: bếp cà ràng chân cao dùng trên ghe thuyền, bình kendi nghi lễ. Hiện vật ngoại lai: tiền vàng La Mã (Antoninus Pius, Marcus Aurelius), gương đồng Hán, con dấu chữ Phạn."
+     }
+    ]
+   },
+   {
+    "id": "tang-thuc",
+    "heading": "Táng thức",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Hoả táng trong cấu trúc gạch/đá sa thạch; tro cốt đặt trong hũ/chum nhỏ; đáy huyệt rải lá vàng hình hoa sen."
+     }
+    ]
+   },
+   {
+    "id": "kinh-te-va-xa-hoi",
+    "heading": "Kinh tế và xã hội",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Đô thị cảng thị quốc tế kết hợp nông nghiệp thuỷ lợi (mạng kênh đào cổ nối Óc Eo – Nền Chùa – ra biển, vào tận Angkor Borei, Campuchia). Trạm trung chuyển hải thương La Mã – Ấn Độ – Trung Hoa. Thể chế quân chủ thần quyền, tăng lữ Bà La Môn hỗ trợ cai trị."
+     }
+    ]
+   },
+   {
+    "id": "noi-trung-bay",
+    "heading": "Nơi trưng bày",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Bảo tàng Lịch sử Quốc gia, Bảo tàng Lịch sử TP.HCM, Bảo tàng An Giang (sáu Bảo vật Quốc gia), Bảo tàng Đồng Tháp, Nhà trưng bày Óc Eo–Ba Thê (An Giang)."
+     }
+    ]
+   },
+   {
+    "id": "chu-thich-dia-danh",
+    "heading": "Chú thích địa danh",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Tên đơn vị hành chính cấp huyện/xã tại các di chỉ có thể đã thay đổi sau đợt sáp nhập hành chính 2025."
+     }
+    ]
+   }
+  ],
+  "lunarDates": [],
+  "sources": [
+   {
+    "text": "Louis Malleret (1944)"
+   },
+   {
+    "text": "Viện Khảo cổ học"
+   },
+   {
+    "text": "Bảo tàng Lịch sử Quốc gia"
+   },
+   {
+    "text": "Bảo tàng An Giang"
+   }
+  ]
+ },
+ {
+  "slug": "trong-dong-dong-son",
+  "title": "Trống đồng Đông Sơn",
+  "label": "chinh-su",
+  "category": "Khảo cổ",
+  "summary": "Nguồn gốc trống đồng từng tranh cãi: giả thuyết ảnh hưởng Hy Lạp/Alexander của học giả Pháp đầu thế kỷ XX, và giả thuyết nguồn gốc Vân Nam–Trung Quốc từ thập niên 1970. Khảo cổ học Việt Nam khẳng định nguồn gốc bản địa: mô hình trống gốm tí hon khoảng 850 TCN tại tầng Tiền Đông Sơn; khai quật thành cổ Luy Lâu (Bắc Ninh, 1998–2015) tìm thấy gần 1.000 mảnh khuôn đúc trống đất nung — nơi duy nhất trên thế giới có bằng chứng này. Niên đại trống cổ nhất: thế kỷ VII–VI TCN, đỉnh cao thế kỷ V–II TCN.",
+  "intro": [
+   "Nguồn gốc trống đồng từng tranh cãi: giả thuyết ảnh hưởng Hy Lạp/Alexander của học giả Pháp đầu thế kỷ XX, và giả thuyết nguồn gốc Vân Nam–Trung Quốc từ thập niên 1970. Khảo cổ học Việt Nam khẳng định nguồn gốc bản địa: mô hình trống gốm tí hon khoảng 850 TCN tại tầng Tiền Đông Sơn; khai quật thành cổ Luy Lâu (Bắc Ninh, 1998–2015) tìm thấy gần 1.000 mảnh khuôn đúc trống đất nung — nơi duy nhất trên thế giới có bằng chứng này. Niên đại trống cổ nhất: thế kỷ VII–VI TCN, đỉnh cao thế kỷ V–II TCN."
+  ],
+  "relatedFigures": [],
+  "updatedAt": "2026-09-26",
+  "heroImage": "/heritage/van-hoa/khao-co/trong-dong-dong-son-hero.webp",
+  "heroAlt": "Tranh minh hoạ: Trống đồng Đông Sơn",
+  "sections": [
+   {
+    "id": "ky-thuat-duc",
+    "heading": "Kỹ thuật đúc",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Khuôn tổ hợp nhiều mảnh đất nung (khuôn đáy + 3–4 mảnh khuôn ngoài + lõi trong \"quả thao\"), dùng \"con kê\" đồng giữ khoảng cách đều khi rót kim loại. Hợp kim: đồng 60–75%, thiếc 15–20%, chì 5–10% — chì hạ nhiệt độ nóng chảy dưới 950°C giúp kim loại chảy đều vào hoa văn nhỏ."
+     }
+    ]
+   },
+   {
+    "id": "phan-loai-heger",
+    "heading": "Phân loại Heger",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Franz Heger, học giả Áo, phân loại năm 1902:"
+     },
+     {
+      "type": "ul",
+      "items": [
+       "**Loại I:** trống Đông Sơn, cổ nhất, đầy đủ nhất (mặt–tang–thân–chân rõ bốn phần, quai bện thừng).",
+       "**Loại II:** trống Mường/Lưỡng Quảng (dáng thấp, có tượng cóc trên rìa mặt).",
+       "**Loại III:** trống Karen (thế kỷ XI–XIX, Myanmar/Thái/Tây Bắc Việt Nam).",
+       "**Loại IV:** trống Nam Trung Hoa thời Hán–Tấn tới Minh–Thanh, hoa văn thô/trơn."
+      ]
+     }
+    ]
+   },
+   {
+    "id": "hoa-van-tieu-bieu",
+    "heading": "Hoa văn tiêu biểu",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Mặt trời nhiều tia (8–16 tia) ở tâm — biểu tượng thần Mặt Trời, có thể liên hệ tính nông lịch/tiết khí. Vành chim bay: \"chim Lạc\" là tên do học giả Đào Duy Anh đặt năm 1955; nghiên cứu sau của Hà Văn Tấn, Trịnh Sinh cho rằng mô phỏng chim nước họ Hạc như cò, vạc, diệc, sếu — trình bày cả hai giả thuyết. Cảnh thuyền chiến (chiến binh cầm giáo/nỏ, người đánh trống giữ nhịp); người hoá trang lông chim; cảnh giã gạo chày đôi (tín ngưỡng phồn thực); nhà sàn mái cong."
+     }
+    ]
+   },
+   {
+    "id": "trong-bao-vat-quoc-gia-tieu-bieu",
+    "heading": "Trống Bảo vật Quốc gia tiêu biểu",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "ul",
+      "items": [
+       "**Ngọc Lũ I:** phát hiện 1893 tại Hà Nam, đường kính 79,3 cm, mặt trời 14 tia, 16 vành hoa văn — Bảo tàng Lịch sử Quốc gia.",
+       "**Hoàng Hạ:** phát hiện 1937, Hà Đông, mặt trời 16 tia — cùng bảo tàng.",
+       "**Sông Đà:** phát hiện 1887, Hoà Bình, hiện lưu tại Bảo tàng Guimet, Paris.",
+       "**Cổ Loa:** phát hiện 1982, Hà Nội, bên trong chứa gần 200 lưỡi cày/rìu đồng — Bảo tàng Hà Nội."
+      ]
+     }
+    ]
+   },
+   {
+    "id": "chuc-nang",
+    "heading": "Chức năng",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Biểu trưng quyền lực thủ lĩnh (chôn theo mộ); nhạc khí tế lễ (cầu mưa, cầu mùa); hiệu lệnh quân sự/tập hợp cộng đồng."
+     }
+    ]
+   },
+   {
+    "id": "so-lieu",
+    "heading": "Số liệu",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Theo kỷ yếu nghiên cứu quốc tế 2015, tổng 250 trống Heger Loại I toàn khu vực Đông Nam Á và Nam Trung Quốc, riêng Việt Nam có 137 chiếc (khoảng 55%) — nhiều nhất thế giới. Tính cả các loại biến thể và trống minh khí, tổng số trống đồng cổ tại Việt Nam vượt 500 chiếc. Tập trung nhiều nhất: Thanh Hoá, Hoà Bình, Hà Nội, Phú Thọ, Tây Nguyên."
+     }
+    ]
+   },
+   {
+    "id": "chu-thich-dia-danh",
+    "heading": "Chú thích địa danh",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Tên đơn vị hành chính cấp huyện/xã tại các di chỉ có thể đã thay đổi sau đợt sáp nhập hành chính 2025."
+     }
+    ]
+   }
+  ],
+  "lunarDates": [],
+  "sources": [
+   {
+    "text": "Franz Heger (1902)"
+   },
+   {
+    "text": "Đào Duy Anh (1955)"
+   },
+   {
+    "text": "Hà Văn Tấn"
+   },
+   {
+    "text": "Trịnh Sinh"
+   },
+   {
+    "text": "Viện Khảo cổ học"
+   },
+   {
+    "text": "kỷ yếu nghiên cứu quốc tế 2015"
+   }
+  ]
  }
 ];

@@ -263,7 +263,7 @@ function importFigures(): NhanVat[] {
 }
 
 // ---------- Bài Tết ----------
-const CATEGORY_LABEL: Record<string, ItemLabel> = { "Dân gian": "tin-nguong", "Thiên văn": "chinh-su" };
+const CATEGORY_LABEL: Record<string, ItemLabel> = { "Dân gian": "tin-nguong", "Thiên văn": "chinh-su", "Khảo cổ": "chinh-su" };
 
 /** Ảnh bài Tết /heritage/tet/; trò chơi /heritage/van-hoa/tro-choi-dan-gian/; bài Dân gian khác /heritage/van-hoa/dan-gian/. */
 function articleHeroPath(hero: string): string {
@@ -273,11 +273,13 @@ function articleHeroPath(hero: string): string {
   if (existsSync(game)) return `/heritage/van-hoa/tro-choi-dan-gian/${stem}.webp`;
   const sky = join(WEB, "public", "heritage", "van-hoa", "thien-van", `${stem}.webp`);
   if (existsSync(sky)) return `/heritage/van-hoa/thien-van/${stem}.webp`;
+  const khao = join(WEB, "public", "heritage", "van-hoa", "khao-co", `${stem}.webp`);
+  if (existsSync(khao)) return `/heritage/van-hoa/khao-co/${stem}.webp`;
   return `/heritage/van-hoa/dan-gian/${stem}.webp`;
 }
 
 function importArticles(figureSlugs: Set<string>): BaiViet[] {
-  const files = ["bai-tet-6-chu-de.md", "tro-choi-dan-gian.md", "tranh-do-choi.md", "24-tiet-khi-nong-lich.md"];
+  const files = ["bai-tet-6-chu-de.md", "tro-choi-dan-gian.md", "tranh-do-choi.md", "24-tiet-khi-nong-lich.md", "nguoi-viet-co.md"];
   const seen = new Set<string>();
   const articles: BaiViet[] = [];
   for (const file of files) {

@@ -16,6 +16,7 @@ JOBS = [
     (INBOX / "do-choi-tet-xua", OUT),
     (INBOX / "tranh-dong-ho", OUT),
     (INBOX / "khi-tiet-nong-lich", WEB / "public" / "heritage" / "van-hoa" / "thien-van"),
+    (INBOX / "van-hoa-dong-son", WEB / "public" / "heritage" / "van-hoa" / "khao-co"),
 ]
 
 n = 0
