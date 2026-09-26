@@ -147,6 +147,7 @@
 
 /* ---------- Hôm nay ---------- */
 .todayGrid {
+  align-items: start;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 16px;
@@ -235,8 +236,18 @@
   display: grid;
   gap: 16px;
 }
+.eventList li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+.eventList li > b,
+.eventList li > p {
+  align-self: stretch;
+}
 .eventList p {
-  margin: 4px 0 0;
+  margin: 0;
 }
 .question {
   font-weight: 600;

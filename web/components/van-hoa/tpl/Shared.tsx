@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { Breadcrumb, type Crumb } from "@/components/calendar/Breadcrumb";
 import { JsonLd } from "@/components/calendar/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/calendar/jsonld";
@@ -11,18 +11,27 @@ import { ITEM_LABELS, type ItemLabel, type RelatedLink, type Source } from "@/li
 import s from "../van-hoa.module.css";
 import t from "./tpl.module.css";
 
-export function ItemBadge({ label }: { label: ItemLabel }) {
-  const l = ITEM_LABELS[label];
+type Tone = "son" | "luc" | "kim";
+const GOLD_BADGES: readonly string[] = ["Tín ngưỡng", "Lễ hội"];
+
+/** Nhãn dùng chung của Văn hoá: chính là `.le-tag` của các trang Ngày lễ, chỉ đổi màu qua biến --tone. */
+function Tag({ tone, children }: { tone: Tone; children: ReactNode }) {
   return (
-    <span className={t.label} style={{ color: l.ink, background: l.bg }}>
-      {l.text}
+    <span className="le-tag" style={{ "--tone": `var(--${tone})`, "--tone-soft": `var(--${tone}-soft)` } as CSSProperties}>
+      {children}
     </span>
   );
 }
 
-/** Nhãn chuyên mục kiểu trang tổng: xanh ngọc cho nhóm trong GREEN_BADGES (vd. Thiên văn), còn lại hồng đỏ (vd. Dân gian). */
+const ITEM_TONE: Record<ItemLabel, Tone> = { "chinh-su": "son", "truyen-thuyet": "luc", "tin-nguong": "kim" };
+
+export function ItemBadge({ label }: { label: ItemLabel }) {
+  return <Tag tone={ITEM_TONE[label]}>{ITEM_LABELS[label].text}</Tag>;
+}
+
+/** Nhãn chuyên mục: xanh cho nhóm trong GREEN_BADGES, vàng cho Tín ngưỡng/Lễ hội, còn lại đỏ. */
 export function TopicBadge({ text }: { text: string }) {
-  return <span className={GREEN_BADGES.includes(text) ? `${s.badge} ${s.badgeGreen}` : s.badge}>{text}</span>;
+  return <Tag tone={GREEN_BADGES.includes(text) || text === "Truyền thuyết" ? "luc" : GOLD_BADGES.includes(text) ? "kim" : "son"}>{text}</Tag>;
 }
 
 export function SectionTitle({ id, children }: { id?: string; children: ReactNode }) {

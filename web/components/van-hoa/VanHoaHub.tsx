@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { ListLd } from "./tpl/Shared";
-import { GREEN_BADGES, HERO_IMAGE, NEW_POSTS, TOPICS, type Topic } from "@/lib/van-hoa/config";
+import { TopicBadge } from "./tpl/Shared";
+import { HERO_IMAGE, NEW_POSTS, TOPICS, type Topic } from "@/lib/van-hoa/config";
 import { HomNay } from "./HomNay";
 import s from "./van-hoa.module.css";
 
-const badgeClass = (b: string) => (GREEN_BADGES.includes(b) ? `${s.badge} ${s.badgeGreen}` : s.badge);
 
 function SectionTitle({ id, children }: { id: string; children: string }) {
   return (
@@ -22,7 +22,7 @@ function TopicCard({ t }: { t: Topic }) {
     <li className={s.topic}>
       <img src={t.image} alt={t.imageAlt} width={480} height={360} loading="lazy" decoding="async" className={s.topicImg} style={{ objectPosition: t.imagePosition }} />
       <div className={s.topicBody}>
-        <span className={badgeClass(t.badge)}>{t.badge}</span>
+        <TopicBadge text={t.badge} />
         <h3 className={s.h3}>{t.title}</h3>
         <p className={s.topicDesc}>{t.description}</p>
         {hasLinks && (
@@ -88,7 +88,7 @@ export function VanHoaHub() {
                 <li key={p.href} className={s.newItem}>
                   {p.image && <img src={p.image} alt="" width={88} height={64} loading="lazy" decoding="async" className={s.newImg} />}
                   <div className={s.newBody}>
-                    <span className={badgeClass(p.badge)}>{p.badge}</span>
+                    <TopicBadge text={p.badge} />
                     <h3 className={s.h3}>{p.title}</h3>
                     <p className={s.note}>{p.date}</p>
                     <p className={s.more}>
