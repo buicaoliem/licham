@@ -2432,5 +2432,259 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
     "text": "Bảo tàng Dân tộc học Việt Nam"
    }
   ]
+ },
+ {
+  "slug": "24-tiet-khi-nong-lich",
+  "title": "24 tiết khí và nông lịch",
+  "label": "chinh-su",
+  "category": "Thiên văn",
+  "summary": "24 tiết khí là hệ thống chia năm mặt trời thành 24 đoạn bằng nhau theo vị trí mặt trời trên đường hoàng đạo (Trung Hoa cổ đại, ghi đủ trong sách *Hoài Nam Tử* khoảng 139 TCN, chính thức hoá vào Lịch Thái Sơ năm 104 TCN). Vào Việt Nam từ thời Bắc thuộc, các triều đại sau duy trì cơ quan làm lịch riêng (Tư Thiên Giám thời Lý–Trần, Khâm Thiên Giám thời Lê–Nguyễn), có hiệu chỉnh theo kinh độ Thăng Long/Huế (theo nghiên cứu của Hoàng Xuân Hãn, *Lịch và Lịch Việt Nam*, 1947). 12 Trung khí trong 24 tiết khí dùng để định tháng nhuận — tháng âm lịch nào không chứa Trung khí nào thì là tháng nhuận. Đây vốn là hệ thống tiết khí của vùng Hoàng Hà (khí hậu ôn đới). Khi vào đồng bằng Bắc Bộ (khí hậu nhiệt đới gió mùa) có tiết khớp tốt (nhóm mưa-ẩm: Vũ thủy, Cốc vũ, Bạch lộ), có tiết không khớp (Tiểu tuyết, Đại tuyết — Việt Nam không có tuyết ở đồng bằng, chỉ hiểu là các nấc rét đậm dần).",
+  "intro": [
+   "24 tiết khí là hệ thống chia năm mặt trời thành 24 đoạn bằng nhau theo vị trí mặt trời trên đường hoàng đạo (Trung Hoa cổ đại, ghi đủ trong sách *Hoài Nam Tử* khoảng 139 TCN, chính thức hoá vào Lịch Thái Sơ năm 104 TCN). Vào Việt Nam từ thời Bắc thuộc, các triều đại sau duy trì cơ quan làm lịch riêng (Tư Thiên Giám thời Lý–Trần, Khâm Thiên Giám thời Lê–Nguyễn), có hiệu chỉnh theo kinh độ Thăng Long/Huế (theo nghiên cứu của Hoàng Xuân Hãn, *Lịch và Lịch Việt Nam*, 1947). 12 Trung khí trong 24 tiết khí dùng để định tháng nhuận — tháng âm lịch nào không chứa Trung khí nào thì là tháng nhuận.",
+   "Đây vốn là hệ thống tiết khí của vùng Hoàng Hà (khí hậu ôn đới). Khi vào đồng bằng Bắc Bộ (khí hậu nhiệt đới gió mùa) có tiết khớp tốt (nhóm mưa-ẩm: Vũ thủy, Cốc vũ, Bạch lộ), có tiết không khớp (Tiểu tuyết, Đại tuyết — Việt Nam không có tuyết ở đồng bằng, chỉ hiểu là các nấc rét đậm dần)."
+  ],
+  "relatedFigures": [],
+  "updatedAt": "2026-09-26",
+  "heroImage": "/heritage/van-hoa/thien-van/24-tiet-khi-nong-lich-hero.webp",
+  "heroAlt": "Tranh minh hoạ: 24 tiết khí và nông lịch",
+  "sections": [
+   {
+    "id": "bang-24-tiet-khi",
+    "heading": "Bảng 24 tiết khí",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "table",
+      "head": [
+       "Tên tiết khí",
+       "Chữ Hán",
+       "Thời điểm dương lịch",
+       "Khí hậu miền Bắc VN",
+       "Việc nông nghiệp"
+      ],
+      "rows": [
+       [
+        "Lập xuân",
+        "立春",
+        "4–5/2",
+        "Chấm dứt rét khô, mưa xuân lất phất, còn \"rét đài/rét lộc\"",
+        "Làm đất vụ chiêm xuân, ngâm ủ thóc giống, cấy sau Tết. Ca dao: \"Ngẫm xem mùng Một đầu năm... Ngày Lập Xuân lạnh, cấy cày nhẹ công\" (Vũ Ngọc Phan)."
+       ],
+       [
+        "Vũ thủy",
+        "雨水",
+        "18–19/2",
+        "Mưa phùn, nồm ẩm, sương mù sáng sớm",
+        "Cấy đại trà lúa chiêm, tra ngô tỉa đỗ ven sông."
+       ],
+       [
+        "Kinh trập",
+        "驚蟄",
+        "5–6/3",
+        "Ấm nhanh, mưa rào kèm sấm, côn trùng thức dậy",
+        "Lúa hồi xanh đẻ nhánh, làm cỏ sục bùn. Ca dao: \"Lúa chiêm lấp ló đầu bờ, hễ nghe tiếng sấm phất cờ mà lên\" (Nguyễn Xuân Kính)."
+       ],
+       [
+        "Xuân phân",
+        "春分",
+        "20–21/3",
+        "Ngày đêm bằng nhau, ấm hẳn, còn rét muộn (\"rét nàng Bân\")",
+        "Bón thúc lúa đẻ nhánh."
+       ],
+       [
+        "Thanh minh",
+        "清明",
+        "4–5/4",
+        "Trời quang, khô ráo, dễ chịu",
+        "Lúa đứng cái làm đòng, bón đón đòng."
+       ],
+       [
+        "Cốc vũ",
+        "穀雨",
+        "20–21/4",
+        "Mưa rào lớn kèm sấm chớp cuối xuân",
+        "Lúa trỗ bông ngậm sữa, đắp bờ giữ nước."
+       ],
+       [
+        "Lập hạ",
+        "立夏",
+        "5–6/5",
+        "Nắng nóng đầu mùa, dông chiều",
+        "Lúa chiêm chín vàng, chuẩn bị thu hoạch."
+       ],
+       [
+        "Tiểu mãn",
+        "小滿",
+        "21–22/5",
+        "Mưa tăng đột biến, \"lũ tiểu mãn\"",
+        "Gặt gấp lúa chiêm tránh úng, ngâm ải làm mạ mùa. Ngạn ngữ: \"Tiểu mãn bất mãn, Mang chủng bất quản\"."
+       ],
+       [
+        "Mang chủng",
+        "芒種",
+        "5–6/6",
+        "Nắng gắt xen mưa rào cục bộ",
+        "Hết vụ gặt chiêm, cấy lúa mùa sớm; nông dân canh sao Tua Rua mọc để định lịch cấy. Ca dao: \"Bao giờ thấy vỏ thị rơi, Tua rua quặt xuống thì thôi cày bừa\"."
+       ],
+       [
+        "Hạ chí",
+        "夏至",
+        "21–22/6",
+        "Ngày dài nhất năm, nắng đỉnh điểm",
+        "Cấy lúa mùa đại trà."
+       ],
+       [
+        "Tiểu thử",
+        "小暑",
+        "7–8/7",
+        "Oi bức, mưa dông lốc bất chợt",
+        "Cấy dứt ruộng trũng, làm cỏ đợt 1."
+       ],
+       [
+        "Đại thử",
+        "大暑",
+        "22–23/7",
+        "Nóng nhất năm, xen bão/áp thấp",
+        "Dẫn nước giữ mát gốc lúa. Chưa tìm được ca dao riêng."
+       ],
+       [
+        "Lập thu",
+        "立秋",
+        "7–8/8",
+        "Còn nắng gắt (\"nắng tháng Tám rám trái bưởi\"), đêm se mát",
+        "Hạn chót cấy lúa mùa. Ca dao: \"Lập thu mới cấy lúa mùa, khác nào hương khói lên chùa cầu con\"."
+       ],
+       [
+        "Xử thử",
+        "處暑",
+        "23–24/8",
+        "Nhiệt hạ rõ, mưa Ngâu tháng 7 âm",
+        "Lúa mùa làm đòng, bón đón đòng."
+       ],
+       [
+        "Bạch lộ",
+        "白露",
+        "7–8/9",
+        "Sương trắng sáng sớm, mát dịu",
+        "Lúa mùa sớm trỗ bông, bẫy chuột. Chưa tìm được ca dao riêng."
+       ],
+       [
+        "Thu phân",
+        "秋分",
+        "23–24/9",
+        "Ngày đêm bằng nhau, trời trong, gió heo may",
+        "Lúa mùa chính trỗ rộ. Ca dao: \"Gió heo may, chuồn chuồn bay thì bão\"."
+       ],
+       [
+        "Hàn lộ",
+        "寒露",
+        "8–9/10",
+        "Không khí lạnh đầu mùa, sương lạnh đêm",
+        "Lúa nếp cái hoa vàng trỗ bông. Ca dao: \"Hàn lộ lúa trỗ bằng đầu, Lập đông là quyết về mau gặt mùa\"."
+       ],
+       [
+        "Sương giáng",
+        "霜降",
+        "23–24/10",
+        "Rét về đêm, sương muối cục bộ vùng núi",
+        "Lúa mùa chín rộ, gặt sớm ruộng trũng. Chưa tìm được ca dao riêng."
+       ],
+       [
+        "Lập đông",
+        "立冬",
+        "7–8/11",
+        "Gió mùa đông bắc, khô rét",
+        "Cao điểm gặt lúa mùa, cày ải."
+       ],
+       [
+        "Tiểu tuyết",
+        "小雪",
+        "22–23/11",
+        "Không có tuyết ở đồng bằng, rét khô hanh",
+        "Cất trữ thóc, chăm rau vụ đông. Chưa tìm được ca dao riêng."
+       ],
+       [
+        "Đại tuyết",
+        "大雪",
+        "7–8/12",
+        "Rét đậm, băng giá chỉ ở vùng núi cao",
+        "Ủ phân, che chắn chuồng trại. Chưa tìm được ca dao riêng."
+       ],
+       [
+        "Đông chí",
+        "冬至",
+        "21–22/12",
+        "Đêm dài nhất năm, rét buốt",
+        "Ngâm ủ thóc chiêm, gieo mạ."
+       ],
+       [
+        "Tiểu hàn",
+        "小寒",
+        "5–6/1",
+        "Thực tế rét đậm rét hại nhất năm (ngược nghĩa chữ \"Tiểu\")",
+        "Giữ ấm mạ chiêm, sưởi ấm gia súc. Chưa tìm được ca dao riêng."
+       ],
+       [
+        "Đại hàn",
+        "大寒",
+        "20–21/1",
+        "Rét buốt cuối cùng trước khi chuyển xuân",
+        "Đổ ải, nhổ mạ cấy chiêm sớm, dọn ruộng đón Tết. Chưa tìm được ca dao riêng."
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "van-hoa-va-tin-nguong-bon-tiet-khi-trong-diem",
+    "heading": "Văn hoá và tín ngưỡng bốn tiết khí trọng điểm",
+    "paras": [],
+    "blocks": [],
+    "sub": [
+     {
+      "heading": "Lập xuân",
+      "paras": [
+       "Chấm dứt rét khô, mở đầu vụ chiêm xuân: làm đất, ngâm ủ thóc giống, cấy sau Tết. Ca dao: \"Ngẫm xem mùng Một đầu năm... Ngày Lập Xuân lạnh, cấy cày nhẹ công\" (Vũ Ngọc Phan)."
+      ]
+     },
+     {
+      "heading": "Thanh minh",
+      "paras": [
+       "Trời quang, khô ráo. Lúa đứng cái làm đòng, bón đón đòng. Gắn Tết Thanh minh — tảo mộ và hội đạp thanh; triều Nguyễn quy định lệ bái yết tôn lăng vào tiết này."
+      ]
+     },
+     {
+      "heading": "Hạ chí",
+      "paras": [
+       "Ngày dài nhất năm, nắng đỉnh điểm; cấy lúa mùa đại trà. Gần Tết Đoan Ngọ (\"giết sâu bọ\") — ăn cơm rượu nếp, quả chua, hái lá thuốc nam giờ Ngọ."
+      ]
+     },
+     {
+      "heading": "Đông chí",
+      "paras": [
+       "Đêm dài nhất năm, rét buốt; ngâm ủ thóc chiêm, gieo mạ. Người Việt xem là mốc dứt vụ gặt mùa, cúng tạ Thần Nông, ăn bánh trôi/chay/chè."
+      ]
+     }
+    ]
+   }
+  ],
+  "lunarDates": [],
+  "sources": [
+   {
+    "text": "Hoài Nam Tử"
+   },
+   {
+    "text": "Lịch Thái Sơ (104 TCN)"
+   },
+   {
+    "text": "Hoàng Xuân Hãn, Lịch và Lịch Việt Nam (1947)"
+   },
+   {
+    "text": "Vũ Ngọc Phan"
+   },
+   {
+    "text": "Nguyễn Xuân Kính"
+   }
+  ]
  }
 ];

@@ -365,6 +365,8 @@ export const HERITAGE_FILES: readonly string[] = [
   "/heritage/van-hoa/nhan-vat/tu-dao-hanh-the.webp",
   "/heritage/van-hoa/thien-van-mua-mang-480.webp",
   "/heritage/van-hoa/thien-van-mua-mang.webp",
+  "/heritage/van-hoa/thien-van/24-tiet-khi-nong-lich-hero.webp",
+  "/heritage/van-hoa/thien-van/24-tiet-khi-nong-lich-the.webp",
   "/heritage/van-hoa/trieu-dai/trieu-dai-au-lac.webp",
   "/heritage/van-hoa/trieu-dai/trieu-dai-bac-thuoc.webp",
   "/heritage/van-hoa/trieu-dai/trieu-dai-hien-dai.webp",

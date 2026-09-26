@@ -271,11 +271,13 @@ function articleHeroPath(hero: string): string {
   if (stem.startsWith("tet-")) return `/heritage/tet/${stem.replace(/^tet-/, "")}.webp`;
   const game = join(WEB, "public", "heritage", "van-hoa", "tro-choi-dan-gian", `${stem}.webp`);
   if (existsSync(game)) return `/heritage/van-hoa/tro-choi-dan-gian/${stem}.webp`;
+  const sky = join(WEB, "public", "heritage", "van-hoa", "thien-van", `${stem}.webp`);
+  if (existsSync(sky)) return `/heritage/van-hoa/thien-van/${stem}.webp`;
   return `/heritage/van-hoa/dan-gian/${stem}.webp`;
 }
 
 function importArticles(figureSlugs: Set<string>): BaiViet[] {
-  const files = ["bai-tet-6-chu-de.md", "tro-choi-dan-gian.md", "tranh-do-choi.md"];
+  const files = ["bai-tet-6-chu-de.md", "tro-choi-dan-gian.md", "tranh-do-choi.md", "24-tiet-khi-nong-lich.md"];
   const seen = new Set<string>();
   const articles: BaiViet[] = [];
   for (const file of files) {
