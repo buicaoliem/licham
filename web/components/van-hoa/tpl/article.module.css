@@ -37,6 +37,10 @@
 }
 .related {
   order: 1000;
+  --vh-red: #b91c1c;
+  --vh-ink: #2d2a26;
+  --vh-muted: #6f6a62;
+  min-width: 0;
 }
 .labelRow {
   display: flex;

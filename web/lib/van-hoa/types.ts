@@ -29,6 +29,15 @@ export interface RelatedLink {
   itemLabel?: ItemLabel;
 }
 
+/**
+ * Liên kết nội bộ dùng chung cho mọi loại trang Lịch sử & Văn hoá (sự kiện, anh hùng, sau này dòng họ / đời vua / dân gian).
+ * Slug trỏ tới mục lục nhân vật hoặc sự kiện; thiếu thì ẩn khối, không hiện danh sách rỗng.
+ */
+export interface RelatedRefs {
+  relatedPeople?: string[];
+  relatedEvents?: string[];
+}
+
 /** Fixture chỉ có ở dev/test; build production không sinh trang fixture. */
 export const SHOW_FIXTURES = process.env.NODE_ENV !== "production";
 export const FIXTURE_SLUG = "__fixture__";
@@ -110,6 +119,8 @@ export interface SuKien {
   /** Có nội dung thì hiện khung "Các nguồn chưa thống nhất". */
   disputed?: string;
   relatedNhanVat?: string[];
+  relatedPeople?: string[];
+  relatedEvents?: string[];
   updatedAt: UpdatedAt;
   sources: Source[];
 }
@@ -139,6 +150,8 @@ export interface NamSuKien {
   summary: string;
   label: ItemLabel;
   href?: string;
+  relatedPeople?: string[];
+  relatedEvents?: string[];
   updatedAt: UpdatedAt;
 }
 

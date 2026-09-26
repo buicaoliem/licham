@@ -10,6 +10,8 @@ import t from "./tpl.module.css";
 import { JsonLd } from "@/components/calendar/JsonLd";
 import { CHI_HERO_ANIMAL_SIDE, NGU_HANH_ICON } from "@/lib/van-hoa/config";
 import { articleJsonLd } from "@/lib/van-hoa/jsonld";
+import { peopleInText, relatedPeopleLinks, relatedPeopleOf } from "@/lib/van-hoa/cross-links";
+import { LinkedText, RelatedGrid } from "./RelatedGrid";
 import { Drafting, ItemBadge, LinkRow, Page, Pic, SectionTitle } from "./Shared";
 
 function ZodiacHero({ chiSlug, alt, title, lead }: { chiSlug: string; alt: string; title: string; lead: string }) {
@@ -108,38 +110,34 @@ export function NamYear({ slug }: { slug: string }) {
               {events.map((e) => {
                 const d = dynastyInfo(e.dynasty);
                 const when = eventDateText(e);
-                const box = (
-                  <>
-                    <Pic src={d.image} className={t.tlImg} width={360} height={144} />
-                    <div className={t.tlYear}>
-                      {e.yearText ?? e.year}
-                      <small>{cc.name}</small>
-                    </div>
-                    <div className={t.tlBody}>
-                      <ItemBadge label={e.label} />
-                      <h3>{e.title}</h3>
-                      <p className={t.tlDyn}>{d.name}</p>
-                      {when && <p className={s.note}>{when}</p>}
-                      <p>{e.summary}</p>
-                      {e.disputed && (
-                        <p className={s.note}>
-                          <b>Tư liệu còn khác nhau:</b> {e.disputed}
-                        </p>
-                      )}
-                      {e.sources && e.sources.length > 0 && <p className={s.note}>Nguồn: {e.sources.map((x) => x.text).join("; ")}</p>}
-                    </div>
-                  </>
-                );
+                const used = new Set<string>(e.href ? peopleInText([e.title]) : []);
+                const people = relatedPeopleLinks(relatedPeopleOf(e));
                 return (
                   <li key={anchor(e)} className={t.tlRow} id={anchor(e)}>
                     <span className={t.tlNode} style={{ background: ITEM_LABELS[e.label].node }} aria-hidden="true" />
-                    {e.href ? (
-                      <Link href={e.href} className={t.tlBox} style={{ color: "inherit", textDecoration: "none" }}>
-                        {box}
-                      </Link>
-                    ) : (
-                      <div className={t.tlBox}>{box}</div>
-                    )}
+                    <div className={t.tlBox}>
+                      <Pic src={d.image} className={t.tlImg} width={360} height={144} />
+                      <div className={t.tlYear}>
+                        {e.yearText ?? e.year}
+                        <small>{cc.name}</small>
+                      </div>
+                      <div className={t.tlBody}>
+                        <ItemBadge label={e.label} />
+                        <h3>{e.href ? <Link href={e.href}>{e.title}</Link> : <LinkedText text={e.title} used={used} />}</h3>
+                        <p className={t.tlDyn}>{d.name}</p>
+                        {when && <p className={s.note}>{when}</p>}
+                        <p>
+                          <LinkedText text={e.summary} used={used} />
+                        </p>
+                        {e.disputed && (
+                          <p className={s.note}>
+                            <b>Tư liệu còn khác nhau:</b> <LinkedText text={e.disputed} used={used} />
+                          </p>
+                        )}
+                        {e.sources && e.sources.length > 0 && <p className={s.note}>Nguồn: {e.sources.map((x) => x.text).join("; ")}</p>}
+                        <RelatedGrid title="Nhân vật liên quan" links={people} />
+                      </div>
+                    </div>
                   </li>
                 );
               })}

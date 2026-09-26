@@ -35,6 +35,10 @@ export interface AnhHung {
   leSlug?: string;
   /** Có trong danh sách 14 anh hùng dân tộc tiêu biểu (Bộ VHTTDL, văn bản 2296/BVHTTDL-MTNATL, 2013). */
   tieuBieu2013?: boolean;
+  /** Slug nhân vật liên quan (mục lục dùng chung). Thiếu thì tự suy từ liên kết ngược. */
+  relatedPeople?: string[];
+  /** Slug/id sự kiện liên quan (mục lục dùng chung). Thiếu thì tự suy từ các mốc lịch sử nhắc tên. */
+  relatedEvents?: string[];
 }
 
 export const THOI_KY: { key: ThoiKy; label: string; khoang: string }[] = [

@@ -43,6 +43,15 @@
 .p:last-child {
   margin-bottom: 0;
 }
+.inlineLink {
+  color: var(--vh-red);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.inlineLink:hover {
+  color: var(--vh-ink);
+}
 
 /* ---------- nhãn từng mục (Chính sử / Truyền thuyết / Tín ngưỡng) ---------- */
 .label {

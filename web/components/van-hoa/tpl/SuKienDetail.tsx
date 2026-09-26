@@ -9,6 +9,8 @@ import type { NhanVat, SuKien } from "@/lib/van-hoa/types";
 import { Acc } from "./Acc";
 import s from "../van-hoa.module.css";
 import t from "./tpl.module.css";
+import { peopleInText, relatedPeopleLinks, relatedPeopleOf } from "@/lib/van-hoa/cross-links";
+import { LinkedText, RelatedGrid } from "./RelatedGrid";
 import { Card, Hero, Page, Pic, Sources } from "./Shared";
 
 export function SuKienDetail({ ev }: { ev: SuKien }) {
@@ -17,6 +19,9 @@ export function SuKienDetail({ ev }: { ev: SuKien }) {
   const fromSources = ev.solarDateSource === "sources" && ev.solar;
   const solar = fromSources ? solarLabel(ev.solar!) : lunarToSolarSafe(day, month, year, leap);
   const chars = (ev.relatedNhanVat ?? []).map((sl) => NHAN_VAT.find((n) => n.slug === sl)).filter((n): n is NhanVat => Boolean(n));
+  const used = new Set<string>();
+  const peopleSlugs = relatedPeopleOf(ev).length ? relatedPeopleOf(ev) : peopleInText([ev.title, ev.summary, ...ev.boiCanh, ...ev.dienBien, ...ev.yNghia, ev.disputed ?? ""]);
+  const people = relatedPeopleLinks(peopleSlugs);
   const blocks: { title: string; paras: string[] }[] = [
     { title: "Bối cảnh", paras: ev.boiCanh },
     { title: "Diễn biến", paras: ev.dienBien },
@@ -63,7 +68,7 @@ export function SuKienDetail({ ev }: { ev: SuKien }) {
               <Acc key={b.title} id={`acc-${i + 1}`} num={i + 1} title={b.title}>
                 {b.paras.map((p) => (
                   <p className={t.p} key={p}>
-                    {p}
+                    <LinkedText text={p} used={used} />
                   </p>
                 ))}
               </Acc>
@@ -91,7 +96,7 @@ export function SuKienDetail({ ev }: { ev: SuKien }) {
 
         {chars.length > 0 && (
           <div className={t.stack}>
-            <Card id="nhan-vat" icon="user" title="Nhân vật liên quan">
+            <Card id="nhan-vat" icon="user" title="Nhân vật truyền thuyết liên quan">
               <ul className={`${t.plain} ${t.cards}`}>
                 {chars.map((n) => (
                   <li key={n.slug}>
@@ -104,6 +109,7 @@ export function SuKienDetail({ ev }: { ev: SuKien }) {
             </Card>
           </div>
         )}
+        <RelatedGrid title="Nhân vật liên quan" links={people} />
         <div className={t.stack}>
           <Sources sources={ev.sources} />
         </div>

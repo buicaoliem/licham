@@ -9,6 +9,8 @@ import { AhArtView, AhCard, anhHungArt } from "@/components/heritage/AnhHungPart
 import { ChShell } from "@/components/heritage/ChShell";
 import { Icon, type IconName } from "@/components/heritage/Icon";
 import { ANH_HUNG, anhHungBySlug, anhHungCungThoi, anhHungHref, anhHungKeCan, thoiKyLabel, wikiUrl } from "@/lib/anh-hung";
+import { relatedEventsLinks, relatedEventsOf } from "@/lib/van-hoa/cross-links";
+import { RelatedGrid } from "@/components/van-hoa/tpl/RelatedGrid";
 import { leItem } from "@/lib/le-hub";
 import { leBySlug } from "@/lib/le";
 import { SITE_URL } from "@/lib/site";
@@ -78,6 +80,7 @@ export default async function AnhHungPage({ params }: { params: Promise<{ slug: 
   const leInfo = le ? leItem(le, today) : null;
   const { prev, next } = anhHungKeCan(a.slug);
   const cungThoi = anhHungCungThoi(a, 3);
+  const eventLinks = relatedEventsLinks(relatedEventsOf(a));
   const url = `${SITE_URL}${anhHungHref(a.slug)}`;
 
   const crumbs = [{ label: "Trang chủ", href: "/" }, { label: "Anh hùng dân tộc", href: "/anh-hung-dan-toc/" }, { label: a.ten }];
@@ -116,6 +119,7 @@ export default async function AnhHungPage({ params }: { params: Promise<{ slug: 
     { id: "boi-canh", label: "Bối cảnh lịch sử" },
     { id: "cong-trang", label: "Công trạng" },
     { id: "su-kien", label: "Sự kiện tiêu biểu" },
+    ...(eventLinks.length ? [{ id: "su-kien-lien-quan", label: "Sự kiện liên quan" }] : []),
     ...(a.diTich.length || a.tuongNiem.length || le ? [{ id: "tuong-niem", label: "Di tích & ngày tưởng niệm" }] : []),
     { id: "nguon", label: "Nguồn tư liệu" },
   ];
@@ -244,6 +248,8 @@ export default async function AnhHungPage({ params }: { params: Promise<{ slug: 
                 )}
               </Sec>
             )}
+
+            <RelatedGrid title="Sự kiện liên quan" links={eventLinks} />
 
             {a.ghiChuSuLieu && (
               <aside className="ah-note">
