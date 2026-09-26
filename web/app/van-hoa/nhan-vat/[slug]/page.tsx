@@ -20,6 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${x.name} | Lịch Âm`,
     description: x.summary,
     alternates: { canonical: `/van-hoa/nhan-vat/${slug}/` },
+    ...(x.cardImage ? { openGraph: { images: [{ url: x.cardImage, alt: x.imageAlt }] }, twitter: { images: [x.cardImage] } } : {}),
     robots: VAN_HOA_PUBLIC ? { index: true, follow: true } : { index: false, follow: false },
   };
 }

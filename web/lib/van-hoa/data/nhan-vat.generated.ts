@@ -12,6 +12,9 @@ export const NHAN_VAT_IMPORTED: readonly NhanVat[] = [
   "label": "truyen-thuyet",
   "group": "tu-bat-tu",
   "summary": "Tản Viên Sơn Thánh tên thật là Nguyễn Tuấn, sinh sống tại núi Ba Vì hùng vĩ. Ngài được mẹ nuôi Ma Thị trao gậy thần chỉ sinh chỉ tử và sách ước trị quốc. Trong cuộc thi kén rể công chúa Ngọc Hoa của Hùng Vương thứ 18, ngài mang sính lễ đến trước cưới được người đẹp. Khi Thủy Tinh dâng nước sông trả thù, ngài nâng cao núi bấy nhiêu chặn đứng dòng lũ dữ cứu bách tính. Về sau ngài dạy nhân dân cách săn bắn, đắp đê trị thủy, trồng lúa nước và phò tá dẹp giặc ngoại xâm. Ngài được nhân dân suy tôn đứng đầu hàng Tứ bất tử của tín ngưỡng Việt Nam.",
+  "image": "/heritage/van-hoa/nhan-vat/tan-vien-son-thanh-hero.webp",
+  "cardImage": "/heritage/van-hoa/nhan-vat/tan-vien-son-thanh-the.webp",
+  "imageAlt": "Tranh minh hoạ Tản Viên Sơn Thánh",
   "variants": [
    "Dị bản tích hợp nguồn gốc thần núi cổ sơ với huyền thoại Hùng Vương",
    "dị bản thần phả ghi ngài có hai người em họ là Cao Sơn và Quý Minh cùng phò tá."
@@ -161,6 +164,9 @@ export const NHAN_VAT_IMPORTED: readonly NhanVat[] = [
   "label": "truyen-thuyet",
   "group": "tu-bat-tu",
   "summary": "Chử Đồng Tử mồ côi mẹ, sống nghèo khó cùng cha ở bến sông Hồng, hai cha con chỉ có chung một chiếc khố. Cha mất, chàng chôn cha cùng chiếc khố rồi chịu trần truồng ngâm mình dưới nước kiếm sống qua ngày. Công chúa Tiên Dung vãng cảnh du ngoạn, quây màn tắm trên cát vô tình làm lộ chàng dưới lớp cát tạo nên mối lương duyên kỳ ngộ. Hai người kết duyên vợ chồng, từ chối quyền quý để đi buôn bán và học đạo Phật từ tăng sĩ Phật Quang. Nhờ cây gậy và nón tiên thần diệu, họ chữa lành dịch bệnh cứu vớt bách tính nghèo khổ. Sau một đêm tạo dựng thành trì phố chợ nguy nga, cả gia đình ngài cùng bay về trời để lại đầm Nhất Dạ.",
+  "image": "/heritage/van-hoa/nhan-vat/chu-dong-tu-hero.webp",
+  "cardImage": "/heritage/van-hoa/nhan-vat/chu-dong-tu-the.webp",
+  "imageAlt": "Tranh minh hoạ Chử Đồng Tử",
   "variants": [
    "Bản chép nhấn mạnh việc ngài là một trong những thương nhân vượt biển học đạo Phật sớm nhất",
    "bản khác gắn đầm Dạ Trạch với căn cứ chống Lương của Triệu Việt Vương."
@@ -224,6 +230,9 @@ export const NHAN_VAT_IMPORTED: readonly NhanVat[] = [
   "label": "truyen-thuyet",
   "group": "tu-bat-tu",
   "summary": "Tiên Dung là công chúa xinh đẹp tuyệt trần của Hùng Vương thứ 18, tính tình phóng khoáng thích ngao du sơn thủy. Nàng kiên quyết từ chối các cuộc hôn phối do cha sắp đặt để tìm kiếm tự do tâm hồn giữa thiên nhiên. Khi thuyền ghé bãi Tự Nhiên, cuộc gặp gỡ bất ngờ với Chử Đồng Tử giấu mình dưới cát được nàng thấu thị là duyên nợ trời định. Vượt qua mọi lễ giáo cung đình ngặt nghèo, nàng tự nguyện kết hôn cùng chàng trai nghèo dẫu bị vua cha phế tước. Nàng cùng chồng mở mang thương điếm ven sông, học phép cứu dân độ thế rồi cùng hóa tiên về trời. Nàng được muôn đời xưng tụng là biểu tượng của tình yêu tự do và lòng bác ái.",
+  "image": "/heritage/van-hoa/nhan-vat/tien-dung-hero.webp",
+  "cardImage": "/heritage/van-hoa/nhan-vat/tien-dung-the.webp",
+  "imageAlt": "Tranh minh hoạ Tiên Dung",
   "variants": [
    "Một số thần tích thờ nàng như vị nữ thần bảo trợ giao thương đường sông",
    "dị bản khác bổ sung thêm sự xuất hiện của người vợ thứ hai của Chử Đồng Tử là Tây Sa công chúa."
@@ -298,6 +307,9 @@ export const NHAN_VAT_IMPORTED: readonly NhanVat[] = [
   "label": "tin-nguong",
   "group": "tu-bat-tu",
   "summary": "Mẫu Liễu Hạnh nguyên là Quỳnh Nương công chúa con Ngọc Hoàng, vì lỡ tay làm vỡ chén ngọc thiên đình mà bị giáng sinh trần thế. Nàng đầu thai làm con gái họ Lê tại làng An Thái, kết duyên cùng Đào Lang, sinh con rồi sớm hóa về trời khi hết hạn phạt. Do nặng lòng vướng bận trần duyên, nàng nhiều lần tái giáng thế ở Phố Cát, đền Đồi Ngang, thi ca xướng họa với Phùng Khắc Khoan. Nàng giúp người hiền lương trừ kẻ ác bạo, hiển linh phù trợ triều đình đánh dẹp giặc ngoại xâm. Triều đình sắc phong Mẫu Nghi Thiên Hạ, nhân dân tôn thờ phụng sự khắp chốn. Nàng trở thành vị thần chủ tối cao trong tín ngưỡng Tam tòa Tứ phủ của Đạo Mẫu.",
+  "image": "/heritage/van-hoa/nhan-vat/mau-lieu-hanh-hero.webp",
+  "cardImage": "/heritage/van-hoa/nhan-vat/mau-lieu-hanh-the.webp",
+  "imageAlt": "Tranh minh hoạ Mẫu Liễu Hạnh",
   "variants": [
    "Ba lần giáng sinh trần gian (Nam Định, Thanh Hóa, Lạng Sơn)",
    "sự tích đại chiến đền Sòng Sơn giữa Tiên Chúa Liễu Hạnh với phái đạo sĩ Tiền Duyên được Phật Bà Quan Âm điều đình."
@@ -365,6 +377,9 @@ export const NHAN_VAT_IMPORTED: readonly NhanVat[] = [
   "label": "truyen-thuyet",
   "group": "thoi-dung-nuoc",
   "summary": "Kinh Dương Vương húy là Lộc Tục, con trai của Đế Minh và Vụ Tiên Thần Nữ, có tư chất thông minh sức vóc phi phàm. Đế Minh muốn truyền ngôi cả nước nhưng ngài nhường lại cho anh là Đế Nghi, nhận quyền cai quản phương Nam. Ngài lập nên nhà nước sơ khai Xích Quỷ vào năm Nhâm Tuất (2879 TCN), mở đầu dòng dõi Hồng Bàng. Ngài kết duyên cùng Long Nữ con gái Động Đình Quân sinh ra Sùng Lãm (Lạc Long Quân). Sau khi qua đời, ngài được an táng tại dải đất bờ nam sông Đuống linh thiêng. Ngài được các triều đại suy tôn là Thủy Tổ khai sơn mở cõi của dân tộc Việt Nam.",
+  "image": "/heritage/van-hoa/nhan-vat/kinh-duong-vuong-hero.webp",
+  "cardImage": "/heritage/van-hoa/nhan-vat/kinh-duong-vuong-the.webp",
+  "imageAlt": "Tranh minh hoạ Kinh Dương Vương",
   "variants": [
    "Toàn thư chép huyền sử ngang hàng Tam Hoàng Ngũ Đế",
    "thần tích Bắc Ninh ghi ngài tạ thế ngày 18 tháng Giêng tại trang Phúc Khang (Á Lữ)."
@@ -419,6 +434,9 @@ export const NHAN_VAT_IMPORTED: readonly NhanVat[] = [
   "label": "truyen-thuyet",
   "group": "thoi-dung-nuoc",
   "summary": "Lạc Long Quân húy là Sùng Lãm, con trai duy nhất của Kinh Dương Vương mang dòng dõi Rồng dưới nước. Ngài sức khỏe vô song, lập đại công diệt Ngư Tinh ở biển Đông, trừ Hồ Tinh ở Tây Hồ, đốn hạ Mộc Tinh trừ họa cho dân. Ngài dạy người dân nghề nông trang cày cấy, dệt vải che thân và luân thường đạo lý gia đình. Ngài kết hôn cùng nàng tiên Âu Cơ sinh ra một bọc trăm trứng, nở thành một trăm người con trai khỏe mạnh thông tuệ. Sau đó, ngài dẫn 50 con xuống biển, Âu Cơ dẫn 50 con lên núi chia nhau quản lý giang sơn. Ngài được toàn thể nhân dân muôn đời tôn xưng là Quốc Tổ Phụ thiêng liêng.",
+  "image": "/heritage/van-hoa/nhan-vat/lac-long-quan-hero.webp",
+  "cardImage": "/heritage/van-hoa/nhan-vat/lac-long-quan-the.webp",
+  "imageAlt": "Tranh minh hoạ Lạc Long Quân",
   "variants": [
    "Bản Lĩnh Nam chích quái chép chi tiết chiến công diệt trừ tam quái",
    "các dị bản cổ tích Tày, Mường kể về huyền tích quả bầu mẹ nở ra muôn giống nòi người anh em."
@@ -485,6 +503,9 @@ export const NHAN_VAT_IMPORTED: readonly NhanVat[] = [
   "label": "truyen-thuyet",
   "group": "thoi-dung-nuoc",
   "summary": "Âu Cơ là tiên nữ con gái vua Đế Lai phương Bắc, sở hữu nhan sắc nghiêng nước nghiêng thành và am hiểu cây cỏ thuốc Nam. Chu du phương Nam, nàng gặp gỡ và kết duyên sum vầy cùng Lạc Long Quân tạo nên truyền thuyết Tiên - Rồng. Nàng sinh bọc trăm trứng nở trăm người con trai, cội nguồn hình thành hai tiếng đồng bào ruột thịt thiêng liêng. Thực thi sự nghiệp mở nước, nàng dẫn 50 người con lên núi non Phong Châu khai hoang, dạy dân ươm tơ dệt lụa gieo cấy lúa nếp. Cuối đời, nàng hóa thân về cõi tiên tại vùng đất đầm lầy Hiền Lương sơn thủy hữu tình. Nàng được muôn thế hệ người Việt tôn kính phụng thờ là Quốc Tổ Mẫu tối linh.",
+  "image": "/heritage/van-hoa/nhan-vat/au-co-hero.webp",
+  "cardImage": "/heritage/van-hoa/nhan-vat/au-co-the.webp",
+  "imageAlt": "Tranh minh hoạ Âu Cơ",
   "variants": [
    "Bản Lĩnh Nam chích quái chép nàng nguyên là vợ Đế Lai",
    "Toàn thư chép là con gái Đế Lai",
@@ -550,6 +571,9 @@ export const NHAN_VAT_IMPORTED: readonly NhanVat[] = [
   "label": "truyen-thuyet",
   "group": "thoi-dung-nuoc",
   "summary": "Hùng Vương là người con trưởng của Lạc Long Quân và Âu Cơ trong số 50 người con theo mẹ lên đất Phong Châu. Ngài được suy tôn làm vua, đặt quốc hiệu Văn Lang, đóng đô tại Bạch Hạc - Phong Châu trung du màu mỡ. Ngài thiết lập tổ chức nhà nước sơ khai với Lạc Hầu, Lạc Tướng, chia lãnh thổ thành 15 bộ để quản lý việc quân việc nông. Ngài dạy dân đắp đê ngăn lũ dữ, thuần hóa cây lúa nước và tổ chức các lễ hội mùa màng tưng bừng. Vương triều truyền nối qua 18 đời vua, kiến tạo nên cội rễ văn minh Đông Sơn rực rỡ vàng son. Hùng Vương là biểu tượng tối thượng của nguồn cội và sự đoàn kết của toàn thể dân tộc Việt Nam.",
+  "image": "/heritage/van-hoa/nhan-vat/hung-vuong-hero.webp",
+  "cardImage": "/heritage/van-hoa/nhan-vat/hung-vuong-the.webp",
+  "imageAlt": "Tranh minh hoạ Hùng Vương",
   "variants": [
    "Sử cũ chép 18 đời Hùng Vương kéo dài hơn 2.000 năm",
    "sử học hiện đại chứng minh 18 đời là 18 triều/ngành thủ lĩnh bộ tộc đại diện các giai đoạn văn hóa Phùng Nguyên đến Đông Sơn."
@@ -608,6 +632,9 @@ export const NHAN_VAT_IMPORTED: readonly NhanVat[] = [
   "label": "truyen-thuyet",
   "group": "thoi-dung-nuoc",
   "summary": "Lang Liêu là hoàng tử thứ 18 của Hùng Vương thứ 6, mồ côi mẹ từ nhỏ sống cuộc đời nông tang đạm bạc giản dị. Khi vua cha mở cuộc thi kén người kế vị dâng lễ cúng tổ tiên ngày Tết, các hoàng tử đua nhau tìm sơn hào hải vị. Chàng lo lắng trăn trở thì được thần linh báo mộng chỉ dẫn rằng hạt gạo nếp là thứ tinh hoa quý báu nhất trần gian. Chàng chọn nếp thơm làm bánh chưng vuông tượng đất và giã xôi làm bánh giầy tròn tượng trời dâng cúng vua cha. Vua Hùng khen ngợi ý nghĩa hiếu lễ sâu sắc và triết lý nông tang nên đã quyết định truyền trao ngôi vua. Lên ngôi trị vì, ngài giữ vững cơ nghiệp Văn Lang, chăm lo mùa màng cho bách tính được mùa no ấm.",
+  "image": "/heritage/van-hoa/nhan-vat/lang-lieu-hero.webp",
+  "cardImage": "/heritage/van-hoa/nhan-vat/lang-lieu-the.webp",
+  "imageAlt": "Tranh minh hoạ Lang Liêu",
   "variants": [
    "Lĩnh Nam chích quái chép tên Lang Liêu",
    "một số bản ghi là Tiết Liêu."
@@ -659,6 +686,9 @@ export const NHAN_VAT_IMPORTED: readonly NhanVat[] = [
   "label": "truyen-thuyet",
   "group": "thoi-dung-nuoc",
   "summary": "Mai An Tiêm là con nuôi của Hùng Vương, tháo vát thông minh được vua yêu quý gả cho nàng công chúa Ba Biên. Vì giữ vững lòng tự trọng qua câu nói \"của biếu là lo, của cho là nợ\", chàng bị gian thần gièm pha hãm hại. Vua cha nổi trận lôi đình tước bỏ hết quan tước, đày cả gia đình chàng ra đảo hoang cằn cỗi ở biển Nga Sơn. Vợ chồng đồng lòng khai hoang, nhặt được hạt giống chim nhả đem gieo trồng thành loại dưa trái xanh ruột đỏ mọng ngọt. Chàng khắc tên lên vỏ dưa thả trôi biển, thuyền buôn nhặt được tìm đến đổi hàng biến đảo hoang thành nơi sung túc. Vua Hùng nhận ra phẩm chất chính trực kiên cường bèn tha tội triệu chàng về triều phục hồi tước vị.",
+  "image": "/heritage/van-hoa/nhan-vat/mai-an-tiem-hero.webp",
+  "cardImage": "/heritage/van-hoa/nhan-vat/mai-an-tiem-the.webp",
+  "imageAlt": "Tranh minh hoạ Mai An Tiêm",
   "variants": [
    "Địa danh Nga Sơn lưu truyền đảo Mai An Tiêm và bãi dưa hấu",
    "thần tích vùng cửa biển tôn ngài là ông tổ khai hoang lập nghiệp của làng xã duyên hải."
@@ -714,6 +744,9 @@ export const NHAN_VAT_IMPORTED: readonly NhanVat[] = [
   "label": "truyen-thuyet",
   "group": "thoi-dung-nuoc",
   "summary": "Thủy Tinh là vị chúa tể cai quản miền sông sâu biển thẳm muôn trùng, có tài hô mưa gọi gió dâng sóng ngập trời. Nghe tiếng công chúa Mỵ Nương xinh đẹp, ngài cùng Sơn Tinh đến cầu hôn tại kinh đô Phong Châu của vua Hùng thứ 18. Vua cha thách cưới voi chín ngà, gà chín cựa, ngựa chín hồng mao; vì là thần nước nên ngài không gom kịp sính lễ trên cạn. Đến muộn mất người đẹp, ngài nổi lôi đình hô mưa hoán vũ, dâng nước sông Đà cuồn cuộn đuổi đánh Sơn Tinh hòng cướp dâu. Dù dốc kiệt sức tàn nhưng năm nào ngài cũng chuốc lấy đại bại trước phép dâng núi kiên cố của Sơn Tinh. Mang mối thù truyền kiếp, năm nào vào độ tháng Bảy ngài cũng dâng nước lụt chống lại thần núi.",
+  "image": "/heritage/van-hoa/nhan-vat/thuy-tinh-hero.webp",
+  "cardImage": "/heritage/van-hoa/nhan-vat/thuy-tinh-the.webp",
+  "imageAlt": "Tranh minh hoạ Thủy Tinh",
   "variants": [
    "Truyện được hiểu là cách người xưa giải thích mùa lũ hằng năm của sông Hồng, sông Đà. Hầu như không có đền thờ riêng Thủy Tinh",
    "vùng Ba Vì thờ Tản Viên Sơn Thánh."
@@ -745,6 +778,9 @@ export const NHAN_VAT_IMPORTED: readonly NhanVat[] = [
   "label": "truyen-thuyet",
   "group": "thoi-dung-nuoc",
   "summary": "Thục Phán là thủ lĩnh tài ba của tộc người Âu Việt ở vùng núi cao phía Bắc giáp ranh Lạc Việt. Sau khi đánh bại triều Hùng Vương thứ 18 suy tàn, ngài hợp nhất hai cộng đồng lập nên quốc gia Âu Lạc thống nhất. Ngài xưng là An Dương Vương, dời đô về miền trũng Phong Khê và xây dựng Loa Thành xoắn ốc phòng thủ kiên cố. Được rùa vàng Kim Quy trợ giúp móng vuốt chế nỏ thần bắn trăm phát trăm trúng, ngài đánh tan các đợt xâm lược của Triệu Đà. Do lơ là chủ quan trúng kế hòa thân gả Mỵ Châu cho Trọng Thủy bị đánh tráo nỏ thần, ngài chuốc lấy đại bại khi giặc bất ngờ tràn sang. Chạy đến bờ biển Dạ Sơn, ngài tuốt gươm chém Mỵ Châu theo lời rùa vàng rồi cầm sừng tê bảy tấc rẽ nước đi xuống biển.",
+  "image": "/heritage/van-hoa/nhan-vat/an-duong-vuong-hero.webp",
+  "cardImage": "/heritage/van-hoa/nhan-vat/an-duong-vuong-the.webp",
+  "imageAlt": "Tranh minh hoạ An Dương Vương",
   "variants": [
    "Toàn thư chép ngài trị vì 50 năm (257–207 TCN)",
    "nghiên cứu hiện đại đính chính năm mất nước là 179 TCN",
@@ -818,6 +854,9 @@ export const NHAN_VAT_IMPORTED: readonly NhanVat[] = [
   "label": "truyen-thuyet",
   "group": "thoi-dung-nuoc",
   "summary": "Cao Lỗ là danh tướng kiệt xuất phò tá An Dương Vương kiến thiết non sông Âu Lạc từ những ngày đầu lập nước. Ngài là tổng công trình sư trực tiếp khảo sát thiết kế và chỉ huy xây đắp thành Cổ Loa ba vòng xoắn ốc kiên cố. Được móng vuốt rùa vàng, ngài sáng chế ra \"Linh quang kim trảo thần nỏ\" bắn một phát phóng hàng loạt mũi tên đồng sắc nhọn. Ngài dày công huấn luyện hàng vạn quân sĩ sử dụng nỏ thiện nghệ, tạo nên sức mạnh quân sự bách chiến bách thắng. Khi Triệu Đà cầu thân, ngài can ngăn vua cha không nên rước họa nhưng bị gian thần ghen ghét nên phải uất ức rời triều đình. Giặc tràn sang, ngài vẫn quay lại cứu chúa chặn hậu đánh giặc đến hơi thở cuối cùng rồi anh dũng hy sinh.",
+  "image": "/heritage/van-hoa/nhan-vat/cao-lo-hero.webp",
+  "cardImage": "/heritage/van-hoa/nhan-vat/cao-lo-the.webp",
+  "imageAlt": "Tranh minh hoạ Cao Lỗ",
   "variants": [
    "Toàn thư chép Cao Lỗ, sách cổ Trung Quốc chép là Cao Thông",
    "thần phả Kinh Bắc ghi ngài người làng Đại Than và tôn ngài là ông tổ rèn đúc vũ khí nỏ đồng."
@@ -889,6 +928,9 @@ export const NHAN_VAT_IMPORTED: readonly NhanVat[] = [
   "label": "truyen-thuyet",
   "group": "thoi-dung-nuoc",
   "summary": "Mỵ Châu là con gái duy nhất của An Dương Vương, nhan sắc đoan trang nhưng ngây thơ trong sáng cả tin người khác. Nàng kết duyên cùng Trọng Thủy hoàng tử Nam Việt theo mưu mô hôn nhân hòa hiếu hiểm độc của cha con Triệu Đà. Vì tình yêu mù quáng và sự nhẹ dạ, nàng đã cho Trọng Thủy xem trộm nỏ thần và vô tình để chồng đánh tráo lẫy móng rùa. Khi quân giặc bất ngờ vây hãm Loa Thành, nàng ngồi sau lưng ngựa vua cha bứt lông ngỗng từ áo khoác rải dọc đường làm dấu. Đến biển Dạ Sơn, nghe rùa vàng vạch rõ kẻ ngồi sau chính là giặc, nàng ngửa mặt khấn trời nguyện hóa thành ngọc biếc rửa sạch oan khiên. Nàng bị vua cha chém thác; xác nàng hóa thành tảng đá cụt đầu trôi dạt về thành Cổ Loa nghìn năm đứng đợi.",
+  "image": "/heritage/van-hoa/nhan-vat/my-chau-hero.webp",
+  "cardImage": "/heritage/van-hoa/nhan-vat/my-chau-the.webp",
+  "imageAlt": "Tranh minh hoạ Mỵ Châu",
   "variants": [
    "Truyền tích tượng đá cụt đầu tự trôi ngược dòng Hoàng Giang về Cổ Loa",
    "truyền thuyết hạt ngọc trai rửa nước giếng Trọng Thủy thì tỏa sáng ngời ngợi."
@@ -949,6 +991,9 @@ export const NHAN_VAT_IMPORTED: readonly NhanVat[] = [
   "label": "tin-nguong",
   "group": "thoi-dung-nuoc",
   "summary": "Lý Thân sinh tại làng Chèm thời Hùng Vương cuối, sở hữu thân hình khổng lồ cao hai trượng ba thước và sức mạnh bạt núi ngăn sông. Phò tá An Dương Vương dẹp yên bờ cõi, ngài được vua cử đi sứ nhà Tần theo yêu cầu cống nạp nhân tài của Tần Thủy Hoàng. Vua Tần phong ngài làm Tư Lệ hiệu úy, giao đem quân trấn giữ đất hiểm Lâm Thao đánh dẹp quân giặc Hung Nô. Uy danh ngài lẫy lừng khiến quân Hung Nô kinh hồn bạt vía không dám xâm lấn biên ải suốt hàng chục năm trời. Về già, ngài từ quan vinh quy hồi hương về làng Chèm sống thanh bạch cùng thôn xóm rồi thanh thản tạ thế bên dòng sông Hồng. Vua Tần tiếc thương cho đúc pho tượng đồng khổng lồ đặt trước cung A Phòng để răn đe giặc Hung Nô từ xa.",
+  "image": "/heritage/van-hoa/nhan-vat/ly-ong-trong-hero.webp",
+  "cardImage": "/heritage/van-hoa/nhan-vat/ly-ong-trong-the.webp",
+  "imageAlt": "Tranh minh hoạ Lý Ông Trọng",
   "variants": [
    "Việt điện u linh chép quan đô hộ Triệu Xương mơ thấy ngài giảng sách Xuân Thu nên lập đền thờ",
    "Cao Biền sang đánh dẹp cũng phải đến làm lễ cúng bái vì thần linh hiển."
@@ -1005,6 +1050,9 @@ export const NHAN_VAT_IMPORTED: readonly NhanVat[] = [
   "label": "tin-nguong",
   "group": "than-nha-lang",
   "summary": "Táo Quân là hình tượng ba vị thần bếp gắn với mối tình cảm động của ba người: Trọng Cao, Thị Nhi và thợ săn Phạm Lang. Vì không có con sinh cãi vã, Cao lỡ tay đánh đuổi vợ rồi hối hận đi tìm nàng khắp nơi đến mức kiệt quệ phải đi ăn xin. Thị Nhi sau đó lấy Phạm Lang; ngày nọ Cao đi ăn xin tình cờ vào nhà nàng và hai người nhận ra nhau. Sợ chồng mới hiểu lầm, nàng giấu Cao dưới đống rơm ngoài vườn, chẳng may đêm ấy Phạm Lang đốt rơm lấy tro bón ruộng làm Cao chết cháy. Thị Nhi đau đớn lao vào biển lửa chết theo; Phạm Lang thương vợ sâu nặng cũng nhảy vào lửa tự thiêu trọn tình trọn nghĩa. Ngọc Hoàng cảm động trước nghĩa tình son sắt nên phong cả ba làm thần bếp trông coi việc thiện ác của gia đình trần thế.",
+  "image": "/heritage/van-hoa/nhan-vat/tao-quan-hero.webp",
+  "cardImage": "/heritage/van-hoa/nhan-vat/tao-quan-the.webp",
+  "imageAlt": "Tranh minh hoạ Táo Quân",
   "variants": [
    "Thần thoại phương Bắc thờ một thần Táo đơn độc",
    "văn hóa Việt bản địa hóa thành hình tượng \"hai ông một bà\" gắn chặt với ba ông đầu rau đất nung quanh bếp lò."
@@ -1046,6 +1094,9 @@ export const NHAN_VAT_IMPORTED: readonly NhanVat[] = [
   "label": "tin-nguong",
   "group": "than-nha-lang",
   "summary": "Thổ Công là vị thần tối cao trông nom đất đai, nhà cửa, vườn tược và long mạch của mỗi mảnh đất nơi con người an cư lập nghiệp. Tục ngữ xưa đúc kết \"Đất có Thổ Công, sông có Hà Bá\" để khẳng định phạm vi chủ quyền ranh giới thiêng liêng của ngài đối với gia thổ. Thần có trọng trách xua đuổi tà ma quỷ dữ, cô hồn vất vưởng không cho xâm nhập quấy phá bình yên của các thành viên gia đình. Ngài chứng giám mọi việc làm thiện ác, giữ gìn tài lộc phúc ấm và phù hộ gia đạo làm ăn thịnh vượng thuận buồm xuôi gió. Mỗi khi gia chủ động thổ làm nhà, đào giếng, cải táng mồ mả đều phải thành tâm sắm lễ khấn vái xin phép thần đất che chở. Ngài được phụng thờ trang trọng trên bàn thờ chính cùng gia tiên hoặc ban thờ thần tài thổ địa.",
+  "image": "/heritage/van-hoa/nhan-vat/tho-cong-hero.webp",
+  "cardImage": "/heritage/van-hoa/nhan-vat/tho-cong-the.webp",
+  "imageAlt": "Tranh minh hoạ Thổ Công",
   "variants": [
    "Miền Bắc xem Thổ Công là vị thần đứng đầu trong bộ ba thần bếp cai quản đất đai",
    "miền Nam tách Thổ Địa thành thần đất mập mạp bụng phệ thờ chung bàn thờ Thần Tài sát đất."
@@ -1082,6 +1133,9 @@ export const NHAN_VAT_IMPORTED: readonly NhanVat[] = [
   "label": "tin-nguong",
   "group": "nu-than-cac-mien",
   "summary": "Bà Chúa Kho tương truyền là một phụ nữ tài sắc vẹn toàn, sinh trưởng tại làng Quả Cảm thuộc xứ Kinh Bắc trù phú hữu tình. Dưới thời Lý Nhân Tông, bà được tuyển vào cung làm hoàng hậu/quý phi nhờ phẩm hạnh đoan trang và tài quản lý kinh tế. Trong cuộc kháng chiến chống quân Tống năm 1077, bà được trao trọng trách coi sóc kho lương thực vũ khí đặt tại khu núi Kho. Bà tổ chức tiếp tế lương thảo chu đáo nuôi quân đánh giặc và chủ động mở kho phân phát gạo cứu đói nhân dân qua cơn bão lụt. Trong một đợt phát chẩn cứu trợ dân nghèo, bà bị toán giặc cướp tràn vào sát hại dã man ngay tại cửa kho lương. Vua Lý thương tiếc phong bà làm Phúc Thần, nhân dân lập đền thờ phụng ngay trên nền kho lương cũ muôn đời hương khói.",
+  "image": "/heritage/van-hoa/nhan-vat/ba-chua-kho-hero.webp",
+  "cardImage": "/heritage/van-hoa/nhan-vat/ba-chua-kho-the.webp",
+  "imageAlt": "Tranh minh hoạ Bà Chúa Kho",
   "variants": [
    "Bản Giảng Võ (Hà Nội) thờ Lý Thị Châu coi kho thời Trần",
    "bản Bắc Ninh gắn chặt với phòng tuyến sông Cầu và tướng quân Lý Thường Kiệt thời Lý."
@@ -1134,6 +1188,9 @@ export const NHAN_VAT_IMPORTED: readonly NhanVat[] = [
   "label": "tin-nguong",
   "group": "thien-su-hoa-thanh",
   "summary": "Từ Đạo Hạnh họ Từ tên Lộ, người hương Yên Lãng, là bậc cao tăng đắc đạo thời Lý tinh thông giáo lý và mật tông pháp thuật. Cha ngài bị pháp sư Đại Điên hãm hại ném xác xuống sông Tô Lịch, ngài nung nấu chí rửa hận nên sang Tây Thiên học đạo thuật thần thông. Trở về quê nhà, ngài dùng gậy thần đánh rơi Đại Điên xuống dòng sông Tô Lịch báo thù vẹn toàn cho phụ thân. Rửa sạch oán hận trần ai, thiền sư lên núi Sài Sơn tu hành khổ hạnh tại chùa Thầy, trị bệnh trừ tà cứu giúp dân chúng qua cơn khốn khó. Cuối đời, ngài thực hiện phép thiền định trút xác hóa thân tại hang Thánh Hóa để đầu thai làm con Sùng Hiền Hầu, sau trở thành vua Lý Thần Tông. Dân gian tôn ngài là Thánh tổ khai sáng nghệ thuật múa rối nước dân tộc đặc sắc.",
+  "image": "/heritage/van-hoa/nhan-vat/tu-dao-hanh-hero.webp",
+  "cardImage": "/heritage/van-hoa/nhan-vat/tu-dao-hanh-the.webp",
+  "imageAlt": "Tranh minh hoạ Từ Đạo Hạnh",
   "variants": [
    "Thiền uyển tập anh ghi ngài đắc đạo giác ngộ bản tâm thiền phái Tỳ-ni-đa-lưu-chi",
    "Lĩnh Nam chích quái tô đậm màu sắc thần thông bí thuật chuyển kiếp luân hồi vương quyền."

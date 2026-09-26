@@ -1,4 +1,5 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
+import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { canChiOfYear } from "@licham/core";
 import { footerLinks, menuItems } from "../site-nav";
@@ -113,5 +114,16 @@ describe("menu khi bật Văn hoá", () => {
     expect(menuItems(true)).toEqual(["Hôm nay", "Lịch tháng", "Xem ngày tốt", "Văn khấn", "Tử vi", "Ngày lễ", "Xem tuổi", "Văn hoá"]);
     expect(footerLinks(false).some((l) => l.href === "/doi-ngay-am-duong/")).toBe(false);
     expect(footerLinks(true).some((l) => l.href === "/doi-ngay-am-duong/" && l.label === "Đổi ngày")).toBe(true);
+  });
+});
+
+describe("ảnh nhân vật", () => {
+  it("cả 20 nhân vật có file ảnh trang (-hero) và thẻ (-the) thật trong public/", () => {
+    expect(NHAN_VAT_IMPORTED).toHaveLength(20);
+    for (const n of NHAN_VAT_IMPORTED) {
+      expect(n.image).toBe(`/heritage/van-hoa/nhan-vat/${n.slug}-hero.webp`);
+      expect(n.cardImage).toBe(`/heritage/van-hoa/nhan-vat/${n.slug}-the.webp`);
+      for (const f of [n.image, n.cardImage]) expect(existsSync(join(process.cwd(), "public", f!)), f).toBe(true);
+    }
   });
 });
