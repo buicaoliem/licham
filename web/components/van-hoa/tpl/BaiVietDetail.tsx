@@ -156,12 +156,10 @@ export function BaiVietDetail({ post }: { post: BaiViet }) {
                     return (
                       <li key={d.label}>
                         <b>{d.label}</b>
-                        <span>{d.text ?? `${d.day} tháng ${d.month}`} âm lịch</span>
-                        {solar && (
-                          <small>
-                            {/–|-|rạng/.test(d.text ?? "") ? "Năm nay từ" : "Năm nay"}: {solar.text}
-                          </small>
-                        )}
+                        <small>
+                          {d.text ?? `${d.day} tháng ${d.month}`} âm lịch
+                          {solar && ` · ${/–|-|rạng/.test(d.text ?? "") ? "Năm nay từ" : "Năm nay"}: ${solar.text}`}
+                        </small>
                       </li>
                     );
                   })}

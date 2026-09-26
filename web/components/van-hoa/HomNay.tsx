@@ -7,6 +7,7 @@ import { moonInfo, type MoonInfo } from "@/lib/van-hoa/moon";
 import Link from "next/link";
 import { ECLIPSE_LIST_PATH } from "@/lib/van-hoa/eclipses";
 import { MoonDisc } from "./MoonDisc";
+import { TopicBadge } from "./tpl/Shared";
 import s from "./van-hoa.module.css";
 
 /** Thời điểm hiện tại + ngày theo giờ Việt Nam; null trước khi hydrate để không hiện số của bản dựng cũ. Tự sang ngày mới khi qua nửa đêm. */
@@ -70,7 +71,7 @@ function EventBlock({ events }: { events: HistoryEvent[] }) {
     <ul className={s.eventList}>
       {events.map((e) => (
         <li key={`${e.year}-${e.title}`}>
-          <span className={s.badge}>{e.tag}</span>
+          <TopicBadge text={e.tag} />
           <b>
             Năm {e.yearText ?? e.year}: {e.href ? <Link href={e.href}>{e.title}</Link> : e.title}
           </b>
