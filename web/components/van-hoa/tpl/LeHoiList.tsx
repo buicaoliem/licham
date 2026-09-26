@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { Hero, ListLd } from "./Shared";
 import { TopicList } from "./TopicList";
+import { heritageFile } from "@/lib/heritage-assets";
 import { HERO_IMAGE } from "@/lib/van-hoa/config";
-import { LE_HOI_PATH, MONTHS, leHoiFloating, leHoiMonthPath, leHoiOfMonth, leHoiPath, monthLabel } from "@/lib/van-hoa/le-hoi";
+import { LE_HOI_BANNER, LE_HOI_PATH, MONTHS, leHoiFloating, leHoiMonthPath, leHoiOfMonth, leHoiPath, monthLabel } from "@/lib/van-hoa/le-hoi";
 import type { LeHoi } from "@/lib/van-hoa/types";
 import s from "../van-hoa.module.css";
 import t from "./tpl.module.css";
@@ -36,7 +37,7 @@ export function LeHoiList({ month }: { month?: number }) {
   return (
     <div className={s.root}>
       <ListLd crumbs={crumbs} name={title} description={lead} path={path} items={items.map((i) => ({ name: i.title, href: i.href }))} />
-      <Hero title={title} lead={lead} image={HERO_IMAGE} short center />
+      <Hero title={title} lead={lead} image={heritageFile(LE_HOI_BANNER) ?? HERO_IMAGE} short center />
       <div className={s.wrap}>
         <nav aria-label="Lễ hội theo tháng âm lịch">
           <ul className={t.chips}>

@@ -20,7 +20,8 @@ describe("nhập lễ hội", () => {
   it("số lượng và phân nhóm", () => {
     const n = LE_HOI.length;
     expect(new Set(LE_HOI.map((f) => f.slug)).size).toBe(n);
-    expect(LE_HOI.filter(hasFixedLunarDate).length).toBe(80);
+    expect(n).toBe(91);
+    expect(LE_HOI.filter(hasFixedLunarDate).length).toBe(84);
     expect(LE_HOI.filter((f) => f.calendar === "cham")).toHaveLength(1);
     // Mỗi lễ hội nằm đúng một nơi: một trang tháng hoặc nhóm "Không cố định ngày".
     expect(MONTHS.reduce((sum, m) => sum + leHoiOfMonth(m).length, 0) + leHoiFloating().length).toBe(n);
@@ -82,21 +83,23 @@ describe("khoảng ngày âm", () => {
     expect([5, 6, 7].map((d) => matchesLunarDay(huong, d, 1))).toEqual([false, true, false]);
   });
 
-  it("Đình Trà Cổ kéo sang tháng sau: 30 tháng Năm và mùng 1 tháng Sáu, không lọt ngày khác", () => {
+  it("Đình Trà Cổ 30/5 → 6/6 (endMonth): khớp 30/5, 1/6, 3/6, 6/6; không khớp 29/5, 7/6", () => {
     const tc = fest("le-hoi-dinh-tra-co");
-    expect(matchesLunarDay(tc, 30, 5)).toBe(true);
-    expect(matchesLunarDay(tc, 1, 6)).toBe(true);
-    expect(matchesLunarDay(tc, 29, 5)).toBe(false);
-    expect(matchesLunarDay(tc, 2, 6)).toBe(false);
-    expect(matchesLunarDay(tc, 1, 5)).toBe(false);
-    expect(matchesLunarDay(tc, 30, 6)).toBe(false);
-    expect(leHoiOfLunarDay(1, 6).map((f) => f.slug)).toContain(tc.slug);
-    expect(lunarSpanShort(tc)).toBe("30/5–1/6");
-    expect(lunarSpanText(tc)).toBe("ngày 30 tháng Năm – mùng 1 tháng Sáu");
+    expect(tc.endMonth).toBe(6);
+    for (const [d, m] of [[30, 5], [1, 6], [3, 6], [6, 6]] as const) expect(matchesLunarDay(tc, d, m), `${d}/${m}`).toBe(true);
+    for (const [d, m] of [[29, 5], [7, 6], [30, 6], [1, 5]] as const) expect(matchesLunarDay(tc, d, m), `${d}/${m}`).toBe(false);
+    expect(leHoiOfLunarDay(3, 6).map((f) => f.slug)).toContain(tc.slug);
+    expect(lunarSpanShort(tc)).toBe("30/5–6/6");
+    expect(lunarSpanText(tc)).toBe("ngày 30 tháng Năm – mùng 6 tháng Sáu");
+  });
+
+  it("không có endDay: chỉ startDay và mainDay, không phủ khoảng giữa", () => {
+    const f = { ...fest("hoi-lim"), endDay: undefined, startDay: 12, mainDay: 15 };
+    expect([12, 13, 15, 16].map((d) => matchesLunarDay(f, d, 1))).toEqual([true, false, true, false]);
   });
 
   it("khoảng kéo qua tháng cuối năm quay về tháng Giêng", () => {
-    const wrap = { ...fest("le-hoi-dinh-tra-co"), lunarMonth: 12, startDay: 29, mainDay: 2 };
+    const wrap = { ...fest("le-hoi-dinh-tra-co"), lunarMonth: 12, startDay: 29, endMonth: 1, endDay: 2 };
     expect(matchesLunarDay(wrap, 29, 12)).toBe(true);
     expect(matchesLunarDay(wrap, 2, 1)).toBe(true);
     expect(matchesLunarDay(wrap, 3, 1)).toBe(false);
@@ -152,10 +155,28 @@ describe("lần tổ chức kế tiếp và JSON-LD Event", () => {
     for (const f of LE_HOI) expect(nextOccurrence(f, today) !== null, f.slug).toBe(hasFixedLunarDate(f));
   });
 
-  it("Đình Trà Cổ: kết thúc ở mùng 1 tháng Sáu, sau ngày bắt đầu 30 tháng Năm", () => {
+  it("Đình Trà Cổ: Event endDate theo endMonth/endDay = mùng 6 tháng Sáu", () => {
     const occ = nextOccurrence(fest("le-hoi-dinh-tra-co"), today)!;
     const end = solarToLunar(occ.end.solar.day, occ.end.solar.month, occ.end.solar.year);
-    expect([end.day, end.month]).toEqual([1, 6]);
+    expect([end.day, end.month]).toEqual([6, 6]);
+  });
+});
+
+describe("đổi slug, liên kết bổ sung", () => {
+  it("7 slug cũ chuyển hướng vĩnh viễn; sitemap chỉ dùng slug mới", () => {
+    const renamed = LE_HOI.filter((f) => f.oldSlug);
+    expect(renamed).toHaveLength(7);
+    const paths = vanHoaSubPaths();
+    for (const f of renamed) {
+      expect(LE_HOI.some((x) => x.slug === f.oldSlug), f.oldSlug).toBe(false);
+      expect(paths).not.toContain(leHoiPath(f.oldSlug!));
+      expect(paths).toContain(leHoiPath(f.slug));
+    }
+  });
+  it("Chử Đồng Tử, Tiên Dung → lễ hội Chử Đồng Tử; An Dương Vương, Cao Lỗ, Mỵ Châu → Cổ Loa", () => {
+    const of = (slug: string) => leHoiOfFigure(NHAN_VAT.find((n) => n.slug === slug)!).map((f) => f.slug);
+    for (const s of ["chu-dong-tu", "tien-dung"]) expect(of(s)).toContain("le-hoi-chu-dong-tu-tien-dung");
+    for (const s of ["an-duong-vuong", "cao-lo", "my-chau"]) expect(of(s)).toContain("le-hoi-co-loa");
   });
 });
 

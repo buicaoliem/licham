@@ -6,6 +6,8 @@ import { lunarDayWord, lunarToSolarSafe, normalizeVi, type SolarLabel } from "./
 import { FIXTURE_SLUG, type LeHoi, type NhanVat } from "./types";
 
 export const LE_HOI_PATH = "/van-hoa/le-hoi/";
+/** Ảnh ngang chung cho trang tổng và 12 trang tháng; chưa có file thì dùng ảnh mặc định của Văn hoá. */
+export const LE_HOI_BANNER = "/heritage/van-hoa/le-hoi/le-hoi-banner-hero.webp";
 export const leHoiPath = (slug: string) => `${LE_HOI_PATH}${slug}/`;
 export const leHoiMonthPath = (month: number) => `${LE_HOI_PATH}thang-${month}/`;
 export const MONTHS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] as const;
@@ -30,14 +32,16 @@ export function hasFixedLunarDate(f: LeHoi): boolean {
 }
 
 /**
- * Khoảng ngày âm của lễ hội. Có endDay: startDay–endDay. Không có endDay: chỉ ngày mainDay (thiếu thì chính ngày startDay);
+ * Khoảng ngày âm của lễ hội. Có endDay: startDay–endDay. Không có endDay: chỉ hai ngày startDay và mainDay;
  * mainDay nhỏ hơn startDay nghĩa là lễ hội kéo sang tháng sau (vd. Đình Trà Cổ: 30 tháng Năm → mùng 1 tháng Sáu).
  */
 export function lunarSpan(f: LeHoi): Span | null {
   if (!hasFixedLunarDate(f)) return null;
   const month = f.lunarMonth!;
   const start = f.startDay!;
-  const end = f.endDay ?? (f.mainDay !== undefined && f.mainDay !== start ? f.mainDay : start);
+  if (f.endDay !== undefined) return { from: { month, day: start }, to: { month: f.endMonth ?? month, day: f.endDay } };
+  // Không có endDay: chỉ startDay và mainDay; mainDay nhỏ hơn startDay thì thuộc tháng sau.
+  const end = f.mainDay ?? start;
   return { from: { month, day: start }, to: { month: end < start ? (month % 12) + 1 : month, day: end } };
 }
 
@@ -45,6 +49,8 @@ export function lunarSpan(f: LeHoi): Span | null {
 export function matchesLunarDay(f: LeHoi, day: number, month: number): boolean {
   const span = lunarSpan(f);
   if (!span) return false;
+  // Không có endDay: chỉ hai ngày startDay và mainDay, không phải cả khoảng giữa.
+  if (f.endDay === undefined) return (month === span.from.month && day === span.from.day) || (month === span.to.month && day === span.to.day);
   if (span.from.month === span.to.month) return month === span.from.month && day >= span.from.day && day <= span.to.day;
   return (month === span.from.month && day >= span.from.day) || (month === span.to.month && day <= span.to.day);
 }
@@ -114,11 +120,17 @@ const nameKeys = (nv: NhanVat) =>
     .map(normalizeVi)
     .filter((k) => !GENERIC_ALIASES.has(k));
 
-/** Nhân vật (trong 20 nhân vật) được nêu ở trường "worship" của lễ hội. */
+/** Liên kết bổ sung lễ hội → nhân vật khi trường "worship" không nêu tên (lễ hội gắn với truyền thuyết của nhân vật). */
+const EXTRA_FIGURES: Record<string, readonly string[]> = {
+  "le-hoi-chu-dong-tu-tien-dung": ["chu-dong-tu", "tien-dung"],
+  "le-hoi-co-loa": ["an-duong-vuong", "cao-lo", "my-chau"],
+};
+
+/** Nhân vật (trong 20 nhân vật) được nêu ở trường "worship" của lễ hội, cộng liên kết bổ sung. */
 export function figuresOfLeHoi(f: LeHoi, figures: readonly NhanVat[] = NHAN_VAT): NhanVat[] {
   const worship = normalizeVi(f.worship);
   // "danh tướng thời Hùng Vương" chỉ nêu thời đại, không phải đối tượng thờ.
-  return figures.filter((nv) => nv.slug !== FIXTURE_SLUG && nameKeys(nv).some((k) => worship.replace(`thoi ${k}`, "").includes(k)));
+  return figures.filter((nv) => nv.slug !== FIXTURE_SLUG && (EXTRA_FIGURES[f.slug]?.includes(nv.slug) || nameKeys(nv).some((k) => worship.replace(`thoi ${k}`, "").includes(k))));
 }
 
 /** Lễ hội mà trường "worship" nêu tên nhân vật này. */

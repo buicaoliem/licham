@@ -438,7 +438,7 @@ export const LE_HOI_IMPORTED: readonly LeHoi[] = [
   ]
  },
  {
-  "slug": "le-hoi-con-son",
+  "slug": "le-hoi-con-son-mua-xuan",
   "name": "Lễ hội Côn Sơn (mùa xuân)",
   "calendar": "am",
   "lunarMonth": 1,
@@ -456,6 +456,7 @@ export const LE_HOI_IMPORTED: readonly LeHoi[] = [
   "image": "/heritage/van-hoa/le-hoi/le-hoi-con-son-kiep-bac-hero.webp",
   "cardImage": "/heritage/van-hoa/le-hoi/le-hoi-con-son-kiep-bac-the.webp",
   "imageAlt": "Tranh minh hoạ Lễ hội Côn Sơn (mùa xuân)",
+  "oldSlug": "le-hoi-con-son",
   "updatedAt": "2026-09-26",
   "sources": [
    {
@@ -465,7 +466,7 @@ export const LE_HOI_IMPORTED: readonly LeHoi[] = [
   ]
  },
  {
-  "slug": "le-hoi-den-cua-ong",
+  "slug": "le-hoi-den-cua-ong-mua-xuan",
   "name": "Lễ hội Đền Cửa Ông (mùa xuân)",
   "calendar": "am",
   "lunarMonth": 2,
@@ -483,6 +484,7 @@ export const LE_HOI_IMPORTED: readonly LeHoi[] = [
   "image": "/heritage/van-hoa/le-hoi/kieu-ruoc-kieu-hero.webp",
   "cardImage": "/heritage/van-hoa/le-hoi/kieu-ruoc-kieu-the.webp",
   "imageAlt": "Tranh minh hoạ Lễ hội Đền Cửa Ông (mùa xuân)",
+  "oldSlug": "le-hoi-den-cua-ong",
   "updatedAt": "2026-09-26",
   "sources": [
    {
@@ -1129,7 +1131,7 @@ export const LE_HOI_IMPORTED: readonly LeHoi[] = [
   ]
  },
  {
-  "slug": "le-hoi-dinh-binh-thuy",
+  "slug": "le-hoi-dinh-binh-thuy-thuong-dien",
   "name": "Lễ hội Đình Bình Thủy (Kỳ yên Thượng điền)",
   "calendar": "am",
   "lunarMonth": 4,
@@ -1147,6 +1149,7 @@ export const LE_HOI_IMPORTED: readonly LeHoi[] = [
   "image": "/heritage/van-hoa/le-hoi/kieu-song-nuoc-hero.webp",
   "cardImage": "/heritage/van-hoa/le-hoi/kieu-song-nuoc-the.webp",
   "imageAlt": "Tranh minh hoạ Lễ hội Đình Bình Thủy (Kỳ yên Thượng điền)",
+  "oldSlug": "le-hoi-dinh-binh-thuy",
   "updatedAt": "2026-09-26",
   "sources": [
    {
@@ -1320,6 +1323,8 @@ export const LE_HOI_IMPORTED: readonly LeHoi[] = [
   "calendar": "am",
   "lunarMonth": 5,
   "startDay": 30,
+  "endMonth": 6,
+  "endDay": 6,
   "mainDay": 1,
   "dateText": "30 tháng Năm đến mùng 6 tháng Sáu, chính hội mùng 1 tháng Sáu",
   "site": "Đình Trà Cổ",
@@ -1605,7 +1610,7 @@ export const LE_HOI_IMPORTED: readonly LeHoi[] = [
   ]
  },
  {
-  "slug": "le-hoi-den-cua-ong-2",
+  "slug": "le-hoi-den-cua-ong-mua-thu",
   "name": "Lễ hội Đền Cửa Ông (mùa thu)",
   "calendar": "am",
   "lunarMonth": 8,
@@ -1624,6 +1629,7 @@ export const LE_HOI_IMPORTED: readonly LeHoi[] = [
   "image": "/heritage/van-hoa/le-hoi/kieu-ruoc-kieu-hero.webp",
   "cardImage": "/heritage/van-hoa/le-hoi/kieu-ruoc-kieu-the.webp",
   "imageAlt": "Tranh minh hoạ Lễ hội Đền Cửa Ông (mùa thu)",
+  "oldSlug": "le-hoi-den-cua-ong-2",
   "updatedAt": "2026-09-26",
   "sources": [
    {
@@ -1717,7 +1723,7 @@ export const LE_HOI_IMPORTED: readonly LeHoi[] = [
   ]
  },
  {
-  "slug": "le-hoi-kiep-bac",
+  "slug": "le-hoi-kiep-bac-mua-thu",
   "name": "Lễ hội Kiếp Bạc (mùa thu)",
   "calendar": "am",
   "lunarMonth": 8,
@@ -1736,6 +1742,7 @@ export const LE_HOI_IMPORTED: readonly LeHoi[] = [
   "image": "/heritage/van-hoa/le-hoi/le-hoi-con-son-kiep-bac-hero.webp",
   "cardImage": "/heritage/van-hoa/le-hoi/le-hoi-con-son-kiep-bac-the.webp",
   "imageAlt": "Tranh minh hoạ Lễ hội Kiếp Bạc (mùa thu)",
+  "oldSlug": "le-hoi-kiep-bac",
   "updatedAt": "2026-09-26",
   "sources": [
    {
@@ -1745,7 +1752,7 @@ export const LE_HOI_IMPORTED: readonly LeHoi[] = [
   ]
  },
  {
-  "slug": "le-hoi-den-tran",
+  "slug": "le-hoi-den-tran-mua-thu",
   "name": "Lễ hội Đền Trần (mùa thu)",
   "calendar": "am",
   "lunarMonth": 8,
@@ -1764,6 +1771,7 @@ export const LE_HOI_IMPORTED: readonly LeHoi[] = [
   "image": "/heritage/van-hoa/le-hoi/kieu-ruoc-kieu-hero.webp",
   "cardImage": "/heritage/van-hoa/le-hoi/kieu-ruoc-kieu-the.webp",
   "imageAlt": "Tranh minh hoạ Lễ hội Đền Trần (mùa thu)",
+  "oldSlug": "le-hoi-den-tran",
   "updatedAt": "2026-09-26",
   "sources": [
    {
@@ -2251,7 +2259,7 @@ export const LE_HOI_IMPORTED: readonly LeHoi[] = [
   ]
  },
  {
-  "slug": "le-hoi-dinh-binh-thuy-2",
+  "slug": "le-hoi-dinh-binh-thuy-ha-dien",
   "name": "Lễ hội Đình Bình Thủy (Kỳ yên Hạ điền)",
   "calendar": "am",
   "lunarMonth": 12,
@@ -2270,6 +2278,7 @@ export const LE_HOI_IMPORTED: readonly LeHoi[] = [
   "image": "/heritage/van-hoa/le-hoi/kieu-song-nuoc-hero.webp",
   "cardImage": "/heritage/van-hoa/le-hoi/kieu-song-nuoc-the.webp",
   "imageAlt": "Tranh minh hoạ Lễ hội Đình Bình Thủy (Kỳ yên Hạ điền)",
+  "oldSlug": "le-hoi-dinh-binh-thuy-2",
   "updatedAt": "2026-09-26",
   "sources": [
    {
@@ -2347,5 +2356,104 @@ export const LE_HOI_IMPORTED: readonly LeHoi[] = [
     "url": "https://bacninh.gov.vn"
    }
   ]
+ },
+ {
+  "slug": "le-hoi-chu-dong-tu-tien-dung",
+  "name": "Lễ hội Chử Đồng Tử – Tiên Dung",
+  "calendar": "am",
+  "lunarMonth": 2,
+  "startDay": 10,
+  "endDay": 12,
+  "dateText": "10–12 tháng Hai",
+  "site": "Đền Đa Hòa và Đền Dạ Trạch",
+  "newAddress": "xã Mễ Sở (Đền Đa Hòa) và xã Triệu Việt Vương (Đền Dạ Trạch), tỉnh Hưng Yên",
+  "oldAddress": "xã Bình Minh và xã Dạ Trạch, huyện Khoái Châu, Hưng Yên",
+  "worship": "Chử Đồng Tử, Tiên Dung",
+  "summary": "Lễ hội tưởng nhớ Chử Đồng Tử và công chúa Tiên Dung, một trong Tứ bất tử của tín ngưỡng Việt. Câu chuyện chàng trai nghèo bên sông Hồng kết duyên cùng công chúa được xem là biểu tượng của tình yêu tự do và nếp sống gắn với sông nước, buôn bán. Lễ hội được tổ chức ở cả hai đền, lễ lớn cấp tỉnh ba năm một lần.",
+  "rituals": "Rước nước trên sông Hồng bằng thuyền rồng; rước kiệu; tế lễ; múa rồng",
+  "heritage": "Di sản văn hóa phi vật thể quốc gia (2023); Cụm di tích Đa Hòa – Dạ Trạch: di tích quốc gia đặc biệt (2024)",
+  "imageKey": "le-hoi-chu-dong-tu",
+  "image": "/heritage/van-hoa/le-hoi/le-hoi-chu-dong-tu-hero.webp",
+  "cardImage": "/heritage/van-hoa/le-hoi/le-hoi-chu-dong-tu-the.webp",
+  "imageAlt": "Tranh minh hoạ Lễ hội Chử Đồng Tử – Tiên Dung",
+  "updatedAt": "2026-09-26",
+  "sources": [
+   {
+    "text": "vietnamplus.vn/hung-yen-le-hoi-den-da-hoa-la-di-san-van-hoa-phi-vat-the-quoc-gia-post848742.vnp"
+   },
+   {
+    "text": "baochinhphu.vn/xep-hang-6-di-tich-quoc-gia-dac-biet-102241127143840498.htm"
+   }
+  ]
+ },
+ {
+  "slug": "le-hoi-co-loa",
+  "name": "Lễ hội Cổ Loa",
+  "calendar": "am",
+  "lunarMonth": 1,
+  "startDay": 6,
+  "endDay": 6,
+  "mainDay": 6,
+  "dateText": "Mùng 6 tháng Giêng",
+  "site": "Khu di tích Cổ Loa (Đền Thượng)",
+  "newAddress": "xã Đông Anh, TP Hà Nội",
+  "oldAddress": "xã Cổ Loa, huyện Đông Anh, Hà Nội",
+  "worship": "An Dương Vương",
+  "summary": "Lễ hội tưởng nhớ An Dương Vương, người dựng nước Âu Lạc và xây thành Cổ Loa hình xoắn ốc. Các làng quanh vùng rước kiệu về Đền Thượng dâng lễ. Lễ hội gắn với di tích thành cổ, nơi lưu dấu truyền thuyết nỏ thần và Mỵ Châu – Trọng Thủy.",
+  "rituals": "Rước kiệu các làng về Đền Thượng; tế lễ; thi bắn nỏ; các trò chơi dân gian",
+  "heritage": "Di sản văn hóa phi vật thể quốc gia (2023); Khu di tích Cổ Loa: di tích quốc gia đặc biệt (2012)",
+  "imageKey": "le-hoi-co-loa",
+  "image": "/heritage/van-hoa/le-hoi/le-hoi-co-loa-hero.webp",
+  "cardImage": "/heritage/van-hoa/le-hoi/le-hoi-co-loa-the.webp",
+  "imageAlt": "Tranh minh hoạ Lễ hội Cổ Loa",
+  "updatedAt": "2026-09-26",
+  "sources": [
+   {
+    "text": "bvhttdl.gov.vn/le-hoi-co-loa-don-bang-di-san-van-hoa-phi-vat-the-cap-quoc-gia-20230127090531964.htm"
+   }
+  ]
+ },
+ {
+  "slug": "tet-trung-thu",
+  "name": "Tết Trung thu",
+  "calendar": "am",
+  "lunarMonth": 8,
+  "startDay": 15,
+  "endDay": 15,
+  "mainDay": 15,
+  "dateText": "Rằm tháng Tám",
+  "site": "Các gia đình, làng xóm trên cả nước",
+  "newAddress": "toàn quốc",
+  "worship": "",
+  "summary": "Tết Trung thu vào rằm tháng Tám, khi trăng tròn và sáng nhất năm. Ngày nay đây chủ yếu là Tết của trẻ em với rước đèn, múa lân, phá cỗ trông trăng. Xưa kia người ta còn ngắm trăng để đoán mùa màng.",
+  "rituals": "Rước đèn ông sao, đèn cá chép; múa lân; bày cỗ bánh nướng, bánh dẻo, bưởi; phá cỗ trông trăng",
+  "imageKey": "kieu-trung-thu",
+  "image": "/heritage/van-hoa/le-hoi/kieu-trung-thu-hero.webp",
+  "cardImage": "/heritage/van-hoa/le-hoi/kieu-trung-thu-the.webp",
+  "imageAlt": "Tranh minh hoạ Tết Trung thu",
+  "updatedAt": "2026-09-26",
+  "sources": []
+ },
+ {
+  "slug": "cho-vieng",
+  "name": "Chợ Viềng",
+  "calendar": "am",
+  "lunarMonth": 1,
+  "startDay": 7,
+  "endDay": 8,
+  "mainDay": 8,
+  "dateText": "Đêm mùng 7 rạng sáng mùng 8 tháng Giêng",
+  "site": "Chợ Viềng Phủ (gần Phủ Dầy) và chợ Viềng Chùa",
+  "newAddress": "vùng Vụ Bản – Nam Trực cũ, tỉnh Ninh Bình",
+  "oldAddress": "huyện Vụ Bản và huyện Nam Trực, Nam Định",
+  "worship": "",
+  "summary": "Phiên chợ đầu xuân họp mỗi năm một lần, nổi tiếng với tục \"mua may bán rủi\". Người đi chợ không nặng mặc cả, thường mua đồ sắt, cây cảnh, đồ dùng nhỏ để lấy may cho cả năm. Chợ Viềng Phủ nằm gần quần thể Phủ Dầy thờ Mẫu Liễu Hạnh.",
+  "rituals": "Họp chợ xuyên đêm; mua bán lấy may; đi lễ Phủ Dầy",
+  "imageKey": "kieu-cho-phien",
+  "image": "/heritage/van-hoa/le-hoi/kieu-cho-phien-hero.webp",
+  "cardImage": "/heritage/van-hoa/le-hoi/kieu-cho-phien-the.webp",
+  "imageAlt": "Tranh minh hoạ Chợ Viềng",
+  "updatedAt": "2026-09-26",
+  "sources": []
  }
 ];

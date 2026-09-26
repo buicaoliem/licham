@@ -301,6 +301,29 @@ const dayNum = (text: string | undefined): number | undefined => {
   return Number.isInteger(n) && n >= 1 && n <= 30 ? n : undefined;
 };
 
+/** Ảnh ưu tiên (đợt 2): imageKey riêng → các slug lễ hội dùng nó, nếu có đủ cả -hero.png và -the.png trong kho ảnh; không thì giữ imageKey của CSV. */
+const PREFERRED_IMAGE_KEYS: Record<string, string[]> = {
+  "kieu-mien-nui-phia-bac": ["le-hoi-long-tong-atk-dinh-hoa", "tet-xip-xi-cua-nguoi-thai-trang", "le-hoi-khu-cu-te-cua-nguoi-la-chi"],
+  "kieu-nguoi-dao": ["le-cap-sac-cua-nguoi-dao", "tet-nhay-cua-nguoi-dao"],
+  "kieu-phat-dan": ["le-phat-dan"],
+  "le-hoi-doan-ngo": ["le-hoi-tet-doan-ngo"],
+  "le-hoi-nhay-lua": ["le-hoi-nhay-lua-cua-nguoi-pa-then"],
+  "le-hoi-ba-chua-kho": ["le-hoi-den-ba-chua-kho", "le-ta-cuoi-nam-den-ba-chua-kho"],
+  "le-hoi-nui-ba-den": ["le-via-ba-linh-son-thanh-mau"],
+  "le-hoi-chua-thay": ["le-hoi-chua-thay"],
+  "le-hoi-thap-ba-ponagar": ["le-hoi-thap-ba-ponagar-nha-trang"],
+  "le-hoi-tich-dien": ["le-hoi-tich-dien-doi-son"],
+  "le-hoi-den-va": ["le-hoi-den-va"],
+  "le-hoi-den-ba-trieu": ["le-hoi-den-ba-trieu"],
+  "le-hoi-lam-kinh": ["le-hoi-lam-kinh"],
+  "le-hoi-chua-keo": ["le-hoi-chua-keo"],
+  "le-hoi-cho-vieng": ["cho-vieng"],
+};
+const PREFERRED_BY_SLUG = new Map(Object.entries(PREFERRED_IMAGE_KEYS).flatMap(([key, slugs]) => slugs.map((s) => [s, key] as const)));
+const inboxImages = (key: string) => ["hero", "the"].every((k) => existsSync(join(IN, "..", "le-hoi", `${key}-${k}.png`)));
+const preferredUsed: string[] = [];
+const preferredMissing: string[] = [];
+
 function importFestivals(): { festivals: LeHoi[]; rewrites: { id: string; before: string; after: string }[] } {
   const rows = parseCsv(join(IN, "le-hoi.csv"));
   const rewrites: { id: string; before: string; after: string }[] = [];
@@ -317,9 +340,18 @@ function importFestivals(): { festivals: LeHoi[]; rewrites: { id: string; before
     // Lịch Chăm không quy ra ngày âm; không có tháng thì không có ngày.
     const startDay = lunarMonth ? dayNum(r.startDay) : undefined;
     const endDay = startDay ? dayNum(r.endDay) : undefined;
+    const endMonthN = Number(r.endMonth);
+    const endMonth = endDay && lunarMonth && Number.isInteger(endMonthN) && endMonthN >= 1 && endMonthN <= 12 && endMonthN !== lunarMonth ? endMonthN : undefined;
     const mainDay = lunarMonth ? dayNum(r.mainDay) : undefined;
     if (lunarMonth && r.startDay && !startDay) warnings.push(`${slug}: startDay "${r.startDay}" không đọc được.`);
-    const key = r.imageKey || undefined;
+    let key = r.imageKey || undefined;
+    const pref = PREFERRED_BY_SLUG.get(slug);
+    if (pref) {
+      if (inboxImages(pref)) {
+        key = pref;
+        preferredUsed.push(pref);
+      } else preferredMissing.push(pref);
+    }
     if (key) for (const f of [`${key}-hero`, `${key}-the`]) if (!existsSync(join(WEB, "public", "heritage", "van-hoa", "le-hoi", `${f}.webp`))) warnings.push(`${slug}: chưa có ảnh ${f}.webp — chạy scripts/optimize-le-hoi-images.py.`);
     let summary = r.summary!;
     const after = NEUTRAL_LE_HOI_SUMMARY[slug];
@@ -336,6 +368,7 @@ function importFestivals(): { festivals: LeHoi[]; rewrites: { id: string; before
       calendar: cham ? "cham" : "am",
       ...(lunarMonth ? { lunarMonth } : {}),
       ...(startDay ? { startDay } : {}),
+      ...(endMonth ? { endMonth } : {}),
       ...(endDay ? { endDay } : {}),
       ...(mainDay ? { mainDay } : {}),
       dateText: r.dateText!,
@@ -347,6 +380,7 @@ function importFestivals(): { festivals: LeHoi[]; rewrites: { id: string; before
       rituals: r.rituals!,
       ...(r.heritage ? { heritage: r.heritage } : {}),
       ...(key ? { imageKey: key, image: `/heritage/van-hoa/le-hoi/${key}-hero.webp`, cardImage: `/heritage/van-hoa/le-hoi/${key}-the.webp`, imageAlt: `Tranh minh hoạ ${r.name!}` } : {}),
+      ...(r.oldSlug ? { oldSlug: r.oldSlug } : {}),
       updatedAt: UPDATED_AT,
       sources: splitList(r.sources!.replace(/,/g, ";")).map((u) => ({ text: /^https?:\/\//.test(u) ? new URL(u).hostname.replace(/^www\./, "") : u, ...(/^https?:\/\//.test(u) ? { url: u } : {}) })),
     };
@@ -382,6 +416,7 @@ console.log(`events ${events.length} / specific lunar day ${events.filter((e) =>
 console.log(`solar: sources ${events.filter((e) => e.solarDateSource === "sources").length}, computed ${events.filter((e) => e.solarDateSource === "computed").length}`);
 console.log(`figures ${figures.length} / places ${places} / articles ${articles.length}`);
 console.log(`festivals ${festivals.length} / fixed lunar date ${festivals.filter((f) => f.calendar === "am" && f.lunarMonth && f.startDay).length} / cham ${festivals.filter((f) => f.calendar === "cham").length} / no fixed date (empty month or cham) ${festivals.filter((f) => !f.lunarMonth).length} / with image ${festivals.filter((f) => f.imageKey).length}`);
+console.log(`images: ${festivals.filter((f) => f.imageKey).length} with image / ${festivals.filter((f) => !f.imageKey).length} fallback; preferred found+used [${[...new Set(preferredUsed)].join(", ")}]; still missing [${[...new Set(preferredMissing)].join(", ")}]; redirects ${festivals.filter((f) => f.oldSlug).length}`);
 console.log(`festivals by month: ${Array.from({ length: 12 }, (_, i) => `${i + 1}=${festivals.filter((f) => f.lunarMonth === i + 1).length}`).join(" ")}`);
 console.log(`needsCheck: festivals ${Object.keys(needsCheck.festivals!).length}, events ${Object.keys(needsCheck.events!).length}, figures ${Object.keys(needsCheck.figures!).length}, places ${Object.keys(needsCheck.places!).length}`);
 if (process.argv.includes("--rewrites")) for (const r of rewrites) console.log(`\n[${r.id}]\n- ${r.before}\n+ ${r.after}`);

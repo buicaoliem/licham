@@ -25,9 +25,9 @@ export const NEUTRAL_LE_HOI_SUMMARY: Record<string, string> = {
     "Lễ hội tưởng nhớ công đức Đức Thánh Tản Viên trong việc khai hoang, dạy dân trồng trọt và lãnh đạo nhân dân trị thủy sông Hồng. Đây là lễ hội chung của các làng hai bên tả ngạn và hữu ngạn sông Hồng (Hà Nội và Vĩnh Phúc), gắn với ước vọng chống lũ lụt và đoàn kết liên làng.",
   "le-hoi-den-thuong":
     "Lễ hội gắn với việc Hưng Đạo Đại vương lập tiền đồn giữ vùng biên ải phía Bắc trong kháng chiến chống Nguyên Mông. Lễ hội thể hiện truyền thống \"Uống nước nhớ nguồn\" và ý thức bảo vệ chủ quyền lãnh thổ. Đây cũng là dịp gắn kết các dân tộc vùng cao.",
-  "le-hoi-con-son":
+  "le-hoi-con-son-mua-xuan":
     "Lễ hội tưởng niệm ngày viên tịch của Thiền sư Huyền Quang (ngày 23 tháng Giêng) tại chùa Côn Sơn. Lễ hội kết hợp tư tưởng Phật giáo Trúc Lâm với các giá trị văn hóa, triết học gắn với danh nhân Nguyễn Trãi, và gắn với cảnh quan núi non nơi đây.",
-  "le-hoi-den-cua-ong":
+  "le-hoi-den-cua-ong-mua-xuan":
     "Lễ hội nhớ công lao của tướng Trần Quốc Tảng trong việc giữ vùng biển Đông Bắc thế kỷ XIII. Lễ hội nhắc tới chủ quyền biển đảo và tinh thần yêu nước, gắn với cộng đồng thợ mỏ và dân vùng duyên hải. Đền nằm trên đồi cao nhìn ra vịnh Bái Tử Long.",
   "le-hoi-nu-tuong-le-chan":
     "Lễ hội tưởng nhớ công đức Nữ tướng Lê Chân, người khai hoang lập trang An Biên xưa (nay thuộc Hải Phòng) và tham gia đánh giặc. Lễ hội gắn với lòng tự hào về cội nguồn miền cửa biển và hình tượng người phụ nữ Việt Nam; đây là biểu tượng văn hóa cội nguồn của người dân thành phố cảng.",
@@ -63,7 +63,7 @@ export const NEUTRAL_LE_HOI_SUMMARY: Record<string, string> = {
     "Lễ hội hình thành đầu thế kỷ XIX, khi pho tượng cổ được cung thỉnh từ đỉnh núi Sam xuống lập miếu thờ. Đây là trung tâm thực hành tín ngưỡng Mẫu lớn ở phương Nam, có sự tham gia của các dân tộc Kinh, Khmer, Hoa, Chăm. Lễ hội thể hiện lòng tri ân vị thần nữ che chở cuộc sống nơi biên giới.",
   "le-hoi-vat-cau-nuoc-lang-van":
     "Lễ hội khởi nguồn từ sự tích hai vị tướng dẹp loài thủy quái quấy nhiễu xóm làng ven sông Như Nguyệt. Trò tranh quả cầu gỗ trên bãi bùn tượng trưng cho sự vận hành của mặt trời, cầu âm dương hòa hợp và mùa vụ tốt. Lễ hội đề cao sức khỏe, sự bền bỉ và tinh thần gắn bó của trai làng ven sông.",
-  "le-hoi-dinh-binh-thuy":
+  "le-hoi-dinh-binh-thuy-thuong-dien":
     "Đình được lập từ giữa thế kỷ XIX; vua Tự Đức ban sắc phong Bổn Cảnh Thành Hoàng năm Nhâm Tý (1852). Lễ Thượng điền là lễ hội nông nghiệp tạ ơn thần linh phù hộ cho vụ xuống giống bình yên. Lễ hội cũng nhớ công lao khai hoang mở đất và củng cố nghĩa tình láng giềng miền sông nước.",
   "le-hoi-banh-chung-banh-giay-sam-son":
     "Lễ hội xuất phát từ kỳ tế Đảo Vũ (cầu mưa giải hạn) cổ truyền của cư dân làng biển, dâng lên thần Độc Cước hộ quốc an dân. Lễ hội kết hợp yếu tố nông nghiệp lúa nước với tín ngưỡng của cộng đồng người đi biển, thể hiện ước vọng mưa thuận gió hòa.",
@@ -83,11 +83,11 @@ export const NEUTRAL_LE_HOI_SUMMARY: Record<string, string> = {
     "Lễ hội nhớ danh tướng Hoàng Bảy, người theo truyền thuyết chiêu tập nhân dân dẹp giặc cướp phương Bắc, giữ yên vùng biên giới Tây Bắc. Lễ hội gắn với sự đoàn kết các dân tộc Tày, Dao, Mông, Kinh, tinh thần bảo vệ đất nước, và lời cầu công danh, làm ăn thuận lợi, bình an gia đạo.",
   "le-hoi-khu-cu-te-cua-nguoi-la-chi":
     "Đây là lễ hội lớn nhất trong năm của người La Chí sống trên vùng ruộng bậc thang. Lễ hội tạ ơn tổ tiên phù hộ cho lúa ngô, cầu cho gia súc khỏe mạnh, bệnh tật tiêu trừ, đồng thời gắn kết dòng họ và truyền giữ nét văn hóa riêng qua các thế hệ.",
-  "le-hoi-den-cua-ong-2":
+  "le-hoi-den-cua-ong-mua-thu":
     "Lễ hội tưởng niệm ngày mất của Hưng Nhượng Vương Trần Quốc Tảng, danh tướng giữ bờ cõi phía Đông Bắc. Lễ hội mùa thu tri ân công tích hộ quốc an dân và nhắc ý thức về biển đảo. Đây cũng là nơi sinh hoạt tâm linh của công nhân mỏ than và người dân miền duyên hải.",
-  "le-hoi-kiep-bac":
+  "le-hoi-kiep-bac-mua-thu":
     "Lễ hội tưởng niệm ngày mất của Trần Hưng Đạo (ngày 20 tháng Tám năm Canh Tý 1300). Lễ hội nhắc tới tài thao lược quân sự và tư tưởng \"khoan thư sức dân\" làm gốc dựng nước của người xưa, cùng lòng tự hào lịch sử và sự gắn kết non sông.",
-  "le-hoi-den-tran":
+  "le-hoi-den-tran-mua-thu":
     "Lễ hội diễn ra vào dịp kỵ nhật của Đức Thánh Trần tại vùng đất phát tích của nhà Trần, để ghi nhớ công ơn đánh đuổi quân ngoại xâm. Lễ hội nhắc đạo lý yêu nước, tự cường và xây dựng xã hội hòa mục. Nhân dân các nơi về thắp hương tri ân tiên tổ.",
   "le-hoi-den-tran-thuong":
     "Đền tọa lạc tại nơi Hưng Đạo Vương đặt 6 kho lương dự trữ phục vụ kháng chiến chống quân Mông Cổ lần thứ hai (1285). Lễ hội nhắc tới tài năng hậu cần quân sự và bài học tích trữ lương thực phòng thủ của người xưa, gắn với ý thức bảo đảm an ninh lương thực và chủ động phòng ngừa khó khăn.",

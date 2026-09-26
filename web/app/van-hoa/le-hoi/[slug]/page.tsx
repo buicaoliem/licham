@@ -3,9 +3,10 @@ import { notFound } from "next/navigation";
 import { ChShell } from "@/components/heritage/ChShell";
 import { LeHoiDetail } from "@/components/van-hoa/tpl/LeHoiDetail";
 import { LeHoiList } from "@/components/van-hoa/tpl/LeHoiList";
+import { heritageFile } from "@/lib/heritage-assets";
 import { VAN_HOA_PUBLIC } from "@/lib/van-hoa/config";
 import { LE_HOI, leHoiBySlug } from "@/lib/van-hoa/data/le-hoi";
-import { MONTHS, leHoiMonthPath, leHoiOfMonth, leHoiPath, monthLabel } from "@/lib/van-hoa/le-hoi";
+import { LE_HOI_BANNER, MONTHS, leHoiMonthPath, leHoiOfMonth, leHoiPath, monthLabel } from "@/lib/van-hoa/le-hoi";
 
 export const revalidate = 3600;
 export const dynamicParams = false;
@@ -27,7 +28,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const month = monthOfSlug(slug);
   if (month) {
+    const banner = heritageFile(LE_HOI_BANNER);
+    const bannerImg = banner ? [{ url: banner, width: 1280, height: 720, alt: "Lễ hội theo ngày âm" }] : undefined;
     return {
+      ...(bannerImg ? { openGraph: { images: bannerImg }, twitter: { card: "summary_large_image" as const, images: bannerImg } } : {}),
       title: `Lễ hội ${monthLabel(month)} | Lịch Âm`,
       description: `Các lễ hội truyền thống diễn ra trong ${monthLabel(month)} âm lịch: thời gian, địa điểm và đối tượng thờ.`,
       alternates: { canonical: leHoiMonthPath(month) },

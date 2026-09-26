@@ -221,6 +221,8 @@ export interface LeHoi {
   lunarMonth?: number;
   startDay?: number;
   /** Thiếu khi lễ hội chỉ có một ngày hoặc kéo sang tháng sau (xem `mainDay`). */
+  /** Tháng âm của endDay; thiếu = cùng lunarMonth. Khác lunarMonth khi lễ hội kéo sang tháng sau. */
+  endMonth?: number;
   endDay?: number;
   mainDay?: number;
   /** Ngày ghi bằng chữ — nguồn đáng tin nhất để hiển thị. */
@@ -236,6 +238,8 @@ export interface LeHoi {
   image?: string;
   cardImage?: string;
   imageAlt?: string;
+  /** Slug cũ (đã đổi tên): trang cũ chuyển hướng vĩnh viễn sang slug mới. */
+  oldSlug?: string;
   updatedAt: UpdatedAt;
   sources: Source[];
 }
