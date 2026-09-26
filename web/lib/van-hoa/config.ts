@@ -123,14 +123,14 @@ export const TOPICS: readonly Topic[] = [
     description: "Chuyện học hành, khoa cử và trường lớp qua các thời kỳ.",
     href: "/van-hoa/hoc-duong/",
     live: false,
-    links: [],
+    links: postLinks("Khoa cử"),
   },
 ];
 
 export const HERO_IMAGE = `${IMG}/lich-su-theo-nam-hero.webp`;
 
 /** Nhãn màu xanh ngọc; các nhãn còn lại màu hồng đỏ. */
-export const GREEN_BADGES: readonly string[] = ["Khảo cổ", "Thiên văn", "Học tập"];
+export const GREEN_BADGES: readonly string[] = ["Khảo cổ", "Thiên văn", "Học tập", "Khoa cử"];
 
 /** Bài mới: lấy từ bài viết thật; rỗng thì ẩn cả mục. */
 export interface NewPost {

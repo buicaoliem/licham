@@ -100,11 +100,11 @@ describe("phân tích dữ liệu nguồn", () => {
     ]);
   });
 
-  it("số lượng: 235 mốc / 20 nhân vật / 34 bài; mọi mục có updatedAt", () => {
+  it("số lượng: 235 mốc / 20 nhân vật / 36 bài; mọi mục có updatedAt", () => {
     expect(NAM_SU_KIEN_IMPORTED).toHaveLength(235);
     expect(NAM_SU_KIEN_IMPORTED.filter((e) => e.lunarDay !== undefined)).toHaveLength(94);
     expect(NHAN_VAT_IMPORTED).toHaveLength(20);
-    expect(BAI_VIET_IMPORTED).toHaveLength(34);
+    expect(BAI_VIET_IMPORTED).toHaveLength(36);
     for (const x of [...NAM_SU_KIEN_IMPORTED, ...NHAN_VAT_IMPORTED, ...BAI_VIET_IMPORTED]) expect(x.updatedAt).toMatch(/^\d{4}-\d{2}-\d{2}$/);
   });
 

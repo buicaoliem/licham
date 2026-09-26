@@ -4,7 +4,7 @@
  *  - lib/van-hoa/data/nam-su-kien.generated.ts    — 235 mốc lịch sử đến 1945 (trang năm can chi, danh sách sự kiện)
  *  - lib/van-hoa/data/ngay-nay-nam-xua.generated.ts — mốc có ngày âm cụ thể ("Ngày này năm xưa")
  *  - lib/van-hoa/data/nhan-vat.generated.ts       — 20 nhân vật truyền thuyết, nơi thờ lấy từ noi-tho.csv
- *  - lib/van-hoa/data/bai-viet.generated.ts       — 6 bài Tết + 20 trò chơi dân gian + tranh Đông Hồ, đồ chơi Tết
+ *  - lib/van-hoa/data/bai-viet.generated.ts       — bài Tết, trò chơi, Dân gian, Thiên văn, Khảo cổ, Khoa cử
  *  - lib/van-hoa/data/le-hoi.generated.ts         — lễ hội theo ngày âm (le-hoi.csv), tóm tắt trung lập từ scripts/le-hoi-neutral.ts
  *  - content/van-hoa/needs-check.json             — ghi chú nội bộ cột needsCheck (không trang nào đọc)
  * Chạy lại được nhiều lần; giọng văn trung lập cho mốc từ 1900 nằm trong NEUTRAL_SUMMARY bên dưới.
@@ -263,7 +263,7 @@ function importFigures(): NhanVat[] {
 }
 
 // ---------- Bài Tết ----------
-const CATEGORY_LABEL: Record<string, ItemLabel> = { "Dân gian": "tin-nguong", "Thiên văn": "chinh-su", "Khảo cổ": "chinh-su" };
+const CATEGORY_LABEL: Record<string, ItemLabel> = { "Dân gian": "tin-nguong", "Thiên văn": "chinh-su", "Khảo cổ": "chinh-su", "Khoa cử": "chinh-su" };
 
 /** Ảnh bài Tết /heritage/tet/; trò chơi /heritage/van-hoa/tro-choi-dan-gian/; bài Dân gian khác /heritage/van-hoa/dan-gian/. */
 function articleHeroPath(hero: string): string {
@@ -275,11 +275,13 @@ function articleHeroPath(hero: string): string {
   if (existsSync(sky)) return `/heritage/van-hoa/thien-van/${stem}.webp`;
   const khao = join(WEB, "public", "heritage", "van-hoa", "khao-co", `${stem}.webp`);
   if (existsSync(khao)) return `/heritage/van-hoa/khao-co/${stem}.webp`;
+  const khoa = join(WEB, "public", "heritage", "van-hoa", "khoa-cu", `${stem}.webp`);
+  if (existsSync(khoa)) return `/heritage/van-hoa/khoa-cu/${stem}.webp`;
   return `/heritage/van-hoa/dan-gian/${stem}.webp`;
 }
 
 function importArticles(figureSlugs: Set<string>): BaiViet[] {
-  const files = ["bai-tet-6-chu-de.md", "tro-choi-dan-gian.md", "tranh-do-choi.md", "24-tiet-khi-nong-lich.md", "nguoi-viet-co.md"];
+  const files = ["bai-tet-6-chu-de.md", "tro-choi-dan-gian.md", "tranh-do-choi.md", "24-tiet-khi-nong-lich.md", "nguoi-viet-co.md", "khoa-cu.md"];
   const seen = new Set<string>();
   const articles: BaiViet[] = [];
   for (const file of files) {

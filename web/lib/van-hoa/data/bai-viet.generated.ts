@@ -14,7 +14,7 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
    "lang-lieu",
    "hung-vuong"
   ],
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "heroImage": "/heritage/tet/banh-chung.webp",
   "heroAlt": "Tranh minh hoạ: Bánh chưng, bánh giầy và sự tích Lang Liêu",
   "sections": [
@@ -160,7 +160,7 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
    "tao-quan",
    "tho-cong"
   ],
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "heroImage": "/heritage/tet/tao-quan.webp",
   "heroAlt": "Tranh minh hoạ: Ông Công ông Táo và lễ 23 tháng Chạp",
   "sections": [
@@ -281,7 +281,7 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
    "Ngày nay ai cũng có lịch trên điện thoại. Thời xưa, lịch do triều đình làm ra và phát xuống cho quan và dân. Lễ phát lịch ấy gọi là lễ Ban Sóc."
   ],
   "relatedFigures": [],
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "heroImage": "/heritage/tet/ban-soc.webp",
   "heroAlt": "Tranh minh hoạ: Lễ Ban Sóc",
   "sections": [
@@ -404,7 +404,7 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
    "Ra Giêng, làng quê xưa bước vào mùa hội. Bên cạnh lễ ở đình, đền là các trò chơi: có trò để thi sức, có trò để vui, có trò để gặp gỡ."
   ],
   "relatedFigures": [],
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "heroImage": "/heritage/tet/tro-choi.webp",
   "heroAlt": "Tranh minh hoạ: Trò chơi dân gian ngày Tết",
   "sections": [
@@ -526,7 +526,7 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
   "relatedFigures": [
    "mau-lieu-hanh"
   ],
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "heroImage": "/heritage/tet/cho-tet.webp",
   "heroAlt": "Tranh minh hoạ: Chợ Tết xưa và những phiên chợ cuối năm nổi tiếng",
   "sections": [
@@ -646,7 +646,7 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
   "relatedFigures": [
    "tao-quan"
   ],
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "heroImage": "/heritage/tet/cay-neu.webp",
   "heroAlt": "Tranh minh hoạ: Cây nêu ngày Tết",
   "sections": [
@@ -792,7 +792,7 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
    "Kéo co là trò chơi dân gian và nghi lễ nông nghiệp cầu mưa thuận gió hòa. Trò chơi phổ biến toàn quốc, đậm nhất ở đồng bằng sông Hồng và trung du miền núi phía Bắc. UNESCO ghi danh Di sản văn hóa phi vật thể đại diện nhân loại năm 2015."
   ],
   "relatedFigures": [],
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/keo-co-hero.webp",
   "heroAlt": "Tranh minh hoạ: Kéo co",
   "sections": [
@@ -861,7 +861,7 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
    "Đánh phết, còn gọi là cướp phết, là trò chơi hội làng miền Bắc, tập trung ở Phú Thọ. Tương truyền trò chơi gắn với Thiều Hoa Công chúa thời Hai Bà Trưng, dùng để luyện quân."
   ],
   "relatedFigures": [],
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/danh-phet-hero.webp",
   "heroAlt": "Tranh minh hoạ: Đánh phết (Cướp phết)",
   "sections": [
@@ -937,7 +937,7 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
    "Đấu vật dân tộc là môn võ hội làng của đồng bằng sông Hồng và Bắc Trung Bộ, thường thấy vào Tết và hội xuân. Trò chơi gắn huyền tích chàng trai họ Đoàn thời Lý–Trần; được công nhận Di sản văn hóa phi vật thể quốc gia năm 2017."
   ],
   "relatedFigures": [],
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/dau-vat-dan-toc-hero.webp",
   "heroAlt": "Tranh minh hoạ: Đấu vật dân tộc",
   "sections": [
@@ -1006,7 +1006,7 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
    "Đánh đu là trò hội xuân của đồng bằng và trung du Bắc Bộ, cũng có ở các dân tộc Mường, Tày, Thái. Đây là nghi lễ cầu mùa mô phỏng giao hòa âm dương, được nhắc trong thơ Nôm Hồ Xuân Hương thế kỷ XVIII."
   ],
   "relatedFigures": [],
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/danh-du-hero.webp",
   "heroAlt": "Tranh minh hoạ: Đánh đu",
   "sections": [
@@ -1075,7 +1075,7 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
    "Cờ người là cách dân gian hóa cờ Tướng: 32 người đóng vai quân cờ trên sân đình. Ở Bắc Bộ trò mang tính lễ nghi; ở Nam Bộ còn có cờ người võ thuật do võ sư Hồ Tường (phái Tân Khánh Bà Trà) phát triển giữa thế kỷ XX."
   ],
   "relatedFigures": [],
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/co-nguoi-hero.webp",
   "heroAlt": "Tranh minh hoạ: Cờ người",
   "sections": [
@@ -1144,7 +1144,7 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
    "Ném còn là trò chơi Tết của người Tày, Thái, Nùng ở miền núi phía Bắc. Quả còn biểu trưng nguồn sống; vòng tròn trên cây nêu tượng trưng mặt trời hoặc mặt trăng. Trò chơi gắn tín ngưỡng phồn thực, cầu mùa của cư dân Tày–Thái cổ."
   ],
   "relatedFigures": [],
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/nem-con-hero.webp",
   "heroAlt": "Tranh minh hoạ: Ném còn",
   "sections": [
@@ -1213,7 +1213,7 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
    "Thổi cơm thi mô phỏng diễn tập nuôi quân thời cổ: vừa giã thóc, vừa lấy lửa, vừa múc nước rồi nấu cơm. Hội làng Thị Cấm là Di sản văn hóa phi vật thể quốc gia."
   ],
   "relatedFigures": [],
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/thoi-com-thi-hero.webp",
   "heroAlt": "Tranh minh hoạ: Thổi cơm thi",
   "sections": [
@@ -1289,7 +1289,7 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
    "Đi cà kheo bắt đầu từ công cụ lội biển cào ngao của ngư dân thế kỷ XIX, sau thành trò chơi và diễn xướng. Trò phổ biến ở ven biển vịnh Bắc Bộ, Tây Bắc và Tây Nguyên."
   ],
   "relatedFigures": [],
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/di-ca-kheo-hero.webp",
   "heroAlt": "Tranh minh hoạ: Đi cà kheo",
   "sections": [
@@ -1358,7 +1358,7 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
    "Thả diều sáo phổ biến ở đồng bằng sông Hồng và nhiều nơi khác. Tục gắn tín ngưỡng thờ thần Linh Châu Thổ tại miếu Diều có từ trước thế kỷ X; được công nhận Di sản văn hóa phi vật thể quốc gia năm 2024."
   ],
   "relatedFigures": [],
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/tha-dieu-hero.webp",
   "heroAlt": "Tranh minh hoạ: Thả diều (diều sáo)",
   "sections": [
@@ -1427,7 +1427,7 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
    "Pháo đất là trò hội làng mùa xuân ở đồng bằng Bắc Bộ. Tục gắn tích thao diễn thời Khúc Thừa Dụ hoặc tích ném đất cứu voi chiến Hai Bà Trưng."
   ],
   "relatedFigures": [],
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/phao-dat-hero.webp",
   "heroAlt": "Tranh minh hoạ: Pháo đất",
   "sections": [
@@ -1493,7 +1493,7 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
    "Ô ăn quan là trò chơi bàn phổ biến toàn quốc, thuộc họ Mancala của văn minh lúa nước Đông Nam Á. Chưa xác minh được thư tịch cổ ghi trò này."
   ],
   "relatedFigures": [],
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/o-an-quan-hero.webp",
   "heroAlt": "Tranh minh hoạ: Ô ăn quan",
   "sections": [
@@ -1562,7 +1562,7 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
    "Chơi chuyền là trò gắp que tre theo nhịp đồng dao, hình thành trong lao động nữ giới nông thôn, rèn khéo tay. Chưa xác minh được thư tịch cổ."
   ],
   "relatedFigures": [],
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/choi-chuyen-hero.webp",
   "heroAlt": "Tranh minh hoạ: Chơi chuyền",
   "sections": [
@@ -1631,7 +1631,7 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
    "Chơi khăng là trò mục đồng: dùng thanh \"mẹ\" hất thanh \"con\" bay xa. Trò thịnh hành ở Bắc Bộ và Trung Bộ. Chưa xác minh được thư tịch cổ."
   ],
   "relatedFigures": [],
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/choi-khang-hero.webp",
   "heroAlt": "Tranh minh hoạ: Chơi khăng",
   "sections": [
@@ -1697,7 +1697,7 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
    "Đánh đáo là trò ném đồng xu vào lỗ, gốc Bắc Bộ rồi lan ra toàn quốc. \"Đáo\" nghĩa Hán–Việt là chạm tới đích. Trò xuất hiện từ thời tiền kim loại lưu thông."
   ],
   "relatedFigures": [],
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/danh-dao-hero.webp",
   "heroAlt": "Tranh minh hoạ: Đánh đáo",
   "sections": [
@@ -1763,7 +1763,7 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
    "Đánh cù, còn gọi đánh quay, phổ biến toàn quốc; người Hmông ở Tây Bắc có Tù lu. Trò gắn nghề tiện mộc thủ công. Chưa xác minh được thư tịch cổ."
   ],
   "relatedFigures": [],
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/danh-cu-hero.webp",
   "heroAlt": "Tranh minh hoạ: Đánh cù (đánh quay)",
   "sections": [
@@ -1829,7 +1829,7 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
    "Rồng rắn lên mây là trò nối đuôi vừa đi vừa hát đồng dao, phổ biến ở trường mầm non và tiểu học. Đồng dao phản ánh tập quán làng xã. Chưa xác minh được thư tịch cổ."
   ],
   "relatedFigures": [],
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/rong-ran-len-may-hero.webp",
   "heroAlt": "Tranh minh hoạ: Rồng rắn lên mây",
   "sections": [
@@ -1895,7 +1895,7 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
    "Bịt mắt bắt dê là trò chơi dân gian cổ truyền, xuất hiện trong tranh khắc gỗ Đông Hồ thế kỷ XVII–XVIII. Trẻ em chơi quanh năm, Tết và hội xuân làng quê."
   ],
   "relatedFigures": [],
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/bit-mat-bat-de-hero.webp",
   "heroAlt": "Tranh minh hoạ: Bịt mắt bắt dê",
   "sections": [
@@ -1964,7 +1964,7 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
    "Nhảy lò cò là trò vận động phổ quát (tương đồng Hopscotch quốc tế), được bản địa hóa vào đời sống trẻ em Việt. Chơi trên sân trường, sân làng."
   ],
   "relatedFigures": [],
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/nhay-lo-co-hero.webp",
   "heroAlt": "Tranh minh hoạ: Nhảy lò cò",
   "sections": [
@@ -2030,7 +2030,7 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
    "Nhảy bao bố hình thành thời cận đại cùng sự phổ biến bao đay đóng gạo. Trò thường thấy ở ngày hội thể thao trường học và hội làng."
   ],
   "relatedFigures": [],
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/nhay-bao-bo-hero.webp",
   "heroAlt": "Tranh minh hoạ: Nhảy bao bố",
   "sections": [
@@ -2096,7 +2096,7 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
    "Bắt chạch trong chum là trò hội làng miền Bắc, gắn tín ngưỡng phồn thực của cư dân trồng lúa nước, duy trì từ thời Hậu Lê."
   ],
   "relatedFigures": [],
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/bat-chach-trong-chum-hero.webp",
   "heroAlt": "Tranh minh hoạ: Bắt chạch trong chum",
   "sections": [
@@ -2165,7 +2165,7 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
    "Tranh khắc gỗ dân gian Đông Hồ làm ở làng Đông Hồ (tên nôm làng Mái), phường Thuận Thành, tỉnh Bắc Ninh, bên bờ sông Đuống. Nghề này đã có hơn 500 năm. Nghề làm tranh được công nhận Di sản văn hóa phi vật thể quốc gia năm 2012; UNESCO ghi danh Di sản văn hóa phi vật thể cần bảo vệ khẩn cấp ngày 9/12/2025. Hiện làng chỉ còn 3–4 gia đình nghệ nhân bám trụ (hai dòng họ chính: Nguyễn Đăng, Nguyễn Hữu), khoảng 30 lao động thường xuyên."
   ],
   "relatedFigures": [],
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "heroImage": "/heritage/van-hoa/dan-gian/tranh-dong-ho-hero.webp",
   "heroAlt": "Tranh minh hoạ: Tranh Đông Hồ",
   "sections": [
@@ -2317,7 +2317,7 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
    "Ba món đồ chơi Tết và hội hè còn gặp ở chợ phiên, lễ hội làng: tò he, đèn ông sao và trống bỏi."
   ],
   "relatedFigures": [],
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "heroImage": "/heritage/van-hoa/dan-gian/do-choi-tet-xua-hero.webp",
   "heroAlt": "Tranh minh hoạ: Đồ chơi Tết xưa",
   "sections": [
@@ -2444,7 +2444,7 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
    "Đây vốn là hệ thống tiết khí của vùng Hoàng Hà (khí hậu ôn đới). Khi vào đồng bằng Bắc Bộ (khí hậu nhiệt đới gió mùa) có tiết khớp tốt (nhóm mưa-ẩm: Vũ thủy, Cốc vũ, Bạch lộ), có tiết không khớp (Tiểu tuyết, Đại tuyết — Việt Nam không có tuyết ở đồng bằng, chỉ hiểu là các nấc rét đậm dần)."
   ],
   "relatedFigures": [],
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "heroImage": "/heritage/van-hoa/thien-van/24-tiet-khi-nong-lich-hero.webp",
   "heroAlt": "Tranh minh hoạ: 24 tiết khí và nông lịch",
   "sections": [
@@ -2697,7 +2697,7 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
    "Văn hoá Phùng Nguyên thuộc sơ kỳ Đồng thau, khoảng 2000–1500 TCN (xác định qua C-14). Đây là nền tảng vật chất của thời kỳ tiền Hùng Vương, khi người Việt cổ khai phá đồng bằng sông Hồng."
   ],
   "relatedFigures": [],
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "heroImage": "/heritage/van-hoa/khao-co/van-hoa-phung-nguyen-hero.webp",
   "heroAlt": "Tranh minh hoạ: Văn hoá Phùng Nguyên",
   "sections": [
@@ -2811,7 +2811,7 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
    "Văn hoá Đông Sơn thuộc sơ kỳ Đồ sắt, khoảng thế kỷ VII–VI TCN đến thế kỷ I–II SCN. Phát hiện năm 1924 (Louis Pajot, làng Đông Sơn ven sông Mã, Thanh Hoá). Tên \"văn hoá Đông Sơn\" do nhà khảo cổ Áo Robert von Heine-Geldern đặt năm 1934. Đây là bằng chứng khảo cổ cho nhà nước Văn Lang – Âu Lạc."
   ],
   "relatedFigures": [],
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "heroImage": "/heritage/van-hoa/khao-co/van-hoa-dong-son-hero.webp",
   "heroAlt": "Tranh minh hoạ: Văn hoá Đông Sơn",
   "sections": [
@@ -2940,7 +2940,7 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
    "Văn hoá Sa Huỳnh khoảng 1500 TCN đến thế kỷ I–II SCN; giai đoạn điển hình thế kỷ V TCN – đầu Công nguyên. Phát hiện năm 1909 (M. Vinet, đầm An Khê, Quảng Ngãi); định danh bởi nữ khảo cổ Pháp Madeleine Colani năm 1934. Đây là cội nguồn bản địa của vương quốc Lâm Ấp – Champa (thành lập năm 192 SCN)."
   ],
   "relatedFigures": [],
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "heroImage": "/heritage/van-hoa/khao-co/van-hoa-sa-huynh-hero.webp",
   "heroAlt": "Tranh minh hoạ: Văn hoá Sa Huỳnh",
   "sections": [
@@ -3044,7 +3044,7 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
    "Văn hoá Óc Eo thuộc thế kỷ I đến thế kỷ VII–VIII SCN. Phát hiện qua ảnh hàng không cuối thập niên 1930 (Viện Viễn Đông Bác Cổ); khai quật khoa học đầu tiên bởi Louis Malleret (Pháp) năm 1944, tại Óc Eo chân núi Ba Thê, An Giang. Đây là cơ sở kinh tế–đô thị của vương quốc Phù Nam, suy tàn từ thế kỷ VII khi hải trình chuyển qua eo Malacca."
   ],
   "relatedFigures": [],
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "heroImage": "/heritage/van-hoa/khao-co/van-hoa-oc-eo-hero.webp",
   "heroAlt": "Tranh minh hoạ: Văn hoá Óc Eo",
   "sections": [
@@ -3150,7 +3150,7 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
    "Nguồn gốc trống đồng từng tranh cãi: giả thuyết ảnh hưởng Hy Lạp/Alexander của học giả Pháp đầu thế kỷ XX, và giả thuyết nguồn gốc Vân Nam–Trung Quốc từ thập niên 1970. Khảo cổ học Việt Nam khẳng định nguồn gốc bản địa: mô hình trống gốm tí hon khoảng 850 TCN tại tầng Tiền Đông Sơn; khai quật thành cổ Luy Lâu (Bắc Ninh, 1998–2015) tìm thấy gần 1.000 mảnh khuôn đúc trống đất nung — nơi duy nhất trên thế giới có bằng chứng này. Niên đại trống cổ nhất: thế kỷ VII–VI TCN, đỉnh cao thế kỷ V–II TCN."
   ],
   "relatedFigures": [],
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "heroImage": "/heritage/van-hoa/khao-co/trong-dong-dong-son-hero.webp",
   "heroAlt": "Tranh minh hoạ: Trống đồng Đông Sơn",
   "sections": [
@@ -3265,6 +3265,689 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
    },
    {
     "text": "kỷ yếu nghiên cứu quốc tế 2015"
+   }
+  ]
+ },
+ {
+  "slug": "van-mieu-quoc-tu-giam",
+  "title": "Văn Miếu - Quốc Tử Giám",
+  "label": "chinh-su",
+  "category": "Khoa cử",
+  "summary": "Văn Miếu - Quốc Tử Giám là quần thể di tích Nho học ở số 58 phố Quốc Tử Giám, phường Văn Miếu – Quốc Tử Giám, thành phố Hà Nội. Hơn 700 năm (1076–1803) đây là trường Quốc học của các triều Lý, Trần, Hồ, Lê sơ, Mạc và Lê Trung Hưng, trước khi triều Nguyễn chuyển Quốc Tử Giám vào Huế năm 1803.",
+  "intro": [
+   "Văn Miếu - Quốc Tử Giám là quần thể di tích Nho học ở số 58 phố Quốc Tử Giám, phường Văn Miếu – Quốc Tử Giám, thành phố Hà Nội. Hơn 700 năm (1076–1803) đây là trường Quốc học của các triều Lý, Trần, Hồ, Lê sơ, Mạc và Lê Trung Hưng, trước khi triều Nguyễn chuyển Quốc Tử Giám vào Huế năm 1803."
+  ],
+  "relatedFigures": [],
+  "relatedPeople": [
+   "ly-thanh-tong",
+   "ly-nhan-tong",
+   "le-thanh-tong",
+   "chu-van-an"
+  ],
+  "relatedEvents": [
+   "1070-xay-dung-van-mieu-tai-thang-long",
+   "1076-thanh-lap-quoc-tu-giam",
+   "1075-mo-khoa-thi-nho-hoc-dau-tien",
+   "1484-dung-bia-tien-si-tai-van-mieu",
+   "1370-van-the-su-bieu-chu-van-an-qua-doi"
+  ],
+  "updatedAt": "2026-09-27",
+  "heroImage": "/heritage/van-hoa/khoa-cu/van-mieu-quoc-tu-giam-hero.webp",
+  "heroAlt": "Tranh minh hoạ: Văn Miếu - Quốc Tử Giám",
+  "sections": [
+   {
+    "id": "lich-su",
+    "heading": "Lịch sử",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Văn Miếu dựng tháng 8 năm Canh Tuất (1070) thời Lý Thánh Tông. *Đại Việt sử ký toàn thư* chép việc đắp tượng Khổng Tử, Chu Công, Tứ phối và thất thập nhị hiền; Thái tử đến đây học."
+     },
+     {
+      "type": "p",
+      "text": "Quốc Tử Giám lập năm Bính Thìn (1076) thời Lý Nhân Tông, lúc đầu dành cho hoàng gia và quý tộc. Năm Quý Sửu (1253) Trần Thái Tông đổi tên Quốc Học Viện, mở cửa cho con em thường dân xuất sắc. Thời Lê Thánh Tông xây thêm nhà Thái Học."
+     }
+    ]
+   },
+   {
+    "id": "kien-truc-nam-khu",
+    "heading": "Kiến trúc năm khu",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Quần thể xếp năm khu theo trục Bắc–Nam:"
+     },
+     {
+      "type": "ul",
+      "items": [
+       "**Nhập đạo** — từ Văn Miếu Môn (tam quan hai tầng tám mái) đến Đại Trung Môn, có hai cổng phụ Thành Đức Môn và Đại Tài Môn.",
+       "**Thành Đạt** — đến Khuê Văn Các, dựng năm 1805 thời Gia Long, do Nguyễn Văn Thành chủ trì: bốn trụ gạch vuông đỡ gác gỗ bốn cửa tròn nan quạt.",
+       "**Giếng Thiên Quang** và hai vườn bia Tiến sĩ.",
+       "**Khu Đại Thành** — Đại Bái đường chín gian, thờ Khổng Tử và Tứ phối.",
+       "**Khu Thái Học** — phục dựng dịp 990 năm Thăng Long, thờ Chu Văn An cùng ba vua Lý Thánh Tông, Lý Nhân Tông, Lê Thánh Tông."
+      ]
+     }
+    ]
+   },
+   {
+    "id": "bia-tien-si",
+    "heading": "Bia tiến sĩ",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Còn lại 82 bia đá xanh trên lưng rùa. Khoa sớm nhất khắc bia là Nhâm Tuất 1442 (dựng bia 1484); khoa muộn nhất Kỷ Hợi 1779 (dựng bia 1780). Tổng 1.304 vị, gồm 85 Trạng nguyên / Bảng nhãn / Thám hoa, 283 Hoàng giáp và 936 Tiến sĩ."
+     },
+     {
+      "type": "p",
+      "text": "UNESCO ghi danh Ký ức thế giới khu vực châu Á–Thái Bình Dương năm 2010 và cấp toàn cầu năm 2011. Ý tưởng dựng bia khởi từ 1484 thời Lê Thánh Tông. Bài văn bia có câu nổi tiếng của Thân Nhân Trung: \"Hiền tài là nguyên khí của quốc gia...\"."
+     },
+     {
+      "type": "p",
+      "text": "Rùa đội bia: mai tròn tượng trời / dương, yếm phẳng tượng đất / âm — biểu trưng trường tồn."
+     }
+    ]
+   },
+   {
+    "id": "khoa-cu-ca-nuoc",
+    "heading": "Khoa cử cả nước",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Cả nước có 185 khoa thi Nho học (1075–1919), lấy 2.896 vị đại khoa (từ Phó bảng / Tiến sĩ trở lên). Các khoa mốc:"
+     },
+     {
+      "type": "ul",
+      "items": [
+       "**Ất Mão 1075:** khoa đầu tiên.",
+       "**Đinh Mùi 1247:** định lệ Tam khôi.",
+       "**Nhâm Tuất 1442:** mở đầu bia tiến sĩ.",
+       "**Quý Mùi 1463:** 4.400 sĩ tử, kỷ lục."
+      ]
+     },
+     {
+      "type": "p",
+      "text": "Chu Văn An là thầy dạy mẫu mực, từng dâng *Thất trảm sớ*."
+     }
+    ]
+   },
+   {
+    "id": "hien-nay",
+    "heading": "Hiện nay",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Di tích quốc gia đặc biệt từ năm 2012. Đón khoảng 1,5–2 triệu khách mỗi năm (năm 2025 khoảng 1,7 triệu). Dịp Tết có Hội chữ Xuân (xin chữ thư pháp); nơi cũng tuyên dương thủ khoa và học sinh giỏi Olympic. Tục xoa đầu rùa cầu may đã bị hạn chế bằng rào chắn để bảo vệ di vật; khách chuyển sang dâng hương."
+     }
+    ]
+   }
+  ],
+  "lunarDates": [
+   {
+    "label": "Hội chữ Xuân",
+    "day": 1,
+    "month": 1,
+    "text": "1 tháng Giêng"
+   }
+  ],
+  "sources": [
+   {
+    "text": "Đại Việt sử ký toàn thư"
+   },
+   {
+    "text": "UNESCO Memory of the World"
+   },
+   {
+    "text": "Trung tâm Hoạt động Văn hóa Khoa học Văn Miếu - Quốc Tử Giám"
+   }
+  ]
+ },
+ {
+  "slug": "danh-sach-trang-nguyen",
+  "title": "Danh sách Trạng nguyên Việt Nam",
+  "label": "chinh-su",
+  "category": "Khoa cử",
+  "summary": "Trạng nguyên là học vị cao nhất của kỳ thi Đình trong hệ thống khoa cử Nho học. Số người được kể là Trạng nguyên dao động 46–47 tùy nguồn; thống kê phổ biến nhất chia 46–47 vị theo triều: Trần 9, Lê sơ 20, Mạc 11, Lê Trung Hưng 6.",
+  "intro": [
+   "Trạng nguyên là học vị cao nhất của kỳ thi Đình trong hệ thống khoa cử Nho học. Số người được kể là Trạng nguyên dao động 46–47 tùy nguồn; thống kê phổ biến nhất chia 46–47 vị theo triều: Trần 9, Lê sơ 20, Mạc 11, Lê Trung Hưng 6."
+  ],
+  "relatedFigures": [],
+  "relatedPeople": [
+   "tran-thai-tong",
+   "tran-thanh-tong",
+   "le-thanh-tong",
+   "tran-quang-khai"
+  ],
+  "relatedEvents": [
+   "1075-mo-khoa-thi-nho-hoc-dau-tien",
+   "1484-dung-bia-tien-si-tai-van-mieu"
+  ],
+  "updatedAt": "2026-09-27",
+  "heroImage": "/heritage/van-hoa/khoa-cu/danh-sach-trang-nguyen-hero.webp",
+  "heroAlt": "Tranh minh hoạ: Danh sách Trạng nguyên Việt Nam",
+  "sections": [
+   {
+    "id": "he-thong-thi",
+    "heading": "Hệ thống thi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Thi Hương họp ba năm một lần, bốn trường. Đỗ ba trường = Tú tài / Sinh đồ; đỗ đủ bốn = Cử nhân / Hương cống."
+     },
+     {
+      "type": "p",
+      "text": "Thi Hội họp tại kinh đô, do Bộ Lễ chủ trì. Đỗ đầu thi Hội = Hội nguyên — chưa phải Tiến sĩ."
+     },
+     {
+      "type": "p",
+      "text": "Thi Đình họp sân rồng; vua đích thân ra đề, chỉ xếp hạng chứ không đánh trượt. Tam khôi (Trạng nguyên – Bảng nhãn – Thám hoa) thuộc Đệ nhất giáp; Hoàng giáp thuộc Đệ nhị giáp; Tiến sĩ thường thuộc Đệ tam giáp."
+     },
+     {
+      "type": "p",
+      "text": "Đỗ đầu thi Hội (Hội nguyên) không chắc thành Trạng nguyên: vua có thể xếp lại thứ hạng ở thi Đình. Đỗ đầu cả ba kỳ Hương–Hội–Đình mới gọi là Tam nguyên."
+     }
+    ]
+   },
+   {
+    "id": "ai-la-trang-nguyen-dau-tien",
+    "heading": "Ai là Trạng nguyên đầu tiên",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Còn ba quan điểm học thuật, trình bày song song, không chọn một đáp án duy nhất:"
+     },
+     {
+      "type": "ul",
+      "items": [
+       "**Lê Văn Thịnh** đỗ đầu khoa 1075, nhưng thời Lý chưa có danh vị Tam khôi / Tiến sĩ. Ông là Thủ khoa Nho học đầu tiên, không phải Trạng nguyên theo lệ sau này.",
+       "**Nguyễn Quan Quang** đỗ đầu khoa Bính Ngọ 1246. Văn bia Văn Miếu Bắc Ninh và bảng danh nhân tại Văn Miếu Hà Nội xếp ông là Trạng nguyên đầu bảng, nhưng *Đại Việt sử ký toàn thư* chỉ chép khoa 1246 tuyển \"Tiến sĩ\", chưa có Tam khôi.",
+       "**Nguyễn Hiền** đỗ khoa Đinh Mùi 1247. Chính sử ghi rõ đây là khoa đầu tiên \"đặt ra Tam khôi\", nên theo văn bản pháp chế chặt chẽ, Nguyễn Hiền là Trạng nguyên Tam khôi chính thức đầu tiên."
+      ]
+     }
+    ]
+   },
+   {
+    "id": "vi-sao-so-luong-46-hay-47",
+    "heading": "Vì sao số lượng 46 hay 47",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Ba chỗ hay lệch nhau:"
+     },
+     {
+      "type": "p",
+      "text": "1. Hai khoa 1256 và 1266 nhà Trần lấy cả Kinh Trạng nguyên (Bắc) lẫn Trại Trạng nguyên (Nam / Thanh–Nghệ) cùng lúc — bốn người ở hai khoa. 2. Đặng Thì Thố (khoa 1559) đỗ đầu bảng nhưng triều đình chỉ phong Thám hoa; một số tài liệu dân gian nhầm xếp ông là Trạng nguyên thứ 47. 3. Thời Lê Trung Hưng chỉ còn sáu vị. Trịnh Tuệ (khoa 1736) là Trạng nguyên cuối cùng. Triều Nguyễn từ 1802 bỏ hẳn danh vị Trạng nguyên; học vị cao nhất chỉ còn Đình nguyên."
+     },
+     {
+      "type": "p",
+      "text": "Quê quán trong các bảng dưới đây là tên xã, huyện, phủ tại thời điểm đỗ đạt."
+     }
+    ]
+   },
+   {
+    "id": "trieu-tran-9-vi",
+    "heading": "Triều Trần (9 vị)",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "table",
+      "head": [
+       "Tên",
+       "Triều đại / Năm đỗ",
+       "Năm sinh–mất",
+       "Quê quán",
+       "Ghi chú"
+      ],
+      "rows": [
+       [
+        "Nguyễn Quan Quang",
+        "Trần Thái Tông, Bính Ngọ 1246",
+        "TK XIII",
+        "Xã Tam Sơn, huyện Đông Ngàn, trấn Kinh Bắc",
+        "Chính sử: Bộc xạ (Tể tướng). Giai thoại ném đá dạt bèo cảnh cáo sứ Mông Cổ; tôn Tam nguyên."
+       ],
+       [
+        "Nguyễn Hiền",
+        "Trần Thái Tông, Đinh Mùi 1247",
+        "1234–1256",
+        "Xã Dương A, huyện Thượng Hiền, phủ Thiên Trường",
+        "Chính sử: đỗ năm 13 tuổi, Thượng thư bộ Công, mất năm 22 tuổi. Giai thoại xâu chỉ qua ốc bằng kiến không có trong sử, là truyện dân gian."
+       ],
+       [
+        "Trần Quốc Lặc (Kinh Trạng)",
+        "Trần Thái Tông, Bính Thìn 1256",
+        "TK XIII",
+        "Xã Uông Hạ, huyện Nam Sách, châu Nam Sách",
+        "Kinh Trạng nguyên đầu tiên nhà Trần, Thượng thư bộ Lại; giai thoại \"Lưỡng quốc Trạng nguyên\" khi đi sứ."
+       ],
+       [
+        "Trương Xán (Trại Trạng)",
+        "Trần Thái Tông, Bính Thìn 1256",
+        "1227–?",
+        "Xã Hoành Bồ, huyện Hoành Sơn, châu Bố Chính",
+        "Đỗ năm 29 tuổi, Thị lang bộ Hàn lâm. Trại Trạng nguyên đầu tiên, đại diện học phong xứ Trung."
+       ],
+       [
+        "Trần Cố (Kinh Trạng)",
+        "Trần Thánh Tông, Bính Dần 1266",
+        "TK XIII",
+        "Xã Phạm Lý, huyện Hồng Châu, phủ Hạ Hồng",
+        "Thượng thư bộ Lễ, thanh liêm."
+       ],
+       [
+        "Bạch Liêu (Trại Trạng)",
+        "Trần Thánh Tông, Bính Dần 1266",
+        "1236–1315",
+        "Xã Nguyễn Xá, huyện Chân Phúc, phủ Diễn Châu",
+        "Từ chối làm quan triều đình, làm mưu sĩ giúp Trần Quang Khải chống Mông–Nguyên."
+       ],
+       [
+        "Đào Tiêu",
+        "Trần Thánh Tông, Ất Hợi 1275",
+        "TK XIII",
+        "Xã Yên Hồ, huyện La Sơn, phủ Đức Quang",
+        "Đỗ khi bãi bỏ chế độ Kinh–Trại, Thái bộc Tự khanh."
+       ],
+       [
+        "Mạc Đĩnh Chi",
+        "Trần Anh Tông, Giáp Thìn 1304",
+        "1280–1346",
+        "Xã Lũng Động, huyện Chí Linh, phủ Nam Sách",
+        "Chính sử: làm quan ba đời vua, Tả Bộc xạ (Tể tướng), hai lần đi sứ Nguyên (1308, 1324). Giai thoại *Ngọc tỉnh liên phú* tự ví hoa sen giếng ngọc khi vua chê xấu người. Danh \"Lưỡng quốc Trạng nguyên\" là tôn xưng dân gian; nhà Nguyên không có học vị này."
+       ],
+       [
+        "Đào Sư Tích",
+        "Trần Duệ Tông, Giáp Dần 1374",
+        "1348–1396",
+        "Xã Cổ Lễ, huyện Nam Chấn, phủ Thiên Trường",
+        "Nhập nội Hành khiển, đi sứ Minh giữ vững cương vực."
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "trieu-le-so-20-vi",
+    "heading": "Triều Lê sơ (20 vị)",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "table",
+      "head": [
+       "Tên",
+       "Triều đại / Năm đỗ",
+       "Năm sinh–mất",
+       "Quê quán",
+       "Ghi chú"
+      ],
+      "rows": [
+       [
+        "Nguyễn Trực",
+        "Lê Thái Tông, Nhâm Tuất 1442",
+        "1417–1474",
+        "Thôn Bối Khê, xã Tam Hưng, huyện Thanh Oai",
+        "Trạng nguyên đầu tiên khắc bia Văn Miếu, Tế tửu Quốc Tử Giám; giai thoại \"Lưỡng quốc Trạng nguyên\"."
+       ],
+       [
+        "Nguyễn Nghiêu Tư",
+        "Lê Nhân Tông, Mậu Thìn 1448",
+        "1383–?",
+        "Xã Phù Lương, huyện Quế Dương, trấn Kinh Bắc",
+        "Đỗ năm 65 tuổi (lớn tuổi nhất lịch sử), Lại bộ Thượng thư; dân gian gọi chệch \"Trạng Lợn\"."
+       ],
+       [
+        "Lương Thế Vinh",
+        "Lê Thánh Tông, Quý Mùi 1463",
+        "1441–1496",
+        "Thôn Cao Hương, huyện Thiên Bản, phủ Nghĩa Hưng",
+        "Khoa 4.400 sĩ tử dự thi Hội lấy 44 người; vua Lê Thánh Tông tự đề thơ cờ khoa \"Trạng nguyên Lương Thế Vinh...\". Viện trưởng Hàn lâm 32 năm, soạn *Đại thành toán pháp* (sách toán đầu tiên ở Việt Nam) và *Hý phường phả lục* (nền tảng nghệ thuật chèo). Giai thoại \"Trạng Lường\" (cân voi bằng thuyền và đá, đo bề dày trang giấy, đo cây bằng bóng nắng) là truyện dân gian ca ngợi một nhân vật có thật."
+       ],
+       [
+        "Vũ Kiệt",
+        "Lê Thánh Tông, Nhâm Thìn 1472",
+        "1452–?",
+        "Xã Yên Việt, huyện Siêu Loại, phủ Thuận An",
+        "Đỗ năm 20 tuổi, Hàn lâm viện Hiệu thảo."
+       ],
+       [
+        "Vũ Tuấn Chiêu",
+        "Lê Thánh Tông, Ất Mùi 1475",
+        "1425–?",
+        "Xã Nhật Tảo, huyện Từ Liêm, phủ Quốc Oai",
+        "Đỗ năm 50 tuổi, Lại bộ Tả Thị lang."
+       ],
+       [
+        "Phạm Đôn Lễ",
+        "Lê Thánh Tông, Tân Sửu 1481",
+        "1454–?",
+        "Xã Hải Triều, huyện Ngự Thiên, phủ Tân Hưng",
+        "Tam nguyên, Tả Thị lang bộ Lễ. \"Trạng Chiếu\": học kỹ thuật dệt chiếu gon phương Bắc, truyền dạy dân."
+       ],
+       [
+        "Nguyễn Quang Bật",
+        "Lê Thánh Tông, Giáp Thìn 1484",
+        "1463–1505",
+        "Xã Bình Ngô, huyện Gia Định, phủ Thuận An",
+        "Đỗ năm 21 tuổi, hội Tao Đàn; can gián vua Uy Mục, bị đày và bức tử giữ tiết tháo."
+       ],
+       [
+        "Trần Sùng Dĩnh",
+        "Lê Thánh Tông, Đinh Mùi 1487",
+        "1464–?",
+        "Xã Đông Khê, huyện Nam Sách, trấn Hải Dương",
+        "Đỗ năm 23 tuổi, Đông các Đại học sĩ, đi sứ Minh."
+       ],
+       [
+        "Vũ Duệ",
+        "Lê Thánh Tông, Canh Tuất 1490",
+        "1467–1522",
+        "Xã Trịnh Xá, huyện Sơn Vi, phủ Tam Đới",
+        "Đỗ năm 23 tuổi, Lại bộ Thượng thư; tuẫn tiết khi nhà Mạc cướp ngôi."
+       ],
+       [
+        "Vũ Dương",
+        "Lê Thánh Tông, Quý Sửu 1493",
+        "1471–?",
+        "Xã Mạn Nhuế, huyện Thanh Lâm, phủ Nam Sách",
+        "Đỗ năm 22 tuổi, Tế tửu Quốc Tử Giám, Đô Ngự sử, vạch mặt tham quan."
+       ],
+       [
+        "Nghiêm Viện",
+        "Lê Thánh Tông, Bính Thìn 1496",
+        "TK XV",
+        "Xã Bồng Lai, huyện Quế Dương, trấn Kinh Bắc",
+        "Hàn lâm viện Thị độc, tài năng nhưng mất sớm."
+       ],
+       [
+        "Đỗ Lý Nghiêm",
+        "Lê Hiến Tông, Kỷ Mùi 1499",
+        "TK XV",
+        "Xã Ngoại Lãng, huyện Thư Trì, phủ Kiến Xương",
+        "Tên gốc Đỗ Cảnh Tụ, Tả Thị lang bộ Hình."
+       ],
+       [
+        "Lê Ích Mộc",
+        "Lê Hiến Tông, Nhâm Tuất 1502",
+        "1458–1538",
+        "Xã Thanh Lãng, huyện Thủy Đường, phủ Kinh Môn",
+        "Đỗ năm 44 tuổi, Tả Thị lang bộ Lễ. \"Trạng Phật\": xuất thân bần hàn, nương cửa chùa tu học."
+       ],
+       [
+        "Lê Nại",
+        "Lê Uy Mục, Ất Sửu 1505",
+        "1478–?",
+        "Xã Mộ Trạch, huyện Đường An, phủ Thượng Hồng",
+        "Đỗ năm 27 tuổi. \"Trạng Ăn\": sức ăn phi thường, đọc sách không mệt."
+       ],
+       [
+        "Nguyễn Giản Thanh",
+        "Lê Uy Mục, Mậu Thìn 1508",
+        "1482–?",
+        "Xã Ông Mạc, huyện Đông Ngàn, trấn Kinh Bắc",
+        "Đỗ năm 26 tuổi. \"Trạng Me\": diện mạo phong nhã."
+       ],
+       [
+        "Hoàng Nghĩa Phú",
+        "Lê Tương Dực, Tân Mùi 1511",
+        "1480–?",
+        "Xã Cảo Dương, huyện Chương Đức, phủ Ứng Thiên",
+        "Đỗ năm 31 tuổi."
+       ],
+       [
+        "Nguyễn Đức Lương",
+        "Lê Tương Dực, Giáp Tuất 1514",
+        "1463–?",
+        "Xã Canh Hoạch, huyện Thanh Oai, phủ Ứng Thiên",
+        "Đỗ năm 51 tuổi, mở đầu truyền thống đỗ Trạng của làng Canh Hoạch."
+       ],
+       [
+        "Ngô Miễn Thiệu",
+        "Lê Chiêu Tông, Mậu Dần 1518",
+        "1498–?",
+        "Xã Tam Sơn, huyện Đông Ngàn, trấn Kinh Bắc",
+        "Đỗ năm 20 tuổi, góp phần xây vùng đất học Tam Sơn."
+       ],
+       [
+        "Hoàng Văn Tán",
+        "Lê Cung Hoàng, Quý Mùi 1523",
+        "1492–?",
+        "Xã Xuân Lôi, huyện Yên Phong, trấn Kinh Bắc",
+        "Hàn lâm viện Thị thư."
+       ],
+       [
+        "Trần Tất Văn",
+        "Lê Cung Hoàng, Bính Tuất 1526",
+        "1492–1527",
+        "Xã Nguyệt Áng, huyện An Lão, phủ Kinh Môn",
+        "Trạng nguyên cuối cùng triều Lê sơ; tuẫn tiết khi triều sụp đổ."
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "trieu-mac-11-vi",
+    "heading": "Triều Mạc (11 vị)",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "table",
+      "head": [
+       "Tên",
+       "Triều đại / Năm đỗ",
+       "Năm sinh–mất",
+       "Quê quán",
+       "Ghi chú"
+      ],
+      "rows": [
+       [
+        "Đỗ Tông",
+        "Mạc Thái Tổ, Kỷ Sửu 1529",
+        "1504–?",
+        "Xã Lại Ốc, huyện Tế Giang, phủ Thuận An",
+        "Trạng nguyên đầu tiên triều Mạc."
+       ],
+       [
+        "Nguyễn Thiến",
+        "Mạc Thái Tông, Nhâm Thìn 1532",
+        "1495–1557",
+        "Xã Canh Hoạch, huyện Thanh Oai, trấn Sơn Nam",
+        "Đỗ năm 38 tuổi, sau quy thuận Lê Trung Hưng; viễn tổ của đại thi hào Nguyễn Du."
+       ],
+       [
+        "Nguyễn Bỉnh Khiêm",
+        "Mạc Thái Tông, Ất Mùi 1535",
+        "1491–1585",
+        "Xã Trung Am, huyện Vĩnh Lại, phủ Hạ Hồng",
+        "Trình Tuyền hầu (\"Trạng Trình\"), đào tạo nhiều danh sĩ; giai thoại sấm ký tiên tri định hướng giữ nước."
+       ],
+       [
+        "Giáp Hải",
+        "Mạc Thái Tông, Mậu Tuất 1538",
+        "1507–1586",
+        "Xã Dĩnh Kế, huyện Phượng Nhãn, phủ Lạng Giang",
+        "Cột trụ ngoại giao triều Mạc."
+       ],
+       [
+        "Nguyễn Kỳ",
+        "Mạc Hiến Tông, Tân Sửu 1541",
+        "1518–?",
+        "Xã Bình Dân, huyện Đông Yên, phủ Khoái Châu",
+        "Đỗ năm 24 tuổi."
+       ],
+       [
+        "Dương Phúc Tư",
+        "Mạc Tuyên Tông, Đinh Mùi 1547",
+        "1505–1564",
+        "Xã Lạc Đạo, huyện Gia Lâm, phủ Thuận An",
+        "Đỗ năm 43 tuổi."
+       ],
+       [
+        "Trần Văn Bảo",
+        "Mạc Tuyên Tông, Canh Tuất 1550",
+        "1523–1586",
+        "Xã Cổ Chử, huyện Giao Thủy, phủ Thiên Trường",
+        "Đỗ năm 27 tuổi."
+       ],
+       [
+        "Nguyễn Lượng Thái",
+        "Mạc Tuyên Tông, Quý Sửu 1553",
+        "1525–1576",
+        "Xã Bình Ngô, huyện Gia Định, phủ Thuận An",
+        "Đỗ năm 29 tuổi."
+       ],
+       [
+        "Phạm Trấn",
+        "Mạc Tuyên Tông, Bính Thìn 1556",
+        "1523–?",
+        "Xã Lam Kiều, huyện Gia Phúc, phủ Hạ Hồng",
+        "Đỗ năm 34 tuổi, thơ phú điêu luyện."
+       ],
+       [
+        "Phạm Duy Quyết",
+        "Mạc Mậu Hợp, Nhâm Tuất 1562",
+        "1521–?",
+        "Xã Xác Khê, huyện Chí Linh, phủ Nam Sách",
+        "Đỗ năm 42 tuổi."
+       ],
+       [
+        "Vũ Giới",
+        "Mạc Mậu Hợp, Đinh Sửu 1577",
+        "1541–?",
+        "Xã Lương Xá, huyện Lương Tài, trấn Kinh Bắc",
+        "Trạng nguyên chính quy cuối cùng triều Mạc tại Thăng Long."
+       ]
+      ]
+     },
+     {
+      "type": "p",
+      "text": "Đặng Thì Thố, khoa Kỷ Mùi 1559 thời Mạc Tuyên Tông (1526–?, xã An Lạc, huyện Thanh Lâm, phủ Nam Sách), đỗ đầu thi Hội và thi Đình nhưng chỉ được phong Thám hoa. Nhiều tài liệu dân gian nhầm xếp ông là \"Trạng nguyên thứ 47\" — không đúng chính sử, nên không đánh số vào danh sách trên."
+     }
+    ]
+   },
+   {
+    "id": "trieu-le-trung-hung-6-vi",
+    "heading": "Triều Lê Trung Hưng (6 vị)",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "table",
+      "head": [
+       "Tên",
+       "Triều đại / Năm đỗ",
+       "Năm sinh–mất",
+       "Quê quán",
+       "Ghi chú"
+      ],
+      "rows": [
+       [
+        "Nguyễn Xuân Chính",
+        "Lê Thần Tông, Đinh Sửu 1637",
+        "1587–1670",
+        "Xã Phù Chẩn, huyện Đông Ngàn, trấn Kinh Bắc",
+        "Đỗ năm 50 tuổi, mở đầu Trạng nguyên thời Lê Trung Hưng; dân gian gọi \"Trạng Cháy\"."
+       ],
+       [
+        "Nguyễn Quốc Trinh",
+        "Lê Thần Tông, Kỷ Hợi 1659",
+        "1625–1674",
+        "Xã Nguyệt Áng, huyện Thanh Trì, phủ Thường Tín",
+        "Tham tụng (Tể tướng), đi sứ Thanh; bị kiêu binh sát hại vì kiên quyết giữ kỷ cương."
+       ],
+       [
+        "Đặng Công Chất",
+        "Lê Thần Tông, Tân Sửu 1661",
+        "1621–1683",
+        "Xã Phù Đổng, huyện Tiên Du, phủ Từ Sơn",
+        "Binh bộ Thượng thư, Tham tụng; quê cạnh đền Phù Đổng nên dân gian gọi \"Trạng Gióng\"."
+       ],
+       [
+        "Lưu Danh Công",
+        "Lê Huyền Tông, Canh Tuất 1670",
+        "1643–?",
+        "Xã Canh Hoạch, huyện Thanh Oai, phủ Ứng Thiên",
+        "Nối truyền thống khoa bảng làng Canh Hoạch."
+       ],
+       [
+        "Nguyễn Đăng Đạo",
+        "Lê Hy Tông, Quý Hợi 1683",
+        "1651–1719",
+        "Thôn Hoài Bão, xã Liên Bão, huyện Tiên Du, Kinh Bắc",
+        "Tam nguyên, Tể tướng hơn 20 năm, giải quyết tranh chấp biên giới Tuyên Quang; dân gian gọi \"Trạng Bịu\"."
+       ],
+       [
+        "Trịnh Tuệ",
+        "Lê Ý Tông, Bính Thìn 1736",
+        "1701–?",
+        "Xã Biện Thượng, huyện Vĩnh Lộc, trấn Thanh Hóa",
+        "Trạng nguyên cuối cùng trong lịch sử khoa cử Việt Nam; dòng dõi chúa Trịnh, làm Tham tụng."
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "id": "ba-nhan-vat-dac-biet",
+    "heading": "Ba nhân vật đặc biệt",
+    "paras": [],
+    "blocks": [],
+    "sub": [
+     {
+      "heading": "Nguyễn Hiền",
+      "paras": [
+       "Nguyễn Hiền là Trạng nguyên trẻ nhất lịch sử: 13 tuổi (14 tuổi mụ), khoa Đinh Mùi 1247. Chính sử chép vua thấy còn nhỏ, chưa rành lễ nghi, cho về quê học thêm ba năm; ông mất năm 22 tuổi. Giai thoại \"xâu chỉ qua ốc nhờ kiến\" là truyện cổ tích dân gian về trí khôn, không có trong sử sách triều Trần."
+      ]
+     },
+     {
+      "heading": "Nguyễn Thị Duệ",
+      "paras": [
+       "Nguyễn Thị Duệ (1574–1654) là nữ Trạng nguyên / nữ tiến sĩ duy nhất trong lịch sử. Quê làng Kiệt Đặc, Chí Linh, Hải Dương. Bà cải nam trang, đổi tên Nguyễn Ngọc Du, thi đỗ đầu khoa Giáp Ngọ 1594 dưới triều Mạc cát cứ tại Cao Bằng, khoảng 20 tuổi. Vua Mạc Kính Cung phát hiện là nữ, không xử tội mà nạp làm cung phi, ban hiệu Tinh Phi (\"Bà Chúa Sao Sa\"). Sau khi Cao Bằng thất thủ (1625), triều Lê–Trịnh trọng dụng bà làm Lễ nghi Thị giảng, khảo duyệt văn bài thi.",
+       "Tên bà không có trên bia Văn Miếu Thăng Long (khoa thi thuộc chính quyền Mạc cát cứ), nhưng được xác thực qua *Đại Nam nhất thống chí*, *Công dư tiệp ký* và văn bia tháp Tinh Phi tại Hải Dương."
+      ]
+     },
+     {
+      "heading": "Lương Thế Vinh",
+      "paras": [
+       "Lương Thế Vinh là nhân vật lịch sử có thật, đỗ Trạng nguyên chính thức khoa Quý Mùi 1463. Ông là nhà toán học và soạn giả: *Đại thành toán pháp* và *Hý phường phả lục* là tác phẩm có thật. Các giai thoại \"Trạng Lường\" là truyện dân gian ca ngợi, không biến ông thành nhân vật truyền thuyết."
+      ]
+     }
+    ]
+   },
+   {
+    "id": "chu-thich-dia-danh",
+    "heading": "Chú thích địa danh",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Tên đơn vị hành chính cấp huyện/xã ghi trong bài là tên tại thời điểm lịch sử; nhiều nơi đã đổi tên sau các đợt sáp nhập, đặc biệt đợt 2025."
+     }
+    ]
+   }
+  ],
+  "lunarDates": [],
+  "sources": [
+   {
+    "text": "Đại Việt sử ký toàn thư"
+   },
+   {
+    "text": "Đại Nam nhất thống chí"
+   },
+   {
+    "text": "Công dư tiệp ký"
+   },
+   {
+    "text": "văn bia Văn Miếu Thăng Long"
+   },
+   {
+    "text": "văn bia tháp Tinh Phi (Hải Dương)"
    }
   ]
  }
