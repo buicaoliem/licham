@@ -210,3 +210,32 @@ export interface BaiViet {
   related?: RelatedLink[];
   sources: Source[];
 }
+
+/** Lễ hội (sinh bởi scripts/import-van-hoa.ts từ le-hoi.csv). Không có cột ghi chú nội bộ needsCheck. */
+export interface LeHoi {
+  slug: string;
+  name: string;
+  /** "am": theo âm lịch; "cham": theo lịch Chăm (chỉ hiện `dateText`, không quy ra ngày âm). */
+  calendar: "am" | "cham";
+  /** Thiếu = không cố định ngày (tục lệ theo mùa vụ, theo dòng họ). Tháng thường, không nhuận. */
+  lunarMonth?: number;
+  startDay?: number;
+  /** Thiếu khi lễ hội chỉ có một ngày hoặc kéo sang tháng sau (xem `mainDay`). */
+  endDay?: number;
+  mainDay?: number;
+  /** Ngày ghi bằng chữ — nguồn đáng tin nhất để hiển thị. */
+  dateText: string;
+  site: string;
+  newAddress: string;
+  oldAddress?: string;
+  worship: string;
+  summary: string;
+  rituals: string;
+  heritage?: string;
+  imageKey?: string;
+  image?: string;
+  cardImage?: string;
+  imageAlt?: string;
+  updatedAt: UpdatedAt;
+  sources: Source[];
+}

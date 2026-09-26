@@ -7,7 +7,7 @@ import { normalizeVi } from "@/lib/van-hoa/logic";
 import type { ItemLabel } from "@/lib/van-hoa/types";
 import s from "../van-hoa.module.css";
 import t from "./tpl.module.css";
-import { Drafting, ItemBadge, Pic, SectionTitle } from "./Shared";
+import { Drafting, ItemBadge, Pic, SectionTitle, TopicBadge } from "./Shared";
 
 export interface TopicItem {
   /** Khoá duy nhất; thiếu thì dùng `href`. */
@@ -20,6 +20,8 @@ export interface TopicItem {
   summary: string;
   group: string;
   label?: ItemLabel;
+  /** Nhãn chuyên mục dạng chữ (vd. "Lễ hội"), dùng khi không có `label`. */
+  badge?: string;
   image?: string;
   imageAlt?: string;
   /** Chữ bổ sung để tìm kiếm (tên khác, nơi thờ…). */
@@ -62,7 +64,7 @@ export function TopicList({ items, groups, placeholder }: { items: readonly Topi
                 <li key={n.id ?? n.href} className={t.cardItem}>
                   <Pic src={n.image} alt={n.imageAlt} className={t.cardImg} width={112} height={160} />
                   <div className={t.cardBody}>
-                    {n.label && <ItemBadge label={n.label} />}
+                    {n.label ? <ItemBadge label={n.label} /> : n.badge ? <TopicBadge text={n.badge} /> : null}
                     <h3 className={t.cardName}>{n.title}</h3>
                     {n.meta && <p className={s.note} style={{ margin: "0 0 4px" }}>{n.meta}</p>}
                     <p className={s.muted} style={{ color: "var(--vh-ink)" }}>

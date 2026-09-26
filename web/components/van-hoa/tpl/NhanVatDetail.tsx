@@ -7,16 +7,18 @@ import { festivalTable, lunarDayWord } from "@/lib/van-hoa/logic";
 import { placeAddress } from "@/lib/van-hoa/import-logic";
 import { placeJsonLd } from "@/lib/van-hoa/jsonld";
 import { NHAN_VAT } from "@/lib/van-hoa/data/nhan-vat";
+import { leHoiOfFigure, leHoiPath } from "@/lib/van-hoa/le-hoi";
 import type { NhanVat } from "@/lib/van-hoa/types";
 import { getVietnamToday } from "@/lib/today";
 import s from "../van-hoa.module.css";
 import t from "./tpl.module.css";
-import { Card, Hero, Page, Related, SectionTitle, Sources } from "./Shared";
+import { Card, Hero, LinkRow, Page, Related, SectionTitle, Sources } from "./Shared";
 
 export function NhanVatDetail({ nv }: { nv: NhanVat }) {
   const today = getVietnamToday();
   const fests = nv.festivals ?? [];
   const rows = fests.length ? festivalTable(fests, today.year) : [];
+  const leHoi = leHoiOfFigure(nv);
   const others = (nv.relatedNhanVat ?? []).map((sl) => NHAN_VAT.find((n) => n.slug === sl)).filter((n): n is NhanVat => Boolean(n));
   const related = [
     ...(nv.relatedVanKhan ?? []),
@@ -89,6 +91,17 @@ export function NhanVatDetail({ nv }: { nv: NhanVat }) {
             )
           )}
         </div>
+        {leHoi.length > 0 && (
+          <div className={t.stack}>
+            <Card id="le-hoi-lien-quan" icon="flame" title="Trang lễ hội liên quan">
+              <div className={t.stack} style={{ marginTop: 0 }}>
+                {leHoi.map((f) => (
+                  <LinkRow key={f.slug} link={{ label: f.name, href: leHoiPath(f.slug), summary: f.dateText }} icon="flame" />
+                ))}
+              </div>
+            </Card>
+          </div>
+        )}
         {nv.heritage && nv.heritage.length > 0 && (
           <div className={t.stack}>
             <Card id="di-san" icon="scroll" title="Di tích, di sản được công nhận">

@@ -7,10 +7,11 @@ import { placeLine, yearPageHref } from "@/lib/van-hoa/import-logic";
 import { canChiYearHeader, canChiYearOfEvent } from "@/lib/van-hoa/logic";
 import { ECLIPSE_LIST_PATH } from "@/lib/van-hoa/eclipses";
 import { moonInfo } from "@/lib/van-hoa/moon";
+import { LE_HOI_PATH, leHoiOfLunarDay, leHoiPath, lunarSpanShort } from "@/lib/van-hoa/le-hoi";
 import { ITEM_LABELS, type ItemLabel } from "@/lib/van-hoa/types";
 import { MoonDisc } from "../MoonDisc";
 import s from "../van-hoa.module.css";
-import { ItemBadge, Pic } from "../tpl/Shared";
+import { ItemBadge, Pic, TopicBadge } from "../tpl/Shared";
 import b from "./blocks.module.css";
 
 function MoonIcon() {
@@ -43,7 +44,7 @@ function Frame({ title, icon, more, children }: { title: string; icon: IconName 
 }
 
 /** Dòng thời gian: chấm màu theo nhãn, năm, tiêu đề, nhãn canh phải. */
-function Timeline({ rows }: { rows: { key: string; year: number | string; title: string; label: ItemLabel; href?: string }[] }) {
+function Timeline({ rows }: { rows: { key: string; year: number | string; title: string; label: ItemLabel; href?: string; /** Nhãn chữ (vd. "Lễ hội") thay cho nhãn mục. */ badge?: string }[] }) {
   return (
     <ol className={b.tl}>
       {rows.map((r) => (
@@ -57,7 +58,7 @@ function Timeline({ rows }: { rows: { key: string; year: number | string; title:
           ) : (
             <span className={b.tlTitle}>{r.title}</span>
           )}
-          <ItemBadge label={r.label} />
+          {r.badge ? <TopicBadge text={r.badge} /> : <ItemBadge label={r.label} />}
         </li>
       ))}
     </ol>
@@ -73,13 +74,22 @@ export function LunarDayBlocks({ date, lunarDay, lunarMonth, leap = false }: { d
     ...events.map((e) => ({ key: e.slug, year: e.lunar.year, title: e.title, label: e.label, href: `/van-hoa/su-kien/${e.slug}/` })),
     ...namEvents.map((e) => ({ key: e.id ?? `${e.year}-${e.title}`, year: e.yearText ?? e.year, title: e.title, label: e.label, href: `${yearPageHref(canChiYearOfEvent(e)!)}#${e.id ?? `nam-${e.year}`}` })),
   ];
+  const festivals = leHoiOfLunarDay(lunarDay, lunarMonth, leap).map((f) => ({ key: f.slug, year: lunarSpanShort(f), title: f.name, label: "tin-nguong" as const, badge: "Lễ hội", href: leHoiPath(f.slug) }));
   const moon = moonInfo(date);
   const today = getVietnamToday();
   const isToday = today.day === date.day && today.month === date.month && today.year === date.year;
   const when = isToday ? "hôm nay" : "ngày này";
   const t = (x: typeof moon.moonrise) => (x ? `${x.hhmm}${x.nextDay ? " (ngày sau)" : ""}` : "—");
   return (
-    <div className={b.duo}>
+    <>
+      {festivals.length > 0 && (
+        <div className={b.duo}>
+          <Frame title={`Lễ hội ${when}`} icon="flame" more={{ href: LE_HOI_PATH, label: "Xem thêm" }}>
+            <Timeline rows={festivals} />
+          </Frame>
+        </div>
+      )}
+      <div className={b.duo}>
       {rows.length > 0 && (
         <Frame title="Ngày này năm xưa" icon="calendar" more={{ href: "/van-hoa/su-kien/", label: "Xem thêm" }}>
           <Timeline rows={rows} />
@@ -106,7 +116,8 @@ export function LunarDayBlocks({ date, lunarDay, lunarMonth, leap = false }: { d
           <Link href={ECLIPSE_LIST_PATH}>Lịch nhật thực, nguyệt thực</Link>
         </p>
       </Frame>
-    </div>
+      </div>
+    </>
   );
 }
 

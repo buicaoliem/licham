@@ -4,8 +4,10 @@ import { BAI_VIET } from "./data/bai-viet";
 import { ECLIPSES, ECLIPSE_LIST_PATH, eclipsePath } from "./eclipses";
 import { DAN_GIAN } from "./data/dan-gian";
 import { NAM_SU_KIEN } from "./data/nam-su-kien";
+import { LE_HOI } from "./data/le-hoi";
 import { NHAN_VAT } from "./data/nhan-vat";
 import { SU_KIEN } from "./data/su-kien";
+import { LE_HOI_PATH, MONTHS, leHoiMonthPath, leHoiOfMonth, leHoiPath } from "./le-hoi";
 import { eventsOfCanChi } from "./logic";
 import { FIXTURE_SLUG } from "./types";
 
@@ -23,6 +25,9 @@ export function vanHoaSubPathEntries(): VanHoaPath[] {
     { path: "/van-hoa/nhan-vat/", lastmod: latest(NHAN_VAT.map((x) => x.updatedAt)) },
     { path: "/van-hoa/su-kien/", lastmod: latest([...SU_KIEN, ...NAM_SU_KIEN].map((x) => x.updatedAt)) },
     { path: "/van-hoa/dan-gian/" },
+    { path: LE_HOI_PATH, lastmod: latest(LE_HOI.map((x) => x.updatedAt)) },
+    ...MONTHS.filter((m) => leHoiOfMonth(m).length > 0).map((m) => ({ path: leHoiMonthPath(m), lastmod: latest(leHoiOfMonth(m).map((x) => x.updatedAt)) })),
+    ...LE_HOI.map((x) => ({ path: leHoiPath(x.slug), lastmod: x.updatedAt })),
     { path: ECLIPSE_LIST_PATH },
     ...ECLIPSES.map((e) => ({ path: eclipsePath(e) })),
     ...NHAN_VAT.map((x) => ({ path: `/van-hoa/nhan-vat/${x.slug}/`, lastmod: x.updatedAt })),

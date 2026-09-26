@@ -116,14 +116,14 @@ export function Related({ links }: { links: readonly RelatedLink[] }) {
   );
 }
 
-export function Hero({ label, title, sub, lead, image, alt, center = false, contain = false, short = false }: { label?: ItemLabel; title: string; sub?: string; lead?: string; image?: string | null; alt?: string; center?: boolean; contain?: boolean; short?: boolean }) {
+export function Hero({ label, badge, title, sub, lead, image, alt, center = false, contain = false, short = false }: { label?: ItemLabel; /** Nhãn chuyên mục dạng chữ (vd. "Lễ hội"); dùng khi không có nhãn mục. */ badge?: string; title: string; sub?: string; lead?: string; image?: string | null; alt?: string; center?: boolean; contain?: boolean; short?: boolean }) {
   return (
     <header className={`${t.dHero} ${center ? t.dHeroCenter : ""}`}>
       {image && heritageFile(image) && <Pic src={image} alt={alt} className={contain ? `${t.dHeroArt} ${t.dHeroContain}` : short ? `${t.dHeroArt} ${t.dHeroShort}` : t.dHeroArt} width={1200} height={600} eager />}
       {image && heritageFile(image) && <p className={t.caption}>Tranh minh họa, không phải chân dung hay tư liệu lịch sử</p>}
       <div className={t.dHeroText}>
         <div className={t.dHeroTextIn}>
-          {label && <ItemBadge label={label} />}
+          {label ? <ItemBadge label={label} /> : badge ? <TopicBadge text={badge} /> : null}
           <h1 className={s.h1} style={{ textAlign: "inherit" }}>
             {title}
           </h1>
