@@ -81,14 +81,17 @@ const RELATED_HOLIDAYS: Record<string, string[]> = {
   "tan-vien-son-thanh": ["ram-thang-gieng"],
 };
 
-/** Ảnh có sẵn theo quy ước /heritage (chỉ Thánh Gióng); nhân vật khác dùng khung hoa văn. */
-const FIGURE_IMAGES: Record<string, Pick<NhanVat, "image" | "cardImage" | "imageAlt">> = {
-  "thanh-giong": {
-    image: "/heritage/van-hoa/nhan-vat/thanh-giong-hero.webp",
-    cardImage: "/heritage/van-hoa/nhan-vat/thanh-giong-the.webp",
-    imageAlt: "Thánh Gióng cưỡi ngựa sắt cầm giáo giữa mây và núi",
-  },
+/** Ảnh nhân vật theo quy ước /heritage/van-hoa/nhan-vat/{slug}-hero.webp (trang) và -the.webp (thẻ, chia sẻ). */
+const FIGURE_IMAGE_ALT: Record<string, string> = {
+  "thanh-giong": "Thánh Gióng cưỡi ngựa sắt cầm giáo giữa mây và núi",
 };
+function figureImages(slug: string, name: string): Pick<NhanVat, "image" | "cardImage" | "imageAlt"> {
+  return {
+    image: `/heritage/van-hoa/nhan-vat/${slug}-hero.webp`,
+    cardImage: `/heritage/van-hoa/nhan-vat/${slug}-the.webp`,
+    imageAlt: FIGURE_IMAGE_ALT[slug] ?? `Tranh minh hoạ ${name}`,
+  };
+}
 
 // ---------- CSV ----------
 function parseCsv(path: string): Record<string, string>[] {
@@ -238,7 +241,7 @@ function importFigures(): NhanVat[] {
       label: figureLabel(slug),
       group,
       summary: r.summary!,
-      ...FIGURE_IMAGES[slug],
+      ...figureImages(slug, r.name!),
       ...(r.variants ? { variants: splitList(r.variants) } : {}),
       ...(places.length ? { places } : r.worshipPlaces ? { worshipPlacesText: r.worshipPlaces } : {}),
       ...(festivals.length ? { festivals } : {}),
