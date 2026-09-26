@@ -8,6 +8,7 @@ import { LE_HOI } from "./data/le-hoi";
 import { NHAN_VAT } from "./data/nhan-vat";
 import { SU_KIEN } from "./data/su-kien";
 import { LE_HOI_PATH, MONTHS, leHoiMonthPath, leHoiOfMonth, leHoiPath } from "./le-hoi";
+import { TRO_CHOI, TRO_CHOI_PATH } from "./tro-choi";
 import { eventsOfCanChi } from "./logic";
 import { FIXTURE_SLUG } from "./types";
 
@@ -25,6 +26,7 @@ export function vanHoaSubPathEntries(): VanHoaPath[] {
     { path: "/van-hoa/nhan-vat/", lastmod: latest(NHAN_VAT.map((x) => x.updatedAt)) },
     { path: "/van-hoa/su-kien/", lastmod: latest([...SU_KIEN, ...NAM_SU_KIEN].map((x) => x.updatedAt)) },
     { path: "/van-hoa/dan-gian/" },
+    { path: TRO_CHOI_PATH, lastmod: latest(TRO_CHOI.map((x) => x.updatedAt)) },
     { path: LE_HOI_PATH, lastmod: latest(LE_HOI.map((x) => x.updatedAt)) },
     ...MONTHS.filter((m) => leHoiOfMonth(m).length > 0).map((m) => ({ path: leHoiMonthPath(m), lastmod: latest(leHoiOfMonth(m).map((x) => x.updatedAt)) })),
     ...LE_HOI.map((x) => ({ path: leHoiPath(x.slug), lastmod: x.updatedAt })),

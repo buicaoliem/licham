@@ -4,7 +4,7 @@
  *  - lib/van-hoa/data/nam-su-kien.generated.ts    — 235 mốc lịch sử đến 1945 (trang năm can chi, danh sách sự kiện)
  *  - lib/van-hoa/data/ngay-nay-nam-xua.generated.ts — mốc có ngày âm cụ thể ("Ngày này năm xưa")
  *  - lib/van-hoa/data/nhan-vat.generated.ts       — 20 nhân vật truyền thuyết, nơi thờ lấy từ noi-tho.csv
- *  - lib/van-hoa/data/bai-viet.generated.ts       — 6 bài Tết
+ *  - lib/van-hoa/data/bai-viet.generated.ts       — 6 bài Tết + 20 trò chơi dân gian
  *  - lib/van-hoa/data/le-hoi.generated.ts         — lễ hội theo ngày âm (le-hoi.csv), tóm tắt trung lập từ scripts/le-hoi-neutral.ts
  *  - content/van-hoa/needs-check.json             — ghi chú nội bộ cột needsCheck (không trang nào đọc)
  * Chạy lại được nhiều lần; giọng văn trung lập cho mốc từ 1900 nằm trong NEUTRAL_SUMMARY bên dưới.
@@ -132,7 +132,7 @@ function parseCsv(path: string): Record<string, string>[] {
 }
 
 const sourcesOf = (text: string): Source[] => splitList(text).map((t) => ({ text: t }));
-const needsCheck: Record<string, Record<string, string>> = { events: {}, figures: {}, places: {}, festivals: {} };
+const needsCheck: Record<string, Record<string, string>> = { events: {}, figures: {}, places: {}, festivals: {}, articles: {} };
 const warnings: string[] = [];
 
 // ---------- Sự kiện ----------
@@ -265,33 +265,50 @@ function importFigures(): NhanVat[] {
 // ---------- Bài Tết ----------
 const CATEGORY_LABEL: Record<string, ItemLabel> = { "Dân gian": "tin-nguong", "Thiên văn": "chinh-su" };
 
+/** Ảnh bài Tết nằm /heritage/tet/; ảnh trò chơi nằm /heritage/van-hoa/tro-choi-dan-gian/. */
+function articleHeroPath(hero: string): string {
+  const stem = hero.replace(/\.\w+$/, "");
+  if (stem.startsWith("tet-")) return `/heritage/tet/${stem.replace(/^tet-/, "")}.webp`;
+  return `/heritage/van-hoa/tro-choi-dan-gian/${stem}.webp`;
+}
+
 function importArticles(figureSlugs: Set<string>): BaiViet[] {
-  const md = readFileSync(join(IN, "bai-tet-6-chu-de.md"), "utf8");
-  return splitArticles(md).map(({ meta, body }): BaiViet => {
-    const slug = meta.slug!;
-    const title = meta.title!;
-    const category = meta.category!;
-    if (!CATEGORY_LABEL[category]) throw new Error(`Chuyên mục lạ "${category}" ở ${slug}`);
-    const { intro, sections } = parseArticleBody(body);
-    const hero = meta.hero ? `/heritage/tet/${meta.hero.replace(/^tet-/, "").replace(/\.\w+$/, "")}.webp` : undefined;
-    if (hero && !existsSync(join(WEB, "public", hero))) warnings.push(`${slug}: chưa có ảnh ${hero} — chạy lại sau khi thêm ảnh.`);
-    const relatedFigures = (meta.relatedFigures ?? "").split(",").map((x) => x.trim()).filter(Boolean);
-    for (const f of relatedFigures) if (!figureSlugs.has(f)) warnings.push(`${slug}: relatedFigures "${f}" không có trang nhân vật.`);
-    return {
-      slug,
-      title,
-      label: CATEGORY_LABEL[category]!,
-      category,
-      summary: intro.join(" ") || title,
-      intro,
-      relatedFigures: relatedFigures.filter((f) => figureSlugs.has(f)),
-      updatedAt: UPDATED_AT,
-      ...(hero ? { heroImage: hero, heroAlt: `Tranh minh hoạ: ${title.split(":")[0]}` } : {}),
-      sections,
-      lunarDates: parseArticleLunarDates(meta.lunarDates ?? "", title.split(":")[0]!.trim()),
-      sources: sourcesOf(meta.sources ?? ""),
-    };
-  });
+  const files = ["bai-tet-6-chu-de.md", "tro-choi-dan-gian.md"];
+  const seen = new Set<string>();
+  const articles: BaiViet[] = [];
+  for (const file of files) {
+    const path = join(IN, file);
+    if (!existsSync(path)) throw new Error(`Thiếu file bài viết ${path}`);
+    for (const { meta, body } of splitArticles(readFileSync(path, "utf8"))) {
+      const slug = meta.slug!;
+      if (seen.has(slug)) throw new Error(`${file}: trùng slug "${slug}"`);
+      seen.add(slug);
+      const title = meta.title!;
+      const category = meta.category!;
+      if (!CATEGORY_LABEL[category]) throw new Error(`Chuyên mục lạ "${category}" ở ${slug}`);
+      const { intro, sections } = parseArticleBody(body);
+      const hero = meta.hero ? articleHeroPath(meta.hero) : undefined;
+      if (hero && !existsSync(join(WEB, "public", hero))) warnings.push(`${slug}: chưa có ảnh ${hero} — chạy lại sau khi thêm ảnh.`);
+      const relatedFigures = (meta.relatedFigures ?? "").split(",").map((x) => x.trim()).filter(Boolean);
+      for (const f of relatedFigures) if (!figureSlugs.has(f)) warnings.push(`${slug}: relatedFigures "${f}" không có trang nhân vật.`);
+      if (meta.needsCheck) needsCheck.articles![slug] = meta.needsCheck;
+      articles.push({
+        slug,
+        title,
+        label: CATEGORY_LABEL[category]!,
+        category,
+        summary: intro.join(" ") || title,
+        intro,
+        relatedFigures: relatedFigures.filter((f) => figureSlugs.has(f)),
+        updatedAt: UPDATED_AT,
+        ...(hero ? { heroImage: hero, heroAlt: `Tranh minh hoạ: ${title.split(":")[0]}` } : {}),
+        sections,
+        lunarDates: parseArticleLunarDates(meta.lunarDates ?? "", title.split(":")[0]!.trim()),
+        sources: sourcesOf(meta.sources ?? ""),
+      });
+    }
+  }
+  return articles;
 }
 
 // ---------- Lễ hội ----------
@@ -418,7 +435,7 @@ console.log(`figures ${figures.length} / places ${places} / articles ${articles.
 console.log(`festivals ${festivals.length} / fixed lunar date ${festivals.filter((f) => f.calendar === "am" && f.lunarMonth && f.startDay).length} / cham ${festivals.filter((f) => f.calendar === "cham").length} / no fixed date (empty month or cham) ${festivals.filter((f) => !f.lunarMonth).length} / with image ${festivals.filter((f) => f.imageKey).length}`);
 console.log(`images: ${festivals.filter((f) => f.imageKey).length} with image / ${festivals.filter((f) => !f.imageKey).length} fallback; preferred found+used [${[...new Set(preferredUsed)].join(", ")}]; still missing [${[...new Set(preferredMissing)].join(", ")}]; redirects ${festivals.filter((f) => f.oldSlug).length}`);
 console.log(`festivals by month: ${Array.from({ length: 12 }, (_, i) => `${i + 1}=${festivals.filter((f) => f.lunarMonth === i + 1).length}`).join(" ")}`);
-console.log(`needsCheck: festivals ${Object.keys(needsCheck.festivals!).length}, events ${Object.keys(needsCheck.events!).length}, figures ${Object.keys(needsCheck.figures!).length}, places ${Object.keys(needsCheck.places!).length}`);
+console.log(`needsCheck: festivals ${Object.keys(needsCheck.festivals!).length}, events ${Object.keys(needsCheck.events!).length}, figures ${Object.keys(needsCheck.figures!).length}, places ${Object.keys(needsCheck.places!).length}, articles ${Object.keys(needsCheck.articles!).length}`);
 if (process.argv.includes("--rewrites")) for (const r of rewrites) console.log(`\n[${r.id}]\n- ${r.before}\n+ ${r.after}`);
 else console.log(`neutral rewrites ${rewrites.length} events + ${festivalRewrites.length} festivals (thêm --rewrites để xem trước → sau)`);
 for (const w of warnings) console.warn(`! ${w}`);

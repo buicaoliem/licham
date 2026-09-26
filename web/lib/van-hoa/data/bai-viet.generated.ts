@@ -781,5 +781,1378 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
     "text": "Khâm định Đại Nam hội điển sự lệ"
    }
   ]
+ },
+ {
+  "slug": "keo-co",
+  "title": "Kéo co",
+  "label": "tin-nguong",
+  "category": "Dân gian",
+  "summary": "Kéo co là trò chơi dân gian và nghi lễ nông nghiệp cầu mưa thuận gió hòa. Trò chơi phổ biến toàn quốc, đậm nhất ở đồng bằng sông Hồng và trung du miền núi phía Bắc. UNESCO ghi danh Di sản văn hóa phi vật thể đại diện nhân loại năm 2015.",
+  "intro": [
+   "Kéo co là trò chơi dân gian và nghi lễ nông nghiệp cầu mưa thuận gió hòa. Trò chơi phổ biến toàn quốc, đậm nhất ở đồng bằng sông Hồng và trung du miền núi phía Bắc. UNESCO ghi danh Di sản văn hóa phi vật thể đại diện nhân loại năm 2015."
+  ],
+  "relatedFigures": [],
+  "updatedAt": "2026-09-26",
+  "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/keo-co-hero.webp",
+  "heroAlt": "Tranh minh hoạ: Kéo co",
+  "sections": [
+   {
+    "id": "vung-mien",
+    "heading": "Vùng miền",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Toàn quốc, đậm nhất đồng bằng sông Hồng và trung du miền núi phía Bắc."
+     }
+    ]
+   },
+   {
+    "id": "dip-choi",
+    "heading": "Dịp chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Tết Nguyên đán, hội làng mùa xuân; đền Trấn Vũ (phường Long Biên, Hà Nội); hội làng Hòa Loan, xã Lũng Hòa (Phú Thọ)."
+     }
+    ]
+   },
+   {
+    "id": "nguon-goc",
+    "heading": "Nguồn gốc",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Nghi lễ nông nghiệp cầu mưa thuận gió hòa. UNESCO ghi danh Di sản văn hóa phi vật thể đại diện nhân loại năm 2015."
+     }
+    ]
+   },
+   {
+    "id": "cach-choi",
+    "heading": "Cách chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Hai đội đứng hai bên dây thừng, dải lụa đỏ buộc giữa dây đặt thẳng hàng vạch chuẩn. Khi có hiệu lệnh, hai bên dồn sức giật dây về phía mình; đội đưa được dải lụa qua vạch của mình trước thắng, thường qua ba hiệp. Dị bản \"kéo co ngồi\" ở đền Trấn Vũ: người chơi ngồi dưới hố cát, chân gài cột gỗ để tì lực."
+     }
+    ]
+   }
+  ],
+  "lunarDates": [],
+  "sources": [
+   {
+    "text": "Cục Di sản văn hóa"
+   },
+   {
+    "text": "hồ sơ UNESCO 2015"
+   }
+  ]
+ },
+ {
+  "slug": "danh-phet",
+  "title": "Đánh phết (Cướp phết)",
+  "label": "tin-nguong",
+  "category": "Dân gian",
+  "summary": "Đánh phết, còn gọi là cướp phết, là trò chơi hội làng miền Bắc, tập trung ở Phú Thọ. Tương truyền trò chơi gắn với Thiều Hoa Công chúa thời Hai Bà Trưng, dùng để luyện quân.",
+  "intro": [
+   "Đánh phết, còn gọi là cướp phết, là trò chơi hội làng miền Bắc, tập trung ở Phú Thọ. Tương truyền trò chơi gắn với Thiều Hoa Công chúa thời Hai Bà Trưng, dùng để luyện quân."
+  ],
+  "relatedFigures": [],
+  "updatedAt": "2026-09-26",
+  "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/danh-phet-hero.webp",
+  "heroAlt": "Tranh minh hoạ: Đánh phết (Cướp phết)",
+  "sections": [
+   {
+    "id": "vung-mien",
+    "heading": "Vùng miền",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Miền Bắc, tập trung Phú Thọ."
+     }
+    ]
+   },
+   {
+    "id": "dip-choi",
+    "heading": "Dịp chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "12–13 tháng Giêng, lễ hội phết Hiền Quan (Phú Thọ); phết Bàn Giản (Phú Thọ)."
+     }
+    ]
+   },
+   {
+    "id": "nguon-goc",
+    "heading": "Nguồn gốc",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Tương truyền gắn Thiều Hoa Công chúa thời Hai Bà Trưng, dùng để luyện quân."
+     }
+    ]
+   },
+   {
+    "id": "cach-choi",
+    "heading": "Cách chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Sau nghi lễ rước kiệu, chủ tế tung quả phết vào bãi hội; các giáp trong làng dùng gậy tre tranh nhau đưa quả phết về hố phết của làng mình. Ai chạm được hoặc mang được phết về coi là nhận may mắn cho cả năm."
+     }
+    ]
+   }
+  ],
+  "lunarDates": [
+   {
+    "label": "Lễ hội phết Hiền Quan",
+    "day": 12,
+    "month": 1,
+    "text": "12–13 tháng Giêng"
+   }
+  ],
+  "sources": [
+   {
+    "text": "Ban Quản lý Di tích Hiền Quan"
+   },
+   {
+    "text": "Cục Văn hóa Cơ sở"
+   }
+  ]
+ },
+ {
+  "slug": "dau-vat-dan-toc",
+  "title": "Đấu vật dân tộc",
+  "label": "tin-nguong",
+  "category": "Dân gian",
+  "summary": "Đấu vật dân tộc là môn võ hội làng của đồng bằng sông Hồng và Bắc Trung Bộ, thường thấy vào Tết và hội xuân. Trò chơi gắn huyền tích chàng trai họ Đoàn thời Lý–Trần; được công nhận Di sản văn hóa phi vật thể quốc gia năm 2017.",
+  "intro": [
+   "Đấu vật dân tộc là môn võ hội làng của đồng bằng sông Hồng và Bắc Trung Bộ, thường thấy vào Tết và hội xuân. Trò chơi gắn huyền tích chàng trai họ Đoàn thời Lý–Trần; được công nhận Di sản văn hóa phi vật thể quốc gia năm 2017."
+  ],
+  "relatedFigures": [],
+  "updatedAt": "2026-09-26",
+  "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/dau-vat-dan-toc-hero.webp",
+  "heroAlt": "Tranh minh hoạ: Đấu vật dân tộc",
+  "sections": [
+   {
+    "id": "vung-mien",
+    "heading": "Vùng miền",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Đồng bằng sông Hồng, Bắc Trung Bộ."
+     }
+    ]
+   },
+   {
+    "id": "dip-choi",
+    "heading": "Dịp chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Tết, hội xuân; hội vật Liễu Đôi, xã Thanh Bình (tỉnh Ninh Bình, trước là các xã Liêm Sơn/Liêm Thuận/Liêm Túc thuộc huyện Thanh Liêm cũ)."
+     }
+    ]
+   },
+   {
+    "id": "nguon-goc",
+    "heading": "Nguồn gốc",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Gắn huyền tích chàng trai họ Đoàn thời Lý–Trần. Công nhận Di sản văn hóa phi vật thể quốc gia năm 2017."
+     }
+    ]
+   },
+   {
+    "id": "cach-choi",
+    "heading": "Cách chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Mở đầu bằng \"xe đài\" — hai đô vật múa vờn quanh sới bái tổ và thăm dò nhau. Khi trống nổi, hai bên áp dụng các miếng bắt sườn, quăng, vặn, móc chân. Thắng khi làm đối phương \"lấm lưng trắng bụng\" hoặc nhấc bổng hai chân đối phương khỏi đất. Cấm đòn đánh vào mắt, hạ bộ, bẻ khớp."
+     }
+    ]
+   }
+  ],
+  "lunarDates": [],
+  "sources": [
+   {
+    "text": "Bộ VHTT&DL"
+   },
+   {
+    "text": "Toan Ánh — Nếp cũ, Lễ hội Việt Nam"
+   }
+  ]
+ },
+ {
+  "slug": "danh-du",
+  "title": "Đánh đu",
+  "label": "tin-nguong",
+  "category": "Dân gian",
+  "summary": "Đánh đu là trò hội xuân của đồng bằng và trung du Bắc Bộ, cũng có ở các dân tộc Mường, Tày, Thái. Đây là nghi lễ cầu mùa mô phỏng giao hòa âm dương, được nhắc trong thơ Nôm Hồ Xuân Hương thế kỷ XVIII.",
+  "intro": [
+   "Đánh đu là trò hội xuân của đồng bằng và trung du Bắc Bộ, cũng có ở các dân tộc Mường, Tày, Thái. Đây là nghi lễ cầu mùa mô phỏng giao hòa âm dương, được nhắc trong thơ Nôm Hồ Xuân Hương thế kỷ XVIII."
+  ],
+  "relatedFigures": [],
+  "updatedAt": "2026-09-26",
+  "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/danh-du-hero.webp",
+  "heroAlt": "Tranh minh hoạ: Đánh đu",
+  "sections": [
+   {
+    "id": "vung-mien",
+    "heading": "Vùng miền",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Đồng bằng và trung du Bắc Bộ; các dân tộc Mường, Tày, Thái."
+     }
+    ]
+   },
+   {
+    "id": "dip-choi",
+    "heading": "Dịp chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Tết, hội xuân; hội đền Hùng, hội Lim (Bắc Ninh)."
+     }
+    ]
+   },
+   {
+    "id": "nguon-goc",
+    "heading": "Nguồn gốc",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Nghi lễ cầu mùa mô phỏng giao hòa âm dương; được nhắc trong thơ Nôm Hồ Xuân Hương thế kỷ XVIII."
+     }
+    ]
+   },
+   {
+    "id": "cach-choi",
+    "heading": "Cách chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Cây đu dựng bằng tre già chôn hình kiềng ba chân. Người chơi đứng lên bàn đạp, nhún gối tạo đà đẩy thân đu qua lại. Đu đôi (một nam một nữ) đòi hỏi hai người nhún nhịp ngược nhau để biên độ lên cao dần. Ai đu cao nhất hoặc giật được dải lụa treo ngọn đu thắng cuộc."
+     }
+    ]
+   }
+  ],
+  "lunarDates": [],
+  "sources": [
+   {
+    "text": "Toan Ánh — Nếp cũ, Hội hè đình đám"
+   },
+   {
+    "text": "Bảo tàng Dân tộc học Việt Nam"
+   }
+  ]
+ },
+ {
+  "slug": "co-nguoi",
+  "title": "Cờ người",
+  "label": "tin-nguong",
+  "category": "Dân gian",
+  "summary": "Cờ người là cách dân gian hóa cờ Tướng: 32 người đóng vai quân cờ trên sân đình. Ở Bắc Bộ trò mang tính lễ nghi; ở Nam Bộ còn có cờ người võ thuật do võ sư Hồ Tường (phái Tân Khánh Bà Trà) phát triển giữa thế kỷ XX.",
+  "intro": [
+   "Cờ người là cách dân gian hóa cờ Tướng: 32 người đóng vai quân cờ trên sân đình. Ở Bắc Bộ trò mang tính lễ nghi; ở Nam Bộ còn có cờ người võ thuật do võ sư Hồ Tường (phái Tân Khánh Bà Trà) phát triển giữa thế kỷ XX."
+  ],
+  "relatedFigures": [],
+  "updatedAt": "2026-09-26",
+  "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/co-nguoi-hero.webp",
+  "heroAlt": "Tranh minh hoạ: Cờ người",
+  "sections": [
+   {
+    "id": "vung-mien",
+    "heading": "Vùng miền",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Toàn quốc; Bắc mang tính lễ nghi, Nam có cờ người võ thuật."
+     }
+    ]
+   },
+   {
+    "id": "dip-choi",
+    "heading": "Dịp chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Hội Chợ Chuông, xã Phương Trung (Hà Nội); đền Cửa Ông, phường Cửa Ông (Quảng Ninh); Hội Chùa Vua (Hà Nội)."
+     }
+    ]
+   },
+   {
+    "id": "nguon-goc",
+    "heading": "Nguồn gốc",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Dân gian hóa cờ Tướng thời Lê sơ. Cờ người võ thuật Nam Bộ do võ sư Hồ Tường (phái Tân Khánh Bà Trà) phát triển giữa thế kỷ XX."
+     }
+    ]
+   },
+   {
+    "id": "cach-choi",
+    "heading": "Cách chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "32 người đóng vai quân cờ đứng trên bàn cờ kẻ trên sân đình. Hai kỳ thủ ngồi chòi cao ra lệnh qua cờ hiệu, quân cờ di chuyển theo đúng luật cờ Tướng. Ở miền Nam, khi ăn quân hai bên còn biểu diễn một bài quyền hoặc binh khí trước khi quân bị ăn rời sân. Kết thúc khi \"chiếu bí\" hoặc hết giờ xử hòa."
+     }
+    ]
+   }
+  ],
+  "lunarDates": [],
+  "sources": [
+   {
+    "text": "Báo Thanh Niên"
+   },
+   {
+    "text": "Tạp chí Nghiên cứu Lịch sử – Văn hóa Dân gian"
+   }
+  ]
+ },
+ {
+  "slug": "nem-con",
+  "title": "Ném còn",
+  "label": "tin-nguong",
+  "category": "Dân gian",
+  "summary": "Ném còn là trò chơi Tết của người Tày, Thái, Nùng ở miền núi phía Bắc. Quả còn biểu trưng nguồn sống; vòng tròn trên cây nêu tượng trưng mặt trời hoặc mặt trăng. Trò chơi gắn tín ngưỡng phồn thực, cầu mùa của cư dân Tày–Thái cổ.",
+  "intro": [
+   "Ném còn là trò chơi Tết của người Tày, Thái, Nùng ở miền núi phía Bắc. Quả còn biểu trưng nguồn sống; vòng tròn trên cây nêu tượng trưng mặt trời hoặc mặt trăng. Trò chơi gắn tín ngưỡng phồn thực, cầu mùa của cư dân Tày–Thái cổ."
+  ],
+  "relatedFigures": [],
+  "updatedAt": "2026-09-26",
+  "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/nem-con-hero.webp",
+  "heroAlt": "Tranh minh hoạ: Ném còn",
+  "sections": [
+   {
+    "id": "vung-mien",
+    "heading": "Vùng miền",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Miền núi phía Bắc (Tày, Thái, Nùng)."
+     }
+    ]
+   },
+   {
+    "id": "dip-choi",
+    "heading": "Dịp chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Tết; lễ hội Lồng Tồng (Tày), Xên Mường (Thái) tháng Giêng–Hai âm lịch."
+     }
+    ]
+   },
+   {
+    "id": "nguon-goc",
+    "heading": "Nguồn gốc",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Tín ngưỡng phồn thực, cầu mùa của cư dân Tày–Thái cổ; quả còn biểu trưng nguồn sống, vòng tròn tượng trưng mặt trời/mặt trăng."
+     }
+    ]
+   },
+   {
+    "id": "cach-choi",
+    "heading": "Cách chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Người chơi quay quả còn thổ cẩm vài vòng rồi phóng lên hướng vòng tre dán giấy trên đỉnh cây nêu cao. Ai ném thủng vòng giấy thắng cuộc. Biến thể giao duyên: nam nữ tung bắt còn cho nhau, ai để rơi phải gửi lại một kỷ vật nhỏ."
+     }
+    ]
+   }
+  ],
+  "lunarDates": [],
+  "sources": [
+   {
+    "text": "Bảo tàng Dân tộc học Việt Nam"
+   },
+   {
+    "text": "Báo Ảnh Dân tộc và Miền núi"
+   }
+  ]
+ },
+ {
+  "slug": "thoi-com-thi",
+  "title": "Thổi cơm thi",
+  "label": "tin-nguong",
+  "category": "Dân gian",
+  "summary": "Thổi cơm thi mô phỏng diễn tập nuôi quân thời cổ: vừa giã thóc, vừa lấy lửa, vừa múc nước rồi nấu cơm. Hội làng Thị Cấm là Di sản văn hóa phi vật thể quốc gia.",
+  "intro": [
+   "Thổi cơm thi mô phỏng diễn tập nuôi quân thời cổ: vừa giã thóc, vừa lấy lửa, vừa múc nước rồi nấu cơm. Hội làng Thị Cấm là Di sản văn hóa phi vật thể quốc gia."
+  ],
+  "relatedFigures": [],
+  "updatedAt": "2026-09-26",
+  "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/thoi-com-thi-hero.webp",
+  "heroAlt": "Tranh minh hoạ: Thổi cơm thi",
+  "sections": [
+   {
+    "id": "vung-mien",
+    "heading": "Vùng miền",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Đồng bằng sông Hồng, ven biển Bắc Trung Bộ."
+     }
+    ]
+   },
+   {
+    "id": "dip-choi",
+    "heading": "Dịp chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Hội làng Thị Cấm, phường Xuân Phương (Hà Nội), 8 tháng Giêng; hội làng Đồng Vân, xã Đồng Tháp (Hà Nội)."
+     }
+    ]
+   },
+   {
+    "id": "nguon-goc",
+    "heading": "Nguồn gốc",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Mô phỏng diễn tập nuôi quân thời cổ. Hội Thị Cấm là Di sản văn hóa phi vật thể quốc gia."
+     }
+    ]
+   },
+   {
+    "id": "cach-choi",
+    "heading": "Cách chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Đội chơi vừa giã thóc lấy gạo, vừa cọ lửa lấy tia, vừa múc nước — làm song song. Có hai thể thức: nấu tĩnh trong vòng vôi, hoặc vừa gánh niêu vừa đi vừa nấu, người đi kèm thổi lửa áp đáy nồi. Chấm giải theo tốc độ và độ dẻo thơm của cơm khi tàn một nén hương."
+     }
+    ]
+   }
+  ],
+  "lunarDates": [
+   {
+    "label": "Hội làng Thị Cấm",
+    "day": 8,
+    "month": 1,
+    "text": "8 tháng Giêng"
+   }
+  ],
+  "sources": [
+   {
+    "text": "Cục Di sản văn hóa"
+   },
+   {
+    "text": "SGK Ngữ văn 7"
+   }
+  ]
+ },
+ {
+  "slug": "di-ca-kheo",
+  "title": "Đi cà kheo",
+  "label": "tin-nguong",
+  "category": "Dân gian",
+  "summary": "Đi cà kheo bắt đầu từ công cụ lội biển cào ngao của ngư dân thế kỷ XIX, sau thành trò chơi và diễn xướng. Trò phổ biến ở ven biển vịnh Bắc Bộ, Tây Bắc và Tây Nguyên.",
+  "intro": [
+   "Đi cà kheo bắt đầu từ công cụ lội biển cào ngao của ngư dân thế kỷ XIX, sau thành trò chơi và diễn xướng. Trò phổ biến ở ven biển vịnh Bắc Bộ, Tây Bắc và Tây Nguyên."
+  ],
+  "relatedFigures": [],
+  "updatedAt": "2026-09-26",
+  "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/di-ca-kheo-hero.webp",
+  "heroAlt": "Tranh minh hoạ: Đi cà kheo",
+  "sections": [
+   {
+    "id": "vung-mien",
+    "heading": "Vùng miền",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Ven biển vịnh Bắc Bộ (Ninh Bình, trước Nam Định), Tây Bắc, Tây Nguyên."
+     }
+    ]
+   },
+   {
+    "id": "dip-choi",
+    "heading": "Dịp chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Ngày hội Văn hóa Thể thao xã Hải Tiến (Ninh Bình, trước Hải Hậu, Nam Định), dịp 2/9."
+     }
+    ]
+   },
+   {
+    "id": "nguon-goc",
+    "heading": "Nguồn gốc",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Từ công cụ lội biển cào ngao của ngư dân thế kỷ XIX, sau thành trò chơi và diễn xướng."
+     }
+    ]
+   },
+   {
+    "id": "cach-choi",
+    "heading": "Cách chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Người chơi đứng lên bàn đạp gỗ gắn trên thân tre, hai tay giữ thân tre ngang ngực, luân phiên bước đi trên không. Ở vùng biển Ninh Bình, nghệ nhân còn nâng thành diễn xướng: múa lân rồng, đấu gậy trên cà kheo cao 2 mét."
+     }
+    ]
+   }
+  ],
+  "lunarDates": [],
+  "sources": [
+   {
+    "text": "Báo Nhân Dân"
+   },
+   {
+    "text": "Sở VHTT Nam Định (nay thuộc Ninh Bình)"
+   }
+  ]
+ },
+ {
+  "slug": "tha-dieu",
+  "title": "Thả diều (diều sáo)",
+  "label": "tin-nguong",
+  "category": "Dân gian",
+  "summary": "Thả diều sáo phổ biến ở đồng bằng sông Hồng và nhiều nơi khác. Tục gắn tín ngưỡng thờ thần Linh Châu Thổ tại miếu Diều có từ trước thế kỷ X; được công nhận Di sản văn hóa phi vật thể quốc gia năm 2024.",
+  "intro": [
+   "Thả diều sáo phổ biến ở đồng bằng sông Hồng và nhiều nơi khác. Tục gắn tín ngưỡng thờ thần Linh Châu Thổ tại miếu Diều có từ trước thế kỷ X; được công nhận Di sản văn hóa phi vật thể quốc gia năm 2024."
+  ],
+  "relatedFigures": [],
+  "updatedAt": "2026-09-26",
+  "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/tha-dieu-hero.webp",
+  "heroAlt": "Tranh minh hoạ: Thả diều (diều sáo)",
+  "sections": [
+   {
+    "id": "vung-mien",
+    "heading": "Vùng miền",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Đồng bằng sông Hồng, phổ biến toàn quốc."
+     }
+    ]
+   },
+   {
+    "id": "dip-choi",
+    "heading": "Dịp chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Chiều hè; hội thi diều rằm tháng Ba, làng Bá Dương Nội, xã Hồng Hà (Hà Nội, trước Đan Phượng)."
+     }
+    ]
+   },
+   {
+    "id": "nguon-goc",
+    "heading": "Nguồn gốc",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Gắn tín ngưỡng thờ thần Linh Châu Thổ tại miếu Diều có từ trước thế kỷ X. Di sản văn hóa phi vật thể quốc gia năm 2024."
+     }
+    ]
+   },
+   {
+    "id": "cach-choi",
+    "heading": "Cách chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Một người đâm diều đón gió, người kia giữ dây chạy lùi giật nhẹ đưa diều lên cao. Gió lùa qua còi sáo tạo âm thanh trầm bổng. Hội thi chấm theo bốn tiêu chí: diều đâm thẳng, dây dốc đứng, sáo phát âm chuẩn, diều trụ vững không rơi."
+     }
+    ]
+   }
+  ],
+  "lunarDates": [],
+  "sources": [
+   {
+    "text": "Bộ VHTT&DL"
+   },
+   {
+    "text": "Báo Quân đội Nhân dân"
+   }
+  ]
+ },
+ {
+  "slug": "phao-dat",
+  "title": "Pháo đất",
+  "label": "tin-nguong",
+  "category": "Dân gian",
+  "summary": "Pháo đất là trò hội làng mùa xuân ở đồng bằng Bắc Bộ. Tục gắn tích thao diễn thời Khúc Thừa Dụ hoặc tích ném đất cứu voi chiến Hai Bà Trưng.",
+  "intro": [
+   "Pháo đất là trò hội làng mùa xuân ở đồng bằng Bắc Bộ. Tục gắn tích thao diễn thời Khúc Thừa Dụ hoặc tích ném đất cứu voi chiến Hai Bà Trưng."
+  ],
+  "relatedFigures": [],
+  "updatedAt": "2026-09-26",
+  "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/phao-dat-hero.webp",
+  "heroAlt": "Tranh minh hoạ: Pháo đất",
+  "sections": [
+   {
+    "id": "vung-mien",
+    "heading": "Vùng miền",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Đồng bằng Bắc Bộ (Hải Phòng, Hải Dương cũ, Hưng Yên)."
+     }
+    ]
+   },
+   {
+    "id": "dip-choi",
+    "heading": "Dịp chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Hội làng mùa xuân tháng Giêng–Hai."
+     }
+    ]
+   },
+   {
+    "id": "nguon-goc",
+    "heading": "Nguồn gốc",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Gắn tích thao diễn thời Khúc Thừa Dụ hoặc tích ném đất cứu voi chiến Hai Bà Trưng."
+     }
+    ]
+   },
+   {
+    "id": "cach-choi",
+    "heading": "Cách chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Pháo thủ nặn đất sét thành mâm bầu dục, gọt viền mép mỏng. Hai người nâng pháo ngang vai rồi gieo úp mạnh miệng pháo xuống sân — áp suất khí nén làm viền pháo nổ toác, văng ra một dải đất dài. Đo dải đất văng ra để tính điểm."
+     }
+    ]
+   }
+  ],
+  "lunarDates": [],
+  "sources": [
+   {
+    "text": "Bảo tàng Dân tộc học Việt Nam"
+   }
+  ]
+ },
+ {
+  "slug": "o-an-quan",
+  "title": "Ô ăn quan",
+  "label": "tin-nguong",
+  "category": "Dân gian",
+  "summary": "Ô ăn quan là trò chơi bàn phổ biến toàn quốc, thuộc họ Mancala của văn minh lúa nước Đông Nam Á. Chưa xác minh được thư tịch cổ ghi trò này.",
+  "intro": [
+   "Ô ăn quan là trò chơi bàn phổ biến toàn quốc, thuộc họ Mancala của văn minh lúa nước Đông Nam Á. Chưa xác minh được thư tịch cổ ghi trò này."
+  ],
+  "relatedFigures": [],
+  "updatedAt": "2026-09-26",
+  "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/o-an-quan-hero.webp",
+  "heroAlt": "Tranh minh hoạ: Ô ăn quan",
+  "sections": [
+   {
+    "id": "vung-mien",
+    "heading": "Vùng miền",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Toàn quốc."
+     }
+    ]
+   },
+   {
+    "id": "dip-choi",
+    "heading": "Dịp chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Ngày thường, giờ ra chơi."
+     }
+    ]
+   },
+   {
+    "id": "nguon-goc",
+    "heading": "Nguồn gốc",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Chưa xác minh thư tịch cổ; thuộc họ trò chơi Mancala của văn minh lúa nước Đông Nam Á."
+     }
+    ]
+   },
+   {
+    "id": "cach-choi",
+    "heading": "Cách chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Bàn cờ 10 ô dân + 2 ô quan hình bán nguyệt. Người chơi rải sỏi từng ô liên tiếp; nếu ô liền kề trống và ô sau đó có quân thì được ăn quân đó, có thể ăn liên hoàn. Hết quân ở phần mình thì lấy 5 viên đã ăn rải lại (\"chẹt quân\"). Kết thúc khi hai ô quan hết quân, ai nhiều điểm hơn thắng."
+     }
+    ]
+   }
+  ],
+  "lunarDates": [],
+  "sources": [
+   {
+    "text": "Toan Ánh — Nếp cũ, Trẻ em chơi"
+   },
+   {
+    "text": "SGK Ngữ văn"
+   }
+  ]
+ },
+ {
+  "slug": "choi-chuyen",
+  "title": "Chơi chuyền",
+  "label": "tin-nguong",
+  "category": "Dân gian",
+  "summary": "Chơi chuyền là trò gắp que tre theo nhịp đồng dao, hình thành trong lao động nữ giới nông thôn, rèn khéo tay. Chưa xác minh được thư tịch cổ.",
+  "intro": [
+   "Chơi chuyền là trò gắp que tre theo nhịp đồng dao, hình thành trong lao động nữ giới nông thôn, rèn khéo tay. Chưa xác minh được thư tịch cổ."
+  ],
+  "relatedFigures": [],
+  "updatedAt": "2026-09-26",
+  "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/choi-chuyen-hero.webp",
+  "heroAlt": "Tranh minh hoạ: Chơi chuyền",
+  "sections": [
+   {
+    "id": "vung-mien",
+    "heading": "Vùng miền",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Miền Bắc, miền Trung."
+     }
+    ]
+   },
+   {
+    "id": "dip-choi",
+    "heading": "Dịp chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Ngày thường, giờ giải lao."
+     }
+    ]
+   },
+   {
+    "id": "nguon-goc",
+    "heading": "Nguồn gốc",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Chưa xác minh thư tịch cổ; hình thành trong lao động nữ giới nông thôn, rèn khéo tay."
+     }
+    ]
+   },
+   {
+    "id": "cach-choi",
+    "heading": "Cách chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Rải 10 que tre, tung quả bóng lên rồi gắp que theo số lượng tăng dần qua 10 bàn, vừa đọc đồng dao. Ai để bóng rơi đất, gắp sai số que, hoặc đọc sai nhịp thì mất lượt. Người hoàn thành hết 10 bàn trước tiên thắng."
+     }
+    ]
+   }
+  ],
+  "lunarDates": [],
+  "sources": [
+   {
+    "text": "Toan Ánh — Nếp cũ, Trẻ em chơi"
+   },
+   {
+    "text": "Viện Văn hóa Dân gian"
+   }
+  ]
+ },
+ {
+  "slug": "choi-khang",
+  "title": "Chơi khăng",
+  "label": "tin-nguong",
+  "category": "Dân gian",
+  "summary": "Chơi khăng là trò mục đồng: dùng thanh \"mẹ\" hất thanh \"con\" bay xa. Trò thịnh hành ở Bắc Bộ và Trung Bộ. Chưa xác minh được thư tịch cổ.",
+  "intro": [
+   "Chơi khăng là trò mục đồng: dùng thanh \"mẹ\" hất thanh \"con\" bay xa. Trò thịnh hành ở Bắc Bộ và Trung Bộ. Chưa xác minh được thư tịch cổ."
+  ],
+  "relatedFigures": [],
+  "updatedAt": "2026-09-26",
+  "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/choi-khang-hero.webp",
+  "heroAlt": "Tranh minh hoạ: Chơi khăng",
+  "sections": [
+   {
+    "id": "vung-mien",
+    "heading": "Vùng miền",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Toàn quốc, thịnh hành Bắc Bộ và Trung Bộ."
+     }
+    ]
+   },
+   {
+    "id": "dip-choi",
+    "heading": "Dịp chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Ngày thường, buổi chăn trâu."
+     }
+    ]
+   },
+   {
+    "id": "nguon-goc",
+    "heading": "Nguồn gốc",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Chưa xác minh thư tịch cổ; hình thành trong sinh hoạt mục đồng."
+     }
+    ]
+   },
+   {
+    "id": "cach-choi",
+    "heading": "Cách chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Dùng thanh \"mẹ\" hất/đập/vụt thanh \"con\" bay xa từ miệng lỗ đất; đối phương tìm cách bắt hoặc ném thanh con trúng lỗ để đối thủ mất lượt. Nếu không trúng, đo khoảng cách để tính điểm, đủ điểm quy ước trước thì thắng."
+     }
+    ]
+   }
+  ],
+  "lunarDates": [],
+  "sources": [
+   {
+    "text": "Toan Ánh — Nếp cũ, Trẻ em chơi"
+   }
+  ]
+ },
+ {
+  "slug": "danh-dao",
+  "title": "Đánh đáo",
+  "label": "tin-nguong",
+  "category": "Dân gian",
+  "summary": "Đánh đáo là trò ném đồng xu vào lỗ, gốc Bắc Bộ rồi lan ra toàn quốc. \"Đáo\" nghĩa Hán–Việt là chạm tới đích. Trò xuất hiện từ thời tiền kim loại lưu thông.",
+  "intro": [
+   "Đánh đáo là trò ném đồng xu vào lỗ, gốc Bắc Bộ rồi lan ra toàn quốc. \"Đáo\" nghĩa Hán–Việt là chạm tới đích. Trò xuất hiện từ thời tiền kim loại lưu thông."
+  ],
+  "relatedFigures": [],
+  "updatedAt": "2026-09-26",
+  "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/danh-dao-hero.webp",
+  "heroAlt": "Tranh minh hoạ: Đánh đáo",
+  "sections": [
+   {
+    "id": "vung-mien",
+    "heading": "Vùng miền",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Toàn quốc, gốc Bắc Bộ."
+     }
+    ]
+   },
+   {
+    "id": "dip-choi",
+    "heading": "Dịp chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Ngày thường; Tết và hội chợ làng."
+     }
+    ]
+   },
+   {
+    "id": "nguon-goc",
+    "heading": "Nguồn gốc",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Xuất hiện từ thời tiền kim loại lưu thông; \"đáo\" nghĩa Hán–Việt là chạm tới đích."
+     }
+    ]
+   },
+   {
+    "id": "cach-choi",
+    "heading": "Cách chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Người chơi ném đồng xu về phía một lỗ nhỏ; xu lọt lỗ thuộc về người ném. Xu còn lại trên đất, ai có xu gần miệng lỗ nhất được ném chọi trúng xu do đối thủ chỉ định để ăn tiếp."
+     }
+    ]
+   }
+  ],
+  "lunarDates": [],
+  "sources": [
+   {
+    "text": "Khảo cứu ngôn ngữ và phong tục dân gian"
+   }
+  ]
+ },
+ {
+  "slug": "danh-cu",
+  "title": "Đánh cù (đánh quay)",
+  "label": "tin-nguong",
+  "category": "Dân gian",
+  "summary": "Đánh cù, còn gọi đánh quay, phổ biến toàn quốc; người Hmông ở Tây Bắc có Tù lu. Trò gắn nghề tiện mộc thủ công. Chưa xác minh được thư tịch cổ.",
+  "intro": [
+   "Đánh cù, còn gọi đánh quay, phổ biến toàn quốc; người Hmông ở Tây Bắc có Tù lu. Trò gắn nghề tiện mộc thủ công. Chưa xác minh được thư tịch cổ."
+  ],
+  "relatedFigures": [],
+  "updatedAt": "2026-09-26",
+  "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/danh-cu-hero.webp",
+  "heroAlt": "Tranh minh hoạ: Đánh cù (đánh quay)",
+  "sections": [
+   {
+    "id": "vung-mien",
+    "heading": "Vùng miền",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Toàn quốc; Tù lu của người Hmông ở Tây Bắc."
+     }
+    ]
+   },
+   {
+    "id": "dip-choi",
+    "heading": "Dịp chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Lễ hội Gầu Tào (Hmông) dịp Tết; ngày thường."
+     }
+    ]
+   },
+   {
+    "id": "nguon-goc",
+    "heading": "Nguồn gốc",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Chưa xác minh thư tịch cổ; gắn nghề tiện mộc thủ công."
+     }
+    ]
+   },
+   {
+    "id": "cach-choi",
+    "heading": "Cách chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Quấn dây quanh con cù, phóng xuống đất kết hợp giật dây tạo mô-men xoay. Hai thể thức: quay lâu (bền nhất thắng) hoặc chọi cù (bổ con cù của mình vào cù đối phương để làm nó dừng quay)."
+     }
+    ]
+   }
+  ],
+  "lunarDates": [],
+  "sources": [
+   {
+    "text": "Tạp chí Dân tộc học"
+   }
+  ]
+ },
+ {
+  "slug": "rong-ran-len-may",
+  "title": "Rồng rắn lên mây",
+  "label": "tin-nguong",
+  "category": "Dân gian",
+  "summary": "Rồng rắn lên mây là trò nối đuôi vừa đi vừa hát đồng dao, phổ biến ở trường mầm non và tiểu học. Đồng dao phản ánh tập quán làng xã. Chưa xác minh được thư tịch cổ.",
+  "intro": [
+   "Rồng rắn lên mây là trò nối đuôi vừa đi vừa hát đồng dao, phổ biến ở trường mầm non và tiểu học. Đồng dao phản ánh tập quán làng xã. Chưa xác minh được thư tịch cổ."
+  ],
+  "relatedFigures": [],
+  "updatedAt": "2026-09-26",
+  "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/rong-ran-len-may-hero.webp",
+  "heroAlt": "Tranh minh hoạ: Rồng rắn lên mây",
+  "sections": [
+   {
+    "id": "vung-mien",
+    "heading": "Vùng miền",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Toàn quốc."
+     }
+    ]
+   },
+   {
+    "id": "dip-choi",
+    "heading": "Dịp chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Ngày thường, sinh hoạt trường mầm non/tiểu học."
+     }
+    ]
+   },
+   {
+    "id": "nguon-goc",
+    "heading": "Nguồn gốc",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Chưa xác minh thư tịch cổ; đồng dao phản ánh tập quán làng xã."
+     }
+    ]
+   },
+   {
+    "id": "cach-choi",
+    "heading": "Cách chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Một người làm \"thầy thuốc\" ngồi cố định; những người còn lại nối đuôi thành hàng, vừa đi vừa hát đồng dao hỏi xin thuốc. Kết thúc đối thoại, thầy thuốc lao ra bắt người cuối hàng; hàng \"rồng rắn\" uốn lượn bảo vệ đuôi."
+     }
+    ]
+   }
+  ],
+  "lunarDates": [],
+  "sources": [
+   {
+    "text": "Nguyễn Bích Ngọc — Đồng dao và trò chơi dân gian trẻ em"
+   }
+  ]
+ },
+ {
+  "slug": "bit-mat-bat-de",
+  "title": "Bịt mắt bắt dê",
+  "label": "tin-nguong",
+  "category": "Dân gian",
+  "summary": "Bịt mắt bắt dê là trò chơi dân gian cổ truyền, xuất hiện trong tranh khắc gỗ Đông Hồ thế kỷ XVII–XVIII. Trẻ em chơi quanh năm, Tết và hội xuân làng quê.",
+  "intro": [
+   "Bịt mắt bắt dê là trò chơi dân gian cổ truyền, xuất hiện trong tranh khắc gỗ Đông Hồ thế kỷ XVII–XVIII. Trẻ em chơi quanh năm, Tết và hội xuân làng quê."
+  ],
+  "relatedFigures": [],
+  "updatedAt": "2026-09-26",
+  "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/bit-mat-bat-de-hero.webp",
+  "heroAlt": "Tranh minh hoạ: Bịt mắt bắt dê",
+  "sections": [
+   {
+    "id": "vung-mien",
+    "heading": "Vùng miền",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Toàn quốc."
+     }
+    ]
+   },
+   {
+    "id": "dip-choi",
+    "heading": "Dịp chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Ngày thường; Tết và hội xuân làng quê."
+     }
+    ]
+   },
+   {
+    "id": "nguon-goc",
+    "heading": "Nguồn gốc",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Trò chơi dân gian cổ truyền, xuất hiện trong tranh khắc gỗ Đông Hồ thế kỷ XVII–XVIII."
+     }
+    ]
+   },
+   {
+    "id": "cach-choi",
+    "heading": "Cách chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Một người bịt mắt đi tìm; những người còn lại né tránh và tạo tiếng động để trêu. Bắt được ai phải sờ đoán đúng tên mới thắng, người bị bắt đổi vai bịt mắt."
+     }
+    ]
+   }
+  ],
+  "lunarDates": [],
+  "sources": [
+   {
+    "text": "Viện Mỹ thuật Việt Nam"
+   },
+   {
+    "text": "Toan Ánh — Nếp cũ"
+   }
+  ]
+ },
+ {
+  "slug": "nhay-lo-co",
+  "title": "Nhảy lò cò",
+  "label": "tin-nguong",
+  "category": "Dân gian",
+  "summary": "Nhảy lò cò là trò vận động phổ quát (tương đồng Hopscotch quốc tế), được bản địa hóa vào đời sống trẻ em Việt. Chơi trên sân trường, sân làng.",
+  "intro": [
+   "Nhảy lò cò là trò vận động phổ quát (tương đồng Hopscotch quốc tế), được bản địa hóa vào đời sống trẻ em Việt. Chơi trên sân trường, sân làng."
+  ],
+  "relatedFigures": [],
+  "updatedAt": "2026-09-26",
+  "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/nhay-lo-co-hero.webp",
+  "heroAlt": "Tranh minh hoạ: Nhảy lò cò",
+  "sections": [
+   {
+    "id": "vung-mien",
+    "heading": "Vùng miền",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Toàn quốc."
+     }
+    ]
+   },
+   {
+    "id": "dip-choi",
+    "heading": "Dịp chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Ngày thường, giờ ra chơi."
+     }
+    ]
+   },
+   {
+    "id": "nguon-goc",
+    "heading": "Nguồn gốc",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Trò chơi vận động phổ quát (tương đồng Hopscotch quốc tế), bản địa hóa vào đời sống trẻ em Việt."
+     }
+    ]
+   },
+   {
+    "id": "cach-choi",
+    "heading": "Cách chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Vẽ bàn ô trên sân, ném \"con cái\" vào từng ô rồi nhảy một chân qua các ô còn lại, tránh giẫm vạch. Ai \"xây nhà\" ở ô nào thì được nghỉ hai chân tại đó, người khác phải nhảy tránh qua."
+     }
+    ]
+   }
+  ],
+  "lunarDates": [],
+  "sources": [
+   {
+    "text": "NXB Giáo Dục Việt Nam"
+   }
+  ]
+ },
+ {
+  "slug": "nhay-bao-bo",
+  "title": "Nhảy bao bố",
+  "label": "tin-nguong",
+  "category": "Dân gian",
+  "summary": "Nhảy bao bố hình thành thời cận đại cùng sự phổ biến bao đay đóng gạo. Trò thường thấy ở ngày hội thể thao trường học và hội làng.",
+  "intro": [
+   "Nhảy bao bố hình thành thời cận đại cùng sự phổ biến bao đay đóng gạo. Trò thường thấy ở ngày hội thể thao trường học và hội làng."
+  ],
+  "relatedFigures": [],
+  "updatedAt": "2026-09-26",
+  "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/nhay-bao-bo-hero.webp",
+  "heroAlt": "Tranh minh hoạ: Nhảy bao bố",
+  "sections": [
+   {
+    "id": "vung-mien",
+    "heading": "Vùng miền",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Toàn quốc."
+     }
+    ]
+   },
+   {
+    "id": "dip-choi",
+    "heading": "Dịp chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Ngày hội thể thao trường học, hội làng."
+     }
+    ]
+   },
+   {
+    "id": "nguon-goc",
+    "heading": "Nguồn gốc",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Hình thành thời cận đại cùng sự phổ biến bao đay đóng gạo."
+     }
+    ]
+   },
+   {
+    "id": "cach-choi",
+    "heading": "Cách chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Người chơi đứng trong bao tải, hai tay giữ miệng bao, nhảy bật về đích. Có thể chạy tiếp sức theo đội. Ai/đội về đích trước không phạm quy thắng."
+     }
+    ]
+   }
+  ],
+  "lunarDates": [],
+  "sources": [
+   {
+    "text": "Cục Thể dục Thể thao"
+   }
+  ]
+ },
+ {
+  "slug": "bat-chach-trong-chum",
+  "title": "Bắt chạch trong chum",
+  "label": "tin-nguong",
+  "category": "Dân gian",
+  "summary": "Bắt chạch trong chum là trò hội làng miền Bắc, gắn tín ngưỡng phồn thực của cư dân trồng lúa nước, duy trì từ thời Hậu Lê.",
+  "intro": [
+   "Bắt chạch trong chum là trò hội làng miền Bắc, gắn tín ngưỡng phồn thực của cư dân trồng lúa nước, duy trì từ thời Hậu Lê."
+  ],
+  "relatedFigures": [],
+  "updatedAt": "2026-09-26",
+  "heroImage": "/heritage/van-hoa/tro-choi-dan-gian/bat-chach-trong-chum-hero.webp",
+  "heroAlt": "Tranh minh hoạ: Bắt chạch trong chum",
+  "sections": [
+   {
+    "id": "vung-mien",
+    "heading": "Vùng miền",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Miền Bắc (đồng bằng sông Hồng)."
+     }
+    ]
+   },
+   {
+    "id": "dip-choi",
+    "heading": "Dịp chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Lễ hội làng Đình Bảng, phường Đình Bảng (Bắc Ninh); Tết và hội xuân Bắc Bộ."
+     }
+    ]
+   },
+   {
+    "id": "nguon-goc",
+    "heading": "Nguồn gốc",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Gắn tín ngưỡng phồn thực của cư dân trồng lúa nước, duy trì từ thời Hậu Lê."
+     }
+    ]
+   },
+   {
+    "id": "cach-choi",
+    "heading": "Cách chơi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Một chum sành lớn chứa nước và cá chạch được đặt giữa sân đình. Từng đôi nam nữ bước vào, cùng phối hợp mò bắt con chạch trơn trượt dưới đáy chum trong tiếng reo hò cổ vũ của dân làng. Đôi nào bắt được chạch đưa lên khỏi miệng chum trước, hoặc bắt được nhiều nhất trong thời gian một tuần hương, sẽ thắng cuộc và nhận thưởng lụa của làng."
+     }
+    ]
+   }
+  ],
+  "lunarDates": [],
+  "sources": [
+   {
+    "text": "Bảo tàng Dân tộc học Việt Nam"
+   },
+   {
+    "text": "Toan Ánh — Nếp cũ"
+   }
+  ]
  }
 ];

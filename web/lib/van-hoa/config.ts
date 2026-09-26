@@ -27,11 +27,16 @@ export interface Topic {
 
 import { ECLIPSES, ECLIPSE_LIST_PATH } from "./eclipses";
 import { BAI_VIET } from "./data/bai-viet";
+import { isTroChoi, TRO_CHOI_PATH } from "./tro-choi";
 import { FIXTURE_SLUG } from "./types";
 
 /** Bài viết thật (không gồm fixture), mới cập nhật trước. */
 const POSTS = BAI_VIET.filter((p) => p.slug !== FIXTURE_SLUG);
-const postLinks = (category: string): TopicLink[] => POSTS.filter((p) => p.category === category).map((p) => ({ label: p.title.split(":")[0]!, href: `/van-hoa/bai-viet/${p.slug}/` }));
+const postLinks = (category: string): TopicLink[] => {
+  const posts = POSTS.filter((p) => p.category === category);
+  const articles = posts.filter((p) => !isTroChoi(p.slug)).map((p) => ({ label: p.title.split(":")[0]!, href: `/van-hoa/bai-viet/${p.slug}/` }));
+  return category === "Dân gian" ? [{ label: "Trò chơi dân gian", href: TRO_CHOI_PATH }, ...articles] : articles;
+};
 
 const IMG = "/heritage/van-hoa";
 
@@ -135,7 +140,7 @@ export interface NewPost {
   badge: string;
   date: string;
 }
-export const NEW_POSTS: readonly NewPost[] = POSTS.map((p) => ({
+export const NEW_POSTS: readonly NewPost[] = POSTS.filter((p) => !isTroChoi(p.slug)).map((p) => ({
   image: p.heroImage?.replace(/.webp$/, "-480.webp"),
   title: p.title,
   href: `/van-hoa/bai-viet/${p.slug}/`,
