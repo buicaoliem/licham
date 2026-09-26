@@ -20,7 +20,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${x.name} | Lịch Âm`,
     description: x.summary,
     alternates: { canonical: `/van-hoa/nhan-vat/${slug}/` },
-    ...(x.cardImage ? { openGraph: { images: [{ url: x.cardImage, alt: x.imageAlt }] }, twitter: { images: [x.cardImage] } } : {}),
+    ...(x.image
+      ? {
+          openGraph: { images: [{ url: x.image, width: 1280, height: 720, alt: x.imageAlt }] },
+          twitter: { card: "summary_large_image" as const, images: [{ url: x.image, width: 1280, height: 720, alt: x.imageAlt }] },
+        }
+      : {}),
     robots: VAN_HOA_PUBLIC ? { index: true, follow: true } : { index: false, follow: false },
   };
 }
