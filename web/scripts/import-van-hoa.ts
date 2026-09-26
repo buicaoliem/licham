@@ -5,6 +5,7 @@
  *  - lib/van-hoa/data/ngay-nay-nam-xua.generated.ts — mốc có ngày âm cụ thể ("Ngày này năm xưa")
  *  - lib/van-hoa/data/nhan-vat.generated.ts       — 20 nhân vật truyền thuyết, nơi thờ lấy từ noi-tho.csv
  *  - lib/van-hoa/data/bai-viet.generated.ts       — 6 bài Tết
+ *  - lib/van-hoa/data/le-hoi.generated.ts         — lễ hội theo ngày âm (le-hoi.csv), tóm tắt trung lập từ scripts/le-hoi-neutral.ts
  *  - content/van-hoa/needs-check.json             — ghi chú nội bộ cột needsCheck (không trang nào đọc)
  * Chạy lại được nhiều lần; giọng văn trung lập cho mốc từ 1900 nằm trong NEUTRAL_SUMMARY bên dưới.
  * Chạy: pnpm --filter @licham/web import:van-hoa [-- --in <thư mục dữ liệu>] [--date yyyy-mm-dd]
@@ -27,7 +28,8 @@ import {
   splitList,
   toHistoryEvents,
 } from "../lib/van-hoa/import-logic";
-import { NHAN_VAT_GROUPS, type BaiViet, type ItemLabel, type NamSuKien, type NhanVat, type NhanVatGroupKey, type NhanVatPlace, type Source } from "../lib/van-hoa/types";
+import { NEUTRAL_LE_HOI_SUMMARY, LOADED_LE_HOI } from "./le-hoi-neutral";
+import { NHAN_VAT_GROUPS, type BaiViet, type ItemLabel, type LeHoi, type NamSuKien, type NhanVat, type NhanVatGroupKey, type NhanVatPlace, type Source } from "../lib/van-hoa/types";
 
 const WEB = dirname(dirname(fileURLToPath(import.meta.url)));
 const arg = (name: string) => {
@@ -130,7 +132,7 @@ function parseCsv(path: string): Record<string, string>[] {
 }
 
 const sourcesOf = (text: string): Source[] => splitList(text).map((t) => ({ text: t }));
-const needsCheck: Record<string, Record<string, string>> = { events: {}, figures: {}, places: {} };
+const needsCheck: Record<string, Record<string, string>> = { events: {}, figures: {}, places: {}, festivals: {} };
 const warnings: string[] = [];
 
 // ---------- Sự kiện ----------
@@ -292,6 +294,67 @@ function importArticles(figureSlugs: Set<string>): BaiViet[] {
   });
 }
 
+// ---------- Lễ hội ----------
+const dayNum = (text: string | undefined): number | undefined => {
+  if (!text) return undefined;
+  const n = Number(text);
+  return Number.isInteger(n) && n >= 1 && n <= 30 ? n : undefined;
+};
+
+function importFestivals(): { festivals: LeHoi[]; rewrites: { id: string; before: string; after: string }[] } {
+  const rows = parseCsv(join(IN, "le-hoi.csv"));
+  const rewrites: { id: string; before: string; after: string }[] = [];
+  const seen = new Set<string>();
+  const festivals = rows.map((r): LeHoi => {
+    const slug = r.slug!;
+    if (seen.has(slug)) throw new Error(`le-hoi.csv: trùng slug "${slug}"`);
+    seen.add(slug);
+    if (r.calendar !== "am" && r.calendar !== "cham") throw new Error(`le-hoi.csv: ${slug}: calendar lạ "${r.calendar}"`);
+    const cham = r.calendar === "cham";
+    const month = Number(r.lunarMonth);
+    const lunarMonth = !cham && Number.isInteger(month) && month >= 1 && month <= 12 ? month : undefined;
+    if (r.lunarMonth && !cham && !lunarMonth) throw new Error(`le-hoi.csv: ${slug}: lunarMonth "${r.lunarMonth}" không hợp lệ`);
+    // Lịch Chăm không quy ra ngày âm; không có tháng thì không có ngày.
+    const startDay = lunarMonth ? dayNum(r.startDay) : undefined;
+    const endDay = startDay ? dayNum(r.endDay) : undefined;
+    const mainDay = lunarMonth ? dayNum(r.mainDay) : undefined;
+    if (lunarMonth && r.startDay && !startDay) warnings.push(`${slug}: startDay "${r.startDay}" không đọc được.`);
+    const key = r.imageKey || undefined;
+    if (key) for (const f of [`${key}-hero`, `${key}-the`]) if (!existsSync(join(WEB, "public", "heritage", "van-hoa", "le-hoi", `${f}.webp`))) warnings.push(`${slug}: chưa có ảnh ${f}.webp — chạy scripts/optimize-le-hoi-images.py.`);
+    let summary = r.summary!;
+    const after = NEUTRAL_LE_HOI_SUMMARY[slug];
+    if (after && after !== summary) {
+      rewrites.push({ id: slug, before: summary, after });
+      summary = after;
+    }
+    const left = LOADED_LE_HOI.filter((w) => summary.toLowerCase().includes(w));
+    if (left.length) warnings.push(`${slug}: còn từ ngữ mang sắc thái: ${left.join(", ")}`);
+    if (r.needsCheck) needsCheck.festivals![slug] = r.needsCheck;
+    return {
+      slug,
+      name: r.name!,
+      calendar: cham ? "cham" : "am",
+      ...(lunarMonth ? { lunarMonth } : {}),
+      ...(startDay ? { startDay } : {}),
+      ...(endDay ? { endDay } : {}),
+      ...(mainDay ? { mainDay } : {}),
+      dateText: r.dateText!,
+      site: r.site!,
+      newAddress: r.newAddress!,
+      ...(r.oldAddress ? { oldAddress: r.oldAddress } : {}),
+      worship: r.worship!,
+      summary,
+      rituals: r.rituals!,
+      ...(r.heritage ? { heritage: r.heritage } : {}),
+      ...(key ? { imageKey: key, image: `/heritage/van-hoa/le-hoi/${key}-hero.webp`, cardImage: `/heritage/van-hoa/le-hoi/${key}-the.webp`, imageAlt: `Tranh minh hoạ ${r.name!}` } : {}),
+      updatedAt: UPDATED_AT,
+      sources: splitList(r.sources!.replace(/,/g, ";")).map((u) => ({ text: /^https?:\/\//.test(u) ? new URL(u).hostname.replace(/^www\./, "") : u, ...(/^https?:\/\//.test(u) ? { url: u } : {}) })),
+    };
+  });
+  for (const id of Object.keys(NEUTRAL_LE_HOI_SUMMARY)) if (!seen.has(id)) throw new Error(`NEUTRAL_LE_HOI_SUMMARY: không có lễ hội "${id}"`);
+  return { festivals, rewrites };
+}
+
 // ---------- Ghi file ----------
 function writeTs(rel: string, header: string, body: string) {
   const path = join(WEB, rel);
@@ -303,11 +366,13 @@ const { events, rewrites } = importEvents();
 const figures = importFigures();
 const articles = importArticles(new Set(figures.map((f) => f.slug)));
 const history = toHistoryEvents(events);
+const { festivals, rewrites: festivalRewrites } = importFestivals();
 
 writeTs("lib/van-hoa/data/nam-su-kien.generated.ts", 'import type { NamSuKien } from "../types";', `export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = ${JSON.stringify(events, null, 1)};`);
 writeTs("lib/van-hoa/data/ngay-nay-nam-xua.generated.ts", 'import type { HistoryEvent } from "../content";', `export const NGAY_NAY_NAM_XUA: readonly HistoryEvent[] = ${JSON.stringify(history, null, 1)};`);
 writeTs("lib/van-hoa/data/nhan-vat.generated.ts", 'import type { NhanVat } from "../types";', `export const NHAN_VAT_IMPORTED: readonly NhanVat[] = ${JSON.stringify(figures, null, 1)};`);
 writeTs("lib/van-hoa/data/bai-viet.generated.ts", 'import type { BaiViet } from "../types";', `export const BAI_VIET_IMPORTED: readonly BaiViet[] = ${JSON.stringify(articles, null, 1)};`);
+writeTs("lib/van-hoa/data/le-hoi.generated.ts", 'import type { LeHoi } from "../types";', `export const LE_HOI_IMPORTED: readonly LeHoi[] = ${JSON.stringify(festivals, null, 1)};`);
 mkdirSync(join(WEB, "content", "van-hoa"), { recursive: true });
 writeFileSync(join(WEB, "content", "van-hoa", "needs-check.json"), `${JSON.stringify(needsCheck, null, 2)}\n`);
 
@@ -316,7 +381,9 @@ console.log(`updatedAt ${UPDATED_AT}`);
 console.log(`events ${events.length} / specific lunar day ${events.filter((e) => e.lunarDay).length} / "Ngày này năm xưa" ${history.length} / linked to can-chi year ${events.filter((e) => e.lunarYear !== null).length}`);
 console.log(`solar: sources ${events.filter((e) => e.solarDateSource === "sources").length}, computed ${events.filter((e) => e.solarDateSource === "computed").length}`);
 console.log(`figures ${figures.length} / places ${places} / articles ${articles.length}`);
-console.log(`needsCheck: events ${Object.keys(needsCheck.events!).length}, figures ${Object.keys(needsCheck.figures!).length}, places ${Object.keys(needsCheck.places!).length}`);
+console.log(`festivals ${festivals.length} / fixed lunar date ${festivals.filter((f) => f.calendar === "am" && f.lunarMonth && f.startDay).length} / cham ${festivals.filter((f) => f.calendar === "cham").length} / no fixed date (empty month or cham) ${festivals.filter((f) => !f.lunarMonth).length} / with image ${festivals.filter((f) => f.imageKey).length}`);
+console.log(`festivals by month: ${Array.from({ length: 12 }, (_, i) => `${i + 1}=${festivals.filter((f) => f.lunarMonth === i + 1).length}`).join(" ")}`);
+console.log(`needsCheck: festivals ${Object.keys(needsCheck.festivals!).length}, events ${Object.keys(needsCheck.events!).length}, figures ${Object.keys(needsCheck.figures!).length}, places ${Object.keys(needsCheck.places!).length}`);
 if (process.argv.includes("--rewrites")) for (const r of rewrites) console.log(`\n[${r.id}]\n- ${r.before}\n+ ${r.after}`);
-else console.log(`neutral rewrites ${rewrites.length} (thêm --rewrites để xem trước → sau)`);
+else console.log(`neutral rewrites ${rewrites.length} events + ${festivalRewrites.length} festivals (thêm --rewrites để xem trước → sau)`);
 for (const w of warnings) console.warn(`! ${w}`);
