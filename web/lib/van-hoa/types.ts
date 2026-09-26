@@ -211,6 +211,8 @@ export interface BaiViet {
   intro?: string[];
   /** Slug nhân vật liên quan — vào "Bài liên quan". */
   relatedFigures?: string[];
+  relatedPeople?: string[];
+  relatedEvents?: string[];
   updatedAt: UpdatedAt;
   /** Tranh minh hoạ tỷ lệ 4:3; thiếu thì dùng khung hoa văn. */
   heroImage?: string;

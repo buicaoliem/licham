@@ -4,8 +4,10 @@ import { ShareButton } from "@/components/ShareButton";
 import { Icon, type IconName } from "@/components/heritage/Icon";
 import { articleJsonLd } from "@/lib/van-hoa/jsonld";
 import { lunarToSolarSafe } from "@/lib/van-hoa/logic";
+import { peopleInText, relatedEventsLinks, relatedEventsOf, relatedPeopleLinks, relatedPeopleOf } from "@/lib/van-hoa/cross-links";
 import { relatedForBaiViet } from "@/lib/van-hoa/related";
 import type { BaiViet, BaiVietBlock } from "@/lib/van-hoa/types";
+import { RelatedGrid } from "./RelatedGrid";
 import { buildShareUrl } from "@/lib/share";
 import { getVietnamToday } from "@/lib/today";
 import { heritageFile } from "@/lib/heritage-assets";
@@ -92,6 +94,18 @@ export function BaiVietDetail({ post }: { post: BaiViet }) {
   const path = `/van-hoa/bai-viet/${post.slug}/`;
   const hasHero = Boolean(post.heroImage && heritageFile(post.heroImage));
   const related = relatedForBaiViet(post);
+  const bodyText = [
+    post.title,
+    post.summary,
+    ...(post.intro ?? []),
+    ...post.sections.flatMap((sec) => [
+      ...sec.paras,
+      ...(sec.sub ?? []).flatMap((sb) => sb.paras),
+      ...(sec.blocks ?? []).flatMap((b) => (b.type === "p" ? [b.text] : b.type === "ul" ? b.items : b.head.concat(b.rows.flat()))),
+    ]),
+  ];
+  const people = relatedPeopleLinks(relatedPeopleOf(post).length ? relatedPeopleOf(post) : peopleInText(bodyText));
+  const events = relatedEventsLinks(relatedEventsOf(post));
   // Điện thoại: hộp "Ngày âm liên quan" nằm sau mục 1, khung ca dao sau mục 2 (theo mock); màn rộng: cả hai ở cột phải.
   return (
     <Page
@@ -224,6 +238,8 @@ export function BaiVietDetail({ post }: { post: BaiViet }) {
             ))}
           </div>
 
+          <RelatedGrid title="Nhân vật liên quan" links={people} />
+          <RelatedGrid title="Sự kiện liên quan" links={events} />
           {related.length > 0 && (
             <section className={a.related} aria-labelledby="bai-lien-quan">
               <h2 className={a.h2} id="bai-lien-quan">

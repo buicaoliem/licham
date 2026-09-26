@@ -146,11 +146,12 @@ export function parseArticleLunarDates(text: string, fallbackLabel: string): { l
   return out;
 }
 
-/** Thân bài markdown (sau tiêu đề "# …") → đoạn mở bài + các mục "## …" (đoạn, danh sách "- ", bảng "|"). */
+/** Thân bài markdown (sau tiêu đề "# …") → đoạn mở bài + các mục "## …" (tiểu mục "### …", đoạn, danh sách "- ", bảng "|"). */
 export function parseArticleBody(md: string): { intro: string[]; sections: BaiVietSection[] } {
   const intro: string[] = [];
   const sections: BaiVietSection[] = [];
   let blocks: BaiVietBlock[] | null = null;
+  let subParas: string[] | null = null;
   let para: string[] = [];
   let list: string[] | null = null;
   let table: string[][] | null = null;
@@ -158,11 +159,12 @@ export function parseArticleBody(md: string): { intro: string[]; sections: BaiVi
     const target = blocks;
     if (para.length) {
       const text = para.join(" ");
-      if (target) target.push({ type: "p", text });
+      if (subParas) subParas.push(text);
+      else if (target) target.push({ type: "p", text });
       else intro.push(text);
     }
-    if (list && target) target.push({ type: "ul", items: list });
-    if (table && target && table.length > 0) target.push({ type: "table", head: table[0]!, rows: table.slice(1) });
+    if (list && target && !subParas) target.push({ type: "ul", items: list });
+    if (table && target && !subParas && table.length > 0) target.push({ type: "table", head: table[0]!, rows: table.slice(1) });
     para = [];
     list = null;
     table = null;
@@ -170,10 +172,22 @@ export function parseArticleBody(md: string): { intro: string[]; sections: BaiVi
   for (const raw of md.split("\n")) {
     const line = raw.trim();
     if (line.startsWith("# ")) continue;
+    if (line.startsWith("### ")) {
+      flush();
+      const last = sections[sections.length - 1];
+      if (last) {
+        last.sub ??= [];
+        const item = { heading: line.slice(4).trim(), paras: [] as string[] };
+        last.sub.push(item);
+        subParas = item.paras;
+      }
+      continue;
+    }
     if (line.startsWith("## ")) {
       flush();
       const heading = line.slice(3).trim();
       blocks = [];
+      subParas = null;
       sections.push({ id: slugify(heading), heading, paras: [], blocks });
       continue;
     }

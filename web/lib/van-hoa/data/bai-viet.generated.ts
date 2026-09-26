@@ -2154,5 +2154,283 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
     "text": "Toan Ánh — Nếp cũ"
    }
   ]
+ },
+ {
+  "slug": "tranh-dong-ho",
+  "title": "Tranh Đông Hồ",
+  "label": "tin-nguong",
+  "category": "Dân gian",
+  "summary": "Tranh khắc gỗ dân gian Đông Hồ làm ở làng Đông Hồ (tên nôm làng Mái), phường Thuận Thành, tỉnh Bắc Ninh, bên bờ sông Đuống. Nghề này đã có hơn 500 năm. Nghề làm tranh được công nhận Di sản văn hóa phi vật thể quốc gia năm 2012; UNESCO ghi danh Di sản văn hóa phi vật thể cần bảo vệ khẩn cấp ngày 9/12/2025. Hiện làng chỉ còn 3–4 gia đình nghệ nhân bám trụ (hai dòng họ chính: Nguyễn Đăng, Nguyễn Hữu), khoảng 30 lao động thường xuyên.",
+  "intro": [
+   "Tranh khắc gỗ dân gian Đông Hồ làm ở làng Đông Hồ (tên nôm làng Mái), phường Thuận Thành, tỉnh Bắc Ninh, bên bờ sông Đuống. Nghề này đã có hơn 500 năm. Nghề làm tranh được công nhận Di sản văn hóa phi vật thể quốc gia năm 2012; UNESCO ghi danh Di sản văn hóa phi vật thể cần bảo vệ khẩn cấp ngày 9/12/2025. Hiện làng chỉ còn 3–4 gia đình nghệ nhân bám trụ (hai dòng họ chính: Nguyễn Đăng, Nguyễn Hữu), khoảng 30 lao động thường xuyên."
+  ],
+  "relatedFigures": [],
+  "updatedAt": "2026-09-26",
+  "heroImage": "/heritage/van-hoa/dan-gian/tranh-dong-ho-hero.webp",
+  "heroAlt": "Tranh minh hoạ: Tranh Đông Hồ",
+  "sections": [
+   {
+    "id": "muoi-hai-buc-tranh-tieu-bieu",
+    "heading": "Mười hai bức tranh tiêu biểu",
+    "paras": [],
+    "blocks": [],
+    "sub": [
+     {
+      "heading": "Đám cưới chuột (Chuột vinh quy)",
+      "paras": [
+       "Bốn chuột dâng lễ mèo (tầng trên), đám rước dâu chuột (tầng dưới), chữ \"Nghinh hôn\". Châm biếm hối lộ quan lại phong kiến; triết lý cộng sinh sinh tồn. Treo Tết, quà mừng hôn lễ."
+      ]
+     },
+     {
+      "heading": "Lợn đàn (Đàn lợn âm dương)",
+      "paras": [
+       "Lợn nái và năm lợn con, xoáy âm dương trên lưng. Tín ngưỡng phồn thực, cầu sinh sôi, âm dương hòa hợp. Treo Tết gian chính hoặc chuồng trại."
+      ]
+     },
+     {
+      "heading": "Gà đàn (Gà mẹ và đàn con)",
+      "paras": [
+       "Gà mẹ nhường mồi cho mười gà con. Tôn vinh tình mẫu tử, \"thập toàn thập mỹ\". Treo Tết, mừng tân hôn, đầy tháng."
+      ]
+     },
+     {
+      "heading": "Gà đại cát (Đại cát nghinh xuân)",
+      "paras": [
+       "Gà trống oai vệ, mào đỏ, chữ \"Đại Cát\". Cầu may mắn; biểu trưng Ngũ đức (Văn, Vũ, Dũng, Nhân, Tín). Treo cửa chính, phòng khách đầu xuân."
+      ]
+     },
+     {
+      "heading": "Vinh hoa",
+      "paras": [
+       "Bé trai ôm gà trống bên hoa cúc, chữ \"Vinh Hoa\". Chúc sinh quý tử, công danh hiển đạt. Treo cùng Phú quý dịp Tết."
+      ]
+     },
+     {
+      "heading": "Phú quý (Gái sắc ôm vịt)",
+      "paras": [
+       "Bé gái ôm vịt bên hoa sen, chữ \"Phú Quý\". Chúc sinh con gái nết na, gia đình sung túc. Treo cùng Vinh hoa."
+      ]
+     },
+     {
+      "heading": "Hứng dừa",
+      "paras": [
+       "Chồng trèo dừa, vợ căng váy hứng, con quây quần; thơ Nôm \"Khen ai khéo dựng nên dừa...\". Ca ngợi vợ chồng hòa thuận, ẩn dụ phồn thực dân dã. Treo Tết, quà cưới."
+      ]
+     },
+     {
+      "heading": "Đánh ghen",
+      "paras": [
+       "Vợ cả cầm kéo, vợ lẽ né tránh, chồng can ngăn, con quỳ khóc; thơ Nôm \"Thôi thôi nuốt giận làm lành...\". Châm biếm chế độ đa thê; răn dạy giữ hòa khí gia đình. Thường ghép cặp đối xứng với Hứng dừa."
+      ]
+     },
+     {
+      "heading": "Chăn trâu thổi sáo (Mục đồng thổi sáo)",
+      "paras": [
+       "Bé mục đồng thổi sáo lưng trâu, lọng lá sen; chữ \"Hà diệp cái thanh thanh\". Ngợi ca sống thanh bình, hiếu học. Treo Tết, góc học tập trẻ."
+      ]
+     },
+     {
+      "heading": "Cá chép trông trăng (Lý ngư vọng nguyệt)",
+      "paras": [
+       "Cá chép ngắm bóng trăng đáy nước; chữ \"Lý Ngư Vọng Nguyệt\". Cầu đỗ đạt (vượt vũ môn); răn phân biệt thực–ảo. Treo Tết, phòng thờ, phòng học sĩ tử."
+      ]
+     },
+     {
+      "heading": "Nhân nghĩa (Trai tài ôm cóc tía)",
+      "paras": [
+       "Bé trai ôm cóc; chữ \"Nhân Nghĩa\". Răn sống nhân ái, dũng cảm bảo vệ lẽ phải (tích Cóc kiện Trời). Thường ghép bộ với Lễ Trí."
+      ]
+     },
+     {
+      "heading": "Thầy đồ cóc (Lão Oa giảng độc)",
+      "paras": [
+       "Cóc thầy đồ dạy học trò cóc, có cảnh phạt đòn. Châm biếm hủ nho khuôn sáo; tôn vinh tôn sư trọng đạo. Treo Tết, phòng học, biếu thầy cô."
+      ]
+     }
+    ]
+   },
+   {
+    "id": "ky-thuat-lam-tranh",
+    "heading": "Kỹ thuật làm tranh",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "ul",
+      "items": [
+       "**Giấy điệp:** giấy dó quét bột vỏ sò điệp ủ 1–2 năm (lèn mịn) trộn hồ nếp, quét bằng chổi lá thông (\"thét\") — tạo bề mặt óng ánh, chống ẩm.",
+       "**Màu tự nhiên:** đen từ tro lá tre/rơm nếp; vàng từ hoa hòe/dành dành; đỏ từ sỏi son núi Thiên Thai hoặc gỗ vang; xanh từ lá chàm/gỉ đồng; trắng từ chính bột điệp.",
+       "**Ván khắc:** ván nét đen dùng gỗ thị (đường nét mảnh); ván mảng màu dùng gỗ giổi/vàng tâm (ngậm màu tốt). Mỗi màu một bản khắc riêng.",
+       "**In:** in mảng màu trước, in nét đen sau cùng. Thứ tự đỏ → xanh lục → vàng → trắng → đen; mỗi lớp phải khô mới in lớp sau. Dùng xơ mướp miết cho màu ngấm giấy."
+      ]
+     }
+    ]
+   },
+   {
+    "id": "tren-lich-am",
+    "heading": "Trên lịch âm",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "table",
+      "head": [
+       "Thời điểm",
+       "Việc"
+      ],
+      "rows": [
+       [
+        "Cuối tháng Chạp",
+        "Mua tranh Tết, treo gian chính và cửa nhà"
+       ],
+       [
+        "Mùng 1–3 tháng Giêng",
+        "Tranh Tết trên tường nhà, biếu nhau dịp đầu xuân"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "lunarDates": [
+   {
+    "label": "Treo Tết",
+    "day": 1,
+    "month": 1,
+    "text": "1 tháng Giêng"
+   }
+  ],
+  "sources": [
+   {
+    "text": "Bảo tàng Dân tộc học Việt Nam"
+   },
+   {
+    "text": "Cục Di sản văn hóa"
+   }
+  ]
+ },
+ {
+  "slug": "do-choi-tet-xua",
+  "title": "Đồ chơi Tết xưa",
+  "label": "tin-nguong",
+  "category": "Dân gian",
+  "summary": "Ba món đồ chơi Tết và hội hè còn gặp ở chợ phiên, lễ hội làng: tò he, đèn ông sao và trống bỏi.",
+  "intro": [
+   "Ba món đồ chơi Tết và hội hè còn gặp ở chợ phiên, lễ hội làng: tò he, đèn ông sao và trống bỏi."
+  ],
+  "relatedFigures": [],
+  "updatedAt": "2026-09-26",
+  "heroImage": "/heritage/van-hoa/dan-gian/do-choi-tet-xua-hero.webp",
+  "heroAlt": "Tranh minh hoạ: Đồ chơi Tết xưa",
+  "sections": [
+   {
+    "id": "to-he",
+    "heading": "Tò he",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Tên khác: bánh chim cò (tên cổ), con giống bột. Làng nghề Xuân La, xã Phượng Dực, TP. Hà Nội — duy nhất ở Việt Nam làm nghề này, khoảng 300–400 năm (truyền khẩu, chưa xác minh thư tịch cổ)."
+     },
+     {
+      "type": "p",
+      "text": "Cách làm: gạo tẻ trộn gạo nếp (tỷ lệ khoảng 5:1 hoặc 10:1, mùa đông tăng nếp cho dẻo) → xay bột, luộc chín tới (bột nổi lên là chín) → nhuộm màu tự nhiên (đỏ từ gấc, vàng từ nghệ, xanh từ lá trầu không/lá riềng, đen từ tro rơm nếp) → nặn trực tiếp lên que tre bằng tay, dùng lược nhỏ tạo vảy lông. Đề tài: 12 con giáp, hoa quả, nhân vật lịch sử."
+     },
+     {
+      "type": "p",
+      "text": "Đặc điểm: vừa là đồ chơi vừa ăn được (làm từ bột nếp chín và màu thảo mộc)."
+     },
+     {
+      "type": "p",
+      "text": "Hiện nay: nghệ nhân đi bán dạo khắp lễ hội, chợ Tết cả nước; khoảng 10 người làm thường xuyên và 40 người làm theo mùa vụ tại làng (2026); được vinh danh Nghệ nhân trong lĩnh vực di sản văn hóa phi vật thể."
+     }
+    ]
+   },
+   {
+    "id": "den-ong-sao",
+    "heading": "Đèn ông sao",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Làng nghề Báo Đáp, phường Hồng Quang, tỉnh Nam Định — thủ phủ đèn ông sao thủ công lớn nhất miền Bắc, sản xuất rộ tháng 5–8 âm lịch."
+     },
+     {
+      "type": "p",
+      "text": "Cách làm: nan tre/luồng ngâm bùn 2–3 tháng chống mối → chẻ 10 nan dài làm cánh sao, đan chéo hai mặt sao rồi chống tâm bung 3D, viền hai vòng tròn tre → dán giấy bóng kính ngũ sắc (đỏ, vàng, xanh) bằng hồ sắn, kéo căng phẳng → viền ren giấy răng cưa, gắn cán tre và đế cắm nến."
+     },
+     {
+      "type": "p",
+      "text": "Cách dùng: cắm nến, rước đèn đêm rằm Trung thu; loại lớn (1–2 m) treo trang trí sân đình, cổng trường dịp lễ hội."
+     },
+     {
+      "type": "p",
+      "text": "Nguồn gốc: chưa xác minh niên đại qua thư tịch cổ; gắn với cộng đồng giáo dân Báo Đáp."
+     }
+    ]
+   },
+   {
+    "id": "trong-boi",
+    "heading": "Trống bỏi",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Tên khác: trống lắc, trống quay, trống tầm bỏi. Làng nghề Báo Đáp (Nam Định) và làng Hảo, xã Liêu Xá, tỉnh Hưng Yên."
+     },
+     {
+      "type": "p",
+      "text": "Cách làm: đất sét ruộng nhào nhuyễn, đúc/cắt thành tang trống tròn nhỏ, phơi khô → bọc giấy màu quanh tang → căng giấy hồng bì bịt kín hai mặt (tạo khoang cộng hưởng âm) → xuyên hai lỗ, buộc dây với hai hạt cườm hai đầu → cắm cán tre xuyên tâm."
+     },
+     {
+      "type": "p",
+      "text": "Cách chơi: xoa cán giữa hai lòng bàn tay hoặc lắc cổ tay, hạt cườm văng đập hai mặt trống tạo tiếng \"lách cách\". Gắn với chợ Tết và đêm rằm Trung thu xưa."
+     },
+     {
+      "type": "p",
+      "text": "Hiện nay: mai một nghiêm trọng nhất trong ba món, chỉ còn vài nghệ nhân cao tuổi làm cầm chừng theo đơn đặt."
+     }
+    ]
+   },
+   {
+    "id": "tren-lich-am",
+    "heading": "Trên lịch âm",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "table",
+      "head": [
+       "Thời điểm",
+       "Việc"
+      ],
+      "rows": [
+       [
+        "Cuối tháng Chạp – mùng 3 tháng Giêng",
+        "Tò he, trống bỏi ở chợ Tết"
+       ],
+       [
+        "Tháng 5–8 âm lịch",
+        "Làng Báo Đáp làm đèn ông sao"
+       ],
+       [
+        "Rằm tháng Tám",
+        "Rước đèn ông sao, lắc trống bỏi đêm Trung thu"
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "lunarDates": [
+   {
+    "label": "Chợ Tết",
+    "day": 1,
+    "month": 1,
+    "text": "1 tháng Giêng"
+   }
+  ],
+  "sources": [
+   {
+    "text": "Bảo tàng Dân tộc học Việt Nam"
+   }
+  ]
  }
 ];

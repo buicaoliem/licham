@@ -4,7 +4,7 @@
  *  - lib/van-hoa/data/nam-su-kien.generated.ts    — 235 mốc lịch sử đến 1945 (trang năm can chi, danh sách sự kiện)
  *  - lib/van-hoa/data/ngay-nay-nam-xua.generated.ts — mốc có ngày âm cụ thể ("Ngày này năm xưa")
  *  - lib/van-hoa/data/nhan-vat.generated.ts       — 20 nhân vật truyền thuyết, nơi thờ lấy từ noi-tho.csv
- *  - lib/van-hoa/data/bai-viet.generated.ts       — 6 bài Tết + 20 trò chơi dân gian
+ *  - lib/van-hoa/data/bai-viet.generated.ts       — 6 bài Tết + 20 trò chơi dân gian + tranh Đông Hồ, đồ chơi Tết
  *  - lib/van-hoa/data/le-hoi.generated.ts         — lễ hội theo ngày âm (le-hoi.csv), tóm tắt trung lập từ scripts/le-hoi-neutral.ts
  *  - content/van-hoa/needs-check.json             — ghi chú nội bộ cột needsCheck (không trang nào đọc)
  * Chạy lại được nhiều lần; giọng văn trung lập cho mốc từ 1900 nằm trong NEUTRAL_SUMMARY bên dưới.
@@ -265,15 +265,17 @@ function importFigures(): NhanVat[] {
 // ---------- Bài Tết ----------
 const CATEGORY_LABEL: Record<string, ItemLabel> = { "Dân gian": "tin-nguong", "Thiên văn": "chinh-su" };
 
-/** Ảnh bài Tết nằm /heritage/tet/; ảnh trò chơi nằm /heritage/van-hoa/tro-choi-dan-gian/. */
+/** Ảnh bài Tết /heritage/tet/; trò chơi /heritage/van-hoa/tro-choi-dan-gian/; bài Dân gian khác /heritage/van-hoa/dan-gian/. */
 function articleHeroPath(hero: string): string {
   const stem = hero.replace(/\.\w+$/, "");
   if (stem.startsWith("tet-")) return `/heritage/tet/${stem.replace(/^tet-/, "")}.webp`;
-  return `/heritage/van-hoa/tro-choi-dan-gian/${stem}.webp`;
+  const game = join(WEB, "public", "heritage", "van-hoa", "tro-choi-dan-gian", `${stem}.webp`);
+  if (existsSync(game)) return `/heritage/van-hoa/tro-choi-dan-gian/${stem}.webp`;
+  return `/heritage/van-hoa/dan-gian/${stem}.webp`;
 }
 
 function importArticles(figureSlugs: Set<string>): BaiViet[] {
-  const files = ["bai-tet-6-chu-de.md", "tro-choi-dan-gian.md"];
+  const files = ["bai-tet-6-chu-de.md", "tro-choi-dan-gian.md", "tranh-do-choi.md"];
   const seen = new Set<string>();
   const articles: BaiViet[] = [];
   for (const file of files) {
@@ -291,6 +293,8 @@ function importArticles(figureSlugs: Set<string>): BaiViet[] {
       if (hero && !existsSync(join(WEB, "public", hero))) warnings.push(`${slug}: chưa có ảnh ${hero} — chạy lại sau khi thêm ảnh.`);
       const relatedFigures = (meta.relatedFigures ?? "").split(",").map((x) => x.trim()).filter(Boolean);
       for (const f of relatedFigures) if (!figureSlugs.has(f)) warnings.push(`${slug}: relatedFigures "${f}" không có trang nhân vật.`);
+      const relatedPeople = (meta.relatedPeople ?? "").split(",").map((x) => x.trim()).filter(Boolean);
+      const relatedEvents = (meta.relatedEvents ?? "").split(",").map((x) => x.trim()).filter(Boolean);
       if (meta.needsCheck) needsCheck.articles![slug] = meta.needsCheck;
       articles.push({
         slug,
@@ -300,6 +304,8 @@ function importArticles(figureSlugs: Set<string>): BaiViet[] {
         summary: intro.join(" ") || title,
         intro,
         relatedFigures: relatedFigures.filter((f) => figureSlugs.has(f)),
+        ...(relatedPeople.length ? { relatedPeople } : {}),
+        ...(relatedEvents.length ? { relatedEvents } : {}),
         updatedAt: UPDATED_AT,
         ...(hero ? { heroImage: hero, heroAlt: `Tranh minh hoạ: ${title.split(":")[0]}` } : {}),
         sections,

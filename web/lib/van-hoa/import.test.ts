@@ -10,7 +10,7 @@ import { NAM_SU_KIEN } from "./data/nam-su-kien";
 import { NAM_SU_KIEN_IMPORTED } from "./data/nam-su-kien.generated";
 import { NHAN_VAT_IMPORTED } from "./data/nhan-vat.generated";
 import { BAI_VIET_IMPORTED } from "./data/bai-viet.generated";
-import { parseFestivals, parseLunarDate, parseSolarYear, placeLine, toHistoryEvents } from "./import-logic";
+import { parseArticleBody, parseFestivals, parseLunarDate, parseSolarYear, placeLine, toHistoryEvents } from "./import-logic";
 import { eventsOfCanChi } from "./logic";
 import type { NamSuKien } from "./types";
 
@@ -81,6 +81,13 @@ describe("nơi thờ", () => {
 });
 
 describe("phân tích dữ liệu nguồn", () => {
+  it("### thành tiểu mục, không để dấu ### trong đoạn văn", () => {
+    const { sections } = parseArticleBody("# T\n\n## Mục\n\n### Tiểu\n\nMột đoạn.\n");
+    expect(sections[0]!.heading).toBe("Mục");
+    expect(sections[0]!.sub).toEqual([{ heading: "Tiểu", paras: ["Một đoạn."] }]);
+    expect(JSON.stringify(sections[0]!.blocks)).not.toMatch(/###/);
+  });
+
   it("năm dương lịch, ngày âm, lễ hội", () => {
     expect(parseSolarYear("2879 TCN")).toBe(-2879);
     expect(parseSolarYear("2 SCN")).toBe(2);
@@ -93,11 +100,11 @@ describe("phân tích dữ liệu nguồn", () => {
     ]);
   });
 
-  it("số lượng: 235 mốc / 20 nhân vật / 26 bài; mọi mục có updatedAt", () => {
+  it("số lượng: 235 mốc / 20 nhân vật / 28 bài; mọi mục có updatedAt", () => {
     expect(NAM_SU_KIEN_IMPORTED).toHaveLength(235);
     expect(NAM_SU_KIEN_IMPORTED.filter((e) => e.lunarDay !== undefined)).toHaveLength(94);
     expect(NHAN_VAT_IMPORTED).toHaveLength(20);
-    expect(BAI_VIET_IMPORTED).toHaveLength(26);
+    expect(BAI_VIET_IMPORTED).toHaveLength(28);
     for (const x of [...NAM_SU_KIEN_IMPORTED, ...NHAN_VAT_IMPORTED, ...BAI_VIET_IMPORTED]) expect(x.updatedAt).toMatch(/^\d{4}-\d{2}-\d{2}$/);
   });
 
