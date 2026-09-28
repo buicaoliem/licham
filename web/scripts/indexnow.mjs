@@ -135,6 +135,66 @@ async function submit({ key, keyLocation, urls }) {
   return { status: res.status, ok: res.ok, body: text };
 }
 
+// IndexNow caps a single request at 10,000 URLs. Split larger submissions
+// into sequential batches so the portfolio-wide script keeps working as
+// sites grow past that limit.
+const MAX_URLS_PER_BATCH = 10000;
+const MAX_RETRIES_PER_BATCH = 3;
+
+export function chunkUrls(urls, size = MAX_URLS_PER_BATCH) {
+  const chunks = [];
+  for (let i = 0; i < urls.length; i += size) chunks.push(urls.slice(i, i + size));
+  return chunks;
+}
+
+function sleep(ms) { return new Promise((resolve) => setTimeout(resolve, ms)); }
+
+// Submits all URLs in batches of at most MAX_URLS_PER_BATCH. A batch that
+// gets HTTP 429 is retried with a short backoff; a batch that errors over
+// the network is logged and skipped so the rest of the run keeps going.
+// Never throws — submission failures must never fail the deployment.
+async function submitBatches({ key, keyLocation, urls }) {
+  const batches = chunkUrls(urls);
+  let submittedCount = 0;
+  let allOk = true;
+
+  for (let i = 0; i < batches.length; i++) {
+    const batch = batches[i];
+    const batchNum = i + 1;
+    let attempt = 0;
+    let batchOk = false;
+
+    while (attempt < MAX_RETRIES_PER_BATCH && !batchOk) {
+      attempt++;
+      try {
+        const result = await submit({ key, keyLocation, urls: batch });
+        const accepted = result.status === 200 || result.status === 202;
+        if (accepted) {
+          console.log(`Batch ${batchNum}/${batches.length}: ${batch.length} URL — HTTP ${result.status}${result.body ? ` — ${result.body}` : ""}`);
+          submittedCount += batch.length;
+          batchOk = true;
+        } else if (result.status === 429 && attempt < MAX_RETRIES_PER_BATCH) {
+          const waitMs = 2000 * attempt;
+          console.error(`Batch ${batchNum}/${batches.length}: HTTP 429 (rate limited), thử lại sau ${waitMs}ms (lần ${attempt}/${MAX_RETRIES_PER_BATCH}).`);
+          await sleep(waitMs);
+        } else {
+          console.error(`Batch ${batchNum}/${batches.length}: ${batch.length} URL — HTTP ${result.status}${result.body ? ` — ${result.body}` : ""}. Không làm fail deployment.`);
+          allOk = false;
+          break;
+        }
+      } catch (e) {
+        console.error(`Batch ${batchNum}/${batches.length}: lỗi mạng — ${e.message}. Bỏ qua, tiếp tục batch tiếp theo.`);
+        allOk = false;
+        break;
+      }
+    }
+    if (!batchOk && attempt >= MAX_RETRIES_PER_BATCH) allOk = false;
+  }
+
+  console.log(`Tổng cộng: ${batches.length} batch, submit thành công ${submittedCount}/${urls.length} URL.`);
+  return { ok: allOk, submittedCount, totalCount: urls.length, batchCount: batches.length };
+}
+
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const { key, keyLocation } = findKeyFile();
@@ -159,14 +219,8 @@ async function main() {
 
   if (args.dryRun) { console.log("(--dry-run) Không gọi IndexNow API, không lưu state."); return; }
 
-  try {
-    const result = await submit({ key, keyLocation, urls: urlsToSubmit });
-    console.log(`IndexNow response: HTTP ${result.status}${result.body ? ` — ${result.body}` : ""}`);
-    if (!result.ok) console.error(`IndexNow trả lỗi (HTTP ${result.status}). Không làm fail deployment.`);
-    else if (nextState) saveState(nextState);
-  } catch (e) {
-    console.error(`Gọi IndexNow API thất bại: ${e.message}. Không làm fail deployment.`);
-  }
+  const result = await submitBatches({ key, keyLocation, urls: urlsToSubmit });
+  if (result.ok && nextState) saveState(nextState);
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
