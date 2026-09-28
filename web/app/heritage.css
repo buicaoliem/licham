@@ -11638,6 +11638,116 @@ a.ly-cell:hover {
   line-height: 1.6;
   color: var(--ink-2);
 }
+.ah-related-people {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ah-related-people li {
+  display: grid;
+  gap: 4px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--jade);
+  border-radius: 10px;
+}
+.ah-related-people li > a,
+.ah-related-people li > b {
+  font-family: var(--serif);
+  font-weight: 700;
+}
+.ah-related-people li > span {
+  font-family: var(--sans);
+  font-size: 13.5px;
+  color: var(--ink-3);
+  line-height: 1.5;
+}
+.ah-discovery {
+  display: grid;
+  gap: 8px;
+  margin: 40px 0;
+}
+.ah-paths-sec {
+  margin: 40px 0;
+}
+.ah-paths {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+.ah-path {
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper, #fff);
+}
+.ah-path h3 {
+  font-family: var(--serif);
+  font-size: 17px;
+  margin: 0 0 6px;
+}
+.ah-path-desc {
+  font-family: var(--sans);
+  font-size: 13.5px;
+  color: var(--ink-3);
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+.ah-path-steps {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ah-path-steps li {
+  display: grid;
+  gap: 4px;
+}
+.ah-path-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+.ah-path-step-n {
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--gold-soft);
+  color: var(--gold-dp);
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 700;
+}
+.ah-path-step-b {
+  display: grid;
+  gap: 1px;
+}
+.ah-path-step-b b {
+  font-family: var(--serif);
+  font-size: 14.5px;
+  line-height: 1.4;
+}
+.ah-path-step-b em {
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-style: normal;
+  color: var(--ink-3);
+}
+.ah-path-note {
+  padding-left: 32px;
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--ink-3);
+  line-height: 1.5;
+}
 .ah-places {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

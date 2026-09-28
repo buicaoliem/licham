@@ -3,7 +3,16 @@ import { ListLd } from "./tpl/Shared";
 import { TopicBadge } from "./tpl/Shared";
 import { HERO_IMAGE, NEW_POSTS, TOPICS, type Topic } from "@/lib/van-hoa/config";
 import { HomNay } from "./HomNay";
+import { Upcoming } from "./Upcoming";
+import { STORY } from "@/lib/van-hoa/data/story";
+import { FIXTURE_SLUG } from "@/lib/van-hoa/types";
 import s from "./van-hoa.module.css";
+
+/** Câu chuyện mới nhất trước, tối đa 4 — khối khám phá gọn trên trang tổng, không phải một feed dài. */
+const DISCOVERY_STORIES = STORY.filter((x) => x.slug !== FIXTURE_SLUG)
+  .slice()
+  .sort((a, b) => (a.updatedAt < b.updatedAt ? 1 : -1))
+  .slice(0, 4);
 
 
 function SectionTitle({ id, children }: { id: string; children: string }) {
@@ -71,6 +80,11 @@ export function VanHoaHub() {
           <HomNay />
         </section>
 
+        <section aria-labelledby="vh-saptoi">
+          <SectionTitle id="vh-saptoi">Văn hoá trong 30 ngày tới</SectionTitle>
+          <Upcoming />
+        </section>
+
         <section aria-labelledby="vh-chude">
           <SectionTitle id="vh-chude">Khám phá các chủ đề văn hoá</SectionTitle>
           <ul className={s.topics}>
@@ -79,6 +93,30 @@ export function VanHoaHub() {
             ))}
           </ul>
         </section>
+
+        {DISCOVERY_STORIES.length > 0 && (
+          <section aria-labelledby="vh-cauchuyen">
+            <SectionTitle id="vh-cauchuyen">Câu chuyện lịch sử</SectionTitle>
+            <p className={s.topicDesc}>Lớp nội dung giữa hồ sơ nhân vật và mốc sự kiện — mỗi bài mở đầu bằng một câu hỏi cụ thể, phân biệt rõ sử liệu và truyền tụng.</p>
+            <ul className={s.newList}>
+              {DISCOVERY_STORIES.map((st) => (
+                <li key={st.slug} className={s.newItem}>
+                  {st.heroImage && <img src={st.heroImage} alt="" width={88} height={64} loading="lazy" decoding="async" className={s.newImg} />}
+                  <div className={s.newBody}>
+                    <TopicBadge text="Câu chuyện" />
+                    <h3 className={s.h3}>{st.title}</h3>
+                    <p className={s.more}>
+                      <Link href={`/van-hoa/cau-chuyen/${st.slug}/`}>Đọc tiếp</Link>
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <p className={s.more}>
+              <Link href="/anh-hung-dan-toc/">Xem hồ sơ đầy đủ các anh hùng dân tộc</Link>
+            </p>
+          </section>
+        )}
 
         {NEW_POSTS.length > 0 && (
           <section aria-labelledby="vh-moi">

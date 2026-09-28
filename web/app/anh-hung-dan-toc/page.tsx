@@ -6,9 +6,28 @@ import { Breadcrumb } from "@/components/calendar/Breadcrumb";
 import { AhCard, AhTimeline, DrumPattern, anhHungArt } from "@/components/heritage/AnhHungParts";
 import { ChShell } from "@/components/heritage/ChShell";
 import { Icon } from "@/components/heritage/Icon";
+import { ReadingPaths } from "@/components/van-hoa/ReadingPaths";
+import { RelatedGrid } from "@/components/van-hoa/tpl/RelatedGrid";
 import { ANH_HUNG, THOI_KY, anhHungHref, trieuDaiList } from "@/lib/anh-hung";
 import { heritageFile } from "@/lib/heritage-assets";
 import { SITE_URL } from "@/lib/site";
+import { personRabbitHoleLinks, storyLinks } from "@/lib/van-hoa/cross-links";
+
+/**
+ * Khối khám phá "Bắt đầu từ một câu chuyện" — chọn có chủ đích (nối nhiều nhân vật, thuộc series,
+ * mở sang thời kỳ khác), không phải danh sách mới nhất. Biên tập tay, xem docs/story-map.md.
+ */
+const DISCOVERY_STORY_SLUGS = [
+  "kieu-cong-tien-cau-cuu-nam-han",
+  "le-lai-cuu-chua-su-lieu-ghi-gi",
+  "vi-sao-khoi-nghia-hai-ba-trung-bung-no",
+  "vi-sao-quan-tran-bo-thang-long-1285",
+  "loan-12-su-quan-dinh-bo-linh-thong-nhat-the-nao",
+  "vi-sao-hanh-quan-ra-bac-dip-tet",
+];
+
+/** Khối khám phá "Đi tiếp từ một nhân vật" — nhân vật có rabbit-hole tốt (đã có `nguoiLienQuan` trong dữ liệu thật). */
+const DISCOVERY_PERSON_SLUGS = ["ngo-quyen", "tran-hung-dao", "nguyen-trai", "le-loi", "quang-trung", "hai-ba-trung"];
 
 const TITLE = "Các anh hùng dân tộc Việt Nam";
 const DESC =
@@ -100,6 +119,9 @@ export default function AnhHungHubPage() {
                 <Link className="chip" href="/le/gio-to-hung-vuong/">
                   Giỗ Tổ Hùng Vương
                 </Link>
+                <Link className="chip" href="/van-hoa/">
+                  Câu chuyện & lễ hội dân gian
+                </Link>
               </div>
             </div>
             <div className={heroArt ? "ah-hero-art img" : "ah-hero-art"} aria-hidden="true">
@@ -121,6 +143,19 @@ export default function AnhHungHubPage() {
           </div>
           <AhTimeline list={list} />
         </section>
+
+        <section className="ah-discovery" aria-labelledby="ah-discovery-h">
+          <div className="ah-sec-head">
+            <h2 className="ch-h2" id="ah-discovery-h">
+              Khám phá tiếp
+            </h2>
+            <p className="ch-sub">Hai lối vào khác cho cùng một kho nội dung: từ một câu chuyện cụ thể, hoặc từ một nhân vật có nhiều mối quan hệ đáng theo.</p>
+          </div>
+          <RelatedGrid id="bat-dau-cau-chuyen" title="Bắt đầu từ một câu chuyện" links={storyLinks(DISCOVERY_STORY_SLUGS)} />
+          <RelatedGrid id="di-tiep-nhan-vat" title="Đi tiếp từ một nhân vật" links={personRabbitHoleLinks(DISCOVERY_PERSON_SLUGS)} />
+        </section>
+
+        <ReadingPaths />
 
         <section className="ah-about" aria-labelledby="ah-about-h">
           <h2 className="ch-h2" id="ah-about-h">
