@@ -249,8 +249,6 @@ export default async function AnhHungPage({ params }: { params: Promise<{ slug: 
               </Sec>
             )}
 
-            <RelatedGrid title="Sự kiện liên quan" links={eventLinks} />
-
             {a.ghiChuSuLieu && (
               <aside className="ah-note">
                 <b>Ghi chú sử liệu</b>
@@ -348,6 +346,8 @@ export default async function AnhHungPage({ params }: { params: Promise<{ slug: 
             )}
           </aside>
         </div>
+
+        <RelatedGrid title="Sự kiện liên quan" links={eventLinks} />
 
         <section className="ah-more" aria-labelledby="ah-more-h">
           <h2 className="ch-h2" id="ah-more-h">
