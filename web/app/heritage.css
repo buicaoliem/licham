@@ -6345,6 +6345,39 @@ a.ch-tile:hover {
   font-style: italic;
   color: var(--son);
 }
+.le-year-form {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  margin: 14px 0 0;
+}
+.le-year-form label {
+  font-family: var(--sans);
+  font-size: 13.5px;
+  color: var(--ink-3);
+}
+.le-year-form input {
+  width: 6.5rem;
+  min-height: 44px;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-family: var(--sans);
+  font-size: 15px;
+  background: #fffdf8;
+}
+.le-year-form .btn {
+  min-height: 44px;
+  padding: 0 16px;
+}
+/* Dòng phụ, không phải kết quả chính — tránh nhầm với mốc ngày/năm đang xem ở trên. */
+.le-next-line {
+  margin: 8px 0 0;
+  font-family: var(--sans);
+  font-size: 13.5px;
+  color: var(--ink-3);
+}
 .le-when {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -7242,6 +7275,14 @@ a.ch-tile:hover {
   }
   .le-when dd.s {
     font-size: 11.5px;
+  }
+  .le-year-form label {
+    width: 100%;
+  }
+  .le-year-form input {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: 8rem;
   }
   .le-d-main {
     gap: 0;

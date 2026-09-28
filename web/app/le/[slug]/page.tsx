@@ -17,7 +17,7 @@ import { dayHref, monthHref } from "@/lib/calendar/urls";
 import { WEEKDAY_LONG, pad2 } from "@/lib/format";
 import { LE_LIST, LE_NHOM_LABEL, leBySlug, leKhac } from "@/lib/le";
 import { countdownSlugForLe } from "@/lib/countdown";
-import { daysUntil, nextOccurrence, tenYearTable } from "@/lib/le-date-engine";
+import { daysUntil, nextOccurrence, selectedLeYear, tenYearTable, yearRow } from "@/lib/le-date-engine";
 import { LE_LICH_LABEL, leArt, leItem, leLichKind, leRuleLabel } from "@/lib/le-hub";
 import { getRelatedHolidays, googleCalendarUrl, icsDataUri } from "@/lib/holiday";
 import { buildShareUrl } from "@/lib/share";
@@ -30,8 +30,12 @@ import { anhHungByLeSlug, anhHungHref } from "@/lib/anh-hung";
 const YEARS_BEFORE = 2;
 const YEARS_AFTER = 5;
 
-// Hôm nay tính theo giờ Việt Nam nên trang dựng lại mỗi giờ để đếm ngược và năm hiện tại không bị cũ.
-export const revalidate = 300;
+// force-dynamic là bắt buộc, không phải lựa chọn mặc định: trang đọc searchParams.nam để cho xem một
+// năm bất kỳ (?nam=YYYY, phạm vi 1902–2094) — không thể tiền dựng tĩnh (SSG/ISR) cho hàng chục nghìn tổ hợp
+// slug×năm đó, và Next.js buộc render động khi component đọc searchParams. revalidate không giải quyết được
+// việc này (nó chỉ làm mới theo thời gian, không phân biệt theo query). Không dùng force-dynamic chỉ vì lo
+// đếm ngược/năm hiện tại lệch qua nửa đêm — revalidate ngắn (vài phút) đã đủ cho việc đó một mình.
+export const dynamic = "force-dynamic";
 
 export function generateStaticParams() {
   return LE_LIST.map((p) => ({ slug: p.slug }));
@@ -43,10 +47,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const page = leBySlug(slug);
   if (!page) return {};
-  const today = getVietnamToday();
-  const { year } = nextOccurrence(page, today);
   return {
-    title: `${page.tieuDe} ${year} là ngày nào? | Lịch Âm`,
+    title: `${page.tieuDe}: ngày âm và lịch qua các năm | Lịch Âm`,
     description: page.moTa,
     alternates: { canonical: `/le/${slug}/` },
   };
@@ -77,16 +79,18 @@ function Sec({ id, icon, title, children, wide = false }: { id: string; icon: Ic
   );
 }
 
-export default async function LePage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function LePage({ params, searchParams }: { params: Promise<{ slug: string }>; searchParams: Promise<{ nam?: string | string[] }> }) {
   const { slug } = await params;
   const page = leBySlug(slug);
   if (!page) notFound();
 
   const today = getVietnamToday();
   const todayJd = jdFromDate(today.day, today.month, today.year);
-  const { year, solar, canChi, lunarLabel, weekday } = nextOccurrence(page, today);
+  const selectedYear = selectedLeYear((await searchParams).nam, today);
+  const { year, solar, canChi, lunarLabel, weekday } = yearRow(page, selectedYear);
+  const next = nextOccurrence(page, today);
   const soNgayConLai = daysUntil(today, solar);
-  const rows = tenYearTable(page, year - YEARS_BEFORE, year + YEARS_AFTER);
+  const rows = tenYearTable(page, Math.max(1900, year - YEARS_BEFORE), Math.min(2099, year + YEARS_AFTER));
   const related = getRelatedHolidays(page.slug, today, 4);
   const calDetails = `${page.moTa} (${lunarLabel} âm lịch) — ${SITE_URL}/le/${page.slug}/`;
   const isHero = page.nhom === "anh-hung";
@@ -136,16 +140,9 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
     { q: `${page.tieuDe} tính theo âm lịch hay dương lịch?`, a: faqAmDuong },
   ];
 
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqItems.map((f) => ({
-      "@type": "Question",
-      name: f.q,
-      acceptedAnswer: { "@type": "Answer", text: f.a },
-    })),
-  };
-
+  // Không phát FAQPage JSON-LD: các câu hỏi này là mẫu chung lặp lại trên mọi trang /le/[slug],
+  // không phải nội dung FAQ đặc thù — Google giới hạn rich result FAQ cho các trang như vậy.
+  // Nội dung vẫn hiển thị trong mục "Câu hỏi thường gặp" bên dưới (xem faqItems).
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -218,7 +215,6 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
 
   return (
     <ChShell activeMenu="Ngày lễ" className="ch-le">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
       <div className="ch-wrap ch-main le-detail">
@@ -234,9 +230,19 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
                 {LE_NHOM_LABEL[page.nhom]} · {badgeLich}
               </div>
               <h1 className="ch-h1">
-                {page.tieuDe} {year} là ngày nào?
+                {page.tieuDe}: ngày âm và lịch qua các năm
               </h1>
               <p className="ch-lead">{page.moTa}</p>
+              <form method="get" className="le-year-form">
+                <label htmlFor="le-year">Năm {page.lich.startsWith("am") ? "âm lịch" : "dương lịch"} đang xem</label>
+                <input id="le-year" name="nam" type="number" min="1902" max="2094" defaultValue={year} inputMode="numeric" />
+                <button type="submit" className="btn">
+                  Tra cứu
+                </button>
+              </form>
+              <p className="le-next-line">
+                Lần tiếp theo: {pad2(next.solar.day)}/{pad2(next.solar.month)}/{next.solar.year}. Mốc theo lịch, không phải giờ khai hội hay chương trình tổ chức.
+              </p>
               {namGocOrMatLine && <p className="le-hero-line">{namGocOrMatLine}</p>}
 
               <dl className="le-when">
@@ -253,8 +259,8 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
                   <dd className="s">Năm {canChi}</dd>
                 </div>
                 <div className="dem">
-                  <dt>Còn lại</dt>
-                  <dd>{soNgayConLai === 0 ? "Hôm nay" : `${soNgayConLai} ngày`}</dd>
+                  <dt>{soNgayConLai < 0 ? "Đã qua" : "Còn lại"}</dt>
+                  <dd>{soNgayConLai === 0 ? "Hôm nay" : `${Math.abs(soNgayConLai)} ngày`}</dd>
                   <dd className="s">{soNgayConLai === 0 ? "Đúng ngày lễ" : "tính từ hôm nay"}</dd>
                 </div>
               </dl>

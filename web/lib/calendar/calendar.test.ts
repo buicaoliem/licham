@@ -97,6 +97,12 @@ describe("getCalendarDay fixtures", () => {
   it("throws outside the supported range", () => {
     expect(() => getCalendarDay({ day: 1, month: 1, year: 1900 })).toThrow(CalendarRangeError);
   });
+  it("holidays của getCalendarYear(year) chỉ chứa ngày dương thật sự thuộc năm đó (không lẫn năm âm kế bên)", () => {
+    for (const year of [2022, 2023, 2024, 2025, 2026, 2027, 2028]) {
+      const y = getCalendarYear(year);
+      for (const h of y.holidays) expect(h.date.year).toBe(year);
+    }
+  });
   it("computes every day of the supported range boundaries without throwing", () => {
     for (const y of [1970, 2050]) {
       expect(() => getCalendarDay({ day: 1, month: 1, year: y })).not.toThrow();

@@ -8,7 +8,7 @@ import {
   vietnamDateOf,
 } from "@licham/core";
 import { LE_LIST } from "@/lib/le";
-import { occurrenceInYear } from "@/lib/le-date-engine";
+import { occurrenceInSolarYear } from "@/lib/le-date-engine";
 import { memoize } from "./cache";
 import { isSupportedYear } from "./config";
 
@@ -49,8 +49,16 @@ function computeCalendarYear(year: number): CalendarYear {
     solarTerms: getSolarTermsOfYear(year)
       .map((t) => ({ name: t.name as string, date: vietnamDateOf(t.start) }))
       .sort(byDate),
+    // occurrenceInSolarYear (không phải occurrenceInYear): trang "/nam/[year]" liệt kê theo NĂM DƯƠNG,
+    // còn occurrenceInYear coi `year` là năm ÂM nên lễ cuối năm âm có thể bị gán nhầm sang năm dương sau.
     holidays: LE_LIST.filter((p) => p.nghiLe)
-      .map((p) => ({ slug: p.slug, name: p.ten, date: occurrenceInYear(p, year) }))
+      .flatMap((p) => {
+        try {
+          return [{ slug: p.slug, name: p.ten, date: occurrenceInSolarYear(p, year).solar }];
+        } catch {
+          return [];
+        }
+      })
       .sort(byDate),
   };
 }

@@ -95,6 +95,22 @@ export function yearRow(page: LePage, year: number): LeYearRow {
   return { year, canChi, lunarLabel: `${lunar.day}/${lunar.month}`, solar, weekday };
 }
 
+/** Năm tra cứu độc lập với lần kế tiếp; chừa biên cho bảng nhiều năm. */
+export function selectedLeYear(value: string | string[] | undefined, today: SolarDate): number {
+  if (typeof value !== "string" || !/^\d{4}$/.test(value)) return today.year;
+  const year = Number(value);
+  return year >= 1902 && year <= 2094 ? year : today.year;
+}
+
+/** Danh mục mang nhãn năm dương chỉ được chứa dịp trong chính năm đó. */
+export function occurrenceInSolarYear(page: LePage, year: number): LeYearRow {
+  for (const lunarYear of [year - 1, year]) {
+    const row = yearRow(page, lunarYear);
+    if (row.solar.year === year) return row;
+  }
+  throw new RangeError(`Không có dịp ${page.slug} trong năm dương ${year}`);
+}
+
 export function tenYearTable(page: LePage, startYear: number, endYear: number): LeYearRow[] {
   const rows: LeYearRow[] = [];
   for (let y = startYear; y <= endYear; y++) rows.push(yearRow(page, y));

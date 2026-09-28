@@ -44,6 +44,10 @@ export function placeJsonLd(nv: { places?: readonly { name: string; address: str
 const iso = (d: { day: number; month: number; year: number }) => `${d.year}-${String(d.month).padStart(2, "0")}-${String(d.day).padStart(2, "0")}`;
 
 /** Sự kiện lễ hội có ngày âm cố định: startDate/endDate là ngày dương của lần tổ chức kế tiếp; nơi tổ chức = Place (địa chỉ mới). */
+/**
+ * licham.app không tổ chức các lễ hội này — không được ghi làm `organizer`. Trang lễ hội chưa có dữ liệu
+ * ban tổ chức thật (đền/di tích/chính quyền địa phương) nên bỏ hẳn trường `organizer` thay vì suy đoán.
+ */
 export function leHoiEventJsonLd(f: { name: string; summary: string; site: string; newAddress: string; image?: string }, path: string, occ: { start: { solar: { day: number; month: number; year: number } }; end: { solar: { day: number; month: number; year: number } } }) {
   return {
     "@context": "https://schema.org",
@@ -58,6 +62,5 @@ export function leHoiEventJsonLd(f: { name: string; summary: string; site: strin
     eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
     location: { "@type": "Place", name: f.site, address: f.newAddress },
     ...(f.image ? { image: abs(f.image) } : {}),
-    organizer: ORG,
   };
 }

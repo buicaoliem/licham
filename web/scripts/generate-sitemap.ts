@@ -40,7 +40,11 @@ interface SitemapEntry {
   url: string;
   changefreq: string;
   priority: number;
-  /** Ngày cập nhật nội dung (ISO); thiếu thì dùng thời điểm build. */
+  /**
+   * Ngày cập nhật nội dung thật (ISO), lấy từ dữ liệu trang. Không có nguồn đáng tin (vd. /le/[slug],
+   * /anh-hung-dan-toc/[slug] — chưa có trường updatedAt) thì BỎ hẳn <lastmod> thay vì lấy giờ build:
+   * một lastmod = giờ build mỗi lần chạy lại là ngày sửa giả, không phản ánh nội dung có đổi hay không.
+   */
   lastmod?: string;
 }
 
@@ -49,11 +53,10 @@ function xmlEscape(s: string): string {
 }
 
 function renderUrlset(entries: SitemapEntry[]): string {
-  const lastmod = new Date().toISOString();
   const body = entries
     .map(
       (e) =>
-        `  <url>\n    <loc>${xmlEscape(e.url)}</loc>\n    <lastmod>${e.lastmod ?? lastmod}</lastmod>\n    <changefreq>${e.changefreq}</changefreq>\n    <priority>${e.priority}</priority>\n  </url>`,
+        `  <url>\n    <loc>${xmlEscape(e.url)}</loc>${e.lastmod ? `\n    <lastmod>${e.lastmod}</lastmod>` : ""}\n    <changefreq>${e.changefreq}</changefreq>\n    <priority>${e.priority}</priority>\n  </url>`,
     )
     .join("\n");
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`;

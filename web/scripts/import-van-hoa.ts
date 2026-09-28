@@ -12,7 +12,7 @@
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import { canChiOfYear } from "@licham/core";
 import {
   LABEL_BY_TEXT,
@@ -281,7 +281,7 @@ function articleHeroPath(hero: string): string {
 }
 
 function importArticles(figureSlugs: Set<string>): BaiViet[] {
-  const files = ["bai-tet-6-chu-de.md", "tro-choi-dan-gian.md", "tranh-do-choi.md", "24-tiet-khi-nong-lich.md", "nguoi-viet-co.md", "khoa-cu.md"];
+  const files = ["bai-tet-6-chu-de.md", "tro-choi-dan-gian.md", "tranh-do-choi.md", "24-tiet-khi-nong-lich.md", "nguoi-viet-co.md", "khoa-cu.md", "phong-tuc-lich-am.md", "quan-sat-mat-trang.md"];
   const seen = new Set<string>();
   const articles: BaiViet[] = [];
   for (const file of files) {
@@ -425,11 +425,42 @@ function writeTs(rel: string, header: string, body: string) {
   writeFileSync(path, `// File sinh tự động bởi scripts/import-van-hoa.ts — không sửa tay.\n${header}\n${body}\n`);
 }
 
-const { events, rewrites } = importEvents();
-const figures = importFigures();
-const articles = importArticles(new Set(figures.map((f) => f.slug)));
+/**
+ * Giữ nguyên `updatedAt` cũ cho các bản ghi có nội dung (mọi field khác) không đổi so với file .generated.ts
+ * đang có trên đĩa — tránh sitemap lastmod nhảy sang ngày build mỗi lần chạy lại script dù nội dung y hệt.
+ */
+async function reconcileUpdatedAt<T extends { updatedAt: string }>(records: T[], keyOf: (r: T) => string, rel: string, exportName: string): Promise<T[]> {
+  const path = join(WEB, rel);
+  if (!existsSync(path)) return records;
+  let oldRecords: T[];
+  try {
+    const mod = (await import(`${pathToFileURL(path).href}?t=${Date.now()}`)) as Record<string, T[]>;
+    oldRecords = mod[exportName] ?? [];
+  } catch {
+    return records;
+  }
+  const oldByKey = new Map(oldRecords.map((r) => [keyOf(r), r]));
+  return records.map((r) => {
+    const old = oldByKey.get(keyOf(r));
+    if (!old) return r;
+    const rRest: Record<string, unknown> = { ...r };
+    const oldRest: Record<string, unknown> = { ...old };
+    delete rRest.updatedAt;
+    delete oldRest.updatedAt;
+    return JSON.stringify(rRest) === JSON.stringify(oldRest) ? { ...r, updatedAt: old.updatedAt } : r;
+  });
+}
+
+const { events: rawEvents, rewrites } = importEvents();
+const rawFigures = importFigures();
+const rawArticles = importArticles(new Set(rawFigures.map((f) => f.slug)));
+const { festivals: rawFestivals, rewrites: festivalRewrites } = importFestivals();
+
+const events = await reconcileUpdatedAt(rawEvents, (e) => e.id ?? "", "lib/van-hoa/data/nam-su-kien.generated.ts", "NAM_SU_KIEN_IMPORTED");
+const figures = await reconcileUpdatedAt(rawFigures, (f) => f.slug, "lib/van-hoa/data/nhan-vat.generated.ts", "NHAN_VAT_IMPORTED");
+const articles = await reconcileUpdatedAt(rawArticles, (a) => a.slug, "lib/van-hoa/data/bai-viet.generated.ts", "BAI_VIET_IMPORTED");
+const festivals = await reconcileUpdatedAt(rawFestivals, (f) => f.slug, "lib/van-hoa/data/le-hoi.generated.ts", "LE_HOI_IMPORTED");
 const history = toHistoryEvents(events);
-const { festivals, rewrites: festivalRewrites } = importFestivals();
 
 writeTs("lib/van-hoa/data/nam-su-kien.generated.ts", 'import type { NamSuKien } from "../types";', `export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = ${JSON.stringify(events, null, 1)};`);
 writeTs("lib/van-hoa/data/ngay-nay-nam-xua.generated.ts", 'import type { HistoryEvent } from "../content";', `export const NGAY_NAY_NAM_XUA: readonly HistoryEvent[] = ${JSON.stringify(history, null, 1)};`);

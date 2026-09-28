@@ -132,16 +132,32 @@ export function splitList(text: string): string[] {
     .filter(Boolean);
 }
 
-/** Dòng "lunarDates" của bài Tết → hộp "Ngày âm liên quan". Không có chú thích trong ngoặc thì dùng `fallbackLabel`. */
-export function parseArticleLunarDates(text: string, fallbackLabel: string): { label: string; day: number; month: number; text?: string }[] {
-  const out: { label: string; day: number; month: number; text?: string }[] = [];
+/**
+ * Dòng "lunarDates" của bài Tết → hộp "Ngày âm liên quan". Không có chú thích trong ngoặc thì dùng `fallbackLabel`.
+ * Tiền tố "[-1]"/"[0]"… đặt năm âm của mốc lệch bao nhiêu so với mùa đang xem (vd. "[-1]23 tháng Chạp" là
+ * tháng Chạp của năm âm trước Tết) — dùng khi các mốc trong cùng bài trải qua giao thừa (cây nêu: dựng trước Tết, hạ sau Tết).
+ */
+export function parseArticleLunarDates(
+  text: string,
+  fallbackLabel: string,
+): { label: string; day: number; month: number; text?: string; yearOffset?: number }[] {
+  const out: { label: string; day: number; month: number; text?: string; yearOffset?: number }[] = [];
   for (const seg of splitList(text)) {
-    const m = /^(.*?)\s*\(([^)]+)\)\s*$/.exec(seg);
-    const when = (m ? m[1]! : seg).trim();
+    const offsetMatch = /^\[(-?\d+)\]\s*/.exec(seg);
+    const rest = offsetMatch ? seg.slice(offsetMatch[0].length) : seg;
+    const m = /^(.*?)\s*\(([^)]+)\)\s*$/.exec(rest);
+    const when = (m ? m[1]! : rest).trim();
     const label = m ? cap(m[2]!.trim()) : fallbackLabel;
     const d = firstLunarDay(when);
     if (!d) continue;
-    out.push({ label, day: d.day, month: d.month, text: /^\d{1,2}\/\d{1,2}$/.test(when) ? `${d.day} tháng ${d.month}` : when });
+    const yearOffset = offsetMatch ? Number(offsetMatch[1]) : undefined;
+    out.push({
+      label,
+      day: d.day,
+      month: d.month,
+      text: /^\d{1,2}\/\d{1,2}$/.test(when) ? `${d.day} tháng ${d.month}` : when,
+      ...(yearOffset !== undefined ? { yearOffset } : {}),
+    });
   }
   return out;
 }
