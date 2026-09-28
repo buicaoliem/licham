@@ -6,6 +6,7 @@ import { DAN_GIAN } from "./data/dan-gian";
 import { NAM_SU_KIEN } from "./data/nam-su-kien";
 import { LE_HOI } from "./data/le-hoi";
 import { NHAN_VAT } from "./data/nhan-vat";
+import { STORY } from "./data/story";
 import { SU_KIEN } from "./data/su-kien";
 import { LE_HOI_PATH, MONTHS, leHoiMonthPath, leHoiOfMonth, leHoiPath } from "./le-hoi";
 import { TRO_CHOI, TRO_CHOI_PATH } from "./tro-choi";
@@ -36,6 +37,7 @@ export function vanHoaSubPathEntries(): VanHoaPath[] {
     ...SU_KIEN.map((x) => ({ path: `/van-hoa/su-kien/${x.slug}/`, lastmod: x.updatedAt })),
     ...DAN_GIAN.map((x) => ({ path: `/van-hoa/dan-gian/${x.slug}/`, lastmod: x.updatedAt })),
     ...BAI_VIET.map((x) => ({ path: `/van-hoa/bai-viet/${x.slug}/`, lastmod: x.updatedAt })),
+    ...STORY.map((x) => ({ path: `/van-hoa/cau-chuyen/${x.slug}/`, lastmod: x.updatedAt })),
     ...ALL_CAN_CHI.map((c) => ({ path: `/van-hoa/nam/${canChiSlug(c)}/`, lastmod: latest(eventsOfCanChi(c, NAM_SU_KIEN).map((e) => e.updatedAt)) })),
   ];
   return entries.filter((x) => !x.path.includes(`/${FIXTURE_SLUG}/`));

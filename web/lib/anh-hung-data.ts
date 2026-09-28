@@ -146,8 +146,17 @@ export const ANH_HUNG_DATA: AnhHung[] = [
     ghiChuSuLieu:
       "Sử Việt chép Hai Bà tự vẫn ở sông Hát, còn Hậu Hán thư chép Hai Bà bị bắt và giết; vị trí kinh đô Mê Linh cũng còn nhiều ý kiến khác nhau. Năm sinh 14 được ghi chung cho Hai Bà; về năm nhà Hán hạ lệnh xuất quân, có tài liệu ghi năm 41, Hậu Hán thư ghi Mã Viện được sai đi năm 42.",
     wikiTitle: "Hai Bà Trưng",
+    nguon: [
+      "Phạm Việp, Hậu Hán thư, liệt truyện Mã Viện và Nam Man Tây Nam Di.",
+      "Ngô Sĩ Liên và sử quan triều Hậu Lê, Đại Việt Sử Ký Toàn Thư, bản kỷ ngoại kỷ.",
+      "Viện Sử học, Lịch sử Việt Nam, tập 1 (thời kỳ Bắc thuộc).",
+    ],
     leSlug: "gio-hai-ba-trung",
     tieuBieu2013: true,
+    nguoiLienQuan: [
+      { slug: "thi-sach", ten: "Thi Sách", relation: "Chồng Trưng Trắc; theo Hậu Hán thư, việc ông bị Thái thú Tô Định giết là ngòi nổ trực tiếp cho cuộc khởi nghĩa năm 40." },
+      { slug: "to-dinh", ten: "Tô Định", relation: "Thái thú Giao Chỉ cai trị hà khắc, giết Thi Sách và trở thành mục tiêu đánh đuổi chính của cuộc khởi nghĩa Hai Bà Trưng." },
+    ],
   },
   {
     slug: "ba-trieu",
@@ -482,8 +491,20 @@ export const ANH_HUNG_DATA: AnhHung[] = [
     ghiChuSuLieu:
       "Ngày mất chính xác của Ngô Quyền chưa được xác định thống nhất nên ngày giỗ khác nhau giữa các địa phương. Nguồn ghi ngày sinh theo can chi là năm Đinh Tỵ nhưng quy đổi là năm 898, và tuổi thọ được ghi là 45 hoặc 47; quê Đường Lâm cũng có nhiều thuyết.",
     wikiTitle: "Ngô Quyền",
+    nguon: [
+      "Ngô Sĩ Liên và sử quan triều Hậu Lê, Đại Việt Sử Ký Toàn Thư, bản kỷ ngoại kỷ (nhà Ngô).",
+      "Quốc sử quán triều Nguyễn, Khâm định Việt sử thông giám cương mục.",
+      "Cục Di sản văn hóa (Bộ Văn hóa, Thể thao và Du lịch), hồ sơ di tích Từ Lương Xâm.",
+    ],
     leSlug: "gio-ngo-quyen",
     tieuBieu2013: true,
+    relatedEvents: ["bach-dang-938"],
+    nguoiLienQuan: [
+      { slug: "duong-dinh-nghe", ten: "Dương Đình Nghệ", relation: "Cha vợ và chủ tướng cũ; Ngô Quyền làm nha tướng dưới quyền, được gả con gái và giao trấn giữ Ái Châu trước khi tự lập." },
+      { slug: "kieu-cong-tien", ten: "Kiều Công Tiễn", relation: "Giết Dương Đình Nghệ để đoạt quyền rồi cầu cứu Nam Hán, buộc Ngô Quyền phải đem quân ra Bắc trị tội." },
+      { slug: "luu-hoang-thao", ten: "Lưu Hoằng Tháo", relation: "Tướng chỉ huy thủy quân Nam Hán sang tiếp ứng Kiều Công Tiễn, tử trận trong trận địa cọc Bạch Đằng năm 938." },
+      { slug: "dinh-tien-hoang", ten: "Đinh Tiên Hoàng", relation: "Sau khi nhà Ngô do ông sáng lập suy yếu và tan rã (loạn 12 sứ quân), Đinh Bộ Lĩnh là người dẹp yên cục diện cát cứ đó và thống nhất đất nước năm 968 — không phải quan hệ cá nhân, mà là mối liên hệ giữa sự sụp đổ của một triều đại và sự thống nhất kế tiếp." },
+    ],
   },
   {
     slug: "dinh-tien-hoang",
@@ -557,8 +578,27 @@ export const ANH_HUNG_DATA: AnhHung[] = [
     ghiChuSuLieu:
       "Có sách chép tên thật của ông là Đinh Hoàn. Thời điểm mất thường ghi là tháng 10 năm 979, nhưng có chỗ chép tháng 11 âm lịch; một số nhà nghiên cứu nghi ngờ việc Đỗ Thích là thủ phạm giết vua.",
     wikiTitle: "Đinh Tiên Hoàng",
+    nguon: [
+      "Ngô Sĩ Liên và sử quan triều Hậu Lê, Đại Việt Sử Ký Toàn Thư, bản kỷ nhà Đinh.",
+      "Quốc sử quán triều Nguyễn, Khâm định Việt sử thông giám cương mục.",
+      "Ban Quản lý Khu di tích lịch sử văn hóa Cố đô Hoa Lư, hồ sơ di tích quốc gia đặc biệt Cố đô Hoa Lư.",
+    ],
     leSlug: "le-hoi-hoa-lu",
     tieuBieu2013: true,
+    nguoiLienQuan: [
+      {
+        slug: "ngo-quyen",
+        ten: "Ngô Quyền",
+        relation:
+          "Vua sáng lập nhà Ngô; sau khi nhà Ngô suy yếu và tan rã thành loạn 12 sứ quân (từ năm 965), Đinh Bộ Lĩnh là người dẹp yên các sứ quân và thống nhất đất nước năm 968 — kế thừa cục diện chứ không có quan hệ cá nhân trực tiếp với Ngô Quyền.",
+      },
+      {
+        slug: "le-dai-hanh",
+        ten: "Lê Đại Hành",
+        relation:
+          "Thập đạo tướng quân dưới triều ông từ năm 971; sau khi ông và con trưởng Đinh Liễn bị hại năm 979, Lê Hoàn nhiếp chính cho ấu chúa Đinh Toàn rồi được tôn lên ngôi năm 980, lập nhà Tiền Lê — sử liệu không ghi rõ động cơ hay mức độ chủ động của các bên trong quá trình chuyển giao này, xem hồ sơ Lê Đại Hành.",
+      },
+    ],
   },
   {
     slug: "le-dai-hanh",
@@ -638,10 +678,29 @@ export const ANH_HUNG_DATA: AnhHung[] = [
       "Lễ hội Hoa Lư (Ninh Bình) đầu tháng Ba âm lịch, chính lễ ngày 10, tưởng niệm vua Đinh Tiên Hoàng và vua Lê Đại Hành",
     ],
     ghiChuSuLieu:
-      "Quê hương Lê Hoàn còn tranh luận: sử cũ ghi Trường Châu, Ái Châu hoặc Bảo Thái, các hội thảo khoa học chưa quy về một nơi duy nhất. Năm sinh theo Đại Việt sử ký toàn thư là 941, trong khi thần tích địa phương ghi 942. Chuyện mẹ ông mộng thấy hoa sen hay rồng vàng che chở mang màu sắc truyền thuyết. Giả thuyết cho rằng ông chủ mưu vụ ám sát vua Đinh chưa có bằng chứng.",
+      "Quê hương Lê Hoàn còn tranh luận: sử cũ ghi Trường Châu, Ái Châu hoặc Bảo Thái, các hội thảo khoa học chưa quy về một nơi duy nhất. Năm sinh theo Đại Việt sử ký toàn thư là 941, trong khi thần tích địa phương ghi 942. Chuyện mẹ ông mộng thấy hoa sen hay rồng vàng che chở mang màu sắc truyền thuyết. Giả thuyết cho rằng ông chủ mưu vụ ám sát vua Đinh chưa có bằng chứng; Đại Việt Sử Ký Toàn Thư chỉ chép Đỗ Thích là thủ phạm giết vua, không quy trách nhiệm cho Lê Hoàn. Việc ông lên ngôi thay vì tiếp tục làm Nhiếp chính cho ấu chúa Đinh Toàn, sử cũ (qua lời bình của Ngô Sĩ Liên) và một số nhà nghiên cứu hiện đại đánh giá theo những hướng khác nhau — có ý kiến nhấn mạnh bối cảnh quân Tống sắp xâm lược khiến triều đình cần một vua trưởng thành, có ý kiến khác nhấn mạnh yếu tố tranh giành quyền lực; đây là điểm chưa có sự đồng thuận và trang này không khẳng định một động cơ duy nhất.",
     wikiTitle: "Lê Đại Hành",
+    nguon: [
+      "Ngô Sĩ Liên và sử quan triều Hậu Lê, Đại Việt Sử Ký Toàn Thư, bản kỷ nhà Đinh và nhà Tiền Lê.",
+      "Quốc sử quán triều Nguyễn, Khâm định Việt sử thông giám cương mục.",
+      "Ban Quản lý Khu di tích lịch sử văn hóa Cố đô Hoa Lư, hồ sơ di tích quốc gia đặc biệt Cố đô Hoa Lư.",
+    ],
     leSlug: "gio-le-dai-hanh",
     tieuBieu2013: true,
+    nguoiLienQuan: [
+      {
+        slug: "dinh-tien-hoang",
+        ten: "Đinh Tiên Hoàng",
+        relation:
+          "Hoàng đế nhà Đinh mà ông từng làm Thập đạo tướng quân từ năm 971; sau khi vua và con trưởng Đinh Liễn bị hại năm 979, ông nhiếp chính cho ấu chúa Đinh Toàn trước khi được tôn lên ngôi năm 980 — sử liệu không ghi rõ động cơ hay mức độ chủ động của ông trong biến cố 979, xem ghi chú sử liệu ở hồ sơ này.",
+      },
+      {
+        slug: "ly-thai-to",
+        ten: "Lý Thái Tổ (Lý Công Uẩn)",
+        relation:
+          "Nhà Tiền Lê do ông sáng lập kết thúc năm 1009 khi con ông là Lê Long Đĩnh mất không có người kế vị đủ uy tín; triều thần khi đó suy tôn Lý Công Uẩn — một võ quan cấm vệ, không thuộc hoàng tộc họ Lê — lên ngôi, mở ra nhà Lý. Không phải quan hệ cá nhân giữa hai người, mà là mối liên hệ giữa sự kết thúc của một triều đại và cuộc chuyển giao quyền lực kế tiếp.",
+      },
+    ],
   },
   {
     slug: "ly-thai-to",
@@ -710,9 +769,28 @@ export const ANH_HUNG_DATA: AnhHung[] = [
     ],
     tuongNiem: [],
     ghiChuSuLieu:
-      "Nhiều chi tiết về thân thế và việc lên ngôi, như chuyện mẹ ông gặp thần hay lời sấm trên cây gạo, mang màu sắc truyền thuyết; sử gia Ngô Thì Sĩ cho rằng bài sấm được tạo ra để gây dư luận. Một số sách Trung Quốc chép ông gốc người Mân (Phúc Kiến), điều này vẫn còn tranh cãi. Thời gian trị vì được ghi là 18 hoặc 19 năm tùy cách tính.",
+      "Nhiều chi tiết về thân thế và việc lên ngôi, như chuyện mẹ ông gặp thần hay lời sấm trên cây gạo, mang màu sắc truyền thuyết; sử gia Ngô Thì Sĩ cho rằng bài sấm được tạo ra để gây dư luận. Một số sách Trung Quốc chép ông gốc người Mân (Phúc Kiến), điều này vẫn còn tranh cãi. Thời gian trị vì được ghi là 18 hoặc 19 năm tùy cách tính. Về việc lên ngôi năm 1009: Đại Việt Sử Ký Toàn Thư chép ông được triều thần suy tôn sau khi vua Lê Long Đĩnh mất, có sự vận động của Đào Cam Mộc và thiền sư Vạn Hạnh — sử liệu không ghi chi tiết mức độ chủ động của ông trong quá trình đó. Hình ảnh Lê Long Đĩnh như một bạo chúa (thường gọi \"Ngọa Triều\") mà sử cũ mô tả cũng là điểm một số nhà nghiên cứu hiện đại (Trần Quốc Vượng, Hà Văn Tấn, Keith W. Taylor) đặt nghi vấn có thể bị sử gia đời sau phóng đại để làm nổi bật tính chính danh của cuộc đổi triều — xem thêm bài \"Vì sao Lý Công Uẩn quyết định dời đô về Đại La?\".",
     wikiTitle: "Lý Thái Tổ",
     tieuBieu2013: true,
+    nguon: [
+      "Ngô Sĩ Liên và sử quan triều Hậu Lê, Đại Việt Sử Ký Toàn Thư, bản kỷ nhà Lý.",
+      "Quốc sử quán triều Nguyễn, Khâm định Việt sử thông giám cương mục.",
+      "Trung tâm Bảo tồn Di sản Thăng Long – Hà Nội, tư liệu về sự kiện dời đô năm 1010 và Hoàng thành Thăng Long.",
+    ],
+    nguoiLienQuan: [
+      {
+        slug: "le-dai-hanh",
+        ten: "Lê Đại Hành",
+        relation:
+          "Vua sáng lập nhà Tiền Lê — triều đại mà Lý Công Uẩn từng làm quan (Điện tiền chỉ huy sứ) dưới thời con trai Lê Đại Hành là Lê Long Đĩnh, trước khi được triều thần suy tôn lên ngôi năm 1009 khi nhà Tiền Lê không còn người kế vị đủ uy tín.",
+      },
+      {
+        slug: "dinh-tien-hoang",
+        ten: "Đinh Tiên Hoàng",
+        relation:
+          "Hoàng đế sáng lập nhà Đinh, từng đóng đô ở Hoa Lư — kinh đô mà Lý Công Uẩn tiếp tục dùng trong năm đầu trị vì trước khi quyết định dời về Đại La năm 1010, chấm dứt hơn 40 năm hai triều Đinh và Tiền Lê đóng đô ở vùng núi đá này.",
+      },
+    ],
   },
   {
     slug: "ly-thuong-kiet",
@@ -785,9 +863,19 @@ export const ANH_HUNG_DATA: AnhHung[] = [
     ],
     tuongNiem: [],
     ghiChuSuLieu:
-      "Họ gốc của ông có hai thuyết: họ Ngô (dựa trên gia phả và thần phổ soạn muộn thời Nguyễn) và họ Quách (dựa trên hai văn bia thời Lý). Việc ông là hoạn quan cũng còn tranh luận: nhiều bộ sử cũ ghi ông tự hoạn, một số ý kiến hiện nay phủ nhận. Tác giả bài thơ Nam quốc sơn hà chưa được xác định chắc chắn; dân gian và nhiều tài liệu thường gắn bài thơ với ông.",
+      "Họ gốc của ông có hai thuyết: họ Ngô (dựa trên gia phả và thần phổ soạn muộn thời Nguyễn) và họ Quách (dựa trên hai văn bia thời Lý). Việc ông là hoạn quan cũng còn tranh luận: nhiều bộ sử cũ ghi ông tự hoạn, một số ý kiến hiện nay phủ nhận. Tác giả bài thơ Nam quốc sơn hà CHƯA được xác định chắc chắn — đây là văn bản có khoảng 30 dị bản khác nhau; nghiên cứu văn bản học (GS. Trần Nghĩa, 1986, đối chiếu 26 dị bản) cho thấy bài thơ liên tục bị chỉnh sửa qua các đời chép và cho rằng gán hẳn cho Lý Thường Kiệt là chưa đủ căn cứ. Việc bài thơ được ông đọc/ngâm ở phòng tuyến Như Nguyệt để khích lệ quân sĩ là truyền tụng gắn với địa danh đền Xà (Tam Giang, Yên Phong, Bắc Ninh), không phải chi tiết có trong chính sử đương thời — hồ sơ này chỉ trình bày như truyền thuyết địa phương, không khẳng định là sự kiện lịch sử đã xác thực.",
     wikiTitle: "Lý Thường Kiệt",
+    nguon: [
+      "Đại Việt sử ký toàn thư; Việt sử lược (về chiến dịch đánh Khâm – Liêm – Ung 1075–1076 và phòng tuyến Như Nguyệt 1077).",
+      "Báo Văn hóa (cơ quan Bộ Văn hóa, Thể thao và Du lịch), \"Hệ thống di tích thuộc phòng tuyến sông Như Nguyệt hướng tới xếp hạng Di tích quốc gia đặc biệt\".",
+      "Cổng thông tin điện tử tỉnh Bắc Ninh / UBND xã Tam Giang, tư liệu di tích phòng tuyến sông Như Nguyệt.",
+      "Báo Dân trí, loạt bài về tranh luận tác giả \"Nam quốc sơn hà\" trong sách giáo khoa (dẫn nghiên cứu văn bản học của GS. Trần Nghĩa, 1986).",
+    ],
     tieuBieu2013: true,
+    nguoiLienQuan: [
+      { slug: "ly-thanh-tong", ten: "Lý Thánh Tông", relation: "Vua ông theo phò năm 1069 trong cuộc đánh Chiêm Thành bắt vua Chế Củ — công lao này khiến ông được ban quốc tính, đổi họ sang Lý." },
+      { slug: "ly-nhan-tong", ten: "Lý Nhân Tông", relation: "Vua nhỏ tuổi ông làm phụ chính từ năm 1072; dưới triều vua này ông chỉ huy chiến dịch đánh Khâm – Liêm – Ung (1075–1076) và lập phòng tuyến Như Nguyệt (1077)." },
+    ],
   },
   {
     slug: "tran-hung-dao",
@@ -866,8 +954,22 @@ export const ANH_HUNG_DATA: AnhHung[] = [
     ghiChuSuLieu:
       "Năm sinh chưa thống nhất: nhiều tài liệu ghi khoảng 1228, có tài liệu ghi 1221, 1226, 1230 hoặc 1232. Nơi sinh cũng có thuyết khác nhau. Sử chép ông mất ngày 22 tháng 8 âm lịch năm Canh Tý (1300), trong khi ngày giỗ Đức Thánh Trần phổ biến là 20 tháng 8 âm lịch. Vai trò cụ thể của ông trong cuộc kháng chiến năm 1258 không được sử sách ghi chép chi tiết.",
     wikiTitle: "Trần Hưng Đạo",
+    nguon: [
+      "Ngô Sĩ Liên và sử quan triều Hậu Lê, Đại Việt Sử Ký Toàn Thư, bản kỷ nhà Trần.",
+      "Trần Quốc Tuấn, Dụ chư tỳ tướng hịch văn (Hịch tướng sĩ); Binh thư yếu lược.",
+      "Viện Sử học, Lịch sử Việt Nam, tập 2 (thời Trần).",
+    ],
     leSlug: "gio-duc-thanh-tran",
     tieuBieu2013: true,
+    relatedEvents: ["bach-dang-1288"],
+    relatedFestivals: ["le-hoi-kiep-bac-mua-thu"],
+    nguoiLienQuan: [
+      { slug: "tran-quang-khai", ten: "Trần Quang Khải", relation: "Thượng tướng thái sư nhà Trần; cùng Trần Hưng Đạo gác lại hiềm khích giữa hai chi họ để phối hợp chỉ huy kháng chiến chống Nguyên." },
+      { slug: "tran-quoc-toan", ten: "Trần Quốc Toản", relation: "Thiếu niên tôn thất nhà Trần, cầm quân tham gia kháng chiến chống Nguyên lần thứ hai dưới sự thống lĩnh của Trần Hưng Đạo." },
+      { slug: "yet-kieu", ten: "Yết Kiêu", relation: "Gia tướng thân tín nổi tiếng tài bơi lặn, theo truyền tụng từng cứu Trần Hưng Đạo thoát hiểm trên sông." },
+      { slug: "da-tuong", ten: "Dã Tượng", relation: "Gia tướng thân tín, thường được nhắc cùng Yết Kiêu như biểu tượng lòng trung thành với Trần Hưng Đạo." },
+      { slug: "tran-nhan-tong", ten: "Trần Nhân Tông", relation: "Vua nhà Trần mà Trần Hưng Đạo phò tá, cùng bàn kế đánh giặc tại các hội nghị Bình Than và Diên Hồng." },
+    ],
   },
   {
     slug: "tran-nhan-tong",
@@ -949,6 +1051,15 @@ export const ANH_HUNG_DATA: AnhHung[] = [
     wikiTitle: "Trần Nhân Tông",
     leSlug: "gio-tran-nhan-tong",
     tieuBieu2013: true,
+    nguon: [
+      "Đại Việt sử ký toàn thư (Bản kỷ quyển 5, 6); Tam Tổ thực lục, Thánh đăng ngữ lục (về hành trạng tu hành và ngày viên tịch).",
+      "Viện Trần Nhân Tông (Đại học Quốc gia Hà Nội), \"Trần Nhân Tông với thiền phái Trúc Lâm Yên Tử\".",
+      "Cổng thông tin điện tử tỉnh Quảng Ninh, tư liệu về Yên Tử và Phật hoàng Trần Nhân Tông.",
+    ],
+    nguoiLienQuan: [
+      { slug: "tran-hung-dao", ten: "Trần Hưng Đạo", relation: "Quốc công tiết chế thống lĩnh quân đội mà ông tin dùng, cùng bàn kế đánh giặc tại các hội nghị Bình Than và Diên Hồng." },
+      { slug: "tran-quang-khai", ten: "Trần Quang Khải", relation: "Thượng tướng Thái sư dưới triều ông, chỉ huy trận Chương Dương năm 1285 giải phóng Thăng Long." },
+    ],
   },
   {
     slug: "le-loi",
@@ -1022,8 +1133,21 @@ export const ANH_HUNG_DATA: AnhHung[] = [
     ghiChuSuLieu:
       "Truyện gươm thần Thuận Thiên và việc trả gươm cho rùa vàng ở hồ Tả Vọng, từ đó hồ mang tên Hoàn Kiếm, là truyền thuyết dân gian, không phải ghi chép chính sử. Sử cũ ghi khác nhau về quan hệ của ông với nhà Hậu Trần. Việc ông xử tội hai công thần Trần Nguyên Hãn và Phạm Văn Xảo được các sử gia đánh giá khác nhau.",
     wikiTitle: "Lê Thái Tổ",
+    nguon: [
+      "Ngô Sĩ Liên và sử quan triều Hậu Lê, Đại Việt Sử Ký Toàn Thư, bản kỷ nhà Lê.",
+      "Nguyễn Trãi (chủ trì biên soạn), Lam Sơn thực lục.",
+      "Ban Quản lý di tích lịch sử Lam Kinh, hồ sơ di tích quốc gia đặc biệt Lam Kinh.",
+    ],
     leSlug: "gio-le-loi",
     tieuBieu2013: true,
+    relatedPeople: ["le-lai"],
+    relatedFestivals: ["le-hoi-lam-kinh"],
+    relatedEvents: ["khoi-nghia-lam-son"],
+    nguoiLienQuan: [
+      { slug: "le-lai", ten: "Lê Lai", relation: "Tướng dưới quyền, liều mình đóng giả Lê Lợi để nhử địch, giúp chủ tướng thoát vòng vây quân Minh ở núi Chí Linh năm 1418." },
+      { slug: "nguyen-trai", ten: "Nguyễn Trãi", relation: "Mưu sĩ soạn thảo văn thư ngoại giao và Bình Ngô đại cáo, đồng hành cùng Lê Lợi suốt mười năm khởi nghĩa Lam Sơn." },
+      { slug: "le-thanh-tong", ten: "Lê Thánh Tông", relation: "Cháu nội, sau này kế vị làm vua, tiếp tục củng cố và mở mang nhà Hậu Lê mà Lê Lợi sáng lập." },
+    ],
   },
   {
     slug: "le-lai",
@@ -1087,7 +1211,15 @@ export const ANH_HUNG_DATA: AnhHung[] = [
     ghiChuSuLieu:
       "Năm sinh chưa rõ (có tài liệu ghi 1355). Các sách Lam Sơn thực lục, Việt sử tiêu án, Đại Việt thông sử chép việc đổi áo cứu chúa với chi tiết khác nhau về nơi diễn ra; Đại Việt thông sử ghi ông hy sinh ngày 29 tháng 4 âm lịch năm Mậu Tuất 1418, có tài liệu ghi năm 1419. Đại Việt sử ký toàn thư không chép việc này mà chỉ ghi việc giết một Tư mã Lê Lai năm 1427, nên có giả thuyết ông sống sót; thời Lam Sơn cũng có vài người khác mang tên Lê Lai.",
     wikiTitle: "Lê Lai",
+    nguon: [
+      "Ngô Sĩ Liên và sử quan triều Hậu Lê, Đại Việt Sử Ký Toàn Thư, bản kỷ nhà Lê.",
+      "Nguyễn Trãi (chủ trì biên soạn), Lam Sơn thực lục.",
+      "Lê Quý Đôn, Đại Việt thông sử.",
+    ],
     leSlug: "gio-le-lai",
+    relatedPeople: ["le-loi"],
+    relatedEvents: ["khoi-nghia-lam-son"],
+    nguoiLienQuan: [{ slug: "le-loi", ten: "Lê Lợi", relation: "Chủ tướng nghĩa quân Lam Sơn mà Lê Lai liều mình cứu thoát khỏi vòng vây quân Minh ở núi Chí Linh năm 1418." }],
   },
   {
     slug: "nguyen-trai",
@@ -1161,8 +1293,19 @@ export const ANH_HUNG_DATA: AnhHung[] = [
     ghiChuSuLieu:
       "Thời điểm ông gia nhập nghĩa quân Lam Sơn chưa thống nhất: có ý kiến cho từ hội thề Lũng Nhai (1416), trước năm 1418, năm 1420 hoặc muộn hơn; quãng đời 1407–1417 còn nhiều điểm chưa rõ. Đại Việt sử ký toàn thư không ghi rõ tác giả Bình Ngô đại cáo, song nhiều tài liệu chép Lê Lợi giao Nguyễn Trãi soạn. Chuyện viết chữ bằng mỡ lên lá cho kiến ăn thành chữ mang tính truyền kỳ. Việc Lam Sơn thực lục do ông soạn chỉ là phỏng đoán.",
     wikiTitle: "Nguyễn Trãi",
+    nguon: [
+      "Ngô Sĩ Liên và sử quan triều Hậu Lê, Đại Việt Sử Ký Toàn Thư, bản kỷ nhà Lê.",
+      "Nguyễn Trãi, Quân trung từ mệnh tập; Bình Ngô đại cáo.",
+      "Phan Huy Chú, Lịch triều hiến chương loại chí.",
+    ],
     leSlug: "gio-nguyen-trai",
     tieuBieu2013: true,
+    relatedEvents: ["khoi-nghia-lam-son"],
+    nguoiLienQuan: [
+      { slug: "le-loi", ten: "Lê Lợi", relation: "Chủ tướng khởi nghĩa Lam Sơn mà Nguyễn Trãi phò tá làm mưu sĩ, soạn thảo văn thư và Bình Ngô đại cáo." },
+      { slug: "nguyen-thi-lo", ten: "Nguyễn Thị Lộ", relation: "Thiếp của Nguyễn Trãi, bị quy tội trong vụ án Lệ Chi Viên khiến cả gia tộc ông bị tru di năm 1442." },
+      { slug: "le-thanh-tong", ten: "Lê Thánh Tông", relation: "Vua xuống chiếu minh oan cho Nguyễn Trãi 22 năm sau vụ án, truy tìm lại di cảo của ông trong dân gian." },
+    ],
   },
   {
     slug: "quang-trung",
@@ -1240,8 +1383,22 @@ export const ANH_HUNG_DATA: AnhHung[] = [
     ghiChuSuLieu:
       "Thứ bậc giữa Nguyễn Huệ và Nguyễn Lữ được các nguồn ghi khác nhau. Tuổi khi mất được ghi là 39 hoặc 40 tuổi. Đại Nam thực lục ghi ông mất tháng 7, Hoàng Lê nhất thống chí ghi tháng 8 âm lịch; theo Hoàng Xuân Hãn, ông mất khoảng 11 giờ đêm ngày cuối tháng 7 nên hai cách ghi chỉ chênh nhau chừng nửa giờ. Nguyên nhân cái chết và vị trí lăng mộ đến nay chưa xác định.",
     wikiTitle: "Quang Trung",
+    nguon: [
+      "Ngô gia văn phái, Hoàng Lê nhất thống chí.",
+      "Quốc sử quán triều Nguyễn, Đại Nam thực lục (biên soạn dưới triều Nguyễn — sử liệu của triều đại kế sau nên một số đánh giá về Tây Sơn mang tính không thiện cảm).",
+      "Hoàng Xuân Hãn, La Sơn phu tử.",
+    ],
     leSlug: "gio-quang-trung",
     tieuBieu2013: true,
+    relatedFestivals: ["le-hoi-go-dong-da"],
+    relatedEvents: ["ngoc-hoi-dong-da"],
+    nguoiLienQuan: [
+      { slug: "nguyen-nhac", ten: "Nguyễn Nhạc", relation: "Anh cả, người dựng cờ khởi nghĩa Tây Sơn năm 1771 trước khi Nguyễn Huệ trở thành tướng chủ chốt rồi xưng đế." },
+      { slug: "nguyen-lu", ten: "Nguyễn Lữ", relation: "Em út trong ba anh em Tây Sơn tam kiệt, cùng tham gia lãnh đạo buổi đầu phong trào." },
+      { slug: "bui-thi-xuan", ten: "Bùi Thị Xuân", relation: "Nữ tướng Tây Sơn, cùng chồng chỉ huy nhiều trận đánh quan trọng dưới triều Quang Trung." },
+      { slug: "tran-quang-dieu", ten: "Trần Quang Diệu", relation: "Danh tướng Tây Sơn, chồng Bùi Thị Xuân, giữ vai trò trọng yếu trong quân đội triều Quang Trung." },
+      { slug: "ngo-thi-nham", ten: "Ngô Thì Nhậm", relation: "Mưu sĩ dâng kế rút quân về Tam Điệp – Biện Sơn bảo toàn lực lượng, tạo thời cơ cho Quang Trung phản công quân Thanh." },
+    ],
   },
   {
     slug: "truong-dinh",
@@ -2015,6 +2172,10 @@ export const ANH_HUNG_DATA: AnhHung[] = [
       "Bảo tàng Lịch sử Quốc gia, “Võ tướng Dương Đình Nghệ – người khởi binh đánh đuổi quân Nam Hán”.",
       "Báo Dân Việt, “Dương Đình Nghệ, thủ lĩnh tài năng và cái chết oan nghiệt”.",
     ],
+    nguoiLienQuan: [
+      { slug: "ngo-quyen", ten: "Ngô Quyền", relation: "Nha tướng và con rể; được ông nuôi dưỡng, gả con gái và giao trấn giữ Ái Châu trước khi đem quân trị tội kẻ giết mình năm 937." },
+      { slug: "kieu-cong-tien", ten: "Kiều Công Tiễn", relation: "Nha tướng dưới quyền, ám sát ông năm 937 để đoạt chức Tiết độ sứ, châm ngòi cho chiến dịch Bạch Đằng của Ngô Quyền." },
+    ],
   },
   {
     slug: "duong-van-nga",
@@ -2200,6 +2361,9 @@ export const ANH_HUNG_DATA: AnhHung[] = [
       "Người Kể Sử, “Lý Thánh Tông”.",
       "Tạp chí Nghiên cứu Phật học, “Vua Lý Thánh Tông: anh hùng cứu nước, nhân từ, thương dân”.",
     ],
+    nguoiLienQuan: [
+      { slug: "ly-thuong-kiet", ten: "Lý Thường Kiệt", relation: "Tướng theo ông đánh Chiêm Thành năm 1069, được ban quốc tính sau chiến công đó; về sau tiếp tục phò tá con ông là Lý Nhân Tông." },
+    ],
   },
   {
     slug: "y-lan",
@@ -2330,6 +2494,9 @@ export const ANH_HUNG_DATA: AnhHung[] = [
       "Đại Việt sử ký toàn thư.",
       "Bảo tàng Lịch sử Quốc gia, “Lý Nhân Tông – ông vua có nhiều kỷ lục”.",
       "Người Kể Sử, “Lý Nhân Tông”.",
+    ],
+    nguoiLienQuan: [
+      { slug: "ly-thuong-kiet", ten: "Lý Thường Kiệt", relation: "Thái úy phụ chính từ năm 1072 khi ông còn nhỏ tuổi; chỉ huy chiến dịch đánh Tống 1075–1077 dưới triều ông." },
     ],
   },
   {
@@ -2503,6 +2670,9 @@ export const ANH_HUNG_DATA: AnhHung[] = [
       "Vietnamdefence, “Trần Thủ Độ (1194 – 1264)”.",
       "Tạp chí Người Hà Nội, “Thái sư Trần Thủ Độ – nhà chính trị kiệt xuất, người kiến lập triều Trần”.",
     ],
+    nguoiLienQuan: [
+      { slug: "tran-thai-tong", ten: "Trần Thái Tông", relation: "Cháu họ được ông đưa vào cung, thành hôn với Lý Chiêu Hoàng rồi lên ngôi năm 1225 mở đầu nhà Trần; ông tiếp tục làm chỗ dựa chính trị và quân sự cho vị vua này suốt nhiều năm sau đó." },
+    ],
   },
   {
     slug: "tran-thai-tong",
@@ -2569,6 +2739,9 @@ export const ANH_HUNG_DATA: AnhHung[] = [
       "Đại Việt sử ký toàn thư.",
       "Đại học Văn Hiến, “Thiền sư – thi sĩ Trần Thái Tông (1218 – 1277)”.",
       "Ban quản lý di tích, “Từ phủ Thiên Trường xưa đến Nam Định ngày nay”.",
+    ],
+    nguoiLienQuan: [
+      { slug: "tran-thu-do", ten: "Trần Thủ Độ", relation: "Chú họ, người sắp đặt cuộc hôn nhân với Lý Chiêu Hoàng và cuộc chuyển giao ngôi vua năm 1225; tiếp tục là chỗ dựa chính trị, quân sự cho ông trong những năm đầu trị vì, kể cả khi quân Mông Cổ áp sát Thăng Long năm 1258." },
     ],
   },
   {
@@ -2694,6 +2867,10 @@ export const ANH_HUNG_DATA: AnhHung[] = [
       "Đại Việt sử ký toàn thư.",
       "Báo Đại Đoàn Kết, “Thượng tướng Thái sư Trần Quang Khải: danh tiếng muôn đời”.",
       "Hội đồng Lý luận Trung ương (scov.gov.vn), “Thái sư Trần Quang Khải”.",
+    ],
+    nguoiLienQuan: [
+      { slug: "tran-hung-dao", ten: "Trần Hưng Đạo", relation: "Quốc công tiết chế cùng thời; tương truyền hai người từng có hiềm khích từ đời cha nhưng đã gác lại để cùng chỉ huy kháng chiến chống Nguyên." },
+      { slug: "tran-nhan-tong", ten: "Trần Nhân Tông", relation: "Vua nhà Trần mà Trần Quang Khải phò tá trong vai trò Thượng tướng Thái sư, điều hành việc quân, việc nước." },
     ],
   },
   {
@@ -3119,6 +3296,9 @@ export const ANH_HUNG_DATA: AnhHung[] = [
       "Cổng thông tin Du lịch Hưng Yên.",
       "Báo điện tử VOV; Di sản văn hóa Hà Nội.",
     ],
+    nguoiLienQuan: [
+      { slug: "tran-hung-dao", ten: "Trần Hưng Đạo", relation: "Chủ tướng nhận ông làm môn khách rồi gả con gái nuôi, sau khi thấy ông mải nghĩ binh thư đến mức giáo đâm vào đùi không hay biết." },
+    ],
   },
   {
     slug: "yet-kieu",
@@ -3190,6 +3370,10 @@ export const ANH_HUNG_DATA: AnhHung[] = [
       "Bảo tàng Lịch sử Quốc gia.",
       "Báo Hải Phòng.",
     ],
+    nguoiLienQuan: [
+      { slug: "tran-hung-dao", ten: "Trần Hưng Đạo", relation: "Chủ tướng mà ông giữ thuyền chờ và cứu thoát ở bãi Tân năm 1285 khi thủy quân triều đình tan vỡ." },
+      { slug: "da-tuong", ten: "Dã Tượng", relation: "Cùng là gia tướng thân tín của Trần Hưng Đạo; hai người cùng khuyên chủ tướng gác lại hiềm khích gia tộc để dốc lòng vì việc nước." },
+    ],
   },
   {
     slug: "da-tuong",
@@ -3254,6 +3438,10 @@ export const ANH_HUNG_DATA: AnhHung[] = [
     nguon: [
       "Đại Việt sử ký toàn thư (Bản kỷ quyển 5); Khâm định Việt sử thông giám cương mục (Chính biên quyển 7, 8).",
       "Bảo tàng Lịch sử Quốc gia.",
+    ],
+    nguoiLienQuan: [
+      { slug: "tran-hung-dao", ten: "Trần Hưng Đạo", relation: "Chủ tướng mà ông hộ vệ; chỉ huy tượng binh chặn kỵ binh Nguyên ở Vạn Kiếp năm 1285 để bảo vệ Hưng Đạo vương." },
+      { slug: "yet-kieu", ten: "Yết Kiêu", relation: "Cùng là gia tướng thân tín của Trần Hưng Đạo; hai người cùng khuyên chủ tướng giữ trọn đạo bề tôi, không theo lời trăng trối tranh ngôi của Trần Liễu." },
     ],
   },
   {
@@ -3465,6 +3653,10 @@ export const ANH_HUNG_DATA: AnhHung[] = [
       "Đại Việt sử ký toàn thư (Bản kỷ thực lục quyển 12, 13).",
       "Phan Huy Chú, Lịch triều hiến chương loại chí.",
       "Ban Quản lý Di tích quốc gia đặc biệt Lam Kinh.",
+    ],
+    nguoiLienQuan: [
+      { slug: "le-loi", ten: "Lê Lợi", relation: "Ông nội, người sáng lập nhà Hậu Lê mà Lê Thánh Tông kế vị và tiếp tục củng cố, mở mang." },
+      { slug: "nguyen-trai", ten: "Nguyễn Trãi", relation: "Khai quốc công thần nhà Lê bị tru di oan năm 1442; Lê Thánh Tông xuống chiếu minh oan và truy tìm lại di cảo của ông năm 1464." },
     ],
   },
   {
@@ -3871,6 +4063,9 @@ export const ANH_HUNG_DATA: AnhHung[] = [
       "Đại Nam thực lục (Chính biên – Liệt truyện); Tây Sơn thuật lược; Khâm định Việt sử thông giám cương mục.",
       "Bảo tàng Quang Trung (Bình Định).",
     ],
+    nguoiLienQuan: [
+      { slug: "quang-trung", ten: "Quang Trung", relation: "Em trai; cùng dựng cờ khởi nghĩa Tây Sơn năm 1771, sau này nhường vai trò quân sự chủ chốt cho Nguyễn Huệ khi ông xưng đế đánh quân Thanh." },
+    ],
   },
   {
     slug: "nguyen-lu",
@@ -4090,6 +4285,7 @@ export const ANH_HUNG_DATA: AnhHung[] = [
       "Ngô Thì Nhậm (thường đọc là Ngô Thời Nhiệm), tự Hy Doãn, hiệu Đạt Hiên, sinh năm 1746 ở làng Tả Thanh Oai (làng Tó). Ông đỗ Tiến sĩ khoa Ất Mùi (1775) và từng làm Đốc đồng Thái Nguyên thời Lê – Trịnh.",
       "Năm 1788, ông được Nguyễn Huệ trọng dụng, phong Lại bộ Tả thị lang, sau thăng Binh bộ Thượng thư, tước Tĩnh Phái hầu. Khi quân Thanh kéo sang, ông đề xuất rút quân về lập phòng tuyến Tam Điệp – Biện Sơn, bảo toàn lực lượng chờ đại quân Quang Trung ra phản công.",
       "Từ năm 1789 đến 1792, ông phụ trách công việc bang giao với nhà Thanh, góp phần để vua Càn Long công nhận triều Tây Sơn. Năm 1803, sau khi bị Đặng Trần Thường cho đánh đòn tại Văn Miếu, ông mất ngày 15 tháng 2 năm Quý Hợi.",
+      "Khoảng năm 1788–1789, một văn bản mang tên Chiếu cầu hiền được ban dưới danh nghĩa triều Tây Sơn và gắn với ông với vai trò người soạn thảo. Bối cảnh: sau khi Lê – Trịnh sụp đổ, nhiều sĩ phu Bắc Hà (tầng lớp trí thức khoa bảng cũ) mang tâm lý hoài nghi, bất hợp tác hoặc ở ẩn, không ra giúp việc cho triều đại mới. Văn bản dùng lời lẽ và điển tích Nho học để thuyết phục chính tầng lớp này ra cộng tác, xây dựng lại bộ máy quan lại sau chiến tranh — thể hiện chủ trương dùng người của triều Tây Sơn dưới thời Quang Trung, không phải một áng văn học độc lập tách khỏi bối cảnh chính trị lúc đó.",
     ],
     boiCanh: [
       "Cuối thế kỷ XVIII, khi quân Thanh kéo sang (1788), quân Tây Sơn ở Bắc Hà lui về lập phòng tuyến Tam Điệp – Biện Sơn theo kế sách do ông đề xuất.",
@@ -4098,6 +4294,7 @@ export const ANH_HUNG_DATA: AnhHung[] = [
       "Được Nguyễn Huệ trọng dụng năm 1788, giữ chức Lại bộ Tả thị lang rồi Binh bộ Thượng thư.",
       "Đề xuất lui quân về phòng tuyến Tam Điệp – Biện Sơn (1788 – 1789), bảo toàn lực lượng chờ đại quân phản công.",
       "Phụ trách bang giao với nhà Thanh (1789 – 1792), góp phần để vua Càn Long công nhận triều Tây Sơn.",
+      "Được xem là người soạn thảo Chiếu cầu hiền (1788–1789), văn bản dưới danh nghĩa triều Tây Sơn nhằm thuyết phục sĩ phu Bắc Hà ra hợp tác với chính quyền mới.",
     ],
     suKien: [
       {
@@ -4111,6 +4308,10 @@ export const ANH_HUNG_DATA: AnhHung[] = [
       {
         nam: "1788",
         text: "Được Nguyễn Huệ trọng dụng; đề xuất lui quân về Tam Điệp – Biện Sơn.",
+      },
+      {
+        nam: "1788 – 1789",
+        text: "Soạn Chiếu cầu hiền dưới danh nghĩa triều Tây Sơn.",
       },
       {
         nam: "1789",
@@ -4131,7 +4332,14 @@ export const ANH_HUNG_DATA: AnhHung[] = [
     ghiChuSuLieu:
       "Còn tranh luận về trách nhiệm thực sự của ông trong vụ án Đặng Thị Huệ – Trịnh Tông năm Canh Tý (1780), và về nguyên nhân ông mất: do đòn roi tẩm độc hay do bệnh lao phổi tái phát sau trận đòn. Tương truyền tại sân Văn Miếu, Đặng Trần Thường ra vế đối “Ai công hầu, ai khanh tướng, trong trần ai, ai dễ biết ai”, ông đối lại “Thế chiến quốc, thế Xuân Thu, gặp thời thế, thế nào phải thế”.",
     wikiTitle: "Ngô Thì Nhậm",
-    nguon: ["Khâm định Việt sử thông giám cương mục; Đại Nam chính biên liệt truyện; Ngô gia văn phái lục.", "Cổng thông tin điện tử huyện Thanh Trì."],
+    nguon: [
+      "Khâm định Việt sử thông giám cương mục; Đại Nam chính biên liệt truyện; Ngô gia văn phái lục.",
+      "Cổng thông tin điện tử huyện Thanh Trì.",
+      "Chiếu cầu hiền (văn bản, gắn với triều Tây Sơn 1788–1789); sách giáo khoa Ngữ văn 11 (chương trình phổ thông) giới thiệu tác phẩm và tác giả.",
+    ],
+    nguoiLienQuan: [
+      { slug: "quang-trung", ten: "Quang Trung", relation: "Hoàng đế Tây Sơn trọng dụng ông năm 1788; nghe theo kế lui quân về Tam Điệp – Biện Sơn rồi giao ông phụ trách bang giao với nhà Thanh sau chiến thắng." },
+    ],
   },
   {
     slug: "nguyen-tri-phuong",

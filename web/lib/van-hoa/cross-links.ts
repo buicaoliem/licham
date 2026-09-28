@@ -5,11 +5,14 @@
  */
 import { ANH_HUNG, anhHungHref, anhHungImagePath, type AnhHung } from "../anh-hung";
 import { heritageFile } from "../heritage-assets";
+import { LE_HOI } from "./data/le-hoi";
 import { NAM_SU_KIEN } from "./data/nam-su-kien";
+import { STORY } from "./data/story";
+import { SU_KIEN } from "./data/su-kien";
 import { dynastyInfo } from "./dynasty";
 import { yearPageHref } from "./import-logic";
 import { canChiYearOfEvent } from "./logic";
-import { FIXTURE_SLUG, type NamSuKien, type RelatedLink, type RelatedRefs } from "./types";
+import { FIXTURE_SLUG, type NamSuKien, type RelatedLink, type RelatedRefs, type Story } from "./types";
 
 export interface PersonAlias {
   slug: string;
@@ -101,6 +104,27 @@ export function personCatalog(list: readonly AnhHung[] = ANH_HUNG): PersonAlias[
   return all.sort((a, b) => b.alias.length - a.alias.length || a.alias.localeCompare(b.alias, "vi"));
 }
 
+/**
+ * Tra cứu nội bộ theo tên (tên chính thức, `tenThat`, hoặc bất kỳ `tenKhac` đủ rõ nghĩa) ra đúng hồ sơ
+ * chuẩn (canonical). Khác `firstMentions`/`linkSegments` (dùng để tự động gạch chân tên riêng trong văn bản
+ * dài) — hàm này dùng để tra thẳng MỘT tên đã biết ra một hồ sơ, ví dụ khi cần kiểm tra "Nguyễn Huệ" và
+ * "Quang Trung" có cùng trỏ về một `AnhHung` hay không. Không dùng để sinh URL công khai — href công khai
+ * luôn lấy từ `anhHungHref(a.slug)` của bản ghi trả về, không bao giờ lấy từ chuỗi alias truyền vào.
+ * So khớp không phân biệt hoa/thường và khoảng trắng thừa; tên rỗng luôn trả `undefined`.
+ */
+export function anhHungByAlias(name: string, list: readonly AnhHung[] = ANH_HUNG): AnhHung | undefined {
+  const needle = name.replace(/\s+/g, " ").trim().toLowerCase();
+  if (!needle) return undefined;
+  for (const a of list) {
+    if (a.ten.toLowerCase() === needle) return a;
+    if (a.tenThat && a.tenThat.toLowerCase() === needle) return a;
+    if (a.tenKhac.some((t) => t.toLowerCase() === needle)) return a;
+  }
+  // Khớp lỏng hơn qua danh mục alias đã tách nhỏ (vd. "Trần Hưng Đạo" tách từ "Hưng Đạo đại vương").
+  const hit = personCatalog(list).find((p) => p.alias.toLowerCase() === needle);
+  return hit ? list.find((a) => a.slug === hit.slug) : undefined;
+}
+
 function escapeRe(s: string): string {
   return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
@@ -160,18 +184,32 @@ export function personBySlug(slug: string): LinkedPerson | undefined {
   return { slug: a.slug, name: a.ten, href: anhHungHref(a.slug), summary: firstSentence(a.tomTat), image };
 }
 
+/** Mốc theo năm (NAM_SU_KIEN, trang dòng thời gian năm can chi) trước, rồi bài sự kiện chuyên sâu (SU_KIEN, trang riêng /van-hoa/su-kien/). */
 export function eventBySlug(slug: string, list: readonly NamSuKien[] = NAM_SU_KIEN): LinkedEvent | undefined {
   const e = list.find((x) => x.id === slug);
-  if (!e || !e.id) return undefined;
-  const href = eventHref(e);
-  if (!href) return undefined;
-  return {
-    slug: e.id,
-    title: e.title,
-    href,
-    summary: firstSentence(e.summary),
-    image: dynastyInfo(e.dynasty).image ?? undefined,
-  };
+  if (e?.id) {
+    const href = eventHref(e);
+    if (href) {
+      return {
+        slug: e.id,
+        title: e.title,
+        href,
+        summary: firstSentence(e.summary),
+        image: dynastyInfo(e.dynasty).image ?? undefined,
+      };
+    }
+  }
+  const detail = SU_KIEN.find((x) => x.slug === slug && x.slug !== FIXTURE_SLUG);
+  if (detail) {
+    return {
+      slug: detail.slug,
+      title: detail.title,
+      href: `/van-hoa/su-kien/${detail.slug}/`,
+      summary: firstSentence(detail.summary),
+      image: detail.heroImage,
+    };
+  }
+  return undefined;
 }
 
 function eventBody(e: NamSuKien): string {
@@ -225,11 +263,75 @@ export function relatedPeopleLinks(slugs: readonly string[]): RelatedLink[] {
     .map((p) => ({ label: p.name, href: p.href, summary: p.summary, image: p.image, badge: "Anh hùng" }));
 }
 
+export function relatedFestivalsLinks(slugs: readonly string[]): RelatedLink[] {
+  return slugs
+    .map((s) => LE_HOI.find((f) => f.slug === s))
+    .filter((f): f is (typeof LE_HOI)[number] => Boolean(f))
+    .map((f) => ({ label: f.name, href: `/van-hoa/le-hoi/${f.slug}/`, summary: firstSentence(f.summary), image: f.cardImage ?? f.image, badge: "Lễ hội" }));
+}
+
+/** Câu chuyện theo slug cụ thể (danh sách biên tập tay) — dùng cho khối khám phá "Bắt đầu từ một câu chuyện". */
+export function storyLinks(slugs: readonly string[]): RelatedLink[] {
+  return slugs
+    .map((s) => STORY.find((x) => x.slug === s && x.slug !== FIXTURE_SLUG))
+    .filter((s): s is Story => Boolean(s))
+    .map((s) => ({ label: s.title, href: `/van-hoa/cau-chuyen/${s.slug}/`, summary: s.mainQuestion, image: s.heroImage, badge: "Câu chuyện" }));
+}
+
+/**
+ * Nhân vật có rabbit-hole tốt (đã có `nguoiLienQuan`) — dùng cho khối khám phá "Đi tiếp từ một nhân vật".
+ * Teaser lấy từ chính dữ liệu `nguoiLienQuan` (tối đa 3 tên đầu), không tự bịa câu gợi mở.
+ */
+export function personRabbitHoleLinks(slugs: readonly string[]): RelatedLink[] {
+  return slugs
+    .map((slug) => ANH_HUNG.find((a) => a.slug === slug))
+    .filter((a): a is AnhHung => Boolean(a?.nguoiLienQuan?.length))
+    .map((a) => {
+      const rels = a.nguoiLienQuan ?? [];
+      const names = rels.slice(0, 3).map((r) => r.ten);
+      const teaser = names.join(", ") + (rels.length > 3 ? "…" : "");
+      return {
+        label: a.ten,
+        href: anhHungHref(a.slug),
+        summary: teaser,
+        image: heritageFile(anhHungImagePath(a.slug)) ?? undefined,
+        badge: "Nhân vật",
+      };
+    });
+}
+
 export function relatedEventsLinks(slugs: readonly string[]): RelatedLink[] {
   return slugs
     .map((s) => eventBySlug(s))
     .filter((e): e is LinkedEvent => Boolean(e))
     .map((e) => ({ label: e.title, href: e.href, summary: e.summary, image: e.image, badge: "Sự kiện" }));
+}
+
+/** Câu chuyện gắn với một nhân vật (qua relatedPeople của Story) — dùng cho khối "Những câu chuyện về …" ở hồ sơ anh hùng. */
+export function relatedStoriesOf(heroSlug: string): RelatedLink[] {
+  return STORY.filter((s) => s.slug !== FIXTURE_SLUG && relatedPeopleOf(s).includes(heroSlug)).map((s) => ({
+    label: s.title,
+    href: `/van-hoa/cau-chuyen/${s.slug}/`,
+    summary: s.mainQuestion,
+    image: s.heroImage,
+    badge: "Câu chuyện",
+  }));
+}
+
+/** Câu chuyện gắn với một sự kiện (qua relatedEvents của Story) — dùng cho khối "Câu chuyện liên quan" ở trang sự kiện chuyên sâu. */
+export function relatedStoriesOfEvent(eventSlug: string): RelatedLink[] {
+  return STORY.filter((s) => s.slug !== FIXTURE_SLUG && relatedEventsOf(s).includes(eventSlug)).map((s) => ({
+    label: s.title,
+    href: `/van-hoa/cau-chuyen/${s.slug}/`,
+    summary: s.mainQuestion,
+    image: s.heroImage,
+    badge: "Câu chuyện",
+  }));
+}
+
+/** Các câu chuyện cùng series, theo thứ tự `order`. */
+export function storiesInSeries(seriesSlug: string): Story[] {
+  return STORY.filter((s) => s.series?.slug === seriesSlug).sort((x, y) => (x.series?.order ?? 0) - (y.series?.order ?? 0));
 }
 
 export function personHref(slug: string): string | undefined {

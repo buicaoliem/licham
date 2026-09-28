@@ -9,19 +9,22 @@ import type { NhanVat, SuKien } from "@/lib/van-hoa/types";
 import { Acc } from "./Acc";
 import s from "../van-hoa.module.css";
 import t from "./tpl.module.css";
-import { peopleInText, relatedPeopleLinks, relatedPeopleOf } from "@/lib/van-hoa/cross-links";
+import { peopleInText, relatedEventsLinks, relatedEventsOf, relatedFestivalsLinks, relatedPeopleLinks, relatedPeopleOf, relatedStoriesOfEvent } from "@/lib/van-hoa/cross-links";
 import { LinkedText, RelatedGrid } from "./RelatedGrid";
 import { Card, Hero, Page, Pic, Sources } from "./Shared";
 
 export function SuKienDetail({ ev }: { ev: SuKien }) {
   const { day, month, year, leap } = ev.lunar;
-  const lunarText = ev.lunarText ?? `Ngày ${day} tháng ${month}${leap ? " nhuận" : ""} năm ${canChiOfYear(year).name}`;
+  const lunarText = ev.lunarText ?? (day !== null ? `Ngày ${day} tháng ${month}${leap ? " nhuận" : ""} năm ${canChiOfYear(year).name}` : `Tháng ${month} năm ${canChiOfYear(year).name}`);
   const fromSources = ev.solarDateSource === "sources" && ev.solar;
-  const solar = fromSources ? solarLabel(ev.solar!) : lunarToSolarSafe(day, month, year, leap);
+  const solar = fromSources ? solarLabel(ev.solar!) : day !== null ? lunarToSolarSafe(day, month, year, leap) : null;
   const chars = (ev.relatedNhanVat ?? []).map((sl) => NHAN_VAT.find((n) => n.slug === sl)).filter((n): n is NhanVat => Boolean(n));
   const used = new Set<string>();
   const peopleSlugs = relatedPeopleOf(ev).length ? relatedPeopleOf(ev) : peopleInText([ev.title, ev.summary, ...ev.boiCanh, ...ev.dienBien, ...ev.yNghia, ev.disputed ?? ""]);
   const people = relatedPeopleLinks(peopleSlugs);
+  const events = relatedEventsLinks(relatedEventsOf(ev).filter((s) => s !== ev.slug));
+  const festivals = relatedFestivalsLinks(ev.relatedFestivals ?? []);
+  const stories = relatedStoriesOfEvent(ev.slug);
   const blocks: { title: string; paras: string[] }[] = [
     { title: "Bối cảnh", paras: ev.boiCanh },
     { title: "Diễn biến", paras: ev.dienBien },
@@ -109,7 +112,10 @@ export function SuKienDetail({ ev }: { ev: SuKien }) {
             </Card>
           </div>
         )}
+        <RelatedGrid title="Câu chuyện liên quan" links={stories} id="cau-chuyen-lien-quan" />
         <RelatedGrid title="Nhân vật liên quan" links={people} />
+        <RelatedGrid title="Sự kiện liên quan" links={events} />
+        <RelatedGrid title="Lễ hội liên quan" links={festivals} />
         <div className={t.stack}>
           <Sources sources={ev.sources} />
         </div>

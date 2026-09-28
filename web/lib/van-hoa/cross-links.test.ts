@@ -9,6 +9,8 @@ import {
   personCatalog,
   relatedEventsOf,
   relatedPeopleOf,
+  relatedStoriesOf,
+  storiesInSeries,
 } from "./cross-links";
 
 const hung = ANH_HUNG.find((a) => a.slug === "hung-vuong")!;
@@ -69,5 +71,18 @@ describe("quét chéo 235 mốc × anh hùng", () => {
     const gp = NAM_SU_KIEN_IMPORTED.find((e) => e.id === "1944-thanh-lap-doi-vn-tuyen-truyen-giai-phong-quan")!;
     expect(relatedPeopleOf(gp)).toEqual(expect.arrayContaining(["ho-chi-minh", "vo-nguyen-giap"]));
     expect(relatedPeopleOf(gp)).not.toContain("tran-hung-dao");
+  });
+});
+
+describe("liên kết câu chuyện với hồ sơ anh hùng", () => {
+  it("relatedStoriesOf trả về câu chuyện gắn với đúng nhân vật, không bịa", () => {
+    const links = relatedStoriesOf("tran-hung-dao");
+    expect(links.length).toBeGreaterThan(0);
+    expect(links.every((l) => l.href.startsWith("/van-hoa/cau-chuyen/"))).toBe(true);
+    expect(relatedStoriesOf("ho-chi-minh")).toEqual([]);
+  });
+
+  it("storiesInSeries trả về mảng rỗng khi không có series trùng slug", () => {
+    expect(storiesInSeries("khong-ton-tai")).toEqual([]);
   });
 });

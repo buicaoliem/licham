@@ -36,6 +36,8 @@ export interface RelatedLink {
 export interface RelatedRefs {
   relatedPeople?: string[];
   relatedEvents?: string[];
+  /** Slug lễ hội thật trong LE_HOI (van-hoa/data/le-hoi.generated.ts). Chỉ gắn khi có một lễ hội rõ ràng, không suy đoán. */
+  relatedFestivals?: string[];
 }
 
 /** Fixture chỉ có ở dev/test; build production không sinh trang fixture. */
@@ -102,9 +104,13 @@ export interface SuKien {
   title: string;
   label: ItemLabel;
   summary: string;
-  /** Ngày âm lịch đúng như sử sách ghi; `year` là năm âm lịch (số năm Công nguyên). */
-  lunar: { day: number; month: number; year: number; leap?: boolean };
-  /** Chữ hiển thị nguyên văn theo sách, vd. "Ngày 12 tháng 8 năm Mậu Thân". Thiếu thì tự dựng từ `lunar`. */
+  /**
+   * Ngày âm lịch đúng như sử sách ghi; `year` là năm âm lịch (số năm Công nguyên).
+   * `day: null` khi các nguồn chỉ thống nhất tới tháng/mùa, không có ngày cụ thể — bắt buộc phải có `lunarText`
+   * trong trường hợp đó (không tự gán ngày 1 hay ngày cuối tháng để lấp chỗ trống).
+   */
+  lunar: { day: number | null; month: number; year: number; leap?: boolean };
+  /** Chữ hiển thị nguyên văn theo sách, vd. "Ngày 12 tháng 8 năm Mậu Thân". Thiếu thì tự dựng từ `lunar` (yêu cầu day khác null). */
   lunarText?: string;
   /** "sources": ngày dương lấy từ sách (điền `solar`); "computed": tự quy đổi từ ngày âm — có thể lệch 1–2 ngày so với lịch xưa. */
   solarDateSource: "sources" | "computed";
@@ -121,6 +127,7 @@ export interface SuKien {
   relatedNhanVat?: string[];
   relatedPeople?: string[];
   relatedEvents?: string[];
+  relatedFestivals?: string[];
   updatedAt: UpdatedAt;
   sources: Source[];
 }
@@ -219,11 +226,60 @@ export interface BaiViet {
   heroAlt?: string;
   sections: BaiVietSection[];
   /** Hộp "Ngày âm liên quan": ngày âm, năm nay tự quy đổi bằng lõi lịch. */
-  lunarDates?: { label: string; day: number; month: number; /** Chữ hiển thị nguyên văn, vd. "26–29 tháng Chạp"; thiếu thì dựng từ day/month. */ text?: string }[];
+  lunarDates?: { label: string; day: number; month: number; /** Năm âm so với mùa Tết đang xem; tháng Chạp trước Tết là -1. */ yearOffset?: number; /** Chữ hiển thị nguyên văn, vd. "26–29 tháng Chạp"; thiếu thì dựng từ day/month. */ text?: string }[];
   /** Hộp ca dao / câu đối. */
   quote?: { lines: string[]; source?: string };
   related?: RelatedLink[];
   sources: Source[];
+}
+
+/** Góc kể của một câu chuyện (đa dạng hoá nội dung, tránh mọi bài đều là "tiểu sử/công lao/ý nghĩa"). */
+export type StoryAngle = "quyet-dinh" | "quan-he" | "thoi-khac" | "van-ban-hien-vat" | "dia-danh" | "giai-thoai" | "hau-qua" | "truoc-sau" | "doi-song" | "hau-the";
+
+export const STORY_ANGLE_LABELS: Record<StoryAngle, string> = {
+  "quyet-dinh": "Quyết định bước ngoặt",
+  "quan-he": "Quan hệ giữa các nhân vật",
+  "thoi-khac": "Một thời khắc cụ thể",
+  "van-ban-hien-vat": "Văn bản, hiện vật",
+  "dia-danh": "Địa danh",
+  "giai-thoai": "Giai thoại cần kiểm chứng",
+  "hau-qua": "Hậu quả của một sự kiện",
+  "truoc-sau": "Trước/sau một sự kiện nổi tiếng",
+  "doi-song": "Đời sống ngoài chiến trận",
+  "hau-the": "Cách hậu thế tưởng nhớ",
+};
+
+/** Trạng thái nguồn của một chi tiết trong câu chuyện — bắt buộc gắn nhãn rõ, không biến giai thoại thành sử thật. */
+export type StorySourceStatus = "su-lieu" | "truyen-tung" | "chua-xac-dinh" | "cach-ke-pho-bien";
+
+export const STORY_SOURCE_STATUS_LABELS: Record<StorySourceStatus, string> = {
+  "su-lieu": "Sử liệu ghi",
+  "truyen-tung": "Truyền tụng",
+  "chua-xac-dinh": "Chưa xác định",
+  "cach-ke-pho-bien": "Cách kể phổ biến hiện nay",
+};
+
+export interface StorySeries {
+  slug: string;
+  title: string;
+  /** Thứ tự trong series, bắt đầu từ 1. */
+  order: number;
+  total: number;
+}
+
+/**
+ * "Câu chuyện lịch sử": lớp nội dung giữa hồ sơ nhân vật và sự kiện, mở đầu bằng một câu hỏi cụ thể
+ * thay vì tiểu sử/công lao chung chung. Dùng lại khuôn BaiViet (BaiVietDetail) — chỉ thêm mấy trường
+ * riêng cho câu chuyện (câu hỏi chính, góc kể, trạng thái nguồn, series, đọc tiếp).
+ */
+export interface Story extends BaiViet {
+  /** Câu hỏi mở đầu câu chuyện, vd. "Vì sao quân Trần bỏ Thăng Long?" */
+  mainQuestion: string;
+  angle: StoryAngle;
+  sourceStatus: StorySourceStatus;
+  series?: StorySeries;
+  /** Bài/sự kiện/nhân vật nên đọc tiếp — quan hệ trực tiếp, không phải đề xuất chung chung. */
+  readNext?: RelatedLink;
 }
 
 /** Lễ hội (sinh bởi scripts/import-van-hoa.ts từ le-hoi.csv). Không có cột ghi chú nội bộ needsCheck. */

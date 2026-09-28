@@ -9,7 +9,7 @@ import { AhArtView, AhCard, anhHungArt } from "@/components/heritage/AnhHungPart
 import { ChShell } from "@/components/heritage/ChShell";
 import { Icon, type IconName } from "@/components/heritage/Icon";
 import { ANH_HUNG, anhHungBySlug, anhHungCungThoi, anhHungHref, anhHungKeCan, thoiKyLabel, wikiUrl } from "@/lib/anh-hung";
-import { relatedEventsLinks, relatedEventsOf } from "@/lib/van-hoa/cross-links";
+import { relatedEventsLinks, relatedEventsOf, relatedFestivalsLinks, relatedPeopleLinks, relatedStoriesOf } from "@/lib/van-hoa/cross-links";
 import { RelatedGrid } from "@/components/van-hoa/tpl/RelatedGrid";
 import { leItem } from "@/lib/le-hub";
 import { leBySlug } from "@/lib/le";
@@ -81,6 +81,10 @@ export default async function AnhHungPage({ params }: { params: Promise<{ slug: 
   const { prev, next } = anhHungKeCan(a.slug);
   const cungThoi = anhHungCungThoi(a, 3);
   const eventLinks = relatedEventsLinks(relatedEventsOf(a));
+  const festivalLinks = relatedFestivalsLinks(a.relatedFestivals ?? []);
+  const peopleLinks = relatedPeopleLinks(a.relatedPeople ?? []);
+  const storyLinks = relatedStoriesOf(a.slug);
+  const nguoiLienQuan = (a.nguoiLienQuan ?? []).map((r) => ({ ...r, href: anhHungBySlug(r.slug) ? anhHungHref(r.slug) : undefined }));
   const url = `${SITE_URL}${anhHungHref(a.slug)}`;
 
   const crumbs = [{ label: "Trang chủ", href: "/" }, { label: "Anh hùng dân tộc", href: "/anh-hung-dan-toc/" }, { label: a.ten }];
@@ -119,7 +123,10 @@ export default async function AnhHungPage({ params }: { params: Promise<{ slug: 
     { id: "boi-canh", label: "Bối cảnh lịch sử" },
     { id: "cong-trang", label: "Công trạng" },
     { id: "su-kien", label: "Sự kiện tiêu biểu" },
+    ...(nguoiLienQuan.length ? [{ id: "nguoi-lien-quan", label: "Người liên quan" }] : []),
+    ...(peopleLinks.length ? [{ id: "nhan-vat-lien-quan", label: "Nhân vật liên quan" }] : []),
     ...(eventLinks.length ? [{ id: "su-kien-lien-quan", label: "Sự kiện liên quan" }] : []),
+    ...(festivalLinks.length ? [{ id: "le-hoi-lien-quan", label: "Lễ hội liên quan" }] : []),
     ...(a.diTich.length || a.tuongNiem.length || le ? [{ id: "tuong-niem", label: "Di tích & ngày tưởng niệm" }] : []),
     { id: "nguon", label: "Nguồn tư liệu" },
   ];
@@ -249,7 +256,23 @@ export default async function AnhHungPage({ params }: { params: Promise<{ slug: 
               </Sec>
             )}
 
+            {nguoiLienQuan.length > 0 && (
+              <Sec id="nguoi-lien-quan" icon="user" title="Người liên quan" tone="jade">
+                <ul className="ah-related-people">
+                  {nguoiLienQuan.map((r) => (
+                    <li key={r.slug}>
+                      {r.href ? <Link href={r.href}>{r.ten}</Link> : <b>{r.ten}</b>}
+                      <span>{r.relation}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Sec>
+            )}
+
+            <RelatedGrid title={`Những câu chuyện về ${a.ten}`} links={storyLinks} id="cau-chuyen-lien-quan" />
+            <RelatedGrid title="Nhân vật liên quan" links={peopleLinks} />
             <RelatedGrid title="Sự kiện liên quan" links={eventLinks} />
+            <RelatedGrid title="Lễ hội liên quan" links={festivalLinks} />
 
             {a.ghiChuSuLieu && (
               <aside className="ah-note">

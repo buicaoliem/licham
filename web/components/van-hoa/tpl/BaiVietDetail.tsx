@@ -89,9 +89,20 @@ function BoxHead({ icon, children }: { icon: IconName; children: string }) {
   );
 }
 
-export function BaiVietDetail({ post }: { post: BaiViet }) {
+export function BaiVietDetail({
+  post,
+  extraBadges,
+  afterBody,
+  pathPrefix = "/van-hoa/bai-viet/",
+}: {
+  post: BaiViet;
+  extraBadges?: React.ReactNode;
+  afterBody?: React.ReactNode;
+  /** Đường dẫn trang này (JSON-LD + chia sẻ); bài viết thường dùng /van-hoa/bai-viet/, câu chuyện dùng /van-hoa/cau-chuyen/. */
+  pathPrefix?: string;
+}) {
   const year = getVietnamToday().year;
-  const path = `/van-hoa/bai-viet/${post.slug}/`;
+  const path = `${pathPrefix}${post.slug}/`;
   const hasHero = Boolean(post.heroImage && heritageFile(post.heroImage));
   const related = relatedForBaiViet(post);
   const bodyText = [
@@ -122,6 +133,7 @@ export function BaiVietDetail({ post }: { post: BaiViet }) {
           <header className={a.head}>
             <div className={a.labelRow}>
               {post.category ? <TopicBadge text={post.category} /> : <ItemBadge label={post.label} />}
+              {extraBadges}
               <ShareButton url={buildShareUrl(path)} title={post.title} text={post.summary} align="end" />
             </div>
             <h1 className={a.h1}>{post.title}</h1>
@@ -237,6 +249,7 @@ export function BaiVietDetail({ post }: { post: BaiViet }) {
                 ))}
               </section>
             ))}
+            {afterBody}
           </div>
 
           <RelatedGrid title="Nhân vật liên quan" links={people} />

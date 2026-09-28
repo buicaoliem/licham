@@ -39,6 +39,13 @@ export interface AnhHung {
   relatedPeople?: string[];
   /** Slug/id sự kiện liên quan (mục lục dùng chung). Thiếu thì tự suy từ các mốc lịch sử nhắc tên. */
   relatedEvents?: string[];
+  /** Slug lễ hội thật trong LE_HOI. Chỉ gắn khi có đúng một lễ hội gắn liền rõ ràng (không suy đoán khi nhiều địa phương có lễ khác nhau). */
+  relatedFestivals?: string[];
+  /**
+   * Người liên quan kèm lý do (khác `relatedPeople`: đây là quan hệ có giải thích, dùng cho khối "Người liên quan" ở hồ sơ).
+   * `slug` thiếu hồ sơ trong ANH_HUNG thì vẫn giữ (hiện tên chữ thường, không có href) — không tạo hồ sơ mỏng chỉ để có chỗ trỏ tới.
+   */
+  nguoiLienQuan?: { slug: string; ten: string; relation: string }[];
 }
 
 export const THOI_KY: { key: ThoiKy; label: string; khoang: string }[] = [

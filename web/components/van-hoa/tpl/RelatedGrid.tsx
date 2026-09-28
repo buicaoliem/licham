@@ -9,9 +9,9 @@ import t from "./tpl.module.css";
 const CATALOG = personCatalog();
 
 /** Thẻ ảnh + tiêu đề, cùng khuôn "Bài liên quan" của trang bài viết. Ẩn khi không có liên kết. */
-export function RelatedGrid({ title, links }: { title: string; links: readonly RelatedLink[] }) {
+export function RelatedGrid({ title, links, id: idProp }: { title: string; links: readonly RelatedLink[]; id?: string }) {
   if (links.length === 0) return null;
-  const id = title === "Nhân vật liên quan" ? "nhan-vat-lien-quan" : title === "Sự kiện liên quan" ? "su-kien-lien-quan" : "lien-quan";
+  const id = idProp ?? (title === "Nhân vật liên quan" ? "nhan-vat-lien-quan" : title === "Sự kiện liên quan" ? "su-kien-lien-quan" : title === "Lễ hội liên quan" ? "le-hoi-lien-quan" : "lien-quan");
   return (
     <section className={a.related} aria-labelledby={id}>
       <h2 className={a.h2} id={id}>
