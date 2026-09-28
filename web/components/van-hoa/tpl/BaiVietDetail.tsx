@@ -166,13 +166,14 @@ export function BaiVietDetail({ post }: { post: BaiViet }) {
                 <BoxHead icon="calendar">Ngày âm liên quan</BoxHead>
                 <ul className={a.dateRows}>
                   {post.lunarDates.map((d) => {
-                    const solar = lunarToSolarSafe(d.day, d.month, year);
+                    const lunarYear = year + (d.yearOffset ?? 0);
+                    const solar = lunarToSolarSafe(d.day, d.month, lunarYear);
                     return (
                       <li key={d.label}>
                         <b>{d.label}</b>
                         <small>
-                          {d.text ?? `${d.day} tháng ${d.month}`} âm lịch
-                          {solar && ` · ${/–|-|rạng/.test(d.text ?? "") ? "Năm nay từ" : "Năm nay"}: ${solar.text}`}
+                          {d.text ?? `${d.day} tháng ${d.month}`} âm lịch năm {lunarYear}
+                          {solar && ` · ${d.yearOffset !== undefined ? `Mùa Tết ${year}` : `Năm âm ${lunarYear}`}: ${solar.text}`}
                         </small>
                       </li>
                     );

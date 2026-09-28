@@ -646,7 +646,7 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
   "relatedFigures": [
    "tao-quan"
   ],
-  "updatedAt": "2026-09-27",
+  "updatedAt": "2026-09-28",
   "heroImage": "/heritage/tet/cay-neu.webp",
   "heroAlt": "Tranh minh hoạ: Cây nêu ngày Tết",
   "sections": [
@@ -721,7 +721,8 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
      {
       "type": "ul",
       "items": [
-       "**Đồng bằng Bắc Bộ:** nêu tre, khánh đất, vôi cung tên.",
+       "**Đồng bằng Bắc Bộ (người Kinh):** nêu tre, khánh đất, vôi cung tên; dựng ngày 23 tháng Chạp.",
+       "**Người Mông:** có nơi dựng nêu ngày 25 hoặc 27 tháng Chạp, muộn hơn lệ 23 tháng Chạp của người Kinh vài ngày.",
        "**Tây Nguyên:** nhiều dân tộc dựng cây nêu bằng gỗ, chạm khắc hoa văn trong các lễ hội lớn của buôn làng. Đây là tục riêng, không gắn với Tết Nguyên đán."
       ]
      }
@@ -733,22 +734,30 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
     "paras": [],
     "blocks": [
      {
+      "type": "p",
+      "text": "Hai mốc dựng nêu và hạ nêu cùng thuộc một mùa Tết nhưng khác năm âm lịch: 23 tháng Chạp là ngày cuối năm âm cũ, còn mùng 7 tháng Giêng đã sang năm âm mới."
+     },
+     {
       "type": "table",
       "head": [
        "Thời điểm",
+       "Năm âm",
        "Việc"
       ],
       "rows": [
        [
         "23 tháng Chạp",
-        "Dựng nêu, sau lễ tiễn ông Táo"
+        "năm âm trước Tết",
+        "Dựng nêu (người Kinh), sau lễ tiễn ông Táo"
        ],
        [
         "Đêm 30 tháng Chạp",
+        "năm âm trước Tết",
         "Thắp đèn trên nêu (nơi có tục này)"
        ],
        [
         "Mùng 7 tháng Giêng",
+        "năm âm mới",
         "Hạ nêu (lễ Khai hạ), kết thúc Tết, trở lại làm ăn"
        ]
       ]
@@ -758,16 +767,18 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
   ],
   "lunarDates": [
    {
-    "label": "Dựng nêu",
+    "label": "Dựng nêu, người Kinh",
     "day": 23,
     "month": 12,
-    "text": "23 tháng Chạp"
+    "text": "23 tháng Chạp",
+    "yearOffset": -1
    },
    {
     "label": "Hạ nêu",
     "day": 7,
     "month": 1,
-    "text": "mùng 7 tháng Giêng"
+    "text": "mùng 7 tháng Giêng",
+    "yearOffset": 0
    }
   ],
   "sources": [
@@ -779,6 +790,9 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
    },
    {
     "text": "Khâm định Đại Nam hội điển sự lệ"
+   },
+   {
+    "text": "Lễ dựng nêu ngày Tết: Từ tín ngưỡng trấn tà đến biểu tượng văn hóa dân tộc, moitruong.net.vn"
    }
   ]
  },
@@ -3948,6 +3962,510 @@ export const BAI_VIET_IMPORTED: readonly BaiViet[] = [
    },
    {
     "text": "văn bia tháp Tinh Phi (Hải Dương)"
+   }
+  ]
+ },
+ {
+  "slug": "gio-thang-nhuan",
+  "title": "Giỗ rơi vào tháng nhuận: vì sao bối rối và các gia đình đang làm thế nào",
+  "label": "tin-nguong",
+  "category": "Dân gian",
+  "summary": "Một năm âm lịch có tháng nhuận thì năm đó có hai tháng cùng mang một tên số — ví dụ năm Ất Tỵ 2025 có hai tháng Sáu. Nếu người mất đúng vào tháng nhuận đó, năm sau chỉ có một tháng Sáu, con cháu phải chọn: giỗ vào tháng đó (không nhuận), hay chờ đến năm có tháng nhuận thì mới giỗ đúng \"tháng đã mất\"? Đây là chỗ gây bối rối, không phải vì lịch sai mà vì cách gọi tên tháng trùng nhau.",
+  "intro": [
+   "Một năm âm lịch có tháng nhuận thì năm đó có hai tháng cùng mang một tên số — ví dụ năm Ất Tỵ 2025 có hai tháng Sáu. Nếu người mất đúng vào tháng nhuận đó, năm sau chỉ có một tháng Sáu, con cháu phải chọn: giỗ vào tháng đó (không nhuận), hay chờ đến năm có tháng nhuận thì mới giỗ đúng \"tháng đã mất\"? Đây là chỗ gây bối rối, không phải vì lịch sai mà vì cách gọi tên tháng trùng nhau."
+  ],
+  "relatedFigures": [],
+  "updatedAt": "2026-09-28",
+  "sections": [
+   {
+    "id": "vi-sao-thang-nhuan-ton-tai",
+    "heading": "Vì sao tháng nhuận tồn tại",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Âm lịch tính theo tuần trăng, một năm 12 tháng âm chỉ khoảng 354 ngày — ngắn hơn năm dương gần 11 ngày. Cứ vài năm lại lệch hẳn một tháng so với thời tiết, nên người xưa chèn thêm một tháng nhuận (thường 19 năm có 7 lần) để mùa vụ trong âm lịch không trôi xa khỏi mùa vụ thật. Nhà lịch pháp Trần Tiến Bình (Viện Hàn lâm Khoa học và Công nghệ Việt Nam), theo VTC News, mô tả việc tính năm nào nhuận, nhuận tháng nào phải dùng mô hình thiên văn tính toán, không phải nhẩm theo quy tắc dân gian đơn giản. Nói cách khác: tháng nhuận là một điều chỉnh kỹ thuật của lịch, không phải một tháng \"thừa ra\" mang ý nghĩa xấu — dù quan niệm dân gian ở nhiều nơi vẫn gán cho tháng nhuận màu sắc kiêng kỵ."
+     }
+    ]
+   },
+   {
+    "id": "nhung-cach-thuc-hanh-dang-ton-tai",
+    "heading": "Những cách thực hành đang tồn tại",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Không có một quy tắc duy nhất được mọi gia đình, mọi vùng áp dụng:"
+     },
+     {
+      "type": "ul",
+      "items": [
+       "**Chọn tháng chính, bỏ qua tháng nhuận.** Theo GS. Ngô Đức Thịnh — Giám đốc Trung tâm Nghiên cứu và Bảo tồn văn hóa tín ngưỡng Việt Nam, Phó chủ tịch Hội đồng Folklore châu Á (trích qua Mytour) — gia đình có ngày giỗ rơi vào năm có tháng nhuận nên chọn tháng chính (không nhuận) để làm giỗ. Lý do thực tế: đa số năm không có tháng nhuận, lấy tháng chính làm mốc thì năm nào cũng giỗ được, không phải chờ.",
+       "**Không quá câu nệ.** Ông Nguyễn Vũ Tuấn Anh, nguyên giám đốc Trung tâm nghiên cứu Lý học Đông phương (trích qua Mytour), cho rằng về bản chất tháng nhuận chỉ là cách con người sắp xếp thời gian, không cần kiêng kỵ quá mức khi chọn tháng làm giỗ.",
+       "**Theo hướng dẫn Phật giáo:** khi người mất đúng vào tháng nhuận, báo Giác Ngộ (chuyên mục hỏi đáp Phật học) hướng dẫn lùi các mốc tiểu tường, đại tường về sớm hơn một ngày so với ngày mất, và từ năm thứ ba trở đi, giỗ hằng năm cố định vào tháng chính (không nhuận) ở đúng ngày tương ứng."
+      ]
+     },
+     {
+      "type": "p",
+      "text": "Ba nguồn trên xuất phát từ ba góc nhìn khác nhau — nghiên cứu văn hóa dân gian, lý học Đông phương, và thực hành Phật giáo — nhưng cùng gặp nhau ở một điểm: **nên lấy tháng chính (không nhuận) làm mốc giỗ hằng năm về sau**, tháng nhuận thường chỉ được coi là bối cảnh của năm mất, không phải mốc lặp lại."
+     }
+    ]
+   },
+   {
+    "id": "gia-dinh-nen-thong-nhat-dieu-gi",
+    "heading": "Gia đình nên thống nhất điều gì",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Vì không có quy tắc bắt buộc trên toàn quốc, khác biệt lớn nhất không nằm ở \"đúng sai\" mà ở việc các thành viên trong một gia đình/dòng họ có thống nhất với nhau hay không. Ba điều nên thống nhất trước, thay vì để mỗi năm mỗi người nhớ một kiểu:"
+     },
+     {
+      "type": "ul",
+      "items": [
+       "Giỗ những năm sau sẽ luôn rơi vào tháng chính hay có năm nào lấy lại đúng tháng nhuận (nếu năm đó lại có tháng nhuận cùng số)?",
+       "Việc lùi/giữ nguyên ngày trong tháng có áp dụng thống nhất cho mọi lần giỗ, hay chỉ áp dụng cho năm đầu (tiểu tường, đại tường)?",
+       "Ai là người chốt lịch mỗi năm — để tránh tình trạng mỗi nhánh trong họ tự tính một ngày khác nhau."
+      ]
+     }
+    ]
+   },
+   {
+    "id": "khi-nao-mot-quy-tac-tu-dong-la-khong-du",
+    "heading": "Khi nào một quy tắc tự động là không đủ",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Các gợi ý ở trên áp dụng cho trường hợp phổ biến: người mất vào một ngày trong tháng nhuận, giỗ hằng năm về sau. Nhưng còn những trường hợp một quy tắc cứng không giải quyết được:"
+     },
+     {
+      "type": "ul",
+      "items": [
+       "Gia đình theo một tông phái, dòng họ, hoặc vùng miền có lệ riêng khác với ba nguồn trên — phong tục là thực hành sống, không phải một công thức đóng.",
+       "Việc cúng theo mốc thời gian ngắn (49 ngày, 100 ngày, tuần đầu) tính trực tiếp từ ngày mất, không liên quan gì đến việc tháng đó nhuận hay không — nhầm lẫn phổ biến là mang cách tính giỗ hằng năm áp vào các mốc ngắn hạn này.",
+       "Nếu gia phả cũ ghi ngày mất theo âm lịch nhưng không rõ năm đó có nhuận hay không, việc quy đổi lại cần tra cứu lịch sử thay vì đoán."
+      ]
+     }
+    ]
+   },
+   {
+    "id": "licham-app-ho-tro-duoc-gi-va-khong-nen-tu-quyet-dieu-gi",
+    "heading": "licham.app hỗ trợ được gì, và không nên tự quyết điều gì",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Công cụ lịch của licham.app quy đổi chính xác một ngày âm lịch cụ thể (kèm năm) sang ngày dương lịch, kể cả khi năm đó có tháng nhuận — vì lõi lịch tính trực tiếp theo mô hình thiên văn, không suy diễn. Điều công cụ **không** tự làm thay người dùng: chọn giữa tháng chính và tháng nhuận khi hai mốc đó có ý nghĩa khác nhau với từng gia đình. Đó là một lựa chọn phong tục, không phải một phép tính lịch — trang này trình bày các cách thực hành đang tồn tại để gia đình tự quyết, không gán sẵn \"ngày giỗ đúng\" vào bất kỳ công cụ tra cứu nào."
+     }
+    ]
+   }
+  ],
+  "lunarDates": [],
+  "sources": [
+   {
+    "text": "Trung tâm Nghiên cứu và Bảo tồn văn hóa tín ngưỡng Việt Nam, GS. Ngô Đức Thịnh — trích qua Mytour ngày 1/9/2026"
+   },
+   {
+    "text": "Trung tâm nghiên cứu Lý học Đông phương, ông Nguyễn Vũ Tuấn Anh — trích qua Mytour ngày 1/9/2026"
+   },
+   {
+    "text": "Báo Giác Ngộ, chuyên mục hỏi đáp Phật học, 18/8/2023"
+   },
+   {
+    "text": "VTC News dẫn lời nhà lịch pháp Trần Tiến Bình (Viện Hàn lâm Khoa học và Công nghệ Việt Nam), 16/9/2025"
+   }
+  ]
+ },
+ {
+  "slug": "banh-troi-banh-chay-han-thuc",
+  "title": "Bánh trôi, bánh chay và Tết Hàn thực ở Việt Nam",
+  "label": "tin-nguong",
+  "category": "Dân gian",
+  "summary": "Mùng 3 tháng Ba âm lịch, nhiều gia đình miền Bắc nặn bánh trôi, bánh chay dâng lên bàn thờ gia tiên. Ngày này thường được gọi là Tết Hàn thực — \"hàn thực\" nghĩa là \"đồ ăn lạnh\" — nhưng ở Việt Nam ngày nay không ai kiêng lửa hay chỉ ăn đồ nguội, nên tên gọi và thực hành đã tách khỏi nhau từ lâu.",
+  "intro": [
+   "Mùng 3 tháng Ba âm lịch, nhiều gia đình miền Bắc nặn bánh trôi, bánh chay dâng lên bàn thờ gia tiên. Ngày này thường được gọi là Tết Hàn thực — \"hàn thực\" nghĩa là \"đồ ăn lạnh\" — nhưng ở Việt Nam ngày nay không ai kiêng lửa hay chỉ ăn đồ nguội, nên tên gọi và thực hành đã tách khỏi nhau từ lâu."
+  ],
+  "relatedFigures": [],
+  "updatedAt": "2026-09-28",
+  "sections": [
+   {
+    "id": "goc-tich-o-trung-quoc",
+    "heading": "Gốc tích ở Trung Quốc",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Theo tích được kể lại (Xuân Thu, thế kỷ 7 TCN), Giới Tử Thôi phò Tấn Văn Công 19 năm lưu vong. Khi Tấn Văn Công giành lại ngôi, ông quên ban thưởng Giới Tử Thôi. Giới Tử Thôi đưa mẹ vào núi ở ẩn; vua sai đốt rừng để ép ông ra, hai mẹ con chết cháy. Ân hận, vua lập miếu thờ và định lệ: ba ngày không đốt lửa, chỉ ăn đồ nguội đã nấu sẵn, để tưởng nhớ ông — đây là gốc của tên gọi \"hàn thực\"."
+     }
+    ]
+   },
+   {
+    "id": "viet-nam-giu-ten-doi-thuc-hanh",
+    "heading": "Việt Nam giữ tên, đổi thực hành",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Theo Wikipedia tiếng Việt (dẫn nhà nghiên cứu Nguyễn Ánh Hồng), người Việt không giữ tục kiêng lửa ba ngày như bên Trung Quốc — nấu nướng vẫn diễn ra bình thường trong ngày này. Thay vì ăn đồ nguội, các gia đình làm bánh trôi, bánh chay (bên Trung Quốc tương ứng là món chè trôi nước) để cúng Phật và gia tiên; ý nghĩa cũng chuyển từ tưởng nhớ Giới Tử Thôi sang hướng về tổ tiên, cội nguồn nói chung. Nói cách khác: Việt Nam giữ ngày và một phần tên gọi, nhưng nội dung thực hành đã bản địa hoá gần như hoàn toàn."
+     }
+    ]
+   },
+   {
+    "id": "khong-phai-noi-nao-cung-goi-la-han-thuc",
+    "heading": "Không phải nơi nào cũng gọi là Hàn thực",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Wikipedia tiếng Việt cũng ghi nhận: một số dân tộc thiểu số ở miền núi phía Bắc như Tày, Nùng gọi tháng Ba âm lịch (không nhất thiết đúng mùng 3) là dịp Thanh Minh/lễ tảo mộ, với mâm cúng và tục lệ khác — không phải \"Tết Hàn thực — bánh trôi bánh chay\" như cách gọi phổ biến ở người Kinh miền Bắc. Đây là một ví dụ cho thấy một ngày âm lịch có thể mang tên gọi và ý nghĩa khác nhau tùy cộng đồng, dù cùng rơi vào khoảng thời gian gần nhau trong năm."
+     }
+    ]
+   },
+   {
+    "id": "phan-biet-voi-tet-thanh-minh",
+    "heading": "Phân biệt với Tết Thanh minh",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Tết Hàn thực (mùng 3 tháng Ba) thường bị nhầm với Tết Thanh minh — một tiết khí tính theo vị trí Mặt Trời (dương lịch, khoảng đầu tháng Tư), gắn với tục tảo mộ. Hai dịp gần nhau về thời gian nhưng khác nhau về cách tính (âm lịch cố định so với tiết khí dương lịch) và khác nhau về hoạt động chính (cúng bánh trôi bánh chay so với đi tảo mộ). Xem thêm tiết Thanh minh trong mục tiết khí của licham.app để tra đúng ngày dương lịch từng năm."
+     }
+    ]
+   }
+  ],
+  "lunarDates": [],
+  "sources": [
+   {
+    "text": "Wikipedia tiếng Việt, mục \"Tết Hàn thực\" — dẫn An Nam phong tục sách, Lê Quý Đôn, thơ Trần Nhân Tông (1291), nhà nghiên cứu Nguyễn Ánh Hồng và Trần Quang Đức"
+   },
+   {
+    "text": "Tiền Phong, \"Chuyện ly kỳ về nguồn gốc Tết Hàn thực\""
+   }
+  ]
+ },
+ {
+  "slug": "gio-ha-nguyen-com-moi",
+  "title": "Tết Hạ Nguyên và lễ cơm mới — một ngày hay nhiều phong tục?",
+  "label": "tin-nguong",
+  "category": "Dân gian",
+  "summary": "\"Tết Hạ Nguyên\" và \"lễ cơm mới\" thường được nhắc tới như một dịp duy nhất — rằm tháng Mười âm lịch. Nhưng gộp hai tên gọi này làm một, rồi coi rằm tháng Mười là \"ngày cơm mới của người Việt\", là bỏ qua một khoảng đa dạng khá lớn giữa các vùng và cộng đồng.",
+  "intro": [
+   "\"Tết Hạ Nguyên\" và \"lễ cơm mới\" thường được nhắc tới như một dịp duy nhất — rằm tháng Mười âm lịch. Nhưng gộp hai tên gọi này làm một, rồi coi rằm tháng Mười là \"ngày cơm mới của người Việt\", là bỏ qua một khoảng đa dạng khá lớn giữa các vùng và cộng đồng."
+  ],
+  "relatedFigures": [],
+  "updatedAt": "2026-09-28",
+  "sections": [
+   {
+    "id": "ha-nguyen-la-cach-goi-trong-khung-nao",
+    "heading": "\"Hạ Nguyên\" là cách gọi trong khung nào?",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Hạ Nguyên là một trong ba dịp \"Nguyên\" theo tín ngưỡng Tam Nguyên (Thượng Nguyên rằm tháng Giêng, Trung Nguyên rằm tháng Bảy, Hạ Nguyên rằm tháng Mười) — khung tín ngưỡng có gốc Đạo giáo, phổ biến ở người Kinh. Trong khung này, rằm tháng Mười gắn với việc cúng lễ nói chung, không riêng gì việc mừng lúa mới."
+     }
+    ]
+   },
+   {
+    "id": "com-moi-khong-phai-luc-nao-cung-dung-ram-thang-muoi",
+    "heading": "Cơm mới không phải lúc nào cũng đúng rằm tháng Mười",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Theo Trung tâm Quản lý Bảo tồn Di sản Văn hóa Hội An, lễ cơm mới của người Kinh ở Hội An và vùng phụ cận không cố định vào một ngày — tùy nơi mà tổ chức mùng 1, mùng 10, hoặc rằm tháng Mười âm lịch. Ngay trong cùng một cộng đồng người Kinh, đã có ít nhất ba mốc khác nhau được ghi nhận."
+     },
+     {
+      "type": "p",
+      "text": "Ở người Mường (Hòa Bình), theo báo Tiền Phong, lễ mừng cơm mới thường tổ chức vào khoảng tháng Chín, tháng Mười âm lịch sau khi thu hoạch xong — không neo cứng vào đúng ngày rằm. Tại bản Cả (Nho Quan, Ninh Bình), báo Ninh Bình điện tử ghi nhận lễ hội mừng cơm mới của người Mường tổ chức 3 năm một lần, vào đúng rằm tháng Mười — một biến thể khác về tần suất, không phải năm nào cũng làm."
+     },
+     {
+      "type": "p",
+      "text": "Ở các dân tộc Tây Nguyên, lễ mừng lúa mới/cơm mới gắn trực tiếp với thời điểm thu hoạch thực tế của từng buôn làng trong năm, không neo theo một ngày âm lịch cố định như rằm tháng Mười — đây là khác biệt về nguyên tắc, không chỉ khác ngày."
+     }
+    ]
+   },
+   {
+    "id": "vi-sao-ngay-to-chuc-khac-nhau",
+    "heading": "Vì sao ngày tổ chức khác nhau",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Ba lý do chính, dựa trên các nguồn trên:"
+     },
+     {
+      "type": "ul",
+      "items": [
+       "**Khung tín ngưỡng khác nhau:** Tam Nguyên (rằm tháng Mười) là một hệ quy chiếu; \"mừng lúa mới ngay khi gặt xong\" là một hệ quy chiếu khác, không bắt buộc trùng ngày âm lịch cố định.",
+       "**Vụ mùa thực tế khác nhau theo vùng:** nơi gặt sớm, nơi gặt muộn — cộng đồng nào lấy thời điểm thu hoạch làm mốc thì ngày lễ trôi theo vụ mùa, không cố định.",
+       "**Quy mô tổ chức khác nhau:** lễ ở cấp gia đình (cúng đơn giản) thường làm đúng vào ngày phong tục quy định; lễ hội cấp cộng đồng/làng (có múa hát, tế lễ tập thể) có thể chỉ tổ chức định kỳ nhiều năm một lần — như bản Cả ba năm một lần — nên không nên coi mốc lễ hội là \"ngày cơm mới hàng năm\"."
+      ]
+     }
+    ]
+   },
+   {
+    "id": "moc-nao-la-phong-tuc-moc-nao-la-chuong-trinh-dia-phuong",
+    "heading": "Mốc nào là phong tục, mốc nào là chương trình địa phương",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Rằm tháng Mười (và mùng 1, mùng 10 ở Hội An) là mốc phong tục — lặp lại đều đặn theo âm lịch mỗi năm. Lễ hội mừng cơm mới quy mô cộng đồng — như lễ hội 3 năm một lần ở bản Cả — là một chương trình tổ chức cụ thể, có năm diễn ra và năm không, không nên nhầm là \"ngày cơm mới chính thức\" áp dụng cho mọi gia đình mọi năm."
+     },
+     {
+      "type": "p",
+      "text": "licham.app hiển thị rằm tháng Mười (Tết Hạ Nguyên) như một mốc âm lịch tra cứu được hằng năm cho lệ phổ biến nhất ở người Kinh; các mốc và lễ hội cơm mới khác của từng cộng đồng, địa phương là phong tục riêng, không bị gộp vào cùng một \"ngày chuẩn\"."
+     }
+    ]
+   }
+  ],
+  "lunarDates": [],
+  "sources": [
+   {
+    "text": "Trung tâm Quản lý Bảo tồn Di sản Văn hóa Hội An"
+   },
+   {
+    "text": "Báo Tiền Phong, \"Lễ Mừng cơm mới của dân tộc Mường, tỉnh Hoà Bình\""
+   },
+   {
+    "text": "Báo Ninh Bình điện tử, lễ mừng cơm mới bản Cả (Nho Quan)"
+   },
+   {
+    "text": "Mia.vn, lễ cúng cơm mới các dân tộc Tây Nguyên"
+   }
+  ]
+ },
+ {
+  "slug": "quan-sat-mat-trang-cung-tre",
+  "title": "Một tháng quan sát Mặt Trăng cùng trẻ",
+  "label": "chinh-su",
+  "category": "Thiên văn",
+  "summary": "Không cần kính thiên văn, không cần thức khuya mỗi đêm. Chỉ cần nhìn lên bầu trời vào một giờ cố định mỗi tối trong khoảng một tháng âm lịch (từ mùng 1 đến hết tháng), trẻ có thể tự thấy Mặt Trăng \"lớn dần rồi nhỏ lại\" — và hiểu vì sao lịch âm tính theo trăng chứ không phải chuyện trừu tượng trong sách.",
+  "intro": [
+   "Không cần kính thiên văn, không cần thức khuya mỗi đêm. Chỉ cần nhìn lên bầu trời vào một giờ cố định mỗi tối trong khoảng một tháng âm lịch (từ mùng 1 đến hết tháng), trẻ có thể tự thấy Mặt Trăng \"lớn dần rồi nhỏ lại\" — và hiểu vì sao lịch âm tính theo trăng chứ không phải chuyện trừu tượng trong sách."
+  ],
+  "relatedFigures": [],
+  "updatedAt": "2026-09-28",
+  "sections": [
+   {
+    "id": "quan-sat-an-toan-khong-giong-quan-sat-mat-troi",
+    "heading": "Quan sát an toàn — không giống quan sát Mặt Trời",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Nhìn Mặt Trăng bằng mắt thường hoàn toàn an toàn, không cần kính lọc hay thiết bị bảo vệ mắt như khi quan sát nhật thực. Vài lưu ý để nhìn rõ hơn, không phải để an toàn:"
+     },
+     {
+      "type": "ul",
+      "items": [
+       "Chọn chỗ càng ít đèn đường, đèn nhà càng tốt — ánh sáng xung quanh làm trăng \"mờ\" đi khi mới mọc lúc chiều tối.",
+       "Ống nhòm thường (không cần kính thiên văn) đã đủ thấy rõ ranh giới sáng-tối và vài miệng núi lửa lớn.",
+       "Những đêm gần trăng tròn, Mặt Trăng rất sáng — nhìn trực tiếp không sao, nhưng qua ống nhòm nên nhìn ngắn, tránh chói mắt trẻ nhỏ."
+      ]
+     }
+    ]
+   },
+   {
+    "id": "gio-quan-sat-goi-y-theo-tung-giai-doan",
+    "heading": "Giờ quan sát gợi ý theo từng giai đoạn",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Mặt Trăng mọc trễ dần khoảng 50 phút mỗi ngày so với hôm trước, nên \"giờ đẹp để nhìn\" thay đổi theo pha:"
+     },
+     {
+      "type": "table",
+      "head": [
+       "Giai đoạn (theo ngày âm lịch)",
+       "Mọc khoảng",
+       "Giờ quan sát dễ nhất"
+      ],
+      "rows": [
+       [
+        "Mùng 3–7 (lưỡi liềm đến thượng huyền)",
+        "Giữa trưa – đầu chiều",
+        "Ngay sau hoàng hôn, trăng còn thấp ở trời Tây"
+       ],
+       [
+        "Ngày 13–17 (quanh rằm)",
+        "Gần lúc Mặt Trời lặn",
+        "Suốt buổi tối, trăng tròn sáng cả đêm"
+       ],
+       [
+        "Ngày 20–25 (hạ huyền)",
+        "Nửa đêm",
+        "Sáng sớm, trước khi trời sáng hẳn"
+       ],
+       [
+        "Cuối tháng (28–29/30)",
+        "Gần sáng",
+        "Rất khó thấy — trăng mảnh, mọc sát giờ Mặt Trời mọc"
+       ]
+      ]
+     },
+     {
+      "type": "p",
+      "text": "Mẹo đơn giản cho trẻ: **buổi tối nhìn về hướng Tây trong nửa đầu tháng âm, nhìn về hướng Đông lúc sẩm tối trong nửa sau của tháng** — vì Mặt Trăng luôn mọc ở hướng Đông và lặn ở hướng Tây, chỉ khác nhau về thời điểm."
+     }
+    ]
+   },
+   {
+    "id": "cach-ghi-lai-hinh-dang",
+    "heading": "Cách ghi lại hình dạng",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Không cần vẽ đẹp — chỉ cần đủ để so sánh ngày này với ngày khác:"
+     },
+     {
+      "type": "p",
+      "text": "1. Vẽ một hình tròn nhỏ. 2. Tô đen (hoặc gạch chéo) phần trăng KHÔNG sáng, để trống phần sáng. 3. Ghi ngày dương lịch và ngày âm lịch bên cạnh. 4. Ghi một chữ cảm nhận: \"tròn\", \"khuyết trái\", \"khuyết phải\", \"lưỡi liềm\", \"không thấy\" (trời mây)."
+     }
+    ]
+   },
+   {
+    "id": "nhat-ky-4-tuan-in-ra-va-tu-dien",
+    "heading": "Nhật ký 4 tuần (in ra và tự điền)",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "table",
+      "head": [
+       "Tuần",
+       "Ngày dương",
+       "Ngày âm",
+       "Hình vẽ / mô tả",
+       "Có nhìn thấy?"
+      ],
+      "rows": [
+       [
+        "Tuần 1 — Ngày 1",
+        "",
+        "",
+        "",
+        ""
+       ],
+       [
+        "Tuần 1 — Ngày 4",
+        "",
+        "",
+        "",
+        ""
+       ],
+       [
+        "Tuần 1 — Ngày 7",
+        "",
+        "",
+        "",
+        ""
+       ],
+       [
+        "Tuần 2 — Ngày 10",
+        "",
+        "",
+        "",
+        ""
+       ],
+       [
+        "Tuần 2 — Ngày 13",
+        "",
+        "",
+        "",
+        ""
+       ],
+       [
+        "Tuần 2 — Ngày 15 (rằm)",
+        "",
+        "",
+        "",
+        ""
+       ],
+       [
+        "Tuần 3 — Ngày 18",
+        "",
+        "",
+        "",
+        ""
+       ],
+       [
+        "Tuần 3 — Ngày 21",
+        "",
+        "",
+        "",
+        ""
+       ],
+       [
+        "Tuần 3 — Ngày 23",
+        "",
+        "",
+        "",
+        ""
+       ],
+       [
+        "Tuần 4 — Ngày 26",
+        "",
+        "",
+        "",
+        ""
+       ],
+       [
+        "Tuần 4 — Ngày 29/30 (cuối tháng)",
+        "",
+        "",
+        "",
+        ""
+       ]
+      ]
+     },
+     {
+      "type": "p",
+      "text": "Tra ngày âm lịch tương ứng với mỗi ngày dương lịch ở trang \"Lịch âm hôm nay\" hoặc công cụ \"Đổi ngày âm dương\" của licham.app trước khi điền bảng."
+     }
+    ]
+   },
+   {
+    "id": "vi-sao-ngay-am-lich-lai-lien-quan-den-hinh-dang-trang",
+    "heading": "Vì sao ngày âm lịch lại liên quan đến hình dạng trăng",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Đây là điểm khác biệt cốt lõi so với lịch dương: một tháng âm lịch không phải một khoảng thời gian quy ước cố định (như 30 hay 31 ngày dương lịch), mà chính là một chu kỳ trăng thật — từ lúc không thấy trăng (điểm sóc, quy ước là ngày 1 âm lịch) đến lúc lại không thấy trăng lần tiếp theo, khoảng 29,53 ngày. Vì vậy:"
+     },
+     {
+      "type": "ul",
+      "items": [
+       "**Mùng 1 âm lịch** luôn là ngày (hoặc rất gần ngày) không nhìn thấy trăng — trăng non nằm gần như cùng phía Mặt Trời nên không sáng.",
+       "**Rằm (15 âm lịch)** nằm ở giữa chu kỳ, khi trăng thường tròn nhất hoặc gần tròn nhất.",
+       "Tháng âm lịch có tháng đủ (30 ngày) và tháng thiếu (29 ngày) tùy thời điểm sóc thật rơi vào lúc nào — đây cũng là lý do licham.app phải tính bằng mô hình thiên văn thay vì đếm ngày cố định."
+      ]
+     }
+    ]
+   },
+   {
+    "id": "ngay-ram-va-trang-tron-thien-van-khong-phai-luc-nao-cung-la-mot-ngay",
+    "heading": "\"Ngày rằm\" và \"trăng tròn thiên văn\" không phải lúc nào cũng là một ngày",
+    "paras": [],
+    "blocks": [
+     {
+      "type": "p",
+      "text": "Đây là điều dễ gây nhầm cho trẻ khi so bảng nhật ký với thực tế quan sát: **ngày rằm âm lịch (15 âm lịch) là một quy ước đếm ngày kể từ sóc**, còn **thời điểm trăng tròn thiên văn** là lúc Mặt Trăng, Trái Đất, Mặt Trời thẳng hàng chính xác nhất — hai mốc này gần nhau nhưng không luôn trùng khít. Trăng tròn thật có thể rơi vào đêm 14, đêm rằm, hoặc rạng sáng 16 âm lịch, tùy tháng — vì một chu kỳ trăng dài trung bình 29,53 ngày, không chia đều cho hai nửa tháng 14,5–14,5 ngày một cách tuyệt đối. Nếu bảng nhật ký ghi \"trăng tròn nhất\" vào đúng đêm rằm mà mắt thường lại thấy tròn nhất vào đêm hôm trước hoặc hôm sau — đó không phải ghi sai, mà là hai cách định nghĩa \"tròn\" khác nhau đang gặp nhau."
+     }
+    ]
+   }
+  ],
+  "lunarDates": [],
+  "sources": [
+   {
+    "text": "Dữ liệu pha Mặt Trăng của licham.app tính bằng thư viện thiên văn astronomy-engine (xem mục \"Trăng tối nay\" ở /van-hoa/)"
+   },
+   {
+    "text": "quy tắc sóc/rằm theo lõi lịch âm @licham/core của chính website"
    }
   ]
  }

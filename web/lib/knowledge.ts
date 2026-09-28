@@ -365,7 +365,11 @@ export const KNOWLEDGE: readonly KnowledgeArticle[] = [
       { q: "Tháng nhuận nào cũng dài 29 ngày?", a: "Không, giống các tháng khác, tháng nhuận có 29 hoặc 30 ngày tùy thời điểm trăng mới." },
     ],
     related: ["am-lich-la-gi", "tiet-khi", "can-chi"],
-    links: [{ label: "Đổi ngày âm dương", href: "/doi-ngay-am-duong/" }, { label: "Phương pháp tính lịch", href: "/phuong-phap-tinh-lich/" }],
+    links: [
+      { label: "Đổi ngày âm dương", href: "/doi-ngay-am-duong/" },
+      { label: "Phương pháp tính lịch", href: "/phuong-phap-tinh-lich/" },
+      { label: "Giỗ rơi vào tháng nhuận: các gia đình đang làm thế nào", href: "/van-hoa/bai-viet/gio-thang-nhuan/" },
+    ],
   },
 ];
 

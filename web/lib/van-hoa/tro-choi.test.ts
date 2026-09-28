@@ -41,7 +41,19 @@ describe("trò chơi dân gian", () => {
     expect(notes.articles["tha-dieu"]).toBeUndefined();
     expect(notes.articles["dau-vat-dan-toc"]).toBeUndefined();
     expect(Object.keys(notes.articles).sort()).toEqual(
-      ["bat-chach-trong-chum", "co-nguoi", "danh-du", "danh-phet", "di-ca-kheo", "do-choi-tet-xua", "keo-co", "thoi-com-thi"].sort(),
+      [
+        "bat-chach-trong-chum",
+        "co-nguoi",
+        "danh-du",
+        "danh-phet",
+        "di-ca-kheo",
+        "do-choi-tet-xua",
+        "keo-co",
+        "thoi-com-thi",
+        "gio-thang-nhuan",
+        "banh-troi-banh-chay-han-thuc",
+        "gio-ha-nguyen-com-moi",
+      ].sort(),
     );
   });
 

@@ -472,8 +472,11 @@ const DOT_2: LePage[] = [
     ngayChinh: { am: { ngay: 3, thang: 3 } },
     vanKhan: ["tet-han-thuc"],
     moTa: "Mùng 3 tháng Ba âm lịch — ngày làm bánh trôi, bánh chay dâng tổ tiên.",
-    yNghia: ["Tết Hàn thực có nghĩa là \"ăn đồ nguội\". Ở Việt Nam, ngày này gắn với tục làm bánh trôi, bánh chay dâng lên tổ tiên."],
-    bullets: ["Nặn bánh trôi, bánh chay", "Dâng bánh lên ban thờ gia tiên", "Nhiều nhà ăn đồ nguội, hạn chế đun nấu"],
+    yNghia: [
+      "\"Hàn thực\" nghĩa là \"đồ ăn lạnh\", gốc tích từ Trung Quốc (tích Giới Tử Thôi). Ở Việt Nam ngày này không kiêng lửa hay ăn đồ nguội như bên Trung Quốc — các gia đình vẫn nấu nướng bình thường, chỉ khác là làm thêm bánh trôi, bánh chay dâng lên tổ tiên.",
+    ],
+    bullets: ["Nặn bánh trôi, bánh chay", "Dâng bánh lên ban thờ gia tiên", "Không kiêng lửa, nấu nướng vẫn bình thường"],
+    lienKet: [{ label: "Bánh trôi, bánh chay và Tết Hàn thực ở Việt Nam", href: "/van-hoa/bai-viet/banh-troi-banh-chay-han-thuc/" }],
   },
   {
     slug: "gio-to-hung-vuong",
@@ -567,11 +570,13 @@ const DOT_2: LePage[] = [
     lich: "am",
     ngayChinh: { am: { ngay: 15, thang: 10 } },
     vanKhan: ["ram-thang-muoi"],
-    moTa: "Rằm tháng Mười âm lịch — Tết Hạ nguyên, còn gọi là Tết cơm mới sau mùa gặt.",
+    moTa: "Rằm tháng Mười âm lịch — Tết Hạ nguyên, một trong ba dịp Tam Nguyên; nhiều nơi cũng làm lễ cơm mới quanh dịp này.",
     yNghia: [
-      "Rằm tháng Mười rơi vào lúc vừa thu hoạch lúa mùa. Người nông dân dâng cơm gạo mới lên tổ tiên để tạ ơn sau một mùa làm lụng.",
+      "Hạ Nguyên là dịp cuối trong tín ngưỡng Tam Nguyên (Thượng Nguyên rằm tháng Giêng, Trung Nguyên rằm tháng Bảy, Hạ Nguyên rằm tháng Mười).",
+      "Rằm tháng Mười cũng gần lúc thu hoạch lúa mùa nên nhiều gia đình dâng cơm gạo mới lên tổ tiên. Đây là lệ phổ biến, không phải ngày cơm mới duy nhất — nhiều địa phương và cộng đồng có mốc và cách gọi khác nhau.",
     ],
     bullets: ["Nấu xôi, cơm bằng gạo mới", "Cúng gia tiên và thần linh", "Nhiều chùa làm lễ vào ngày này"],
+    lienKet: [{ label: "Tết Hạ Nguyên và lễ cơm mới — một ngày hay nhiều phong tục?", href: "/van-hoa/bai-viet/gio-ha-nguyen-com-moi/" }],
   },
   {
     slug: "ram-thang-chap",
