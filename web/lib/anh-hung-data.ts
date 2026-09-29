@@ -875,6 +875,8 @@ export const ANH_HUNG_DATA: AnhHung[] = [
     nguoiLienQuan: [
       { slug: "ly-thanh-tong", ten: "Lý Thánh Tông", relation: "Vua ông theo phò năm 1069 trong cuộc đánh Chiêm Thành bắt vua Chế Củ — công lao này khiến ông được ban quốc tính, đổi họ sang Lý." },
       { slug: "ly-nhan-tong", ten: "Lý Nhân Tông", relation: "Vua nhỏ tuổi ông làm phụ chính từ năm 1072; dưới triều vua này ông chỉ huy chiến dịch đánh Khâm – Liêm – Ung (1075–1076) và lập phòng tuyến Như Nguyệt (1077)." },
+      { slug: "tong-dan", ten: "Tông Đản", relation: "Tướng chỉ huy cánh quân bộ trong kế hoạch \"tiên phát chế nhân\" do ông đề ra năm 1075, cùng phối hợp hạ thành Ung Châu." },
+      { slug: "y-lan", ten: "Ỷ Lan", relation: "Nhiếp chính lo hậu phương và quân lương từ năm 1072, khi ông chỉ huy chiến dịch đánh Khâm – Liêm – Ung rồi lập phòng tuyến Như Nguyệt." },
     ],
   },
   {
@@ -2427,6 +2429,10 @@ export const ANH_HUNG_DATA: AnhHung[] = [
       "Bảo tàng Lịch sử Quốc gia, “Nguyên phi Ỷ Lan: từ chính sử đến thần tích, cổ tích”.",
       "Báo Quân đội nhân dân, “Nguyên phi Ỷ Lan, người phụ nữ có tài kinh bang tế thế”.",
     ],
+    nguoiLienQuan: [
+      { slug: "ly-thuong-kiet", ten: "Lý Thường Kiệt", relation: "Bà nhiếp chính lo hậu phương, quân lương từ năm 1072 trong khi ông chỉ huy chiến dịch đánh Khâm – Liêm – Ung (1075–1076) và phòng tuyến Như Nguyệt (1077)." },
+      { slug: "ly-nhan-tong", ten: "Lý Nhân Tông", relation: "Con trai bà, lên ngôi năm 1072 khi còn nhỏ tuổi; bà nhiếp chính lần thứ hai trong suốt cuộc kháng chiến chống Tống dưới triều ông." },
+    ],
   },
   {
     slug: "ly-nhan-tong",
@@ -2497,6 +2503,7 @@ export const ANH_HUNG_DATA: AnhHung[] = [
     ],
     nguoiLienQuan: [
       { slug: "ly-thuong-kiet", ten: "Lý Thường Kiệt", relation: "Thái úy phụ chính từ năm 1072 khi ông còn nhỏ tuổi; chỉ huy chiến dịch đánh Tống 1075–1077 dưới triều ông." },
+      { slug: "y-lan", ten: "Ỷ Lan", relation: "Mẹ ông, nhiếp chính lần thứ hai từ năm 1072 khi ông lên ngôi còn nhỏ tuổi, lo hậu phương suốt cuộc kháng chiến chống Tống." },
     ],
   },
   {
@@ -2547,6 +2554,9 @@ export const ANH_HUNG_DATA: AnhHung[] = [
       "Đại Việt sử ký toàn thư; Việt sử lược.",
       "Vietnamdefence, “Tông Đản (? – ?)”.",
       "Báo Dân Việt, “Danh tướng giúp Lý Thường Kiệt đánh 3 châu của nhà Tống là Tông Đản”.",
+    ],
+    nguoiLienQuan: [
+      { slug: "ly-thuong-kiet", ten: "Lý Thường Kiệt", relation: "Thái úy đề ra kế hoạch \"tiên phát chế nhân\" năm 1075, trực tiếp chỉ huy cánh thủy quân phối hợp với cánh quân bộ của ông." },
     ],
   },
   {

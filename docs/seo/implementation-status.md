@@ -686,3 +686,11 @@ Chạy `web-dev` (cổng 3000, Claude Browser thật, không chỉ curl/grep) tr
 **FINAL STATUS: READY for commit review** (theo phạm vi 9A–9C — graph integrity, 2 Story mới, 3 relation, 1 section, browser smoke đều pass; quyết định commit vẫn thuộc về người dùng).
 
 Chưa commit, chưa push, chưa deploy trong phiên này.
+
+## Batch 10 (2026-09-29) — LY THUONG KIET CLUSTER (đúng backlog 9B để lại)
+
+Phạm vi hẹp: chỉ hoàn thiện cụm Lý Thường Kiệt / chiến tranh Tống–Lý 1075–1077. Chi tiết đầy đủ ở `docs/story-map.md` mục "BATCH 10 — LY THUONG KIET CLUSTER". Tóm tắt: thêm `nguoiLienQuan` hai chiều `ly-thuong-kiet` ↔ `tong-dan`, `ly-thuong-kiet` ↔ `y-lan`, `y-lan` ↔ `ly-nhan-tong` (reason cụ thể có sự kiện/chức vụ, không "cùng thời") — đúng gap 9B để lại ở mục "1–3"; thêm reading path mới `chien-tranh-tong-ly-1075-1077` (4 bước: `ly-thuong-kiet` → Story Ung Châu → Story Nam quốc sơn hà → `ly-nhan-tong`) — đúng gap 9B để lại ở mục "20–23" (lúc đó chưa đủ node, nay đủ). Không tạo Story mới (nội dung Ung Châu/Nam quốc sơn hà đã đủ mạnh, không cần bridge story). Không tạo Như Nguyệt page hay bất kỳ URL thin content nào.
+
+Test: `npx vitest run` 44 file, 526/526 passed (không gặp flake chiêm tinh lần này); `tsc --noEmit` sạch; `eslint .` sạch; `VAN_HOA_PUBLIC=1 next build` thành công; `check-routes.mjs` "Kiểm tra thành công". Không có browser tooling trong phiên này — chỉ verify tĩnh, QA trình duyệt thủ công vẫn cần làm riêng sau. Tổng Story published: 24 (không đổi).
+
+Chưa commit, chưa push, chưa deploy trong phiên này.

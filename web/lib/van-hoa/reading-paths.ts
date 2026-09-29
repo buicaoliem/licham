@@ -76,6 +76,18 @@ export const READING_PATHS: ReadingPath[] = [
       { type: "person", slug: "ly-thai-to", note: "Người dời đô năm 1010, mở đầu hơn 200 năm nhà Lý đóng đô ở Thăng Long." },
     ],
   },
+  {
+    slug: "chien-tranh-tong-ly-1075-1077",
+    title: "Chiến tranh Tống – Lý (1075–1077)",
+    description:
+      "Từ quyết định đánh phủ đầu sang đất Tống của Lý Thường Kiệt đến phòng tuyến Như Nguyệt và bài thơ tương truyền gắn liền với trận đánh — cùng vai trò của triều đình Lý Nhân Tông phía sau danh tướng.",
+    items: [
+      { type: "person", slug: "ly-thuong-kiet", note: "Thái úy phụ chính, người đề ra kế hoạch \"tiên phát chế nhân\" và chỉ huy toàn bộ chiến dịch 1075–1077." },
+      { type: "story", slug: "vi-sao-ly-thuong-kiet-chu-dong-danh-ung-chau", note: "Vì sao đánh trước sang đất Tống, và vì sao rút quân ngay sau khi hạ thành Ung Châu để chuyển sang phòng tuyến Như Nguyệt." },
+      { type: "story", slug: "nam-quoc-son-ha-xuat-hien-trong-su-lieu-the-nao", note: "Bài thơ tương truyền được ngâm trên chính phòng tuyến Như Nguyệt — sử liệu ghi chắc điều gì, điều gì chỉ là truyền thống." },
+      { type: "person", slug: "ly-nhan-tong", note: "Vị vua nhỏ tuổi đứng đầu triều đình suốt cuộc chiến — không chỉ là chuyện riêng của một danh tướng." },
+    ],
+  },
 ];
 
 export interface ResolvedReadingPathItem extends ReadingPathItem {

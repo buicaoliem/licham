@@ -519,3 +519,27 @@ Triển khai đúng 8 task đã duyệt ở 9A, không mở rộng scope.
 **Tổng Story published sau 9B: 24** (22 từ trước + 2 mới của 9B).
 
 Chưa commit, chưa push, chưa deploy trong phiên này.
+
+## BATCH 10 — LY THUONG KIET CLUSTER (2026-09-29)
+
+Phạm vi hẹp: chỉ hoàn thiện cụm Lý Thường Kiệt / chiến tranh Tống–Lý 1075–1077, đúng backlog 9B đã ghi ở mục "1–3" và "20–23" trên.
+
+**Coverage map trước khi sửa** — inventory xác nhận cụm đã khá đầy đủ nội dung từ batch 6/9B: hồ sơ `ly-thuong-kiet` (đầy đủ, 4 nguồn, `nguoiLienQuan` → `ly-thanh-tong`/`ly-nhan-tong`), hồ sơ `ly-thanh-tong`/`ly-nhan-tong` (đầy đủ, có quan hệ ngược), hồ sơ `y-lan`/`tong-dan` (đầy đủ tiểu sử/nguồn nhưng **chưa có `nguoiLienQuan`** — đúng gap 9B để lại), Story `vi-sao-ly-thuong-kiet-chu-dong-danh-ung-chau` (đầy đủ, xử lý cả A→B→C→D: tiên phát chế nhân, vây Ung Châu, chuyển phòng thủ Như Nguyệt, giảng hòa kết thúc chiến tranh, và mục riêng tách truyền thuyết ngâm thơ khỏi sử liệu), Story `nam-quoc-son-ha-xuat-hien-trong-su-lieu-the-nao` (đầy đủ, xử lý 4 lớp sử liệu/truyền thống thận trọng). Không có Như Nguyệt standalone (giữ nguyên `do_not_create` — không tìm thấy intent độc lập nào biện minh tách trang mới). Không có reading path nào cho cụm này (gap 9B để lại ở mục "20–23": "Không tạo reading path mới... 2 Story chưa đủ" — nay đã đủ 2 Story + 2 hồ sơ liên quan để tạo path 4 bước).
+
+**9 câu hỏi chính của cluster (mục 4 chỉ dẫn)** — đối chiếu nội dung hiện có: A (vì sao đánh Ung Châu) và B (vì sao chuyển phòng thủ) đã trả lời đầy đủ trong section "tien-phat-che-nhan"/"sau-do" của Story Ung Châu; C (hướng tiến quân Tống) — không có chi tiết hướng hành quân cụ thể của quân Tống trong nội dung hiện có, đây là gap thật nhưng KHÔNG đủ nguồn xác nhận trong phạm vi 9B/10 để thêm mà không suy đoán — để `needs_source`, không bịa; D (vai trò phòng tuyến Như Nguyệt) đã trả lời trong section "sau-do"; E (vai trò Lý Nhân Tông) đã trả lời qua hồ sơ riêng + quan hệ mới; F (vai trò Lý Thường Kiệt) đầy đủ; G (Nam quốc sơn hà trong sử liệu) đã trả lời đầy đủ trong Story riêng; H (kết thúc chiến tranh) đã trả lời — Story Ung Châu mục "sau-do" nêu rõ Lý Thường Kiệt chủ động đề nghị giảng hòa khi quân Tống kiệt sức vì bệnh dịch/thiếu lương, không đơn giản hóa thành "đại thắng, quân Tống bỏ chạy"; I (khác biệt mốc 1075/1076/1077) rõ ràng trong cả hai Story và 3 hồ sơ liên quan (1075 đánh Khâm/Liêm, 1075–1076 vây hạ Ung Châu, cuối 1076 đầu 1077 quân Tống tới Như Nguyệt, 1077 kết thúc).
+
+**Story bridge (mục 6)** — KHÔNG tạo. Nội dung "tiến công trước → rút về → chuẩn bị phòng thủ → quân Tống tiến vào → phòng tuyến Như Nguyệt" đã có sẵn, đủ mạch, trong chính Story Ung Châu (section "vay-ung-chau" → "sau-do"). Tạo bài riêng sẽ trùng lặp lớn — giữ quyết định `upgrade_existing` (không cần upgrade thêm, nội dung đã đủ).
+
+**Thay đổi trong 10:**
+1. `web/lib/anh-hung-data.ts` — thêm `nguoiLienQuan` hai chiều: `ly-thuong-kiet` ↔ `tong-dan` (lý do cụ thể: kế hoạch "tiên phát chế nhân" 1075, phối hợp hạ Ung Châu — không phải "cùng thời"), `ly-thuong-kiet` ↔ `y-lan` (lý do cụ thể: Ỷ Lan nhiếp chính lo hậu phương/quân lương 1072–1077 trong khi Lý Thường Kiệt chỉ huy chiến dịch), `y-lan` ↔ `ly-nhan-tong` (mẹ–con, nhiếp chính cho con). Không thêm quan hệ Ỷ Lan/Tông Đản với Lý Thánh Tông (không có căn cứ trực tiếp — Ỷ Lan là vợ Lý Thánh Tông thật, nhưng vai trò trong bối cảnh cluster 1075–1077 này gắn với Lý Thường Kiệt/Lý Nhân Tông, không mở rộng thêm để tránh lan man "cùng triều"). Không đụng tới `to-hien-thanh` (thế hệ sau, không cùng sự kiện — đúng quyết định 9B).
+2. `web/lib/van-hoa/reading-paths.ts` — thêm reading path mới `chien-tranh-tong-ly-1075-1077` (4 bước: `ly-thuong-kiet` → Story Ung Châu → Story Nam quốc sơn hà → `ly-nhan-tong`), đúng working title và sequence chỉ dẫn mục 17. Dùng `ReadingPaths` system hiện có, không tạo UI mới, không tăng card count Discovery.
+
+**Không tạo:** Như Nguyệt page, Story Tông Đản, Story Ỷ Lan, location page Ung Châu/Như Nguyệt, page mốc 1075/1076/1077 riêng — đúng mục 22 (no thin content).
+
+**Test:** thêm test mới trong `history-relations.test.ts`... (không cần — test hiện có `nguoiLienQuan (khi có) có lý do quan hệ không rỗng, không tự trỏ chính mình, không trùng slug` đã tự động phủ các quan hệ mới); `reading-paths.test.ts` hiện có tự động resolve path mới nếu tồn tại (không cần assertion riêng theo tên path — kiểm tra bằng cách chạy toàn bộ suite, xem mục Verify).
+
+**Verify:** `npx vitest run` (44 file, 526/526 pass — không gặp flake chiêm tinh trong lần chạy này); `npx tsc --noEmit` sạch; `npx eslint .` sạch; `VAN_HOA_PUBLIC=1 npx next build` thành công; `node scripts/check-routes.mjs` → "Kiểm tra thành công". Không có browser tooling trong phiên này — chỉ verify tĩnh (route/build); QA trình duyệt thủ công vẫn cần làm riêng.
+
+**Tổng Story published sau Batch 10: 24** (không đổi — không tạo Story mới, chỉ thêm quan hệ + 1 reading path).
+
+Chưa commit, chưa push, chưa deploy trong phiên này.
