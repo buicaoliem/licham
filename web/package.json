@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "node scripts/scan-heritage-assets.mjs && next dev",
-    "build": "node scripts/scan-heritage-assets.mjs && node --experimental-strip-types --experimental-loader ./scripts/ts-web-loader.mjs scripts/generate-sitemap.ts && next build",
+    "build": "node scripts/scan-heritage-assets.mjs && node --experimental-strip-types --experimental-loader ./scripts/ts-web-loader.mjs scripts/generate-sitemap.ts && node --experimental-strip-types --experimental-loader ./scripts/ts-web-loader.mjs scripts/generate-app-content.ts && node --experimental-strip-types --experimental-loader ./scripts/ts-web-loader.mjs scripts/validate-app-content.ts && next build",
     "postbuild": "node scripts/check-routes.mjs",
     "check:routes": "node scripts/check-routes.mjs",
     "generate:tu-vi": "node --experimental-strip-types --experimental-loader ../core/scripts/ts-extension-loader.mjs scripts/generate-tu-vi.ts",
@@ -14,6 +14,8 @@
     "generate:eclipses": "node --experimental-strip-types --experimental-loader ./scripts/ts-web-loader.mjs scripts/generate-eclipses.ts",
     "import:van-hoa": "node --experimental-strip-types --experimental-loader ./scripts/ts-web-loader.mjs scripts/import-van-hoa.ts",
     "generate:sitemap": "node --experimental-strip-types --experimental-loader ./scripts/ts-web-loader.mjs scripts/generate-sitemap.ts",
+    "generate:app-content": "node --experimental-strip-types --experimental-loader ./scripts/ts-web-loader.mjs scripts/generate-app-content.ts",
+    "validate:app-content": "node --experimental-strip-types --experimental-loader ./scripts/ts-web-loader.mjs scripts/validate-app-content.ts",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "lint": "eslint .",
