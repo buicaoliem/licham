@@ -19,3 +19,6 @@ web/content/tu-vi/*.tmp
 .claude/
 mock/
 artwork-inbox/
+
+# Ảnh thu nhỏ sinh lúc build (web/scripts/generate-thumbs.mjs)
+web/public/heritage-thumb/

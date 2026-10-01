@@ -116,7 +116,7 @@ export function NamYear({ slug }: { slug: string }) {
                   <li key={anchor(e)} className={t.tlRow} id={anchor(e)}>
                     <span className={t.tlNode} style={{ background: ITEM_LABELS[e.label].node }} aria-hidden="true" />
                     <div className={t.tlBox}>
-                      <Pic src={d.image} className={t.tlImg} width={360} height={144} />
+                      <Pic src={d.image} className={t.tlImg} width={360} height={144} thumb />
                       <div className={t.tlYear}>
                         {e.yearText ?? e.year}
                         <small>{cc.name}</small>
