@@ -913,3 +913,33 @@
   border-radius: 8px;
   object-fit: cover;
 }
+
+/* Danh sách thẻ Văn hoá (TopicList): hai cột từ cỡ máy tính bảng, thẻ cùng hàng cao bằng nhau, tóm tắt tối đa 3 dòng. Điện thoại giữ 1 cột. */
+@media (min-width: 640px) {
+  .topicCards {
+    align-items: stretch;
+  }
+  .topicCards .cardItem {
+    height: 100%;
+  }
+  .topicCards .cardName {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    overflow: hidden;
+  }
+  .topicCards .cardSummary {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    overflow: hidden;
+  }
+}
+@media (min-width: 900px) {
+  .topicCards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 24px;
+  }
+}
