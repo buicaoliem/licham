@@ -9,7 +9,7 @@ import { LeFlagIllustration, LeHeroIllustration, hasHeroIllustration } from "@/c
 import { NhanVatLienQuan } from "@/components/van-hoa/blocks/Blocks";
 import { ChShell } from "@/components/heritage/ChShell";
 import { HeritageImage } from "@/components/heritage/HeritageImage";
-import { HCM_LE_SLUG, HCM_TRANH_NOTE, LE_TRANH_LICH_SU, leImage } from "@/lib/heritage-assets";
+import { HCM_LE_SLUG, ILLUSTRATION_CAPTION, LE_TRANH_LICH_SU, leImage } from "@/lib/heritage-assets";
 import { Icon, type IconName } from "@/components/heritage/Icon";
 import { LE_LICH_ICON, LeDateTile } from "@/components/heritage/LeParts";
 import { TocDetails } from "@/components/heritage/TocDetails";
@@ -286,7 +286,7 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
 
             <div className={tranhLichSu ? "le-hero-art has-note" : "le-hero-art"} aria-hidden={art?.kind === "photo" || tranhLichSu ? undefined : true}>
               {art?.kind === "img" && <HeritageImage src={art.src} alt="" />}
-              {tranhLichSu && <span className="le-art-note">{page.slug === HCM_LE_SLUG ? HCM_TRANH_NOTE : "Tranh minh họa, không phải chân dung hay tư liệu lịch sử"}</span>}
+              {tranhLichSu && <span className="le-art-note">{ILLUSTRATION_CAPTION}</span>}
               {art?.kind === "photo" && (
                 <figure className="le-photo">
                   <img src="/le/ho-chi-minh-1946.jpg" alt="Chủ tịch Hồ Chí Minh năm 1946" />
@@ -296,7 +296,7 @@ export default async function LePage({ params }: { params: Promise<{ slug: strin
               {art?.kind === "icon" && (
                 <figure className="le-emblem">
                   <LeHeroIllustration slug={art.slug} />
-                  <figcaption>Tranh minh họa, không phải chân dung hay tư liệu lịch sử</figcaption>
+                  <figcaption>{ILLUSTRATION_CAPTION}</figcaption>
                 </figure>
               )}
               {!art && (
