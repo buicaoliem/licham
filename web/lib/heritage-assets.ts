@@ -29,6 +29,14 @@ export function heritageFile(path: string): string | null {
   return AVAILABLE.has(path) ? path : null;
 }
 
+/**
+ * Ảnh thu nhỏ tĩnh (cạnh dài <= 480px) cho thẻ danh sách, sinh lúc build bởi scripts/generate-thumbs.mjs vào /heritage-thumb/.
+ * Chỉ áp dụng cho ảnh raster dưới /heritage/; đường dẫn khác (hoặc SVG) giữ nguyên.
+ */
+export function thumbOf(path: string): string {
+  return /^\/heritage\/.+\.(webp|png|jpe?g|avif)$/i.test(path) ? "/heritage-thumb/" + path.slice("/heritage/".length).replace(/\.[^.]+$/, ".webp") : path;
+}
+
 export function heritageSlot(slot: HeritageSlot): string | null {
   return heritageFile(HERITAGE_SLOTS[slot].path);
 }

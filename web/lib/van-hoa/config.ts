@@ -25,6 +25,7 @@ export interface Topic {
   links: TopicLink[];
 }
 
+import { thumbOf } from "@/lib/heritage-assets";
 import { ECLIPSES, ECLIPSE_LIST_PATH } from "./eclipses";
 import { BAI_VIET } from "./data/bai-viet";
 import { isTroChoi, TRO_CHOI_PATH } from "./tro-choi";
@@ -141,7 +142,7 @@ export interface NewPost {
   date: string;
 }
 export const NEW_POSTS: readonly NewPost[] = POSTS.filter((p) => !isTroChoi(p.slug)).map((p) => ({
-  image: p.heroImage?.replace(/.webp$/, "-480.webp"),
+  image: p.heroImage ? thumbOf(p.heroImage) : undefined,
   title: p.title,
   href: `/van-hoa/bai-viet/${p.slug}/`,
   badge: p.category ?? "Dân gian",

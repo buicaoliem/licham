@@ -21,7 +21,7 @@ export function RelatedGrid({ title, links }: { title: string; links: readonly R
         {links.map((r) => (
           <li key={r.href + r.label}>
             <Link href={r.href} className={a.relCard}>
-              <Pic src={r.image} alt="" className={a.relImg} width={480} height={360} />
+              <Pic src={r.image} alt="" className={a.relImg} width={480} height={360} thumb />
               {r.badge ? <TopicBadge text={r.badge} /> : null}
               <b>{r.label}</b>
               {r.summary && <span>{r.summary}</span>}

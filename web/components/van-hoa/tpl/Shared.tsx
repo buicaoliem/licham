@@ -5,7 +5,7 @@ import { JsonLd } from "@/components/calendar/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/calendar/jsonld";
 import { collectionJsonLd } from "@/lib/van-hoa/jsonld";
 import { Icon, type IconName } from "@/components/heritage/Icon";
-import { ILLUSTRATION_CAPTION, heritageFile } from "@/lib/heritage-assets";
+import { ILLUSTRATION_CAPTION, heritageFile, thumbOf } from "@/lib/heritage-assets";
 import { GREEN_BADGES } from "@/lib/van-hoa/config";
 import { ITEM_LABELS, type ItemLabel, type RelatedLink, type Source } from "@/lib/van-hoa/types";
 import s from "../van-hoa.module.css";
@@ -58,10 +58,10 @@ export function Card({ id, icon, title, children, className }: { id?: string; ic
 }
 
 /** Ảnh nếu file có thật, không thì khung hoa văn trung tính (không bao giờ ảnh vỡ). */
-export function Pic({ src, alt = "", className, style, width, height, eager }: { src?: string | null; alt?: string; className: string; style?: React.CSSProperties; width: number; height: number; eager?: boolean }) {
+export function Pic({ src, alt = "", className, style, width, height, eager, thumb }: { src?: string | null; alt?: string; className: string; style?: React.CSSProperties; width: number; height: number; eager?: boolean; thumb?: boolean }) {
   const file = src ? heritageFile(src) : null;
   if (!file) return <div className={`${className} ${t.pattern}`} style={style} role="presentation" />;
-  return <img src={file} alt={alt} width={width} height={height} className={className} style={style} loading={eager ? "eager" : "lazy"} decoding="async" />;
+  return <img src={thumb ? thumbOf(file) : file} alt={alt} width={width} height={height} className={className} style={style} loading={eager ? "eager" : "lazy"} decoding="async" />;
 }
 
 export function Page({ crumbs, children }: { crumbs?: Crumb[]; children: ReactNode }) {

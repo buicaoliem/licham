@@ -57,17 +57,17 @@ export function TopicList({ items, groups, placeholder }: { items: readonly Topi
       {present.map((g) => (
         <section key={g.key} aria-labelledby={`nhom-${g.key}`}>
           <SectionTitle id={`nhom-${g.key}`}>{g.title}</SectionTitle>
-          <ul className={t.cards}>
+          <ul className={`${t.cards} ${t.topicCards}`}>
             {shown
               .filter((n) => n.group === g.key)
               .map((n) => (
                 <li key={n.id ?? n.href} className={t.cardItem}>
-                  <Pic src={n.image} alt={n.imageAlt} className={t.cardImg} width={112} height={160} />
+                  <Pic src={n.image} alt={n.imageAlt} className={t.cardImg} width={112} height={160} thumb />
                   <div className={t.cardBody}>
                     {n.label ? <ItemBadge label={n.label} /> : n.badge ? <TopicBadge text={n.badge} /> : null}
                     <h3 className={t.cardName}>{n.title}</h3>
                     {n.meta && <p className={s.note} style={{ margin: "0 0 4px" }}>{n.meta}</p>}
-                    <p className={s.muted} style={{ color: "var(--vh-ink)" }}>
+                    <p className={`${s.muted} ${t.cardSummary}`} style={{ color: "var(--vh-ink)" }}>
                       {n.summary}
                     </p>
                     {n.href && (
