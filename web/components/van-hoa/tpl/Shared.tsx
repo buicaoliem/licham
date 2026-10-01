@@ -5,7 +5,7 @@ import { JsonLd } from "@/components/calendar/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/calendar/jsonld";
 import { collectionJsonLd } from "@/lib/van-hoa/jsonld";
 import { Icon, type IconName } from "@/components/heritage/Icon";
-import { heritageFile } from "@/lib/heritage-assets";
+import { ILLUSTRATION_CAPTION, heritageFile } from "@/lib/heritage-assets";
 import { GREEN_BADGES } from "@/lib/van-hoa/config";
 import { ITEM_LABELS, type ItemLabel, type RelatedLink, type Source } from "@/lib/van-hoa/types";
 import s from "../van-hoa.module.css";
@@ -120,7 +120,7 @@ export function Hero({ label, badge, title, sub, lead, image, alt, center = fals
   return (
     <header className={`${t.dHero} ${center ? t.dHeroCenter : ""}`}>
       {image && heritageFile(image) && <Pic src={image} alt={alt} className={contain ? `${t.dHeroArt} ${t.dHeroContain}` : short ? `${t.dHeroArt} ${t.dHeroShort}` : t.dHeroArt} width={1200} height={600} eager />}
-      {image && heritageFile(image) && <p className={t.caption}>Tranh minh họa, không phải chân dung hay tư liệu lịch sử</p>}
+      {image && heritageFile(image) && <p className={t.caption}>{ILLUSTRATION_CAPTION}</p>}
       <div className={t.dHeroText}>
         <div className={t.dHeroTextIn}>
           {label ? <ItemBadge label={label} /> : badge ? <TopicBadge text={badge} /> : null}
