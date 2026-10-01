@@ -4,9 +4,11 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import { Icon } from "@/components/heritage/Icon";
 import { normalizeVi } from "@/lib/van-hoa/logic";
+import type { EventType } from "@/lib/van-hoa/event-type";
 import type { ItemLabel } from "@/lib/van-hoa/types";
 import s from "../van-hoa.module.css";
 import t from "./tpl.module.css";
+import { EventTypeFrame } from "./EventTypeFrame";
 import { Drafting, ItemBadge, Pic, SectionTitle, TopicBadge } from "./Shared";
 
 export interface TopicItem {
@@ -24,6 +26,8 @@ export interface TopicItem {
   badge?: string;
   image?: string;
   imageAlt?: string;
+  /** Loại sự kiện: khi không có ảnh riêng, thẻ hiện khung biểu tượng theo loại thay vì khung hoa văn trống. */
+  eventType?: EventType;
   /** Chữ bổ sung để tìm kiếm (tên khác, nơi thờ…). */
   search?: string;
 }
@@ -57,12 +61,12 @@ export function TopicList({ items, groups, placeholder }: { items: readonly Topi
       {present.map((g) => (
         <section key={g.key} aria-labelledby={`nhom-${g.key}`}>
           <SectionTitle id={`nhom-${g.key}`}>{g.title}</SectionTitle>
-          <ul className={`${t.cards} ${t.topicCards}`}>
+          <ul className={`${t.cards} ${t.topicCards} ${shown.filter((n) => n.group === g.key).length === 1 ? t.topicLone : ""}`}>
             {shown
               .filter((n) => n.group === g.key)
               .map((n) => (
                 <li key={n.id ?? n.href} className={t.cardItem}>
-                  <Pic src={n.image} alt={n.imageAlt} className={t.cardImg} width={112} height={160} thumb />
+                  {n.eventType && !n.image ? <EventTypeFrame type={n.eventType} className={t.cardImg} /> : <Pic src={n.image} alt={n.imageAlt} className={t.cardImg} width={112} height={160} thumb />}
                   <div className={t.cardBody}>
                     {n.label ? <ItemBadge label={n.label} /> : n.badge ? <TopicBadge text={n.badge} /> : null}
                     <h3 className={t.cardName}>{n.title}</h3>

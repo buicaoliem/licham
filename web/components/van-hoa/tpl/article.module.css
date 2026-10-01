@@ -384,6 +384,10 @@
   overflow-x: auto;
   margin: 12px 0;
 }
+.relImg.relFrame {
+  display: grid;
+  place-items: center;
+}
 .relImg {
   display: block;
   width: calc(100% + 32px);
