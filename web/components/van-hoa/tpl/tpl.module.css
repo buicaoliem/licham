@@ -976,3 +976,15 @@
   }
 }
 
+/* Nhóm chỉ có một thẻ: đặt giữa dưới tiêu đề nhóm, rộng bằng một cột của lưới 2 cột. Điện thoại giữ nguyên (một cột). */
+@media (min-width: 640px) {
+  .topicLone {
+    grid-template-columns: minmax(0, calc((100% - 16px) / 2));
+    justify-content: center;
+  }
+}
+@media (min-width: 900px) {
+  .topicLone {
+    grid-template-columns: minmax(0, calc((100% - 24px) / 2));
+  }
+}

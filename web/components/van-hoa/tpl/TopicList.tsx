@@ -61,7 +61,7 @@ export function TopicList({ items, groups, placeholder }: { items: readonly Topi
       {present.map((g) => (
         <section key={g.key} aria-labelledby={`nhom-${g.key}`}>
           <SectionTitle id={`nhom-${g.key}`}>{g.title}</SectionTitle>
-          <ul className={`${t.cards} ${t.topicCards}`}>
+          <ul className={`${t.cards} ${t.topicCards} ${shown.filter((n) => n.group === g.key).length === 1 ? t.topicLone : ""}`}>
             {shown
               .filter((n) => n.group === g.key)
               .map((n) => (
