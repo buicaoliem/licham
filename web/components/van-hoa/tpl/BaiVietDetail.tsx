@@ -10,7 +10,7 @@ import type { BaiViet, BaiVietBlock } from "@/lib/van-hoa/types";
 import { RelatedGrid } from "./RelatedGrid";
 import { buildShareUrl } from "@/lib/share";
 import { getVietnamToday } from "@/lib/today";
-import { heritageFile } from "@/lib/heritage-assets";
+import { ILLUSTRATION_CAPTION, heritageFile } from "@/lib/heritage-assets";
 import { ItemBadge, Page, Pic, Sources, TopicBadge } from "./Shared";
 import s from "../van-hoa.module.css";
 import t from "./tpl.module.css";
@@ -136,7 +136,7 @@ export function BaiVietDetail({ post }: { post: BaiViet }) {
             ) : (
               <div className={`${a.heroImg} ${t.pattern}`} role="presentation" />
             )}
-            <figcaption className={t.caption}>Tranh minh họa, không phải chân dung hay tư liệu lịch sử</figcaption>
+            <figcaption className={t.caption}>{ILLUSTRATION_CAPTION}</figcaption>
           </figure>
 
           <div className={a.side}>
