@@ -12,7 +12,9 @@ import { CHI_HERO_ANIMAL_SIDE, NGU_HANH_ICON } from "@/lib/van-hoa/config";
 import { articleJsonLd } from "@/lib/van-hoa/jsonld";
 import { peopleInText, relatedPeopleLinks, relatedPeopleOf } from "@/lib/van-hoa/cross-links";
 import { LinkedText, RelatedGrid } from "./RelatedGrid";
-import { Drafting, ItemBadge, LinkRow, Page, Pic, SectionTitle } from "./Shared";
+import { EventTypeFrame } from "./EventTypeFrame";
+import { classifyEvent } from "@/lib/van-hoa/event-type";
+import { Drafting, ItemBadge, LinkRow, Page, SectionTitle } from "./Shared";
 
 function ZodiacHero({ chiSlug, alt, title, lead }: { chiSlug: string; alt: string; title: string; lead: string }) {
   const base = `/heritage/con-giap/ngang/${chiSlug}`;
@@ -116,7 +118,7 @@ export function NamYear({ slug }: { slug: string }) {
                   <li key={anchor(e)} className={t.tlRow} id={anchor(e)}>
                     <span className={t.tlNode} style={{ background: ITEM_LABELS[e.label].node }} aria-hidden="true" />
                     <div className={t.tlBox}>
-                      <Pic src={d.image} className={t.tlImg} width={360} height={144} thumb />
+                      <EventTypeFrame type={e.type ?? classifyEvent(e)} className={t.tlImg} />
                       <div className={t.tlYear}>
                         {e.yearText ?? e.year}
                         <small>{cc.name}</small>

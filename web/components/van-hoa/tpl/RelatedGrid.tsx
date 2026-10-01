@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { RelatedLink } from "@/lib/van-hoa/types";
 import { linkSegments, personCatalog, personHref, type TextSeg } from "@/lib/van-hoa/cross-links";
 import { Icon } from "@/components/heritage/Icon";
+import { EventTypeFrame } from "./EventTypeFrame";
 import { Pic, TopicBadge } from "./Shared";
 import a from "./article.module.css";
 import t from "./tpl.module.css";
@@ -21,7 +22,7 @@ export function RelatedGrid({ title, links }: { title: string; links: readonly R
         {links.map((r) => (
           <li key={r.href + r.label}>
             <Link href={r.href} className={a.relCard}>
-              <Pic src={r.image} alt="" className={a.relImg} width={480} height={360} thumb />
+              {r.eventType && !r.image ? <EventTypeFrame type={r.eventType} className={`${a.relImg} ${a.relFrame}`} /> : <Pic src={r.image} alt="" className={a.relImg} width={480} height={360} thumb />}
               {r.badge ? <TopicBadge text={r.badge} /> : null}
               <b>{r.label}</b>
               {r.summary && <span>{r.summary}</span>}

@@ -23,7 +23,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 1"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "truyen-thuyet"
  },
  {
   "id": "-2792-lac-long-quan-noi-ngoi",
@@ -43,7 +44,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Ngoại kỷ Quyển 1"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "truyen-thuyet"
  },
  {
   "id": "tk-vii-tcn-thanh-lap-nuoc-van-lang",
@@ -66,7 +68,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Việt sử lược, Quyển 1"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "truyen-thuyet"
  },
  {
   "id": "thoi-hung-vuong-su-tich-trau-cau",
@@ -91,7 +94,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Ngoại kỷ Quyển 1"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "truyen-thuyet"
  },
  {
   "id": "thoi-hung-vuong-mai-an-tiem-bi-luu-day",
@@ -115,7 +119,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Nam nhất thống chí"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "truyen-thuyet"
  },
  {
   "id": "thoi-hung-vuong-chu-dong-tu-tien-dung",
@@ -139,7 +144,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Ngoại kỷ Quyển 1"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "truyen-thuyet"
  },
  {
   "id": "thoi-hung-vuong-lang-lieu-dang-banh-chung",
@@ -163,7 +169,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Ngoại kỷ Quyển 1"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "truyen-thuyet"
  },
  {
   "id": "thoi-hung-vuong-thanh-giong-dep-giac-an",
@@ -187,7 +194,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 1"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "truyen-thuyet"
  },
  {
   "id": "thoi-hung-vuong-tran-chien-son-tinh-thuy-tinh",
@@ -212,7 +220,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Ngoại kỷ Quyển 1"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "truyen-thuyet"
  },
  {
   "id": "-256-thuc-phan-lap-nuoc-au-lac",
@@ -235,7 +244,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 1"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "-254-xay-dap-thanh-co-loa",
@@ -259,7 +269,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Lĩnh Nam chích quái"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "truyen-thuyet"
  },
  {
   "id": "-249-cao-lo-che-tao-no-lien-chau",
@@ -283,7 +294,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 1"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "truyen-thuyet"
  },
  {
   "id": "-213-nha-tan-phat-quan-danh-linh-nam",
@@ -307,7 +319,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Hoài Nam Tử"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "-207-quan-dan-au-lac-giet-do-thu",
@@ -331,7 +344,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Sử ký Tư Mã Thiên"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "-206-trieu-da-lap-nuoc-nam-viet",
@@ -354,7 +368,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Ngoại kỷ Quyển 2"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "-178-trieu-da-thon-tinh-au-lac",
@@ -380,7 +395,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 1"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "-136-trieu-van-vuong-ke-vi-nam-viet",
@@ -404,7 +420,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Ngoại kỷ Quyển 2"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "-112-thai-hau-cu-thi-cau-hoa-nha-han",
@@ -428,7 +445,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Ngoại kỷ Quyển 2"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "chinh-tri"
  },
  {
   "id": "-111-lu-gia-giet-trieu-ai-vuong",
@@ -452,7 +470,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 2"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "-110-nha-han-thon-tinh-dat-giao-chi",
@@ -477,7 +496,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Ngoại kỷ Quyển 2"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "2-tich-quang-lam-thai-thu-giao-chi",
@@ -500,7 +520,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Ngoại kỷ Quyển 3"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "chinh-tri"
  },
  {
   "id": "25-nham-dien-lam-thai-thu-cuu-chan",
@@ -523,7 +544,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 2"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "chinh-tri"
  },
  {
   "id": "34-to-dinh-sang-cai-tri-giao-chi",
@@ -546,7 +568,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Ngoại kỷ Quyển 3"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "chinh-tri"
  },
  {
   "id": "40-khoi-nghia-hai-ba-trung-bung-no",
@@ -573,7 +596,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 2"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "khoi-nghia"
  },
  {
   "id": "40-trung-trac-xung-vuong-dong-do-me-linh",
@@ -596,7 +620,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 2"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "41-nha-han-sai-ma-vien-xam-luoc",
@@ -624,7 +649,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Hậu Hán thư"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "42-tran-kich-chien-tai-lang-bac",
@@ -650,7 +676,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 2"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "42-nghia-quan-lui-giu-cam-khe",
@@ -674,7 +701,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Hậu Hán thư"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "khoi-nghia"
  },
  {
   "id": "43-hai-ba-trung-tuan-tiet-o-cam-khe",
@@ -699,7 +727,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 2"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "nhan-vat"
  },
  {
   "id": "43-ma-vien-chon-cot-dong-tru",
@@ -722,7 +751,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Việt điện u linh tập"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "truyen-thuyet"
  },
  {
   "id": "43-ma-vien-binh-dinh-cu-phong",
@@ -746,7 +776,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 2"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "100-dan-tuong-lam-pha-huyen-so",
@@ -769,7 +800,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 2"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "khoi-nghia"
  },
  {
   "id": "136-dan-cuu-chan-chong-suu-dich",
@@ -789,7 +821,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 2"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "khoi-nghia"
  },
  {
   "id": "137-khoi-nghia-khu-lien-tuong-lam",
@@ -812,7 +845,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 2"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "khoi-nghia"
  },
  {
   "id": "144-khoi-nghia-lien-quan-cuu-chan-nhat-nam",
@@ -835,7 +869,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Ngoại kỷ Quyển 3"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "khoi-nghia"
  },
  {
   "id": "157-chu-dat-khoi-nghia-o-cu-phong",
@@ -858,7 +893,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Ngoại kỷ Quyển 3"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "khoi-nghia"
  },
  {
   "id": "160-chu-dat-chem-nghe-thuc",
@@ -883,7 +919,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 2"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "178-luong-long-khoi-nghia-toan-giao-chau",
@@ -907,7 +944,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 2"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "khoi-nghia"
  },
  {
   "id": "181-chu-tuan-dan-ap-luong-long",
@@ -931,7 +969,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 2"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "khoi-nghia"
  },
  {
   "id": "187-si-nhiep-lam-thai-thu-giao-chi",
@@ -954,7 +993,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Ngoại kỷ Quyển 3"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "chinh-tri"
  },
  {
   "id": "192-khu-lien-lap-nuoc-lam-ap",
@@ -980,7 +1020,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 2"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "226-si-nhiep-qua-doi",
@@ -1003,7 +1044,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Ngoại kỷ Quyển 3"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "nhan-vat"
  },
  {
   "id": "226-lu-dai-lua-sat-hai-si-huy",
@@ -1028,7 +1070,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Ngoại kỷ Quyển 3"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "nhan-vat"
  },
  {
   "id": "248-khoi-nghia-ba-trieu-o-cuu-chan",
@@ -1052,7 +1095,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 3"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "khoi-nghia"
  },
  {
   "id": "248-ba-trieu-tuan-tiet-o-nui-tung",
@@ -1076,7 +1120,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 3"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "nhan-vat"
  },
  {
   "id": "271-dao-hoang-thu-phuc-giao-chau",
@@ -1099,7 +1144,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Ngoại kỷ Quyển 4"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "299-thu-su-dao-hoang-qua-doi",
@@ -1122,7 +1168,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Ngoại kỷ Quyển 4"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "nhan-vat"
  },
  {
   "id": "380-dang-don-chi-boc-lot-dan-chung",
@@ -1145,7 +1192,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 3"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "chinh-tri"
  },
  {
   "id": "411-do-hue-do-danh-tan-lu-tuan",
@@ -1169,7 +1217,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Ngoại kỷ Quyển 4"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "446-dan-hoa-chi-tan-cong-lam-ap",
@@ -1193,7 +1242,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 3"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "468-ly-truong-nhan-lam-chu-giao-chau",
@@ -1217,7 +1267,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Ngoại kỷ Quyển 4"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "477-ly-thuc-hien-ke-vi-o-giao-chau",
@@ -1240,7 +1291,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Ngoại kỷ Quyển 4"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "485-nam-te-dieu-binh-dep-ly-thuc-hien",
@@ -1264,7 +1316,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Ngoại kỷ Quyển 4"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "541-ly-bi-khoi-nghia-duoi-tieu-tu",
@@ -1291,7 +1344,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Lương thư"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "khoi-nghia"
  },
  {
   "id": "542-danh-tan-quan-luong-o-hop-pho",
@@ -1318,7 +1372,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 4"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "543-pham-tu-dai-pha-quan-lam-ap",
@@ -1344,7 +1399,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 4"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "544-ly-bi-xung-hoang-de-lap-van-xuan",
@@ -1371,7 +1427,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 4"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "545-tran-ba-tien-dem-quan-xam-lan",
@@ -1398,7 +1455,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Lương thư"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "546-thuy-chien-dam-ho-dien-triet",
@@ -1422,7 +1480,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 4"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "548-ly-nam-de-mat-o-khuat-lao",
@@ -1449,7 +1508,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 4"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "nhan-vat"
  },
  {
   "id": "548-trieu-quang-phuc-xung-da-trach-vuong",
@@ -1472,7 +1532,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 4"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "550-trieu-viet-vuong-pha-tan-duong-san",
@@ -1496,7 +1557,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 4"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "557-ly-phat-tu-tranh-quyen-da-trach",
@@ -1520,7 +1582,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 4"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "571-ly-phat-tu-danh-up-trieu-viet-vuong",
@@ -1544,7 +1607,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 4"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "602-luu-phuong-xam-luoc-van-xuan",
@@ -1568,7 +1632,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Ngoại kỷ Quyển 4"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "679-dat-ten-an-nam-do-ho-phu",
@@ -1591,7 +1656,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Ngoại kỷ Quyển 5"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "chinh-tri"
  },
  {
   "id": "687-khoi-nghia-ly-tu-tien-va-dinh-kien",
@@ -1616,7 +1682,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Ngoại kỷ Quyển 5"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "khoi-nghia"
  },
  {
   "id": "713-mai-thuc-loan-xung-mai-hac-de",
@@ -1642,7 +1709,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 4"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "722-quan-duong-vay-pha-thanh-van-an",
@@ -1666,7 +1734,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Ngoại kỷ Quyển 5"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "767-thuy-quan-cha-va-cuop-pha",
@@ -1689,7 +1758,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Ngoại kỷ Quyển 5"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "791-phung-hung-danh-chiem-tong-binh",
@@ -1715,7 +1785,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 4"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "798-phung-hung-mat-phung-an-ke-lap",
@@ -1740,7 +1811,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 4"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "nhan-vat"
  },
  {
   "id": "802-trieu-anh-buc-hang-phung-an",
@@ -1764,7 +1836,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 4"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "819-duong-thanh-giet-ly-tuong-co",
@@ -1788,7 +1861,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Ngoại kỷ Quyển 5"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "820-que-trong-vu-dan-ap-duong-thanh",
@@ -1812,7 +1886,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Ngoại kỷ Quyển 5"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "khoi-nghia"
  },
  {
   "id": "863-quan-nam-chieu-ha-thanh-giao-chau",
@@ -1836,7 +1911,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Ngoại kỷ Quyển 5"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "866-cao-bien-danh-nam-chieu-dap-dai-la",
@@ -1859,7 +1935,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Ngoại kỷ Quyển 5"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "905-khuc-thua-du-gianh-quyen-tu-chu",
@@ -1883,7 +1960,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Ngoại kỷ Quyển 5"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "chinh-tri"
  },
  {
   "id": "906-duong-trieu-cong-nhan-khuc-thua-du",
@@ -1907,7 +1985,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 5"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "chinh-tri"
  },
  {
   "id": "907-khuc-thua-du-mat",
@@ -1934,7 +2013,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Ngoại kỷ Quyển 5"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "nhan-vat"
  },
  {
   "id": "917-khuc-thua-my-ke-nhiem-tiet-do-su",
@@ -1958,7 +2038,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 5"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "930-nam-han-xam-luoc-bat-khuc-thua-my",
@@ -1983,7 +2064,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Ngoại kỷ Quyển 5"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "931-duong-dinh-nghe-dai-pha-nam-han",
@@ -2008,7 +2090,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 5"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "937-kieu-cong-tien-giet-duong-dinh-nghe",
@@ -2035,7 +2118,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 5"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "938-ngo-quyen-ha-dai-la-giet-kieu-cong-tien",
@@ -2061,7 +2145,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Tiền biên Quyển 5"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "938-dai-thang-bach-dang-ket-thuc-bac-thuoc",
@@ -2091,7 +2176,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Việt sử lược, Quyển 1"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "939-ngo-quyen-xung-vuong-dinh-do-co-loa",
@@ -2115,7 +2201,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Tiền biên Quyển 5"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "944-tien-ngo-vuong-ngo-quyen-qua-doi",
@@ -2138,7 +2225,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Tiền biên Quyển 5"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "nhan-vat"
  },
  {
   "id": "950-ngo-xuong-van-phe-truat-duong-tam-kha",
@@ -2161,7 +2249,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Tiền biên Quyển 5"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "965-nam-tan-vuong-ngo-xuong-van-tu-tran",
@@ -2183,7 +2272,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Tiền biên Quyển 5"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "nhan-vat"
  },
  {
   "id": "968-dinh-bo-linh-len-ngoi-hoang-de",
@@ -2206,7 +2296,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Tiền biên Quyển 5"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "970-dinh-tien-hoang-dat-nien-hieu-thai-binh",
@@ -2228,7 +2319,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 1"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "979-dinh-tien-hoang-va-dinh-lien-bi-am-hai",
@@ -2255,7 +2347,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 1"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "nhan-vat"
  },
  {
   "id": "980-le-hoan-len-ngoi-hoang-de",
@@ -2282,7 +2375,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 1"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "981-tran-bach-dang-pha-tan-quan-tong",
@@ -2309,7 +2403,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 1"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "987-vua-le-hoan-cay-ruong-tich-dien",
@@ -2332,7 +2427,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 1"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "ton-giao"
  },
  {
   "id": "1005-le-dai-hanh-bang-ha",
@@ -2358,7 +2454,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 1"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "nhan-vat"
  },
  {
   "id": "1005-le-long-dinh-sat-hai-anh-cuop-ngoi",
@@ -2384,7 +2481,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 1"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "1009-le-ngoa-trieu-qua-doi-tai-tam-dien",
@@ -2410,7 +2508,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 1"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "nhan-vat"
  },
  {
   "id": "1009-ly-cong-uan-len-ngoi-lap-vuong-trieu-ly",
@@ -2437,7 +2536,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 2"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "1010-ly-thai-to-ban-chieu-doi-do",
@@ -2462,7 +2562,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 2"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "chinh-tri"
  },
  {
   "id": "1028-ly-thai-to-bang-ha",
@@ -2487,7 +2588,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 2"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "nhan-vat"
  },
  {
   "id": "1028-loan-tam-vuong-tai-cam-thanh-thang-long",
@@ -2515,7 +2617,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 2"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "1042-ban-hanh-bo-luat-hinh-thu",
@@ -2540,7 +2643,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 2"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "chinh-tri"
  },
  {
   "id": "1044-tran-ngu-hai-phat-chiem-thanh",
@@ -2565,7 +2669,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 2"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1049-khoi-dung-chua-dien-huu",
@@ -2591,7 +2696,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 3"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "ton-giao"
  },
  {
   "id": "1054-doi-quoc-hieu-thanh-dai-viet",
@@ -2615,7 +2721,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 3"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "1070-xay-dung-van-mieu-tai-thang-long",
@@ -2640,7 +2747,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 3"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "van-hoa"
  },
  {
   "id": "1075-mo-khoa-thi-nho-hoc-dau-tien",
@@ -2665,7 +2773,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 3"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "van-hoa"
  },
  {
   "id": "1075-chu-dong-tap-kich-pha-can-cu-tong",
@@ -2690,7 +2799,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 3"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1076-thanh-lap-quoc-tu-giam",
@@ -2713,7 +2823,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 3"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "van-hoa"
  },
  {
   "id": "1077-tran-tuyen-nhu-nguyet-danh-bai-quan-tong",
@@ -2737,7 +2848,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 3"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1105-thai-uy-ly-thuong-kiet-qua-doi",
@@ -2761,7 +2873,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 4"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "nhan-vat"
  },
  {
   "id": "1127-ly-nhan-tong-bang-ha",
@@ -2786,7 +2899,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 4"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "nhan-vat"
  },
  {
   "id": "1175-thai-su-to-hien-thanh-phu-chinh",
@@ -2812,7 +2926,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 5"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "chinh-tri"
  },
  {
   "id": "1225-ly-chieu-hoang-nhuong-ngoi-cho-tran-canh",
@@ -2840,7 +2955,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 5"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "1226-tran-thai-tong-dat-nien-hieu-kien-trung",
@@ -2865,7 +2981,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 6"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "1253-lap-quoc-hoc-vien-va-giang-vo-duong",
@@ -2889,7 +3006,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 6"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "van-hoa"
  },
  {
   "id": "1257-tran-binh-le-nguyen-chan-giac-mong-co",
@@ -2917,7 +3035,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 6"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1257-dai-pha-quan-mong-co-o-dong-bo-dau",
@@ -2944,7 +3063,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 6"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1272-hoan-thanh-bo-sach-dai-viet-su-ky",
@@ -2970,7 +3090,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 7"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "van-hoa"
  },
  {
   "id": "1282-to-chuc-hoi-nghi-quan-su-binh-than",
@@ -2996,7 +3117,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 7"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "khoi-nghia"
  },
  {
   "id": "1284-tran-quoc-tuan-soan-hich-tuong-si",
@@ -3021,7 +3143,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 7"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "van-hoa"
  },
  {
   "id": "1284-trieu-tap-hoi-nghi-dien-hong",
@@ -3047,7 +3170,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 8"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "khoi-nghia"
  },
  {
   "id": "1285-tran-binh-trong-hien-ngang-tuan-tiet",
@@ -3072,7 +3196,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 8"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "nhan-vat"
  },
  {
   "id": "1285-chien-thang-ham-tu-chuong-duong",
@@ -3098,7 +3223,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 8"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1285-tran-tay-ket-chem-tuong-giac-toa-do",
@@ -3126,7 +3252,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 8"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1288-tran-van-don-cuop-doan-thuyen-luong-giac",
@@ -3151,7 +3278,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 8"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1288-dai-thang-bach-dang-bat-song-o-ma-nhi",
@@ -3178,7 +3306,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 8"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1300-hung-dao-dai-vuong-tran-quoc-tuan-mat",
@@ -3204,7 +3333,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 9"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "nhan-vat"
  },
  {
   "id": "1306-huyen-tran-cong-chua-ket-hon-voi-vua-chiem",
@@ -3231,7 +3361,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 9"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "nhan-vat"
  },
  {
   "id": "1308-phat-hoang-tran-nhan-tong-vien-tich",
@@ -3257,7 +3388,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 9"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "ton-giao"
  },
  {
   "id": "1370-van-the-su-bieu-chu-van-an-qua-doi",
@@ -3283,7 +3415,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 10"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "nhan-vat"
  },
  {
   "id": "1377-tran-due-tong-tu-tran-tai-thanh-do-ban",
@@ -3310,7 +3443,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 10"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "nhan-vat"
  },
  {
   "id": "1390-tran-hai-trieu-ban-chet-vua-chiem-che-bong-nga",
@@ -3337,7 +3471,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 11"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1396-ban-hanh-tien-giay-thong-bao-hoi-sao",
@@ -3363,7 +3498,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 11"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "chinh-tri"
  },
  {
   "id": "1397-ho-quy-ly-cho-xay-dung-thanh-tay-do",
@@ -3387,7 +3523,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 11"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "chinh-tri"
  },
  {
   "id": "1400-ho-quy-ly-buc-tran-thieu-de-nhuong-ngoi",
@@ -3414,7 +3551,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 11"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "1400-ho-quy-ly-len-ngoi-doi-quoc-hieu-dai-ngu",
@@ -3440,7 +3578,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 11"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "1401-ban-hanh-chinh-sach-han-dien-va-han-no",
@@ -3464,7 +3603,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 11"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "chinh-tri"
  },
  {
   "id": "1406-hoi-nghi-da-bang-ban-ke-sach-khang-minh",
@@ -3490,7 +3630,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 12"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "khoi-nghia"
  },
  {
   "id": "1406-phong-tuyen-thanh-da-bang-that-thu",
@@ -3518,7 +3659,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 12"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1407-cha-con-ho-quy-ly-bi-quan-minh-bat-song",
@@ -3545,7 +3687,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 12"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1407-tran-ngoi-khoi-binh-lap-nha-hau-tran",
@@ -3571,7 +3714,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 12"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "1408-dai-thang-bo-co-tieu-diet-tuong-minh",
@@ -3599,7 +3743,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 12"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1409-tran-quy-khoang-len-ngoi-trung-quang-de",
@@ -3626,7 +3771,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 12"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "1413-phong-trao-hau-tran-that-thu-o-thuan-hoa",
@@ -3653,7 +3799,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 13"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "khoi-nghia"
  },
  {
   "id": "1416-hoi-the-lung-nhai-dinh-uoc-khoi-nghia",
@@ -3681,7 +3828,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Lam Sơn thực lục"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "khoi-nghia"
  },
  {
   "id": "1418-le-loi-chinh-thuc-dung-co-khoi-nghia-lam-son",
@@ -3708,7 +3856,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 13"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "khoi-nghia"
  },
  {
   "id": "1418-tran-lac-thuy-phuc-kich-danh-bai-quan-minh",
@@ -3734,7 +3883,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 13"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1419-le-lai-lieu-minh-cuu-chua-tai-nui-chi-linh",
@@ -3760,7 +3910,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 13"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "nhan-vat"
  },
  {
   "id": "1424-nguyen-chich-hien-ke-tien-quan-vao-nghe-an",
@@ -3786,7 +3937,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 14"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1426-dai-thang-tot-dong-chuc-dong",
@@ -3814,7 +3966,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 14"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1427-nghia-quan-lam-son-ha-thanh-xuong-giang",
@@ -3841,7 +3994,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 14"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1427-tran-chi-lang-chem-dau-tuong-lieu-thang",
@@ -3868,7 +4022,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 14"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1427-hoi-the-dong-quan-cham-dut-chien-tranh",
@@ -3896,7 +4051,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Khâm định Việt sử thông giám cương mục, Chính biên Quyển 14"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "chinh-tri"
  },
  {
   "id": "1428-le-loi-len-ngoi-hoang-de",
@@ -3921,7 +4077,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Chính biên, Quyển 15"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "1433-le-thai-to-bang-ha",
@@ -3943,7 +4100,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Bản kỷ thực lục, Quyển 10"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "nhan-vat"
  },
  {
   "id": "1433-le-thai-tong-len-ngoi",
@@ -3966,7 +4124,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Bản kỷ thực lục, Quyển 11"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "1442-le-thai-tong-mat-tai-le-chi-vien",
@@ -3990,7 +4149,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Bản kỷ thực lục, Quyển 11"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "nhan-vat"
  },
  {
   "id": "1442-hanh-quyet-ba-ho-nguyen-trai",
@@ -4017,7 +4177,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Chính biên, Quyển 17"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "nhan-vat"
  },
  {
   "id": "1442-le-nhan-tong-len-ngoi",
@@ -4040,7 +4201,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Bản kỷ thực lục, Quyển 11"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "1459-binh-bien-le-nghi-dan",
@@ -4063,7 +4225,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Bản kỷ thực lục, Quyển 11"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "1460-le-thanh-tong-len-ngoi",
@@ -4087,7 +4250,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Bản kỷ thực lục, Quyển 12"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "1471-le-thanh-tong-ha-thanh-do-ban",
@@ -4113,7 +4277,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Chính biên, Quyển 21"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1484-dung-bia-tien-si-tai-van-mieu",
@@ -4136,7 +4301,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Bản kỷ thực lục, Quyển 13"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "van-hoa"
  },
  {
   "id": "1497-le-thanh-tong-bang-ha",
@@ -4159,7 +4325,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Bản kỷ thực lục, Quyển 13"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "nhan-vat"
  },
  {
   "id": "1509-le-uy-muc-bi-phe-va-buc-tu",
@@ -4182,7 +4349,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Bản kỷ thực lục, Quyển 14"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "nhan-vat"
  },
  {
   "id": "1516-khoi-nghia-tran-cao-bung-no",
@@ -4205,7 +4373,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Bản kỷ thực lục, Quyển 15"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "khoi-nghia"
  },
  {
   "id": "1527-mac-dang-dung-cuop-ngoi-nha-le",
@@ -4231,7 +4400,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Chính biên, Quyển 27"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "1533-le-trang-tong-phuc-hung-trieu-le",
@@ -4255,7 +4425,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Chính biên, Quyển 27"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "1540-mac-dang-dung-nop-dat-tai-tran-nam-quan",
@@ -4282,7 +4453,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Chính biên, Quyển 28"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "chinh-tri"
  },
  {
   "id": "1545-nguyen-kim-bi-dau-doc-am-sat",
@@ -4309,7 +4481,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Chính biên, Quyển 28"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "nhan-vat"
  },
  {
   "id": "1558-nguyen-hoang-vao-tran-thu-thuan-hoa",
@@ -4334,7 +4507,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Chính biên, Quyển 28"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "chinh-tri"
  },
  {
   "id": "1570-trinh-kiem-qua-doi",
@@ -4358,7 +4532,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Bản kỷ tục biên, Quyển 16"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "nhan-vat"
  },
  {
   "id": "1592-quan-nam-trieu-thu-phuc-thang-long",
@@ -4384,7 +4559,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Chính biên, Quyển 30"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1593-le-the-tong-hoi-loan-thang-long",
@@ -4407,7 +4583,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký toàn thư, Bản kỷ tục biên, Quyển 17"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "1627-khoi-dau-trinh-nguyen-phan-tranh",
@@ -4432,7 +4609,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Nam thực lục Tiền biên, Quyển 2"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "chinh-tri"
  },
  {
   "id": "1630-dao-duy-tu-dap-luy-thay",
@@ -4456,7 +4634,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Việt Nam sử lược (Chương VII)"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "chinh-tri"
  },
  {
   "id": "1672-tran-chien-dinh-chien-song-gianh",
@@ -4481,7 +4660,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Nam thực lục Tiền biên, Quyển 5"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1677-tieu-diet-ho-mac-o-cao-bang",
@@ -4507,7 +4687,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Việt Nam sử lược (Chương V)"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1698-nguyen-huu-canh-kinh-luoc-gia-dinh",
@@ -4533,7 +4714,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Gia Định thành thông chí"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "chinh-tri"
  },
  {
   "id": "1708-mac-cuu-dang-dat-ha-tien",
@@ -4558,7 +4740,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Gia Định thành thông chí"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "chinh-tri"
  },
  {
   "id": "1744-chua-nguyen-phuc-khoat-xung-vuong",
@@ -4583,7 +4766,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Chính biên, Quyển 39"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "1771-khoi-nghia-tay-son-bung-no",
@@ -4608,7 +4792,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Việt Nam sử lược (Chương X)"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "khoi-nghia"
  },
  {
   "id": "1774-chua-trinh-danh-chiem-phu-xuan",
@@ -4635,7 +4820,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Nam thực lục Tiền biên, Quyển 11"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1777-tay-son-tieu-diet-hai-chua-nguyen",
@@ -4661,7 +4847,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Nam thực lục Tiền biên, Quyển 12"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1778-nguyen-nhac-xung-hoang-de",
@@ -4685,7 +4872,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Việt Nam sử lược (Chương X)"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "1784-dai-thang-rach-gam-xoai-mut",
@@ -4713,7 +4901,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cương mục, Chính biên, Quyển 45"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1786-nguyen-hue-tien-chiem-thang-long",
@@ -4741,7 +4930,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Việt sử ký tục biên"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1788-nguyen-hue-len-ngoi-hoang-de",
@@ -4766,7 +4956,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Nam chính triều tiêu loại"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "1789-dai-thang-ngoc-hoi-dong-da",
@@ -4793,7 +4984,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Việt Nam sử lược (Chương XI)"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1792-hoang-de-quang-trung-bang-ha",
@@ -4819,7 +5011,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Nam thực lục Chính biên, Đệ nhất kỷ, Quyển 6"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "nhan-vat"
  },
  {
   "id": "1801-nguyen-anh-tai-chiem-phu-xuan",
@@ -4848,7 +5041,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Nam thực lục Chính biên, Đệ nhất kỷ, Quyển 14"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1802-nguyen-anh-len-ngoi-hoang-de-gia-long",
@@ -4880,7 +5074,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Việt Nam sử lược (Chương XII)"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "1804-dinh-quoc-hieu-viet-nam",
@@ -4902,7 +5097,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Nam thực lục Chính biên, Đệ nhất kỷ, Quyển 23"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "1806-gia-long-cu-hanh-dai-le-xung-hoang-de",
@@ -4924,7 +5120,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Nam thực lục Chính biên, Đệ nhất kỷ, Quyển 29"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "1815-ban-hanh-hoang-viet-luat-le",
@@ -4947,7 +5144,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Nam thực lục Chính biên, Đệ nhất kỷ, Quyển 51"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "chinh-tri"
  },
  {
   "id": "1820-minh-mang-len-ngoi-hoang-de",
@@ -4976,7 +5174,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Nam thực lục Chính biên, Đệ nhị kỷ, Quyển 1"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "1831-minh-mang-cai-cach-hanh-chinh-dot-mot",
@@ -4998,7 +5197,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Nam thực lục Chính biên, Đệ nhị kỷ, Quyển 76"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "chinh-tri"
  },
  {
   "id": "1832-cai-cach-hanh-chinh-chia-dat-nam-ky",
@@ -5021,7 +5221,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Nam thực lục Chính biên, Đệ nhị kỷ, Quyển 85"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "chinh-tri"
  },
  {
   "id": "1833-khoi-nghia-le-van-khoi-bung-no",
@@ -5044,7 +5245,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Nam thực lục Chính biên, Đệ nhị kỷ, Quyển 102"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "khoi-nghia"
  },
  {
   "id": "1838-doi-quoc-hieu-thanh-dai-nam",
@@ -5066,7 +5268,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Đại Nam thực lục Chính biên, Đệ nhị kỷ, Quyển 190"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "1847-tran-hai-chien-tourane-da-nang",
@@ -5099,7 +5302,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Việt Nam sử lược (Chương XIV)"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1858-lien-quan-phap-tay-ban-nha-danh-da-nang",
@@ -5132,7 +5336,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Việt Nam sử lược (Chương XIV)"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1859-quan-phap-danh-chiem-thanh-gia-dinh",
@@ -5164,7 +5369,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Việt Nam sử lược (Chương XIV)"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1862-ky-ket-hoa-uoc-nham-tuat",
@@ -5197,7 +5403,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Việt Nam sử lược (Chương XV)"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "chinh-tri"
  },
  {
   "id": "1867-phap-chiem-3-tinh-mien-tay-nam-ky",
@@ -5229,7 +5436,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Việt Nam sử lược (Chương XV)"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1873-francis-garnier-danh-chiem-thanh-ha-noi",
@@ -5261,7 +5469,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Việt Nam sử lược (Chương XV)"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1873-tran-cau-giay-lan-thu-nhat",
@@ -5294,7 +5503,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Việt Nam sử lược (Chương XV)"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1874-ky-ket-hoa-uoc-giap-tuat",
@@ -5327,7 +5537,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Việt Nam sử lược (Chương XV)"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "chinh-tri"
  },
  {
   "id": "1882-henri-riviere-danh-chiem-thanh-ha-noi",
@@ -5359,7 +5570,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Việt Nam sử lược (Chương XV)"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1883-tran-cau-giay-lan-thu-hai",
@@ -5392,7 +5604,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Việt Nam sử lược (Chương XV)"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1883-phap-tan-cong-cua-bien-thuan-an",
@@ -5426,7 +5639,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Việt Nam sử lược (Chương XV)"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1883-ky-ket-hoa-uoc-quy-mui-harmand",
@@ -5460,7 +5674,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Việt Nam sử lược (Chương XV)"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "chinh-tri"
  },
  {
   "id": "1884-ky-ket-hoa-uoc-giap-than-patenotre",
@@ -5493,7 +5708,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Việt Nam sử lược (Chương XV)"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "chinh-tri"
  },
  {
   "id": "1885-binh-bien-phuc-kich-tai-kinh-thanh-hue",
@@ -5526,7 +5742,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Việt Nam sử lược (Chương XV)"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1885-vua-ham-nghi-ban-chieu-can-vuong",
@@ -5558,7 +5775,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Lịch sử Việt Nam (Viện Sử học)"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "khoi-nghia"
  },
  {
   "id": "1887-thanh-lap-lien-bang-dong-duong",
@@ -5588,7 +5806,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Lịch sử Việt Nam (Viện Sử học)"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "chinh-tri"
  },
  {
   "id": "1888-vua-ham-nghi-bi-giac-bat",
@@ -5621,7 +5840,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Việt Nam sử lược (Chương XVI)"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "nhan-vat"
  },
  {
   "id": "1895-thu-linh-phan-dinh-phung-hy-sinh",
@@ -5653,7 +5873,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Lịch sử Việt Nam (Viện Sử học)"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "nhan-vat"
  },
  {
   "id": "1904-thanh-lap-hoi-duy-tan",
@@ -5678,7 +5899,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Lịch sử Việt Nam cận đại (Nxb Giáo dục)"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "chinh-tri"
  },
  {
   "id": "1908-bung-no-phong-trao-chong-suu-thue-trung-ky",
@@ -5708,7 +5930,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cổng thông tin điện tử tỉnh Quảng Nam"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "khoi-nghia"
  },
  {
   "id": "1911-nguyen-tat-thanh-roi-to-quoc-ra-di",
@@ -5739,7 +5962,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Báo Nhân Dân"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "nhan-vat"
  },
  {
   "id": "1913-hoang-hoa-tham-bi-sat-hai",
@@ -5770,7 +5994,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Báo Quân đội nhân dân"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "nhan-vat"
  },
  {
   "id": "1916-khoi-nghia-viet-nam-quang-phuc-hoi-tai-hue",
@@ -5803,7 +6028,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Việt Nam sử lược (Chương XVI)"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "khoi-nghia"
  },
  {
   "id": "1930-thanh-lap-dang-cong-san-viet-nam",
@@ -5837,7 +6063,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Báo Nhân Dân"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "chinh-tri"
  },
  {
   "id": "1930-khoi-nghia-yen-bai-bung-no",
@@ -5870,7 +6097,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Báo Quân đội nhân dân"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "khoi-nghia"
  },
  {
   "id": "1940-khoi-nghia-nam-ky-bung-no",
@@ -5903,7 +6131,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Báo Nhân Dân"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "khoi-nghia"
  },
  {
   "id": "1941-thanh-lap-mat-tran-viet-minh",
@@ -5936,7 +6165,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Báo Nhân Dân"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "tran-danh"
  },
  {
   "id": "1944-thanh-lap-doi-vn-tuyen-truyen-giai-phong-quan",
@@ -5968,7 +6198,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Cổng thông tin điện tử Bộ Quốc phòng"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "chinh-tri"
  },
  {
   "id": "1945-nhat-dao-chinh-phap-tai-dong-duong",
@@ -6001,7 +6232,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Việt Nam sử lược (Bản bổ sung)"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "chinh-tri"
  },
  {
   "id": "1945-khoi-nghia-gianh-chinh-quyen-tai-ha-noi",
@@ -6034,7 +6266,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Báo Hà Nội Mới"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "khoi-nghia"
  },
  {
   "id": "1945-vua-bao-dai-thoai-vi",
@@ -6070,7 +6303,8 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Báo Nhân Dân"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  },
  {
   "id": "1945-tuyen-ngon-doc-lap-khai-sinh-nuoc-vndcch",
@@ -6105,6 +6339,7 @@ export const NAM_SU_KIEN_IMPORTED: readonly NamSuKien[] = [
     "text": "Báo Nhân Dân"
    }
   ],
-  "updatedAt": "2026-09-26"
+  "updatedAt": "2026-09-26",
+  "type": "trieu-dai"
  }
 ];

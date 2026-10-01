@@ -6,7 +6,8 @@ import s from "@/components/van-hoa/van-hoa.module.css";
 import { HERO_IMAGE, VAN_HOA_PUBLIC } from "@/lib/van-hoa/config";
 import { SU_KIEN } from "@/lib/van-hoa/data/su-kien";
 import { NAM_SU_KIEN } from "@/lib/van-hoa/data/nam-su-kien";
-import { DYNASTY_LIST, dynastyInfo } from "@/lib/van-hoa/dynasty";
+import { classifyEvent } from "@/lib/van-hoa/event-type";
+import { DYNASTY_LIST } from "@/lib/van-hoa/dynasty";
 import { yearPageHref } from "@/lib/van-hoa/import-logic";
 import { canChiYearOfEvent, eventDateText } from "@/lib/van-hoa/logic";
 import type { TopicItem } from "@/components/van-hoa/tpl/TopicList";
@@ -27,7 +28,7 @@ const ITEMS: TopicItem[] = [
       summary: e.summary,
       label: e.label,
       group: groupOf(e.dynasty),
-      image: dynastyInfo(e.dynasty).image ?? undefined,
+      eventType: e.type ?? classifyEvent(e),
       search: [e.yearText, ...(e.people ?? [])].filter(Boolean).join(" "),
     };
   }),
