@@ -29,6 +29,14 @@ export function heritageFile(path: string): string | null {
   return AVAILABLE.has(path) ? path : null;
 }
 
+/**
+ * Ảnh thu nhỏ tĩnh (cạnh dài <= 480px) cho thẻ danh sách, sinh lúc build bởi scripts/generate-thumbs.mjs vào /heritage-thumb/.
+ * Chỉ áp dụng cho ảnh raster dưới /heritage/; đường dẫn khác (hoặc SVG) giữ nguyên.
+ */
+export function thumbOf(path: string): string {
+  return /^\/heritage\/.+\.(webp|png|jpe?g|avif)$/i.test(path) ? "/heritage-thumb/" + path.slice("/heritage/".length).replace(/\.[^.]+$/, ".webp") : path;
+}
+
 export function heritageSlot(slot: HeritageSlot): string | null {
   return heritageFile(HERITAGE_SLOTS[slot].path);
 }
@@ -64,9 +72,10 @@ const LE_TRANH_CHUNG: Record<string, string> = {
   "ong-cong-ong-tao": "/heritage/van-khan/nhom/trong-nha.webp",
 };
 
-/** Chú thích riêng cho tranh minh hoạ Chủ tịch Hồ Chí Minh (thay ảnh tư liệu cũ). */
+/** Chú thích duy nhất cho mọi tranh minh họa (khớp app). HCM_TRANH_NOTE giữ làm tên cũ. */
 export const HCM_LE_SLUG = "ngay-sinh-bac-ho";
-export const HCM_TRANH_NOTE = "Tranh minh họa, không phải ảnh tư liệu lịch sử";
+export const ILLUSTRATION_CAPTION = "Tranh minh họa, không phải ảnh tư liệu lịch sử";
+export const HCM_TRANH_NOTE = ILLUSTRATION_CAPTION;
 
 /** Lễ có tranh riêng tái hiện sự kiện/địa danh lịch sử (hoặc cách điệu) — trang lễ ghi chú thích "Tranh minh họa". */
 export const LE_TRANH_LICH_SU: ReadonlySet<string> = new Set([

@@ -1,0 +1,68 @@
+{
+  "date": "2026-09-29",
+  "generatedAt": "2026-09-28T22:30:37.334Z",
+  "model": "gemini-2.5-flash",
+  "canChiNgay": "Bính Ngọ",
+  "tuoi": {
+    "ty": {
+      "luan": "Hôm nay, tuổi Tý có thể gặp một vài trở ngại nhỏ do sự xung khắc với chi ngày. Hãy giữ tâm tĩnh lặng, tránh đưa ra các quyết định vội vàng để mọi việc được êm xuôi.",
+      "diem": 2,
+      "gioTot": "11h–13h"
+    },
+    "suu": {
+      "luan": "Tuổi Sửu trong ngày Bính Ngọ cần chú ý hơn đến các mối quan hệ xã giao. Có thể sẽ có những hiểu lầm không đáng có, hãy cẩn trọng trong lời ăn tiếng nói để tránh thị phi.",
+      "diem": 2,
+      "gioTot": "17h–19h"
+    },
+    "dan": {
+      "luan": "Ngày Bính Ngọ mang đến cho tuổi Dần nhiều cơ hội tốt đẹp nhờ mối quan hệ tam hợp. Mọi việc từ công danh đến tình cảm đều có xu hướng thuận lợi, hãy mạnh dạn nắm bắt.",
+      "diem": 4,
+      "gioTot": "15h–17h"
+    },
+    "mao": {
+      "luan": "Tuổi Mão hôm nay có một ngày bình yên, không có nhiều biến động lớn. Dành thời gian cho những công việc còn dang dở hoặc sắp xếp lại kế hoạch cá nhân sẽ rất phù hợp.",
+      "diem": 3,
+      "gioTot": "5h–7h"
+    },
+    "thin": {
+      "luan": "Ngày Bính Ngọ mang đến sự ổn định cho tuổi Thìn. Công việc diễn ra suôn sẻ, các mối quan hệ cũng hài hòa. Đây là lúc thích hợp để tập trung vào những mục tiêu dài hạn.",
+      "diem": 3,
+      "gioTot": "1h–3h"
+    },
+    "ty-ran": {
+      "luan": "Tuổi Tỵ có một ngày khá bình lặng, không quá nổi bật nhưng cũng không gặp phải khó khăn nào đáng kể. Hãy tận dụng thời gian này để củng cố các mối quan hệ và chuẩn bị cho những dự định mới.",
+      "diem": 3,
+      "gioTot": "23h–1h"
+    },
+    "ngo": {
+      "luan": "Ngày Bính Ngọ là ngày của tuổi Ngọ, mọi việc diễn ra khá thuận lợi và suôn sẻ. Tuy nhiên, đừng vì thế mà lơ là, hãy tiếp tục duy trì sự cẩn trọng và tập trung trong mọi hành động.",
+      "diem": 3,
+      "gioTot": "11h–13h"
+    },
+    "mui": {
+      "luan": "Tuổi Mùi sẽ có một ngày tràn đầy năng lượng tích cực nhờ mối quan hệ lục hợp với chi ngày. Mọi sự hợp tác hoặc khởi đầu mới trong hôm nay đều hứa hẹn mang lại kết quả tốt đẹp.",
+      "diem": 4,
+      "gioTot": "15h–17h"
+    },
+    "than": {
+      "luan": "Hôm nay, tuổi Thân có một ngày bình hòa, không có quá nhiều sự kiện đặc biệt. Hãy dành thời gian để suy nghĩ thấu đáo trước khi hành động, tránh những quyết định vội vàng.",
+      "diem": 3,
+      "gioTot": "17h–19h"
+    },
+    "dau": {
+      "luan": "Tuổi Dậu trải qua một ngày tương đối ổn định, không có sóng gió. Đây là thời điểm tốt để sắp xếp lại công việc, hoàn thành những nhiệm vụ còn tồn đọng và lập kế hoạch cho tương lai gần.",
+      "diem": 3,
+      "gioTot": "5h–7h"
+    },
+    "tuat": {
+      "luan": "Ngày Bính Ngọ rất may mắn cho tuổi Tuất nhờ mối quan hệ tam hợp. Các kế hoạch của bạn có thể diễn ra suôn sẻ hơn dự kiến, và bạn có thể nhận được sự hỗ trợ từ những người xung quanh.",
+      "diem": 4,
+      "gioTot": "1h–3h"
+    },
+    "hoi": {
+      "luan": "Tuổi Hợi có một ngày bình yên, không gặp phải những rắc rối lớn. Hãy tận dụng thời gian này để cân bằng cuộc sống, chăm sóc bản thân và dành sự quan tâm cho gia đình.",
+      "diem": 3,
+      "gioTot": "23h–1h"
+    }
+  }
+}

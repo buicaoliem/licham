@@ -7,7 +7,7 @@ import { AhCard, AhTimeline, DrumPattern, anhHungArt } from "@/components/herita
 import { ChShell } from "@/components/heritage/ChShell";
 import { Icon } from "@/components/heritage/Icon";
 import { ANH_HUNG, THOI_KY, anhHungHref, trieuDaiList } from "@/lib/anh-hung";
-import { heritageFile } from "@/lib/heritage-assets";
+import { ILLUSTRATION_CAPTION, heritageFile } from "@/lib/heritage-assets";
 import { SITE_URL } from "@/lib/site";
 
 const TITLE = "Các anh hùng dân tộc Việt Nam";
@@ -133,7 +133,7 @@ export default function AnhHungHubPage() {
           </p>
           <p>
             Niên đại, quê quán và sự kiện được tóm lược từ các bài Wikipedia tiếng Việt ghi ở cuối mỗi trang; những điểm sử liệu còn khác nhau được nêu rõ.
-            Tranh minh họa, không phải chân dung hay tư liệu lịch sử.
+            {ILLUSTRATION_CAPTION}.
           </p>
         </section>
       </div>

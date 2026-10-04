@@ -10,7 +10,7 @@ import type { BaiViet, BaiVietBlock } from "@/lib/van-hoa/types";
 import { RelatedGrid } from "./RelatedGrid";
 import { buildShareUrl } from "@/lib/share";
 import { getVietnamToday } from "@/lib/today";
-import { heritageFile } from "@/lib/heritage-assets";
+import { ILLUSTRATION_CAPTION, heritageFile } from "@/lib/heritage-assets";
 import { ItemBadge, Page, Pic, Sources, TopicBadge } from "./Shared";
 import s from "../van-hoa.module.css";
 import t from "./tpl.module.css";
@@ -136,7 +136,7 @@ export function BaiVietDetail({ post }: { post: BaiViet }) {
             ) : (
               <div className={`${a.heroImg} ${t.pattern}`} role="presentation" />
             )}
-            <figcaption className={t.caption}>Tranh minh họa, không phải chân dung hay tư liệu lịch sử</figcaption>
+            <figcaption className={t.caption}>{ILLUSTRATION_CAPTION}</figcaption>
           </figure>
 
           <div className={a.side}>
@@ -249,7 +249,7 @@ export function BaiVietDetail({ post }: { post: BaiViet }) {
                 {related.map((r) => (
                   <li key={r.href + r.label}>
                     <Link href={r.href} className={a.relCard}>
-                      <Pic src={r.image} alt="" className={a.relImg} width={480} height={360} />
+                      <Pic src={r.image} alt="" className={a.relImg} width={480} height={360} thumb />
                       {r.itemLabel ? <ItemBadge label={r.itemLabel} /> : r.badge ? <TopicBadge text={r.badge} /> : null}
                       <b>{r.label}</b>
                       {r.summary && <span>{r.summary}</span>}

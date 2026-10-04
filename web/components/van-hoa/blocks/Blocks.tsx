@@ -145,7 +145,7 @@ export function NhanVatLienQuan({ leSlug }: { leSlug: string }) {
         {people.map((n) => (
           <li key={n.slug}>
             <Link href={`/van-hoa/nhan-vat/${n.slug}/`} className={b.person}>
-              <Pic src={n.cardImage ?? n.image} alt={n.imageAlt} className={b.personImg} width={200} height={200} />
+              <Pic src={n.cardImage ?? n.image} alt={n.imageAlt} className={b.personImg} width={200} height={200} thumb />
               <span className={b.personText}>
                 <b>{n.name}</b>
                 <span>{n.places?.[0] ? `Nơi thờ: ${placeLine(n.places[0])}` : n.summary}</span>

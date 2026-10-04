@@ -28,6 +28,7 @@ import {
   splitList,
   toHistoryEvents,
 } from "../lib/van-hoa/import-logic";
+import { classifyEvent } from "../lib/van-hoa/event-type";
 import { NEUTRAL_LE_HOI_SUMMARY, LOADED_LE_HOI } from "./le-hoi-neutral";
 import { NHAN_VAT_GROUPS, type BaiViet, type ItemLabel, type LeHoi, type NamSuKien, type NhanVat, type NhanVatGroupKey, type NhanVatPlace, type Source } from "../lib/van-hoa/types";
 
@@ -194,6 +195,7 @@ function importEvents(): { events: NamSuKien[]; rewrites: { id: string; before: 
       ...(r.people ? { people: r.people.split(",").map((x) => x.trim()).filter(Boolean) } : {}),
       ...(r.sources ? { sources: sourcesOf(r.sources) } : {}),
       updatedAt: UPDATED_AT,
+      type: classifyEvent({ title: r.title!, label }),
     });
   }
   for (const id of Object.keys(NEUTRAL_SUMMARY)) if (!used.has(id)) throw new Error(`NEUTRAL_SUMMARY: không có mốc id "${id}"`);

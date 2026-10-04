@@ -6,7 +6,7 @@
 import { ANH_HUNG, anhHungHref, anhHungImagePath, type AnhHung } from "../anh-hung";
 import { heritageFile } from "../heritage-assets";
 import { NAM_SU_KIEN } from "./data/nam-su-kien";
-import { dynastyInfo } from "./dynasty";
+import { classifyEvent, type EventType } from "./event-type";
 import { yearPageHref } from "./import-logic";
 import { canChiYearOfEvent } from "./logic";
 import { FIXTURE_SLUG, type NamSuKien, type RelatedLink, type RelatedRefs } from "./types";
@@ -31,7 +31,7 @@ export interface LinkedEvent {
   title: string;
   href: string;
   summary: string;
-  image?: string;
+  eventType: EventType;
 }
 
 export interface TextSeg {
@@ -170,7 +170,7 @@ export function eventBySlug(slug: string, list: readonly NamSuKien[] = NAM_SU_KI
     title: e.title,
     href,
     summary: firstSentence(e.summary),
-    image: dynastyInfo(e.dynasty).image ?? undefined,
+    eventType: e.type ?? classifyEvent(e),
   };
 }
 
@@ -229,7 +229,7 @@ export function relatedEventsLinks(slugs: readonly string[]): RelatedLink[] {
   return slugs
     .map((s) => eventBySlug(s))
     .filter((e): e is LinkedEvent => Boolean(e))
-    .map((e) => ({ label: e.title, href: e.href, summary: e.summary, image: e.image, badge: "Sự kiện" }));
+    .map((e) => ({ label: e.title, href: e.href, summary: e.summary, eventType: e.eventType, badge: "Sự kiện" }));
 }
 
 export function personHref(slug: string): string | undefined {

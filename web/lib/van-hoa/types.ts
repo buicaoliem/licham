@@ -1,5 +1,7 @@
 /** Kiểu dữ liệu cho các khuôn trang con của mảng Văn hoá. Dữ liệu thật đặt ở ./data/*; fixture chỉ chạy khi dev. */
 
+import type { EventType } from "./event-type";
+
 export type ItemLabel = "chinh-su" | "truyen-thuyet" | "tin-nguong";
 
 /** Nhãn từng bài/sự kiện/nhân vật (khác nhãn chủ đề của trang tổng). */
@@ -23,6 +25,8 @@ export interface RelatedLink {
   summary?: string;
   /** Ảnh thu nhỏ (thẻ "Bài liên quan"); thiếu thì dùng khung hoa văn. */
   image?: string;
+  /** Loại sự kiện: không có ảnh thì thẻ hiện khung biểu tượng theo loại. */
+  eventType?: EventType;
   /** Nhãn chuyên mục kiểu trang tổng (vd. "Dân gian", "Thiên văn"). */
   badge?: string;
   /** Nhãn mục (Chính sử / Truyền thuyết / Tín ngưỡng) khi liên kết tới nhân vật, sự kiện. */
@@ -152,6 +156,8 @@ export interface NamSuKien {
   href?: string;
   relatedPeople?: string[];
   relatedEvents?: string[];
+  /** Loại sự kiện (xem event-type.ts): chọn biểu tượng thay cho tranh minh họa dùng chung. */
+  type?: EventType;
   updatedAt: UpdatedAt;
 }
 
