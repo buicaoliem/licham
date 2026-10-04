@@ -29,8 +29,9 @@ describe("publication policy", () => {
     expect(canPublishDay({ day: 1, month: 1, year: 1969 })).toBe(false);
     expect(canPublishDay({ day: 1, month: 1, year: 2051 })).toBe(false);
   });
-  it("indexes only inside the indexable window", () => {
-    expect(canIndexPage({ kind: "day", date: { day: 21, month: 9, year: 2026 } })).toBe(true);
+  it("indexes only inside the indexable window; per-day pages are never indexed", () => {
+    expect(canIndexPage({ kind: "day", date: { day: 21, month: 9, year: 2026 } })).toBe(false);
+    expect(canIndexPage({ kind: "month", month: 9, year: 2026 })).toBe(true);
     expect(canIndexPage({ kind: "day", date: { day: 21, month: 9, year: 1990 } })).toBe(false);
     expect(canIndexPage({ kind: "year", year: 2050 })).toBe(false);
   });
@@ -106,13 +107,13 @@ describe("getCalendarDay fixtures", () => {
 });
 
 describe("metadata engine", () => {
-  it("day metadata is unique, canonical and indexable in window", () => {
+  it("day metadata is unique, canonical and noindex,follow (mass-generated)", () => {
     const a = generateCalendarDayMetadata(getCalendarDay({ day: 21, month: 9, year: 2026 }));
     const b = generateCalendarDayMetadata(getCalendarDay({ day: 22, month: 9, year: 2026 }));
     expect(a.alternates?.canonical).toBe("/ngay/2026-09-21/");
     expect(a.title).not.toBe(b.title);
     expect(a.description).not.toBe(b.description);
-    expect(a.robots).toBeUndefined();
+    expect(a.robots).toEqual({ index: false, follow: true });
   });
   it("noindex outside the indexable window", () => {
     const m = generateCalendarDayMetadata(getCalendarDay({ day: 21, month: 9, year: 1990 }));

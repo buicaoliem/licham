@@ -6,21 +6,19 @@
  * Sinh public/sitemap.xml (mục lục) + public/sitemaps/static.xml + public/sitemaps/{year}.xml
  * (một file mỗi năm trong khoảng YEAR_START..YEAR_END).
  */
-import { mkdirSync, writeFileSync } from "node:fs";
+import { mkdirSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { jdFromDate, jdToDate } from "@licham/core";
 import { canIndexPage } from "../lib/calendar/policy";
-import { INDEX_RANGE } from "../lib/calendar/config";
+import { INDEX_DAY_PAGES, INDEX_RANGE } from "../lib/calendar/config";
 import { dayHref, monthHref, yearHref } from "../lib/calendar/urls";
 import { LE_LIST } from "../lib/le";
 import { TOOLS, TOOLS_HUB } from "../lib/tools/tools";
 import { SITE_URL } from "../lib/site";
-import { YEAR_END, YEAR_START } from "../lib/site-years";
 import { CON_GIAP_LIST } from "../lib/tu-vi";
 import { ALL_CAN_CHI, CHI_LIST, canChiSlug } from "../lib/tuoi";
 import { VAN_KHAN_LIST } from "../lib/van-khan";
-import { NAM_SINH_MAX, NAM_SINH_MIN, ketHonSlug } from "../lib/xem-tuoi-ket-hon";
 import { COUNTDOWN_LIST } from "../lib/countdown";
 import { TEN_LIST } from "../lib/ten";
 import { nghiLeYears } from "../lib/lich-nghi-le";
@@ -105,9 +103,7 @@ function buildStaticEntries(): SitemapEntry[] {
   entries.push({ url: `${SITE_URL}/tu-vi/`, changefreq: "daily", priority: 0.7 });
   for (const cg of CON_GIAP_LIST) {
     entries.push({ url: `${SITE_URL}/tu-vi/${cg.slug}/`, changefreq: "daily", priority: 0.6 });
-    for (let y = YEAR_START; y <= YEAR_END; y++) {
-      entries.push({ url: `${SITE_URL}/tu-vi/${cg.slug}/${y}/`, changefreq: "yearly", priority: 0.5 });
-    }
+    // /tu-vi/{con giáp}/{năm}/ là trang đại trà (noindex): không đưa vào sitemap.
   }
 
   entries.push({ url: `${SITE_URL}/ten/`, changefreq: "yearly", priority: 0.7 });
@@ -152,11 +148,7 @@ function buildStaticEntries(): SitemapEntry[] {
   }
 
   entries.push({ url: `${SITE_URL}/xem-tuoi-ket-hon/`, changefreq: "yearly", priority: 0.7 });
-  for (let namNam = NAM_SINH_MIN; namNam <= NAM_SINH_MAX; namNam++) {
-    for (let namNu = NAM_SINH_MIN; namNu <= NAM_SINH_MAX; namNu++) {
-      entries.push({ url: `${SITE_URL}/xem-tuoi-ket-hon/${ketHonSlug(namNam, namNu)}/`, changefreq: "yearly", priority: 0.5 });
-    }
-  }
+  // Các trang từng cặp tuổi /xem-tuoi-ket-hon/{nam}-{nu}/ là trang đại trà (noindex): chỉ giữ trang hub trong sitemap.
 
   return entries;
 }
@@ -192,6 +184,7 @@ function buildDayEntries(year: number): SitemapEntry[] {
 }
 
 function main() {
+  rmSync(SITEMAPS_DIR, { recursive: true, force: true }); // xóa file cũ (vd. days-*.xml) để không còn file mồ côi
   mkdirSync(SITEMAPS_DIR, { recursive: true });
 
   const files: string[] = [];
@@ -203,7 +196,7 @@ function main() {
   write("static.xml", buildStaticEntries());
   write("months.xml", buildMonthEntries());
   write("years.xml", buildYearListEntries());
-  for (let year = INDEX_RANGE.start; year <= INDEX_RANGE.end; year++) write(`days-${year}.xml`, buildDayEntries(year));
+  if (INDEX_DAY_PAGES) for (let year = INDEX_RANGE.start; year <= INDEX_RANGE.end; year++) write(`days-${year}.xml`, buildDayEntries(year));
 
   writeFileSync(join(PUBLIC_DIR, "sitemap.xml"), renderSitemapIndex(files));
 

@@ -1,5 +1,5 @@
 import { type SolarDate, isValidSolarDate } from "@licham/core";
-import { isIndexableYear, isSupportedYear } from "./config";
+import { INDEX_DAY_PAGES, isIndexableYear, isSupportedYear } from "./config";
 
 /** Cổng xuất bản: quyết định trang nào được render và được index, để đổi chính sách không phải sửa UI. */
 export function canPublishDay(d: SolarDate): boolean {
@@ -22,7 +22,7 @@ export type PageRef =
 export function canIndexPage(page: PageRef): boolean {
   switch (page.kind) {
     case "day":
-      return canPublishDay(page.date) && isIndexableYear(page.date.year);
+      return INDEX_DAY_PAGES && canPublishDay(page.date) && isIndexableYear(page.date.year);
     case "month":
       return canPublishMonth(page.month, page.year) && isIndexableYear(page.year);
     case "year":
