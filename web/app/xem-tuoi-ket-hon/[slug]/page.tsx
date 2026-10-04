@@ -46,6 +46,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `Nam ${namNam} nữ ${namNu} có hợp nhau không? Xem tuổi kết hôn | LịchÂm`,
     description: `Xem tuổi kết hôn nam sinh ${namNam} và nữ sinh ${namNu}: mức độ hợp con giáp và mệnh, tra Kim Lâu, gợi ý năm cưới hợp tuổi cô dâu.`,
     alternates: { canonical: `/xem-tuoi-ket-hon/${slug}/` },
+    // Trang từng cặp tuổi (961 trang cùng khuôn): không index, vẫn follow để link nội bộ có tác dụng; không có trong sitemap.
+    robots: { index: false, follow: true },
   };
 }
 

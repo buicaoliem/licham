@@ -34,6 +34,8 @@ export async function generateMetadata({
     title: `Tử vi tuổi ${giap.ten} năm ${year} (${info.canChiNam.name}) | Lịch Âm`,
     description: `Tuổi ${giap.ten} năm ${year}: ${info.canChiNam.name}, mệnh năm ${info.canChiNam.napAm.name}, ${QUAN_HE_LABEL[info.quanHe]}. Kim Lâu, Hoang Ốc theo từng năm sinh.`,
     alternates: { canonical: `/tu-vi/${slug}/${year}/` },
+    // Tử vi từng con giáp × từng năm: cùng một khuôn, chỉ đổi giá trị → noindex,follow và không đưa vào sitemap.
+    robots: { index: false, follow: true },
   };
 }
 

@@ -7,6 +7,7 @@
     "dev": "node scripts/scan-heritage-assets.mjs && node scripts/generate-thumbs.mjs && next dev",
     "build": "node scripts/scan-heritage-assets.mjs && node scripts/generate-thumbs.mjs && node scripts/check-images.mjs && node --experimental-strip-types --experimental-loader ./scripts/ts-web-loader.mjs scripts/generate-sitemap.ts && node --experimental-strip-types --experimental-loader ./scripts/ts-web-loader.mjs scripts/generate-app-content.ts && node --experimental-strip-types --experimental-loader ./scripts/ts-web-loader.mjs scripts/validate-app-content.ts && next build",
     "postbuild": "node scripts/check-routes.mjs && node scripts/check-images.mjs --built",
+    "check:gone": "node --experimental-strip-types --experimental-loader ./scripts/ts-web-loader.mjs scripts/check-gone.ts",
     "check:routes": "node scripts/check-routes.mjs",
     "check:images": "node scripts/check-images.mjs",
     "generate:thumbs": "node scripts/generate-thumbs.mjs",

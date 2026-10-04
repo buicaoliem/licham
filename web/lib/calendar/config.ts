@@ -11,6 +11,12 @@ export const SUPPORTED_RANGE: YearRange = { start: Math.max(1970, MIN_YEAR), end
 /** Khoảng năm được cho index và đưa vào sitemap. Ngoài khoảng này trang vẫn render nhưng noindex. Phải nằm trong SUPPORTED_RANGE. */
 export const INDEX_RANGE: YearRange = { start: 2020, end: 2035 };
 
+/**
+ * Trang từng ngày (/ngay/YYYY-MM-DD/) là hàng nghìn trang cùng một khuôn, chỉ đổi số liệu: noindex,follow và không đưa vào sitemap.
+ * Trang vẫn truy cập và link nội bộ bình thường. Bật lại thành true nếu sau này mỗi ngày có nội dung riêng.
+ */
+export const INDEX_DAY_PAGES = false;
+
 /** Số năm dựng sẵn quanh năm hiện tại khi build; phần còn lại dựng on-demand rồi cache (ISR). */
 export const PREBUILD_YEARS_AROUND_NOW = 1;
 

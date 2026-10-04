@@ -57,7 +57,7 @@ await withServer(async (base) => {
   for (const needle of ["Giờ hoàng đạo", "Bành Tổ Bách Kỵ", "Ngày hôm trước", "Ngày hôm sau", "Xem tháng 9/2026"]) {
     check(`ngày 2026-09-21 chứa "${needle}"`, day.body.includes(needle));
   }
-  check("ngày trong index range không noindex", robotsOf(day.body) === null || !/noindex/.test(robotsOf(day.body)));
+  check("trang từng ngày noindex,follow (trang đại trà, không vào sitemap)", /noindex/.test(robotsOf(day.body) ?? "") && /follow/.test(robotsOf(day.body) ?? ""), String(robotsOf(day.body)));
 
   // Trang lịch lịch sử: render được nhưng noindex.
   for (const path of ["/ngay/1985-06-15/", "/ngay/2040-01-01/", "/thang/1985-06/", "/nam/2045/"]) {
