@@ -21,5 +21,7 @@ if (cmd === "build") {
   // Ảnh heritage chạy thẳng từ static assets (không qua Worker, xem wrangler.jsonc run_worker_first), nên header CORS đặt ở đây.
   // Vercel trả "Access-Control-Allow-Origin: *" cho mọi file tĩnh; app di động tải tranh từ /heritage/*.webp.
   const headers = ["/heritage/*", "/heritage-thumb/*"].map((p) => `${p}\n  Access-Control-Allow-Origin: *\n`).join("\n");
-  writeFileSync(join(".open-next", "assets", "_headers"), headers);
+  // HSTS cũng phải có trên các file tĩnh không đi qua Worker (cùng giá trị Vercel / licham.app đang gửi).
+  const hsts = "/*\n  Strict-Transport-Security: max-age=63072000\n\n";
+  writeFileSync(join(".open-next", "assets", "_headers"), hsts + headers);
 }
