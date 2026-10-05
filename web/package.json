@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "node scripts/scan-heritage-assets.mjs && node scripts/generate-thumbs.mjs && next dev",
-    "build": "node scripts/scan-heritage-assets.mjs && node scripts/generate-thumbs.mjs && node scripts/check-images.mjs && node --experimental-strip-types --experimental-loader ./scripts/ts-web-loader.mjs scripts/generate-sitemap.ts && node --experimental-strip-types --experimental-loader ./scripts/ts-web-loader.mjs scripts/generate-app-content.ts && node --experimental-strip-types --experimental-loader ./scripts/ts-web-loader.mjs scripts/validate-app-content.ts && next build",
+    "dev": "node scripts/gen-tu-vi-data.mjs && node scripts/scan-heritage-assets.mjs && node scripts/generate-thumbs.mjs && next dev",
+    "build": "node scripts/gen-tu-vi-data.mjs && node scripts/scan-heritage-assets.mjs && node scripts/generate-thumbs.mjs && node scripts/check-images.mjs && node --experimental-strip-types --experimental-loader ./scripts/ts-web-loader.mjs scripts/generate-sitemap.ts && node --experimental-strip-types --experimental-loader ./scripts/ts-web-loader.mjs scripts/generate-app-content.ts && node --experimental-strip-types --experimental-loader ./scripts/ts-web-loader.mjs scripts/validate-app-content.ts && next build",
     "postbuild": "node scripts/check-routes.mjs && node scripts/check-images.mjs --built",
     "check:gone": "node --experimental-strip-types --experimental-loader ./scripts/ts-web-loader.mjs scripts/check-gone.ts",
     "check:routes": "node scripts/check-routes.mjs",
@@ -19,35 +19,40 @@
     "generate:sitemap": "node --experimental-strip-types --experimental-loader ./scripts/ts-web-loader.mjs scripts/generate-sitemap.ts",
     "generate:app-content": "node --experimental-strip-types --experimental-loader ./scripts/ts-web-loader.mjs scripts/generate-app-content.ts",
     "validate:app-content": "node --experimental-strip-types --experimental-loader ./scripts/ts-web-loader.mjs scripts/validate-app-content.ts",
-    "typecheck": "tsc --noEmit",
-    "test": "vitest run",
-    "lint": "eslint .",
+    "typecheck": "node scripts/gen-tu-vi-data.mjs && tsc --noEmit",
+    "test": "node scripts/gen-tu-vi-data.mjs && vitest run",
+    "lint": "node scripts/gen-tu-vi-data.mjs && eslint .",
     "seo:audit": "node scripts/seo-audit.mjs",
     "smoke": "node scripts/smoke.mjs",
     "assets:scan": "node scripts/scan-heritage-assets.mjs",
     "compress:images": "node scripts/compress-images.mjs",
-    "indexnow": "node scripts/indexnow.mjs"
+    "indexnow": "node scripts/indexnow.mjs",
+    "build:cf": "node scripts/cf.mjs build",
+    "preview": "node scripts/cf.mjs build && node scripts/cf.mjs preview",
+    "deploy": "node scripts/cf.mjs build && node scripts/cf.mjs deploy"
   },
   "dependencies": {
     "@licham/core": "workspace:*",
     "astronomy-engine": "2.1.19",
-    "next": "15.5.25",
+    "next": "15.5.27",
     "react": "19.1.9",
     "react-dom": "19.1.9"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.7",
+    "@opennextjs/cloudflare": "^1.20.8",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "20.17.6",
     "@types/react": "^19.1.9",
     "@types/react-dom": "^19.1.9",
     "circular-natal-horoscope-js": "1.1.0",
     "eslint": "^9.39.5",
-    "eslint-config-next": "15.5.25",
+    "eslint-config-next": "15.5.27",
     "iztro": "2.6.1",
     "sharp": "0.35.4",
     "tailwindcss": "^4.3.3",
     "typescript": "^5.7.3",
-    "vitest": "^5.0.0"
+    "vitest": "^5.0.0",
+    "wrangler": "^4.147.0"
   }
 }

@@ -6,26 +6,34 @@ import { ConGiapArt } from "@/components/heritage/ConGiapArt";
 import { LcFaq } from "@/components/lich/LichParts";
 import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
 import { pad2 } from "@/lib/format";
-import { CON_GIAP_LIST, QUAN_HE_LABEL, birthYearsForChi, getTuViData, quanHeVoiNgay } from "@/lib/tu-vi";
+import { CON_GIAP_LIST, QUAN_HE_LABEL, birthYearsForChi, quanHeVoiNgay } from "@/lib/tu-vi";
+import { getTuViDataBundled } from "@/lib/tu-vi-bundled";
 import { getVietnamToday } from "@/lib/today";
 
-const today = getVietnamToday();
-// null khi chưa có lời luận hợp lệ sinh riêng cho hôm nay — không bao giờ mượn file ngày khác.
-const data = getTuViData(today);
-const info = getDayInfo(today);
-const dateLabel = `${pad2(today.day)}/${pad2(today.month)}/${today.year}`;
-const coNoiDung = data !== null;
+// Tính mỗi lần dựng/dựng lại trang (không ở cấp module): trên Cloudflare Worker module sống qua nhiều ngày.
+function todayView() {
+  const today = getVietnamToday();
+  // null khi chưa có lời luận hợp lệ sinh riêng cho hôm nay — không bao giờ mượn file ngày khác.
+  const data = getTuViDataBundled(today);
+  const info = getDayInfo(today);
+  const dateLabel = `${pad2(today.day)}/${pad2(today.month)}/${today.year}`;
+  return { today, data, info, dateLabel, coNoiDung: data !== null };
+}
 
-export const metadata: Metadata = {
-  title: `Tử vi hôm nay ${dateLabel} của 12 con giáp | Lịch Âm`,
-  description: `Tử vi ngày ${info.canChi.day.name} cho cả 12 con giáp: mức đánh giá, giờ tốt nhất và lời luận riêng cho ngày này.`,
-  alternates: { canonical: "/tu-vi/" },
-};
+export function generateMetadata(): Metadata {
+  const { info, dateLabel } = todayView();
+  return {
+    title: `Tử vi hôm nay ${dateLabel} của 12 con giáp | Lịch Âm`,
+    description: `Tử vi ngày ${info.canChi.day.name} cho cả 12 con giáp: mức đánh giá, giờ tốt nhất và lời luận riêng cho ngày này.`,
+    alternates: { canonical: "/tu-vi/" },
+  };
+}
 
 /** Màu theo quan hệ chi đã có trong dữ liệu: hợp (tam hợp, lục hợp), khắc (xung, hình, hại), còn lại trung tính. */
 const TONE: Record<string, string> = { "tam-hop": "g", "luc-hop": "g", xung: "r", hinh: "r", hai: "r" };
 
 export default function TuViIndexPage() {
+  const { today, data, info, dateLabel, coNoiDung } = todayView();
   return (
     <ChShell activeMenu="Tử vi" className="ch-tu ch-tv">
       <ChHero

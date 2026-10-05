@@ -1,8 +1,9 @@
 import { type SolarDate, jdFromDate, jdToDate, vietnamDateOf } from "@licham/core";
+import { currentTime } from "@/lib/clock";
 
 /** "Hôm nay" theo giờ Việt Nam (UTC+7), bất kể máy dựng trang chạy múi giờ nào. */
 export function getVietnamToday(): SolarDate {
-  return vietnamDateOf(new Date());
+  return vietnamDateOf(currentTime());
 }
 
 /** Ngày mai theo giờ Việt Nam. */

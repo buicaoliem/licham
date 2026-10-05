@@ -22,3 +22,10 @@ artwork-inbox/
 
 # Ảnh thu nhỏ sinh lúc build (web/scripts/generate-thumbs.mjs)
 web/public/heritage-thumb/
+
+# Cloudflare Workers build (OpenNext), wrangler local state, local mock clock (.dev.vars)
+web/.open-next/
+web/.wrangler/
+web/.dev.vars
+web/lib/tu-vi-data.generated.ts
+.vercel

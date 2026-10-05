@@ -86,7 +86,7 @@ function ChFooter() {
         </div>
         <div className="ch-foot-meta">
           <span>Miễn phí, không quảng cáo · Thông tin phong thủy mang tính tham khảo</span>
-          <span>Cập nhật {buildTimeLabel}</span>
+          <span>Cập nhật {buildTimeLabel()}</span>
         </div>
       </div>
     </footer>

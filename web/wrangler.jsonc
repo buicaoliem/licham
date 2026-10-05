@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "licham",
+  "main": "cloudflare-entry.js",
+  "compatibility_date": "2026-09-01",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  // Temporary address https://licham.<account>.workers.dev. Set to false after the custom domain is verified.
+  "workers_dev": true,
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS",
+    // Everything except hashed build assets and the heritage artwork goes through the Worker first, so the workers.dev
+    // X-Robots-Tag guard covers HTML, sitemaps and the app feed. The artwork (about 900 files, 100 MB) is served as plain
+    // static assets: no Worker invocation, no CPU, and it is the file the mobile app downloads from /heritage/*.
+    "run_worker_first": ["/*", "!/_next/static/*", "!/heritage/*", "!/heritage-thumb/*"]
+  },
+  // Next.js incremental cache (ISR) lives in R2; the Worker calls itself to regenerate stale pages.
+  "r2_buckets": [{ "binding": "NEXT_INC_CACHE_R2_BUCKET", "bucket_name": "licham-next-cache" }],
+  "services": [{ "binding": "WORKER_SELF_REFERENCE", "service": "licham" }],
+  // Daily 17:05 UTC = 00:05 Asia/Ho_Chi_Minh, five minutes after the Vietnamese date rolls over. Replaces the Vercel Deploy Hook rebuild.
+  "triggers": { "crons": ["5 17 * * *"] },
+  "observability": { "enabled": true }
+}

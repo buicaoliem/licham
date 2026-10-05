@@ -8,6 +8,7 @@ import {
   vietnamDateOf,
 } from "@licham/core";
 import { dayHref } from "@/lib/calendar/urls";
+import { currentTime } from "@/lib/clock";
 import { pad2 } from "@/lib/format";
 
 export interface UpcomingOccasion {
@@ -58,7 +59,7 @@ export function getUpcomingOccasions(today: SolarDate): UpcomingOccasion[] {
     if (nextMungMot && nextRam && nextHoliday) break;
   }
 
-  const currentTerm = getSolarTerm(new Date());
+  const currentTerm = getSolarTerm(currentTime());
   const nextTermName = SOLAR_TERM_NAMES[(currentTerm.index + 1) % 24]!;
   const nextTermSolar = vietnamDateOf(currentTerm.end);
 

@@ -13,19 +13,22 @@ import {
   QUAN_HE_LABEL,
   birthYearsForChi,
   conGiapBySlug,
-  getTuViData,
   quanHeVoiNgay,
 } from "@/lib/tu-vi";
+import { getTuViDataBundled } from "@/lib/tu-vi-bundled";
 import { YEAR_END } from "@/lib/site-years";
 import { buildShareUrl } from "@/lib/share";
 import { getVietnamToday } from "@/lib/today";
 
-const today = getVietnamToday();
-// null khi chưa có lời luận hợp lệ sinh riêng cho hôm nay — không bao giờ mượn file ngày khác.
-const data = getTuViData(today);
-const info = getDayInfo(today);
-const dateLabel = `${pad2(today.day)}/${pad2(today.month)}/${today.year}`;
-const coNoiDung = data !== null;
+// Tính mỗi lần dựng/dựng lại trang (không ở cấp module): trên Cloudflare Worker module sống qua nhiều ngày.
+function todayView() {
+  const today = getVietnamToday();
+  // null khi chưa có lời luận hợp lệ sinh riêng cho hôm nay — không bao giờ mượn file ngày khác.
+  const data = getTuViDataBundled(today);
+  const info = getDayInfo(today);
+  const dateLabel = `${pad2(today.day)}/${pad2(today.month)}/${today.year}`;
+  return { today, data, info, dateLabel, coNoiDung: data !== null };
+}
 
 export function generateStaticParams() {
   return CON_GIAP_LIST.map((cg) => ({ slug: cg.slug }));
@@ -37,6 +40,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const cg = conGiapBySlug(slug);
   if (!cg) return {};
+  const { info, dateLabel } = todayView();
   return {
     title: `Tử vi tuổi ${cg.ten} hôm nay ${dateLabel} | Lịch Âm`,
     description: `Tử vi tuổi ${cg.ten} ngày ${info.canChi.day.name}: mức đánh giá, giờ tốt nhất và quan hệ với chi ngày hôm nay.`,
@@ -49,6 +53,7 @@ export default async function TuViConGiapPage({ params }: { params: Promise<{ sl
   const cg = conGiapBySlug(slug);
   if (!cg) notFound();
 
+  const { today, data, info, dateLabel, coNoiDung } = todayView();
   const entry = data?.tuoi[cg.slug];
   const years = birthYearsForChi(cg.chiIndex, today.year);
   const quanHe = quanHeVoiNgay(info.canChi.day.chiIndex, cg.chiIndex);
