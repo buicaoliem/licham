@@ -1,0 +1,16 @@
+// Worker hẹn giờ sinh tử vi hằng ngày cho licham.app (xem src/index.ts). Secret GEMINI_API_KEY đặt ở dashboard / `wrangler secret put`, KHÔNG ghi ở đây.
+// Deploy riêng (không nằm trong Workers Builds của Worker `licham`): `pnpm --filter @licham/web exec wrangler deploy -c workers/tu-vi-daily/wrangler.jsonc`.
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "licham-tu-vi-daily",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  // 16:00, 16:25, 16:50 UTC = 23:00, 23:25, 23:50 giờ VN: sinh tử vi của ngày mai trước lượt làm mới 00:05 của Worker `licham`.
+  // 22:30 UTC = 05:30 giờ VN: thử lại cho đúng ngày hôm đó nếu đêm trước hỏng hết (trang tử vi tự làm mới mỗi 10 phút nên sẽ thấy ngay).
+  "triggers": { "crons": ["0 16 * * *", "25 16 * * *", "50 16 * * *", "30 22 * * *"] },
+  // Cùng bucket với cache ISR của Worker `licham` (tiền tố riêng `tu-vi/`), không tạo bucket mới.
+  "r2_buckets": [{ "binding": "TU_VI_R2", "bucket_name": "licham-next-cache" }],
+  "observability": { "enabled": true }
+}

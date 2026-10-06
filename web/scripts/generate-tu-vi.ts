@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 /**
  * Sinh tử vi hằng ngày cho 12 con giáp (một request Gemini) rồi lưu vào content/tu-vi/{YYYY-MM-DD}.json.
- * KHÔNG nằm trong `pnpm build`: chạy bởi workflow .github/workflows/tu-vi-hang-ngay.yml (hoặc tay khi cần), workflow
- * commit file lên main để mọi lần build sau chỉ đọc. Logic nằm ở lib/tu-vi-generate.ts.
+ * KHÔNG nằm trong `pnpm build`. Bản chạy hằng ngày là Worker hẹn giờ web/workers/tu-vi-daily (ghi vào R2); script này chỉ là
+ * đường dự phòng chạy tay trên máy (ghi file trong repo để build gói vào bản dự phòng). Logic nằm ở lib/tu-vi-generate.ts.
  *
  * Biến môi trường: GEMINI_API_KEY (bắt buộc), GEMINI_MODEL (tùy chọn, thay model chính),
  * TU_VI_MAX_REQUESTS (tùy chọn, trần request của lượt, mặc định 3).
  *
  * Mã thoát: 0 = đã lưu hoặc đã có sẵn; 1 = thất bại (không lưu gì); 2 = thiếu khóa; 3 = lượt khác đang chạy;
- * 4 = bị từ chối vì đang trong build/deploy. Khi chạy trong GitHub Actions, ghi status/date/category vào GITHUB_OUTPUT.
+ * 4 = bị từ chối vì đang trong build/deploy. Nếu có biến GITHUB_OUTPUT thì ghi status/date/category vào đó (không còn dùng trong repo này).
  * Không bao giờ in khóa API.
  */
 import { appendFileSync } from "node:fs";

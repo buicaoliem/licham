@@ -13,11 +13,18 @@ const nextConfig: NextConfig = {
     const feed = "/api/app/content";
     return [
       {
+        // Vercel tự gửi HSTS (max-age=63072000, không includeSubDomains/preload); giữ nguyên giá trị đó khi chuyển sang Cloudflare.
+        source: "/:path*",
+        headers: [{ key: "Strict-Transport-Security", value: "max-age=63072000" }],
+      },
+      {
         source: `${feed}/:path*`,
         headers: [
           { key: "Content-Type", value: "application/json; charset=utf-8" },
           { key: "Cache-Control", value: "public, max-age=300" },
           { key: "X-Robots-Tag", value: "noindex" },
+          // Vercel tự thêm header này cho mọi file tĩnh; Cloudflare thì không. App di động (và mọi client) cần giữ nguyên hành vi.
+          { key: "Access-Control-Allow-Origin", value: "*" },
         ],
       },
       {

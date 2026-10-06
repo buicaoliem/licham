@@ -1,6 +1,6 @@
 /**
  * Sinh nội dung tử vi hằng ngày bằng Gemini — MỘT request cho cả 12 con giáp, trả JSON theo schema.
- * Chạy ngoài build (workflow .github/workflows/tu-vi-hang-ngay.yml gọi scripts/generate-tu-vi.ts), không bao giờ
+ * Chạy ngoài build (Worker hẹn giờ web/workers/tu-vi-daily, hoặc tay qua scripts/generate-tu-vi.ts), không bao giờ
  * chạy trong lúc Vercel dựng trang. Fetch, đồng hồ, kho lưu đều truyền vào được để kiểm thử bằng mock.
  *
  * Nguyên tắc:
@@ -34,6 +34,7 @@ import {
  * "gemini-3-flash" (tên cũ) không tồn tại — ListModels ngày 23/9/2026 chỉ có các bản 3.x có số phụ hoặc "-preview".
  * Dùng model ổn định đã xác minh chạy được; muốn đổi thì đặt biến GEMINI_MODEL, không cần sửa mã.
  */
+export const GEMINI_API_BASE = "https://generativelanguage.googleapis.com";
 export const PRIMARY_MODEL = "gemini-2.5-flash";
 /** Alias luôn trỏ tới bản flash ổn định mới nhất, chỉ dùng khi model chính bị gỡ, hết hạn mức hoặc lỗi liên tục. */
 export const FALLBACK_MODEL = "gemini-flash-latest";
@@ -240,6 +241,8 @@ interface CallOptions {
   fetchImpl: typeof fetch;
   apiKey: string;
   timeoutMs: number;
+  /** Chỉ để chạy thử cục bộ với máy chủ Gemini giả; production bỏ trống = Google. */
+  apiBase?: string;
 }
 
 /** Tắt "thinking" ở dòng 2.5-flash để token suy nghĩ không ăn vào trần output; model khác giữ mặc định. */
@@ -249,7 +252,7 @@ function thinkingConfigFor(model: string): Record<string, unknown> | undefined {
 
 async function callGemini(model: string, ctx: DayContext, opts: CallOptions): Promise<unknown> {
   // Khóa đi qua header, không nằm trong URL, để không lọt vào log/thông báo lỗi.
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`;
+  const url = `${opts.apiBase ?? GEMINI_API_BASE}/v1beta/models/${encodeURIComponent(model)}:generateContent`;
   const thinkingConfig = thinkingConfigFor(model);
   let status: number;
   let ok: boolean;
@@ -395,15 +398,15 @@ export function writeJsonAtomic(path: string, data: unknown): void {
   }
 }
 
-/** Nơi lưu dữ liệu tử vi. Mặc định là thư mục trong repo (web/content/tu-vi) — workflow commit nó lên git. */
+/** Nơi lưu dữ liệu tử vi. Chạy hằng ngày là R2 (lib/tu-vi-r2.ts); kho đĩa (web/content/tu-vi) dùng cho chạy tay và test. */
 export interface TuViStore {
   /** Mô tả ngắn để ghi log (không chứa bí mật). */
   describe(date: string): string;
-  load(date: string): TuViLoad;
+  load(date: string): TuViLoad | Promise<TuViLoad>;
   /** Ghi nguyên tử. Ném lỗi nếu không ghi được. */
-  save(data: TuViDayData): void;
+  save(data: TuViDayData): void | Promise<void>;
   /** Giành khóa của một ngày; trả về hàm nhả khóa, hoặc null nếu lượt khác đang giữ. */
-  tryLock(date: string, staleMs: number): (() => void) | null;
+  tryLock(date: string, staleMs: number): (() => void | Promise<void>) | null | Promise<(() => void | Promise<void>) | null>;
 }
 
 export function fsTuViStore(dir: string): TuViStore {
@@ -449,6 +452,8 @@ export interface TuViGenerateOptions {
   /** Đồng hồ cho generatedAt. */
   clock?: () => Date;
   fetch?: typeof fetch;
+  /** Gốc URL API Gemini; chỉ để chạy thử cục bộ với máy chủ giả. */
+  apiBase?: string;
   timeoutMs?: number;
   retryDelayMs?: number;
   /** Tổng thời gian tối đa của một lượt sinh, kể cả thời gian chờ 429. */
@@ -531,7 +536,7 @@ async function generateBatch(ctx: DayContext, gen: BatchContext): Promise<{ tuoi
 
 /** Build/deploy không được gọi Gemini: trả về lý do từ chối nếu đang chạy trong môi trường dựng trang. */
 export function refuseInBuildEnv(env: Record<string, string | undefined>): string | null {
-  if (env.VERCEL) return "đang chạy trong Vercel (build/deploy) — sinh tử vi chỉ chạy ở workflow riêng";
+  if (env.VERCEL) return "đang chạy trong Vercel (build/deploy) — sinh tử vi chỉ chạy ở Worker hẹn giờ riêng";
   if (env.NEXT_PHASE === "phase-production-build") return "đang trong next build";
   return null;
 }
@@ -552,7 +557,7 @@ export async function runTuViGeneration(opts: TuViGenerateOptions): Promise<TuVi
 
   let existing: TuViLoad;
   try {
-    existing = store.load(date);
+    existing = await store.load(date);
   } catch (err) {
     return failed(`không đọc được kho lưu: ${err instanceof Error ? err.message : String(err)}`, "storage", 0);
   }
@@ -570,9 +575,9 @@ export async function runTuViGeneration(opts: TuViGenerateOptions): Promise<TuVi
   }
 
   const maxRunMs = opts.maxRunMs ?? DEFAULT_MAX_RUN_MS;
-  let release: (() => void) | null;
+  let release: (() => void | Promise<void>) | null;
   try {
-    release = store.tryLock(date, Math.max(LOCK_STALE_MS, maxRunMs + 60_000));
+    release = await store.tryLock(date, Math.max(LOCK_STALE_MS, maxRunMs + 60_000));
   } catch (err) {
     return failed(`không tạo được khóa: ${err instanceof Error ? err.message : String(err)}`, "storage", 0);
   }
@@ -582,7 +587,9 @@ export async function runTuViGeneration(opts: TuViGenerateOptions): Promise<TuVi
   }
 
   const gen: BatchContext = {
-    fetchImpl: opts.fetch ?? fetch,
+    // Bọc lại: trên Cloudflare Worker gọi `fetch` qua thuộc tính của object (this sai) báo "Illegal invocation".
+    fetchImpl: opts.fetch ?? ((input, init) => fetch(input, init)),
+    ...(opts.apiBase ? { apiBase: opts.apiBase.replace(/\/+$/, "") } : {}),
     apiKey: opts.apiKey,
     timeoutMs: opts.timeoutMs ?? DEFAULT_TIMEOUT_MS,
     retryDelayMs: opts.retryDelayMs ?? DEFAULT_RETRY_DELAY_MS,
@@ -597,7 +604,7 @@ export async function runTuViGeneration(opts: TuViGenerateOptions): Promise<TuVi
 
   try {
     // Kiểm lại sau khi giữ khóa: lượt vừa nhả khóa có thể đã lưu xong.
-    const again = store.load(date);
+    const again = await store.load(date);
     if (again.status === "ok") {
       logger.log(`tu-vi: lượt khác vừa lưu xong ${date}, không gọi Gemini.`);
       return { status: "exists", date };
@@ -622,15 +629,15 @@ export async function runTuViGeneration(opts: TuViGenerateOptions): Promise<TuVi
     const check = validateTuViDayData(data, date);
     if (!check.ok) return failed(`dữ liệu sinh ra không hợp lệ: ${check.errors.join("; ")}`, "invalid", gen.requests);
     try {
-      store.save(check.data);
+      await store.save(check.data);
       // Đọc lại đúng như trang sẽ đọc: chỉ công nhận thành công khi kho trả về bản hợp lệ.
-      if (store.load(date).status !== "ok") throw new Error("đọc lại sau khi ghi không hợp lệ");
+      if ((await store.load(date)).status !== "ok") throw new Error("đọc lại sau khi ghi không hợp lệ");
     } catch (err) {
       return failed(`không lưu được: ${err instanceof Error ? err.message : String(err)}`, "storage", gen.requests);
     }
     logger.log(`tu-vi: đã lưu ${date} (model ${check.data.model}, ${gen.requests} request) vào ${store.describe(date)}.`);
     return { status: "written", date, model: check.data.model, location: store.describe(date), requests: gen.requests };
   } finally {
-    release();
+    await release();
   }
 }

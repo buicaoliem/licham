@@ -13,8 +13,12 @@ const CLARITY_PROJECT_ID = "yp727217qu";
 // Chỉ bật tracking trên bản production thật (không chạy ở dev, preview, hay build không phải của Vercel production).
 // RootLayout là Server Component nên đọc process.env.VERCEL_ENV trực tiếp (không cần tiền tố NEXT_PUBLIC_) —
 // giá trị chỉ quyết định có render script hay không, không bị đưa vào bundle client.
+// Build Cloudflare không có VERCEL_ENV (luôn bật khi production); đặt LICHAM_TRACKING=off lúc build để dựng bản không tracking
+// (địa chỉ tạm *.workers.dev), không để lượt xem thử lẫn vào GA của licham.app.
 const IS_PRODUCTION_TRACKING_ENABLED =
-  process.env.NODE_ENV === "production" && (process.env.VERCEL_ENV ? process.env.VERCEL_ENV === "production" : true);
+  process.env.NODE_ENV === "production" &&
+  process.env.LICHAM_TRACKING !== "off" &&
+  (process.env.VERCEL_ENV ? process.env.VERCEL_ENV === "production" : true);
 
 const beVietnamPro = Be_Vietnam_Pro({
   variable: "--font-be-vietnam-pro",

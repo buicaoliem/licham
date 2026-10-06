@@ -665,7 +665,7 @@ describe("Build không gọi Gemini", () => {
   it("kho mặc định đọc lại được dữ liệu đã lưu mà không cần Gemini", async () => {
     await run(fakeFetch(() => geminiBody(batch())).fn).promise;
     const store = fsTuViStore(dir);
-    expect(store.load(TODAY).status).toBe("ok");
+    expect((await store.load(TODAY)).status).toBe("ok");
   });
 });
 

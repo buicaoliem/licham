@@ -300,7 +300,7 @@ export function parseDateStr(s: string): { day: number; month: number; year: num
 }
 
 /**
- * Thư mục dữ liệu khi dựng trang (cwd là web/). Nằm trong git: workflow "Tử vi hằng ngày" commit file mới lên main,
+ * Thư mục dữ liệu khi dựng trang (cwd là web/). Nằm trong git (bản dự phòng chạy tay; bản hằng ngày nằm ở R2),
  * nên dữ liệu sống qua mọi lần build/deploy và build chỉ đọc, không bao giờ ghi hay gọi Gemini.
  */
 export function tuViDataDir(): string {
@@ -331,6 +331,7 @@ export function loadTuViDay(date: string, dir: string = tuViDataDir()): TuViLoad
  * Lời luận tử vi để hiển thị cho `today`, hoặc null khi chưa có nội dung hợp lệ sinh riêng cho đúng ngày này.
  * Không bao giờ lấy file của ngày khác: khi null, trang chỉ hiện phần tính được bằng luật (can chi, quan hệ tuổi với ngày)
  * và ẩn lời luận, điểm, giờ tốt.
+ * Đọc từ đĩa (script, test). Trang web dùng getTuViDataBundled (lib/tu-vi-bundled.ts), không có fs trên Cloudflare Worker.
  */
 export function getTuViData(today: { day: number; month: number; year: number }, dir?: string): TuViDayData | null {
   const r = loadTuViDay(dateStr(today), dir);

@@ -2,6 +2,8 @@ packages:
   - core
   - web
 allowBuilds:
+  esbuild: true
   unrs-resolver: false
+  workerd: true
 overrides:
   postcss: ">=8.5.23"

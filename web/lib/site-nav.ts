@@ -1,4 +1,5 @@
 import { monthHref } from "@/lib/calendar/urls";
+import { currentTime } from "@/lib/clock";
 import { getVietnamToday } from "@/lib/today";
 import { VAN_HOA_PUBLIC } from "@/lib/van-hoa/config";
 
@@ -52,8 +53,11 @@ const BUILD_TIME_FORMATTER = new Intl.DateTimeFormat("vi-VN", {
   minute: "2-digit",
 });
 
-// Tính một lần khi trang được dựng — cùng thời điểm cho mọi trang trong một lần build.
-export const buildTimeLabel = `${BUILD_TIME_FORMATTER.format(new Date())} (giờ Việt Nam)`;
+// Tính mỗi lần một trang được dựng/dựng lại (không phải một lần khi nạp module): trên Cloudflare Worker module
+// sống lâu hơn một lần dựng trang, nên giá trị tính lúc nạp module sẽ cũ so với trang được dựng lại ban đêm.
+export function buildTimeLabel(now: Date = currentTime()): string {
+  return `${BUILD_TIME_FORMATTER.format(now)} (giờ Việt Nam)`;
+}
 
 /** Liên kết chân trang: nhóm giới thiệu/pháp lý và nhóm khám phá được tách trong ChShell. */
 const BASE_FOOTER_LINKS: readonly { href: string; label: string }[] = [

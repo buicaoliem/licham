@@ -12,7 +12,7 @@ web/public/sitemap.xml
 web/public/sitemaps/
 web/public/api/
 web/data/
-# Dữ liệu tử vi được commit (workflow Tử vi hằng ngày); chỉ bỏ khóa và tệp tạm.
+# Dữ liệu tử vi chạy tay (bản dự phòng) được commit; chỉ bỏ khóa và tệp tạm. Bản hằng ngày nằm ở R2 (web/workers/tu-vi-daily).
 web/content/tu-vi/.*.lock
 web/content/tu-vi/*.tmp
 
@@ -22,3 +22,11 @@ artwork-inbox/
 
 # Ảnh thu nhỏ sinh lúc build (web/scripts/generate-thumbs.mjs)
 web/public/heritage-thumb/
+
+# Cloudflare Workers build (OpenNext), wrangler local state, local mock clock (.dev.vars)
+web/.open-next/
+web/.wrangler/
+web/.dev.vars
+web/lib/tu-vi-data.generated.ts
+.vercel
+.wrangler/
