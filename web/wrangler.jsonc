@@ -16,9 +16,8 @@
   },
   // Next.js incremental cache (ISR) lives in R2; the Worker calls itself to regenerate stale pages.
   // Runtime copies of the build-time switches (pages the Worker regenerates read process.env, not the build environment).
-  // VAN_HOA_PUBLIC=1 matches Vercel production. LICHAM_TRACKING=off keeps GTM/GA/Clarity out of the temporary workers.dev site:
-  // DELETE that line at cutover, in the same commit that sets workers_dev=false, and build without LICHAM_TRACKING.
-  "vars": { "VAN_HOA_PUBLIC": "1", "LICHAM_TRACKING": "off" },
+  // VAN_HOA_PUBLIC=1 matches Vercel production. GTM/GA/Clarity are on (LICHAM_TRACKING is unset); build with LICHAM_TRACKING=off for a no-tracking build.
+  "vars": { "VAN_HOA_PUBLIC": "1" },
   "r2_buckets": [{ "binding": "NEXT_INC_CACHE_R2_BUCKET", "bucket_name": "licham-next-cache" }],
   "services": [{ "binding": "WORKER_SELF_REFERENCE", "service": "licham" }],
   // Daily 17:05 UTC = 00:05 Asia/Ho_Chi_Minh, five minutes after the Vietnamese date rolls over. Replaces the Vercel Deploy Hook rebuild.
