@@ -15,19 +15,28 @@ import {
   conGiapBySlug,
   quanHeVoiNgay,
 } from "@/lib/tu-vi";
-import { getTuViDataBundled } from "@/lib/tu-vi-bundled";
+import { getTuViDataRuntime } from "@/lib/tu-vi-runtime";
 import { YEAR_END } from "@/lib/site-years";
 import { buildShareUrl } from "@/lib/share";
 import { getVietnamToday } from "@/lib/today";
 
+// Làm mới tối đa mỗi 10 phút: lần deploy 03:00 nạp lại trang từ bản dựng (lúc build không đọc được R2 thật), và lượt thử lại 05:30 của
+// Worker tu-vi-daily có thể ghi dữ liệu sau 00:05. Rẻ: chỉ 13 trang, mỗi lần chỉ đọc một file R2.
+export const revalidate = 600;
+
 // Tính mỗi lần dựng/dựng lại trang (không ở cấp module): trên Cloudflare Worker module sống qua nhiều ngày.
 function todayView() {
   const today = getVietnamToday();
-  // null khi chưa có lời luận hợp lệ sinh riêng cho hôm nay — không bao giờ mượn file ngày khác.
-  const data = getTuViDataBundled(today);
   const info = getDayInfo(today);
   const dateLabel = `${pad2(today.day)}/${pad2(today.month)}/${today.year}`;
-  return { today, data, info, dateLabel, coNoiDung: data !== null };
+  return { today, info, dateLabel };
+}
+
+// null khi chưa có lời luận hợp lệ sinh riêng cho hôm nay — không bao giờ mượn file ngày khác. Đọc R2 lúc chạy, rồi bản gói lúc build.
+async function todayViewWithData() {
+  const v = todayView();
+  const data = await getTuViDataRuntime(v.today);
+  return { ...v, data, coNoiDung: data !== null };
 }
 
 export function generateStaticParams() {
@@ -53,7 +62,7 @@ export default async function TuViConGiapPage({ params }: { params: Promise<{ sl
   const cg = conGiapBySlug(slug);
   if (!cg) notFound();
 
-  const { today, data, info, dateLabel, coNoiDung } = todayView();
+  const { today, data, info, dateLabel, coNoiDung } = await todayViewWithData();
   const entry = data?.tuoi[cg.slug];
   const years = birthYearsForChi(cg.chiIndex, today.year);
   const quanHe = quanHeVoiNgay(info.canChi.day.chiIndex, cg.chiIndex);

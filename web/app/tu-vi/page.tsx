@@ -7,17 +7,26 @@ import { LcFaq } from "@/components/lich/LichParts";
 import { TraditionalDisclaimer } from "@/components/TraditionalDisclaimer";
 import { pad2 } from "@/lib/format";
 import { CON_GIAP_LIST, QUAN_HE_LABEL, birthYearsForChi, quanHeVoiNgay } from "@/lib/tu-vi";
-import { getTuViDataBundled } from "@/lib/tu-vi-bundled";
+import { getTuViDataRuntime } from "@/lib/tu-vi-runtime";
 import { getVietnamToday } from "@/lib/today";
+
+// Làm mới tối đa mỗi 10 phút: lần deploy 03:00 nạp lại trang từ bản dựng (lúc build không đọc được R2 thật), và lượt thử lại 05:30 của
+// Worker tu-vi-daily có thể ghi dữ liệu sau 00:05. Rẻ: chỉ 13 trang, mỗi lần chỉ đọc một file R2.
+export const revalidate = 600;
 
 // Tính mỗi lần dựng/dựng lại trang (không ở cấp module): trên Cloudflare Worker module sống qua nhiều ngày.
 function todayView() {
   const today = getVietnamToday();
-  // null khi chưa có lời luận hợp lệ sinh riêng cho hôm nay — không bao giờ mượn file ngày khác.
-  const data = getTuViDataBundled(today);
   const info = getDayInfo(today);
   const dateLabel = `${pad2(today.day)}/${pad2(today.month)}/${today.year}`;
-  return { today, data, info, dateLabel, coNoiDung: data !== null };
+  return { today, info, dateLabel };
+}
+
+// null khi chưa có lời luận hợp lệ sinh riêng cho hôm nay — không bao giờ mượn file ngày khác. Đọc R2 lúc chạy, rồi bản gói lúc build.
+async function todayViewWithData() {
+  const v = todayView();
+  const data = await getTuViDataRuntime(v.today);
+  return { ...v, data, coNoiDung: data !== null };
 }
 
 export function generateMetadata(): Metadata {
@@ -32,8 +41,8 @@ export function generateMetadata(): Metadata {
 /** Màu theo quan hệ chi đã có trong dữ liệu: hợp (tam hợp, lục hợp), khắc (xung, hình, hại), còn lại trung tính. */
 const TONE: Record<string, string> = { "tam-hop": "g", "luc-hop": "g", xung: "r", hinh: "r", hai: "r" };
 
-export default function TuViIndexPage() {
-  const { today, data, info, dateLabel, coNoiDung } = todayView();
+export default async function TuViIndexPage() {
+  const { today, data, info, dateLabel, coNoiDung } = await todayViewWithData();
   return (
     <ChShell activeMenu="Tử vi" className="ch-tu ch-tv">
       <ChHero

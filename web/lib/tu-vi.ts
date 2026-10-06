@@ -300,7 +300,7 @@ export function parseDateStr(s: string): { day: number; month: number; year: num
 }
 
 /**
- * Thư mục dữ liệu khi dựng trang (cwd là web/). Nằm trong git: workflow "Tử vi hằng ngày" commit file mới lên main,
+ * Thư mục dữ liệu khi dựng trang (cwd là web/). Nằm trong git (bản dự phòng chạy tay; bản hằng ngày nằm ở R2),
  * nên dữ liệu sống qua mọi lần build/deploy và build chỉ đọc, không bao giờ ghi hay gọi Gemini.
  */
 export function tuViDataDir(): string {

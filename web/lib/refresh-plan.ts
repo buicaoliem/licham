@@ -5,7 +5,7 @@
  * Danh sách này suy ra bằng thực nghiệm: dựng cả site với đồng hồ giả lập 5/10 và 6/10/2026 rồi so HTML từng trang
  * (143 trên 3.126 trang đổi: trang chủ, hôm nay/ngày mai, lễ, tiết khí, đếm ngược, tử vi, xem ngày tốt, anh hùng, lịch tháng/năm
  * hiện tại, ngày hôm qua/hôm nay, nhật-nguyệt thực). Trang chỉ đổi theo NĂM (nhãn năm ở chân trang, danh sách theo năm) không nằm
- * ở đây: chúng được làm mới bởi lần deploy hằng ngày (workflow tử vi), xem licham-cutover.md.
+ * ở đây: chúng được làm mới bởi lần build hằng ngày 03:00 (Worker `sf-daily-rebuild` gọi Deploy Hook của Workers Builds), xem licham-cutover.md.
  */
 
 const VN_OFFSET_MS = 7 * 3600_000;

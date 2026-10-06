@@ -18,7 +18,11 @@
   // Runtime copies of the build-time switches (pages the Worker regenerates read process.env, not the build environment).
   // VAN_HOA_PUBLIC=1 matches Vercel production. GTM/GA/Clarity are on (LICHAM_TRACKING is unset); build with LICHAM_TRACKING=off for a no-tracking build.
   "vars": { "VAN_HOA_PUBLIC": "1" },
-  "r2_buckets": [{ "binding": "NEXT_INC_CACHE_R2_BUCKET", "bucket_name": "licham-next-cache" }],
+  // TU_VI_R2: cùng bucket, tiền tố `tu-vi/` — nơi Worker hẹn giờ `licham-tu-vi-daily` (web/workers/tu-vi-daily) ghi tử vi hằng ngày; trang đọc lúc chạy.
+  "r2_buckets": [
+    { "binding": "NEXT_INC_CACHE_R2_BUCKET", "bucket_name": "licham-next-cache" },
+    { "binding": "TU_VI_R2", "bucket_name": "licham-next-cache" }
+  ],
   "services": [{ "binding": "WORKER_SELF_REFERENCE", "service": "licham" }],
   // Daily 17:05 UTC = 00:05 Asia/Ho_Chi_Minh, five minutes after the Vietnamese date rolls over. Replaces the Vercel Deploy Hook rebuild.
   "triggers": { "crons": ["5 17 * * *"] },
