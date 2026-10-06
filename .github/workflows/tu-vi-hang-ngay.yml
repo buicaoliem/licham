@@ -100,31 +100,10 @@ jobs:
           echo "::error::Không đẩy được dữ liệu lên main sau 3 lần."
           exit 1
 
-      # Cloudflare Workers (thay Vercel): dựng + deploy lại site để lời luận tử vi mới vào bundle và các trang theo NĂM được làm mới.
-      # Chưa chạy cho tới khi đặt repository variable CLOUDFLARE_DEPLOY=true và secret CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID.
-      # Khi bật, bước Vercel bên dưới tự tắt. (Cron của Worker vẫn đổi các trang "hôm nay" lúc 00:05 dù bước này chạy trễ.)
-      - name: Deploy Cloudflare Worker
-        id: cloudflare
-        if: >-
-          always() && github.ref == 'refs/heads/main' && vars.CLOUDFLARE_DEPLOY == 'true' && (
-            steps.commit.outputs.pushed == 'true' ||
-            github.event.schedule == '5 17 * * *' || inputs.redeploy
-          )
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          CI: "1"
-        run: |
-          if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
-            echo "::error::Thiếu secret CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID nên không deploy được."
-            exit 1
-          fi
-          pnpm --filter @licham/web run deploy
-
       - name: Gọi Vercel dựng lại
         id: hook
         if: >-
-          always() && github.ref == 'refs/heads/main' && vars.CLOUDFLARE_DEPLOY != 'true' && (
+          always() && github.ref == 'refs/heads/main' && (
             (steps.commit.outputs.pushed == 'true' && vars.VERCEL_DEPLOYS_ON_PUSH != 'true') ||
             (steps.commit.outputs.pushed != 'true' && (github.event.schedule == '5 17 * * *' || inputs.redeploy))
           )
