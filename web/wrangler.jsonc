@@ -5,7 +5,7 @@
   "compatibility_date": "2026-09-01",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   // Temporary address https://licham.<account>.workers.dev. Set to false after the custom domain is verified.
-  "workers_dev": true,
+  "workers_dev": false,
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS",
